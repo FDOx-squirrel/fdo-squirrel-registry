@@ -615,7 +615,7 @@ Repräsentation aus. Für echte Content Negotiation braucht es w3id-seitige
 
 | ID | Schritt | hängt ab von | Status |
 |---|---|---|---|
-| S0 | Festlegungen, kein Code | — | teilweise erledigt 2026-09-03 |
+| S0 | Festlegungen, kein Code | — | erledigt 2026-09-03 |
 | S1 | Repo-Skelett und Orchestrator | S0 | erledigt 2026-09-03 |
 | S2 | Ernte aus Zenodo | S1 | erledigt 2026-09-03 |
 | S3 | Crosswalk FDOx → CIDOC CRM | S0, S2 (ein echtes TTL) | erledigt 2026-09-03 |
