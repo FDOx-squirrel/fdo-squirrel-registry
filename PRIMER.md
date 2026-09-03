@@ -542,6 +542,9 @@ dem es zum ersten Mal wirkt.
 | Kein quarto-live-Notebook | die `wdt-*`-Familie erzeugt aus `queries.yaml` drei Erzeugnisse; hier sind es zwei. Ein Notebook ist ein Lehrmittel, und die Registry hat noch keinen Kurs. Kommt dazu, sobald es einen gibt — `queries.yaml` bleibt die Quelle, es ist eine Vorlage mehr | 2026-09-03 |
 | Reihenfolge im Orchestrator | `sparql` läuft **nach** `site`: die Seite wird aus dem `docs/`-Baum bedient, den `site` anlegt, und liest den Bundle, den `site` dorthin publiziert. Läuft sie davor, meldet sie eine Warnung statt eine 404 zu erzeugen | 2026-09-03 |
 | Autoescape in den Templates | `autoescape=True` ausdrücklich, nicht `select_autoescape(["html"])`: der Helfer prüft die Dateiendung, und alle Templates enden auf `.j2` (Befund 30). Die drei JSON-Blöcke im Skript sind einzeln mit `| safe` markiert — genau dort ist rohe Ausgabe gewollt und nirgends sonst | 2026-09-03 |
+| Doppelt kodierte `content/`-IRIs | **upstream in `fdo-squirrel` lösen**, nicht in der Registry. Die Umschreibung so zu ändern, dass sie eine fremde Kodierung repariert, wäre eine dritte Ausnahme zu A3 — und die Registry korrigiert nicht, sie meldet. Sobald der Generator den Pfad unkodiert in die URN schreibt, liefert `content_iri()` von selbst die richtige Form; im Code hier ändert sich nichts. Bis dahin bleiben die publizierten Records und damit der Bundle so, wie sie sind | 2026-09-03 |
+| Autoescape in `step_site` | eigener Schritt **S6b**, nicht nebenbei. Eine Zeile ändern heisst hier, an jeder Stelle zu entscheiden, ob dort ein Fragment roh gemeint war; das ist ein Durchgang durch drei Templates und braucht ein Fixture, kein Beiwerk in einem anderen Chat | 2026-09-03 |
+| Kein quarto-live-Notebook | bestätigt: es bleibt bei zwei Erzeugnissen aus `queries.yaml`. Das Notebook kommt, wenn es einen Kurs gibt, der es braucht | bestätigt 2026-09-03 |
 
 ## A5. Was in welchem Chat hochgeladen wird
 
@@ -616,6 +619,7 @@ Repräsentation aus. Für echte Content Negotiation braucht es w3id-seitige
 | S4 | Bundle-Build als DCAT-Katalog | S2, S3 | erledigt 2026-09-03 |
 | S5 | SHACL-Gate und Qualitätsbericht | S4 | erledigt 2026-09-03 |
 | S6 | Registry-Index und Facettenseite | S4 | erledigt 2026-09-03 |
+| S6b | Autoescape in den Seitentemplates | S6 | offen |
 | S7 | SPARQL-Seite | S4, S6 | erledigt 2026-09-03 |
 | S8 | Registry als FDO, Release und CI | S5, S7 | offen |
 | S9 | N4O-Andockung | S5, S8 | offen |
@@ -624,7 +628,8 @@ S3 lässt sich fachlich schon vor S2 beginnen, braucht für die Abnahme aber ein
 echtes geerntetes TTL — deshalb die Abhängigkeit. S6 und S7 hängen beide an S4
 und nicht aneinander; S6 zuerst, weil die Facettenseite den kürzeren Weg zu
 etwas Vorzeigbarem ist. S5 steht vor S8, weil kein Release ohne grünes Gate
-herausgeht.
+herausgeht. S6b hängt nur an S6 und blockiert nichts; es sollte trotzdem vor S8
+laufen, weil ein Release Seiten publiziert, die dann fest sind.
 
 ---
 
@@ -1366,6 +1371,38 @@ lassen?" nach dem Fehler naheliegend war und die Antwort nein lautet:
 bis Ctrl+C aus. Die Facettenseite braucht `--serve` nicht; S7 wird es
 brauchen, weil Pyodide seine Module nicht über `file://` nachlädt.
 
+## S6b — Autoescape in den Seitentemplates
+
+**Ziel:** die erzeugten Seiten escapen, was aus den Paketen kommt — heute tun
+sie es nicht (A1, Befund 30).
+
+**Uploads:** Bundle nach A5.
+
+`step_site.environment()` setzt `select_autoescape(["html"])`. Der Helfer
+vergleicht das Ende des Dateinamens, alle Templates hier enden auf `.j2`, also
+liefert er `False`, und `docs/index.html`, `docs/record/*.html` und
+`docs/crosswalk.html` werden seit S6 ungeschützt geschrieben. `step_sparql`
+setzt seit S7 `autoescape=True` ausdrücklich; dieselbe Zeile fehlt in
+`step_site`.
+
+Der Umbau ist eine Zeile, die Prüfung ist die Arbeit: mit Autoescape werden
+Werte escaped, die heute roh durchgehen, und die drei Templates schreiben an
+etlichen Stellen Fragmente, die roh gemeint sind (`entry.geometry` in einem
+`<a>`-Attribut, die eingebettete Index-JSON im `<script>`). Jede Stelle, die
+danach `&lt;` zeigt, wo vorher ein Element stand, gehört mit `| safe` markiert
+— und jede Stelle, an der man das tut, ist eine Entscheidung und kein
+Automatismus.
+
+Ein Fixture gehört dazu, sonst prüft man Abwesenheit: ein Paketwert mit `<`,
+`&` und einem Anführungszeichen (etwa ein Titel `R&D <test> "x"`), einmal durch
+den Seitenbau, und die Seite muss ihn anzeigen statt an ihm zu zerbrechen.
+
+**Abnahme:** `python main.py` läuft durch; `docs/` unterscheidet sich gegenüber
+dem Stand davor **nicht** (kein geernteter Wert enthält heute ein
+Sonderzeichen, das ist der Beweis, dass nur die Absicherung dazukam); mit dem
+Fixture im Bestand steht der Titel vollständig auf Kachel und Detailseite, und
+die eingebettete Index-JSON parst weiterhin.
+
 ## S7 — SPARQL-Seite
 
 **Ziel:** dieselbe Frage im Browser stellen können, die man sonst gegen einen
@@ -1482,16 +1519,14 @@ Graphen unter `https://graph.nfdi4objects.net/collection/<n>`.
   Instanz (`SQUIRRELBASE_ENTITY_NS`, A4) und die Gegenrichtung: ob die
   SquirrelBase je Objekt auf den Katalogeintrag zeigen soll statt nur auf die
   FDO-URL. Das ist eine Frage an die SquirrelBase, nicht an dieses Repo.
-- **Doppelt kodierte `content/`-IRIs.** `content_iri()` quotet einen Pfad, der
-  in der Quelle bereits prozentkodiert ist (A1, Befund 33). Die Reparatur ist
-  eine Zeile, ihre Folge ist ein neuer Bundle: 492 Distributionen bekommen neue
-  `dcat:accessURL`, Gate, Index und beide Seiten laufen neu. Gehört als eigener
-  Schritt nach S4 und nicht nebenbei in einen Chat über die Abfrageseite.
-- **`select_autoescape` greift in `step_site` nicht** (A1, Befund 30). Heute
-  folgenlos, weil kein geernteter Wert ein `<` enthält; das ist eine Aussage
-  über den heutigen Bestand und keine über die Zukunft. Eine Zeile in
-  `step_site.environment()`, aber sie gehört zu S6 und will einen Blick auf die
-  erzeugten Seiten danach.
+- ~~**Doppelt kodierte `content/`-IRIs.**~~ Entschieden 2026-09-03 nach S7: der
+  Fehler wird upstream in `fdo-squirrel` behoben, nicht in der Registry (A4,
+  Befund 33). Offen bleibt nur der Zeitpunkt, und der hängt an der Liste im
+  Qualitätsbericht — dieselbe Rückmeldung wie die abgekürzten Klassen-IRIs und
+  die fehlenden Labels. Solange der Generator nicht nachzieht, tragen die
+  publizierten Records und damit der Bundle `%252F`.
+- ~~**`select_autoescape` greift in `step_site` nicht.**~~ Ist seit 2026-09-03
+  Schritt **S6b** in Teil B (A1, Befund 30).
 - **Labels für fremde IRIs auf Dauer.** `registry/labels.json` ist von Hand
   gepflegt (A4) und wächst mit jedem Paket. Ab welcher Zahl das lästig wird,
   ist offen; der billigste Ausweg wäre ein Netzschritt neben `harvest`, der
@@ -1523,4 +1558,8 @@ Graphen unter `https://graph.nfdi4objects.net/collection/<n>`.
   upstream später". Wann später ist, hängt an S3: sobald die Abbildung ein
   echtes Paket unbeanstandet durchs Gate bringt, ist sie reif für den
   Generator. Der Qualitätsbericht aus S5 sagt, was dabei zuerst zu reparieren
-  ist.
+  ist. Die Liste ist inzwischen benannt: abgekürzte Klassen-IRIs (Befund 3),
+  fehlende Labels an Orten und Konzepten (Befund 24), ORCID statt Personen-URN
+  (Befund 12), `xsd:integer` an Zeitgrenzen (Befund 15), `dcat:bbox` statt
+  `geo:hasBoundingBox` (Befund 16) und die doppelte Prozentkodierung in
+  `urn:fdo-squirrel:content/…` (Befund 33, A4).
