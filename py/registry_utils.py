@@ -201,6 +201,16 @@ def git_revision() -> str | None:
 # ---------------------------------------------------------------------------
 
 
+def pending(step: str) -> None:
+    """Report a step whose input is ready but whose code is not written yet.
+
+    Raising here would stop the pipeline the moment an earlier step starts
+    delivering — which is exactly when the smoke test becomes useful. So the
+    step says what is missing and yields (PRIMER A4, Schrittvertrag).
+    """
+    print(f"pending: input is ready; implemented in {step}")
+
+
 def skipped(reason: str) -> None:
     """Report a step that has nothing to do yet.
 
@@ -211,11 +221,40 @@ def skipped(reason: str) -> None:
     print(f"skipped (no input): {reason}")
 
 
+def pinned_record_ids() -> set[str]:
+    """Record ids of the version DOIs in registry/sources.json."""
+    if not SOURCES.exists():
+        return set()
+    return {zenodo_record_id(entry["version_doi"])
+            for entry in read_json(SOURCES).get("sources", [])
+            if entry.get("version_doi")}
+
+
 def harvested_records() -> list[Path]:
-    """Directories under data/raw/fdo/ that hold an fdo-metadata.ttl."""
+    """Directories under data/raw/fdo/ that hold an fdo-metadata.ttl *and* are pinned.
+
+    The filter is not tidiness. A directory left over from an earlier pin still
+    holds a valid TTL, and an unfiltered glob would bundle it — for a concept
+    DOI that was later resolved, that means the same FDO twice, under two
+    record IRIs, with nothing in the graph to say they are one thing.
+    `step_harvest` reports such directories; only sources.json decides what is
+    in the registry.
+    """
     if not RAW_FDO.exists():
         return []
-    return sorted(p.parent for p in RAW_FDO.glob("*/fdo-metadata.ttl"))
+    pinned = pinned_record_ids()
+    return sorted(p.parent for p in RAW_FDO.glob("*/fdo-metadata.ttl")
+                  if not pinned or p.parent.name in pinned)
+
+
+def orphan_records() -> list[Path]:
+    """Harvested directories whose record is no longer in sources.json."""
+    if not RAW_FDO.exists():
+        return []
+    pinned = pinned_record_ids()
+    if not pinned:
+        return []
+    return sorted(d for d in RAW_FDO.iterdir() if d.is_dir() and d.name not in pinned)
 
 
 # ---------------------------------------------------------------------------

@@ -20,7 +20,7 @@ def main(strict: bool = False) -> None:
         u.skipped(f"{SHAPES.relative_to(u.ROOT)} does not exist yet (written in S5)")
         return
 
-    raise NotImplementedError("validation is implemented in S5")
+    u.pending("S5")
 
 
 if __name__ == "__main__":

@@ -15,7 +15,7 @@ def main(strict: bool = False) -> None:
         u.skipped("py/templates/ does not exist yet (written in S6)")
         return
 
-    raise NotImplementedError("the site is implemented in S6")
+    u.pending("S6")
 
 
 if __name__ == "__main__":

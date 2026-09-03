@@ -16,7 +16,7 @@ def main(strict: bool = False) -> None:
         u.skipped("no harvested FDO metadata under data/raw/fdo/ (run: python main.py --only harvest)")
         return
 
-    raise NotImplementedError("bundling is implemented in S4")
+    u.pending("S4")
 
 
 if __name__ == "__main__":

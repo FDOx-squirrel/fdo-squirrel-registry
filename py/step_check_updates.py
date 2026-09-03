@@ -28,18 +28,19 @@ from step_harvest import (GIVE_UP_AFTER, ZENODO_API, HttpStatusError, Unreachabl
                           find_metadata_file, http_get, load_sources, package_files)
 
 COMMUNITY = "squirrel-fdo"
-# Zenodo runs InvenioRDM, whose community records live under their own path.
-# The legacy `?communities=` search 400s (seen 2026-09-03). Both are tried, in
-# order, because an endpoint that moved once can move again and a report is not
-# worth a broken build; the report records which one answered.
+# Zenodo runs InvenioRDM. Proven by probe on 2026-09-03: these paths answer
+# 200 *without* query parameters, and 400 as soon as `size` and `page` are
+# appended. So none are appended: the first page is fetched bare and every
+# further page is taken from the `links.next` the API itself returns. A client
+# that constructs its own paging URLs is guessing at a contract the server
+# already states.
 COMMUNITY_SEARCH = [
-    "https://zenodo.org/api/communities/{community}/records?size=100&page={page}&sort=newest",
-    "https://zenodo.org/api/communities/{community}/records?size=100&page={page}",
-    "https://zenodo.org/api/records?communities={community}&size=100&page={page}&sort=mostrecent",
-    # InvenioRDM's own way of asking: a filter on the search index rather than
-    # a path. Added 2026-09-03 after all three above answered 400.
-    "https://zenodo.org/api/records?q=parent.communities.entries.slug%3A%22{community}%22&size=100&page={page}",
+    "https://zenodo.org/api/communities/{community}/records",
+    "https://zenodo.org/api/records?q=parent.communities.entries.slug%3A%22{community}%22",
+    "https://zenodo.org/api/records?communities={community}",
 ]
+MAX_PAGES = 50   # a stop, in case `links.next` ever cycles
+
 REPORT = u.RAW / "check-updates.json"
 
 Fetcher = Callable[[str], bytes]
@@ -53,30 +54,37 @@ def latest_version(record_id: str, fetch: Fetcher) -> dict:
 def community_endpoint(fetch: Fetcher) -> tuple[str, dict] | tuple[None, None]:
     """The first template that answers, with its first page already parsed."""
     for template in COMMUNITY_SEARCH:
+        url = template.format(community=COMMUNITY)
         try:
-            payload = json.loads(fetch(template.format(community=COMMUNITY, page=1)))
+            payload = json.loads(fetch(url))
         except HttpStatusError as error:
             print(f"  community endpoint not available ({error})")
             continue
-        return template, payload
+        return url, payload
     return None, None
 
 
 def community_records(fetch: Fetcher) -> tuple[list[dict], str | None]:
-    """All hits of the community search, across pages. Returns (hits, endpoint)."""
-    template, payload = community_endpoint(fetch)
-    if template is None:
+    """All hits of the community search. Returns (hits, the endpoint that answered).
+
+    Paging follows `links.next`; Zenodo decides the page size.
+    """
+    url, payload = community_endpoint(fetch)
+    if url is None:
         return [], None
 
     hits: list[dict] = []
-    page = 1
-    while True:
-        batch = (payload.get("hits") or {}).get("hits") or []
-        hits.extend(batch)
-        if len(batch) < 100:
-            return hits, template
-        page += 1
-        payload = json.loads(fetch(template.format(community=COMMUNITY, page=page)))
+    seen_urls = {url}
+    for _ in range(MAX_PAGES):
+        hits.extend((payload.get("hits") or {}).get("hits") or [])
+        nxt = (payload.get("links") or {}).get("next")
+        if not nxt or nxt in seen_urls:
+            return hits, url
+        seen_urls.add(nxt)
+        payload = json.loads(fetch(nxt))
+
+    print(f"  stopped after {MAX_PAGES} pages — the report may be short")
+    return hits, url
 
 
 def main(strict: bool = False, *, fetch: Fetcher = http_get, today: str | None = None) -> dict:

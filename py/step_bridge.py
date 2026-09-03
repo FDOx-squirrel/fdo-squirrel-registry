@@ -17,7 +17,7 @@ def main(strict: bool = False) -> None:
         u.skipped(f"{CROSSWALK.relative_to(u.ROOT)} does not exist yet (written in S3)")
         return
 
-    raise NotImplementedError("the crosswalk is implemented in S3")
+    u.pending("S3")
 
 
 if __name__ == "__main__":

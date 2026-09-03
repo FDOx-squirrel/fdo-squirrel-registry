@@ -267,8 +267,11 @@ dem es zum ersten Mal wirkt.
 | Concept-DOI statt Versions-DOI in `sources.json` | harter Fehler vor dem ersten Schreibzugriff. Zenodo löst eine Concept-ID auf die neueste Version auf; eine gepinnte Registry darf nicht stillschweigend einen Record aufnehmen, den sie nicht angefragt hat | 2026-09-03 |
 | Concept-DOI statt Versions-DOI beim Ernten | kein Abbruch: der Eintrag wird übersprungen, die aufgelöste Versions-DOI in `harvest.json` genannt, die Ernte läuft weiter. Ein falscher Pin unter zehn darf nicht neun andere verhindern | 2026-09-03, ersetzt den harten Fehler vom selben Tag |
 | Auflösen der Liste | `--resolve` fragt Zenodo, was jede DOI wirklich ist, und **schlägt** die korrigierte `sources.json` vor; erst `--resolve --write` schreibt. Doppelte, die dabei sichtbar werden, werden gemeldet und beim Schreiben zusammengeführt — der Kommentar des ersten Eintrags gewinnt | 2026-09-03 |
+| Was im Katalog landet | `registry/sources.json`, nicht der Inhalt von `data/raw/fdo/`. Verzeichnisse, die nicht mehr gepinnt sind, werden von späteren Schritten ignoriert, beim Ernten benannt und nur mit `--prune` entfernt | 2026-09-03 |
+| Zurückziehen eines TTL | nur wenn das Paket wirklich gelesen wurde und die Datei nicht enthält. Ein Lauf, der nicht nachsehen konnte, ändert nichts auf der Platte und meldet `unchecked` | 2026-09-03 |
+| Nicht implementierte Schritte | melden `pending`, sobald ihre Eingabe da ist, statt zu werfen. Sonst bricht der Rauchtest genau in dem Moment, in dem der vorige Schritt zu liefern beginnt | 2026-09-03 |
 | Netzausfall | ein nicht erreichbarer Record ist eine Aussage über Zenodo, nicht über den Record: nichts wird geschrieben, nichts gemerkt, der Lauf geht weiter. Nach drei Ausfällen in Folge bricht er ab und sagt, dass Zenodo nicht antwortet. Exitcode ≠ 0, damit die CI es merkt | 2026-09-03 |
-| Zenodo-Endpunkte | Zenodo läuft auf InvenioRDM; die Community-Suche liegt unter `/api/communities/<slug>/records`, die alte `?communities=`-Form antwortet mit 400. `check-updates` probiert die bekannten Formen der Reihe nach und schreibt in den Bericht, welche geantwortet hat. Ein Bericht ist keinen kaputten Build wert | 2026-09-03 |
+| Zenodo-Endpunkte | Community-Suche über `/api/communities/<slug>/records`, **ohne selbst gebaute Query-Parameter**: erste Seite nackt, danach `links.next` folgen. `size`/`page` anzuhängen quittiert Zenodo mit 400, der nackte Pfad mit 200 (geprüft 2026-09-03). `check-updates` probiert die bekannten Formen der Reihe nach und schreibt in den Bericht, welche geantwortet hat. Ein Bericht ist keinen kaputten Build wert | 2026-09-03 |
 | `check-updates` | eigener Netzschritt, ändert nichts. Meldet neuere Versionen gepinnter Records *und* Records der Zenodo-Community `squirrel-fdo`, die nicht in `sources.json` stehen | 2026-09-03 |
 
 ## A5. Was in welchem Chat hochgeladen wird
@@ -619,12 +622,46 @@ kosten so viel wie ein paar Dutzend HTTP-Requests.
   eigener Fehlertyp: der Server hat verstanden und nein gesagt, das ist etwas
   anderes als ein Ausfall.
 
-**Die Community-Suche findet ihren Endpunkt noch nicht.** Alle bekannten Formen
-antworten mit **400**, auch die InvenioRDM-Pfadform — und 400 heisst, dass der
-Pfad abgelehnt wird, nicht die Community, sonst käme 404. Der Schritt läuft
-korrekt weiter und meldet den Bericht als unvollständig; das ist das gewünschte
-Verhalten, aber es ist noch nicht die Antwort. Sie steht in Teil D, weil sie mit
-Ausprobieren an einer Zenodo-URL zu klären ist und nicht am Quelltext.
+**Die Community-Suche scheiterte nicht am Pfad, sondern an meinen Parametern.**
+Vier Formen antworteten mit 400. Drei `curl`-Proben zeigten dann, dass genau
+dieselben Pfade **ohne Query-Parameter mit 200 antworten** — es lag an
+`size=100&page=1`, nicht am Endpunkt. Die Lehre ist allgemeiner als der Bug:
+ein Client, der sich seine Seiten-URLs selbst zusammenbaut, rät an einem
+Vertrag herum, den der Server bereits ausspricht. Die Suche holt jetzt die
+erste Seite nackt und folgt danach `links.next`; die Seitengrösse bestimmt
+Zenodo. Eine Schleife in den Links wird nach 50 Seiten abgebrochen.
+
+Wert der Fehlersuche für später: der Unterschied zwischen 400 und 404 war der
+Hinweis. 404 hätte geheissen „diesen Pfad gibt es nicht", 400 heisst „den Pfad
+gibt es, aber so nicht" — und danach war die richtige Frage nicht mehr *welche
+URL*, sondern *welcher Parameter*.
+
+### Nachtrag 2026-09-03, nach dem Commit
+
+Der erste frische Klon des committeten Repos hat drei Fehler gezeigt, die
+vorher keiner sehen konnte, weil `data/` erst mit dem Commit existierte:
+
+- **`python main.py` brach ab.** Die Schrittrümpfe warfen `NotImplementedError`,
+  sobald ihre Vorbedingung erfüllt war — und S2 erfüllt die Vorbedingung von S4.
+  Ein Rauchtest, der genau dann kaputtgeht, wenn der erste Schritt liefert, ist
+  keiner. Die Rümpfe melden jetzt `pending: input is ready; implemented in S4`
+  und geben zurück (A4, Schrittvertrag).
+- **Sieben verwaiste Verzeichnisse unter `data/raw/fdo/`.** Rückstände der Läufe
+  vor `--resolve`; eines davon, `18724635`, hält ein echtes TTL — dasselbe FDO
+  wie der gepinnte Record 18744133. Ein ungefilterter Glob hätte es in S4
+  mitgebündelt und den Ogham-Stein zweimal in den Katalog geschrieben, unter
+  zwei Record-IRIs, ohne eine Aussage im Graphen, dass es eine Sache ist.
+  `harvested_records()` liest jetzt nur noch, was in `sources.json` steht;
+  `step_harvest` benennt die Waisen, `--prune` entfernt sie. Was im Katalog
+  steht, entscheidet die kuratierte Liste, nicht der Inhalt eines Ordners.
+- **Ein Offline-Lauf löschte geerntete TTLs.** Er fand die Datei nicht — weil er
+  offline gar nicht ins ZIP schauen konnte — und behandelte das wie „im Record
+  nicht mehr vorhanden". Die Unterscheidung ist jetzt explizit: nur ein
+  tatsächlich gelesenes Paket darf ein TTL zurückziehen, und ein Lauf, der
+  nichts prüfen konnte, lässt auch die `harvest.json` unangetastet und meldet
+  `unchecked`. „Ich konnte nicht nachsehen" ist etwas anderes als „da ist
+  nichts" — diese Verwechslung ist der teuerste Fehler, den ein Ernter machen
+  kann, weil sie Daten vernichtet, die er selbst nicht zurückholen kann.
 
 **Offen aus diesem Lauf:** die Kommentare in `sources.json` stammen noch aus
 der Kandidatenliste; für `18744583` steht dort „added for the talk", während
@@ -885,21 +922,6 @@ Graphen unter `https://graph.nfdi4objects.net/collection/<n>`.
 - **`fdo:RegistryFDO`.** Falls S8 einen neuen FDO-Typ braucht, gehört er nach
   `fdo-squirrel`, nicht hierher — und dann ist die Beschlusslage in A4 zum
   Ort des Ankers ohnehin nochmal zu betrachten.
-- **Endpunkt der Community-Suche.** Vier Formen, alle 400 (Stand 2026-09-03).
-  Zu klären mit drei Aufrufen, jeder auf einer Zeile:
-
-  ```cmd
-  curl -s -o nul -w "%{http_code} communities/slug\n" https://zenodo.org/api/communities/squirrel-fdo
-  curl -s -o nul -w "%{http_code} communities/slug/records\n" https://zenodo.org/api/communities/squirrel-fdo/records
-  curl -s -o nul -w "%{http_code} records?q=slug\n" "https://zenodo.org/api/records?q=parent.communities.entries.slug:%22squirrel-fdo%22"
-  ```
-
-  Antwortet die erste Zeile mit 200 und die zweite mit 400, liegt es am
-  Unterpfad; antwortet auch die erste nicht, stimmt der Slug nicht — die
-  Community-URL im Browser sagt dann, wie er wirklich heisst. Was 200 liefert,
-  wandert als erster Eintrag in `COMMUNITY_SEARCH`. Bis dahin ist die Ernte
-  davon unberührt: die Suche ergänzt `sources.json` um Vorschläge, sie füttert
-  sie nicht.
 - **Personen-URN über Paketgrenzen.** Ist `urn:fdo-squirrel:person/<hash>` für
   denselben Menschen in zwei Paketen gleich, wäre eine Umschreibung je Record
   falsch — sie würde eine Person vervielfachen, die die Quelle bereits

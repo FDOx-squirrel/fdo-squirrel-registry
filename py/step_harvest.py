@@ -58,6 +58,7 @@ import datetime as dt
 import hashlib
 import json
 import posixpath
+import shutil
 from pathlib import Path
 from typing import Callable
 
@@ -267,12 +268,12 @@ class Options:
     """Everything that steers one harvest run, in one place for tests."""
 
     def __init__(self, *, force=False, only=None, full=False, offline=False,
-                 resolve=False, write=False,
+                 resolve=False, write=False, prune=False,
                  zips: dict[str, Path] | None = None, package_dir: Path | None = None,
                  fetch: Fetcher = http_get, fetch_range: pz.RangeFetcher = http_get_range,
                  today: str | None = None):
         self.force, self.only, self.full, self.offline = force, only, full, offline
-        self.resolve, self.write = resolve, write
+        self.resolve, self.write, self.prune = resolve, write, prune
         self.zips = zips or {}
         self.package_dir = package_dir
         self.fetch, self.fetch_range = fetch, fetch_range
@@ -296,8 +297,12 @@ def local_package(record_id: str, key: str | None, options: Options) -> Path | N
 
 def obtain_ttl(record_id: str, record: dict | None, options: Options, warnings: list[str]) -> tuple[bytes | None, dict]:
     """Return (ttl bytes or None, provenance). None means: not in this record."""
+    # `inspected` is the licence to retire a TTL already on disk: it means the
+    # package contents were actually read and did not contain the file. Failing
+    # to look — offline, no local copy — must never count as looking.
     prov: dict = {"route": None, "package": None, "package_checksum_zenodo": None,
-                  "package_md5_verified": False, "crc32_verified": False, "lookalikes": []}
+                  "package_md5_verified": False, "crc32_verified": False,
+                  "lookalikes": [], "inspected": False}
 
     # a. top-level fdo-metadata.ttl in the record
     if record is not None:
@@ -319,6 +324,9 @@ def obtain_ttl(record_id: str, record: dict | None, options: Options, warnings: 
         packages = [{"key": None, "checksum": None, "links": {}}]   # offline, --zip only
     if record is not None and not packages and not record.get("files"):
         warnings.append("the record lists no files at all (restricted, embargoed or empty)")
+        prov["inspected"] = True     # the file list is conclusive on its own
+    elif record is not None and not packages:
+        prov["inspected"] = True     # files, but no package and no direct TTL
 
     for package in packages:
         key = package.get("key")
@@ -335,6 +343,7 @@ def obtain_ttl(record_id: str, record: dict | None, options: Options, warnings: 
                 warnings.append(f"local ZIP {local.name} used without a record to verify it against")
             data, info = pz.member_from_local_zip(local, TTL_NAME)
             prov.update({"route": "local", "package": key or local.name, "local_path_name": local.name,
+                         "inspected": True,
                          **{k: v for k, v in info.items() if k != "fetch_mode"}})
             if data is not None:
                 return data, prov
@@ -350,6 +359,7 @@ def obtain_ttl(record_id: str, record: dict | None, options: Options, warnings: 
             try:
                 data, info = pz.member_from_remote_zip(url, TTL_NAME, options.fetch_range)
                 prov.update({"route": "range", "package": key, "source_url": url,
+                             "inspected": True,
                              **{k: v for k, v in info.items() if k != "fetch_mode"}})
                 if data is not None:
                     return data, prov
@@ -363,6 +373,7 @@ def obtain_ttl(record_id: str, record: dict | None, options: Options, warnings: 
         prov["package_md5_verified"] = True
         data, info = pz.member_from_zip_bytes(blob, TTL_NAME)
         prov.update({"route": "full", "package": key, "source_url": url,
+                     "inspected": True,
                      **{k: v for k, v in info.items() if k != "fetch_mode"}})
         if data is not None:
             return data, prov
@@ -438,19 +449,36 @@ def harvest_one(source: dict, options: Options) -> dict:
         if record is None and not local_package(requested_id, None, options):
             reason = "offline, no record.json on disk and no --zip given for this record"
         else:
-            reason = f"no {TTL_NAME} in the record"
+            reason = (f"no {TTL_NAME} in the record" if prov.get("inspected")
+                      else f"{TTL_NAME} could not be looked for (offline, no local package)")
             if prov.get("package"):
                 reason += f" (looked into {prov['package']})"
             if prov.get("lookalikes"):
                 reason += f"; look-alikes not used: {', '.join(prov['lookalikes'])}"
+        existing = target / "harvest.json"
+        if not prov.get("inspected") and (target / TTL_NAME).exists() and existing.exists():
+            # Nothing was checked, so nothing is known that the previous run did
+            # not already know. Overwriting a good manifest with a skip would
+            # turn "I could not look" into "there is nothing there" — the one
+            # confusion this step exists to prevent.
+            kept = u.read_json(existing)
+            kept["_action"] = "unchecked"
+            return kept
+
         manifest.update({"status": "skipped", "reason": reason, **prov})
         target.mkdir(parents=True, exist_ok=True)
         if record_bytes:
             (target / "record.json").write_bytes(record_bytes)   # unchanged, as obtained
         stale = target / TTL_NAME
-        if stale.exists():
+        if stale.exists() and prov.get("inspected"):
+            # Only a real record may retire a TTL: it is the authority on what
+            # the package contains. A skip for want of network or of a local
+            # copy says nothing about the record, and deleting good data on
+            # that basis loses what an offline run cannot fetch back.
             stale.unlink()
-            warnings.append("removed a previously harvested fdo-metadata.ttl no longer obtainable")
+            warnings.append("removed a previously harvested fdo-metadata.ttl no longer in the record")
+        elif stale.exists():
+            warnings.append("keeping the fdo-metadata.ttl already on disk; this run could not check it")
         u.write_json(manifest, target / "harvest.json")
         manifest["_action"] = "skipped"
         return manifest
@@ -572,6 +600,30 @@ def resolve_sources(sources: list[dict], options: Options, *, write: bool) -> in
     return 0
 
 
+def report_orphans(*, prune: bool) -> list[Path]:
+    """Name harvested directories that sources.json no longer lists.
+
+    They arise normally: a concept DOI resolved to a version leaves the old id
+    behind, holding a TTL that is a duplicate of the new one. Removing them is
+    a curatorial act like any other change to what the registry contains, so it
+    takes --prune; the default is to say so and leave them alone.
+    """
+    orphans = u.orphan_records()
+    if not orphans:
+        return []
+
+    print(f"\n  {len(orphans)} harvested record(s) not in sources.json:")
+    for directory in orphans:
+        has_ttl = (directory / TTL_NAME).exists()
+        note = "holds a TTL — it would be a duplicate entry" if has_ttl else "nothing harvested"
+        print(f"    {directory.name}  {note}")
+        if prune:
+            shutil.rmtree(directory)
+    print("    removed" if prune else
+          "    left in place; they are ignored by later steps. Remove with --prune")
+    return orphans
+
+
 def parse_zip_args(values: list[str]) -> dict[str, Path]:
     zips: dict[str, Path] = {}
     for value in values:
@@ -638,13 +690,15 @@ def main(strict: bool = False, options: Options | None = None) -> list[dict]:
             print(f"             warning: {warning}")
 
     counts = {a: sum(1 for r in results if r["_action"] == a)
-              for a in ("harvested", "up to date", "skipped", "unreachable")}
+              for a in ("harvested", "up to date", "unchecked", "skipped", "unreachable")}
     print(f"\n  {len(results)} sources: " + ", ".join(f"{n} {a}" for a, n in counts.items()))
     warnings_total = sum(len(r.get("warnings", [])) for r in results)
     if warnings_total:
         print(f"  {warnings_total} warning(s) — see harvest.json per record")
         if strict:
             raise SystemExit("harvest finished with warnings and --strict is set")
+    report_orphans(prune=options.prune)
+
     if counts["unreachable"]:
         raise SystemExit(f"{counts['unreachable']} record(s) could not be reached")
     return results
@@ -664,10 +718,12 @@ if __name__ == "__main__":
                         help="report what each DOI in sources.json resolves to")
     parser.add_argument("--write", action="store_true",
                         help="with --resolve: apply the proposal to sources.json")
+    parser.add_argument("--prune", action="store_true",
+                        help="delete harvested records that sources.json no longer lists")
     parser.add_argument("--strict", action="store_true", help="warnings become errors")
     args = parser.parse_args()
     package_dir = Path(args.package_dir) if args.package_dir else u.local_config().get("package_dir")
     main(strict=args.strict, options=Options(
         force=args.force, only=args.only, full=args.full, offline=args.offline,
-        resolve=args.resolve, write=args.write,
+        resolve=args.resolve, write=args.write, prune=args.prune,
         zips=parse_zip_args(args.zip), package_dir=package_dir))

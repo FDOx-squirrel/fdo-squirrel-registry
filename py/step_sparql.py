@@ -20,7 +20,7 @@ def main(strict: bool = False) -> None:
         u.skipped(f"{u.BUNDLE.relative_to(u.ROOT)} does not exist yet (built in S4)")
         return
 
-    raise NotImplementedError("the query page is implemented in S7")
+    u.pending("S7")
 
 
 if __name__ == "__main__":

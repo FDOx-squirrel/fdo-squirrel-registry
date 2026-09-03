@@ -14,7 +14,7 @@ def main(strict: bool = False) -> None:
         u.skipped(f"{u.BUNDLE.relative_to(u.ROOT)} does not exist yet (built in S4)")
         return
 
-    raise NotImplementedError("the index is implemented in S6")
+    u.pending("S6")
 
 
 if __name__ == "__main__":

@@ -1,11 +1,79 @@
 {
   "checked": "2026-09-03",
   "community": "squirrel-fdo",
-  "community_endpoint": null,
+  "community_endpoint": "https://zenodo.org/api/communities/squirrel-fdo/records",
   "newer_versions": [],
   "pinned": 8,
-  "unlisted_community_records": [],
+  "unlisted_community_records": [
+    {
+      "concept_doi": "10.5281/zenodo.18441772",
+      "doi": "10.5281/zenodo.18441773",
+      "has_metadata_ttl": false,
+      "packages": [],
+      "publication_date": "2026-01-31",
+      "record_id": "18441773",
+      "title": "From Packaged Research Artefacts to RDF: A Reference Implementation for FAIR Digital Objects into the Federated Knowledge Graph Ecosystem"
+    },
+    {
+      "concept_doi": "10.5281/zenodo.18443106",
+      "doi": "10.5281/zenodo.18443107",
+      "has_metadata_ttl": false,
+      "packages": [
+        "jupyter-nb-lod.zip"
+      ],
+      "publication_date": "2026-01-31",
+      "record_id": "18443107",
+      "title": "Jupyter Notebooks for Wikidata and LOD resources (FAIR Digital Object)"
+    },
+    {
+      "concept_doi": "10.5281/zenodo.18726192",
+      "doi": "10.5281/zenodo.18726193",
+      "has_metadata_ttl": false,
+      "packages": [],
+      "publication_date": "2026-02-26",
+      "record_id": "18726193",
+      "title": "Cultural Heritage als FAIR Digital Object? 3D-Erfassung und semantische Vernetzung von Kulturerbe in Irland und Schottland"
+    },
+    {
+      "concept_doi": "10.5281/zenodo.18726246",
+      "doi": "10.5281/zenodo.18726247",
+      "has_metadata_ttl": false,
+      "packages": [],
+      "publication_date": "2026-02-26",
+      "record_id": "18726247",
+      "title": "Von der Hosentasche in den Wissensgraph: Smartphone-3D als FAIR Digital Object in der SquirrelBase"
+    },
+    {
+      "concept_doi": "10.5281/zenodo.18742669",
+      "doi": "10.5281/zenodo.18742670",
+      "has_metadata_ttl": false,
+      "packages": [
+        "Q52.zip"
+      ],
+      "publication_date": "2026-02-23",
+      "record_id": "18742670",
+      "title": "Charlotten-Bär von Nana Topchishvili in Berlin (FAIR Digital Object)"
+    },
+    {
+      "concept_doi": "10.5281/zenodo.18826868",
+      "doi": "10.5281/zenodo.18885415",
+      "has_metadata_ttl": false,
+      "packages": [],
+      "publication_date": "2026-03-05",
+      "record_id": "18885415",
+      "title": "chublets.software: Building a FAIR Software Marketplace for Cultural Heritage"
+    },
+    {
+      "concept_doi": "10.5281/zenodo.20816959",
+      "doi": "10.5281/zenodo.20816960",
+      "has_metadata_ttl": false,
+      "packages": [],
+      "publication_date": "2026-05-27",
+      "record_id": "20816960",
+      "title": "Von der Hosentasche in den Wissensgraph? FAIRification-Workflow: Smartphone – 3D Modell – FDO – SquirrelBase"
+    }
+  ],
   "unreachable": [
-    "community:squirrel-fdo"
+    "18732893"
   ]
 }
