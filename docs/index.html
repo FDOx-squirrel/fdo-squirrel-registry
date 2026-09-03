@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FDOx Registry</title>
+<style>
+  :root { --ink: #1c1c1c; --muted: #5c5c5c; --rule: #d8d4cc; --bg: #fbfaf7;
+          --card: #fff; --accent: #7a4b17; --warn: #8a1c1c; }
+  * { box-sizing: border-box; }
+  body { margin: 0; padding: 2rem 1.5rem 5rem; background: var(--bg); color: var(--ink);
+         font: 16px/1.55 "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif; }
+  main { max-width: 74rem; margin: 0 auto; }
+  h1 { font-size: 1.9rem; margin: 0 0 .25rem; letter-spacing: -.01em; }
+  h2 { font-size: 1.15rem; margin: 0 0 .4rem; border-bottom: 1px solid var(--rule);
+       padding-bottom: .3rem; }
+  p { max-width: 46rem; }
+  a { color: var(--accent); }
+  .lede { color: var(--muted); margin: 0 0 1rem; }
+  .meta { color: var(--muted); font-size: .85rem; }
+  .sans { font-family: ui-sans-serif, system-ui, sans-serif; }
+  .toolbar { display: flex; flex-wrap: wrap; gap: .6rem; align-items: center;
+             margin: 1.2rem 0 1.6rem; }
+  input[type=search] { font: inherit; padding: .45rem .7rem; min-width: 18rem;
+                       border: 1px solid var(--rule); border-radius: 3px;
+                       background: var(--card); }
+  button { font: inherit; font-size: .85rem; padding: .4rem .7rem; cursor: pointer;
+           border: 1px solid var(--rule); border-radius: 3px; background: var(--card);
+           color: var(--ink); }
+  button:hover { border-color: var(--accent); }
+  .layout { display: grid; grid-template-columns: 17rem 1fr; gap: 2rem; align-items: start; }
+  @media (max-width: 60rem) { .layout { grid-template-columns: 1fr; } }
+  .facets { font-family: ui-sans-serif, system-ui, sans-serif; font-size: .84rem; }
+  .facet { margin-bottom: 1.4rem; }
+  .facet h3 { font-size: .7rem; text-transform: uppercase; letter-spacing: .04em;
+              color: var(--muted); margin: 0 0 .4rem; }
+  .facet label { display: flex; gap: .45rem; align-items: baseline; padding: .13rem 0;
+                 cursor: pointer; }
+  .facet label.empty { opacity: .35; }
+  .facet .count { margin-left: auto; color: var(--muted);
+                  font-variant-numeric: tabular-nums; }
+  .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(19rem, 1fr));
+           gap: 1rem; }
+  .card { background: var(--card); border: 1px solid var(--rule); border-radius: 4px;
+          padding: 1rem 1.1rem 1.1rem; display: flex; flex-direction: column; }
+  .card h3 { margin: 0 0 .3rem; font-size: 1.05rem; }
+  .card h3 a { text-decoration: none; }
+  .card h3 a:hover { text-decoration: underline; }
+  .card .desc { font-size: .92rem; margin: 0 0 .7rem; }
+  .card dl { margin: 0; font-size: .8rem; font-family: ui-sans-serif, system-ui, sans-serif;
+             display: grid; grid-template-columns: 5.5rem 1fr; gap: .15rem .6rem; }
+  .card dt { color: var(--muted); }
+  .card dd { margin: 0; }
+  .tags { margin: .7rem 0 0; padding: 0; list-style: none; display: flex;
+          flex-wrap: wrap; gap: .3rem; }
+  .tags li { font-family: ui-sans-serif, system-ui, sans-serif; font-size: .72rem;
+             border: 1px solid var(--rule); border-radius: 999px; padding: .1rem .5rem;
+             color: var(--muted); }
+  .badge { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: .72rem;
+           color: var(--accent); }
+  .empty-state { color: var(--muted); padding: 2rem 0; }
+  footer { margin-top: 3.5rem; border-top: 1px solid var(--rule); padding-top: 1rem; }
+</style>
+</head>
+<body>
+<main>
+
+<h1>FDOx Registry</h1>
+<p class="lede">A catalogue of FAIR Digital Objects published with fdo-squirrel. Each record points at one pinned Zenodo version; the metadata is harvested from the package itself and anchored in CIDOC CRM through the bridge at https://w3id.org/fdo-squirrel/crm/.</p>
+<p class="meta">Release 2026-09-03 &middot;
+  <span id="visible">7</span> of 7 entries &middot;
+  6584 triples &middot;
+  <a href="fdo-registry.ttl">bundle (Turtle)</a> &middot;
+  <a href="registry-index.json">index (JSON)</a> &middot;
+  <a href="crosswalk.html">CRM crosswalk</a> &middot;
+  <a href="https://github.com/Research-Squirrel-Engineers/fdo-squirrel-registry/blob/main/dist/quality_report.md">quality report</a>
+</p>
+
+<div class="toolbar">
+  <input type="search" id="q" placeholder="Search titles, descriptions, keywords"
+         autocomplete="off" aria-label="Search">
+  <button id="reset" type="button">Clear filters</button>
+</div>
+
+<div class="layout">
+
+  <div class="facets" id="facets">
+  
+    <div class="facet" data-facet="type">
+      <h3>FDO type</h3>
+      
+      <label><input type="checkbox" value="3DDataFDO">
+        <span class="name">3DDataFDO</span>
+        <span class="count" data-for="3DDataFDO">5</span></label>
+      
+      <label><input type="checkbox" value="SoftwareFDO">
+        <span class="name">SoftwareFDO</span>
+        <span class="count" data-for="SoftwareFDO">2</span></label>
+      
+    </div>
+  
+    <div class="facet" data-facet="license">
+      <h3>Licence</h3>
+      
+      <label><input type="checkbox" value="CC-BY-4.0">
+        <span class="name">CC-BY-4.0</span>
+        <span class="count" data-for="CC-BY-4.0">2</span></label>
+      
+      <label><input type="checkbox" value="CC-BY-SA-4.0">
+        <span class="name">CC-BY-SA-4.0</span>
+        <span class="count" data-for="CC-BY-SA-4.0">2</span></label>
+      
+      <label><input type="checkbox" value="MIT">
+        <span class="name">MIT</span>
+        <span class="count" data-for="MIT">2</span></label>
+      
+      <label><input type="checkbox" value="CC-BY-NC-SA-4.0">
+        <span class="name">CC-BY-NC-SA-4.0</span>
+        <span class="count" data-for="CC-BY-NC-SA-4.0">1</span></label>
+      
+    </div>
+  
+    <div class="facet" data-facet="keyword">
+      <h3>Keyword</h3>
+      
+      <label><input type="checkbox" value="Ogham stone">
+        <span class="name">Ogham stone</span>
+        <span class="count" data-for="Ogham stone">3</span></label>
+      
+      <label><input type="checkbox" value="Cork Public Museum">
+        <span class="name">Cork Public Museum</span>
+        <span class="count" data-for="Cork Public Museum">2</span></label>
+      
+      <label><input type="checkbox" value="Ogham Stone">
+        <span class="name">Ogham Stone</span>
+        <span class="count" data-for="Ogham Stone">2</span></label>
+      
+      <label><input type="checkbox" value="7000 Eichen">
+        <span class="name">7000 Eichen</span>
+        <span class="count" data-for="7000 Eichen">1</span></label>
+      
+      <label><input type="checkbox" value="Antholzer See">
+        <span class="name">Antholzer See</span>
+        <span class="count" data-for="Antholzer See">1</span></label>
+      
+      <label><input type="checkbox" value="Beuys Basaltstele">
+        <span class="name">Beuys Basaltstele</span>
+        <span class="count" data-for="Beuys Basaltstele">1</span></label>
+      
+      <label><input type="checkbox" value="EpiDoc">
+        <span class="name">EpiDoc</span>
+        <span class="count" data-for="EpiDoc">1</span></label>
+      
+      <label><input type="checkbox" value="Joseph Beuys">
+        <span class="name">Joseph Beuys</span>
+        <span class="count" data-for="Joseph Beuys">1</span></label>
+      
+      <label><input type="checkbox" value="Linked Open Data">
+        <span class="name">Linked Open Data</span>
+        <span class="count" data-for="Linked Open Data">1</span></label>
+      
+      <label><input type="checkbox" value="Steinmännchen">
+        <span class="name">Steinmännchen</span>
+        <span class="count" data-for="Steinmännchen">1</span></label>
+      
+      <label><input type="checkbox" value="UCC Stone Corridor">
+        <span class="name">UCC Stone Corridor</span>
+        <span class="count" data-for="UCC Stone Corridor">1</span></label>
+      
+    </div>
+  
+    <div class="facet" data-facet="place">
+      <h3>Place</h3>
+      
+      <label><input type="checkbox" value="OSM relation 62273">
+        <span class="name">OSM relation 62273</span>
+        <span class="count" data-for="OSM relation 62273">2</span></label>
+      
+      <label><input type="checkbox" value="OSM node 11071361392">
+        <span class="name">OSM node 11071361392</span>
+        <span class="count" data-for="OSM node 11071361392">1</span></label>
+      
+      <label><input type="checkbox" value="OSM node 11966430251">
+        <span class="name">OSM node 11966430251</span>
+        <span class="count" data-for="OSM node 11966430251">1</span></label>
+      
+      <label><input type="checkbox" value="OSM node 11966441102">
+        <span class="name">OSM node 11966441102</span>
+        <span class="count" data-for="OSM node 11966441102">1</span></label>
+      
+      <label><input type="checkbox" value="OSM node 3647679932">
+        <span class="name">OSM node 3647679932</span>
+        <span class="count" data-for="OSM node 3647679932">1</span></label>
+      
+      <label><input type="checkbox" value="OSM relation 14599988">
+        <span class="name">OSM relation 14599988</span>
+        <span class="count" data-for="OSM relation 14599988">1</span></label>
+      
+    </div>
+  
+    <div class="facet" data-facet="year">
+      <h3>Published</h3>
+      
+      <label><input type="checkbox" value="2024">
+        <span class="name">2024</span>
+        <span class="count" data-for="2024">3</span></label>
+      
+      <label><input type="checkbox" value="2020">
+        <span class="name">2020</span>
+        <span class="count" data-for="2020">1</span></label>
+      
+      <label><input type="checkbox" value="2021">
+        <span class="name">2021</span>
+        <span class="count" data-for="2021">1</span></label>
+      
+      <label><input type="checkbox" value="2025">
+        <span class="name">2025</span>
+        <span class="count" data-for="2025">1</span></label>
+      
+      <label><input type="checkbox" value="2026">
+        <span class="name">2026</span>
+        <span class="count" data-for="2026">1</span></label>
+      
+    </div>
+  
+    <div class="facet" data-facet="creator">
+      <h3>Creator</h3>
+      
+      <label><input type="checkbox" value="Thiery, Florian">
+        <span class="name">Thiery, Florian</span>
+        <span class="count" data-for="Thiery, Florian">6</span></label>
+      
+      <label><input type="checkbox" value="Distel, Anne-Karoline">
+        <span class="name">Distel, Anne-Karoline</span>
+        <span class="count" data-for="Distel, Anne-Karoline">1</span></label>
+      
+      <label><input type="checkbox" value="Homburg, Timo">
+        <span class="name">Homburg, Timo</span>
+        <span class="count" data-for="Homburg, Timo">1</span></label>
+      
+      <label><input type="checkbox" value="Schmidt, Sophie C.">
+        <span class="name">Schmidt, Sophie C.</span>
+        <span class="count" data-for="Schmidt, Sophie C.">1</span></label>
+      
+    </div>
+  
+  </div>
+
+  <div>
+    <div class="cards" id="cards">
+    
+      <article class="card" data-record="18369126">
+        <h3><a href="record/18369126.html">Ogham 3D EpiDoc Extractor</a></h3>
+        <div class="badge">SoftwareFDO</div>
+        <p class="desc">LOD Extractor for TEI/EpiDoc Files from the Ogham in 3D Project</p>
+        <dl>
+          <dt>Place</dt><dd>OSM relation 62273</dd>
+          <dt>Period</dt><dd>Ogham stone inscriptions (ca. 4th–7th century CE)</dd>
+          <dt>Files</dt><dd>254 &middot; 50.5 MB</dd>
+          <dt>Licence</dt><dd>MIT</dd>
+          
+        </dl>
+        <ul class="tags">
+        <li>EpiDoc</li><li>Linked Open Data</li><li>Ogham stone</li>
+        </ul>
+      </article>
+    
+      <article class="card" data-record="18369157">
+        <h3><a href="record/18369157.html">Ogham Analysis</a></h3>
+        <div class="badge">SoftwareFDO</div>
+        <p class="desc">Ogham Analysis with R</p>
+        <dl>
+          <dt>Place</dt><dd>OSM relation 62273</dd>
+          <dt>Period</dt><dd>Ogham stone inscriptions (ca. 4th–7th century CE)</dd>
+          <dt>Files</dt><dd>117 &middot; 22.5 MB</dd>
+          <dt>Licence</dt><dd>MIT</dd>
+          
+        </dl>
+        <ul class="tags">
+        <li>Ogham stone</li>
+        </ul>
+      </article>
+    
+      <article class="card" data-record="18369866">
+        <h3><a href="record/18369866.html">GEARS/1</a></h3>
+        <div class="badge">3DDataFDO</div>
+        <p class="desc">Ogham Stone GEARS/1 located in the Cork Public Museum</p>
+        <dl>
+          <dt>Place</dt><dd>OSM node 11966441102</dd>
+          <dt>Period</dt><dd>Ogham stone inscriptions (ca. 4th–7th century CE)</dd>
+          <dt>Files</dt><dd>7 &middot; 126.9 MB</dd>
+          <dt>Licence</dt><dd>CC-BY-SA-4.0</dd>
+          
+        </dl>
+        <ul class="tags">
+        <li>Cork Public Museum</li><li>Ogham stone</li>
+        </ul>
+      </article>
+    
+      <article class="card" data-record="18732893">
+        <h3><a href="record/18732893.html">Steinmännchen / Antholzer See 03.01.2026</a></h3>
+        <div class="badge">3DDataFDO</div>
+        <p class="desc">Steinmännchen / Lago di Anterselva (Antholzer See) 03.01.2026 14:36h</p>
+        <dl>
+          <dt>Place</dt><dd>OSM relation 14599988</dd>
+          <dt>Period</dt><dd>Modern, temporal object 2026</dd>
+          <dt>Files</dt><dd>64 &middot; 71.5 MB</dd>
+          <dt>Licence</dt><dd>CC-BY-4.0</dd>
+          <dt>SquirrelBase</dt><dd><a href="https://squirrelbase.wikibase.cloud/entity/Q60">Q60</a></dd>
+        </dl>
+        <ul class="tags">
+        <li>Antholzer See</li><li>Steinmännchen</li>
+        </ul>
+      </article>
+    
+      <article class="card" data-record="18742694">
+        <h3><a href="record/18742694.html">Beuys-Stele B 1036 (Kassel)</a></h3>
+        <div class="badge">3DDataFDO</div>
+        <p class="desc">Beuys-Stele B 1036 als Teil des Projects “7000 Eichen” in Kassel, Joseph Beuys, 1982, documenta 7</p>
+        <dl>
+          <dt>Place</dt><dd>OSM node 3647679932</dd>
+          <dt>Period</dt><dd>Modern, temporal object 1982</dd>
+          <dt>Files</dt><dd>47 &middot; 77.7 MB</dd>
+          <dt>Licence</dt><dd>CC-BY-4.0</dd>
+          <dt>SquirrelBase</dt><dd><a href="https://squirrelbase.wikibase.cloud/entity/Q56">Q56</a></dd>
+        </dl>
+        <ul class="tags">
+        <li>7000 Eichen</li><li>Beuys Basaltstele</li><li>Joseph Beuys</li>
+        </ul>
+      </article>
+    
+      <article class="card" data-record="18744133">
+        <h3><a href="record/18744133.html">CO074-148----</a></h3>
+        <div class="badge">3DDataFDO</div>
+        <p class="desc">Ogham Stone CO074-148---- located in the UCC Stone Corridor</p>
+        <dl>
+          <dt>Place</dt><dd>OSM node 11071361392</dd>
+          <dt>Period</dt><dd>Ogham stone inscriptions (ca. 4th–7th century CE)</dd>
+          <dt>Files</dt><dd>11 &middot; 283.7 MB</dd>
+          <dt>Licence</dt><dd>CC-BY-NC-SA-4.0</dd>
+          
+        </dl>
+        <ul class="tags">
+        <li>Ogham Stone</li><li>UCC Stone Corridor</li>
+        </ul>
+      </article>
+    
+      <article class="card" data-record="18744583">
+        <h3><a href="record/18744583.html">CHUIS/1</a></h3>
+        <div class="badge">3DDataFDO</div>
+        <p class="desc">Ogham Stone CHUIS/1 located in the Cork Public Museum</p>
+        <dl>
+          <dt>Place</dt><dd>OSM node 11966430251</dd>
+          <dt>Period</dt><dd>Ogham stone inscriptions (ca. 4th–7th century CE)</dd>
+          <dt>Files</dt><dd>10 &middot; 238.5 MB</dd>
+          <dt>Licence</dt><dd>CC-BY-SA-4.0</dd>
+          
+        </dl>
+        <ul class="tags">
+        <li>Cork Public Museum</li><li>Ogham Stone</li>
+        </ul>
+      </article>
+    
+    </div>
+    <p class="empty-state" id="none" hidden>Nothing matches these filters.</p>
+  </div>
+
+</div>
+
+<footer class="meta">
+<p>Each entry is one pinned Zenodo version of a package published with
+<a href="https://github.com/Research-Squirrel-Engineers/fdo-squirrel">fdo-squirrel</a>.
+The registry reads the metadata out of the package and does not correct it;
+what is missing or unclean in a package is listed in the quality report and
+goes back to whoever published it.</p>
+<p>FDOx Registry &middot; release 2026-09-03 &middot;
+<a href="https://github.com/Research-Squirrel-Engineers/fdo-squirrel-registry">source</a></p>
+</footer>
+
+</main>
+
+<script type="application/json" id="index-data">{"catalog": {"bundle": "dist/fdo-registry.ttl", "description": "A catalogue of FAIR Digital Objects published with fdo-squirrel. Each record points at one pinned Zenodo version; the metadata is harvested from the package itself and anchored in CIDOC CRM through the bridge at https://w3id.org/fdo-squirrel/crm/.", "iri": "https://w3id.org/fdo-squirrel/registry/catalog", "issued": "2026-09-03", "license": "https://spdx.org/licenses/CC-BY-4.0.html", "title": "FDOx Registry", "triples": 6584}, "entries": [{"context": "Ogham Stones in the Wild and in Museums in Ireland bearing Ogham inscriptions.", "creators": [{"iri": "https://orcid.org/0000-0002-3246-3531", "name": "Thiery, Florian"}, {"iri": "https://orcid.org/0000-0002-9499-5840", "name": "Homburg, Timo"}], "dataset_iri": "https://doi.org/10.5281/zenodo.18369125", "description": "LOD Extractor for TEI/EpiDoc Files from the Ogham in 3D Project", "facets": {"creator": ["Thiery, Florian", "Homburg, Timo"], "keyword": ["EpiDoc", "Linked Open Data", "Ogham stone"], "license": ["MIT"], "place": ["OSM relation 62273"], "type": ["SoftwareFDO"], "year": ["2020"]}, "files": {"bytes": 52910327, "count": 254, "largest": [{"bytes": 19487918, "media_type": "application/geo+json", "path": "ciic/irl_rivers_owm.geojson", "role": "software"}, {"bytes": 2841987, "media_type": "image/png", "path": "img/MAQI.png", "role": "software"}, {"bytes": 2777914, "media_type": "image/png", "path": "img/CUNA.png", "role": "software"}, {"bytes": 2550760, "media_type": "application/pdf", "path": "ciic/nomenclature_human_god.pdf", "role": "software"}, {"bytes": 2422641, "media_type": "application/pdf", "path": "ciic/cluster.pdf", "role": "software"}, {"bytes": 2421933, "media_type": "application/pdf", "path": "ciic/relationships.pdf", "role": "software"}, {"bytes": 2418536, "media_type": "application/pdf", "path": "ciic/nomenclature_nature.pdf", "role": "software"}, {"bytes": 2003347, "media_type": "image/png", "path": "ciic/nomenclature_human_god.png", "role": "software"}, {"bytes": 1953286, "media_type": "image/png", "path": "ciic/relationships.png", "role": "software"}, {"bytes": 1952821, "media_type": "image/png", "path": "ciic/cluster.png", "role": "software"}, {"bytes": 1935870, "media_type": "image/png", "path": "ciic/nomenclature_nature.png", "role": "software"}, {"bytes": 1221461, "media_type": "application/vnd.ms-excel", "path": "ciic/stone.csv", "role": "software"}], "roles": {"documentation": 2, "script": 30, "software": 222}}, "geometry": "<http://www.opengis.net/def/crs/EPSG/0/4326> POINT(-8.0 53.0)", "issued": "2020-08-01", "keywords": [{"iri": "http://www.wikidata.org/entity/Q5382396", "label": "EpiDoc", "named": true}, {"iri": "http://www.wikidata.org/entity/Q18692990", "label": "Linked Open Data", "named": true}, {"iri": "http://www.wikidata.org/entity/Q2016147", "label": "Ogham stone", "named": true}], "licenses": [{"iri": "https://spdx.org/licenses/MIT.html", "label": "MIT"}], "metadata_url": "https://zenodo.org/api/records/18369126/files/o3d-epidoc-extractor.zip/content", "other_descriptions": [], "period": {"end": "699", "iri": "https://doi.org/10.5281/zenodo.18369125_temporal", "label": "Ogham stone inscriptions (ca. 4th–7th century CE)", "start": "300", "value": "0300/0699"}, "places": [{"iri": "https://www.openstreetmap.org/relation/62273", "label": "OSM relation 62273", "named": false}], "record_id": "18369126", "record_iri": "https://w3id.org/fdo-squirrel/registry/record/18369126", "repairs": ["missing-prefix:crm", "missing-prefix:crmdig"], "sha256": "c2158eadd88537de1677878980b8b4486b27eed13bff35f0e3bb145bb036a3d4", "squirrelbase": null, "title": "Ogham 3D EpiDoc Extractor", "types": [{"iri": "https://w3id.org/fdo-squirrel/SoftwareFDO", "label": "SoftwareFDO"}], "version_doi": "https://doi.org/10.5281/zenodo.18369126", "zenodo_url": "https://zenodo.org/records/18369126"}, {"context": "Ogham Stones in the Wild and in Museums in Ireland bearing Ogham inscriptions.", "creators": [{"iri": "https://orcid.org/0000-0003-4696-2101", "name": "Schmidt, Sophie C."}], "dataset_iri": "https://doi.org/10.5281/zenodo.18369156", "description": "Ogham Analysis with R", "facets": {"creator": ["Schmidt, Sophie C."], "keyword": ["Ogham stone"], "license": ["MIT"], "place": ["OSM relation 62273"], "type": ["SoftwareFDO"], "year": ["2021"]}, "files": {"bytes": 23608594, "count": 117, "largest": [{"bytes": 8800376, "media_type": "application/octet-stream", "path": "analysis/data/raw_data/ne_10m_admin_0_countries.shp", "role": "software"}, {"bytes": 8791384, "media_type": "application/octet-stream", "path": "analysis/data/raw_data/ne_10m_admin_0_sovereignty.shp", "role": "software"}, {"bytes": 599487, "media_type": "application/octet-stream", "path": "analysis/data/raw_data/ne_10m_admin_0_countries.dbf", "role": "software"}, {"bytes": 413866, "media_type": "image/jpeg", "path": "analysis/figures/co-occurence.jpg", "role": "software"}, {"bytes": 401034, "media_type": "application/octet-stream", "path": "analysis/data/raw_data/ne_10m_admin_0_sovereignty.dbf", "role": "software"}, {"bytes": 375450, "media_type": "application/octet-stream", "path": "analysis/data/raw_data/ne_110m_admin_0_countries.dbf", "role": "software"}, {"bytes": 262108, "media_type": "application/vnd.ms-excel", "path": "analysis/data/raw_data/cisp_site.csv", "role": "software"}, {"bytes": 197574, "media_type": "image/jpeg", "path": "analysis/figures/densitymap.jpg", "role": "software"}, {"bytes": 183508, "media_type": "application/vnd.ms-excel", "path": "analysis/data/raw_data/reading.csv", "role": "software"}, {"bytes": 180924, "media_type": "application/octet-stream", "path": "analysis/data/raw_data/ne_110m_admin_0_countries.shp", "role": "software"}, {"bytes": 177644, "media_type": "text/plain", "path": "analysis/paper/nodes_list_d.txt", "role": "documentation"}, {"bytes": 146791, "media_type": "text/plain", "path": "analysis/paper/working_data/nodes_list_d.txt", "role": "documentation"}], "roles": {"documentation": 12, "script": 1, "software": 104}}, "geometry": "<http://www.opengis.net/def/crs/EPSG/0/4326> POINT(-8.0 53.0)", "issued": "2021-01-15", "keywords": [{"iri": "http://www.wikidata.org/entity/Q2016147", "label": "Ogham stone", "named": true}], "licenses": [{"iri": "https://spdx.org/licenses/MIT.html", "label": "MIT"}], "metadata_url": "https://zenodo.org/api/records/18369157/files/ogham-analysis.zip/content", "other_descriptions": [], "period": {"end": "699", "iri": "https://doi.org/10.5281/zenodo.18369156_temporal", "label": "Ogham stone inscriptions (ca. 4th–7th century CE)", "start": "300", "value": "0300/0699"}, "places": [{"iri": "https://www.openstreetmap.org/relation/62273", "label": "OSM relation 62273", "named": false}], "record_id": "18369157", "record_iri": "https://w3id.org/fdo-squirrel/registry/record/18369157", "repairs": ["missing-prefix:crm", "missing-prefix:crmdig"], "sha256": "865918a7c880454bd03c25c6653a0977150976093081763b7e809bde622cc2b1", "squirrelbase": null, "title": "Ogham Analysis", "types": [{"iri": "https://w3id.org/fdo-squirrel/SoftwareFDO", "label": "SoftwareFDO"}], "version_doi": "https://doi.org/10.5281/zenodo.18369157", "zenodo_url": "https://zenodo.org/records/18369157"}, {"context": "Ogham Stones in the Wild and in Museums in Ireland bearing Ogham inscriptions.", "creators": [{"iri": "https://orcid.org/0000-0002-3246-3531", "name": "Thiery, Florian"}], "dataset_iri": "https://doi.org/10.5281/zenodo.18369865", "description": "Ogham Stone GEARS/1 located in the Cork Public Museum", "facets": {"creator": ["Thiery, Florian"], "keyword": ["Cork Public Museum", "Ogham stone"], "license": ["CC-BY-SA-4.0"], "place": ["OSM node 11966441102"], "type": ["3DDataFDO"], "year": ["2024"]}, "files": {"bytes": 133052119, "count": 7, "largest": [{"bytes": 51698715, "media_type": "application/octet-stream", "path": "GEARS_1.ply", "role": "model"}, {"bytes": 39376128, "media_type": "application/octet-stream", "path": "GEARS_1.nxs", "role": "data"}, {"bytes": 32274472, "media_type": "model/gltf-binary", "path": "cork_public_museum_gaers1.glb", "role": "model"}, {"bytes": 7729408, "media_type": "application/octet-stream", "path": "GEARS_1.nxz", "role": "data"}, {"bytes": 1970953, "media_type": "image/jpeg", "path": "GEARS_1.jpg", "role": "documentation"}, {"bytes": 2190, "media_type": "text/yaml", "path": "MD.cff", "role": "data"}, {"bytes": 253, "media_type": "text/yaml", "path": "CITATION.cff", "role": "data"}], "roles": {"data": 4, "documentation": 1, "model": 2}}, "geometry": "<http://www.opengis.net/def/crs/EPSG/0/4326> POINT(-8.4942742 51.8961510)", "issued": "2024-06-09", "keywords": [{"iri": "http://www.wikidata.org/entity/Q24041450", "label": "Cork Public Museum", "named": true}, {"iri": "http://www.wikidata.org/entity/Q2016147", "label": "Ogham stone", "named": true}], "licenses": [{"iri": "https://spdx.org/licenses/CC-BY-SA-4.0.html", "label": "CC-BY-SA-4.0"}], "metadata_url": "https://zenodo.org/api/records/18369866/files/GEARS_1.zip/content", "other_descriptions": ["make 3d model available", "good", "low"], "period": {"end": "699", "iri": "https://doi.org/10.5281/zenodo.18369865_temporal", "label": "Ogham stone inscriptions (ca. 4th–7th century CE)", "start": "300", "value": "0300/0699"}, "places": [{"iri": "https://www.openstreetmap.org/node/11966441102", "label": "OSM node 11966441102", "named": false}], "record_id": "18369866", "record_iri": "https://w3id.org/fdo-squirrel/registry/record/18369866", "repairs": ["missing-prefix:crm", "missing-prefix:crmdig", "unescaped-quote"], "sha256": "b063750cc68c0b85b4212ee36a72b38dcf9140ffd46160aa04ed8a0c02247a06", "squirrelbase": null, "title": "GEARS/1", "types": [{"iri": "https://w3id.org/fdo-squirrel/3DDataFDO", "label": "3DDataFDO"}], "version_doi": "https://doi.org/10.5281/zenodo.18369866", "zenodo_url": "https://zenodo.org/records/18369866"}, {"context": "cairn temporally created by Florian Thiery and Fiona Schenk 2026", "creators": [{"iri": "https://w3id.org/fdo-squirrel/registry/agent/8e916ce55425de21", "name": "Thiery, Florian"}], "dataset_iri": "https://doi.org/10.5281/zenodo.18732892", "description": "Steinmännchen / Lago di Anterselva (Antholzer See) 03.01.2026 14:36h", "facets": {"creator": ["Thiery, Florian"], "keyword": ["Antholzer See", "Steinmännchen"], "license": ["CC-BY-4.0"], "place": ["OSM relation 14599988"], "type": ["3DDataFDO"], "year": ["2026"]}, "files": {"bytes": 75020959, "count": 64, "largest": [{"bytes": 12269280, "media_type": "model/gltf-binary", "path": "3DModel.glb", "role": "model"}, {"bytes": 1193904, "media_type": "image/jpeg", "path": "img/2026-01-03-14-35-07-815.jpg", "role": "documentation"}, {"bytes": 1189760, "media_type": "image/jpeg", "path": "img/2026-01-03-14-34-52-681.jpg", "role": "documentation"}, {"bytes": 1184141, "media_type": "image/jpeg", "path": "img/2026-01-03-14-35-08-712.jpg", "role": "documentation"}, {"bytes": 1182830, "media_type": "image/jpeg", "path": "img/2026-01-03-14-35-09-782.jpg", "role": "documentation"}, {"bytes": 1171380, "media_type": "image/jpeg", "path": "img/2026-01-03-14-35-06-910.jpg", "role": "documentation"}, {"bytes": 1169963, "media_type": "image/jpeg", "path": "img/2026-01-03-14-35-10-582.jpg", "role": "documentation"}, {"bytes": 1167244, "media_type": "image/jpeg", "path": "img/2026-01-03-14-34-51-179.jpg", "role": "documentation"}, {"bytes": 1155852, "media_type": "image/jpeg", "path": "img/2026-01-03-14-34-54-036.jpg", "role": "documentation"}, {"bytes": 1153623, "media_type": "image/jpeg", "path": "img/2026-01-03-14-35-06-243.jpg", "role": "documentation"}, {"bytes": 1147188, "media_type": "image/jpeg", "path": "img/2026-01-03-14-35-15-551.jpg", "role": "documentation"}, {"bytes": 1146304, "media_type": "image/jpeg", "path": "img/2026-01-03-14-35-11-276.jpg", "role": "documentation"}], "roles": {"documentation": 61, "metadata": 2, "model": 1}}, "geometry": "<http://www.opengis.net/def/crs/EPSG/0/4326> POINT(12.16988 46.888362)", "issued": "2026-01-03", "keywords": [{"iri": null, "label": "Antholzer See", "named": true}, {"iri": null, "label": "Steinmännchen", "named": true}], "licenses": [{"iri": "https://spdx.org/licenses/CC-BY-4.0.html", "label": "CC-BY-4.0"}], "metadata_url": "https://zenodo.org/api/records/18732893/files/Q60.zip/content", "other_descriptions": ["make 3d model available", "good", "low"], "period": {"end": "2026", "iri": "https://doi.org/10.5281/zenodo.18732892_temporal", "label": "Modern, temporal object 2026", "start": "2026", "value": "2026"}, "places": [{"iri": "https://www.openstreetmap.org/relation/14599988", "label": "OSM relation 14599988", "named": false}], "record_id": "18732893", "record_iri": "https://w3id.org/fdo-squirrel/registry/record/18732893", "repairs": ["unescaped-quote"], "sha256": "101cd75235a1fb7fa83462765b329291a48c7476f6c63c346a839c4177e58cbf", "squirrelbase": {"iri": "https://squirrelbase.wikibase.cloud/entity/Q60", "item": "Q60"}, "title": "Steinmännchen / Antholzer See 03.01.2026", "types": [{"iri": "https://w3id.org/fdo-squirrel/3DDataFDO", "label": "3DDataFDO"}], "version_doi": "https://doi.org/10.5281/zenodo.18732893", "zenodo_url": "https://zenodo.org/records/18732893"}, {"context": "Beuys-Stele als Teil des Projects “7000 Eichen” in Kassel, Joseph Beuys, 1982, documenta 7", "creators": [{"iri": "https://w3id.org/fdo-squirrel/registry/agent/8e916ce55425de21", "name": "Thiery, Florian"}], "dataset_iri": "https://doi.org/10.5281/zenodo.18742693", "description": "Beuys-Stele B 1036 als Teil des Projects “7000 Eichen” in Kassel, Joseph Beuys, 1982, documenta 7", "facets": {"creator": ["Thiery, Florian"], "keyword": ["7000 Eichen", "Beuys Basaltstele", "Joseph Beuys"], "license": ["CC-BY-4.0"], "place": ["OSM node 3647679932"], "type": ["3DDataFDO"], "year": ["2025"]}, "files": {"bytes": 81500465, "count": 47, "largest": [{"bytes": 21163695, "media_type": "model/obj", "path": "3DModel.obj", "role": "model"}, {"bytes": 9520564, "media_type": "image/jpeg", "path": "20250712_105411_FS--IMG_0257.jpg", "role": "documentation"}, {"bytes": 4447644, "media_type": "image/jpeg", "path": "3DModel.jpg", "role": "documentation"}, {"bytes": 2616485, "media_type": "image/jpeg", "path": "20250714_102739_FT.jpg", "role": "documentation"}, {"bytes": 2065028, "media_type": "image/jpeg", "path": "20250714_102759_FT.jpg", "role": "documentation"}, {"bytes": 1242226, "media_type": "image/jpeg", "path": "img/2025-07-14-10-26-33-964.jpg_Mon Jul 14 10_26_45 GMT+02_00 2025.jpg", "role": "documentation"}, {"bytes": 1190445, "media_type": "image/jpeg", "path": "img/2025-07-14-10-25-43-545.jpg_Mon Jul 14 10_26_45 GMT+02_00 2025.jpg", "role": "documentation"}, {"bytes": 1186975, "media_type": "image/jpeg", "path": "img/2025-07-14-10-26-36-389.jpg_Mon Jul 14 10_26_45 GMT+02_00 2025.jpg", "role": "documentation"}, {"bytes": 1184298, "media_type": "image/jpeg", "path": "img/2025-07-14-10-26-22-840.jpg_Mon Jul 14 10_26_45 GMT+02_00 2025.jpg", "role": "documentation"}, {"bytes": 1180171, "media_type": "image/jpeg", "path": "img/2025-07-14-10-26-23-969.jpg_Mon Jul 14 10_26_45 GMT+02_00 2025.jpg", "role": "documentation"}, {"bytes": 1176369, "media_type": "image/jpeg", "path": "img/2025-07-14-10-25-35-449.jpg_Mon Jul 14 10_26_45 GMT+02_00 2025.jpg", "role": "documentation"}, {"bytes": 1165441, "media_type": "image/jpeg", "path": "img/2025-07-14-10-25-46-659.jpg_Mon Jul 14 10_26_45 GMT+02_00 2025.jpg", "role": "documentation"}], "roles": {"data": 1, "documentation": 43, "metadata": 2, "model": 1}}, "geometry": "<http://www.opengis.net/def/crs/EPSG/0/4326> POINT(9.4982136 51.3131242)", "issued": "2025-07-21", "keywords": [{"iri": null, "label": "7000 Eichen", "named": true}, {"iri": null, "label": "Beuys Basaltstele", "named": true}, {"iri": null, "label": "Joseph Beuys", "named": true}], "licenses": [{"iri": "https://spdx.org/licenses/CC-BY-4.0.html", "label": "CC-BY-4.0"}], "metadata_url": "https://zenodo.org/api/records/18742694/files/Q56.zip/content", "other_descriptions": ["make 3d model available", "good", "low"], "period": {"end": "1982", "iri": "https://doi.org/10.5281/zenodo.18742693_temporal", "label": "Modern, temporal object 1982", "start": "1982", "value": "1982"}, "places": [{"iri": "https://www.openstreetmap.org/node/3647679932", "label": "OSM node 3647679932", "named": false}], "record_id": "18742694", "record_iri": "https://w3id.org/fdo-squirrel/registry/record/18742694", "repairs": [], "sha256": "58dcdd847288754d030bb8ffc4a67b5ca0aefe0c57798c0390f6a061e142e223", "squirrelbase": {"iri": "https://squirrelbase.wikibase.cloud/entity/Q56", "item": "Q56"}, "title": "Beuys-Stele B 1036 (Kassel)", "types": [{"iri": "https://w3id.org/fdo-squirrel/3DDataFDO", "label": "3DDataFDO"}], "version_doi": "https://doi.org/10.5281/zenodo.18742694", "zenodo_url": "https://zenodo.org/records/18742694"}, {"context": "Ogham Stones in the Wild and in Museums in Ireland bearing Ogham inscriptions.", "creators": [{"iri": "https://w3id.org/fdo-squirrel/registry/agent/1ef85dc7cadee6db", "name": "Distel, Anne-Karoline"}, {"iri": "https://w3id.org/fdo-squirrel/registry/agent/8e916ce55425de21", "name": "Thiery, Florian"}], "dataset_iri": "https://doi.org/10.5281/zenodo.18724635", "description": "Ogham Stone CO074-148---- located in the UCC Stone Corridor", "facets": {"creator": ["Distel, Anne-Karoline", "Thiery, Florian"], "keyword": ["Ogham Stone", "UCC Stone Corridor"], "license": ["CC-BY-NC-SA-4.0"], "place": ["OSM node 11071361392"], "type": ["3DDataFDO"], "year": ["2024"]}, "files": {"bytes": 297492184, "count": 11, "largest": [{"bytes": 126317064, "media_type": "model/gltf-binary", "path": "CO074-148----.glb", "role": "model"}, {"bytes": 84070110, "media_type": "application/octet-stream", "path": "CO074-148----.ply", "role": "model"}, {"bytes": 67575296, "media_type": "application/octet-stream", "path": "CO074-148----.nxs", "role": "model"}, {"bytes": 15864576, "media_type": "application/octet-stream", "path": "CO074-148----.nxz", "role": "model"}, {"bytes": 2307100, "media_type": "image/jpeg", "path": "Texture_Ortho.jpg", "role": "documentation"}, {"bytes": 1311939, "media_type": "image/jpeg", "path": "CO074-148----.jpg", "role": "documentation"}, {"bytes": 17757, "media_type": "text/html", "path": "rdf_modelling_report.html", "role": "data"}, {"bytes": 14611, "media_type": "application/json", "path": "rdf_modelling_report.json", "role": "documentation"}, {"bytes": 11096, "media_type": "application/octet-stream", "path": "fdo-metadata.ttl", "role": "data"}, {"bytes": 2309, "media_type": "text/yaml", "path": "MD.cff", "role": "metadata"}, {"bytes": 326, "media_type": "text/yaml", "path": "CITATION.cff", "role": "metadata"}], "roles": {"data": 2, "documentation": 3, "metadata": 2, "model": 4}}, "geometry": "<http://www.opengis.net/def/crs/EPSG/0/4326> POINT(-8.4924208 51.8937150)", "issued": "2024-06-05", "keywords": [{"iri": null, "label": "Ogham Stone", "named": true}, {"iri": null, "label": "UCC Stone Corridor", "named": true}], "licenses": [{"iri": "https://spdx.org/licenses/CC-BY-NC-SA-4.0.html", "label": "CC-BY-NC-SA-4.0"}], "metadata_url": "https://zenodo.org/api/records/18744133/files/CO074-148----.zip/content", "other_descriptions": ["make 3d model available", "good", "low"], "period": {"end": "699", "iri": "https://doi.org/10.5281/zenodo.18724635_temporal", "label": "Ogham stone inscriptions (ca. 4th–7th century CE)", "start": "300", "value": "0300/0699"}, "places": [{"iri": "https://www.openstreetmap.org/node/11071361392", "label": "OSM node 11071361392", "named": false}], "record_id": "18744133", "record_iri": "https://w3id.org/fdo-squirrel/registry/record/18744133", "repairs": [], "sha256": "3515fbfeb9d79cc0d82cd61c5b4a9a669a349c9f49215561e2b3f48f8ad092aa", "squirrelbase": null, "title": "CO074-148----", "types": [{"iri": "https://w3id.org/fdo-squirrel/3DDataFDO", "label": "3DDataFDO"}], "version_doi": "https://doi.org/10.5281/zenodo.18744133", "zenodo_url": "https://zenodo.org/records/18744133"}, {"context": "Ogham Stones in the Wild and in Museums in Ireland bearing Ogham inscriptions.", "creators": [{"iri": "https://w3id.org/fdo-squirrel/registry/agent/8e916ce55425de21", "name": "Thiery, Florian"}], "dataset_iri": "https://doi.org/10.5281/zenodo.18369720", "description": "Ogham Stone CHUIS/1 located in the Cork Public Museum", "facets": {"creator": ["Thiery, Florian"], "keyword": ["Cork Public Museum", "Ogham Stone"], "license": ["CC-BY-SA-4.0"], "place": ["OSM node 11966430251"], "type": ["3DDataFDO"], "year": ["2024"]}, "files": {"bytes": 250132908, "count": 10, "largest": [{"bytes": 95846610, "media_type": "application/octet-stream", "path": "CHUIS_1.ply", "role": "model"}, {"bytes": 77169408, "media_type": "application/octet-stream", "path": "CHUIS_1.nxs", "role": "model"}, {"bytes": 56819948, "media_type": "model/gltf-binary", "path": "cork_public_museum_chuis1.glb", "role": "model"}, {"bytes": 18801920, "media_type": "application/octet-stream", "path": "CHUIS_1.nxz", "role": "model"}, {"bytes": 1453939, "media_type": "image/jpeg", "path": "CHUIS_1.jpg", "role": "documentation"}, {"bytes": 16747, "media_type": "text/html", "path": "rdf_modelling_report.html", "role": "data"}, {"bytes": 13587, "media_type": "application/json", "path": "rdf_modelling_report.json", "role": "documentation"}, {"bytes": 8318, "media_type": "application/octet-stream", "path": "fdo-metadata.ttl", "role": "data"}, {"bytes": 2178, "media_type": "text/yaml", "path": "MD.cff", "role": "metadata"}, {"bytes": 253, "media_type": "text/yaml", "path": "CITATION.cff", "role": "metadata"}], "roles": {"data": 2, "documentation": 2, "metadata": 2, "model": 4}}, "geometry": "<http://www.opengis.net/def/crs/EPSG/0/4326> POINT(-8.4943 51.8961)", "issued": "2024-06-09", "keywords": [{"iri": null, "label": "Cork Public Museum", "named": true}, {"iri": null, "label": "Ogham Stone", "named": true}], "licenses": [{"iri": "https://spdx.org/licenses/CC-BY-SA-4.0.html", "label": "CC-BY-SA-4.0"}], "metadata_url": "https://zenodo.org/api/records/18744583/files/CHUIS_1.zip/content", "other_descriptions": ["make 3d model available", "good", "low"], "period": {"end": "699", "iri": "https://doi.org/10.5281/zenodo.18369720_temporal", "label": "Ogham stone inscriptions (ca. 4th–7th century CE)", "start": "300", "value": "0300/0699"}, "places": [{"iri": "https://www.openstreetmap.org/node/11966430251", "label": "OSM node 11966430251", "named": false}], "record_id": "18744583", "record_iri": "https://w3id.org/fdo-squirrel/registry/record/18744583", "repairs": [], "sha256": "ead2cb115418b76f127221a94a85ab78ac0142438d8cc0b0ee4e97862ad80b1b", "squirrelbase": null, "title": "CHUIS/1", "types": [{"iri": "https://w3id.org/fdo-squirrel/3DDataFDO", "label": "3DDataFDO"}], "version_doi": "https://doi.org/10.5281/zenodo.18744583", "zenodo_url": "https://zenodo.org/records/18744583"}], "facets": [{"key": "type", "label": "FDO type"}, {"key": "license", "label": "Licence"}, {"key": "keyword", "label": "Keyword"}, {"key": "place", "label": "Place"}, {"key": "year", "label": "Published"}, {"key": "creator", "label": "Creator"}], "release": "2026-09-03"}</script>
+<script>
+(function () {
+  "use strict";
+  const data = JSON.parse(document.getElementById("index-data").textContent);
+  const entries = data.entries;
+  const cards = new Map();
+  document.querySelectorAll(".card").forEach(card =>
+    cards.set(card.dataset.record, card));
+
+  const search = document.getElementById("q");
+  const visible = document.getElementById("visible");
+  const none = document.getElementById("none");
+
+  function selection() {
+    const chosen = {};
+    document.querySelectorAll(".facet").forEach(group => {
+      const values = [...group.querySelectorAll("input:checked")].map(box => box.value);
+      if (values.length) { chosen[group.dataset.facet] = values; }
+    });
+    return chosen;
+  }
+
+  function haystack(entry) {
+    return [entry.title, entry.description, entry.record_id,
+            ...entry.keywords.map(k => k.label),
+            ...entry.creators.map(c => c.name),
+            ...entry.places.map(p => p.label)].join(" ").toLowerCase();
+  }
+
+  // A facet with several values selected matches an entry carrying any of
+  // them; different facets have to match together. That is the usual reading,
+  // and the one that keeps narrowing predictable.
+  function matches(entry, chosen, text) {
+    for (const [key, values] of Object.entries(chosen)) {
+      if (!values.some(value => entry.facets[key].includes(value))) { return false; }
+    }
+    return !text || haystack(entry).includes(text);
+  }
+
+  function apply() {
+    const chosen = selection();
+    const text = search.value.trim().toLowerCase();
+    let shown = 0;
+    const surviving = [];
+    entries.forEach(entry => {
+      const ok = matches(entry, chosen, text);
+      cards.get(entry.record_id).hidden = !ok;
+      if (ok) { shown += 1; surviving.push(entry); }
+    });
+    visible.textContent = shown;
+    none.hidden = shown !== 0;
+
+    // Counts follow the current selection, so a value that can no longer add
+    // anything says so instead of leading into an empty result.
+    document.querySelectorAll(".facet").forEach(group => {
+      const key = group.dataset.facet;
+      const others = Object.fromEntries(
+        Object.entries(chosen).filter(([name]) => name !== key));
+      const pool = entries.filter(entry => matches(entry, others, text));
+      group.querySelectorAll("label").forEach(label => {
+        const value = label.querySelector("input").value;
+        const count = pool.filter(entry => entry.facets[key].includes(value)).length;
+        label.querySelector(".count").textContent = count;
+        label.classList.toggle("empty", count === 0);
+      });
+    });
+  }
+
+  document.getElementById("facets").addEventListener("change", apply);
+  search.addEventListener("input", apply);
+  document.getElementById("reset").addEventListener("click", () => {
+    document.querySelectorAll(".facet input:checked").forEach(box => box.checked = false);
+    search.value = "";
+    apply();
+  });
+  apply();
+})();
+</script>
+</body>
+</html>

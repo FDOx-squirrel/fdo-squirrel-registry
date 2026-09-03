@@ -67,6 +67,17 @@ ONTOLOGY_TERMS: list[dict[str, str]] = [
         "domain": "dcat:CatalogRecord", "range": "xsd:string",
     },
     {
+        "term": "fdoreg:squirrelbaseItem", "kind": "object",
+        "label": "SquirrelBase item",
+        "comment": "The item in SquirrelBase that stands for the object this "
+                   "FDO was made of. No package names it - the value is "
+                   "curated in registry/sources.json, because the connection "
+                   "is knowledge a human holds and the metadata does not. "
+                   "Deliberately without a range: what the item denotes is a "
+                   "question for SquirrelBase, not for this vocabulary.",
+        "domain": "dcat:CatalogRecord",
+    },
+    {
         "term": "fdoreg:readRepair", "kind": "datatype",
         "label": "encoding repair applied on reading",
         "comment": "Names a declared repair from py/repair.py that had to be "
@@ -106,7 +117,10 @@ def build_ontology():
         graph.add((term, RDFS.label, Literal(spec["label"], lang="en")))
         graph.add((term, RDFS.comment, Literal(spec["comment"], lang="en")))
         graph.add((term, RDFS.domain, URIRef(u.expand(spec["domain"]))))
-        graph.add((term, RDFS.range, URIRef(u.expand(spec["range"]))))
+        # A range is optional: claiming one where we do not know it would be
+        # the invention this repository spends its checks avoiding.
+        if spec.get("range"):
+            graph.add((term, RDFS.range, URIRef(u.expand(spec["range"]))))
     return graph
 
 
@@ -390,7 +404,8 @@ def catalogue_frame(records: list[dict]):
         "dct:title", "dct:description", "dct:license", "dct:issued", "dct:source",
         "dct:publisher", "dct:conformsTo", "dcat:record", "dcat:dataset",
         "foaf:primaryTopic", "fdoreg:conceptDoi", "fdoreg:versionDoi",
-        "fdoreg:sha256", "fdoreg:readRepair", "prov:wasDerivedFrom")}
+        "fdoreg:sha256", "fdoreg:readRepair", "fdoreg:squirrelbaseItem",
+        "prov:wasDerivedFrom")}
 
     catalog = URIRef(u.CATALOG_IRI)
     graph.add((catalog, RDF.type, URIRef(u.expand("dcat:Catalog"))))
@@ -428,6 +443,9 @@ def catalogue_frame(records: list[dict]):
             graph.add((node, P["prov:wasDerivedFrom"], URIRef(record["source_url"])))
         for label in record.get("repairs", ()):
             graph.add((node, P["fdoreg:readRepair"], Literal(label)))
+        if record.get("squirrelbase_iri"):
+            graph.add((node, P["fdoreg:squirrelbaseItem"],
+                       URIRef(record["squirrelbase_iri"])))
     return graph
 
 
@@ -516,8 +534,13 @@ def main(strict: bool = False) -> None:
             problems.append(f"{record_id}: package subject {subject} is not its "
                             f"concept DOI {concept}")
 
+        # Curated, because no package carries it: the SquirrelBase item is the
+        # link back to the object the model was made of (PRIMER A4).
+        item = u.pinned_sources().get(record_id, {}).get("squirrelbase_item")
+
         entries.append({
             "record_id": record_id,
+            "squirrelbase_iri": u.squirrelbase_iri(item),
             "concept_doi_url": concept or subject,
             "version_doi_url": f"https://doi.org/{harvest['version_doi']}",
             "zenodo_url": f"https://zenodo.org/records/{record_id}",
@@ -556,6 +579,16 @@ def main(strict: bool = False) -> None:
     pinned = len(u.pinned_record_ids()) or len(records)
     print(f"  {len(entries)} of {pinned} pinned records in the catalogue, "
           f"{repaired} read with declared repairs")
+
+    curated = sum(1 for entry in u.pinned_sources().values()
+                  if entry.get("squirrelbase_item"))
+    linked = sum(1 for entry in entries if entry.get("squirrelbase_iri"))
+    if curated and not u.SQUIRRELBASE_ENTITY_NS:
+        print(f"  note: {curated} record(s) carry a SquirrelBase item in "
+              f"sources.json but SQUIRRELBASE_ENTITY_NS is unset - no link emitted")
+    elif linked:
+        print(f"  {linked} SquirrelBase link(s) under "
+              f"{u.SQUIRRELBASE_ENTITY_NS} (entity namespace not verified, PRIMER A4)")
 
     # Reported on every run, but never a build failure: the corpus will carry
     # this split until somebody decides the identity, and a --strict CI that is

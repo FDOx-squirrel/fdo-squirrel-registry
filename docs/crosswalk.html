@@ -54,7 +54,7 @@ namespace. <strong>none</strong> is a term left deliberately unanchored, with
 the reason beside it.</p>
 
 
-<h2>axiom <span class="meta">&mdash; 5 rows</span></h2>
+<h2>axiom <span class="meta">&mdash; 6 rows</span></h2>
 <table class="axiom">
 <thead><tr>
   <th>Term</th><th>Kind</th><th>Target</th><th>Profile / source</th><th>Note</th>
@@ -99,6 +99,14 @@ the reason beside it.</p>
   <td class="target term">crm:P2_has_type</td>
   <td class="rule">section 3</td>
   <td class="note">rdfs:subPropertyOf. The object is a skos:Concept from the registry role scheme, never an E55 Type, which the profile forbids. The profile's own E41 example uses P2 with a plain external concept IRI, so the property survives the replacement of the class.</td>
+</tr>
+
+<tr>
+  <td class="term">fdoreg:squirrelbaseItem</td>
+  <td>property</td>
+  <td class="target term">crm:P67_refers_to</td>
+  <td class="rule"></td>
+  <td class="note">rdfs:subPropertyOf. The catalogue record refers to the SquirrelBase item for the object the model was made of. Curated in registry/sources.json, because no package names it. Refers to, not identifies: the registry has no node for the physical object (Befund 13) and does not invent one here.</td>
 </tr>
 
 </tbody>

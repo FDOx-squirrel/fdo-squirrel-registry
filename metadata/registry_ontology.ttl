@@ -27,6 +27,12 @@ fdoreg:sha256 a owl:DatatypeProperty ;
     rdfs:isDefinedBy fdoreg: ;
     rdfs:range xsd:string .
 
+fdoreg:squirrelbaseItem a owl:ObjectProperty ;
+    rdfs:label "SquirrelBase item"@en ;
+    rdfs:comment "The item in SquirrelBase that stands for the object this FDO was made of. No package names it - the value is curated in registry/sources.json, because the connection is knowledge a human holds and the metadata does not. Deliberately without a range: what the item denotes is a question for SquirrelBase, not for this vocabulary."@en ;
+    rdfs:domain dcat:CatalogRecord ;
+    rdfs:isDefinedBy fdoreg: .
+
 fdoreg:versionDoi a owl:ObjectProperty ;
     rdfs:label "version DOI"@en ;
     rdfs:comment "The pinned Zenodo version DOI the registry harvested. One catalogue record per version DOI; several records may share a concept DOI."@en ;

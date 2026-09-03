@@ -1,0 +1,54 @@
+{
+  "missing": [
+    {
+      "iri": "https://www.openstreetmap.org/node/11071361392",
+      "records": [
+        "18744133"
+      ],
+      "shown_as": "OSM node 11071361392",
+      "used_as": "place"
+    },
+    {
+      "iri": "https://www.openstreetmap.org/node/11966430251",
+      "records": [
+        "18744583"
+      ],
+      "shown_as": "OSM node 11966430251",
+      "used_as": "place"
+    },
+    {
+      "iri": "https://www.openstreetmap.org/node/11966441102",
+      "records": [
+        "18369866"
+      ],
+      "shown_as": "OSM node 11966441102",
+      "used_as": "place"
+    },
+    {
+      "iri": "https://www.openstreetmap.org/node/3647679932",
+      "records": [
+        "18742694"
+      ],
+      "shown_as": "OSM node 3647679932",
+      "used_as": "place"
+    },
+    {
+      "iri": "https://www.openstreetmap.org/relation/14599988",
+      "records": [
+        "18732893"
+      ],
+      "shown_as": "OSM relation 14599988",
+      "used_as": "place"
+    },
+    {
+      "iri": "https://www.openstreetmap.org/relation/62273",
+      "records": [
+        "18369126",
+        "18369157"
+      ],
+      "shown_as": "OSM relation 62273",
+      "used_as": "place"
+    }
+  ],
+  "note": "IRIs the page shows without a curated label. Fill them in registry/labels.json."
+}

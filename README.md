@@ -30,9 +30,18 @@ dist/fdo-registry.ttl            DCAT + FDOx + CRM/CRMdig/CRMgeo + GeoSPARQL + S
         │                        metadata/shapes.ttl
         │  py/step_validate.py   SHACL gate → the build stops on a violation
         │                        → dist/fdo-registry-n4o.ttl, dist/quality_report.md
+        │  py/step_index.py      SPARQL → dist/registry-index.json
+        │                        registry/labels.json
+        │  py/step_site.py       → docs/index.html, docs/record/<id>.html
         ▼
-docs/                            index.html (facets) · sparql.html (Pyodide)
+docs/                            index.html (facets) · record/<id>.html ·
+                                 sparql.html (Pyodide, S7) · fdo-registry.ttl
 ```
+
+The facet page carries its index inside it rather than fetching it, so
+`docs/index.html` works opened straight from disk, with no server and no
+network. The same data is written beside it as `docs/registry-index.json` for
+anyone who wants the catalogue without RDF.
 
 ## Requirements
 
@@ -217,6 +226,7 @@ Every step is also runnable on its own, for example `python py/step_bundle.py`.
 | `py/registry_utils.py` | release date, paths, IRI builders, deterministic writers |
 | `py/step_*.py` | one module per pipeline step |
 | `registry/sources.json` | the curated list of harvested DOIs |
+| `registry/labels.json` | curated display labels for IRIs the packages do not name |
 | `data/raw/fdo/` | harvested FDO metadata, unchanged and read-only (generated) |
 | `crosswalks/` | `fdo--crm.csv` and `fdo-role--skos.csv`, the sources of the bridge |
 | `metadata/shapes.ttl` | the SHACL gate; `shapes_selftest.ttl` is the broken graph it is tested against |

@@ -1,6 +1,6 @@
 # FDOx registry quality report
 
-Release 2026-09-03. Written by `python main.py --only validate` from `dist\fdo-registry.ttl`, `metadata\crm_bridge.ttl`, `metadata\vocab\role.ttl`, `metadata\registry_ontology.ttl` against `metadata\shapes.ttl`.
+Release 2026-09-03. Written by `python main.py --only validate` from `dist/fdo-registry.ttl`, `metadata/crm_bridge.ttl`, `metadata/vocab/role.ttl`, `metadata/registry_ontology.ttl` against `metadata/shapes.ttl`.
 
 Everything below is a **warning**: a statement about a harvested package, not about the registry. The registry reads and reports, it does not correct (PRIMER A3), so each entry is feedback for `fdo-squirrel` or for whoever published the package. Violations never reach this file, because they stop the build.
 

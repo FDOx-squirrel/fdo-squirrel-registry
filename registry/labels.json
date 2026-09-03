@@ -1,0 +1,62 @@
+{
+  "labels": {
+    "http://www.wikidata.org/entity/Q18692990": {
+      "label": "Linked Open Data",
+      "source": "Wikidata English label, checked 2026-09-03"
+    },
+    "http://www.wikidata.org/entity/Q2016147": {
+      "label": "Ogham stone",
+      "source": "Wikidata English label, checked 2026-09-03"
+    },
+    "http://www.wikidata.org/entity/Q22731": {
+      "label": "Stone",
+      "source": "Wikidata English label, checked 2026-09-03"
+    },
+    "http://www.wikidata.org/entity/Q24041450": {
+      "label": "Cork Public Museum",
+      "source": "Wikidata English label, checked 2026-09-03"
+    },
+    "http://www.wikidata.org/entity/Q43338": {
+      "label": "Basalt",
+      "source": "Wikidata English label, checked 2026-09-03"
+    },
+    "http://www.wikidata.org/entity/Q5382396": {
+      "label": "EpiDoc",
+      "source": "Wikidata English label, checked 2026-09-03"
+    },
+    "http://www.wikidata.org/entity/Q7321974": {
+      "label": "Cairn",
+      "source": "Wikidata English label, checked 2026-09-03"
+    },
+    "https://www.openstreetmap.org/node/11071361392": {
+      "label": null,
+      "source": "dct:spatial of 18744133 (CO074-148----); OSM object not looked up yet"
+    },
+    "https://www.openstreetmap.org/node/11966430251": {
+      "label": null,
+      "source": "dct:spatial of 18744583 (CHUIS/1); OSM object not looked up yet"
+    },
+    "https://www.openstreetmap.org/node/11966441102": {
+      "label": null,
+      "source": "dct:spatial of 18369866 (GEARS/1); OSM object not looked up yet"
+    },
+    "https://www.openstreetmap.org/node/3647679932": {
+      "label": null,
+      "source": "dct:spatial of 18742694 (Beuys stele B 1036); OSM object not looked up yet"
+    },
+    "https://www.openstreetmap.org/relation/14599988": {
+      "label": null,
+      "source": "dct:spatial of 18732893 (Lago di Anterselva); OSM object not looked up yet"
+    },
+    "https://www.openstreetmap.org/relation/4629093": {
+      "label": null,
+      "source": "dct:type of 18742694 - a place IRI in a type position; report to fdo-squirrel rather than label it"
+    },
+    "https://www.openstreetmap.org/relation/62273": {
+      "label": null,
+      "source": "dct:spatial of 18369126 and 18369157; OSM object not looked up yet"
+    }
+  },
+  "note": "Display labels for IRIs the harvested packages point at without naming (PRIMER A1, Befund 24). Curated by hand: the registry never dereferences them, because the network belongs to the harvest step alone (A3). A null label means the IRI is known to need one and nobody has written it yet - the page then shows the bare id and links to the source, which is honest, and `python main.py --only index` lists what is missing in dist/labels_missing.json. Labels are display only; none of this enters the graph.",
+  "schema_version": "1"
+}

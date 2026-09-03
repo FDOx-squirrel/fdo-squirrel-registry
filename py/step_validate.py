@@ -199,8 +199,8 @@ def write_report(by_rule, corpus, concept_to_record, sources) -> str:
     add("# FDOx registry quality report")
     add("")
     add(f"Release {u.RELEASE}. Written by `python main.py --only validate` from "
-        + ", ".join(f"`{path.relative_to(u.ROOT)}`" for path in sources)
-        + f" against `{u.SHAPES.relative_to(u.ROOT)}`.")
+        + ", ".join(f"`{u.rel(path)}`" for path in sources)
+        + f" against `{u.rel(u.SHAPES)}`.")
     add("")
     add("Everything below is a **warning**: a statement about a harvested package, "
         "not about the registry. The registry reads and reports, it does not correct "

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ entry.title }} &middot; {{ catalog.title }}</title>
+<style>
+  :root { --ink: #1c1c1c; --muted: #5c5c5c; --rule: #d8d4cc; --bg: #fbfaf7;
+          --card: #fff; --accent: #7a4b17; --warn: #8a1c1c; }
+  * { box-sizing: border-box; }
+  body { margin: 0; padding: 2rem 1.5rem 5rem; background: var(--bg); color: var(--ink);
+         font: 16px/1.55 "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif; }
+  main { max-width: 58rem; margin: 0 auto; }
+  h1 { font-size: 1.8rem; margin: .2rem 0 .3rem; letter-spacing: -.01em; }
+  h2 { font-size: 1.1rem; margin: 2.4rem 0 .4rem; border-bottom: 1px solid var(--rule);
+       padding-bottom: .3rem; }
+  p { max-width: 46rem; }
+  a { color: var(--accent); }
+  .meta { color: var(--muted); font-size: .85rem; }
+  .badge { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: .78rem;
+           color: var(--accent); }
+  dl.facts { display: grid; grid-template-columns: 9rem 1fr; gap: .35rem 1rem;
+             font-family: ui-sans-serif, system-ui, sans-serif; font-size: .86rem;
+             margin: 1rem 0 0; }
+  dl.facts dt { color: var(--muted); }
+  dl.facts dd { margin: 0; overflow-wrap: anywhere; }
+  table { border-collapse: collapse; width: 100%; margin: .6rem 0 0;
+          font-family: ui-sans-serif, system-ui, sans-serif; font-size: .82rem; }
+  th, td { text-align: left; vertical-align: top; padding: .4rem .6rem;
+           border-bottom: 1px solid var(--rule); }
+  th { font-weight: 600; color: var(--muted); text-transform: uppercase;
+       letter-spacing: .04em; font-size: .7rem; white-space: nowrap; }
+  td.num { text-align: right; font-variant-numeric: tabular-nums; }
+  code { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: .82em; }
+  ul.plain { list-style: none; padding: 0; margin: 0; }
+  .warn { color: var(--warn); }
+  .note { color: var(--muted); font-size: .85rem; }
+</style>
+</head>
+<body>
+<main>
+
+<p class="meta"><a href="../index.html">&larr; {{ catalog.title }}</a></p>
+<h1>{{ entry.title }}</h1>
+<p class="badge">{% for type in entry.types %}{{ type.label }}{% if not loop.last %}, {% endif %}{% endfor %}
+  &middot; catalogue record {{ entry.record_id }}</p>
+
+{% if entry.description %}<p>{{ entry.description }}</p>{% endif %}
+{% if entry.context %}<p class="note">{{ entry.context }}</p>{% endif %}
+
+{% if entry.other_descriptions %}
+<p class="note">The package carries {{ entry.other_descriptions | length + 1 }}
+values at <code>dct:description</code>; the longest is shown above. The others are
+{% for other in entry.other_descriptions %}&ldquo;{{ other }}&rdquo;{% if not loop.last %}, {% endif %}{% endfor %}.
+They are recognisably other <code>MD.cff</code> fields that ran into the description,
+and only their author can say which. Reported, not corrected.</p>
+{% endif %}
+
+<h2>Identity</h2>
+<dl class="facts">
+  <dt>FDO (concept DOI)</dt>
+  <dd><a href="{{ entry.dataset_iri }}">{{ entry.dataset_iri }}</a></dd>
+  {% if entry.version_doi %}
+  <dt>Pinned version</dt>
+  <dd><a href="{{ entry.version_doi }}">{{ entry.version_doi }}</a></dd>
+  {% endif %}
+  {% if entry.zenodo_url %}
+  <dt>Zenodo record</dt>
+  <dd><a href="{{ entry.zenodo_url }}">{{ entry.zenodo_url }}</a></dd>
+  {% endif %}
+  {% if entry.metadata_url %}
+  <dt>Read from</dt>
+  <dd><a href="{{ entry.metadata_url }}">the package ZIP on Zenodo</a>
+      <span class="note">the metadata lies inside it as <code>fdo-metadata.ttl</code>;
+      the link downloads the whole package</span></dd>
+  {% endif %}
+  {% if entry.squirrelbase %}
+  <dt>SquirrelBase</dt>
+  <dd><a href="{{ entry.squirrelbase.iri }}">{{ entry.squirrelbase.item }}</a>
+      <span class="note">curated in <code>registry/sources.json</code></span></dd>
+  {% endif %}
+  <dt>Catalogue record</dt>
+  <dd><code>{{ entry.record_iri }}</code></dd>
+  {% if entry.sha256 %}
+  <dt>SHA-256</dt>
+  <dd><code>{{ entry.sha256 }}</code> <span class="note">of the harvested file as published</span></dd>
+  {% endif %}
+</dl>
+
+{% if entry.repairs %}
+<p class="note warn">Read with declared repairs: {% for repair in entry.repairs %}<code>{{ repair }}</code>{% if not loop.last %}, {% endif %}{% endfor %}.
+The published file is not valid Turtle; the repairs fix its encoding, never its
+statements, and the checksum above is of the original.</p>
+{% endif %}
+
+<h2>Description</h2>
+<dl class="facts">
+  {% if entry.creators %}
+  <dt>Creators</dt>
+  <dd><ul class="plain">{% for creator in entry.creators %}
+    {# Only an IRI that resolves is worth a link. The registry's own agent IRIs
+       have no page yet, and a creator that reaches one of them is a package
+       that named no ORCID - which the quality report says too. #}
+    <li>{% if 'orcid.org' in creator.iri %}<a href="{{ creator.iri }}">{{ creator.name }}</a>
+        {% else %}{{ creator.name }}
+        <span class="note">no ORCID in the package</span>{% endif %}</li>{% endfor %}</ul></dd>
+  {% endif %}
+  {% if entry.licenses %}
+  <dt>Licence</dt>
+  <dd>{% for licence in entry.licenses %}<a href="{{ licence.iri }}">{{ licence.label }}</a>{% if not loop.last %}, {% endif %}{% endfor %}</dd>
+  {% endif %}
+  {% if entry.issued %}<dt>Published</dt><dd>{{ entry.issued }}</dd>{% endif %}
+  {% if entry.keywords %}
+  <dt>Keywords</dt>
+  <dd>{% for keyword in entry.keywords %}{% if keyword.iri %}<a href="{{ keyword.iri }}">{{ keyword.label }}</a>{% else %}{{ keyword.label }}{% endif %}{% if not loop.last %}, {% endif %}{% endfor %}</dd>
+  {% endif %}
+  {% if entry.places %}
+  <dt>Place</dt>
+  <dd>{% for place in entry.places %}<a href="{{ place.iri }}">{{ place.label }}</a>{% if not loop.last %}, {% endif %}{% endfor %}</dd>
+  {% endif %}
+  {% if entry.geometry %}
+  <dt>Geometry</dt>
+  <dd><code>{{ entry.geometry }}</code></dd>
+  {% endif %}
+  {% if entry.period %}
+  <dt>Time span</dt>
+  <dd>{{ entry.period.label or '' }}
+      {% if entry.period.value %}<code>{{ entry.period.value }}</code>{% endif %}
+      {% if entry.period.start %}<span class="note">(harvested bounds
+      {{ entry.period.start }}&ndash;{{ entry.period.end }})</span>{% endif %}</dd>
+  {% endif %}
+</dl>
+
+<h2>Files</h2>
+<p class="note">{{ entry.files.count }} distributions,
+{{ entry.files.bytes | filesize }} in total;
+{% for role, count in entry.files.roles.items() %}{{ count }} {{ role }}{% if not loop.last %}, {% endif %}{% endfor %}.
+{% if entry.files.count > entry.files.largest | length %}The largest
+{{ entry.files.largest | length }} are listed.{% endif %}</p>
+<table>
+<thead><tr><th>Path</th><th>Role</th><th>Media type</th><th class="num">Size</th></tr></thead>
+<tbody>
+{% for file in entry.files.largest %}
+<tr>
+  <td><code>{{ file.path }}</code></td>
+  <td>{{ file.role or '&mdash;' }}</td>
+  <td>{{ file.media_type or '&mdash;' }}</td>
+  <td class="num">{{ file.bytes | filesize }}</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+
+<p class="meta" style="margin-top:3rem">{{ catalog.title }} &middot; release {{ release }}
+&middot; <a href="../{{ catalog.bundle | replace('dist/', '') }}">bundle (Turtle)</a>
+&middot; <a href="https://github.com/Research-Squirrel-Engineers/fdo-squirrel-registry">source</a></p>
+
+</main>
+</body>
+</html>

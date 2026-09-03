@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ catalog.title }}</title>
+<style>
+  :root { --ink: #1c1c1c; --muted: #5c5c5c; --rule: #d8d4cc; --bg: #fbfaf7;
+          --card: #fff; --accent: #7a4b17; --warn: #8a1c1c; }
+  * { box-sizing: border-box; }
+  body { margin: 0; padding: 2rem 1.5rem 5rem; background: var(--bg); color: var(--ink);
+         font: 16px/1.55 "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif; }
+  main { max-width: 74rem; margin: 0 auto; }
+  h1 { font-size: 1.9rem; margin: 0 0 .25rem; letter-spacing: -.01em; }
+  h2 { font-size: 1.15rem; margin: 0 0 .4rem; border-bottom: 1px solid var(--rule);
+       padding-bottom: .3rem; }
+  p { max-width: 46rem; }
+  a { color: var(--accent); }
+  .lede { color: var(--muted); margin: 0 0 1rem; }
+  .meta { color: var(--muted); font-size: .85rem; }
+  .sans { font-family: ui-sans-serif, system-ui, sans-serif; }
+  .toolbar { display: flex; flex-wrap: wrap; gap: .6rem; align-items: center;
+             margin: 1.2rem 0 1.6rem; }
+  input[type=search] { font: inherit; padding: .45rem .7rem; min-width: 18rem;
+                       border: 1px solid var(--rule); border-radius: 3px;
+                       background: var(--card); }
+  button { font: inherit; font-size: .85rem; padding: .4rem .7rem; cursor: pointer;
+           border: 1px solid var(--rule); border-radius: 3px; background: var(--card);
+           color: var(--ink); }
+  button:hover { border-color: var(--accent); }
+  .layout { display: grid; grid-template-columns: 17rem 1fr; gap: 2rem; align-items: start; }
+  @media (max-width: 60rem) { .layout { grid-template-columns: 1fr; } }
+  .facets { font-family: ui-sans-serif, system-ui, sans-serif; font-size: .84rem; }
+  .facet { margin-bottom: 1.4rem; }
+  .facet h3 { font-size: .7rem; text-transform: uppercase; letter-spacing: .04em;
+              color: var(--muted); margin: 0 0 .4rem; }
+  .facet label { display: flex; gap: .45rem; align-items: baseline; padding: .13rem 0;
+                 cursor: pointer; }
+  .facet label.empty { opacity: .35; }
+  .facet .count { margin-left: auto; color: var(--muted);
+                  font-variant-numeric: tabular-nums; }
+  .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(19rem, 1fr));
+           gap: 1rem; }
+  .card { background: var(--card); border: 1px solid var(--rule); border-radius: 4px;
+          padding: 1rem 1.1rem 1.1rem; display: flex; flex-direction: column; }
+  .card h3 { margin: 0 0 .3rem; font-size: 1.05rem; }
+  .card h3 a { text-decoration: none; }
+  .card h3 a:hover { text-decoration: underline; }
+  .card .desc { font-size: .92rem; margin: 0 0 .7rem; }
+  .card dl { margin: 0; font-size: .8rem; font-family: ui-sans-serif, system-ui, sans-serif;
+             display: grid; grid-template-columns: 5.5rem 1fr; gap: .15rem .6rem; }
+  .card dt { color: var(--muted); }
+  .card dd { margin: 0; }
+  .tags { margin: .7rem 0 0; padding: 0; list-style: none; display: flex;
+          flex-wrap: wrap; gap: .3rem; }
+  .tags li { font-family: ui-sans-serif, system-ui, sans-serif; font-size: .72rem;
+             border: 1px solid var(--rule); border-radius: 999px; padding: .1rem .5rem;
+             color: var(--muted); }
+  .badge { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: .72rem;
+           color: var(--accent); }
+  .empty-state { color: var(--muted); padding: 2rem 0; }
+  footer { margin-top: 3.5rem; border-top: 1px solid var(--rule); padding-top: 1rem; }
+</style>
+</head>
+<body>
+<main>
+
+<h1>{{ catalog.title }}</h1>
+<p class="lede">{{ catalog.description }}</p>
+<p class="meta">Release {{ release }} &middot;
+  <span id="visible">{{ entries | length }}</span> of {{ entries | length }} entries &middot;
+  {{ catalog.triples }} triples &middot;
+  <a href="{{ catalog.bundle | replace('dist/', '') }}">bundle (Turtle)</a> &middot;
+  <a href="registry-index.json">index (JSON)</a> &middot;
+  <a href="crosswalk.html">CRM crosswalk</a> &middot;
+  <a href="https://github.com/Research-Squirrel-Engineers/fdo-squirrel-registry/blob/main/dist/quality_report.md">quality report</a>
+</p>
+
+<div class="toolbar">
+  <input type="search" id="q" placeholder="Search titles, descriptions, keywords"
+         autocomplete="off" aria-label="Search">
+  <button id="reset" type="button">Clear filters</button>
+</div>
+
+<div class="layout">
+
+  <div class="facets" id="facets">
+  {% for facet in facets %}
+    <div class="facet" data-facet="{{ facet.key }}">
+      <h3>{{ facet.label }}</h3>
+      {% for value in facet.options %}
+      <label><input type="checkbox" value="{{ value.value }}">
+        <span class="name">{{ value.value }}</span>
+        <span class="count" data-for="{{ value.value }}">{{ value.count }}</span></label>
+      {% endfor %}
+    </div>
+  {% endfor %}
+  </div>
+
+  <div>
+    <div class="cards" id="cards">
+    {% for entry in entries %}
+      <article class="card" data-record="{{ entry.record_id }}">
+        <h3><a href="record/{{ entry.record_id }}.html">{{ entry.title }}</a></h3>
+        <div class="badge">{% for type in entry.types %}{{ type.label }}{% if not loop.last %}, {% endif %}{% endfor %}</div>
+        <p class="desc">{{ entry.description or 'No description in the package.' }}</p>
+        <dl>
+          {% if entry.places %}<dt>Place</dt><dd>{% for place in entry.places %}{{ place.label }}{% if not loop.last %}, {% endif %}{% endfor %}</dd>{% endif %}
+          {% if entry.period %}<dt>Period</dt><dd>{{ entry.period.label or entry.period.value or '-' }}</dd>{% endif %}
+          <dt>Files</dt><dd>{{ entry.files.count }} &middot; {{ entry.files.bytes | filesize }}</dd>
+          <dt>Licence</dt><dd>{% for licence in entry.licenses %}{{ licence.label }}{% if not loop.last %}, {% endif %}{% endfor %}</dd>
+          {% if entry.squirrelbase %}<dt>SquirrelBase</dt><dd><a href="{{ entry.squirrelbase.iri }}">{{ entry.squirrelbase.item }}</a></dd>{% endif %}
+        </dl>
+        <ul class="tags">
+        {% for keyword in entry.keywords %}<li>{{ keyword.label }}</li>{% endfor %}
+        </ul>
+      </article>
+    {% endfor %}
+    </div>
+    <p class="empty-state" id="none" hidden>Nothing matches these filters.</p>
+  </div>
+
+</div>
+
+<footer class="meta">
+<p>Each entry is one pinned Zenodo version of a package published with
+<a href="https://github.com/Research-Squirrel-Engineers/fdo-squirrel">fdo-squirrel</a>.
+The registry reads the metadata out of the package and does not correct it;
+what is missing or unclean in a package is listed in the quality report and
+goes back to whoever published it.</p>
+<p>{{ catalog.title }} &middot; release {{ release }} &middot;
+<a href="https://github.com/Research-Squirrel-Engineers/fdo-squirrel-registry">source</a></p>
+</footer>
+
+</main>
+
+<script type="application/json" id="index-data">{{ index_json }}</script>
+<script>
+(function () {
+  "use strict";
+  const data = JSON.parse(document.getElementById("index-data").textContent);
+  const entries = data.entries;
+  const cards = new Map();
+  document.querySelectorAll(".card").forEach(card =>
+    cards.set(card.dataset.record, card));
+
+  const search = document.getElementById("q");
+  const visible = document.getElementById("visible");
+  const none = document.getElementById("none");
+
+  function selection() {
+    const chosen = {};
+    document.querySelectorAll(".facet").forEach(group => {
+      const values = [...group.querySelectorAll("input:checked")].map(box => box.value);
+      if (values.length) { chosen[group.dataset.facet] = values; }
+    });
+    return chosen;
+  }
+
+  function haystack(entry) {
+    return [entry.title, entry.description, entry.record_id,
+            ...entry.keywords.map(k => k.label),
+            ...entry.creators.map(c => c.name),
+            ...entry.places.map(p => p.label)].join(" ").toLowerCase();
+  }
+
+  // A facet with several values selected matches an entry carrying any of
+  // them; different facets have to match together. That is the usual reading,
+  // and the one that keeps narrowing predictable.
+  function matches(entry, chosen, text) {
+    for (const [key, values] of Object.entries(chosen)) {
+      if (!values.some(value => entry.facets[key].includes(value))) { return false; }
+    }
+    return !text || haystack(entry).includes(text);
+  }
+
+  function apply() {
+    const chosen = selection();
+    const text = search.value.trim().toLowerCase();
+    let shown = 0;
+    const surviving = [];
+    entries.forEach(entry => {
+      const ok = matches(entry, chosen, text);
+      cards.get(entry.record_id).hidden = !ok;
+      if (ok) { shown += 1; surviving.push(entry); }
+    });
+    visible.textContent = shown;
+    none.hidden = shown !== 0;
+
+    // Counts follow the current selection, so a value that can no longer add
+    // anything says so instead of leading into an empty result.
+    document.querySelectorAll(".facet").forEach(group => {
+      const key = group.dataset.facet;
+      const others = Object.fromEntries(
+        Object.entries(chosen).filter(([name]) => name !== key));
+      const pool = entries.filter(entry => matches(entry, others, text));
+      group.querySelectorAll("label").forEach(label => {
+        const value = label.querySelector("input").value;
+        const count = pool.filter(entry => entry.facets[key].includes(value)).length;
+        label.querySelector(".count").textContent = count;
+        label.classList.toggle("empty", count === 0);
+      });
+    });
+  }
+
+  document.getElementById("facets").addEventListener("change", apply);
+  search.addEventListener("input", apply);
+  document.getElementById("reset").addEventListener("click", () => {
+    document.querySelectorAll(".facet input:checked").forEach(box => box.checked = false);
+    search.value = "";
+    apply();
+  });
+  apply();
+})();
+</script>
+</body>
+</html>

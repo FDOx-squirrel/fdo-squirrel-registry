@@ -34,6 +34,16 @@ REGISTRY_NS = FDO_NS + "registry/"
 CATALOG_IRI = REGISTRY_NS + "catalog"
 ROLE_SCHEME = REGISTRY_NS + "role/"
 
+# Where a SquirrelBase Q-id from registry/sources.json becomes an IRI. One
+# constant rather than a value repeated per source entry, so correcting the
+# instance's entity namespace is a one-line change and cannot half-happen.
+# Set it to None to keep the link out of the bundle entirely.
+#
+# NOT verified against the live instance as of 2026-09-03 (PRIMER A4): the
+# form below is the wikibase.cloud convention. Check it before the release
+# that publishes the bundle.
+SQUIRRELBASE_ENTITY_NS: str | None = "https://squirrelbase.wikibase.cloud/entity/"
+
 # Prefixes used across the repository. One table, so the bridge file, the
 # bundle and the query page cannot disagree about what `crmdig:` means.
 PREFIXES: dict[str, str] = {
@@ -89,6 +99,7 @@ def expand(curie: str) -> str:
 ROOT = Path(__file__).resolve().parent.parent
 REGISTRY = ROOT / "registry"
 SOURCES = REGISTRY / "sources.json"
+LABELS = REGISTRY / "labels.json"
 DATA = ROOT / "data"
 RAW = DATA / "raw"
 RAW_FDO = RAW / "fdo"
@@ -107,6 +118,9 @@ BUNDLE = DIST / "fdo-registry.ttl"
 # the bundle cannot see the CRM anchoring the bundle claims to conform to.
 N4O_BUNDLE = DIST / "fdo-registry-n4o.ttl"
 INDEX = DIST / "registry-index.json"
+MISSING_LABELS = DIST / "labels_missing.json"
+SITE_INDEX = DOCS / "index.html"
+SITE_RECORDS = DOCS / "record"
 CRM_CROSSWALK = CROSSWALKS / "fdo--crm.csv"
 ROLE_CROSSWALK = CROSSWALKS / "fdo-role--skos.csv"
 CRM_BRIDGE = METADATA / "crm_bridge.ttl"
@@ -189,6 +203,22 @@ def zenodo_record_id(doi: str) -> str:
 # ---------------------------------------------------------------------------
 # Deterministic writers
 # ---------------------------------------------------------------------------
+
+
+def rel(path: Path) -> str:
+    """A repository-relative path with forward slashes, for generated files.
+
+    `Path.relative_to()` renders `dist\\fdo-registry.ttl` on Windows and
+    `dist/fdo-registry.ttl` everywhere else, so a report that names its inputs
+    differs between two machines that built the same graph from the same data.
+    Determinism per machine is not enough once more than one machine builds.
+    Terminal output may use the native form; anything written to a file goes
+    through here.
+    """
+    try:
+        return path.relative_to(ROOT).as_posix()
+    except ValueError:
+        return path.name
 
 
 def read_json(path: Path):
@@ -338,11 +368,51 @@ def skipped(reason: str) -> None:
 
 def pinned_record_ids() -> set[str]:
     """Record ids of the version DOIs in registry/sources.json."""
+    return set(pinned_sources())
+
+
+def pinned_sources() -> dict[str, dict]:
+    """record id -> its entry in registry/sources.json.
+
+    The curated list is the only place that carries what the packages do not
+    say about themselves - today the SquirrelBase item, tomorrow whatever else
+    a human knows and the metadata does not.
+    """
     if not SOURCES.exists():
-        return set()
-    return {zenodo_record_id(entry["version_doi"])
+        return {}
+    return {zenodo_record_id(entry["version_doi"]): entry
             for entry in read_json(SOURCES).get("sources", [])
             if entry.get("version_doi")}
+
+
+def squirrelbase_iri(item: str | None) -> str | None:
+    """'Q60' -> the SquirrelBase entity IRI, or None if either part is missing."""
+    if not item or not SQUIRRELBASE_ENTITY_NS:
+        return None
+    return SQUIRRELBASE_ENTITY_NS + item
+
+
+# ---------------------------------------------------------------------------
+# Display labels for IRIs the bundle does not label
+# ---------------------------------------------------------------------------
+
+
+def load_labels() -> dict[str, dict]:
+    """registry/labels.json - hand-curated display labels, keyed by IRI.
+
+    The harvested packages point at Wikidata concepts and OpenStreetMap places
+    by IRI and carry no label for them (PRIMER A1, Befund 24), and the registry
+    is not allowed to dereference them: the network belongs to S2 alone, and a
+    label fetched at build time would make the page depend on someone else's
+    uptime. So the labels are curated here, and an IRI without one is shown as
+    its bare id rather than as a guess.
+
+    An entry is {"label": str|None, "note": str}; a null label means "seen,
+    not yet named" and is reported by the index build.
+    """
+    if not LABELS.exists():
+        return {}
+    return read_json(LABELS).get("labels", {})
 
 
 def harvested_records() -> list[Path]:

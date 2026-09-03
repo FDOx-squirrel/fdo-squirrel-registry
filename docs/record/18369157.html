@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ogham Analysis &middot; FDOx Registry</title>
+<style>
+  :root { --ink: #1c1c1c; --muted: #5c5c5c; --rule: #d8d4cc; --bg: #fbfaf7;
+          --card: #fff; --accent: #7a4b17; --warn: #8a1c1c; }
+  * { box-sizing: border-box; }
+  body { margin: 0; padding: 2rem 1.5rem 5rem; background: var(--bg); color: var(--ink);
+         font: 16px/1.55 "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif; }
+  main { max-width: 58rem; margin: 0 auto; }
+  h1 { font-size: 1.8rem; margin: .2rem 0 .3rem; letter-spacing: -.01em; }
+  h2 { font-size: 1.1rem; margin: 2.4rem 0 .4rem; border-bottom: 1px solid var(--rule);
+       padding-bottom: .3rem; }
+  p { max-width: 46rem; }
+  a { color: var(--accent); }
+  .meta { color: var(--muted); font-size: .85rem; }
+  .badge { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: .78rem;
+           color: var(--accent); }
+  dl.facts { display: grid; grid-template-columns: 9rem 1fr; gap: .35rem 1rem;
+             font-family: ui-sans-serif, system-ui, sans-serif; font-size: .86rem;
+             margin: 1rem 0 0; }
+  dl.facts dt { color: var(--muted); }
+  dl.facts dd { margin: 0; overflow-wrap: anywhere; }
+  table { border-collapse: collapse; width: 100%; margin: .6rem 0 0;
+          font-family: ui-sans-serif, system-ui, sans-serif; font-size: .82rem; }
+  th, td { text-align: left; vertical-align: top; padding: .4rem .6rem;
+           border-bottom: 1px solid var(--rule); }
+  th { font-weight: 600; color: var(--muted); text-transform: uppercase;
+       letter-spacing: .04em; font-size: .7rem; white-space: nowrap; }
+  td.num { text-align: right; font-variant-numeric: tabular-nums; }
+  code { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: .82em; }
+  ul.plain { list-style: none; padding: 0; margin: 0; }
+  .warn { color: var(--warn); }
+  .note { color: var(--muted); font-size: .85rem; }
+</style>
+</head>
+<body>
+<main>
+
+<p class="meta"><a href="../index.html">&larr; FDOx Registry</a></p>
+<h1>Ogham Analysis</h1>
+<p class="badge">SoftwareFDO
+  &middot; catalogue record 18369157</p>
+
+<p>Ogham Analysis with R</p>
+<p class="note">Ogham Stones in the Wild and in Museums in Ireland bearing Ogham inscriptions.</p>
+
+
+
+<h2>Identity</h2>
+<dl class="facts">
+  <dt>FDO (concept DOI)</dt>
+  <dd><a href="https://doi.org/10.5281/zenodo.18369156">https://doi.org/10.5281/zenodo.18369156</a></dd>
+  
+  <dt>Pinned version</dt>
+  <dd><a href="https://doi.org/10.5281/zenodo.18369157">https://doi.org/10.5281/zenodo.18369157</a></dd>
+  
+  
+  <dt>Zenodo record</dt>
+  <dd><a href="https://zenodo.org/records/18369157">https://zenodo.org/records/18369157</a></dd>
+  
+  
+  <dt>Read from</dt>
+  <dd><a href="https://zenodo.org/api/records/18369157/files/ogham-analysis.zip/content">the package ZIP on Zenodo</a>
+      <span class="note">the metadata lies inside it as <code>fdo-metadata.ttl</code>;
+      the link downloads the whole package</span></dd>
+  
+  
+  <dt>Catalogue record</dt>
+  <dd><code>https://w3id.org/fdo-squirrel/registry/record/18369157</code></dd>
+  
+  <dt>SHA-256</dt>
+  <dd><code>865918a7c880454bd03c25c6653a0977150976093081763b7e809bde622cc2b1</code> <span class="note">of the harvested file as published</span></dd>
+  
+</dl>
+
+
+<p class="note warn">Read with declared repairs: <code>missing-prefix:crm</code>, <code>missing-prefix:crmdig</code>.
+The published file is not valid Turtle; the repairs fix its encoding, never its
+statements, and the checksum above is of the original.</p>
+
+
+<h2>Description</h2>
+<dl class="facts">
+  
+  <dt>Creators</dt>
+  <dd><ul class="plain">
+    
+    <li><a href="https://orcid.org/0000-0003-4696-2101">Schmidt, Sophie C.</a>
+        </li></ul></dd>
+  
+  
+  <dt>Licence</dt>
+  <dd><a href="https://spdx.org/licenses/MIT.html">MIT</a></dd>
+  
+  <dt>Published</dt><dd>2021-01-15</dd>
+  
+  <dt>Keywords</dt>
+  <dd><a href="http://www.wikidata.org/entity/Q2016147">Ogham stone</a></dd>
+  
+  
+  <dt>Place</dt>
+  <dd><a href="https://www.openstreetmap.org/relation/62273">OSM relation 62273</a></dd>
+  
+  
+  <dt>Geometry</dt>
+  <dd><code><http://www.opengis.net/def/crs/EPSG/0/4326> POINT(-8.0 53.0)</code></dd>
+  
+  
+  <dt>Time span</dt>
+  <dd>Ogham stone inscriptions (ca. 4th–7th century CE)
+      <code>0300/0699</code>
+      <span class="note">(harvested bounds
+      300&ndash;699)</span></dd>
+  
+</dl>
+
+<h2>Files</h2>
+<p class="note">117 distributions,
+22.5 MB in total;
+12 documentation, 1 script, 104 software.
+The largest
+12 are listed.</p>
+<table>
+<thead><tr><th>Path</th><th>Role</th><th>Media type</th><th class="num">Size</th></tr></thead>
+<tbody>
+
+<tr>
+  <td><code>analysis/data/raw_data/ne_10m_admin_0_countries.shp</code></td>
+  <td>software</td>
+  <td>application/octet-stream</td>
+  <td class="num">8.4 MB</td>
+</tr>
+
+<tr>
+  <td><code>analysis/data/raw_data/ne_10m_admin_0_sovereignty.shp</code></td>
+  <td>software</td>
+  <td>application/octet-stream</td>
+  <td class="num">8.4 MB</td>
+</tr>
+
+<tr>
+  <td><code>analysis/data/raw_data/ne_10m_admin_0_countries.dbf</code></td>
+  <td>software</td>
+  <td>application/octet-stream</td>
+  <td class="num">585.4 KB</td>
+</tr>
+
+<tr>
+  <td><code>analysis/figures/co-occurence.jpg</code></td>
+  <td>software</td>
+  <td>image/jpeg</td>
+  <td class="num">404.2 KB</td>
+</tr>
+
+<tr>
+  <td><code>analysis/data/raw_data/ne_10m_admin_0_sovereignty.dbf</code></td>
+  <td>software</td>
+  <td>application/octet-stream</td>
+  <td class="num">391.6 KB</td>
+</tr>
+
+<tr>
+  <td><code>analysis/data/raw_data/ne_110m_admin_0_countries.dbf</code></td>
+  <td>software</td>
+  <td>application/octet-stream</td>
+  <td class="num">366.7 KB</td>
+</tr>
+
+<tr>
+  <td><code>analysis/data/raw_data/cisp_site.csv</code></td>
+  <td>software</td>
+  <td>application/vnd.ms-excel</td>
+  <td class="num">256.0 KB</td>
+</tr>
+
+<tr>
+  <td><code>analysis/figures/densitymap.jpg</code></td>
+  <td>software</td>
+  <td>image/jpeg</td>
+  <td class="num">192.9 KB</td>
+</tr>
+
+<tr>
+  <td><code>analysis/data/raw_data/reading.csv</code></td>
+  <td>software</td>
+  <td>application/vnd.ms-excel</td>
+  <td class="num">179.2 KB</td>
+</tr>
+
+<tr>
+  <td><code>analysis/data/raw_data/ne_110m_admin_0_countries.shp</code></td>
+  <td>software</td>
+  <td>application/octet-stream</td>
+  <td class="num">176.7 KB</td>
+</tr>
+
+<tr>
+  <td><code>analysis/paper/nodes_list_d.txt</code></td>
+  <td>documentation</td>
+  <td>text/plain</td>
+  <td class="num">173.5 KB</td>
+</tr>
+
+<tr>
+  <td><code>analysis/paper/working_data/nodes_list_d.txt</code></td>
+  <td>documentation</td>
+  <td>text/plain</td>
+  <td class="num">143.4 KB</td>
+</tr>
+
+</tbody>
+</table>
+
+<p class="meta" style="margin-top:3rem">FDOx Registry &middot; release 2026-09-03
+&middot; <a href="../fdo-registry.ttl">bundle (Turtle)</a>
+&middot; <a href="https://github.com/Research-Squirrel-Engineers/fdo-squirrel-registry">source</a></p>
+
+</main>
+</body>
+</html>

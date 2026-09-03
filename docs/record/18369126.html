@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ogham 3D EpiDoc Extractor &middot; FDOx Registry</title>
+<style>
+  :root { --ink: #1c1c1c; --muted: #5c5c5c; --rule: #d8d4cc; --bg: #fbfaf7;
+          --card: #fff; --accent: #7a4b17; --warn: #8a1c1c; }
+  * { box-sizing: border-box; }
+  body { margin: 0; padding: 2rem 1.5rem 5rem; background: var(--bg); color: var(--ink);
+         font: 16px/1.55 "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif; }
+  main { max-width: 58rem; margin: 0 auto; }
+  h1 { font-size: 1.8rem; margin: .2rem 0 .3rem; letter-spacing: -.01em; }
+  h2 { font-size: 1.1rem; margin: 2.4rem 0 .4rem; border-bottom: 1px solid var(--rule);
+       padding-bottom: .3rem; }
+  p { max-width: 46rem; }
+  a { color: var(--accent); }
+  .meta { color: var(--muted); font-size: .85rem; }
+  .badge { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: .78rem;
+           color: var(--accent); }
+  dl.facts { display: grid; grid-template-columns: 9rem 1fr; gap: .35rem 1rem;
+             font-family: ui-sans-serif, system-ui, sans-serif; font-size: .86rem;
+             margin: 1rem 0 0; }
+  dl.facts dt { color: var(--muted); }
+  dl.facts dd { margin: 0; overflow-wrap: anywhere; }
+  table { border-collapse: collapse; width: 100%; margin: .6rem 0 0;
+          font-family: ui-sans-serif, system-ui, sans-serif; font-size: .82rem; }
+  th, td { text-align: left; vertical-align: top; padding: .4rem .6rem;
+           border-bottom: 1px solid var(--rule); }
+  th { font-weight: 600; color: var(--muted); text-transform: uppercase;
+       letter-spacing: .04em; font-size: .7rem; white-space: nowrap; }
+  td.num { text-align: right; font-variant-numeric: tabular-nums; }
+  code { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: .82em; }
+  ul.plain { list-style: none; padding: 0; margin: 0; }
+  .warn { color: var(--warn); }
+  .note { color: var(--muted); font-size: .85rem; }
+</style>
+</head>
+<body>
+<main>
+
+<p class="meta"><a href="../index.html">&larr; FDOx Registry</a></p>
+<h1>Ogham 3D EpiDoc Extractor</h1>
+<p class="badge">SoftwareFDO
+  &middot; catalogue record 18369126</p>
+
+<p>LOD Extractor for TEI/EpiDoc Files from the Ogham in 3D Project</p>
+<p class="note">Ogham Stones in the Wild and in Museums in Ireland bearing Ogham inscriptions.</p>
+
+
+
+<h2>Identity</h2>
+<dl class="facts">
+  <dt>FDO (concept DOI)</dt>
+  <dd><a href="https://doi.org/10.5281/zenodo.18369125">https://doi.org/10.5281/zenodo.18369125</a></dd>
+  
+  <dt>Pinned version</dt>
+  <dd><a href="https://doi.org/10.5281/zenodo.18369126">https://doi.org/10.5281/zenodo.18369126</a></dd>
+  
+  
+  <dt>Zenodo record</dt>
+  <dd><a href="https://zenodo.org/records/18369126">https://zenodo.org/records/18369126</a></dd>
+  
+  
+  <dt>Read from</dt>
+  <dd><a href="https://zenodo.org/api/records/18369126/files/o3d-epidoc-extractor.zip/content">the package ZIP on Zenodo</a>
+      <span class="note">the metadata lies inside it as <code>fdo-metadata.ttl</code>;
+      the link downloads the whole package</span></dd>
+  
+  
+  <dt>Catalogue record</dt>
+  <dd><code>https://w3id.org/fdo-squirrel/registry/record/18369126</code></dd>
+  
+  <dt>SHA-256</dt>
+  <dd><code>c2158eadd88537de1677878980b8b4486b27eed13bff35f0e3bb145bb036a3d4</code> <span class="note">of the harvested file as published</span></dd>
+  
+</dl>
+
+
+<p class="note warn">Read with declared repairs: <code>missing-prefix:crm</code>, <code>missing-prefix:crmdig</code>.
+The published file is not valid Turtle; the repairs fix its encoding, never its
+statements, and the checksum above is of the original.</p>
+
+
+<h2>Description</h2>
+<dl class="facts">
+  
+  <dt>Creators</dt>
+  <dd><ul class="plain">
+    
+    <li><a href="https://orcid.org/0000-0002-3246-3531">Thiery, Florian</a>
+        </li>
+    
+    <li><a href="https://orcid.org/0000-0002-9499-5840">Homburg, Timo</a>
+        </li></ul></dd>
+  
+  
+  <dt>Licence</dt>
+  <dd><a href="https://spdx.org/licenses/MIT.html">MIT</a></dd>
+  
+  <dt>Published</dt><dd>2020-08-01</dd>
+  
+  <dt>Keywords</dt>
+  <dd><a href="http://www.wikidata.org/entity/Q5382396">EpiDoc</a>, <a href="http://www.wikidata.org/entity/Q18692990">Linked Open Data</a>, <a href="http://www.wikidata.org/entity/Q2016147">Ogham stone</a></dd>
+  
+  
+  <dt>Place</dt>
+  <dd><a href="https://www.openstreetmap.org/relation/62273">OSM relation 62273</a></dd>
+  
+  
+  <dt>Geometry</dt>
+  <dd><code><http://www.opengis.net/def/crs/EPSG/0/4326> POINT(-8.0 53.0)</code></dd>
+  
+  
+  <dt>Time span</dt>
+  <dd>Ogham stone inscriptions (ca. 4th–7th century CE)
+      <code>0300/0699</code>
+      <span class="note">(harvested bounds
+      300&ndash;699)</span></dd>
+  
+</dl>
+
+<h2>Files</h2>
+<p class="note">254 distributions,
+50.5 MB in total;
+2 documentation, 30 script, 222 software.
+The largest
+12 are listed.</p>
+<table>
+<thead><tr><th>Path</th><th>Role</th><th>Media type</th><th class="num">Size</th></tr></thead>
+<tbody>
+
+<tr>
+  <td><code>ciic/irl_rivers_owm.geojson</code></td>
+  <td>software</td>
+  <td>application/geo+json</td>
+  <td class="num">18.6 MB</td>
+</tr>
+
+<tr>
+  <td><code>img/MAQI.png</code></td>
+  <td>software</td>
+  <td>image/png</td>
+  <td class="num">2.7 MB</td>
+</tr>
+
+<tr>
+  <td><code>img/CUNA.png</code></td>
+  <td>software</td>
+  <td>image/png</td>
+  <td class="num">2.6 MB</td>
+</tr>
+
+<tr>
+  <td><code>ciic/nomenclature_human_god.pdf</code></td>
+  <td>software</td>
+  <td>application/pdf</td>
+  <td class="num">2.4 MB</td>
+</tr>
+
+<tr>
+  <td><code>ciic/cluster.pdf</code></td>
+  <td>software</td>
+  <td>application/pdf</td>
+  <td class="num">2.3 MB</td>
+</tr>
+
+<tr>
+  <td><code>ciic/relationships.pdf</code></td>
+  <td>software</td>
+  <td>application/pdf</td>
+  <td class="num">2.3 MB</td>
+</tr>
+
+<tr>
+  <td><code>ciic/nomenclature_nature.pdf</code></td>
+  <td>software</td>
+  <td>application/pdf</td>
+  <td class="num">2.3 MB</td>
+</tr>
+
+<tr>
+  <td><code>ciic/nomenclature_human_god.png</code></td>
+  <td>software</td>
+  <td>image/png</td>
+  <td class="num">1.9 MB</td>
+</tr>
+
+<tr>
+  <td><code>ciic/relationships.png</code></td>
+  <td>software</td>
+  <td>image/png</td>
+  <td class="num">1.9 MB</td>
+</tr>
+
+<tr>
+  <td><code>ciic/cluster.png</code></td>
+  <td>software</td>
+  <td>image/png</td>
+  <td class="num">1.9 MB</td>
+</tr>
+
+<tr>
+  <td><code>ciic/nomenclature_nature.png</code></td>
+  <td>software</td>
+  <td>image/png</td>
+  <td class="num">1.8 MB</td>
+</tr>
+
+<tr>
+  <td><code>ciic/stone.csv</code></td>
+  <td>software</td>
+  <td>application/vnd.ms-excel</td>
+  <td class="num">1.2 MB</td>
+</tr>
+
+</tbody>
+</table>
+
+<p class="meta" style="margin-top:3rem">FDOx Registry &middot; release 2026-09-03
+&middot; <a href="../fdo-registry.ttl">bundle (Turtle)</a>
+&middot; <a href="https://github.com/Research-Squirrel-Engineers/fdo-squirrel-registry">source</a></p>
+
+</main>
+</body>
+</html>

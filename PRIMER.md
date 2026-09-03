@@ -211,6 +211,38 @@ Bundle aus S4, 6582 Tripel):
     bei sechzig wäre es der Unterschied zwischen einem Gate im Standardlauf und
     einem, das jemand herausnimmt.
 
+**Befunde aus dem Seitenbau** (geprüft 2026-09-03 in S6 am Bundle mit 6584
+Tripeln):
+
+24. **Die IRIs, auf die die Pakete zeigen, tragen keine Labels.** Sieben
+    Wikidata-Konzepte und sieben OpenStreetMap-Objekte stehen im Bundle mit
+    genau einem Tripel — ihrem `rdf:type` aus der Instanz-Verankerung. Kein
+    `rdfs:label`, kein `schema:name`. Die Facette „Ort" heisst damit ohne
+    Zutun „OSM relation 62273". Auflösen darf die Registry sie nicht (A3, Netz
+    nur in S2), erfinden erst recht nicht — deshalb die kuratierte Tabelle in
+    A4. Gegenbeispiel im selben Bundle: die `dct:PeriodOfTime`-Knoten *haben*
+    `rdfs:label` („Ogham stone inscriptions (ca. 4th–7th century CE)") und
+    `owl:sameAs` auf ChronOntology. Der Generator kann es also, er tut es nur
+    für Orte und Konzepte nicht — Rückmeldung an `fdo-squirrel`.
+25. **`file://` und `fetch()` vertragen sich nicht.** Eine Seite, die ihren
+    Index per `fetch()` nachlädt, scheitert lokal geöffnet an der
+    Same-Origin-Regel (Origin `null`) — in Chrome und seit Firefox 68 auch
+    dort. Die Abnahme von S6 verlangt genau diesen Test, also ist der Index in
+    `docs/index.html` eingebettet und liegt zusätzlich als eigene Datei
+    daneben. Das kostet 34 KB doppelt und ist der Preis dafür, dass die Seite
+    ohne Server funktioniert.
+26. **`prov:wasDerivedFrom` zeigt auf das ZIP, nicht auf das TTL.** Der
+    Katalogeintrag trägt die Zenodo-Content-URL des Pakets (196 MB bei
+    18744133); der Membername steht nur in `harvest.json`, nicht im Graphen.
+    Eine Detailseite, die den Link mit „fdo-metadata.ttl" beschriftet, lügt um
+    zwei Grössenordnungen. Sie beschriftet ihn jetzt als Paket.
+27. **Die Ausgabe war plattformabhängig.** `dist/quality_report.md` nennt
+    seine Eingaben über `Path.relative_to()` und schrieb damit unter Windows
+    `dist\fdo-registry.ttl`, unter Linux `dist/fdo-registry.ttl`. Zwei
+    Rechner, dieselben Daten, verschiedene Bytes. Seit S6 geht alles, was in
+    eine Datei geschrieben wird, durch `registry_utils.rel()`. Determinismus
+    je Rechner reicht nicht, sobald mehr als ein Rechner baut.
+
 **Was das Anwendungsprofil nicht abdeckt** (geprüft 2026-09-03 an
 <https://nfdi4objects.github.io/crm-rdf-ap/>, Fassung 2025-01-27, Jakob Voß):
 Es behandelt CRM-Kern, SKOS, GeoSPARQL, Time Ontology und BIBO. Zu **CRMdig
@@ -417,6 +449,14 @@ dem es zum ersten Mal wirkt.
 | Selbsttest des Gates | `metadata/shapes_selftest.ttl` ist ein absichtlich kaputter Graph, gegen den **jede** `sh:message` aus `shapes.ttl` mindestens einmal anschlagen muss; geprüft bei jedem Lauf. Fünf Regeln können gegen den heutigen Bestand nie auslösen (Befund 21) — ohne Fixture wäre ihr Grün bedeutungslos | 2026-09-03 |
 | `object-class` als sechster Mechanismus | eine Crosswalk-Zeile darf den **Objekten** einer Property eine Klasse geben (`dct:spatial@object → crm:E53_Place`). Nur als `instance` erlaubt: als Axiom wäre es ein `rdfs:range` auf einer fremden Property und damit eine Aussage über einen Namensraum, der uns nicht gehört | 2026-09-03 |
 | `check-updates` | eigener Netzschritt, ändert nichts. Meldet neuere Versionen gepinnter Records *und* Records der Zenodo-Community `squirrel-fdo`, die nicht in `sources.json` stehen | 2026-09-03 |
+| Labels für fremde IRIs | kuratierte `registry/labels.json`, von Hand gepflegt, mit Unterstützung: `python main.py --only index` schreibt jede IRI ohne Label nach `dist/labels_missing.json`, fertig zum Ausfüllen. Ein `null`-Label heisst „gesehen, noch nicht benannt"; die Seite zeigt dann die nackte Kennung und verlinkt zur Quelle. Labels sind reine Anzeige und kommen in keinen Graphen | 2026-09-03 |
+| SquirrelBase-Q-ID | kuratiertes Feld `squirrelbase_item` in `registry/sources.json`, im Bundle als `fdoreg:squirrelbaseItem` am `dcat:CatalogRecord` (`rdfs:subPropertyOf crm:P67_refers_to`). Aus dem ZIP-Dateinamen *abgeleitet* wird sie nicht — die drei Zuordnungen Q55/Q56/Q60 stammen aus der Tabelle in A1 und sind vom Menschen zu bestätigen | 2026-09-03 |
+| IRI-Form der SquirrelBase | eine Konstante `SQUIRRELBASE_ENTITY_NS` in `py/registry_utils.py`, nicht je Eintrag wiederholt. Steht auf `https://squirrelbase.wikibase.cloud/entity/`, **ungeprüft** gegen die laufende Instanz; jeder Bundle-Lauf sagt das dazu. Auf `None` gesetzt bleibt das Tripel ganz draussen | 2026-09-03, zu prüfen |
+| Form der Seite | `docs/index.html` mit eingebettetem Index plus je Eintrag eine statische `docs/record/<id>.html`. Eingebettet, weil `fetch()` unter `file://` scheitert (Befund 25); je Eintrag eine Datei, weil A6 dem Record einen eigenen Pfad gibt und ein w3id-Redirect auf ein Fragment nicht zeigen kann | 2026-09-03 |
+| Welches `dct:description` die Seite zeigt | das längste. Die kurzen Werte („good", „low") sind erkennbar andere `MD.cff`-Felder; welches wohin gehört, weiss nur der Autor (A4, Grenze der Reparatur). Die Detailseite nennt die übrigen und sagt, dass die Quelle mehrdeutig ist | 2026-09-03 |
+| Facette „Jahr" | Erscheinungsjahr des FDO (`dct:issued`, ersatzweise `dct:created`), nicht der Zeitraum des Objekts. Der Zeitraum steht auf Kachel und Detailseite, ist aber als Facette wertlos: fünf der sieben Pakete tragen dieselbe Ogham-Spanne | 2026-09-03 |
+| Personen-IRIs auf der Seite | nur ORCIDs werden verlinkt. Die registry-eigenen `agent/`-IRIs haben noch keine Seite, und ein Link ins Leere sieht aus wie ein Angebot. Stattdessen steht dort „no ORCID in the package" — dieselbe Aussage wie im Qualitätsbericht, nur dort, wo sie jemand liest | 2026-09-03 |
+| Pfade in Erzeugnissen | über `registry_utils.rel()`, nie über `Path.relative_to()` direkt (Befund 27). Terminalausgabe darf plattformnativ bleiben, Dateiinhalt nicht | 2026-09-03 |
 
 ## A5. Was in welchem Chat hochgeladen wird
 
@@ -467,11 +507,12 @@ existiert oder ob die IRI bisher nur als Präfix benutzt wird.
 | `/fdo-squirrel/crm/` | Brücke FDOx → CIDOC CRM | `metadata/crm_bridge.ttl` | gebaut (S3), w3id-Eintrag offen |
 | `/fdo-squirrel/registry/` | Registry-Vokabular `fdoreg:`, vier Terme | `metadata/registry_ontology.ttl` | gebaut (S4), w3id-Eintrag offen |
 | `/fdo-squirrel/registry/catalog` | der Katalogknoten selbst | `dist/fdo-registry.ttl` | gebaut (S4), w3id-Eintrag offen |
-| `/fdo-squirrel/registry/record/{id}` | ein `dcat:CatalogRecord` je gepinnter Version | Detailansicht auf Pages | im Bundle vergeben (S4), Seite geplant (S6) |
+| `/fdo-squirrel/registry/record/{id}` | ein `dcat:CatalogRecord` je gepinnter Version | `docs/record/{id}.html` | gebaut (S6), w3id-Eintrag offen |
 | `/fdo-squirrel/registry/record/{id}/dist/{sha}` | eine `dcat:Distribution` | Detailansicht auf Pages | im Bundle vergeben (S4) |
-| `/fdo-squirrel/registry/agent/{hash}` | eine Person ohne ORCID, registry-global | Detailansicht auf Pages | im Bundle vergeben (S4) |
+| `/fdo-squirrel/registry/agent/{hash}` | eine Person ohne ORCID, registry-global | Detailansicht auf Pages | im Bundle vergeben (S4), keine Seite — die Detailseiten verlinken solche IRIs deshalb nicht (A4) |
 | `/fdo-squirrel/registry/role/` | SKOS-Vokabular zu `fdo:role`, sechs Konzepte | `metadata/vocab/role.ttl` | gebaut (S3), w3id-Eintrag offen |
 | `/fdo-squirrel/registry/shapes/` | SHACL-Gate, 38 Regeln | `metadata/shapes.ttl` | gebaut (S5), w3id-Eintrag offen |
+| `/fdo-squirrel/registry/squirrelbaseItem` | Verweis auf das SquirrelBase-Item zum Objekt | `metadata/registry_ontology.ttl` | gebaut (S6), w3id-Eintrag offen |
 
 **Zu klären beim Eintragen.** Ein Redirect auf GitHub Pages liefert genau eine
 Repräsentation aus. Für echte Content Negotiation braucht es w3id-seitige
@@ -489,7 +530,7 @@ Repräsentation aus. Für echte Content Negotiation braucht es w3id-seitige
 | S3 | Crosswalk FDOx → CIDOC CRM | S0, S2 (ein echtes TTL) | erledigt 2026-09-03 |
 | S4 | Bundle-Build als DCAT-Katalog | S2, S3 | erledigt 2026-09-03 |
 | S5 | SHACL-Gate und Qualitätsbericht | S4 | erledigt 2026-09-03 |
-| S6 | Registry-Index und Facettenseite | S4 | offen |
+| S6 | Registry-Index und Facettenseite | S4 | erledigt 2026-09-03 |
 | S7 | SPARQL-Seite | S4, S6 | offen |
 | S8 | Registry als FDO, Release und CI | S5, S7 | offen |
 | S9 | N4O-Andockung | S5, S8 | offen |
@@ -1185,6 +1226,48 @@ mit vorbelegter Query auf `sparql.html`.
 den Test), jeder Eintrag ist über mindestens eine Facette erreichbar, und die
 Zahl der Kacheln stimmt mit `dcat:record` im Bundle überein.
 
+### Erledigt 2026-09-03
+
+`py/step_index.py` (nicht `build_index.py` — die Schrittmodule heissen im Repo
+alle `step_*`) schreibt `dist/registry-index.json`: 7 Einträge, 510
+Distributionen, 0,9 GB beschrieben. `py/step_site.py` rendert daraus
+`docs/index.html` mit 7 Kacheln und 6 Facetten (FDO type 2, Licence 4, Keyword
+14, Place 6, Published 5, Creator 4), je Eintrag eine `docs/record/<id>.html`
+und daneben Kopien von Bundle und Index für Pages. Beide Abnahmeprüfungen
+laufen im Schritt selbst: Eintragszahl gegen `dcat:record`, und jeder Eintrag
+mit mindestens einem Facettenwert. Zwei Läufe mit wechselndem `PYTHONHASHSEED`
+liefern byte-gleiche `dist/` und `docs/`.
+
+Was anders kam als geplant:
+
+- **Die Detailansicht ist keine Ansicht, sondern sieben Dateien.** Geplant war
+  „Detailansicht je Eintrag" innerhalb der Facettenseite. A6 vergibt dem Record
+  aber einen eigenen Pfad, und ein w3id-Redirect kann nicht auf ein Fragment
+  zeigen, das erst JavaScript auflöst. Der Preis ist ein Verzeichnis, das beim
+  Bauen aufgeräumt werden muss — eine Seite zu einem nicht mehr gepinnten
+  Record wäre erreichbar, sähe aktuell aus und stünde in keinem Log.
+- **Der Index steht zweimal da.** Einmal eingebettet in `index.html`, einmal
+  als Datei daneben (Befund 25). Nicht schön, aber die Alternative ist eine
+  Seite, die genau bei der Abnahme scheitert.
+- **Die Facetten sind nur so gut wie die Labels** (Befund 24). Sieben Orte
+  stehen heute als „OSM relation 62273" auf der Seite. Die sieben
+  Wikidata-Konzepte sind in `registry/labels.json` benannt und gegen Wikidata
+  geprüft; die OSM-Objekte sind offen und werden vom Lauf jedes Mal genannt.
+  Ein geratener Ortsname wäre schlimmer als eine nackte Kennung: er sieht aus
+  wie eine Aussage.
+- **Zwei Beschriftungen waren Lügen.** Der Link auf das „FDO-Metadaten-TTL"
+  zeigt auf ein 196-MB-ZIP (Befund 26), und die Personen-Links zeigten auf
+  registry-eigene IRIs ohne Seite. Beides korrigiert; die zweite Korrektur
+  bringt den Qualitätsbefund „keine ORCID" dorthin, wo ihn jemand sieht.
+- **Der Sprung auf `sparql.html` fehlt noch**, weil es die Seite erst in S7
+  gibt. Die Facettenseite ist ohne sie vollständig; der Link kommt in S7 dazu,
+  und das ist die einzige Stelle, an der S7 auf S6 zurückgreift.
+
+Offen und an S7 weitergegeben: `dist/registry-index.json` ist die zweite
+Lesart des Bundles neben SPARQL. Wenn eine Abfrage in S7 etwas anderes zählt
+als die Facette hier, ist eine von beiden falsch — das ist ein billiger
+Gegentest und gehört in den Startsatz an Abfragen.
+
 ## S7 — SPARQL-Seite
 
 **Ziel:** dieselbe Frage im Browser stellen können, die man sonst gegen einen
@@ -1258,11 +1341,17 @@ Graphen unter `https://graph.nfdi4objects.net/collection/<n>`.
 
 # Teil D — Offene Punkte
 
-- **Verhältnis zur SquirrelBase.** Die SquirrelBase hält je Objekt die FDO-URL,
-  die Registry hält je FDO die Metadaten. Beide könnten voneinander lesen. Der
-  saubere Schnitt wäre: die Registry nimmt die Q-ID aus dem FDO auf, wenn sie
-  dort steht, und fragt die SquirrelBase sonst nicht. Zu entscheiden, wenn die
-  ersten Einträge stehen — vermutlich in S6.
+- ~~**Verhältnis zur SquirrelBase.**~~ Entschieden 2026-09-03 in S6: die
+  Registry nimmt die Q-ID auf, wenn ein Mensch sie in `sources.json` einträgt,
+  und fragt die SquirrelBase nie selbst. Offen bleibt nur die IRI-Form der
+  Instanz (`SQUIRRELBASE_ENTITY_NS`, A4) und die Gegenrichtung: ob die
+  SquirrelBase je Objekt auf den Katalogeintrag zeigen soll statt nur auf die
+  FDO-URL. Das ist eine Frage an die SquirrelBase, nicht an dieses Repo.
+- **Labels für fremde IRIs auf Dauer.** `registry/labels.json` ist von Hand
+  gepflegt (A4) und wächst mit jedem Paket. Ab welcher Zahl das lästig wird,
+  ist offen; der billigste Ausweg wäre ein Netzschritt neben `harvest`, der
+  Labels holt und *vorschlägt*, wie `--resolve` es mit `sources.json` tut.
+  Nicht vor S8 — heute sind es vierzehn IRIs.
 - **Wer darf einreichen.** Bislang kuratiert (A4). Sobald Dritte FDOs beitragen
   wollen, braucht es einen Weg: Pull Request auf `sources.json` mit
   CI-Prüfung wäre der billigste. Erst relevant, wenn es Dritte gibt.
