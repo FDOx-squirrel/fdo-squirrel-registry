@@ -1,0 +1,40 @@
+# --- Python ---
+**/__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.eggs/
+build/
+.pytest_cache/
+.ipynb_checkpoints/
+
+# --- Virtual environments ---
+.venv/
+venv/
+env/
+ENV/
+
+# --- Local configuration (never committed) ---
+config.local.json
+
+# --- Editors / OS ---
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# --- Run log (not a product) ---
+# dist/ is versioned (see below), but the pipeline report carries per-step
+# timings and therefore differs on every run. Tracking it would leave
+# git status permanently dirty, which is the state in which nobody reads a
+# diff any more.
+dist/pipeline_report.txt
+
+# --- Note ---
+# dist/ is NOT ignored here, unlike the usual Python template: in this family
+# it holds the repository's products (graphs, tables, reports), which are
+# versioned so they can be cited and diffed. data/raw/ is not ignored either.
+# Large generated files are kept out of the upload bundle by the size filter
+# in PRIMER.md A5, not by this file.
+
+PATCH-README.md

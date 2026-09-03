@@ -1,0 +1,34 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "FDOx Registry"
+abstract: >-
+  A registry for FAIR Digital Objects packaged with the FDOx Squirrel reference
+  implementation: harvests FDO metadata published on Zenodo, bundles it into a
+  DCAT catalogue anchored in CIDOC CRM, validates it with SHACL, and publishes a
+  filter and SPARQL interface as a static site.
+type: software
+version: "0.1.0"
+date-released: "2026-09-03"
+license: MIT
+repository-code: "https://github.com/Research-Squirrel-Engineers/fdo-squirrel-registry"
+authors:
+  - given-names: Florian
+    family-names: Thiery
+    orcid: "https://orcid.org/0000-0002-3246-3531"
+    affiliation: "Leibniz-Zentrum für Archäologie (LEIZA); Research Squirrel Engineers Network"
+keywords:
+  - FAIR Digital Object
+  - Linked Open Data
+  - DCAT
+  - CIDOC CRM
+  - SHACL
+  - knowledge graph
+references:
+  - type: software
+    title: "FAIR Digital Object Squirrel Implementation (FDOSquirrel)"
+    authors:
+      - given-names: Florian
+        family-names: Thiery
+        orcid: "https://orcid.org/0000-0002-3246-3531"
+    repository-code: "https://github.com/Research-Squirrel-Engineers/fdo-squirrel"
+    year: 2026
