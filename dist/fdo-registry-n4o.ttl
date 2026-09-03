@@ -11,9 +11,9 @@
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix geosparql: <http://www.opengis.net/ont/geosparql#> .
 @prefix ns01: <http://chronontology.dainst.org/period/> .
+@prefix ns011: <https://spdx.org/licenses/> .
 @prefix ns02: <https://doi.org/10.5281/> .
 @prefix ns03: <https://orcid.org/> .
-@prefix ns04: <https://spdx.org/licenses/> .
 @prefix ns05: <https://w3id.org/fdo-squirrel/registry/agent/> .
 @prefix ns06: <https://w3id.org/fdo-squirrel/registry/record/> .
 @prefix ns07: <https://w3id.org/fdo-squirrel/registry/record/18369126/content/> .
@@ -53,12 +53,18 @@
 @prefix wdt: <http://www.wikidata.org/prop/direct/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
+skos:inScheme rdfs:subPropertyOf crm:P67_refers_to .
+
+fdo:AnalysisFDO rdfs:subClassOf crmdig:D1_Digital_Object .
+
+fdo:context rdfs:subPropertyOf crm:P3_has_note .
+
 fdoreg:catalog a crm:E31_Document,
         dcat:Catalog ;
     dct:conformsTo <https://w3id.org/fdo-squirrel/crm/> ;
     dct:description "A catalogue of FAIR Digital Objects published with fdo-squirrel. Each record points at one pinned Zenodo version; the metadata is harvested from the package itself and anchored in CIDOC CRM through the bridge at https://w3id.org/fdo-squirrel/crm/."@en ;
     dct:issued "2026-09-03"^^xsd:date ;
-    dct:license ns04:CC-BY-4.0.html ;
+    dct:license ns011:CC-BY-4.0.html ;
     dct:publisher wd:Q73901970 ;
     dct:title "FDOx Registry"@en ;
     crm:P102_has_title "FDOx Registry"@en ;
@@ -77,6 +83,40 @@ fdoreg:catalog a crm:E31_Document,
         ns06:18742694,
         ns06:18744133,
         ns06:18744583 .
+
+fdoreg:conceptDoi a owl:ObjectProperty ;
+    rdfs:label "concept DOI"@en ;
+    rdfs:comment "The Zenodo concept DOI of the FDO a catalogue record describes. It is the DOI the harvested fdo-metadata.ttl uses as its own subject, and therefore the identity that survives a new version."@en ;
+    rdfs:domain dcat:CatalogRecord ;
+    rdfs:isDefinedBy fdoreg: ;
+    rdfs:range dcat:Dataset .
+
+fdoreg:readRepair a owl:DatatypeProperty ;
+    rdfs:label "encoding repair applied on reading"@en ;
+    rdfs:comment "Names a declared repair from py/repair.py that had to be applied before the harvested Turtle would parse. Present only where the published file is not valid Turtle; its absence means the file was read exactly as published."@en ;
+    rdfs:domain dcat:CatalogRecord ;
+    rdfs:isDefinedBy fdoreg: ;
+    rdfs:range xsd:string .
+
+fdoreg:sha256 a owl:DatatypeProperty ;
+    rdfs:label "SHA-256 of the harvested metadata file"@en ;
+    rdfs:comment "Of the fdo-metadata.ttl exactly as it lies in the published package - never of a repaired reading of it, so the value can be checked against Zenodo."@en ;
+    rdfs:domain dcat:CatalogRecord ;
+    rdfs:isDefinedBy fdoreg: ;
+    rdfs:range xsd:string .
+
+fdoreg:versionDoi a owl:ObjectProperty ;
+    rdfs:label "version DOI"@en ;
+    rdfs:comment "The pinned Zenodo version DOI the registry harvested. One catalogue record per version DOI; several records may share a concept DOI."@en ;
+    rdfs:domain dcat:CatalogRecord ;
+    rdfs:isDefinedBy fdoreg: ;
+    rdfs:range dcat:Dataset .
+
+fdo:role rdfs:subPropertyOf crm:P2_has_type .
+
+crmdig:D14_Software rdfs:subClassOf crmdig:D1_Digital_Object .
+
+skos:ConceptScheme rdfs:subClassOf crm:E31_Document .
 
 ns02:zenodo.18369125_geom a crmgeo:SP5_Geometric_Place_Expression,
         sf:Point ;
@@ -6732,7 +6772,18 @@ ns02:zenodo.18742693_temporal a dct:PeriodOfTime,
     dcat:endDate 1982 ;
     dcat:startDate 1982 .
 
-ns04:MIT.html rdfs:label "MIT" .
+ns011:MIT.html rdfs:label "MIT" .
+
+fdo:SoftwareFDO rdfs:subClassOf crmdig:D14_Software .
+
+<https://w3id.org/fdo-squirrel/crm/> a owl:Ontology ;
+    rdfs:label "FDOx to CIDOC CRM bridge"@en ;
+    dct:source "CIDOC CRM Digital (CRMdig) v3.2.1",
+        "CRMgeo v1.0, class declaration of SP5_Geometric_Place_Expression",
+        "GeoSPARQL 1.0, Simple Features geometry vocabulary",
+        "NFDI4Objects CIDOC-CRM in RDF application profile" ;
+    rdfs:comment "Generated from crosswalks/fdo--crm.csv. Every statement about a term outside the FDOx namespace is quoted from that term's own ontology or from the NFDI4Objects application profile; nothing is asserted here about a namespace this registry does not own."@en ;
+    rdfs:seeAlso <https://nfdi4objects.github.io/crm-rdf-ap/> .
 
 ns23:11071361392 a crm:E53_Place .
 
@@ -6758,7 +6809,7 @@ ns02:zenodo.18369125 a crm:E73_Information_Object,
     dct:description "LOD Extractor for TEI/EpiDoc Files from the Ogham in 3D Project" ;
     dct:hasVersion "1.1" ;
     dct:issued "2020-08-01"^^xsd:date ;
-    dct:license ns04:MIT.html ;
+    dct:license ns011:MIT.html ;
     dct:modified "2024-09-24"^^xsd:date ;
     dct:publisher wd:Q73901970 ;
     dct:spatial ns24:62273 ;
@@ -7052,7 +7103,7 @@ ns02:zenodo.18369156 a crm:E73_Information_Object,
     dct:description "Ogham Analysis with R" ;
     dct:hasVersion "1.1" ;
     dct:issued "2021-01-15"^^xsd:date ;
-    dct:license ns04:MIT.html ;
+    dct:license ns011:MIT.html ;
     dct:modified "2021-01-15"^^xsd:date ;
     dct:publisher wd:Q73901970 ;
     dct:spatial ns24:62273 ;
@@ -7204,7 +7255,7 @@ ns02:zenodo.18369720 a crm:E73_Information_Object,
         "make 3d model available" ;
     dct:hasVersion "1.0" ;
     dct:issued "2024-06-09"^^xsd:date ;
-    dct:license ns04:CC-BY-SA-4.0.html ;
+    dct:license ns011:CC-BY-SA-4.0.html ;
     dct:modified "2024-06-19"^^xsd:date ;
     dct:provenance "{\"software\": \"KIRI Engine\", \"steps\": \"Take photos, align photos; build dense cloud; generate mesh; texture; export.\"}" ;
     dct:publisher wd:Q73901970 ;
@@ -7241,26 +7292,26 @@ ns02:zenodo.18369720 a crm:E73_Information_Object,
         ns22:f54cceb345af74e3 ;
     dcat:keyword "Cork Public Museum",
         "Ogham Stone" ;
-    wdt:P275 ns04:CC-BY-SA-4.0.html,
+    wdt:P275 ns011:CC-BY-SA-4.0.html,
         "CC-BY-SA-4.0" ;
     wdt:P921 "Cork Public Museum",
         "Ogham Stone" ;
     cff:keywords "Cork Public Museum",
         "Ogham Stone" ;
-    cff:license ns04:CC-BY-SA-4.0.html,
+    cff:license ns011:CC-BY-SA-4.0.html,
         "CC-BY-SA-4.0" ;
-    cff:license-url ns04:CC-BY-SA-4.0.html,
+    cff:license-url ns011:CC-BY-SA-4.0.html,
         "CC-BY-SA-4.0" ;
     codemeta:keywords "Cork Public Museum",
         "Ogham Stone" ;
-    codemeta:license ns04:CC-BY-SA-4.0.html,
+    codemeta:license ns011:CC-BY-SA-4.0.html,
         "CC-BY-SA-4.0" ;
     schema:description "Ogham Stone CHUIS/1 located in the Cork Public Museum" ;
     schema:funding "Community Project" ;
     schema:keywords "Cork Public Museum",
         "Ogham Stone" ;
     schema:latitude 51.8961 ;
-    schema:license ns04:CC-BY-SA-4.0.html,
+    schema:license ns011:CC-BY-SA-4.0.html,
         "CC-BY-SA-4.0" ;
     schema:longitude -8.4943 ;
     fdo:context "Ogham Stones in the Wild and in Museums in Ireland bearing Ogham inscriptions." .
@@ -7277,7 +7328,7 @@ ns02:zenodo.18369865 a crm:E73_Information_Object,
         "make 3d model available" ;
     dct:hasVersion "1.0" ;
     dct:issued "2024-06-09"^^xsd:date ;
-    dct:license ns04:CC-BY-SA-4.0.html ;
+    dct:license ns011:CC-BY-SA-4.0.html ;
     dct:modified "2024-06-19"^^xsd:date ;
     dct:provenance "{\"software\": \"KIRI Engine\", \"steps\": \"Take photos, align photos; build dense cloud; generate mesh; texture; export.\"}" ;
     dct:publisher wd:Q73901970 ;
@@ -7316,26 +7367,26 @@ ns02:zenodo.18369865 a crm:E73_Information_Object,
         wd:Q24041450,
         "Cork Public Museum",
         "Ogham Stone" ;
-    wdt:P275 ns04:CC-BY-SA-4.0.html,
+    wdt:P275 ns011:CC-BY-SA-4.0.html,
         "CC-BY-SA-4.0" ;
     wdt:P921 "Cork Public Museum",
         "Ogham Stone" ;
     cff:keywords "Cork Public Museum",
         "Ogham Stone" ;
-    cff:license ns04:CC-BY-SA-4.0.html,
+    cff:license ns011:CC-BY-SA-4.0.html,
         "CC-BY-SA-4.0" ;
-    cff:license-url ns04:CC-BY-SA-4.0.html,
+    cff:license-url ns011:CC-BY-SA-4.0.html,
         "CC-BY-SA-4.0" ;
     codemeta:keywords "Cork Public Museum",
         "Ogham Stone" ;
-    codemeta:license ns04:CC-BY-SA-4.0.html,
+    codemeta:license ns011:CC-BY-SA-4.0.html,
         "CC-BY-SA-4.0" ;
     schema:description "Ogham Stone GEARS/1 located in the Cork Public Museum" ;
     schema:funding "Community Project" ;
     schema:keywords "Cork Public Museum",
         "Ogham Stone" ;
     schema:latitude 51.896151 ;
-    schema:license ns04:CC-BY-SA-4.0.html,
+    schema:license ns011:CC-BY-SA-4.0.html,
         "CC-BY-SA-4.0" ;
     schema:longitude -8.4942742 ;
     fdo:context "Ogham Stones in the Wild and in Museums in Ireland bearing Ogham inscriptions." .
@@ -7353,7 +7404,7 @@ ns02:zenodo.18724635 a crm:E73_Information_Object,
         "make 3d model available" ;
     dct:hasVersion "1.0" ;
     dct:issued "2024-06-05"^^xsd:date ;
-    dct:license ns04:CC-BY-NC-SA-4.0.html ;
+    dct:license ns011:CC-BY-NC-SA-4.0.html ;
     dct:modified "2026-02-21"^^xsd:date ;
     dct:provenance "{\"software\": \"KIRI Engine\", \"steps\": \"Take photos, align photos; build dense cloud; generate mesh; texture; export.\"}" ;
     dct:publisher wd:Q73901970 ;
@@ -7391,26 +7442,26 @@ ns02:zenodo.18724635 a crm:E73_Information_Object,
         ns20:f6a4d3aff396eeb3 ;
     dcat:keyword "Ogham Stone",
         "UCC Stone Corridor" ;
-    wdt:P275 ns04:CC-BY-NC-SA-4.0.html,
+    wdt:P275 ns011:CC-BY-NC-SA-4.0.html,
         "CC-BY-NC-SA-4.0" ;
     wdt:P921 "Ogham Stone",
         "UCC Stone Corridor" ;
     cff:keywords "Ogham Stone",
         "UCC Stone Corridor" ;
-    cff:license ns04:CC-BY-NC-SA-4.0.html,
+    cff:license ns011:CC-BY-NC-SA-4.0.html,
         "CC-BY-NC-SA-4.0" ;
-    cff:license-url ns04:CC-BY-NC-SA-4.0.html,
+    cff:license-url ns011:CC-BY-NC-SA-4.0.html,
         "CC-BY-NC-SA-4.0" ;
     codemeta:keywords "Ogham Stone",
         "UCC Stone Corridor" ;
-    codemeta:license ns04:CC-BY-NC-SA-4.0.html,
+    codemeta:license ns011:CC-BY-NC-SA-4.0.html,
         "CC-BY-NC-SA-4.0" ;
     schema:description "Ogham Stone CO074-148---- located in the UCC Stone Corridor" ;
     schema:funding "Community Project" ;
     schema:keywords "Ogham Stone",
         "UCC Stone Corridor" ;
     schema:latitude 51.893715 ;
-    schema:license ns04:CC-BY-NC-SA-4.0.html,
+    schema:license ns011:CC-BY-NC-SA-4.0.html,
         "CC-BY-NC-SA-4.0" ;
     schema:longitude -8.4924208 ;
     fdo:context "Ogham Stones in the Wild and in Museums in Ireland bearing Ogham inscriptions." .
@@ -7427,7 +7478,7 @@ ns02:zenodo.18732892 a crm:E73_Information_Object,
         "make 3d model available" ;
     dct:hasVersion "1.0" ;
     dct:issued "2026-01-03"^^xsd:date ;
-    dct:license ns04:CC-BY-4.0.html ;
+    dct:license ns011:CC-BY-4.0.html ;
     dct:modified "2026-02-22"^^xsd:date ;
     dct:provenance "{\"software\": \"KIRI Engine\", \"steps\": \"Take photos, align photos; build dense cloud; generate mesh; texture; export.\"}" ;
     dct:publisher wd:Q73901970 ;
@@ -7518,26 +7569,26 @@ ns02:zenodo.18732892 a crm:E73_Information_Object,
         ns16:ff1199cf8bf47b05 ;
     dcat:keyword "Antholzer See",
         "Steinmännchen" ;
-    wdt:P275 ns04:CC-BY-4.0.html,
+    wdt:P275 ns011:CC-BY-4.0.html,
         "CC BY 4.0" ;
     wdt:P921 "Antholzer See",
         "Steinmännchen" ;
     cff:keywords "Antholzer See",
         "Steinmännchen" ;
-    cff:license ns04:CC-BY-4.0.html,
+    cff:license ns011:CC-BY-4.0.html,
         "CC BY 4.0" ;
-    cff:license-url ns04:CC-BY-4.0.html,
+    cff:license-url ns011:CC-BY-4.0.html,
         "CC BY 4.0" ;
     codemeta:keywords "Antholzer See",
         "Steinmännchen" ;
-    codemeta:license ns04:CC-BY-4.0.html,
+    codemeta:license ns011:CC-BY-4.0.html,
         "CC BY 4.0" ;
     schema:description "Steinmännchen / Lago di Anterselva (Antholzer See) 03.01.2026 14:36h" ;
     schema:funding "Community Project" ;
     schema:keywords "Antholzer See",
         "Steinmännchen" ;
     schema:latitude 46.888362 ;
-    schema:license ns04:CC-BY-4.0.html,
+    schema:license ns011:CC-BY-4.0.html,
         "CC BY 4.0" ;
     schema:longitude 12.16988 ;
     fdo:context "cairn temporally created by Florian Thiery and Fiona Schenk 2026" .
@@ -7554,7 +7605,7 @@ ns02:zenodo.18742693 a crm:E73_Information_Object,
         "make 3d model available" ;
     dct:hasVersion "1.0" ;
     dct:issued "2025-07-21"^^xsd:date ;
-    dct:license ns04:CC-BY-4.0.html ;
+    dct:license ns011:CC-BY-4.0.html ;
     dct:modified "2026-02-23"^^xsd:date ;
     dct:provenance "{\"software\": \"KIRI Engine\", \"steps\": \"Take photos, align photos; build dense cloud; generate mesh; texture; export.\"}" ;
     dct:publisher wd:Q73901970 ;
@@ -7631,7 +7682,7 @@ ns02:zenodo.18742693 a crm:E73_Information_Object,
     dcat:keyword "7000 Eichen",
         "Beuys Basaltstele",
         "Joseph Beuys" ;
-    wdt:P275 ns04:CC-BY-4.0.html,
+    wdt:P275 ns011:CC-BY-4.0.html,
         "CC BY 4.0" ;
     wdt:P921 "7000 Eichen",
         "Beuys Basaltstele",
@@ -7639,14 +7690,14 @@ ns02:zenodo.18742693 a crm:E73_Information_Object,
     cff:keywords "7000 Eichen",
         "Beuys Basaltstele",
         "Joseph Beuys" ;
-    cff:license ns04:CC-BY-4.0.html,
+    cff:license ns011:CC-BY-4.0.html,
         "CC BY 4.0" ;
-    cff:license-url ns04:CC-BY-4.0.html,
+    cff:license-url ns011:CC-BY-4.0.html,
         "CC BY 4.0" ;
     codemeta:keywords "7000 Eichen",
         "Beuys Basaltstele",
         "Joseph Beuys" ;
-    codemeta:license ns04:CC-BY-4.0.html,
+    codemeta:license ns011:CC-BY-4.0.html,
         "CC BY 4.0" ;
     schema:description "Beuys-Stele B 1036 als Teil des Projects “7000 Eichen”" ;
     schema:funding "Community Project" ;
@@ -7654,10 +7705,16 @@ ns02:zenodo.18742693 a crm:E73_Information_Object,
         "Beuys Basaltstele",
         "Joseph Beuys" ;
     schema:latitude 51.3131242 ;
-    schema:license ns04:CC-BY-4.0.html,
+    schema:license ns011:CC-BY-4.0.html,
         "CC BY 4.0" ;
     schema:longitude 9.4982136 ;
     fdo:context "Beuys-Stele als Teil des Projects “7000 Eichen” in Kassel, Joseph Beuys, 1982, documenta 7" .
+
+fdoreg: a owl:Ontology ;
+    rdfs:label "FDOx registry vocabulary"@en ;
+    dct:license ns011:CC-BY-4.0.html ;
+    rdfs:comment "The few terms the registry needs for its own catalogue records and which neither DCAT nor PROV provides. Everything the registry says about the FDOs themselves is said in DCAT, CIDOC CRM and CRMdig; this vocabulary is deliberately small."@en ;
+    rdfs:seeAlso <https://w3id.org/fdo-squirrel/crm/> .
 
 ns05:8e916ce55425de21 a crm:E21_Person,
         schema:Person ;
@@ -7666,25 +7723,71 @@ ns05:8e916ce55425de21 a crm:E21_Person,
 
 ns24:62273 a crm:E53_Place .
 
-ns04:CC-BY-NC-SA-4.0.html rdfs:label "CC-BY-NC-SA-4.0" .
+fdo:3DDataFDO rdfs:subClassOf crmdig:D1_Digital_Object .
+
+skos:Concept rdfs:subClassOf crm:E28_Conceptual_Object .
+
+ns011:CC-BY-NC-SA-4.0.html rdfs:label "CC-BY-NC-SA-4.0" .
+
+role: a skos:ConceptScheme ;
+    dct:description "The values fdo:role takes on a dcat:Distribution inside an FDOx package. A flat list: the source draws no hierarchy between the values, and inventing one here would put structure into the registry that the packages do not carry."@en ;
+    dct:title "FDOx distribution roles"@en ;
+    skos:hasTopConcept role:data,
+        role:documentation,
+        role:metadata,
+        role:model,
+        role:script,
+        role:software .
+
+crmgeo:SP5_Geometric_Place_Expression rdfs:subClassOf crm:E73_Information_Object .
+
+sf:Point rdfs:subClassOf geosparql:Geometry .
 
 wd:Q73901970 a crm:E74_Group,
         schema:Organization ;
     schema:name "Research Squirrel Engineers Network" .
 
-role:metadata a skos:Concept .
+role:metadata a skos:Concept ;
+    skos:definition "A file describing the package or its contents, such as MD.cff or CITATION.cff."@en ;
+    skos:inScheme role: ;
+    skos:notation "metadata" ;
+    skos:prefLabel "Metadata"@en .
 
-role:data a skos:Concept .
+role:data a skos:Concept ;
+    skos:definition "A data file that is neither a model, documentation, metadata nor code."@en ;
+    skos:inScheme role: ;
+    skos:notation "data" ;
+    skos:prefLabel "Data"@en .
 
-ns04:CC-BY-SA-4.0.html rdfs:label "CC-BY-SA-4.0" .
+crmdig:D1_Digital_Object rdfs:subClassOf crm:E73_Information_Object .
 
-role:model a skos:Concept .
+ns011:CC-BY-SA-4.0.html rdfs:label "CC-BY-SA-4.0" .
 
-ns04:CC-BY-4.0.html rdfs:label "CC BY 4.0" .
+role:model a skos:Concept ;
+    skos:definition "A file holding the three-dimensional geometry or texture of the documented object."@en ;
+    skos:inScheme role: ;
+    skos:notation "model" ;
+    skos:prefLabel "3D model"@en .
 
-role:script a skos:Concept .
+ns011:CC-BY-4.0.html rdfs:label "CC BY 4.0" .
 
-role:documentation a skos:Concept .
+role:script a skos:Concept ;
+    skos:definition "An executable script that is part of the package rather than of a released software component."@en ;
+    skos:inScheme role: ;
+    skos:notation "script" ;
+    skos:prefLabel "Script"@en .
 
-role:software a skos:Concept .
+role:documentation a skos:Concept ;
+    skos:definition "Human-readable documentation of the package or of the object it describes."@en ;
+    skos:inScheme role: ;
+    skos:notation "documentation" ;
+    skos:prefLabel "Documentation"@en .
+
+role:software a skos:Concept ;
+    skos:definition "A source, build or configuration file of a software component."@en ;
+    skos:inScheme role: ;
+    skos:notation "software" ;
+    skos:prefLabel "Software"@en .
+
+crmdig:D9_Data_Object rdfs:subClassOf crmdig:D1_Digital_Object .
 

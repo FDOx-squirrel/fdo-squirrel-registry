@@ -167,6 +167,50 @@ sieben `fdo-metadata.ttl` unter `data/raw/fdo/`, zusammen 4845 Tripel):
 16. **`dcat:bbox` gibt es auch**, in zwei Paketen, als DCAT-Zeichenkette. Das
     Profil bevorzugt `geo:hasBoundingBox`. Wird gemeldet, nicht umgeschrieben.
 
+**Befunde aus dem ersten Gate-Lauf** (geprüft 2026-09-03 in S5 gegen den
+Bundle aus S4, 6582 Tripel):
+
+17. **Die Ankerprüfung „pro Klasse" widerspricht A3.** Als `SELECT DISTINCT
+    ?class` ausgeführt meldet sie 11 Klassen ohne Anker, darunter
+    `schema:Person`, `dcat:Distribution` und `dct:PeriodOfTime` — also genau
+    die, deren Anker A3 ausdrücklich je Instanz materialisiert, statt ein
+    Klassenaxiom über einen fremden Namensraum zu behaupten. Die Shape hätte
+    bemängelt, dass die Regel eingehalten wurde. Pro Knoten gefragt blieben
+    vier Sorten ohne CRM-Typ: 7 `dcat:CatalogRecord`, 1 `dcat:Catalog`, 7
+    `sf:Point` und die 6 Rollenkonzepte. Die richtige Frage ist, ob jedes
+    beschriebene Ding CRM erreicht, nicht ob jede Klasse es tut.
+18. **Die Axiome lagen nicht im Bundle**, anders als die Planung in S5
+    annahm. `metadata/crm_bridge.ttl` ist eine eigene Datei, und der Bundle
+    trägt nur `dct:conformsTo` darauf. Gegen pyshacl 0.40 geprüft: `sh:targetClass`
+    und `sh:class` folgen `rdfs:subClassOf` tatsächlich ohne Inferenz, aber nur
+    für Axiome im validierten Graphen. Ohne die Brücke verlieren `skos:Concept`,
+    `sf:Point` und der ganze `D14`-Weg ihren Anker.
+19. **Das Profil verbot, was S4 baute.** Der Bundle trug 7 ×
+    `crm:P82a_begin_of_the_begin` und 7 × `crm:P82b_end_of_the_end`. Das Profil
+    sagt zu diesen Properties wörtlich, sie sollten zugunsten von EDTF und Time
+    Ontology *nicht* benutzt werden, und führt `E52 Time-Span` in RDF als
+    „Literal oder `time:Interval`". Härtegrad beachten: `E55`, `E32`, `E95`,
+    `P169i` sind MUST NOT, die Zeitgrenzen nur ein SHOULD NOT.
+20. **Kein `dcat:Dataset` trägt `dct:identifier`.** Die geplante
+    Vollständigkeits-Shape hätte auf allen sieben angeschlagen. Die DOI *ist*
+    die Knoten-IRI, und das Profil will Identifier ausdrücklich als IRI — hier
+    gehörte die Shape korrigiert, nicht der Bundle.
+21. **Die MUST-NOT-Konstrukte kommen im Bestand null mal vor.** Fünf der 38
+    Regeln können gegen den heutigen Bestand gar nicht auslösen. Ohne
+    absichtlich kaputte Eingabe wäre ihr Grün bedeutungslos; das ist der Grund
+    für `metadata/shapes_selftest.ttl`.
+22. **`dct:spatial`-Objekte trugen kein `crm:E53_Place`**, obwohl die Notiz in
+    `fdo--crm.csv` das behauptete. Eine Abbildung, die in der CSV steht und im
+    Code fehlt, ist schlimmer als eine, die fehlt: sie sieht erfüllt aus.
+    Seit S5 typisiert die Zeile `dct:spatial@object` die sieben
+    OpenStreetMap-IRIs je Instanz.
+23. **Die Ankerprüfung je Fokusknoten kostete 18 Sekunden, als SPARQL-Target
+    0,9.** `sh:targetSubjectsOf rdf:type` führt die Constraint für jeden der
+    rund 1100 typisierten Knoten einzeln aus. Dieselbe Frage als
+    `sh:SPARQLTarget` ist eine Abfrage. Bei sechs Paketen ist das Bequemlichkeit,
+    bei sechzig wäre es der Unterschied zwischen einem Gate im Standardlauf und
+    einem, das jemand herausnimmt.
+
 **Was das Anwendungsprofil nicht abdeckt** (geprüft 2026-09-03 an
 <https://nfdi4objects.github.io/crm-rdf-ap/>, Fassung 2025-01-27, Jakob Voß):
 Es behandelt CRM-Kern, SKOS, GeoSPARQL, Time Ontology und BIBO. Zu **CRMdig
@@ -361,6 +405,17 @@ dem es zum ersten Mal wirkt.
 | Personenknoten | **registry-global**, nicht je Record: `<registry>/agent/<hash>` aus der Personen-URN, ORCID wo vorhanden. Ersetzt den Beschluss vom selben Tag, der je Record skolemisierte — A1, Befund 11 zeigt, dass die URN paketübergreifend stabil ist und eine Umschreibung je Record dieselbe Person vervielfacht hätte | 2026-09-03, ersetzt den Vorschlag vom selben Tag |
 | Rollen-Vokabular | sechs SKOS-Konzepte, flach, unter `https://w3id.org/fdo-squirrel/registry/role/`; verknüpft über `crm:P2_has_type`, nicht über `crm:E55_Type`, das das Profil verbietet. Der Build meldet jeden `fdo:role`-Wert im lesbaren Bestand, der im Vokabular fehlt; unter `--strict` bricht er ab | 2026-09-03 |
 | Zwei Crosswalk-CSV | `fdo--crm.csv` ist die Abbildung nach CRM, `fdo-role--skos.csv` das Rollenvokabular. Getrennt, weil das zweite kein Crosswalk ist, sondern eine Begriffsliste, und in `note` gepresste Definitionen später niemand pflegt | 2026-09-03 |
+| Zeitspanne — ersetzt | die Zeilen `dcat:startDate → P82a` und `dcat:endDate → P82b` sind hinfällig. Das Anwendungsprofil rät von `P82a`/`P82b` ausdrücklich ab. Stattdessen trägt das FDO den Zeitwert als typisiertes Literal an `crm:P4_has_time-span`: `xsd:gYear` bei gleicher Ober- und Untergrenze, sonst ein EDTF-Level-0-Intervall (`0300/0699`). Der `dct:PeriodOfTime`-Knoten bleibt und wird weiterhin `crm:E52_Time-Span` — die Klasse ist nicht das Problem, die Ausdrucksform war es. Die geernteten `xsd:integer`-Grenzen bleiben unangetastet | 2026-09-03, ersetzt den Beschluss vom selben Tag |
+| Wogegen das Gate validiert | Bundle **plus** `crm_bridge.ttl`, `vocab/role.ttl` und `registry_ontology.ttl` als ein Graph. Der publizierte `dist/fdo-registry.ttl` bleibt unverändert; SHACL folgt `rdfs:subClassOf` ohne Inferenz, aber nur für Axiome im validierten Graphen (Befund 18) | 2026-09-03 |
+| Was N4O bekommt | genau der Graph, der geprüft wurde: `dist/fdo-registry-n4o.ttl` = Bundle + Brücke + Rollenvokabular + Registry-Vokabular, kanonisch geschrieben. Ein Wissensgraph soll den Graphen bekommen, der durchs Gate ging, und nicht eine Teilmenge davon | 2026-09-03 |
+| Ankerprüfung | **je Knoten**, nicht je Klasse. Je Klasse gefragt widerspricht sie A3 und meldet die per Instanz verankerten Klassen als ankerlos (Befund 17). Ausgenommen sind terminologische Knoten (`owl:Ontology`, `owl:ObjectProperty`, `rdfs:Class` …): eine Ontologie-Kopfzeile beschreibt eine Datei, kein Ding im Katalog | 2026-09-03 |
+| Katalograhmen im Anker | `dcat:Catalog` und `dcat:CatalogRecord` werden je Instanz `crm:E31_Document`, `foaf:primaryTopic` bekommt `crm:P70_documents` daneben. Der Rahmen ist Teil des Bundles und wird wie alles andere verankert, statt als Ausnahme geführt zu werden | 2026-09-03 |
+| Geometrie im CRM | `sf:Point`-Knoten werden je Instanz `crmgeo:SP5_Geometric_Place_Expression`; das ext-Axiom `SP5 ⊑ crm:E73_Information_Object` ist aus CRMgeo v1.0 zitiert. CRMgeo ist die Extension, auf die das Profil in seiner Fußnote zur Geometrie selbst verweist. Über `geo:Geometry` im Allgemeinen wird nichts behauptet | 2026-09-03 |
+| Identifier am Dataset | keine eigene `dct:identifier`-Pflicht. Die Concept-DOI ist die Knoten-IRI, das Profil will Identifier als IRI, und eine zweite Fassung derselben DOI als Zeichenkette wäre nur eine weitere Stelle, an der etwas auseinanderlaufen kann. Die Shape prüft stattdessen, dass die Dataset-IRI eine DOI ist | 2026-09-03 |
+| Severity im Gate | spiegelt den Modalverb des Profils: MUST NOT und was die Registry über ihre eigenen Einträge verspricht → `sh:Violation`, Build hält an. SHOULD/SHOULD NOT und unsaubere Pakete → `sh:Warning`, Qualitätsbericht | 2026-09-03 |
+| Warnungen unter `--strict` | **nicht** tödlich. Die 46 Warnungen betreffen publizierte Zenodo-Records, die unveränderlich sind; eine CI, die deswegen ein Jahr rot ist, liest niemand. Dieselbe Begründung wie bei der Personen-Kollision in S4. Ersetzt „erst `--strict` macht sie tödlich" aus der Planung von S5. `--strict` schlägt hier auf genau eine Sache an, und die ist unsere: eine Regel, die kein Fixture mehr auslöst | 2026-09-03, ersetzt die Planung in S5 |
+| Selbsttest des Gates | `metadata/shapes_selftest.ttl` ist ein absichtlich kaputter Graph, gegen den **jede** `sh:message` aus `shapes.ttl` mindestens einmal anschlagen muss; geprüft bei jedem Lauf. Fünf Regeln können gegen den heutigen Bestand nie auslösen (Befund 21) — ohne Fixture wäre ihr Grün bedeutungslos | 2026-09-03 |
+| `object-class` als sechster Mechanismus | eine Crosswalk-Zeile darf den **Objekten** einer Property eine Klasse geben (`dct:spatial@object → crm:E53_Place`). Nur als `instance` erlaubt: als Axiom wäre es ein `rdfs:range` auf einer fremden Property und damit eine Aussage über einen Namensraum, der uns nicht gehört | 2026-09-03 |
 | `check-updates` | eigener Netzschritt, ändert nichts. Meldet neuere Versionen gepinnter Records *und* Records der Zenodo-Community `squirrel-fdo`, die nicht in `sources.json` stehen | 2026-09-03 |
 
 ## A5. Was in welchem Chat hochgeladen wird
@@ -416,7 +471,7 @@ existiert oder ob die IRI bisher nur als Präfix benutzt wird.
 | `/fdo-squirrel/registry/record/{id}/dist/{sha}` | eine `dcat:Distribution` | Detailansicht auf Pages | im Bundle vergeben (S4) |
 | `/fdo-squirrel/registry/agent/{hash}` | eine Person ohne ORCID, registry-global | Detailansicht auf Pages | im Bundle vergeben (S4) |
 | `/fdo-squirrel/registry/role/` | SKOS-Vokabular zu `fdo:role`, sechs Konzepte | `metadata/vocab/role.ttl` | gebaut (S3), w3id-Eintrag offen |
-| `/fdo-squirrel/registry/shapes/` | SHACL-Gate | `metadata/shapes.ttl` | geplant (S5) |
+| `/fdo-squirrel/registry/shapes/` | SHACL-Gate, 38 Regeln | `metadata/shapes.ttl` | gebaut (S5), w3id-Eintrag offen |
 
 **Zu klären beim Eintragen.** Ein Redirect auf GitHub Pages liefert genau eine
 Repräsentation aus. Für echte Content Negotiation braucht es w3id-seitige
@@ -433,7 +488,7 @@ Repräsentation aus. Für echte Content Negotiation braucht es w3id-seitige
 | S2 | Ernte aus Zenodo | S1 | erledigt 2026-09-03 |
 | S3 | Crosswalk FDOx → CIDOC CRM | S0, S2 (ein echtes TTL) | erledigt 2026-09-03 |
 | S4 | Bundle-Build als DCAT-Katalog | S2, S3 | erledigt 2026-09-03 |
-| S5 | SHACL-Gate und Qualitätsbericht | S4 | offen |
+| S5 | SHACL-Gate und Qualitätsbericht | S4 | erledigt 2026-09-03 |
 | S6 | Registry-Index und Facettenseite | S4 | offen |
 | S7 | SPARQL-Seite | S4, S6 | offen |
 | S8 | Registry als FDO, Release und CI | S5, S7 | offen |
@@ -1017,7 +1072,8 @@ publizierten Datei genug stört, um die IRI-Form zu ändern, gehört zu S6.
 **Drei Sorten Shapes in `metadata/shapes.ttl`:**
 
 - **Vollständigkeit.** Jedes `dcat:Dataset` im Katalog braucht Titel, Lizenz,
-  Identifier, mindestens eine Distribution und genau einen FDO-Typ. Jeder
+  ~~Identifier~~ (korrigiert 2026-09-03: eine DOI-IRI als Knoten, siehe A1
+  Befund 20), mindestens eine Distribution und genau einen FDO-Typ. Jeder
   `dcat:CatalogRecord` braucht `foaf:primaryTopic`, `dct:source` und
   `fdoreg:sha256`.
 - **Ankerprüfung.** Eine `sh:SPARQLConstraint`, die `SELECT DISTINCT ?class`
@@ -1029,19 +1085,83 @@ publizierten Datei genug stört, um die IRI-Form zu ändern, gehört zu S6.
   `crm:E55_Type`, `crm:E32_Authority_Document`, `crm:E95_Spacetime_Primitive`,
   `P169i`, `P82a`/`P82b`, `crm:E41`-Instanzen. Sie werden nicht bei uns
   entstehen — sie entstehen, wenn jemand später eine Abbildung „verbessert".
+  Korrigiert 2026-09-03: die Liste wirft zwei Härtegrade zusammen. `E55`, `E32`,
+  `E95` und `P169i` sind MUST NOT und damit `sh:Violation`; `P82a`/`P82b`,
+  `E41` und `E94` sind SHOULD NOT und damit `sh:Warning`. Und `P82a`/`P82b`
+  standen bis zu diesem Schritt im eigenen Bundle (A1, Befund 19).
 
 `inference="none"` in pyshacl; SHACL folgt `rdfs:subClassOf` bei `sh:targetClass`
-und `sh:class` selbst, die Axiome liegen im Bundle.
+und `sh:class` selbst — ~~die Axiome liegen im Bundle~~. Korrigiert 2026-09-03:
+sie liegen in `metadata/crm_bridge.ttl`, und das Gate validiert deshalb Bundle
+plus Brücke plus Vokabulare als einen Graphen (A1, Befund 18; A4).
 
 **`dist/quality_report.md`** ist der zweite Ausgang und der eigentliche Ertrag
 für die Autoren: je Eintrag, was fehlt oder unsauber ist — Lizenz nur als
 String, kein `dct:spatial`-IRI, Distribution ohne Rolle, `fdo:title` weicht von
-`dct:title` ab. Das sind Warnungen, keine Fehler; erst `--strict` macht sie
-tödlich.
+`dct:title` ab. Das sind Warnungen, keine Fehler; ~~erst `--strict` macht sie
+tödlich~~. Korrigiert 2026-09-03: sie sind auch unter `--strict` nicht tödlich,
+weil sie unveränderliche Zenodo-Records betreffen (A4). `--strict` schlägt hier
+nur auf eine Regel an, die kein Fixture mehr auslöst.
 
 **Abnahme:** `conforms = true` für den vollen Bestand, Bericht liegt vor, und
 ein absichtlich kaputt gemachtes Eingabe-TTL bringt das Gate zum Anschlagen.
 Eine Shape, die nie ausgelöst hat, ist ungeprüft.
+
+### Erledigt 2026-09-03
+
+`metadata/shapes.ttl` hat **38 Regeln** in fünf Gruppen. Der Bundle ist
+konform: 0 Verstöße, 46 Warnungen über 9 Regeln, alle 38 Regeln lösen gegen
+`metadata/shapes_selftest.ttl` aus. `dist/quality_report.md` und
+`dist/fdo-registry-n4o.ttl` (6665 Tripel) liegen vor. Vier Läufe mit
+wechselndem `PYTHONHASHSEED` liefern byte-gleiche Dateien, `python main.py
+--strict` endet mit Exitcode 0. Das Gate kostet 2,1 s von 3,6 s Gesamtlauf.
+
+Der Schritt begann mit einer Vorprüfung der geplanten Shapes gegen den echten
+Bundle, und die hat mehr verändert als das Schreiben danach. Die Befunde 17–23
+in A1 stammen von dort; zwei davon haben die Planung des Schritts widerlegt:
+
+- **Die Ankerprüfung war falsch herum gedacht.** „Pro Klasse" meldet genau die
+  Klassen, deren Anker A3 vorschreibt (Befund 17). Sie fragt jetzt pro Knoten,
+  und die vier ankerlosen Sorten sind verschwunden, weil sie einen Anker
+  bekommen haben statt einer Ausnahme: Katalog und Katalogeintrag als
+  `crm:E31_Document`, die Geometrie über `crmgeo:SP5_Geometric_Place_Expression`,
+  die Rollenkonzepte über das Profilzitat `skos:ConceptScheme ⊑ crm:E31_Document`.
+  Übrig bleibt eine einzige, benannte Ausnahme: terminologische Knoten. Eine
+  Ontologie-Kopfzeile beschreibt eine Datei, kein Ding im Katalog.
+- **Das Gate hätte den eigenen Bundle beanstandet.** `P82a`/`P82b` standen in
+  A4 als Beschluss und im Profil als Abrat (Befund 19). Aufgelöst zugunsten des
+  Profils, weil der Bundle in den N4O-Graphen soll: der Zeitwert ist jetzt ein
+  typisiertes Literal an `crm:P4_has_time-span`, `0300/0699`^^`edtf:EDTF` bei
+  einer Spanne, `1982`^^`xsd:gYear` bei einem Jahr. Das kostete 14 Tripel und
+  brachte 7 dazu.
+
+Was sonst anders kam als geplant:
+
+- **`--strict` macht die Warnungen nicht tödlich**, anders als hier geplant.
+  Die 46 Warnungen betreffen unveränderliche Zenodo-Records; eine CI, die
+  deswegen dauerhaft rot ist, liest niemand. Dieselbe Überlegung stand schon in
+  S4 bei der Personen-Kollision. `--strict` schlägt jetzt auf genau eine Sache
+  an, und die können wir beheben: eine Regel, die kein Fixture mehr auslöst.
+- **Der Selbsttest hat sich sofort bezahlt gemacht.** Beim ersten Lauf meldete
+  er „The distribution has no fdo:role" als nie ausgelöst — das Fixture hatte
+  nur eine Distribution, und die trug eine Rolle. Genau so verschwindet eine
+  Regel unbemerkt aus einem Gate.
+- **Laufzeit ist hier eine Entwurfsfrage, keine Optimierung.** Die
+  Ankerprüfung je Fokusknoten brauchte 18 Sekunden, als `sh:SPARQLTarget` 0,9
+  (Befund 23). Ein Gate, das den Standardlauf um das Sechsfache verlängert,
+  wird herausgenommen, und dann prüft es nichts mehr.
+- **Der Qualitätsbericht ist das eigentliche Ergebnis für die Autoren.** 46
+  Warnungen, gleichmäßig über die sieben Pakete verteilt (6 je Paket, 4
+  paketübergreifend): Lizenz und Keywords als Zeichenkette, vier
+  `dct:description` je Paket, `schema:funding` ohne Förderer-IRI,
+  `dcat:startDate` als `xsd:integer`, `geo:hasGeometry` am FDO statt am Ort,
+  Personen ohne ORCID. Nichts davon kann die Registry reparieren, alles davon
+  kann `fdo-squirrel` beim nächsten Paket besser machen.
+
+Offen aus diesem Lauf und an S6 weitergegeben: der Bericht nennt Knoten-IRIs,
+keine Dateinamen. Wer wissen will, welche Datei in Paket 18744133 keine Rolle
+trägt, muss die IRI von Hand auflösen. Die Facettenseite hat diese Zuordnung
+ohnehin und kann den Bericht verlinken.
 
 ## S6 — Registry-Index und Facettenseite
 
@@ -1155,11 +1275,12 @@ Graphen unter `https://graph.nfdi4objects.net/collection/<n>`.
 - ~~**Personen-URN über Paketgrenzen.**~~ Erledigt 2026-09-03 in S3: sie ist
   stabil (A1, Befund 11), die Umschreibung ist registry-global (A4).
 - **Fehlerhafte Pakete im Bestand.** Vier von sieben TTL parsen nicht (A1,
-  Befund 10). Die Registry überspringt sie, aber damit steht ein Katalog mit
-  drei Einträgen für sieben publizierte FDOs. Ob wir vor S6 einen Durchgang
-  „upstream reparieren und neu publizieren" einschieben, ist eine Frage an den
-  Zeitplan, nicht an die Technik — der Qualitätsbericht aus S5 liefert die
-  Liste, aus der er gefahren wird.
+  Befund 10); seit S4 werden sie mit deklarierten Reparaturen gelesen, stehen
+  also im Katalog, aber der Defekt bleibt in den publizierten Records. Ob wir
+  vor S6 einen Durchgang „upstream reparieren und neu publizieren" einschieben,
+  ist eine Frage an den Zeitplan, nicht an die Technik — `dist/quality_report.md`
+  aus S5 ist die Liste, aus der er gefahren wird: 46 Befunde über sieben
+  Pakete, dazu Record 18740524 ganz ohne TTL.
 - **`<DOI>_geom` und `<DOI>_temporal`.** Vom Generator geprägte IRIs in einem
   fremden Namensraum (A1, Befund 6). Umschreiben verletzt A3, Stehenlassen
   veröffentlicht DOI-artige IRIs, die nicht auflösen. In S4 zu entscheiden;

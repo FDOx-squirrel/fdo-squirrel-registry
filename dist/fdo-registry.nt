@@ -30,6 +30,7 @@
 <https://doi.org/10.5281/zenodo.18369125> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> <http://www.wikidata.org/entity/Q22731> .
 <https://doi.org/10.5281/zenodo.18369125> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> <http://www.wikidata.org/entity/Q5382396> .
 <https://doi.org/10.5281/zenodo.18369125> <http://www.cidoc-crm.org/cidoc-crm/P3_has_note> "LOD Extractor for TEI/EpiDoc Files from the Ogham in 3D Project" .
+<https://doi.org/10.5281/zenodo.18369125> <http://www.cidoc-crm.org/cidoc-crm/P4_has_time-span> "0300/0699"^^<http://id.loc.gov/datatypes/edtf/EDTF> .
 <https://doi.org/10.5281/zenodo.18369125> <http://www.cidoc-crm.org/cidoc-crm/P4_has_time-span> <https://doi.org/10.5281/zenodo.18369125_temporal> .
 <https://doi.org/10.5281/zenodo.18369125> <http://www.cidoc-crm.org/cidoc-crm/P67_refers_to> <https://www.openstreetmap.org/relation/62273> .
 <https://doi.org/10.5281/zenodo.18369125> <http://www.opengis.net/ont/geosparql#hasGeometry> <https://doi.org/10.5281/zenodo.18369125_geom> .
@@ -294,9 +295,8 @@
 <https://doi.org/10.5281/zenodo.18369125> <https://schema.org/longitude> "-8.0"^^<http://www.w3.org/2001/XMLSchema#decimal> .
 <https://doi.org/10.5281/zenodo.18369125> <https://w3id.org/fdo-squirrel/context> "Ogham Stones in the Wild and in Museums in Ireland bearing Ogham inscriptions." .
 <https://doi.org/10.5281/zenodo.18369125_geom> <http://www.opengis.net/ont/geosparql#asWKT> "<http://www.opengis.net/def/crs/EPSG/0/4326> POINT(-8.0 53.0)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
+<https://doi.org/10.5281/zenodo.18369125_geom> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.ics.forth.gr/isl/CRMgeo/SP5_Geometric_Place_Expression> .
 <https://doi.org/10.5281/zenodo.18369125_geom> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.opengis.net/ont/sf#Point> .
-<https://doi.org/10.5281/zenodo.18369125_temporal> <http://www.cidoc-crm.org/cidoc-crm/P82a_begin_of_the_begin> "0300"^^<http://www.w3.org/2001/XMLSchema#gYear> .
-<https://doi.org/10.5281/zenodo.18369125_temporal> <http://www.cidoc-crm.org/cidoc-crm/P82b_end_of_the_end> "0699"^^<http://www.w3.org/2001/XMLSchema#gYear> .
 <https://doi.org/10.5281/zenodo.18369125_temporal> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/PeriodOfTime> .
 <https://doi.org/10.5281/zenodo.18369125_temporal> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.cidoc-crm.org/cidoc-crm/E52_Time-Span> .
 <https://doi.org/10.5281/zenodo.18369125_temporal> <http://www.w3.org/2000/01/rdf-schema#label> "Ogham stone inscriptions (ca. 4th–7th century CE)" .
@@ -323,6 +323,7 @@
 <https://doi.org/10.5281/zenodo.18369156> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> <http://www.wikidata.org/entity/Q2016147> .
 <https://doi.org/10.5281/zenodo.18369156> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> <http://www.wikidata.org/entity/Q22731> .
 <https://doi.org/10.5281/zenodo.18369156> <http://www.cidoc-crm.org/cidoc-crm/P3_has_note> "Ogham Analysis with R" .
+<https://doi.org/10.5281/zenodo.18369156> <http://www.cidoc-crm.org/cidoc-crm/P4_has_time-span> "0300/0699"^^<http://id.loc.gov/datatypes/edtf/EDTF> .
 <https://doi.org/10.5281/zenodo.18369156> <http://www.cidoc-crm.org/cidoc-crm/P4_has_time-span> <https://doi.org/10.5281/zenodo.18369156_temporal> .
 <https://doi.org/10.5281/zenodo.18369156> <http://www.cidoc-crm.org/cidoc-crm/P67_refers_to> <https://www.openstreetmap.org/relation/62273> .
 <https://doi.org/10.5281/zenodo.18369156> <http://www.opengis.net/ont/geosparql#hasGeometry> <https://doi.org/10.5281/zenodo.18369156_geom> .
@@ -451,9 +452,8 @@
 <https://doi.org/10.5281/zenodo.18369156> <https://schema.org/longitude> "-8.0"^^<http://www.w3.org/2001/XMLSchema#decimal> .
 <https://doi.org/10.5281/zenodo.18369156> <https://w3id.org/fdo-squirrel/context> "Ogham Stones in the Wild and in Museums in Ireland bearing Ogham inscriptions." .
 <https://doi.org/10.5281/zenodo.18369156_geom> <http://www.opengis.net/ont/geosparql#asWKT> "<http://www.opengis.net/def/crs/EPSG/0/4326> POINT(-8.0 53.0)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
+<https://doi.org/10.5281/zenodo.18369156_geom> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.ics.forth.gr/isl/CRMgeo/SP5_Geometric_Place_Expression> .
 <https://doi.org/10.5281/zenodo.18369156_geom> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.opengis.net/ont/sf#Point> .
-<https://doi.org/10.5281/zenodo.18369156_temporal> <http://www.cidoc-crm.org/cidoc-crm/P82a_begin_of_the_begin> "0300"^^<http://www.w3.org/2001/XMLSchema#gYear> .
-<https://doi.org/10.5281/zenodo.18369156_temporal> <http://www.cidoc-crm.org/cidoc-crm/P82b_end_of_the_end> "0699"^^<http://www.w3.org/2001/XMLSchema#gYear> .
 <https://doi.org/10.5281/zenodo.18369156_temporal> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/PeriodOfTime> .
 <https://doi.org/10.5281/zenodo.18369156_temporal> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.cidoc-crm.org/cidoc-crm/E52_Time-Span> .
 <https://doi.org/10.5281/zenodo.18369156_temporal> <http://www.w3.org/2000/01/rdf-schema#label> "Ogham stone inscriptions (ca. 4th–7th century CE)" .
@@ -488,6 +488,7 @@
 <https://doi.org/10.5281/zenodo.18369720> <http://www.cidoc-crm.org/cidoc-crm/P3_has_note> "low" .
 <https://doi.org/10.5281/zenodo.18369720> <http://www.cidoc-crm.org/cidoc-crm/P3_has_note> "make 3d model available" .
 <https://doi.org/10.5281/zenodo.18369720> <http://www.cidoc-crm.org/cidoc-crm/P3_has_note> "{\"software\": \"KIRI Engine\", \"steps\": \"Take photos, align photos; build dense cloud; generate mesh; texture; export.\"}" .
+<https://doi.org/10.5281/zenodo.18369720> <http://www.cidoc-crm.org/cidoc-crm/P4_has_time-span> "0300/0699"^^<http://id.loc.gov/datatypes/edtf/EDTF> .
 <https://doi.org/10.5281/zenodo.18369720> <http://www.cidoc-crm.org/cidoc-crm/P4_has_time-span> <https://doi.org/10.5281/zenodo.18369720_temporal> .
 <https://doi.org/10.5281/zenodo.18369720> <http://www.cidoc-crm.org/cidoc-crm/P67_refers_to> <https://www.openstreetmap.org/node/11966430251> .
 <https://doi.org/10.5281/zenodo.18369720> <http://www.opengis.net/ont/geosparql#hasGeometry> <https://doi.org/10.5281/zenodo.18369720_geom> .
@@ -531,9 +532,8 @@
 <https://doi.org/10.5281/zenodo.18369720> <https://schema.org/longitude> "-8.4943"^^<http://www.w3.org/2001/XMLSchema#decimal> .
 <https://doi.org/10.5281/zenodo.18369720> <https://w3id.org/fdo-squirrel/context> "Ogham Stones in the Wild and in Museums in Ireland bearing Ogham inscriptions." .
 <https://doi.org/10.5281/zenodo.18369720_geom> <http://www.opengis.net/ont/geosparql#asWKT> "<http://www.opengis.net/def/crs/EPSG/0/4326> POINT(-8.4943 51.8961)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
+<https://doi.org/10.5281/zenodo.18369720_geom> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.ics.forth.gr/isl/CRMgeo/SP5_Geometric_Place_Expression> .
 <https://doi.org/10.5281/zenodo.18369720_geom> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.opengis.net/ont/sf#Point> .
-<https://doi.org/10.5281/zenodo.18369720_temporal> <http://www.cidoc-crm.org/cidoc-crm/P82a_begin_of_the_begin> "0300"^^<http://www.w3.org/2001/XMLSchema#gYear> .
-<https://doi.org/10.5281/zenodo.18369720_temporal> <http://www.cidoc-crm.org/cidoc-crm/P82b_end_of_the_end> "0699"^^<http://www.w3.org/2001/XMLSchema#gYear> .
 <https://doi.org/10.5281/zenodo.18369720_temporal> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/PeriodOfTime> .
 <https://doi.org/10.5281/zenodo.18369720_temporal> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.cidoc-crm.org/cidoc-crm/E52_Time-Span> .
 <https://doi.org/10.5281/zenodo.18369720_temporal> <http://www.w3.org/2000/01/rdf-schema#label> "Ogham stone inscriptions (ca. 4th–7th century CE)" .
@@ -572,6 +572,7 @@
 <https://doi.org/10.5281/zenodo.18369865> <http://www.cidoc-crm.org/cidoc-crm/P3_has_note> "low" .
 <https://doi.org/10.5281/zenodo.18369865> <http://www.cidoc-crm.org/cidoc-crm/P3_has_note> "make 3d model available" .
 <https://doi.org/10.5281/zenodo.18369865> <http://www.cidoc-crm.org/cidoc-crm/P3_has_note> "{\"software\": \"KIRI Engine\", \"steps\": \"Take photos, align photos; build dense cloud; generate mesh; texture; export.\"}" .
+<https://doi.org/10.5281/zenodo.18369865> <http://www.cidoc-crm.org/cidoc-crm/P4_has_time-span> "0300/0699"^^<http://id.loc.gov/datatypes/edtf/EDTF> .
 <https://doi.org/10.5281/zenodo.18369865> <http://www.cidoc-crm.org/cidoc-crm/P4_has_time-span> <https://doi.org/10.5281/zenodo.18369865_temporal> .
 <https://doi.org/10.5281/zenodo.18369865> <http://www.cidoc-crm.org/cidoc-crm/P67_refers_to> <https://www.openstreetmap.org/node/11966441102> .
 <https://doi.org/10.5281/zenodo.18369865> <http://www.opengis.net/ont/geosparql#hasGeometry> <https://doi.org/10.5281/zenodo.18369865_geom> .
@@ -614,9 +615,8 @@
 <https://doi.org/10.5281/zenodo.18369865> <https://schema.org/longitude> "-8.4942742"^^<http://www.w3.org/2001/XMLSchema#decimal> .
 <https://doi.org/10.5281/zenodo.18369865> <https://w3id.org/fdo-squirrel/context> "Ogham Stones in the Wild and in Museums in Ireland bearing Ogham inscriptions." .
 <https://doi.org/10.5281/zenodo.18369865_geom> <http://www.opengis.net/ont/geosparql#asWKT> "<http://www.opengis.net/def/crs/EPSG/0/4326> POINT(-8.4942742 51.8961510)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
+<https://doi.org/10.5281/zenodo.18369865_geom> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.ics.forth.gr/isl/CRMgeo/SP5_Geometric_Place_Expression> .
 <https://doi.org/10.5281/zenodo.18369865_geom> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.opengis.net/ont/sf#Point> .
-<https://doi.org/10.5281/zenodo.18369865_temporal> <http://www.cidoc-crm.org/cidoc-crm/P82a_begin_of_the_begin> "0300"^^<http://www.w3.org/2001/XMLSchema#gYear> .
-<https://doi.org/10.5281/zenodo.18369865_temporal> <http://www.cidoc-crm.org/cidoc-crm/P82b_end_of_the_end> "0699"^^<http://www.w3.org/2001/XMLSchema#gYear> .
 <https://doi.org/10.5281/zenodo.18369865_temporal> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/PeriodOfTime> .
 <https://doi.org/10.5281/zenodo.18369865_temporal> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.cidoc-crm.org/cidoc-crm/E52_Time-Span> .
 <https://doi.org/10.5281/zenodo.18369865_temporal> <http://www.w3.org/2000/01/rdf-schema#label> "Ogham stone inscriptions (ca. 4th–7th century CE)" .
@@ -652,6 +652,7 @@
 <https://doi.org/10.5281/zenodo.18724635> <http://www.cidoc-crm.org/cidoc-crm/P3_has_note> "low" .
 <https://doi.org/10.5281/zenodo.18724635> <http://www.cidoc-crm.org/cidoc-crm/P3_has_note> "make 3d model available" .
 <https://doi.org/10.5281/zenodo.18724635> <http://www.cidoc-crm.org/cidoc-crm/P3_has_note> "{\"software\": \"KIRI Engine\", \"steps\": \"Take photos, align photos; build dense cloud; generate mesh; texture; export.\"}" .
+<https://doi.org/10.5281/zenodo.18724635> <http://www.cidoc-crm.org/cidoc-crm/P4_has_time-span> "0300/0699"^^<http://id.loc.gov/datatypes/edtf/EDTF> .
 <https://doi.org/10.5281/zenodo.18724635> <http://www.cidoc-crm.org/cidoc-crm/P4_has_time-span> <https://doi.org/10.5281/zenodo.18724635_temporal> .
 <https://doi.org/10.5281/zenodo.18724635> <http://www.cidoc-crm.org/cidoc-crm/P67_refers_to> <https://www.openstreetmap.org/node/11071361392> .
 <https://doi.org/10.5281/zenodo.18724635> <http://www.opengis.net/ont/geosparql#hasGeometry> <https://doi.org/10.5281/zenodo.18724635_geom> .
@@ -696,9 +697,8 @@
 <https://doi.org/10.5281/zenodo.18724635> <https://schema.org/longitude> "-8.4924208"^^<http://www.w3.org/2001/XMLSchema#decimal> .
 <https://doi.org/10.5281/zenodo.18724635> <https://w3id.org/fdo-squirrel/context> "Ogham Stones in the Wild and in Museums in Ireland bearing Ogham inscriptions." .
 <https://doi.org/10.5281/zenodo.18724635_geom> <http://www.opengis.net/ont/geosparql#asWKT> "<http://www.opengis.net/def/crs/EPSG/0/4326> POINT(-8.4924208 51.8937150)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
+<https://doi.org/10.5281/zenodo.18724635_geom> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.ics.forth.gr/isl/CRMgeo/SP5_Geometric_Place_Expression> .
 <https://doi.org/10.5281/zenodo.18724635_geom> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.opengis.net/ont/sf#Point> .
-<https://doi.org/10.5281/zenodo.18724635_temporal> <http://www.cidoc-crm.org/cidoc-crm/P82a_begin_of_the_begin> "0300"^^<http://www.w3.org/2001/XMLSchema#gYear> .
-<https://doi.org/10.5281/zenodo.18724635_temporal> <http://www.cidoc-crm.org/cidoc-crm/P82b_end_of_the_end> "0699"^^<http://www.w3.org/2001/XMLSchema#gYear> .
 <https://doi.org/10.5281/zenodo.18724635_temporal> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/PeriodOfTime> .
 <https://doi.org/10.5281/zenodo.18724635_temporal> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.cidoc-crm.org/cidoc-crm/E52_Time-Span> .
 <https://doi.org/10.5281/zenodo.18724635_temporal> <http://www.w3.org/2000/01/rdf-schema#label> "Ogham stone inscriptions (ca. 4th–7th century CE)" .
@@ -734,6 +734,7 @@
 <https://doi.org/10.5281/zenodo.18732892> <http://www.cidoc-crm.org/cidoc-crm/P3_has_note> "low" .
 <https://doi.org/10.5281/zenodo.18732892> <http://www.cidoc-crm.org/cidoc-crm/P3_has_note> "make 3d model available" .
 <https://doi.org/10.5281/zenodo.18732892> <http://www.cidoc-crm.org/cidoc-crm/P3_has_note> "{\"software\": \"KIRI Engine\", \"steps\": \"Take photos, align photos; build dense cloud; generate mesh; texture; export.\"}" .
+<https://doi.org/10.5281/zenodo.18732892> <http://www.cidoc-crm.org/cidoc-crm/P4_has_time-span> "2026"^^<http://www.w3.org/2001/XMLSchema#gYear> .
 <https://doi.org/10.5281/zenodo.18732892> <http://www.cidoc-crm.org/cidoc-crm/P4_has_time-span> <https://doi.org/10.5281/zenodo.18732892_temporal> .
 <https://doi.org/10.5281/zenodo.18732892> <http://www.cidoc-crm.org/cidoc-crm/P67_refers_to> <https://www.openstreetmap.org/relation/14599988> .
 <https://doi.org/10.5281/zenodo.18732892> <http://www.opengis.net/ont/geosparql#hasGeometry> <https://doi.org/10.5281/zenodo.18732892_geom> .
@@ -831,9 +832,8 @@
 <https://doi.org/10.5281/zenodo.18732892> <https://schema.org/longitude> "12.16988"^^<http://www.w3.org/2001/XMLSchema#decimal> .
 <https://doi.org/10.5281/zenodo.18732892> <https://w3id.org/fdo-squirrel/context> "cairn temporally created by Florian Thiery and Fiona Schenk 2026" .
 <https://doi.org/10.5281/zenodo.18732892_geom> <http://www.opengis.net/ont/geosparql#asWKT> "<http://www.opengis.net/def/crs/EPSG/0/4326> POINT(12.16988 46.888362)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
+<https://doi.org/10.5281/zenodo.18732892_geom> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.ics.forth.gr/isl/CRMgeo/SP5_Geometric_Place_Expression> .
 <https://doi.org/10.5281/zenodo.18732892_geom> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.opengis.net/ont/sf#Point> .
-<https://doi.org/10.5281/zenodo.18732892_temporal> <http://www.cidoc-crm.org/cidoc-crm/P82a_begin_of_the_begin> "2026"^^<http://www.w3.org/2001/XMLSchema#gYear> .
-<https://doi.org/10.5281/zenodo.18732892_temporal> <http://www.cidoc-crm.org/cidoc-crm/P82b_end_of_the_end> "2026"^^<http://www.w3.org/2001/XMLSchema#gYear> .
 <https://doi.org/10.5281/zenodo.18732892_temporal> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/PeriodOfTime> .
 <https://doi.org/10.5281/zenodo.18732892_temporal> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.cidoc-crm.org/cidoc-crm/E52_Time-Span> .
 <https://doi.org/10.5281/zenodo.18732892_temporal> <http://www.w3.org/2000/01/rdf-schema#label> "Modern, temporal object 2026" .
@@ -871,6 +871,7 @@
 <https://doi.org/10.5281/zenodo.18742693> <http://www.cidoc-crm.org/cidoc-crm/P3_has_note> "low" .
 <https://doi.org/10.5281/zenodo.18742693> <http://www.cidoc-crm.org/cidoc-crm/P3_has_note> "make 3d model available" .
 <https://doi.org/10.5281/zenodo.18742693> <http://www.cidoc-crm.org/cidoc-crm/P3_has_note> "{\"software\": \"KIRI Engine\", \"steps\": \"Take photos, align photos; build dense cloud; generate mesh; texture; export.\"}" .
+<https://doi.org/10.5281/zenodo.18742693> <http://www.cidoc-crm.org/cidoc-crm/P4_has_time-span> "1982"^^<http://www.w3.org/2001/XMLSchema#gYear> .
 <https://doi.org/10.5281/zenodo.18742693> <http://www.cidoc-crm.org/cidoc-crm/P4_has_time-span> <https://doi.org/10.5281/zenodo.18742693_temporal> .
 <https://doi.org/10.5281/zenodo.18742693> <http://www.cidoc-crm.org/cidoc-crm/P67_refers_to> <https://www.openstreetmap.org/node/3647679932> .
 <https://doi.org/10.5281/zenodo.18742693> <http://www.opengis.net/ont/geosparql#hasGeometry> <https://doi.org/10.5281/zenodo.18742693_geom> .
@@ -956,9 +957,8 @@
 <https://doi.org/10.5281/zenodo.18742693> <https://schema.org/longitude> "9.4982136"^^<http://www.w3.org/2001/XMLSchema#decimal> .
 <https://doi.org/10.5281/zenodo.18742693> <https://w3id.org/fdo-squirrel/context> "Beuys-Stele als Teil des Projects “7000 Eichen” in Kassel, Joseph Beuys, 1982, documenta 7" .
 <https://doi.org/10.5281/zenodo.18742693_geom> <http://www.opengis.net/ont/geosparql#asWKT> "<http://www.opengis.net/def/crs/EPSG/0/4326> POINT(9.4982136 51.3131242)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
+<https://doi.org/10.5281/zenodo.18742693_geom> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.ics.forth.gr/isl/CRMgeo/SP5_Geometric_Place_Expression> .
 <https://doi.org/10.5281/zenodo.18742693_geom> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.opengis.net/ont/sf#Point> .
-<https://doi.org/10.5281/zenodo.18742693_temporal> <http://www.cidoc-crm.org/cidoc-crm/P82a_begin_of_the_begin> "1982"^^<http://www.w3.org/2001/XMLSchema#gYear> .
-<https://doi.org/10.5281/zenodo.18742693_temporal> <http://www.cidoc-crm.org/cidoc-crm/P82b_end_of_the_end> "1982"^^<http://www.w3.org/2001/XMLSchema#gYear> .
 <https://doi.org/10.5281/zenodo.18742693_temporal> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/PeriodOfTime> .
 <https://doi.org/10.5281/zenodo.18742693_temporal> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.cidoc-crm.org/cidoc-crm/E52_Time-Span> .
 <https://doi.org/10.5281/zenodo.18742693_temporal> <http://www.w3.org/2000/01/rdf-schema#label> "Modern, temporal object 1982" .
@@ -992,6 +992,9 @@
 <https://w3id.org/fdo-squirrel/registry/catalog> <http://purl.org/dc/terms/license> <https://spdx.org/licenses/CC-BY-4.0.html> .
 <https://w3id.org/fdo-squirrel/registry/catalog> <http://purl.org/dc/terms/publisher> <http://www.wikidata.org/entity/Q73901970> .
 <https://w3id.org/fdo-squirrel/registry/catalog> <http://purl.org/dc/terms/title> "FDOx Registry"@en .
+<https://w3id.org/fdo-squirrel/registry/catalog> <http://www.cidoc-crm.org/cidoc-crm/P102_has_title> "FDOx Registry"@en .
+<https://w3id.org/fdo-squirrel/registry/catalog> <http://www.cidoc-crm.org/cidoc-crm/P3_has_note> "A catalogue of FAIR Digital Objects published with fdo-squirrel. Each record points at one pinned Zenodo version; the metadata is harvested from the package itself and anchored in CIDOC CRM through the bridge at https://w3id.org/fdo-squirrel/crm/."@en .
+<https://w3id.org/fdo-squirrel/registry/catalog> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.cidoc-crm.org/cidoc-crm/E31_Document> .
 <https://w3id.org/fdo-squirrel/registry/catalog> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/dcat#Catalog> .
 <https://w3id.org/fdo-squirrel/registry/catalog> <http://www.w3.org/ns/dcat#dataset> <https://doi.org/10.5281/zenodo.18369125> .
 <https://w3id.org/fdo-squirrel/registry/catalog> <http://www.w3.org/ns/dcat#dataset> <https://doi.org/10.5281/zenodo.18369156> .
@@ -3708,6 +3711,9 @@
 <https://w3id.org/fdo-squirrel/registry/record/18369126> <http://purl.org/dc/terms/issued> "2026-01-25"^^<http://www.w3.org/2001/XMLSchema#date> .
 <https://w3id.org/fdo-squirrel/registry/record/18369126> <http://purl.org/dc/terms/source> <https://zenodo.org/records/18369126> .
 <https://w3id.org/fdo-squirrel/registry/record/18369126> <http://purl.org/dc/terms/title> "o3d-epidoc-extractor (FAIR Digital Object)"@en .
+<https://w3id.org/fdo-squirrel/registry/record/18369126> <http://www.cidoc-crm.org/cidoc-crm/P102_has_title> "o3d-epidoc-extractor (FAIR Digital Object)"@en .
+<https://w3id.org/fdo-squirrel/registry/record/18369126> <http://www.cidoc-crm.org/cidoc-crm/P70_documents> <https://doi.org/10.5281/zenodo.18369125> .
+<https://w3id.org/fdo-squirrel/registry/record/18369126> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.cidoc-crm.org/cidoc-crm/E31_Document> .
 <https://w3id.org/fdo-squirrel/registry/record/18369126> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/dcat#CatalogRecord> .
 <https://w3id.org/fdo-squirrel/registry/record/18369126> <http://www.w3.org/ns/prov#wasDerivedFrom> <https://zenodo.org/api/records/18369126/files/o3d-epidoc-extractor.zip/content> .
 <https://w3id.org/fdo-squirrel/registry/record/18369126> <http://xmlns.com/foaf/0.1/primaryTopic> <https://doi.org/10.5281/zenodo.18369125> .
@@ -4958,6 +4964,9 @@
 <https://w3id.org/fdo-squirrel/registry/record/18369157> <http://purl.org/dc/terms/issued> "2026-01-25"^^<http://www.w3.org/2001/XMLSchema#date> .
 <https://w3id.org/fdo-squirrel/registry/record/18369157> <http://purl.org/dc/terms/source> <https://zenodo.org/records/18369157> .
 <https://w3id.org/fdo-squirrel/registry/record/18369157> <http://purl.org/dc/terms/title> "ogham-analysis (FAIR Digital Object)"@en .
+<https://w3id.org/fdo-squirrel/registry/record/18369157> <http://www.cidoc-crm.org/cidoc-crm/P102_has_title> "ogham-analysis (FAIR Digital Object)"@en .
+<https://w3id.org/fdo-squirrel/registry/record/18369157> <http://www.cidoc-crm.org/cidoc-crm/P70_documents> <https://doi.org/10.5281/zenodo.18369156> .
+<https://w3id.org/fdo-squirrel/registry/record/18369157> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.cidoc-crm.org/cidoc-crm/E31_Document> .
 <https://w3id.org/fdo-squirrel/registry/record/18369157> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/dcat#CatalogRecord> .
 <https://w3id.org/fdo-squirrel/registry/record/18369157> <http://www.w3.org/ns/prov#wasDerivedFrom> <https://zenodo.org/api/records/18369157/files/ogham-analysis.zip/content> .
 <https://w3id.org/fdo-squirrel/registry/record/18369157> <http://xmlns.com/foaf/0.1/primaryTopic> <https://doi.org/10.5281/zenodo.18369156> .
@@ -5046,6 +5055,9 @@
 <https://w3id.org/fdo-squirrel/registry/record/18369866> <http://purl.org/dc/terms/issued> "2026-01-25"^^<http://www.w3.org/2001/XMLSchema#date> .
 <https://w3id.org/fdo-squirrel/registry/record/18369866> <http://purl.org/dc/terms/source> <https://zenodo.org/records/18369866> .
 <https://w3id.org/fdo-squirrel/registry/record/18369866> <http://purl.org/dc/terms/title> "GEARS/1 (FAIR Digital Object)"@en .
+<https://w3id.org/fdo-squirrel/registry/record/18369866> <http://www.cidoc-crm.org/cidoc-crm/P102_has_title> "GEARS/1 (FAIR Digital Object)"@en .
+<https://w3id.org/fdo-squirrel/registry/record/18369866> <http://www.cidoc-crm.org/cidoc-crm/P70_documents> <https://doi.org/10.5281/zenodo.18369865> .
+<https://w3id.org/fdo-squirrel/registry/record/18369866> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.cidoc-crm.org/cidoc-crm/E31_Document> .
 <https://w3id.org/fdo-squirrel/registry/record/18369866> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/dcat#CatalogRecord> .
 <https://w3id.org/fdo-squirrel/registry/record/18369866> <http://www.w3.org/ns/prov#wasDerivedFrom> <https://zenodo.org/api/records/18369866/files/GEARS_1.zip/content> .
 <https://w3id.org/fdo-squirrel/registry/record/18369866> <http://xmlns.com/foaf/0.1/primaryTopic> <https://doi.org/10.5281/zenodo.18369865> .
@@ -5762,6 +5774,9 @@
 <https://w3id.org/fdo-squirrel/registry/record/18732893> <http://purl.org/dc/terms/issued> "2026-02-22"^^<http://www.w3.org/2001/XMLSchema#date> .
 <https://w3id.org/fdo-squirrel/registry/record/18732893> <http://purl.org/dc/terms/source> <https://zenodo.org/records/18732893> .
 <https://w3id.org/fdo-squirrel/registry/record/18732893> <http://purl.org/dc/terms/title> "Steinmännchen / Lago di Anterselva (Antholzer See) 03.01.2026 14:36h (FAIR Digital Object)"@en .
+<https://w3id.org/fdo-squirrel/registry/record/18732893> <http://www.cidoc-crm.org/cidoc-crm/P102_has_title> "Steinmännchen / Lago di Anterselva (Antholzer See) 03.01.2026 14:36h (FAIR Digital Object)"@en .
+<https://w3id.org/fdo-squirrel/registry/record/18732893> <http://www.cidoc-crm.org/cidoc-crm/P70_documents> <https://doi.org/10.5281/zenodo.18732892> .
+<https://w3id.org/fdo-squirrel/registry/record/18732893> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.cidoc-crm.org/cidoc-crm/E31_Document> .
 <https://w3id.org/fdo-squirrel/registry/record/18732893> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/dcat#CatalogRecord> .
 <https://w3id.org/fdo-squirrel/registry/record/18732893> <http://www.w3.org/ns/prov#wasDerivedFrom> <https://zenodo.org/api/records/18732893/files/Q60.zip/content> .
 <https://w3id.org/fdo-squirrel/registry/record/18732893> <http://xmlns.com/foaf/0.1/primaryTopic> <https://doi.org/10.5281/zenodo.18732892> .
@@ -6289,6 +6304,9 @@
 <https://w3id.org/fdo-squirrel/registry/record/18742694> <http://purl.org/dc/terms/issued> "2026-02-23"^^<http://www.w3.org/2001/XMLSchema#date> .
 <https://w3id.org/fdo-squirrel/registry/record/18742694> <http://purl.org/dc/terms/source> <https://zenodo.org/records/18742694> .
 <https://w3id.org/fdo-squirrel/registry/record/18742694> <http://purl.org/dc/terms/title> "Beuys-Stele B 1036 in Kassel als Teil der \"7000 Eichen\" (FAIR Digital Object)"@en .
+<https://w3id.org/fdo-squirrel/registry/record/18742694> <http://www.cidoc-crm.org/cidoc-crm/P102_has_title> "Beuys-Stele B 1036 in Kassel als Teil der \"7000 Eichen\" (FAIR Digital Object)"@en .
+<https://w3id.org/fdo-squirrel/registry/record/18742694> <http://www.cidoc-crm.org/cidoc-crm/P70_documents> <https://doi.org/10.5281/zenodo.18742693> .
+<https://w3id.org/fdo-squirrel/registry/record/18742694> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.cidoc-crm.org/cidoc-crm/E31_Document> .
 <https://w3id.org/fdo-squirrel/registry/record/18742694> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/dcat#CatalogRecord> .
 <https://w3id.org/fdo-squirrel/registry/record/18742694> <http://www.w3.org/ns/prov#wasDerivedFrom> <https://zenodo.org/api/records/18742694/files/Q56.zip/content> .
 <https://w3id.org/fdo-squirrel/registry/record/18742694> <http://xmlns.com/foaf/0.1/primaryTopic> <https://doi.org/10.5281/zenodo.18742693> .
@@ -6419,6 +6437,9 @@
 <https://w3id.org/fdo-squirrel/registry/record/18744133> <http://purl.org/dc/terms/issued> "2026-02-23"^^<http://www.w3.org/2001/XMLSchema#date> .
 <https://w3id.org/fdo-squirrel/registry/record/18744133> <http://purl.org/dc/terms/source> <https://zenodo.org/records/18744133> .
 <https://w3id.org/fdo-squirrel/registry/record/18744133> <http://purl.org/dc/terms/title> "CO074-148---- (FAIR Digital Object)"@en .
+<https://w3id.org/fdo-squirrel/registry/record/18744133> <http://www.cidoc-crm.org/cidoc-crm/P102_has_title> "CO074-148---- (FAIR Digital Object)"@en .
+<https://w3id.org/fdo-squirrel/registry/record/18744133> <http://www.cidoc-crm.org/cidoc-crm/P70_documents> <https://doi.org/10.5281/zenodo.18724635> .
+<https://w3id.org/fdo-squirrel/registry/record/18744133> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.cidoc-crm.org/cidoc-crm/E31_Document> .
 <https://w3id.org/fdo-squirrel/registry/record/18744133> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/dcat#CatalogRecord> .
 <https://w3id.org/fdo-squirrel/registry/record/18744133> <http://www.w3.org/ns/prov#wasDerivedFrom> <https://zenodo.org/api/records/18744133/files/CO074-148----.zip/content> .
 <https://w3id.org/fdo-squirrel/registry/record/18744133> <http://xmlns.com/foaf/0.1/primaryTopic> <https://doi.org/10.5281/zenodo.18724635> .
@@ -6538,6 +6559,9 @@
 <https://w3id.org/fdo-squirrel/registry/record/18744583> <http://purl.org/dc/terms/issued> "2026-02-23"^^<http://www.w3.org/2001/XMLSchema#date> .
 <https://w3id.org/fdo-squirrel/registry/record/18744583> <http://purl.org/dc/terms/source> <https://zenodo.org/records/18744583> .
 <https://w3id.org/fdo-squirrel/registry/record/18744583> <http://purl.org/dc/terms/title> "CHUIS/1 (FAIR Digital Object)"@en .
+<https://w3id.org/fdo-squirrel/registry/record/18744583> <http://www.cidoc-crm.org/cidoc-crm/P102_has_title> "CHUIS/1 (FAIR Digital Object)"@en .
+<https://w3id.org/fdo-squirrel/registry/record/18744583> <http://www.cidoc-crm.org/cidoc-crm/P70_documents> <https://doi.org/10.5281/zenodo.18369720> .
+<https://w3id.org/fdo-squirrel/registry/record/18744583> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.cidoc-crm.org/cidoc-crm/E31_Document> .
 <https://w3id.org/fdo-squirrel/registry/record/18744583> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/dcat#CatalogRecord> .
 <https://w3id.org/fdo-squirrel/registry/record/18744583> <http://www.w3.org/ns/prov#wasDerivedFrom> <https://zenodo.org/api/records/18744583/files/CHUIS_1.zip/content> .
 <https://w3id.org/fdo-squirrel/registry/record/18744583> <http://xmlns.com/foaf/0.1/primaryTopic> <https://doi.org/10.5281/zenodo.18369720> .
@@ -6550,3 +6574,9 @@
 <https://w3id.org/fdo-squirrel/registry/role/model> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#Concept> .
 <https://w3id.org/fdo-squirrel/registry/role/script> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#Concept> .
 <https://w3id.org/fdo-squirrel/registry/role/software> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#Concept> .
+<https://www.openstreetmap.org/node/11071361392> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.cidoc-crm.org/cidoc-crm/E53_Place> .
+<https://www.openstreetmap.org/node/11966430251> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.cidoc-crm.org/cidoc-crm/E53_Place> .
+<https://www.openstreetmap.org/node/11966441102> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.cidoc-crm.org/cidoc-crm/E53_Place> .
+<https://www.openstreetmap.org/node/3647679932> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.cidoc-crm.org/cidoc-crm/E53_Place> .
+<https://www.openstreetmap.org/relation/14599988> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.cidoc-crm.org/cidoc-crm/E53_Place> .
+<https://www.openstreetmap.org/relation/62273> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.cidoc-crm.org/cidoc-crm/E53_Place> .

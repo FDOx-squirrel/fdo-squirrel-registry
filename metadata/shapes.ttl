@@ -1,0 +1,280 @@
+# SHACL gate for the FDOx registry bundle (PRIMER S5).
+#
+# Validated graph: dist/fdo-registry.ttl together with metadata/crm_bridge.ttl,
+# metadata/vocab/role.ttl and metadata/registry_ontology.ttl. The bridge has to
+# be in the graph because SHACL follows rdfs:subClassOf for sh:targetClass and
+# sh:class by itself but does not invent the axioms; without it half the corpus
+# would look unanchored although the anchoring is exactly where it belongs.
+#
+# Severity mirrors the modal verb of the NFDI4Objects application profile:
+#
+#   sh:Violation  what the profile says MUST NOT be used, and what the registry
+#                 itself promises - a record without its checksum, an FDO
+#                 without a licence, a class with no CRM anchor. Stops the build.
+#   sh:Warning    what the profile says SHOULD or SHOULD NOT, and what is merely
+#                 unclean in a harvested package. Goes into dist/quality_report.md
+#                 and is fatal only under --strict, because the registry reads
+#                 and reports, it does not correct (PRIMER A3).
+#
+# Every sh:message here must fire at least once against metadata/shapes_selftest.ttl.
+# A shape that has never fired is a shape nobody has checked.
+
+@prefix crm:     <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix crmdig:  <http://www.ics.forth.gr/isl/CRMdig/> .
+@prefix dcat:    <http://www.w3.org/ns/dcat#> .
+@prefix dct:     <http://purl.org/dc/terms/> .
+@prefix fdo:     <https://w3id.org/fdo-squirrel/> .
+@prefix fdoreg:  <https://w3id.org/fdo-squirrel/registry/> .
+@prefix fdosh:   <https://w3id.org/fdo-squirrel/registry/shapes/> .
+@prefix foaf:    <http://xmlns.com/foaf/0.1/> .
+@prefix geosparql: <http://www.opengis.net/ont/geosparql#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema:  <https://schema.org/> .
+@prefix sh:      <http://www.w3.org/ns/shacl#> .
+@prefix skos:    <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+
+<https://w3id.org/fdo-squirrel/registry/shapes/> a owl:Ontology ;
+    rdfs:label "FDOx registry SHACL gate"@en ;
+    rdfs:comment "Completeness of the catalogue, the CRM anchoring it claims, and the MUST-NOT constructs of the NFDI4Objects CIDOC-CRM application profile."@en ;
+    rdfs:seeAlso <https://nfdi4objects.github.io/crm-rdf-ap/> .
+
+fdosh:prefixes
+    sh:declare [ sh:prefix "crm" ; sh:namespace "http://www.cidoc-crm.org/cidoc-crm/"^^xsd:anyURI ] ,
+               [ sh:prefix "crmdig" ; sh:namespace "http://www.ics.forth.gr/isl/CRMdig/"^^xsd:anyURI ] ,
+               [ sh:prefix "crmgeo" ; sh:namespace "http://www.ics.forth.gr/isl/CRMgeo/"^^xsd:anyURI ] ,
+               [ sh:prefix "dcat" ; sh:namespace "http://www.w3.org/ns/dcat#"^^xsd:anyURI ] ,
+               [ sh:prefix "dct" ; sh:namespace "http://purl.org/dc/terms/"^^xsd:anyURI ] ,
+               [ sh:prefix "fdo" ; sh:namespace "https://w3id.org/fdo-squirrel/"^^xsd:anyURI ] ,
+               [ sh:prefix "geosparql" ; sh:namespace "http://www.opengis.net/ont/geosparql#"^^xsd:anyURI ] ,
+               [ sh:prefix "owl" ; sh:namespace "http://www.w3.org/2002/07/owl#"^^xsd:anyURI ] ,
+               [ sh:prefix "rdf" ; sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ] ,
+               [ sh:prefix "rdfs" ; sh:namespace "http://www.w3.org/2000/01/rdf-schema#"^^xsd:anyURI ] ,
+               [ sh:prefix "schema" ; sh:namespace "https://schema.org/"^^xsd:anyURI ] .
+
+# ---------------------------------------------------------------------------
+# 1  Completeness — what the registry promises about its own entries
+# ---------------------------------------------------------------------------
+
+fdosh:CatalogShape a sh:NodeShape ;
+    sh:targetClass dcat:Catalog ;
+    sh:property [ sh:path dct:title ; sh:minCount 1 ;
+        sh:message "The catalogue has no dct:title." ] ;
+    sh:property [ sh:path dct:license ; sh:minCount 1 ; sh:nodeKind sh:IRI ;
+        sh:message "The catalogue has no dct:license as an IRI." ] ;
+    sh:property [ sh:path dcat:record ; sh:minCount 1 ;
+        sh:message "The catalogue holds no dcat:record. An empty catalogue is a failed harvest, not a catalogue." ] ;
+    sh:property [ sh:path dct:conformsTo ; sh:minCount 1 ; sh:nodeKind sh:IRI ;
+        sh:message "The catalogue does not say through dct:conformsTo which bridge its CRM anchoring follows." ] .
+
+# The FDO as the package describes it. Identity is the IRI: the concept DOI the
+# harvested TTL uses as its own subject (Befund 14). A separate dct:identifier
+# is not required - the profile asks for identifiers as IRIs, and a second
+# rendering of the same DOI as a string would be one more thing to disagree.
+fdosh:DatasetShape a sh:NodeShape ;
+    sh:targetClass dcat:Dataset ;
+    sh:nodeKind sh:IRI ;
+    sh:pattern "^https://doi\\.org/10\\.[0-9]{4,9}/" ;
+    sh:message "The FDO is not identified by a DOI IRI." ;
+    sh:property [ sh:path dct:title ; sh:minCount 1 ;
+        sh:message "The FDO has no dct:title." ] ;
+    sh:property [ sh:path dct:license ; sh:minCount 1 ;
+        sh:message "The FDO has no dct:license." ] ;
+    sh:property [ sh:path dcat:distribution ; sh:minCount 1 ;
+        sh:message "The FDO has no dcat:distribution. A package that lists no file describes nothing." ] ;
+    sh:sparql [ a sh:SPARQLConstraint ;
+        sh:message "The FDO does not carry exactly one FDOx type (fdo:3DDataFDO, fdo:SoftwareFDO, fdo:AnalysisFDO)." ;
+        sh:prefixes fdosh:prefixes ;
+        sh:select """
+            SELECT $this WHERE {
+              $this a dcat:Dataset .
+              { SELECT $this (COUNT(DISTINCT ?type) AS ?types) WHERE {
+                  $this a dcat:Dataset .
+                  OPTIONAL { $this a ?type . FILTER(STRSTARTS(STR(?type), 'https://w3id.org/fdo-squirrel/')
+                                                    && STRENDS(STR(?type), 'FDO')) }
+                } GROUP BY $this }
+              FILTER(?types != 1)
+            }
+        """ ] .
+
+fdosh:CatalogRecordShape a sh:NodeShape ;
+    sh:targetClass dcat:CatalogRecord ;
+    sh:property [ sh:path foaf:primaryTopic ; sh:minCount 1 ; sh:maxCount 1 ; sh:nodeKind sh:IRI ;
+        sh:message "The catalogue record does not name exactly one foaf:primaryTopic." ] ;
+    sh:property [ sh:path dct:source ; sh:minCount 1 ; sh:nodeKind sh:IRI ;
+        sh:message "The catalogue record has no dct:source pointing at the Zenodo record." ] ;
+    sh:property [ sh:path fdoreg:sha256 ; sh:minCount 1 ; sh:maxCount 1 ;
+        sh:datatype xsd:string ; sh:pattern "^[0-9a-f]{64}$" ;
+        sh:message "The catalogue record carries no usable fdoreg:sha256 of the harvested metadata file." ] ;
+    sh:property [ sh:path fdoreg:conceptDoi ; sh:minCount 1 ; sh:maxCount 1 ; sh:nodeKind sh:IRI ;
+        sh:message "The catalogue record does not name exactly one fdoreg:conceptDoi." ] ;
+    sh:property [ sh:path fdoreg:versionDoi ; sh:minCount 1 ; sh:maxCount 1 ; sh:nodeKind sh:IRI ;
+        sh:message "The catalogue record does not name exactly one pinned fdoreg:versionDoi." ] .
+
+# The role literal alone would leave a string where CRM expects a type. The
+# resolved concept is therefore required, not merely produced.
+fdosh:DistributionShape a sh:NodeShape ;
+    sh:targetClass dcat:Distribution ;
+    sh:property [ sh:path dcat:accessURL ; sh:minCount 1 ;
+        sh:message "The distribution has no dcat:accessURL." ] ;
+    sh:property [ sh:path fdo:role ; sh:minCount 1 ;
+        sh:message "The distribution has no fdo:role." ] ;
+    sh:property [ sh:path fdo:sha256 ; sh:minCount 1 ;
+        sh:message "The distribution has no fdo:sha256." ] ;
+    sh:property [ sh:path crm:P2_has_type ; sh:minCount 1 ; sh:nodeKind sh:IRI ; sh:class skos:Concept ;
+        sh:message "The distribution role was not resolved to a skos:Concept, so crm:P2_has_type points at a string instead of a type." ] .
+
+# ---------------------------------------------------------------------------
+# 2  The anchor check — the promise of A2, made checkable
+# ---------------------------------------------------------------------------
+#
+# Per node, not per class. A per-class check would report schema:Person and
+# dcat:Distribution as unanchored although their anchor is exactly where A3
+# requires it: materialised on the instance, because axiomatising a foreign
+# namespace is what the registry must not do. The question worth asking is
+# therefore whether every described thing reaches CRM, not whether every class
+# does.
+#
+# Exempt are the terminological nodes of the vocabularies travelling with the
+# bundle. An owl:Ontology header describes a file and an owl:ObjectProperty is
+# a term, not a thing in the catalogue; typing them E31 would only make the
+# check pass without making the graph truer.
+
+# The offending nodes are selected once by the target query rather than the
+# constraint being run for each of the eleven hundred typed nodes in the graph:
+# per focus node the same check costs 18 seconds, as one query it costs a
+# tenth of that. A node the target returns has a type by construction, so
+# sh:maxCount 0 on rdf:type is what turns being selected into being reported -
+# the same idiom as the prohibition shapes below.
+fdosh:CrmAnchorShape a sh:NodeShape ;
+    sh:target [ a sh:SPARQLTarget ;
+        sh:prefixes fdosh:prefixes ;
+        sh:select """
+            SELECT ?this WHERE {
+              ?this a ?type .
+              FILTER NOT EXISTS {
+                ?this a/rdfs:subClassOf* ?anchor .
+                FILTER(STRSTARTS(STR(?anchor), 'http://www.cidoc-crm.org/cidoc-crm/')
+                    || STRSTARTS(STR(?anchor), 'http://www.ics.forth.gr/isl/CRMdig/')
+                    || STRSTARTS(STR(?anchor), 'http://www.ics.forth.gr/isl/CRMgeo/'))
+              }
+              FILTER NOT EXISTS {
+                ?this a ?term .
+                FILTER(?term IN (owl:Ontology, owl:Class, owl:ObjectProperty,
+                                 owl:DatatypeProperty, owl:AnnotationProperty,
+                                 rdfs:Class, rdf:Property))
+              }
+            }
+        """ ] ;
+    sh:property [ sh:path rdf:type ; sh:maxCount 0 ;
+        sh:message "No CRM anchor: this node has a type but reaches no CIDOC CRM, CRMdig or CRMgeo class through rdfs:subClassOf." ] .
+
+# ---------------------------------------------------------------------------
+# 3  Profile prohibitions — MUST NOT (violation)
+# ---------------------------------------------------------------------------
+#
+# None of these can arise from the current build. They are here for the day
+# somebody "improves" the mapping: E55 Type is the first thing a naive CRM
+# mapping reaches for, and it is the first thing the profile forbids.
+
+fdosh:NoE55TypeShape a sh:NodeShape ;
+    sh:targetClass crm:E55_Type ;
+    sh:property [ sh:path rdf:type ; sh:maxCount 0 ;
+        sh:message "crm:E55_Type MUST NOT be used. Use skos:Concept with skos:broader/skos:narrower instead." ] .
+
+fdosh:NoE32AuthorityDocumentShape a sh:NodeShape ;
+    sh:targetClass crm:E32_Authority_Document ;
+    sh:property [ sh:path rdf:type ; sh:maxCount 0 ;
+        sh:message "crm:E32_Authority_Document MUST NOT be used. Use skos:ConceptScheme instead." ] .
+
+fdosh:NoE95SpacetimePrimitiveShape a sh:NodeShape ;
+    sh:targetClass crm:E95_Spacetime_Primitive ;
+    sh:property [ sh:path rdf:type ; sh:maxCount 0 ;
+        sh:message "crm:E95_Spacetime_Primitive MUST NOT be used. Combine crm:P4_has_time-span with geosparql:hasGeometry instead." ] .
+
+fdosh:NoForbiddenPropertiesShape a sh:NodeShape ;
+    sh:targetSubjectsOf crm:P71_lists ;
+    sh:property [ sh:path crm:P71_lists ; sh:maxCount 0 ;
+        sh:message "crm:P71_lists MUST NOT be used. Use skos:inScheme instead." ] .
+
+fdosh:NoP169iShape a sh:NodeShape ;
+    sh:targetSubjectsOf crm:P169i_spacetime_volume_is_defined_by ;
+    sh:property [ sh:path crm:P169i_spacetime_volume_is_defined_by ; sh:maxCount 0 ;
+        sh:message "crm:P169i_spacetime_volume_is_defined_by MUST NOT be used. Combine crm:P4_has_time-span with geosparql:hasGeometry instead." ] .
+
+# ---------------------------------------------------------------------------
+# 4  Profile advice — SHOULD NOT (warning)
+# ---------------------------------------------------------------------------
+
+fdosh:NoTimeSpanBoundPropertiesShape a sh:NodeShape ;
+    sh:targetSubjectsOf crm:P82a_begin_of_the_begin ;
+    sh:property [ sh:path crm:P82a_begin_of_the_begin ; sh:maxCount 0 ; sh:severity sh:Warning ;
+        sh:message "crm:P82a_begin_of_the_begin should not be used: the profile asks for a typed literal (xsd:*, edtf:EDTF) at crm:P4_has_time-span, or time:Interval." ] .
+
+fdosh:NoTimeSpanEndPropertiesShape a sh:NodeShape ;
+    sh:targetSubjectsOf crm:P82b_end_of_the_end ;
+    sh:property [ sh:path crm:P82b_end_of_the_end ; sh:maxCount 0 ; sh:severity sh:Warning ;
+        sh:message "crm:P82b_end_of_the_end should not be used: the profile asks for a typed literal (xsd:*, edtf:EDTF) at crm:P4_has_time-span, or time:Interval." ] .
+
+fdosh:NoAppellationShape a sh:NodeShape ;
+    sh:targetClass crm:E41_Appellation ;
+    sh:property [ sh:path rdf:type ; sh:maxCount 0 ; sh:severity sh:Warning ;
+        sh:message "crm:E41_Appellation should be avoided for titles and identifiers: use a literal at crm:P102_has_title, skos:prefLabel, or an identifier IRI with owl:sameAs." ] .
+
+fdosh:NoSpacePrimitiveShape a sh:NodeShape ;
+    sh:targetClass crm:E94_Space_Primitive ;
+    sh:property [ sh:path rdf:type ; sh:maxCount 0 ; sh:severity sh:Warning ;
+        sh:message "crm:E94_Space_Primitive should be expressed as a geosparql:Geometry with geosparql:asWKT instead." ] .
+
+# ---------------------------------------------------------------------------
+# 5  Quality of the harvested packages — warnings, and feedback upstream
+# ---------------------------------------------------------------------------
+#
+# These are statements about the packages, not about the registry. They are the
+# actual yield of this step for the people who publish FDOs: every line here is
+# something fdo-squirrel or a package author can fix at the source.
+
+fdosh:DatasetQualityShape a sh:NodeShape ;
+    sh:targetClass dcat:Dataset ;
+    sh:property [ sh:path dct:license ; sh:nodeKind sh:IRI ; sh:severity sh:Warning ;
+        sh:message "dct:license carries a string. A licence is an IRI (SPDX or the licence text); the string form cannot be resolved or compared." ] ;
+    sh:property [ sh:path dcat:keyword ; sh:nodeKind sh:IRI ; sh:severity sh:Warning ;
+        sh:message "dcat:keyword carries a bare string. Only IRI-valued keywords can be anchored as a type; a string cannot become a concept and must not become an E55 Type." ] ;
+    sh:property [ sh:path dct:description ; sh:maxCount 1 ; sh:severity sh:Warning ;
+        sh:message "More than one dct:description. In the harvested packages these are different MD.cff fields (purpose, quality, resolution) that ran into the description; which one is the description cannot be decided here." ] ;
+    sh:property [ sh:path schema:funding ; sh:nodeKind sh:IRI ; sh:severity sh:Warning ;
+        sh:message "schema:funding carries a bare string with no funder IRI. There is nothing to anchor and nothing to aggregate." ] ;
+    sh:property [ sh:path dcat:bbox ; sh:maxCount 0 ; sh:severity sh:Warning ;
+        sh:message "dcat:bbox is a DCAT string. The profile prefers geosparql:hasBoundingBox; the registry reports this rather than rewriting it, because converting the value would be a content change." ] ;
+    sh:property [ sh:path geosparql:hasGeometry ; sh:maxCount 0 ; sh:severity sh:Warning ;
+        sh:message "geosparql:hasGeometry hangs on the FDO itself. The geometry belongs on the crm:E53_Place the FDO refers to; an information object has no coordinates." ] .
+
+fdosh:PeriodQualityShape a sh:NodeShape ;
+    sh:targetClass crm:E52_Time-Span ;
+    sh:property [ sh:path dcat:startDate ; sh:datatype xsd:gYear ; sh:severity sh:Warning ;
+        sh:message "dcat:startDate is written as xsd:integer. The profile lists only XSD date types and EDTF for temporal values; the registry adds the typed literal beside it but does not touch the original." ] ;
+    sh:property [ sh:path dcat:endDate ; sh:datatype xsd:gYear ; sh:severity sh:Warning ;
+        sh:message "dcat:endDate is written as xsd:integer, as dcat:startDate." ] .
+
+fdosh:PersonQualityShape a sh:NodeShape ;
+    sh:targetClass schema:Person ;
+    sh:nodeKind sh:IRI ;
+    sh:pattern "^https://orcid\\.org/" ;
+    sh:severity sh:Warning ;
+    sh:message "A person without an ORCID. The profile asks for the established IRI (DOI, ORCID, ROR); the registry-minted agent IRI is a fallback that only works inside this catalogue." .
+
+fdosh:PersonIdentityShape a sh:NodeShape ;
+    sh:targetClass schema:Person ;
+    sh:severity sh:Warning ;
+    sh:sparql [ a sh:SPARQLConstraint ;
+        sh:message "The same name is carried by more than one person node. The registry never merges on a matching name - that would invent identity - so the decision is left to a human." ;
+        sh:prefixes fdosh:prefixes ;
+        sh:select """
+            SELECT $this ?value WHERE {
+              $this a schema:Person ; schema:name ?value .
+              ?other a schema:Person ; schema:name ?value .
+              FILTER(?other != $this)
+            }
+        """ ] .

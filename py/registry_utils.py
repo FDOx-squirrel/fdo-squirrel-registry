@@ -42,6 +42,7 @@ PREFIXES: dict[str, str] = {
     "codemeta": "https://codemeta.github.io/terms/",
     "crm": "http://www.cidoc-crm.org/cidoc-crm/",
     "crmdig": "http://www.ics.forth.gr/isl/CRMdig/",
+    "crmgeo": "http://www.ics.forth.gr/isl/CRMgeo/",
     "dcat": "http://www.w3.org/ns/dcat#",
     "dct": "http://purl.org/dc/terms/",
     "edtf": "http://id.loc.gov/datatypes/edtf/",
@@ -100,12 +101,20 @@ DOCS = ROOT / "docs"
 TEMPLATES = ROOT / "py" / "templates"
 
 BUNDLE = DIST / "fdo-registry.ttl"
+# The graph the gate validated, bundle plus the vocabularies it relies on, in
+# one file. The published bundle stays free of them (A4); this is the form the
+# NFDI4Objects knowledge graph is handed, because a consumer that loads only
+# the bundle cannot see the CRM anchoring the bundle claims to conform to.
+N4O_BUNDLE = DIST / "fdo-registry-n4o.ttl"
 INDEX = DIST / "registry-index.json"
 CRM_CROSSWALK = CROSSWALKS / "fdo--crm.csv"
 ROLE_CROSSWALK = CROSSWALKS / "fdo-role--skos.csv"
 CRM_BRIDGE = METADATA / "crm_bridge.ttl"
 REGISTRY_ONTOLOGY = METADATA / "registry_ontology.ttl"
 ROLE_VOCAB = VOCAB / "role.ttl"
+SHAPES = METADATA / "shapes.ttl"
+SHAPES_SELFTEST = METADATA / "shapes_selftest.ttl"
+QUALITY_REPORT = DIST / "quality_report.md"
 
 
 def ensure_dirs(*paths: Path) -> None:

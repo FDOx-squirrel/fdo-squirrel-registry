@@ -27,9 +27,10 @@ from step_bridge import base_term, read_crosswalk
 
 URN_PREFIX = "urn:fdo-squirrel:"
 
-# Handled together in anchor_temporal rather than by the generic rule, because
-# the object has to be retyped on the way out.
-TEMPORAL_TERMS = {"dcat:startDate", "dcat:endDate", "dct:PeriodOfTime"}
+# Handled in anchor_temporal rather than by the generic rule, because the
+# period node is typed *and* read: its bounds become the typed literal the
+# application profile asks for at crm:P4_has_time-span.
+TEMPORAL_TERMS = {"dct:PeriodOfTime"}
 
 
 # ---------------------------------------------------------------------------
@@ -195,7 +196,17 @@ def anchor(graph, rows: list[dict[str, str]]) -> dict[str, int]:
             continue                      # see anchor_temporal
         target = URIRef(u.expand(row["target"]))
         added = 0
-        if row["kind"] == "class":
+        if row["kind"] == "object-class":
+            # Types what the property points at. Per instance and never as an
+            # rdfs:range, which would be a statement about a foreign property.
+            predicate = URIRef(u.expand(term))
+            for obj in set(graph.objects(None, predicate)):
+                if not isinstance(obj, URIRef):
+                    continue
+                if (obj, RDF.type, target) not in graph:
+                    graph.add((obj, RDF.type, target))
+                    added += 1
+        elif row["kind"] == "class":
             for subject in set(graph.subjects(RDF.type, URIRef(u.expand(term)))):
                 if (subject, RDF.type, target) not in graph:
                     graph.add((subject, RDF.type, target))
@@ -215,13 +226,17 @@ def anchor(graph, rows: list[dict[str, str]]) -> dict[str, int]:
 
 
 def anchor_temporal(graph, targets: dict[str, str]) -> int:
-    """Type the dct:PeriodOfTime node and give its bounds as xsd:gYear.
+    """Type the dct:PeriodOfTime node and add the profile's temporal literal.
 
-    The source writes the bounds as xsd:integer, which the profile does not
-    carry as a date (Befund 15). The integer is left exactly as harvested and
-    the CRM view is added beside it. A span whose start equals its end carries
-    the same gYear on both bounds - that is how a single year is written, and
-    nothing here invents an interval the source did not state.
+    The application profile asks for temporal values as typed literals from XSD
+    or EDTF, and says in as many words that P82a_begin_of_the_begin and
+    P82b_end_of_the_end should not be used in favour of EDTF and the Time
+    Ontology. So the pair of bounds leaves as one literal on the FDO itself:
+    xsd:gYear where start and end are equal, an EDTF level-0 interval where
+    they are not. The period node keeps its structure and is typed
+    crm:E52_Time-Span, so a CRM consumer following P4 does not land on
+    something untyped; the harvested xsd:integer bounds are left exactly as
+    published (A3 - the registry reads, it does not correct).
     """
     from rdflib import Literal, URIRef
     from rdflib.namespace import RDF, XSD
@@ -230,29 +245,47 @@ def anchor_temporal(graph, targets: dict[str, str]) -> int:
     time_span = URIRef(u.expand(targets["dct:PeriodOfTime"]))
     has_time_span = URIRef(u.expand("crm:P4_has_time-span"))
     temporal = URIRef(u.expand("dct:temporal"))
-    bounds = ((URIRef(u.expand("dcat:startDate")), "dcat:startDate"),
-              (URIRef(u.expand("dcat:endDate")), "dcat:endDate"))
+    edtf = URIRef(u.expand("edtf:EDTF"))
+    start = URIRef(u.expand("dcat:startDate"))
+    end = URIRef(u.expand("dcat:endDate"))
     added = 0
 
     for period in set(graph.subjects(RDF.type, period_class)):
         if (period, RDF.type, time_span) not in graph:
             graph.add((period, RDF.type, time_span))
             added += 1
+        value = temporal_literal(graph, period, start, end, edtf, XSD.gYear)
+        if value is None:
+            continue
         for subject in set(graph.subjects(temporal, period)):
-            if (subject, has_time_span, period) not in graph:
-                graph.add((subject, has_time_span, period))
+            if (subject, has_time_span, value) not in graph:
+                graph.add((subject, has_time_span, value))
                 added += 1
-        for predicate, key in bounds:
-            for value in set(graph.objects(period, predicate)):
-                year = as_gyear(value)
-                if year is None:
-                    continue
-                triple = (period, URIRef(u.expand(targets[key])),
-                          Literal(year, datatype=XSD.gYear))
-                if triple not in graph:
-                    graph.add(triple)
-                    added += 1
     return added
+
+
+def temporal_literal(graph, period, start, end, edtf, gyear):
+    """One typed literal out of the two bounds on a period node.
+
+    Both bounds equal is a single year and is written as one; a real range is
+    written as an EDTF level-0 interval, which the profile lists as a temporal
+    data type and which keeps both ends without inventing a precision the
+    source did not state. A period the registry cannot read this way gets no
+    literal at all rather than a guessed one.
+    """
+    from rdflib import Literal
+
+    first = min((as_gyear(v) for v in graph.objects(period, start)
+                 if as_gyear(v)), default=None)
+    last = max((as_gyear(v) for v in graph.objects(period, end)
+                if as_gyear(v)), default=None)
+    if first is None and last is None:
+        return None
+    if first is None or last is None:
+        return Literal(first or last, datatype=gyear)
+    if first == last:
+        return Literal(first, datatype=gyear)
+    return Literal(f"{first}/{last}", datatype=edtf)
 
 
 def anchor_roles(graph) -> tuple[int, set[str]]:
@@ -501,7 +534,13 @@ def main(strict: bool = False) -> None:
         u.skipped("no package in the pinned list could be read")
         return
 
-    merged += catalogue_frame(entries)
+    # The frame is anchored by the same crosswalk rows as everything else, so
+    # that "every class in the bundle has a CRM anchor" holds for the registry's
+    # own statements too and not only for what it harvested.
+    frame = catalogue_frame(entries)
+    for term, count in anchor(frame, rows).items():
+        anchor_totals[term] = anchor_totals.get(term, 0) + count
+    merged += frame
 
     leftover = sorted({str(term) for triple in merged for term in triple
                        if isinstance(term, URIRef) and str(term).startswith("urn:")})

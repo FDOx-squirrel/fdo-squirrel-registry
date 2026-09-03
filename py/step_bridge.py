@@ -34,6 +34,13 @@ RDF_MECHANISMS = {"axiom", "ext-axiom"}
 # what keeps rdfs:subPropertyOf out of a class hierarchy.
 PREDICATE = {"class": "rdfs:subClassOf", "property": "rdfs:subPropertyOf"}
 
+# `object-class` names a property and a class for the things it points at:
+# `dct:spatial@object -> crm:E53_Place` types the object, not the subject. It
+# exists only as an `instance` mechanism - as an axiom it would be an
+# rdfs:range, which is a statement about the property and therefore about
+# somebody else's namespace.
+KINDS = set(PREDICATE) | {"field", "object-class"}
+
 
 def read_crosswalk(path: Path) -> list[dict[str, str]]:
     with path.open(encoding="utf-8", newline="") as handle:
@@ -54,8 +61,11 @@ def check(rows: list[dict[str, str]]) -> list[str]:
             continue
         if not row["target"] and not row["note"]:
             problems.append(f"{where}: neither a target nor a reason")
-        if row["target"] and row["kind"] not in PREDICATE and row["kind"] != "field":
+        if row["target"] and row["kind"] not in KINDS:
             problems.append(f"{where}: unknown kind {row['kind']!r}")
+        if row["kind"] == "object-class" and row["mechanism"] != "instance":
+            problems.append(f"{where}: object-class is only an instance mechanism - "
+                            f"as an axiom it would be an rdfs:range on a foreign property")
 
         # An unknown prefix is reported, not raised: one typo should not hide
         # the other four problems in the file.

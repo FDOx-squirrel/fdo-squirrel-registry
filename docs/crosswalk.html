@@ -104,7 +104,7 @@ the reason beside it.</p>
 </tbody>
 </table>
 
-<h2>ext-axiom <span class="meta">&mdash; 5 rows</span></h2>
+<h2>ext-axiom <span class="meta">&mdash; 8 rows</span></h2>
 <table class="ext-axiom">
 <thead><tr>
   <th>Term</th><th>Kind</th><th>Target</th><th>Profile / source</th><th>Note</th>
@@ -136,6 +136,14 @@ the reason beside it.</p>
 </tr>
 
 <tr>
+  <td class="term">crmgeo:SP5_Geometric_Place_Expression</td>
+  <td>class</td>
+  <td class="target term">crm:E73_Information_Object</td>
+  <td class="rule">CRMgeo v1.0, class declaration of SP5_Geometric_Place_Expression</td>
+  <td class="note">Quoted from CRMgeo, which declares SP5 a subclass of geo:Geometry, crm:E73_Information_Object and crm:E47_Spatial_Coordinates. Only the E73 line is taken: it is the one that carries the geometry into CRM core, and E47 is an appellation subclass the profile discourages.</td>
+</tr>
+
+<tr>
   <td class="term">sf:Point</td>
   <td>class</td>
   <td class="target term">geosparql:Geometry</td>
@@ -149,6 +157,22 @@ the reason beside it.</p>
   <td class="target term">crm:E28_Conceptual_Object</td>
   <td class="rule">NFDI4Objects CIDOC-CRM in RDF application profile</td>
   <td class="note">Quoted from the profile's own replacement of E55 Type. Section 3 of the profile writes E27 for the same statement, which is Site; section 7 writes E28 Conceptual Object, which is the one that makes sense. Reported upstream, E28 used here.</td>
+</tr>
+
+<tr>
+  <td class="term">skos:ConceptScheme</td>
+  <td>class</td>
+  <td class="target term">crm:E31_Document</td>
+  <td class="rule">NFDI4Objects CIDOC-CRM in RDF application profile</td>
+  <td class="note">Quoted from the profile: applications may define ConceptScheme as a subclass of E31 Document. Anchors the role scheme, which the bundle references and the N4O graph receives with it.</td>
+</tr>
+
+<tr>
+  <td class="term">skos:inScheme</td>
+  <td>property</td>
+  <td class="target term">crm:P67_refers_to</td>
+  <td class="rule">NFDI4Objects CIDOC-CRM in RDF application profile</td>
+  <td class="note">Quoted from the profile in the same sentence as the ConceptScheme axiom.</td>
 </tr>
 
 </tbody>
@@ -188,7 +212,7 @@ the reason beside it.</p>
 </tbody>
 </table>
 
-<h2>instance <span class="meta">&mdash; 14 rows</span></h2>
+<h2>instance <span class="meta">&mdash; 18 rows</span></h2>
 <table class="instance">
 <thead><tr>
   <th>Term</th><th>Kind</th><th>Target</th><th>Profile / source</th><th>Note</th>
@@ -196,19 +220,35 @@ the reason beside it.</p>
 <tbody>
 
 <tr>
+  <td class="term">dcat:Catalog</td>
+  <td>class</td>
+  <td class="target term">crm:E31_Document</td>
+  <td class="rule"></td>
+  <td class="note">The registry's own frame is anchored like everything else it publishes. A catalogue is a document about the objects it lists; E31 is a subclass of E73 Information Object, so the catalogue reaches CRM core by the same route as the FDOs in it.</td>
+</tr>
+
+<tr>
+  <td class="term">dcat:CatalogRecord</td>
+  <td>class</td>
+  <td class="target term">crm:E31_Document</td>
+  <td class="rule"></td>
+  <td class="note">One document per pinned version, documenting one FDO. See foaf:primaryTopic for the relation itself.</td>
+</tr>
+
+<tr>
+  <td class="term">dcat:Dataset</td>
+  <td>class</td>
+  <td class="target term">crmdig:D1_Digital_Object</td>
+  <td class="rule"></td>
+  <td class="note">Materialised rather than relied upon: six of seven packages write crm:E73 and crmdig:D1 themselves in abbreviated form and the normalise rows repair them, but a package that writes neither would otherwise enter the catalogue without an anchor and the gate would find it only afterwards.</td>
+</tr>
+
+<tr>
   <td class="term">dcat:Distribution</td>
   <td>class</td>
   <td class="target term">crmdig:D9_Data_Object</td>
   <td class="rule"></td>
   <td class="note">Materialised per distribution. The generator already writes the abbreviated crmdig:D9, which the normalise rows repair; this row covers distributions that carry no CRMdig type at all.</td>
-</tr>
-
-<tr>
-  <td class="term">dcat:endDate</td>
-  <td>property</td>
-  <td class="target term">crm:P82b_end_of_the_end</td>
-  <td class="rule"></td>
-  <td class="note">As dcat:startDate. Where start and end are equal the two properties carry the same gYear, which is how a single-year span is written.</td>
 </tr>
 
 <tr>
@@ -220,19 +260,11 @@ the reason beside it.</p>
 </tr>
 
 <tr>
-  <td class="term">dcat:startDate</td>
-  <td>property</td>
-  <td class="target term">crm:P82a_begin_of_the_begin</td>
-  <td class="rule"></td>
-  <td class="note">The object is rewritten from xsd:integer to xsd:gYear on the way out; the profile does not carry a bare integer as a date (Befund 15). The original dcat:startDate is left in place unchanged.</td>
-</tr>
-
-<tr>
   <td class="term">dct:PeriodOfTime</td>
   <td>class</td>
   <td class="target term">crm:E52_Time-Span</td>
   <td class="rule"></td>
-  <td class="note">Materialised per instance. The node the generator hangs dct:startDate and dct:endDate on is the time-span itself; without the type a CRM consumer sees P4 pointing at something untyped.</td>
+  <td class="note">Materialised per instance. The node the generator hangs dcat:startDate and dcat:endDate on is the time-span itself; without the type a CRM consumer sees P4 pointing at something untyped. The class is not what the profile objects to - it objects to expressing the temporal value through P82a/P82b instead of a literal, and that literal is written as well.</td>
 </tr>
 
 <tr>
@@ -256,7 +288,15 @@ the reason beside it.</p>
   <td>property</td>
   <td class="target term">crm:P67_refers_to</td>
   <td class="rule"></td>
-  <td class="note">The object is typed crm:E53_Place. The FDO refers to the place; it does not happen there, so P7 took place at would be wrong - an information object is not an event.</td>
+  <td class="note">The FDO refers to the place; it does not happen there, so P7 took place at would be wrong - an information object is not an event. The object is typed crm:E53_Place by the object-class row below.</td>
+</tr>
+
+<tr>
+  <td class="term">dct:spatial@object</td>
+  <td>object-class</td>
+  <td class="target term">crm:E53_Place</td>
+  <td class="rule"></td>
+  <td class="note">Types the object of dct:spatial, which is an OpenStreetMap IRI in every package. Per instance, never as an axiom: nothing is asserted here about what OpenStreetMap relations are in general, only that these seven are places. Without it P67_refers_to points at an untyped node.</td>
 </tr>
 
 <tr>
@@ -272,7 +312,7 @@ the reason beside it.</p>
   <td>property</td>
   <td class="target term">crm:P4_has_time-span</td>
   <td class="rule">section 2 Temporal data</td>
-  <td class="note">A typed literal derived from dcat:startDate and dcat:endDate on the dct:PeriodOfTime node: xsd:gYear when the two are equal, time:Interval otherwise. The source writes xsd:integer, which the profile does not list.</td>
+  <td class="note">Two statements, both profile-conform. The dct:PeriodOfTime node keeps its structure and is typed crm:E52_Time-Span; beside it the FDO carries the temporal value as the typed literal the profile asks for: xsd:gYear where start and end are equal, otherwise an EDTF level-0 interval such as 0300/0699. The source writes xsd:integer, which the profile does not list as a temporal data type (Befund 15).</td>
 </tr>
 
 <tr>
@@ -292,6 +332,14 @@ the reason beside it.</p>
 </tr>
 
 <tr>
+  <td class="term">foaf:primaryTopic</td>
+  <td>property</td>
+  <td class="target term">crm:P70_documents</td>
+  <td class="rule"></td>
+  <td class="note">The CRM reading of what a catalogue record is: an E31 Document that documents the FDO. Runs beside foaf:primaryTopic, which stays as DCAT expects it.</td>
+</tr>
+
+<tr>
   <td class="term">schema:Organization</td>
   <td>class</td>
   <td class="target term">crm:E74_Group</td>
@@ -307,10 +355,18 @@ the reason beside it.</p>
   <td class="note">Foreign namespace: materialised per instance, never axiomatised (A3). The profile's bridge axioms cover foaf: and dcterms:, not schema:.</td>
 </tr>
 
+<tr>
+  <td class="term">sf:Point@instance</td>
+  <td>class</td>
+  <td class="target term">crmgeo:SP5_Geometric_Place_Expression</td>
+  <td class="rule">section 2 Spatial data</td>
+  <td class="note">The profile replaces E94 Space Primitive with a GeoSPARQL geometry and points at CRMgeo for the CRM side of that bridge. A WKT point in a coordinate reference system is precisely an SP5 Geometric Place Expression, so typing these seven nodes gives the geometry a CRM anchor without asserting anything about geo:Geometry in general.</td>
+</tr>
+
 </tbody>
 </table>
 
-<h2>none <span class="meta">&mdash; 18 rows</span></h2>
+<h2>none <span class="meta">&mdash; 20 rows</span></h2>
 <table class="none">
 <thead><tr>
   <th>Term</th><th>Kind</th><th>Target</th><th>Profile / source</th><th>Note</th>
@@ -342,6 +398,14 @@ the reason beside it.</p>
 </tr>
 
 <tr>
+  <td class="term">dcat:endDate</td>
+  <td>property</td>
+  <td class="target term">&mdash;</td>
+  <td class="rule">section 2 Temporal data</td>
+  <td class="note">As dcat:startDate. The pair becomes one EDTF interval, or one xsd:gYear where start and end are equal.</td>
+</tr>
+
+<tr>
   <td class="term">dcat:keyword@literal</td>
   <td>property</td>
   <td class="target term">&mdash;</td>
@@ -355,6 +419,14 @@ the reason beside it.</p>
   <td class="target term">&mdash;</td>
   <td class="rule"></td>
   <td class="note">A format is not a type of the object in the CRM sense; P2 here would make a JPEG a kind of thing.</td>
+</tr>
+
+<tr>
+  <td class="term">dcat:startDate</td>
+  <td>property</td>
+  <td class="target term">&mdash;</td>
+  <td class="rule">section 2 Temporal data</td>
+  <td class="note">Feeds the typed literal at crm:P4_has_time-span together with dcat:endDate, and gets no anchor of its own. P82a_begin_of_the_begin would have been the textbook CRM answer, but the application profile says these additional properties should not be used in favour of EDTF and Time Ontology. The harvested xsd:integer is left exactly as published.</td>
 </tr>
 
 <tr>

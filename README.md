@@ -26,8 +26,10 @@ data/raw/fdo/<record-id>/        harvested, unchanged, read-only
         │                          docs/crosswalk.html
         │  py/step_bundle.py     catalogue, IRI disambiguation, CRM anchors
         ▼
-dist/fdo-registry.ttl            DCAT + FDOx + CRM/CRMdig + GeoSPARQL + SKOS
+dist/fdo-registry.ttl            DCAT + FDOx + CRM/CRMdig/CRMgeo + GeoSPARQL + SKOS
+        │                        metadata/shapes.ttl
         │  py/step_validate.py   SHACL gate → the build stops on a violation
+        │                        → dist/fdo-registry-n4o.ttl, dist/quality_report.md
         ▼
 docs/                            index.html (facets) · sparql.html (Pyodide)
 ```
@@ -136,6 +138,30 @@ and `fdoreg:sha256` stays the hash of the original file as Zenodo holds it. A
 defect that cannot be fixed without guessing at content is not repaired; it goes
 into the quality report instead.
 
+### The gate
+
+`metadata/shapes.ttl` validates the bundle together with the vocabularies its
+anchoring depends on — the CRM bridge, the role vocabulary and the registry
+vocabulary. SHACL follows `rdfs:subClassOf` for `sh:targetClass` and `sh:class`
+without inference, but only for axioms that are in the graph it is given, and
+those axioms deliberately do not live in the published bundle. The union that
+was validated is written out as `dist/fdo-registry-n4o.ttl`: what goes into a
+knowledge graph should be the graph that was checked.
+
+Severity mirrors the modal verb of the [NFDI4Objects CIDOC-CRM application
+profile](https://nfdi4objects.github.io/crm-rdf-ap/). What the profile says
+MUST NOT be used, and what the registry promises about its own entries, is a
+violation and stops the build. What the profile says SHOULD or SHOULD NOT, and
+what is merely unclean in a harvested package, is a warning and goes to
+`dist/quality_report.md` as feedback for the package author. Warnings never
+fail the build: a published Zenodo record is immutable, so a red CI would stay
+red.
+
+Five of the rules cannot fire against the current corpus — they exist for the
+day somebody "improves" the mapping into a `crm:E55_Type`. Every rule is
+therefore checked against `metadata/shapes_selftest.ttl`, a deliberately broken
+graph, on every run. A rule that has never fired is a rule nobody has checked.
+
 ### The catalogue
 
 `dist/fdo-registry.ttl` is a `dcat:Catalog`. DCAT's own distinction carries the
@@ -193,12 +219,14 @@ Every step is also runnable on its own, for example `python py/step_bundle.py`.
 | `registry/sources.json` | the curated list of harvested DOIs |
 | `data/raw/fdo/` | harvested FDO metadata, unchanged and read-only (generated) |
 | `crosswalks/` | `fdo--crm.csv` and `fdo-role--skos.csv`, the sources of the bridge |
-| `metadata/` | registry vocabulary, CRM bridge, role vocabulary, SHACL shapes (generated) |
+| `metadata/shapes.ttl` | the SHACL gate; `shapes_selftest.ttl` is the broken graph it is tested against |
+| `metadata/` | registry vocabulary, CRM bridge, role vocabulary (generated) |
 | `dist/` | the products: bundle, index, reports (generated, versioned) |
 | `docs/` | the published site (generated) |
 | `PRIMER.md` | the work plan — German, internal, and the place decisions live |
 
-Anything under `dist/`, `docs/` and `metadata/` is rebuilt by `python main.py`. It is
+`metadata/shapes.ttl` and `metadata/shapes_selftest.ttl` are written by hand;
+everything else under `dist/`, `docs/` and `metadata/` is rebuilt by `python main.py`. It is
 versioned all the same, because the bundle is the citable output of this
 repository. Edit the generator, never the artefact.
 

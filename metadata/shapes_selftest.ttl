@@ -1,0 +1,76 @@
+# A deliberately broken graph. Every sh:message in metadata/shapes.ttl has to
+# fire at least once against it, and py/step_validate.py checks that on every
+# run. A shape that has never fired is a shape nobody has checked, and a gate
+# whose rules quietly stopped matching is worse than no gate: it reports green
+# for a reason that has nothing to do with the data.
+#
+# Nothing here is harvested. The file is a fixture and must never be merged
+# into a bundle.
+
+@prefix crm:     <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix dcat:    <http://www.w3.org/ns/dcat#> .
+@prefix dct:     <http://purl.org/dc/terms/> .
+@prefix fdo:     <https://w3id.org/fdo-squirrel/> .
+@prefix fdoreg:  <https://w3id.org/fdo-squirrel/registry/> .
+@prefix foaf:    <http://xmlns.com/foaf/0.1/> .
+@prefix geosparql: <http://www.opengis.net/ont/geosparql#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema:  <https://schema.org/> .
+@prefix skos:    <http://www.w3.org/2004/02/skos/core#> .
+@prefix x:       <https://example.org/broken/> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+
+# --- completeness: a catalogue that says nothing about itself --------------
+x:catalog a dcat:Catalog .
+
+# --- completeness: an FDO that is not a DOI and carries nothing ------------
+x:dataset a dcat:Dataset .
+
+# --- completeness: a record with a truncated checksum and no topic ---------
+x:record a dcat:CatalogRecord ;
+    fdoreg:sha256 "not-a-digest" .
+
+# --- completeness: a distribution with an unresolved role ------------------
+x:distribution a dcat:Distribution ;
+    fdo:role "software" ;
+    crm:P2_has_type "software" .
+
+# --- completeness: a distribution that lists nothing at all ----------------
+x:distribution-empty a dcat:Distribution .
+
+# --- the anchor check: typed, but reaching no CRM class --------------------
+x:unanchored a x:Thing .
+
+# --- MUST NOT constructs of the application profile ------------------------
+x:type a crm:E55_Type .
+x:authority a crm:E32_Authority_Document .
+x:spacetime a crm:E95_Spacetime_Primitive .
+x:scheme crm:P71_lists x:type .
+x:volume crm:P169i_spacetime_volume_is_defined_by x:spacetime .
+
+# --- SHOULD NOT: the bound properties, appellations, space primitives ------
+x:span a crm:E52_Time-Span ;
+    crm:P82a_begin_of_the_begin "0300"^^xsd:gYear ;
+    crm:P82b_end_of_the_end "0699"^^xsd:gYear ;
+    dcat:startDate "300"^^xsd:integer ;
+    dcat:endDate "699"^^xsd:integer .
+x:title a crm:E41_Appellation .
+x:coordinates a crm:E94_Space_Primitive .
+
+# --- quality: an FDO that is complete but unclean --------------------------
+<https://doi.org/10.5281/zenodo.99999999> a dcat:Dataset , fdo:3DDataFDO ;
+    dct:title "A complete but unclean package" ;
+    dct:license "CC-BY-NC-SA-4.0" ;
+    dct:description "make 3d model available" , "good" ;
+    dcat:keyword "ogham" ;
+    dcat:bbox "POLYGON((0 0,0 1,1 1,1 0,0 0))" ;
+    schema:funding "Community Project" ;
+    geosparql:hasGeometry x:geometry ;
+    dcat:distribution x:distribution .
+
+# --- quality: one human, two nodes, neither with an ORCID ------------------
+x:person-a a schema:Person ; schema:name "Doe, Jane" .
+x:person-b a schema:Person ; schema:name "Doe, Jane" .
+
+x:geometry a geosparql:Geometry ; rdfs:label "a geometry hanging on the wrong node" .
+x:concept a skos:Concept .
