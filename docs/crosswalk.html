@@ -70,14 +70,6 @@ the reason beside it.</p>
 </tr>
 
 <tr>
-  <td class="term">fdo:SoftwareFDO</td>
-  <td>class</td>
-  <td class="target term">crmdig:D14_Software</td>
-  <td class="rule"></td>
-  <td class="note">D14 is a subclass of D1, so this FDO reaches E73 by the same route.</td>
-</tr>
-
-<tr>
   <td class="term">fdo:AnalysisFDO</td>
   <td>class</td>
   <td class="target term">crmdig:D1_Digital_Object</td>
@@ -86,11 +78,11 @@ the reason beside it.</p>
 </tr>
 
 <tr>
-  <td class="term">fdo:role</td>
-  <td>property</td>
-  <td class="target term">crm:P2_has_type</td>
-  <td class="rule">section 3</td>
-  <td class="note">rdfs:subPropertyOf. The object is a skos:Concept from the registry role scheme, never an E55 Type, which the profile forbids. The profile's own E41 example uses P2 with a plain external concept IRI, so the property survives the replacement of the class.</td>
+  <td class="term">fdo:SoftwareFDO</td>
+  <td>class</td>
+  <td class="target term">crmdig:D14_Software</td>
+  <td class="rule"></td>
+  <td class="note">D14 is a subclass of D1, so this FDO reaches E73 by the same route.</td>
 </tr>
 
 <tr>
@@ -99,6 +91,14 @@ the reason beside it.</p>
   <td class="target term">crm:P3_has_note</td>
   <td class="rule"></td>
   <td class="note">Free-text remark on the documented object.</td>
+</tr>
+
+<tr>
+  <td class="term">fdo:role</td>
+  <td>property</td>
+  <td class="target term">crm:P2_has_type</td>
+  <td class="rule">section 3</td>
+  <td class="note">rdfs:subPropertyOf. The object is a skos:Concept from the registry role scheme, never an E55 Type, which the profile forbids. The profile's own E41 example uses P2 with a plain external concept IRI, so the property survives the replacement of the class.</td>
 </tr>
 
 </tbody>
@@ -110,6 +110,14 @@ the reason beside it.</p>
   <th>Term</th><th>Kind</th><th>Target</th><th>Profile / source</th><th>Note</th>
 </tr></thead>
 <tbody>
+
+<tr>
+  <td class="term">crmdig:D14_Software</td>
+  <td>class</td>
+  <td class="target term">crmdig:D1_Digital_Object</td>
+  <td class="rule">CIDOC CRM Digital (CRMdig) v3.2.1</td>
+  <td class="note">Quoted from CRMdig.</td>
+</tr>
 
 <tr>
   <td class="term">crmdig:D1_Digital_Object</td>
@@ -125,14 +133,6 @@ the reason beside it.</p>
   <td class="target term">crmdig:D1_Digital_Object</td>
   <td class="rule">CIDOC CRM Digital (CRMdig) v3.2.1</td>
   <td class="note">Quoted from CRMdig. Carries every distribution up to D1 and from there to E73.</td>
-</tr>
-
-<tr>
-  <td class="term">crmdig:D14_Software</td>
-  <td>class</td>
-  <td class="target term">crmdig:D1_Digital_Object</td>
-  <td class="rule">CIDOC CRM Digital (CRMdig) v3.2.1</td>
-  <td class="note">Quoted from CRMdig.</td>
 </tr>
 
 <tr>
@@ -188,7 +188,7 @@ the reason beside it.</p>
 </tbody>
 </table>
 
-<h2>instance <span class="meta">&mdash; 11 rows</span></h2>
+<h2>instance <span class="meta">&mdash; 14 rows</span></h2>
 <table class="instance">
 <thead><tr>
   <th>Term</th><th>Kind</th><th>Target</th><th>Profile / source</th><th>Note</th>
@@ -204,27 +204,35 @@ the reason beside it.</p>
 </tr>
 
 <tr>
-  <td class="term">schema:Person</td>
-  <td>class</td>
-  <td class="target term">crm:E21_Person</td>
-  <td class="rule">section 6</td>
-  <td class="note">Foreign namespace: materialised per instance, never axiomatised (A3). The profile's bridge axioms cover foaf: and dcterms:, not schema:.</td>
-</tr>
-
-<tr>
-  <td class="term">schema:Organization</td>
-  <td>class</td>
-  <td class="target term">crm:E74_Group</td>
-  <td class="rule">section 6</td>
-  <td class="note">As schema:Person. The only organisation in the corpus is the Research Squirrel Engineers Network under its Wikidata IRI.</td>
-</tr>
-
-<tr>
-  <td class="term">dct:title</td>
+  <td class="term">dcat:endDate</td>
   <td>property</td>
-  <td class="target term">crm:P102_has_title</td>
-  <td class="rule">section 4 E41</td>
-  <td class="note">Literal object. E35 Title is avoided as the profile requires; the profile's own example uses P102 with a plain literal.</td>
+  <td class="target term">crm:P82b_end_of_the_end</td>
+  <td class="rule"></td>
+  <td class="note">As dcat:startDate. Where start and end are equal the two properties carry the same gYear, which is how a single-year span is written.</td>
+</tr>
+
+<tr>
+  <td class="term">dcat:keyword@iri</td>
+  <td>property</td>
+  <td class="target term">crm:P2_has_type</td>
+  <td class="rule">section 3</td>
+  <td class="note">Only the IRI-valued keywords. The string-valued ones are a separate row.</td>
+</tr>
+
+<tr>
+  <td class="term">dcat:startDate</td>
+  <td>property</td>
+  <td class="target term">crm:P82a_begin_of_the_begin</td>
+  <td class="rule"></td>
+  <td class="note">The object is rewritten from xsd:integer to xsd:gYear on the way out; the profile does not carry a bare integer as a date (Befund 15). The original dcat:startDate is left in place unchanged.</td>
+</tr>
+
+<tr>
+  <td class="term">dct:PeriodOfTime</td>
+  <td>class</td>
+  <td class="target term">crm:E52_Time-Span</td>
+  <td class="rule"></td>
+  <td class="note">Materialised per instance. The node the generator hangs dct:startDate and dct:endDate on is the time-span itself; without the type a CRM consumer sees P4 pointing at something untyped.</td>
 </tr>
 
 <tr>
@@ -244,19 +252,11 @@ the reason beside it.</p>
 </tr>
 
 <tr>
-  <td class="term">dct:type</td>
+  <td class="term">dct:spatial</td>
   <td>property</td>
-  <td class="target term">crm:P2_has_type</td>
-  <td class="rule">section 3</td>
-  <td class="note">Object is an external concept IRI (Wikidata, in one package an OpenStreetMap relation).</td>
-</tr>
-
-<tr>
-  <td class="term">dcat:keyword@iri</td>
-  <td>property</td>
-  <td class="target term">crm:P2_has_type</td>
-  <td class="rule">section 3</td>
-  <td class="note">Only the IRI-valued keywords. The string-valued ones are a separate row.</td>
+  <td class="target term">crm:P67_refers_to</td>
+  <td class="rule"></td>
+  <td class="note">The object is typed crm:E53_Place. The FDO refers to the place; it does not happen there, so P7 took place at would be wrong - an information object is not an event.</td>
 </tr>
 
 <tr>
@@ -268,19 +268,43 @@ the reason beside it.</p>
 </tr>
 
 <tr>
-  <td class="term">dct:spatial</td>
-  <td>property</td>
-  <td class="target term">crm:P67_refers_to</td>
-  <td class="rule"></td>
-  <td class="note">The object is typed crm:E53_Place. The FDO refers to the place; it does not happen there, so P7 took place at would be wrong - an information object is not an event.</td>
-</tr>
-
-<tr>
   <td class="term">dct:temporal</td>
   <td>property</td>
   <td class="target term">crm:P4_has_time-span</td>
   <td class="rule">section 2 Temporal data</td>
   <td class="note">A typed literal derived from dcat:startDate and dcat:endDate on the dct:PeriodOfTime node: xsd:gYear when the two are equal, time:Interval otherwise. The source writes xsd:integer, which the profile does not list.</td>
+</tr>
+
+<tr>
+  <td class="term">dct:title</td>
+  <td>property</td>
+  <td class="target term">crm:P102_has_title</td>
+  <td class="rule">section 4 E41</td>
+  <td class="note">Literal object. E35 Title is avoided as the profile requires; the profile's own example uses P102 with a plain literal.</td>
+</tr>
+
+<tr>
+  <td class="term">dct:type</td>
+  <td>property</td>
+  <td class="target term">crm:P2_has_type</td>
+  <td class="rule">section 3</td>
+  <td class="note">Object is an external concept IRI (Wikidata, in one package an OpenStreetMap relation).</td>
+</tr>
+
+<tr>
+  <td class="term">schema:Organization</td>
+  <td>class</td>
+  <td class="target term">crm:E74_Group</td>
+  <td class="rule">section 6</td>
+  <td class="note">As schema:Person. The only organisation in the corpus is the Research Squirrel Engineers Network under its Wikidata IRI.</td>
+</tr>
+
+<tr>
+  <td class="term">schema:Person</td>
+  <td>class</td>
+  <td class="target term">crm:E21_Person</td>
+  <td class="rule">section 6</td>
+  <td class="note">Foreign namespace: materialised per instance, never axiomatised (A3). The profile's bridge axioms cover foaf: and dcterms:, not schema:.</td>
 </tr>
 
 </tbody>
@@ -292,110 +316,6 @@ the reason beside it.</p>
   <th>Term</th><th>Kind</th><th>Target</th><th>Profile / source</th><th>Note</th>
 </tr></thead>
 <tbody>
-
-<tr>
-  <td class="term">fdo:sha256</td>
-  <td>property</td>
-  <td class="target term">&mdash;</td>
-  <td class="rule"></td>
-  <td class="note">No CRM property fits a checksum. E42 Identifier is discouraged by the profile, and a digest does not identify the object anyway. The term stays in the fdo: namespace.</td>
-</tr>
-
-<tr>
-  <td class="term">fdo:path</td>
-  <td>property</td>
-  <td class="target term">&mdash;</td>
-  <td class="rule"></td>
-  <td class="note">Package-relative path inside the ZIP. Meaningless outside the package; S4 rewrites the value into a registry IRI but the property gets no anchor.</td>
-</tr>
-
-<tr>
-  <td class="term">geosparql:hasGeometry</td>
-  <td>property</td>
-  <td class="target term">&mdash;</td>
-  <td class="rule">section 2 Spatial data</td>
-  <td class="note">Already profile-conform and deliberately left alone: the profile replaces P168 place is defined by with geo:hasGeometry, which is exactly what the generator writes.</td>
-</tr>
-
-<tr>
-  <td class="term">dcat:keyword@literal</td>
-  <td>property</td>
-  <td class="target term">&mdash;</td>
-  <td class="rule">section 3</td>
-  <td class="note">A bare string cannot be a concept and must not become an E55 Type. Reported per package in the quality report (S5); the fix belongs upstream.</td>
-</tr>
-
-<tr>
-  <td class="term">dct:creator</td>
-  <td>property</td>
-  <td class="target term">&mdash;</td>
-  <td class="rule"></td>
-  <td class="note">Creatorship in CRM needs an E65 Creation event, which the FDO does not record. Minting one would be modelling rather than mapping (A3). The relation stays at dct: and is well understood there.</td>
-</tr>
-
-<tr>
-  <td class="term">dct:publisher</td>
-  <td>property</td>
-  <td class="target term">&mdash;</td>
-  <td class="rule"></td>
-  <td class="note">As dct:creator.</td>
-</tr>
-
-<tr>
-  <td class="term">dct:license</td>
-  <td>property</td>
-  <td class="target term">&mdash;</td>
-  <td class="rule"></td>
-  <td class="note">No CRM property for rights. Stays at dct: and schema:; the profile is silent and inventing a term would be worse than leaving it.</td>
-</tr>
-
-<tr>
-  <td class="term">dct:created</td>
-  <td>property</td>
-  <td class="target term">&mdash;</td>
-  <td class="rule"></td>
-  <td class="note">A date about the package, not about the documented object. P4 on the FDO would claim the object existed then.</td>
-</tr>
-
-<tr>
-  <td class="term">dct:issued</td>
-  <td>property</td>
-  <td class="target term">&mdash;</td>
-  <td class="rule"></td>
-  <td class="note">As dct:created; S4 uses it on the dcat:CatalogRecord instead.</td>
-</tr>
-
-<tr>
-  <td class="term">dct:modified</td>
-  <td>property</td>
-  <td class="target term">&mdash;</td>
-  <td class="rule"></td>
-  <td class="note">As dct:created.</td>
-</tr>
-
-<tr>
-  <td class="term">dct:hasVersion</td>
-  <td>property</td>
-  <td class="target term">&mdash;</td>
-  <td class="rule"></td>
-  <td class="note">Version of the package. LRMoo would be the CRM answer and the profile explicitly rejects it for anything short of bibliographic work.</td>
-</tr>
-
-<tr>
-  <td class="term">dcat:byteSize</td>
-  <td>property</td>
-  <td class="target term">&mdash;</td>
-  <td class="rule">section 4 E58</td>
-  <td class="note">A dimension would need E54 Dimension with a QUDT unit. The profile discourages minting units, and the value is already machine-readable at dcat:.</td>
-</tr>
-
-<tr>
-  <td class="term">dcat:mediaType</td>
-  <td>property</td>
-  <td class="target term">&mdash;</td>
-  <td class="rule"></td>
-  <td class="note">A format is not a type of the object in the CRM sense; P2 here would make a JPEG a kind of thing.</td>
-</tr>
 
 <tr>
   <td class="term">dcat:accessURL</td>
@@ -414,11 +334,107 @@ the reason beside it.</p>
 </tr>
 
 <tr>
-  <td class="term">schema:funding</td>
+  <td class="term">dcat:byteSize</td>
+  <td>property</td>
+  <td class="target term">&mdash;</td>
+  <td class="rule">section 4 E58</td>
+  <td class="note">A dimension would need E54 Dimension with a QUDT unit. The profile discourages minting units, and the value is already machine-readable at dcat:.</td>
+</tr>
+
+<tr>
+  <td class="term">dcat:keyword@literal</td>
+  <td>property</td>
+  <td class="target term">&mdash;</td>
+  <td class="rule">section 3</td>
+  <td class="note">A bare string cannot be a concept and must not become an E55 Type. Reported per package in the quality report (S5); the fix belongs upstream.</td>
+</tr>
+
+<tr>
+  <td class="term">dcat:mediaType</td>
   <td>property</td>
   <td class="target term">&mdash;</td>
   <td class="rule"></td>
-  <td class="note">A bare string (Community Project) with no funder IRI. Nothing to anchor; reported in the quality report.</td>
+  <td class="note">A format is not a type of the object in the CRM sense; P2 here would make a JPEG a kind of thing.</td>
+</tr>
+
+<tr>
+  <td class="term">dct:created</td>
+  <td>property</td>
+  <td class="target term">&mdash;</td>
+  <td class="rule"></td>
+  <td class="note">A date about the package, not about the documented object. P4 on the FDO would claim the object existed then.</td>
+</tr>
+
+<tr>
+  <td class="term">dct:creator</td>
+  <td>property</td>
+  <td class="target term">&mdash;</td>
+  <td class="rule"></td>
+  <td class="note">Creatorship in CRM needs an E65 Creation event, which the FDO does not record. Minting one would be modelling rather than mapping (A3). The relation stays at dct: and is well understood there.</td>
+</tr>
+
+<tr>
+  <td class="term">dct:hasVersion</td>
+  <td>property</td>
+  <td class="target term">&mdash;</td>
+  <td class="rule"></td>
+  <td class="note">Version of the package. LRMoo would be the CRM answer and the profile explicitly rejects it for anything short of bibliographic work.</td>
+</tr>
+
+<tr>
+  <td class="term">dct:issued</td>
+  <td>property</td>
+  <td class="target term">&mdash;</td>
+  <td class="rule"></td>
+  <td class="note">As dct:created; S4 uses it on the dcat:CatalogRecord instead.</td>
+</tr>
+
+<tr>
+  <td class="term">dct:license</td>
+  <td>property</td>
+  <td class="target term">&mdash;</td>
+  <td class="rule"></td>
+  <td class="note">No CRM property for rights. Stays at dct: and schema:; the profile is silent and inventing a term would be worse than leaving it.</td>
+</tr>
+
+<tr>
+  <td class="term">dct:modified</td>
+  <td>property</td>
+  <td class="target term">&mdash;</td>
+  <td class="rule"></td>
+  <td class="note">As dct:created.</td>
+</tr>
+
+<tr>
+  <td class="term">dct:publisher</td>
+  <td>property</td>
+  <td class="target term">&mdash;</td>
+  <td class="rule"></td>
+  <td class="note">As dct:creator.</td>
+</tr>
+
+<tr>
+  <td class="term">fdo:path</td>
+  <td>property</td>
+  <td class="target term">&mdash;</td>
+  <td class="rule"></td>
+  <td class="note">Package-relative path inside the ZIP. Meaningless outside the package; S4 rewrites the value into a registry IRI but the property gets no anchor.</td>
+</tr>
+
+<tr>
+  <td class="term">fdo:sha256</td>
+  <td>property</td>
+  <td class="target term">&mdash;</td>
+  <td class="rule"></td>
+  <td class="note">No CRM property fits a checksum. E42 Identifier is discouraged by the profile, and a digest does not identify the object anyway. The term stays in the fdo: namespace.</td>
+</tr>
+
+<tr>
+  <td class="term">geosparql:hasGeometry</td>
+  <td>property</td>
+  <td class="target term">&mdash;</td>
+  <td class="rule">section 2 Spatial data</td>
+  <td class="note">Already profile-conform and deliberately left alone: the profile replaces P168 place is defined by with geo:hasGeometry, which is exactly what the generator writes.</td>
 </tr>
 
 <tr>
@@ -427,6 +443,14 @@ the reason beside it.</p>
   <td class="target term">&mdash;</td>
   <td class="rule"></td>
   <td class="note">Corrects the draft mapping. The harvested TTL has no node for the physical object at all - the FDO and the object it documents are the same node - so E22 Human-Made Object cannot be anchored without inventing a node. The fix belongs upstream in fdo-squirrel.</td>
+</tr>
+
+<tr>
+  <td class="term">schema:funding</td>
+  <td>property</td>
+  <td class="target term">&mdash;</td>
+  <td class="rule"></td>
+  <td class="note">A bare string (Community Project) with no funder IRI. Nothing to anchor; reported in the quality report.</td>
 </tr>
 
 <tr>
@@ -455,42 +479,42 @@ registry can read.</p>
   <td class="term">data</td>
   <td>Data</td>
   <td class="note">A data file that is neither a model, documentation, metadata nor code.</td>
-  <td class="count">5</td>
+  <td class="count">9</td>
 </tr>
 
 <tr>
   <td class="term">documentation</td>
   <td>Documentation</td>
   <td class="note">Human-readable documentation of the package or of the object it describes.</td>
-  <td class="count">48</td>
+  <td class="count">123</td>
 </tr>
 
 <tr>
   <td class="term">metadata</td>
   <td>Metadata</td>
   <td class="note">A file describing the package or its contents, such as MD.cff or CITATION.cff.</td>
-  <td class="count">6</td>
+  <td class="count">8</td>
 </tr>
 
 <tr>
   <td class="term">model</td>
   <td>3D model</td>
   <td class="note">A file holding the three-dimensional geometry or texture of the documented object.</td>
-  <td class="count">9</td>
+  <td class="count">12</td>
 </tr>
 
 <tr>
   <td class="term">script</td>
   <td>Script</td>
   <td class="note">An executable script that is part of the package rather than of a released software component.</td>
-  <td class="count">0</td>
+  <td class="count">28</td>
 </tr>
 
 <tr>
   <td class="term">software</td>
   <td>Software</td>
   <td class="note">A source, build or configuration file of a software component.</td>
-  <td class="count">0</td>
+  <td class="count">312</td>
 </tr>
 
 </tbody>
@@ -505,14 +529,6 @@ that wrote it, not in the registry that reads it.</p>
 <table>
 <thead><tr><th>Record</th><th>Reason</th></tr></thead>
 <tbody>
-
-<tr><td class="term warn">18369126</td><td class="note">not valid Turtle: at line 17, Bad syntax (Prefix "crmdig:" not bound)</td></tr>
-
-<tr><td class="term warn">18369157</td><td class="note">not valid Turtle: at line 17, Bad syntax (Prefix "crmdig:" not bound)</td></tr>
-
-<tr><td class="term warn">18369866</td><td class="note">not valid Turtle: at line 17, Bad syntax (Prefix "crmdig:" not bound)</td></tr>
-
-<tr><td class="term warn">18732893</td><td class="note">not valid Turtle: at line 39, Bad syntax (expected '.' or '}' or ']' at end of statement)</td></tr>
 
 <tr><td class="term warn">18740524</td><td class="note">no fdo-metadata.ttl in the package</td></tr>
 

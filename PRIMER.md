@@ -139,7 +139,11 @@ sieben `fdo-metadata.ttl` unter `data/raw/fdo/`, zusammen 4845 Tripel):
     (`18369126`, `18369157`, `18369866`), die neueren die Personen-URN — der
     Generator hat unterwegs aufgehört, ORCIDs zu benutzen. Das
     Anwendungsprofil will ausdrücklich die etablierte IRI (DOI, ORCID, ROR).
-    Rückmeldung an `fdo-squirrel`.
+    Rückmeldung an `fdo-squirrel`. **Ergänzt 2026-09-03 in S4:** die beiden
+    Dialekte treffen sich in derselben Person. „Thiery, Florian" steht in den
+    älteren Paketen als `orcid.org/0000-0002-3246-3531` und in den neueren als
+    `urn:fdo-squirrel:person/8e916ce55425de21`. Vier Menschen im Bestand, fünf
+    Knoten. Zusammenführen darf das nur ein Mensch (A4).
 13. **Drei Zeilen der Entwurfsabbildung haben keine Quelle in den Daten.** Es
     gibt keinen Knoten für das physische Objekt — FDO und Objekt sind derselbe
     Knoten, `crm:E22` lässt sich also nicht verankern, ohne einen Knoten zu
@@ -153,8 +157,10 @@ sieben `fdo-metadata.ttl` unter `data/raw/fdo/`, zusammen 4845 Tripel):
     Record `18744133` beschreibt `zenodo.18724635`, Record `18744583`
     beschreibt `zenodo.18369720`. Der Dataset-Knoten des Bundles trägt damit
     eine IRI, die auf ein bewegliches Ziel zeigt; die feste Kennung sitzt am
-    `dcat:CatalogRecord`. In S4 zu berücksichtigen, wenn zwei Records je
-    dieselbe Concept-DOI beschreiben — derzeit sind alle sieben verschieden.
+    `dcat:CatalogRecord`. **Bestätigt 2026-09-03 in S4** an allen sieben
+    lesbaren Paketen: das Subjekt ist ausnahmslos die Concept-DOI aus
+    `harvest.json`. Der Build prüft das je Paket und meldet jede Abweichung;
+    genau darauf ruht die Katalogidentität in A4.
 15. **Zeiten stehen als `xsd:integer`.** `dcat:startDate "300"^^xsd:integer`
     am `dct:PeriodOfTime`-Knoten. Das Profil listet für Zeitwerte nur
     `xsd:*`-Datumstypen und EDTF; `xsd:integer` ist keiner davon.
@@ -315,13 +321,13 @@ dem es zum ersten Mal wirkt.
 | Orchestrator | `main.py` im Repo-Wurzelverzeichnis, Schritte einzeln aufrufbar, Windows-`cmd` als Referenz | 2026-09-03 |
 | Registry-Namensraum | `https://w3id.org/fdo-squirrel/registry/`, Präfix `fdoreg:` — hängt unter den bestehenden FDOx-Namensraum | 2026-09-03, bestätigt in S3 (Rollen-Schema) |
 | DOI-Pinning | `sources.json` hält Concept-DOI **und** gepinnte Versions-DOI; geerntet wird die gepinnte. `main.py check-updates` meldet neuere Versionen, ändert aber nichts | Vorschlag |
-| Records ohne `fdo-metadata.ttl` | werden übersprungen und im Qualitätsbericht genannt; das ZIP wird **nicht** durch `fdo-squirrel` gejagt (Aufgabe des Autors, nicht der Registry) | Vorschlag |
-| IRI-Umschreibung | `urn:fdo-squirrel:dist/<sha>` → `<record-IRI>/dist/<sha>`, `urn:fdo-squirrel:content/<pfad>` → `<record-IRI>/content/<pfad>`; die Originale bleiben als `dct:identifier` erhalten | Vorschlag |
+| Records ohne `fdo-metadata.ttl` | erscheinen **gar nicht** im Katalog — kein leerer `dcat:CatalogRecord` — und werden im Qualitätsbericht genannt; das ZIP wird nicht durch `fdo-squirrel` gejagt. Ein Eintrag, der nichts beschreibt, wäre auf der Facettenseite ein Treffer ohne Inhalt | 2026-09-03, bestätigt in S4 |
+| IRI-Umschreibung | `urn:fdo-squirrel:dist/<sha>` → `<record-IRI>/dist/<sha>`, `urn:fdo-squirrel:content/<pfad>` → `<record-IRI>/content/<pfad>`; die Originale bleiben als `dct:identifier` erhalten | 2026-09-03, bestätigt in S4 |
 | ~~Personenknoten je Record~~ | hinfällig: `<record-IRI>/agent/<slug>` hätte denselben Menschen je Paket einmal angelegt. Siehe die registry-globale Fassung weiter unten | hinfällig 2026-09-03 |
 | CRM-Profil | N4O-Anwendungsprofil (crm-rdf-ap), nicht die offizielle RDF-Kodierung. Abweichungen in S3 tabelliert; die eine echte Lücke ist CRMdig, siehe unten | 2026-09-03, bestätigt in S3 |
 | Facettenseite | eigenes `dist/registry-index.json`, beim Build erzeugt; SPARQL bleibt der zweiten Seite vorbehalten. Niemand soll auf eine WASM-Runtime warten, um nach „3D" zu filtern | Vorschlag |
-| Bundle im Repo | ja, `dist/fdo-registry.ttl` ist versioniert — er ist das zitierbare Erzeugnis und Eingabe der Seite | Vorschlag |
-| Lizenz | Code MIT wie `fdo-squirrel`; der Bundle CC BY 4.0, Lizenzen der geernteten FDOs bleiben je Eintrag erhalten | Vorschlag |
+| Bundle im Repo | ja, `dist/fdo-registry.ttl` ist versioniert — er ist das zitierbare Erzeugnis und Eingabe der Seite. `dist/fdo-registry.nt` liegt daneben: es ist die kanonische Form, und der Byte-Vergleich zweier Läufe geschieht an ihm | 2026-09-03, bestätigt in S4 |
+| Lizenz | Code MIT wie `fdo-squirrel`; der Bundle CC BY 4.0 (`dct:license` am Katalogknoten), Lizenzen der geernteten FDOs bleiben je Eintrag erhalten | 2026-09-03, bestätigt in S4 |
 | Schrittvertrag | jedes Schrittmodul bietet `main(strict=False)`, prüft seine eigene Vorbedingung und meldet `skipped (no input): <Grund>`, statt zu scheitern oder still durchzulaufen. Damit ist `python main.py` von Anfang an ein Rauchtest | 2026-09-03 |
 | Orchestrator-Flags | `--list`, `--only`, `--from`, `--skip`, `--dry-run`, `--strict`; Schrittmodule werden faul importiert und bleiben einzeln lauffähig | 2026-09-03 |
 | Netzschritt im Standardlauf | nein — `harvest` trägt `network=True` und wird von `select()` aus dem Standardlauf herausgefiltert. Nur `python main.py --only harvest` holt | 2026-09-03 |
@@ -340,7 +346,15 @@ dem es zum ersten Mal wirkt.
 | Nicht implementierte Schritte | melden `pending`, sobald ihre Eingabe da ist, statt zu werfen. Sonst bricht der Rauchtest genau in dem Moment, in dem der vorige Schritt zu liefern beginnt | 2026-09-03 |
 | Netzausfall | ein nicht erreichbarer Record ist eine Aussage über Zenodo, nicht über den Record: nichts wird geschrieben, nichts gemerkt, der Lauf geht weiter. Nach drei Ausfällen in Folge bricht er ab und sagt, dass Zenodo nicht antwortet. Exitcode ≠ 0, damit die CI es merkt | 2026-09-03 |
 | Zenodo-Endpunkte | Community-Suche über `/api/communities/<slug>/records`, **ohne selbst gebaute Query-Parameter**: erste Seite nackt, danach `links.next` folgen. `size`/`page` anzuhängen quittiert Zenodo mit 400, der nackte Pfad mit 200 (geprüft 2026-09-03). `check-updates` probiert die bekannten Formen der Reihe nach und schreibt in den Bericht, welche geantwortet hat. Ein Bericht ist keinen kaputten Build wert | 2026-09-03 |
-| Nicht parsebare TTL | werden übersprungen, mit Grund und Fundstelle im Bericht; A3 gilt strikt, es wird nichts zurechtgebogen. Die Reparatur gehört in den Generator, nicht in die Registry. Alle Schritte lesen den Bestand über `registry_utils.read_fdo_graph()`, damit Brücke, Bundle und Qualitätsbericht sich nie über den Bestand uneinig sind | 2026-09-03 |
+| ~~Nicht parsebare TTL~~ | ersetzt: das Überspringen kostete vier von acht FDOs **dauerhaft**, weil ein publizierter Zenodo-Record unveränderlich ist und eine Korrektur in `fdo-squirrel` diese vier nie erreicht. Siehe die Zeile darunter | ersetzt 2026-09-03 |
+| Nicht parsende TTL | werden mit **deklarierten Reparaturen** gelesen (`py/repair.py`): fehlende `@prefix`-Zeile, unmaskiertes `\"` in einem einzeiligen Literal. Beide Defekte hat derselbe Generator später behoben, die Sollform steht also in einem Februarpaket und ist nicht erfunden. Jede Reparatur wird benannt — im Log, auf der Crosswalk-Seite und als `fdoreg:readRepair` am Katalogeintrag —, und `fdoreg:sha256` bleibt der Hash der **Originaldatei**. Was ohne Raten nicht zu reparieren ist, bleibt ungelesen | 2026-09-03, ersetzt den Beschluss vom selben Tag |
+| Grenze der Reparatur | nur die **Kodierung**, nie die Aussage. Die drei widersprüchlichen `dct:description` in 18732893 („make 3d model available", „good", „low") werden nicht angefasst: welcher Wert wohin gehört, wüsste nur der Autor. Sie sind ein Datenfehler und gehören in den Qualitätsbericht (S5) | 2026-09-03 |
+| Identität eines Katalogeintrags | DCAT trägt die in S0 offene Versionsfrage von selbst: `dcat:Dataset` ist das FDO, identifiziert durch die **Concept-DOI** — genau die IRI, die das geerntete TTL als eigenes Subjekt führt (Befund 14) —, `dcat:CatalogRecord` ist der Eintrag zu **einer gepinnten Version**. Zwei gepinnte Versionen desselben FDO geben zwei Records über einem Dataset, ohne Zusatzmodell und ohne Doppelzählung. Der Build prüft je Paket, dass Subjekt und Concept-DOI übereinstimmen | 2026-09-03 |
+| Gleichnamige Personen | werden **nicht** zusammengeführt. „Thiery, Florian" trägt im Bestand zwei Knoten, einen mit ORCID (aus `CITATION.cff`) und einen aus der Personen-URN (aus dem Verzeichnisscan). `owl:sameAs` auf Namensgleichheit zu setzen, erfindet Identität; der Build meldet den Kandidaten und überlässt die Entscheidung einem Menschen | 2026-09-03 |
+| `fdo:role` im Bundle | das Literal bleibt, daneben tritt `crm:P2_has_type` auf das SKOS-Konzept aus S3. Das Axiom `fdo:role ⊑ crm:P2_has_type` allein hätte einen String dorthin gesetzt, wo CRM einen Typ erwartet — genau das, was das SHACL-Gate in S5 zurückweisen soll | 2026-09-03 |
+| Zeitspanne | `dct:temporal` → `crm:P4_has_time-span`, der Knoten wird `crm:E52_Time-Span`, die Grenzen `crm:P82a_begin_of_the_begin` / `crm:P82b_end_of_the_end` als `xsd:gYear` (`300` → `"0300"`). Die ursprünglichen `dcat:startDate`/`endDate` im `xsd:integer` bleiben unverändert daneben stehen. Die drei Zeilen stehen in `fdo--crm.csv`, damit der Anker dort dokumentiert ist wie jeder andere | 2026-09-03 |
+| Präfixe im kanonischen Turtle | der Schreiber besitzt die Präfixtabelle, nicht der Graph: `bind_remaining()` bindet jeden ungebundenen Namensraum sortiert nach IRI. rdflib erfindet sonst `ns1`, `ns2`, … in der Reihenfolge, in der es ihnen begegnet, und die kommt aus einer Menge | 2026-09-03 |
+| Bezug des Repos im Chat | Klon von GitHub statt Upload-Bundle, solange der Stand gepusht ist. Näher am Zustand, gegen den der Patch ohnehin geprüft wird — der Preis ist, dass lokal Ungepushtes für den Chat nicht existiert | 2026-09-03 |
 | CRMdig trotz Profillücke | bleibt. `fdo:3DDataFDO` → `crmdig:D1_Digital_Object`, `fdo:SoftwareFDO` → `crmdig:D14_Software`, Distributionen → `crmdig:D9_Data_Object`; dazu die aus CRMdig **zitierten** Axiome `D1 ⊑ E73`, `D9 ⊑ D1`, `D14 ⊑ D1`. Damit sieht auch ein Konsument, der nur CRM-Kern liest, jedes FDO als `E73_Information_Object` | 2026-09-03 |
 | Abgekürzte Klassen-IRIs | der Bundle soll korrekt sein: `crm:E73`, `crmdig:D1`, `crmdig:D9` werden in S4 durch die offiziellen IRIs ersetzt (`normalise`-Zeilen der Crosswalk-CSV). Das ist die **zweite** erlaubte Ausnahme zu A3 neben der `urn:`-Umschreibung — sie repariert die Kodierung, nicht die Aussage. Ziel bleibt, dass neu publizierte FDOs den aktuellen Stand von `fdo-squirrel` tragen und die Normalisierung leerläuft | 2026-09-03 |
 | Fremde Namensräume im Brückenfile | drei Mechanismen statt zwei: `axiom` nur über `fdo:`/`fdoreg:`, `ext-axiom` **wörtlich zitiert** aus der eigenen Ontologie des Terms (CRMdig, GeoSPARQL, das Profil) mit Quellenangabe in der CSV, `instance` für alles andere. Beides wird beim Build geprüft; ein `axiom` über `dcat:` oder ein `ext-axiom` ohne Quelle bricht S3 ab | 2026-09-03 |
@@ -378,6 +392,13 @@ kommen mit dem Bundle mit; `data/raw/` ist klein, weil dort nur TTL und
 **Nicht hochladen:** `.venv/`, `.git/`, heruntergeladene ZIP-Pakete,
 `config.local.json`.
 
+**Seit S4 auch ohne Upload.** Solange der Stand auf GitHub gepusht ist, genügt
+die Repo-URL: der Chat klont
+`https://github.com/Research-Squirrel-Engineers/fdo-squirrel-registry` und sieht
+damit genau den committeten Baum, gegen den der Patch am Ende ohnehin geprüft
+wird. Der Preis ist, dass lokal Ungepushtes für den Chat nicht existiert — wer
+im Arbeitsbaum etwas liegen hat, lädt weiter das Bundle hoch.
+
 ## A6. IRI-Landkarte unter `https://w3id.org/fdo-squirrel/`
 
 Die Registry hängt unter den bestehenden FDOx-Namensraum, statt einen zweiten
@@ -389,9 +410,11 @@ existiert oder ob die IRI bisher nur als Präfix benutzt wird.
 |---|---|---|---|
 | `/fdo-squirrel/` | FDOx-Vokabular: `fdo:3DDataFDO`, `fdo:role`, `fdo:sha256` … | `fdo-squirrel`, Datei noch zu bestimmen | in Benutzung, Eintrag ungeprüft |
 | `/fdo-squirrel/crm/` | Brücke FDOx → CIDOC CRM | `metadata/crm_bridge.ttl` | gebaut (S3), w3id-Eintrag offen |
-| `/fdo-squirrel/registry/` | Registry-Vokabular `fdoreg:` | `metadata/registry_ontology.ttl` | geplant (S1) |
-| `/fdo-squirrel/registry/catalog` | der Katalogknoten selbst | `dist/fdo-registry.ttl` | geplant (S4) |
-| `/fdo-squirrel/registry/record/{id}` | ein `dcat:CatalogRecord` je Eintrag | Detailansicht auf Pages | geplant (S6) |
+| `/fdo-squirrel/registry/` | Registry-Vokabular `fdoreg:`, vier Terme | `metadata/registry_ontology.ttl` | gebaut (S4), w3id-Eintrag offen |
+| `/fdo-squirrel/registry/catalog` | der Katalogknoten selbst | `dist/fdo-registry.ttl` | gebaut (S4), w3id-Eintrag offen |
+| `/fdo-squirrel/registry/record/{id}` | ein `dcat:CatalogRecord` je gepinnter Version | Detailansicht auf Pages | im Bundle vergeben (S4), Seite geplant (S6) |
+| `/fdo-squirrel/registry/record/{id}/dist/{sha}` | eine `dcat:Distribution` | Detailansicht auf Pages | im Bundle vergeben (S4) |
+| `/fdo-squirrel/registry/agent/{hash}` | eine Person ohne ORCID, registry-global | Detailansicht auf Pages | im Bundle vergeben (S4) |
 | `/fdo-squirrel/registry/role/` | SKOS-Vokabular zu `fdo:role`, sechs Konzepte | `metadata/vocab/role.ttl` | gebaut (S3), w3id-Eintrag offen |
 | `/fdo-squirrel/registry/shapes/` | SHACL-Gate | `metadata/shapes.ttl` | geplant (S5) |
 
@@ -409,7 +432,7 @@ Repräsentation aus. Für echte Content Negotiation braucht es w3id-seitige
 | S1 | Repo-Skelett und Orchestrator | S0 | erledigt 2026-09-03 |
 | S2 | Ernte aus Zenodo | S1 | erledigt 2026-09-03 |
 | S3 | Crosswalk FDOx → CIDOC CRM | S0, S2 (ein echtes TTL) | erledigt 2026-09-03 |
-| S4 | Bundle-Build als DCAT-Katalog | S2, S3 | offen |
+| S4 | Bundle-Build als DCAT-Katalog | S2, S3 | erledigt 2026-09-03 |
 | S5 | SHACL-Gate und Qualitätsbericht | S4 | offen |
 | S6 | Registry-Index und Facettenseite | S4 | offen |
 | S7 | SPARQL-Seite | S4, S6 | offen |
@@ -440,9 +463,10 @@ Browser-Engine (A4).
 - Versions- vs. Concept-DOI: der Vorschlag in A4 pinnt die Version. Die
   Alternative wäre, immer die neueste Version zu ziehen — dann ist der Bundle
   aber nicht mehr reproduzierbar, ohne das Datum mitzuführen.
-- Umgang mit mehreren Versionen desselben Objekts: ein Eintrag je Version oder
-  ein Eintrag mit Versionsgeschichte. Betrifft die Zählung auf der Seite und die
-  `dcat:CatalogRecord`-Identität.
+- ~~Umgang mit mehreren Versionen desselben Objekts~~ — **erledigt in S4**: ein
+  `dcat:CatalogRecord` je gepinnter Version, ein `dcat:Dataset` je Concept-DOI.
+  Die Trennung steckt schon in DCAT und musste nicht erfunden werden; siehe A4
+  und Befund 14.
 
 ## S1 — Repo-Skelett und Orchestrator
 
@@ -932,6 +956,57 @@ falsch.
 
 **Abnahme:** zwei Läufe hintereinander, `git status` sauber; Tripelzahl im
 Bericht; keine `urn:`-IRI und kein Blank Node mehr im Ergebnis.
+
+### Erledigt 2026-09-03
+
+`dist/fdo-registry.ttl` hat **6552 Tripel** aus **7 der 8 gepinnten Records**,
+0 `urn:`-IRIs, 0 Blank Nodes. Vier Pakete wurden mit deklarierten Reparaturen
+gelesen, 21 abgekürzte Klassen-IRIs normalisiert, 633 CRM-Anker materialisiert.
+Abnahme erfüllt: vier weitere Läufe mit wechselndem `PYTHONHASHSEED` liefern
+byte-gleiche Dateien, `python main.py --strict` endet mit Exitcode 0.
+
+Was anders kam als geplant:
+
+- **Die Reparatur war billiger als befürchtet und gleich doppelt wertvoll.**
+  Zwei fehlende `@prefix`-Zeilen und ein maskiertes Anführungszeichen je Datei —
+  sechs veränderte Zeilen im ganzen Bestand. Der Gewinn geht über S4 hinaus:
+  S3 zählte `fdo:role` vorher nur über drei Pakete und sah vier Werte, jetzt
+  über sieben und sieht alle sechs (`software` 312, `documentation` 123,
+  `script` 28, `model` 12, `data` 9, `metadata` 8). Das Vokabular aus S3 ist
+  damit zum ersten Mal gegen den **vollen** Bestand geprüft statt gegen den
+  von Hand reparierten.
+- **Das Bundle war nicht reproduzierbar, und die Abnahme von S1 und S3 hatte
+  das nicht gemerkt.** Zwei Läufe unterschieden sich in 84 Zeilen, ohne dass
+  ein Tripel anders gewesen wäre: rdflib erfindet für ungebundene Namensräume
+  `ns1`, `ns2`, … in der Reihenfolge, in der es ihnen begegnet, und die kommt
+  aus einer Menge. `codemeta:` war einmal `ns2` und einmal `ns3`. Die kleinen
+  Graphen aus S1 und S3 hatten schlicht keinen ungebundenen Namensraum, die
+  Prüfung „zwei Läufe byte-gleich" ging also durch, ohne etwas zu prüfen.
+  `write_canonical_turtle` bindet jetzt selbst (`bind_remaining`), und
+  `cff:`, `codemeta:`, `wd:`, `wdt:`, `role:` stehen in `PREFIXES`. Der
+  N-Triples-Zwischenstand war die ganze Zeit stabil — er ist das eigentliche
+  kanonische Erzeugnis und der Ort, an dem zwei Läufe zu vergleichen sind.
+- **`fdo:role` hätte einen String dorthin gesetzt, wo CRM einen Typ erwartet.**
+  Das Axiom aus S3 (`fdo:role ⊑ crm:P2_has_type`) ist nur zusammen mit einer
+  Auflösung des Literals gegen das SKOS-Vokabular tragfähig. 516 Anker; ohne
+  sie wäre das SHACL-Gate in S5 sofort rot geworden, mit einem Fehler, dessen
+  Ursache zwei Schritte zurückliegt.
+- **Die Versionsfrage aus S0 hat sich nicht gestellt.** DCAT trennt Dataset und
+  CatalogRecord bereits so, wie es hier gebraucht wird, und Befund 14 liefert
+  die Concept-DOI als Dataset-IRI frei Haus. Der Build prüft die Zuordnung je
+  Paket; alle sieben stimmen.
+- **`crmdig:D14_Software` steht im Bundle nirgends.** Zwei Pakete sind
+  `fdo:SoftwareFDO`, und der Weg zu D14 führt über ein Axiom in
+  `metadata/crm_bridge.ttl` — eine Datei, die der Bundle nicht mitbringt. Der
+  Katalogknoten trägt `dct:conformsTo` auf die Brücke, aber ein Konsument, der
+  nur `fdo-registry.ttl` lädt, sieht die Software-Klasse nicht. Ob das Gate in
+  S5 gegen Bundle + Brücke prüft oder der Bundle die Brücke importiert, ist in
+  S5 zu entscheiden.
+
+Offen aus diesem Lauf: der Präfixkopf des Bundles trägt rund dreissig
+generierte `nsNN:`-Zeilen, je eine für die `content/`- und `dist/`-Namensräume
+der sieben Records. Deterministisch, aber unschön; ob das die Lesbarkeit einer
+publizierten Datei genug stört, um die IRI-Form zu ändern, gehört zu S6.
 
 ## S5 — SHACL-Gate und Qualitätsbericht
 

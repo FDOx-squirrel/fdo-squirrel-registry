@@ -187,13 +187,22 @@ def observed_roles() -> tuple[dict[str, int], list[tuple[str, str]]]:
     for directory in sorted(u.RAW_FDO.glob("*")) if u.RAW_FDO.exists() else []:
         if not directory.is_dir():
             continue
-        graph, reason = u.read_fdo_graph(directory)
-        if graph is None:
-            unreadable.append((directory.name, reason))
+        reading = u.read_fdo(directory)
+        if reading.graph is None:
+            unreadable.append((directory.name, reading.reason))
             continue
-        for value in graph.objects(None, predicate):
-            counts[str(value)] = counts.get(str(value), 0) + 1
+        if reading.repairs:
+            # Named here as well as in S4, because the crosswalk page states
+            # what the role counts were counted over. A number whose corpus is
+            # not stated is a number nobody can check.
+            print(f"  repaired: {directory.name}: {', '.join(reading.repairs)}")
+        for value in graph_objects(reading.graph, predicate):
+            counts[value] = counts.get(value, 0) + 1
     return counts, unreadable
+
+
+def graph_objects(graph, predicate) -> list[str]:
+    return [str(value) for value in graph.objects(None, predicate)]
 
 
 def render_page(rows, roles, counts, unreadable) -> str:

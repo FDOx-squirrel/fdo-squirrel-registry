@@ -14,6 +14,7 @@ import re
 import subprocess
 import unicodedata
 from pathlib import Path
+from typing import NamedTuple
 
 # ---------------------------------------------------------------------------
 # Release
@@ -37,6 +38,8 @@ ROLE_SCHEME = REGISTRY_NS + "role/"
 # bundle and the query page cannot disagree about what `crmdig:` means.
 PREFIXES: dict[str, str] = {
     "bibo": "http://purl.org/ontology/bibo/",
+    "cff": "https://citation-file-format.github.io/terms/",
+    "codemeta": "https://codemeta.github.io/terms/",
     "crm": "http://www.cidoc-crm.org/cidoc-crm/",
     "crmdig": "http://www.ics.forth.gr/isl/CRMdig/",
     "dcat": "http://www.w3.org/ns/dcat#",
@@ -49,10 +52,13 @@ PREFIXES: dict[str, str] = {
     "owl": "http://www.w3.org/2002/07/owl#",
     "prov": "http://www.w3.org/ns/prov#",
     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "role": REGISTRY_NS + "role/",
     "schema": "https://schema.org/",
     "sf": "http://www.opengis.net/ont/sf#",
     "skos": "http://www.w3.org/2004/02/skos/core#",
     "time": "http://www.w3.org/2006/time#",
+    "wd": "http://www.wikidata.org/entity/",
+    "wdt": "http://www.wikidata.org/prop/direct/",
     "xsd": "http://www.w3.org/2001/XMLSchema#",
 }
 
@@ -98,6 +104,7 @@ INDEX = DIST / "registry-index.json"
 CRM_CROSSWALK = CROSSWALKS / "fdo--crm.csv"
 ROLE_CROSSWALK = CROSSWALKS / "fdo-role--skos.csv"
 CRM_BRIDGE = METADATA / "crm_bridge.ttl"
+REGISTRY_ONTOLOGY = METADATA / "registry_ontology.ttl"
 ROLE_VOCAB = VOCAB / "role.ttl"
 
 
@@ -130,9 +137,17 @@ def content_iri(record_id: str | int, path_in_zip: str) -> str:
     return f"{record_iri(record_id)}/content/{quote(path_in_zip)}"
 
 
-def agent_iri(record_id: str | int, name: str) -> str:
-    """Fallback for a creator without an ORCID; ORCID IRIs are used directly."""
-    return f"{record_iri(record_id)}/agent/{slugify(name)}"
+def person_iri(person_urn: str) -> str:
+    """urn:fdo-squirrel:person/<hash> -> <registry>/agent/<hash>, registry-global.
+
+    Not per record. The hash in the URN is derived from the person, not from
+    the package, and it is the same in every package that names them (A1,
+    Befund 11) - so rewriting it per record would give one human as many IRIs
+    as they have FDOs. A creator that already carries an ORCID keeps it; this
+    is only for the ones the source could not identify.
+    """
+    local = person_urn.rsplit("/", 1)[-1]
+    return f"{REGISTRY_NS}agent/{local}"
 
 
 def role_iri(value: str) -> str:
@@ -179,6 +194,42 @@ def write_json(data, path: Path) -> Path:
     return path
 
 
+def bind_remaining(graph) -> list[str]:
+    """Give every unbound namespace a prefix, assigned in a fixed order.
+
+    Sorted N-Triples are byte-identical across runs; the Turtle made from them
+    was not. rdflib invents `ns1`, `ns2`, ... for namespaces that have no
+    prefix, in the order it happens to meet them, and that order comes out of a
+    set - so `codemeta:` was ns2 in one run and ns3 in the next, and 84 lines
+    of a 6000-triple file changed without a single triple changing with them.
+
+    Binding them here, sorted by namespace IRI, makes the label a function of
+    the graph rather than of the process. Everything actually used in this
+    repository belongs in PREFIXES and gets a readable prefix; this is the
+    floor under a package that brings a namespace nobody has seen yet.
+    """
+    from rdflib import URIRef
+    from rdflib.namespace import split_uri
+
+    bound = {str(namespace) for _, namespace in graph.namespaces()}
+    unbound = set()
+    for triple in graph:
+        for term in triple:
+            if not isinstance(term, URIRef):
+                continue
+            try:
+                namespace, _ = split_uri(str(term))
+            except Exception:               # not splittable: rdflib writes it out in full
+                continue
+            if namespace not in bound:
+                unbound.add(namespace)
+    assigned = []
+    for number, namespace in enumerate(sorted(unbound), start=1):
+        graph.bind(f"ns{number:02d}", namespace)
+        assigned.append(namespace)
+    return assigned
+
+
 def write_canonical_turtle(graph, path: Path, *, keep_nt: bool = True) -> Path:
     """Serialise a graph reproducibly.
 
@@ -201,6 +252,7 @@ def write_canonical_turtle(graph, path: Path, *, keep_nt: bool = True) -> Path:
     for prefix, namespace in graph.namespaces():
         canonical.bind(prefix, namespace)
     canonical.parse(nt_path, format="nt")
+    bind_remaining(canonical)
     path.write_text(canonical.serialize(format="turtle"), encoding="utf-8")
 
     if not keep_nt:
@@ -301,28 +353,64 @@ def harvested_records() -> list[Path]:
                   if not pinned or p.parent.name in pinned)
 
 
-def read_fdo_graph(directory: Path):
-    """Parse one harvested fdo-metadata.ttl. Returns (graph, None) or (None, reason).
+class Reading(NamedTuple):
+    """The result of reading one harvested package."""
+
+    graph: object | None            # rdflib.Graph, or None if unreadable
+    reason: str | None              # why it could not be read
+    repairs: tuple[str, ...] = ()   # encoding repairs applied on the way in
+
+
+def read_fdo(directory: Path) -> Reading:
+    """Parse one harvested fdo-metadata.ttl, repairing its encoding if needed.
 
     Four of the seven packages harvested on 2026-09-03 are not valid Turtle:
-    three use crm:/crmdig: without declaring the prefixes, two carry unescaped
-    quotes in the JSON literal at dct:provenance. The registry reads, it does
-    not correct (A3), so a file that does not parse is skipped with a reason
-    and reported - never patched into shape on the way in. Every step that
-    touches the corpus goes through this function, so the bridge, the bundle
-    and the quality report always agree on which packages are in.
+    three use crm:/crmdig: without declaring the prefixes, one carries
+    unescaped quotes in the JSON literal at dct:provenance. Both defects were
+    fixed in the generator afterwards, and a published Zenodo record never
+    changes - so skipping them means losing four of eight FDOs permanently.
+    Since 2026-09-03 the registry therefore applies the declared repairs in
+    `repair.py` and names every one of them (A4). It still does not touch the
+    *content*: what a repair cannot fix without guessing stays unread.
+
+    Every step that touches the corpus goes through this function, so the
+    bridge, the bundle and the quality report can never disagree about which
+    packages are in and which were repaired to get there.
     """
     from rdflib import Graph  # kept out of module import so --list stays cheap
 
+    import repair as repair_rules
+
     path = directory / "fdo-metadata.ttl"
     if not path.exists():
-        return None, "no fdo-metadata.ttl in the package"
+        return Reading(None, "no fdo-metadata.ttl in the package")
+
+    text = path.read_text(encoding="utf-8")
+
+    def parse(candidate: str) -> None:
+        Graph().parse(data=candidate, format="turtle")
+
+    try:
+        parse(text)
+        repairs: list[str] = []
+    except Exception:                               # rdflib raises BadSyntax
+        text, repairs = repair_rules.repair(text, parse, PREFIXES)
+
     graph = Graph()
     try:
-        graph.parse(path, format="turtle")
-    except Exception as error:                      # rdflib raises BadSyntax
-        return None, f"not valid Turtle: {parse_error(error)}"
-    return graph, None
+        graph.parse(data=text, format="turtle")
+    except Exception as error:
+        detail = parse_error(error)
+        if repairs:
+            detail += f" (after {', '.join(repairs)})"
+        return Reading(None, f"not valid Turtle: {detail}", tuple(repairs))
+    return Reading(graph, None, tuple(repairs))
+
+
+def read_fdo_graph(directory: Path):
+    """(graph, reason) for callers that do not care which repairs were needed."""
+    reading = read_fdo(directory)
+    return reading.graph, reading.reason
 
 
 def parse_error(error: Exception) -> str:

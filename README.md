@@ -9,10 +9,10 @@ published on Zenodo, bundles them into a DCAT catalogue anchored in CIDOC CRM,
 validates the result with SHACL, and publishes a filter page and a browser-based
 SPARQL page as a static site — no server, no endpoint, no database.
 
-> **Status: S3 of the work plan.** The skeleton, the orchestrator, the Zenodo
-> harvest and the CIDOC CRM crosswalk are in place; the remaining pipeline
-> steps report `skipped (no input)` until the step that implements them is
-> done. See [`PRIMER.md`](PRIMER.md) for the plan.
+> **Status: S4 of the work plan.** The skeleton, the orchestrator, the Zenodo
+> harvest, the CIDOC CRM crosswalk and the catalogue bundle are in place; the
+> remaining pipeline steps report `skipped (no input)` until the step that
+> implements them is done. See [`PRIMER.md`](PRIMER.md) for the plan.
 
 ## Pipeline
 
@@ -118,6 +118,42 @@ Machine-specific paths go into `config.local.json`, which is not committed:
 With `package_dir` set, the harvest reads a package from disk whenever the
 folder holds a file of the record's file name, and falls back to Zenodo
 otherwise. The file may be absent.
+
+### Reading a published package
+
+Four of the eight pinned packages are not valid Turtle: three use `crm:` and
+`crmdig:` without declaring the prefixes, one carries unescaped quotes in the
+JSON literal at `dct:provenance`. Both defects were fixed in the generator
+afterwards, but a published Zenodo record never changes, so no upstream
+correction can reach them.
+
+`py/repair.py` therefore applies two declared repairs before parsing. They are
+*encoding* repairs, in the same sense as the `normalise` rows of the crosswalk:
+the repaired form is what the same generator writes in a later package, not
+something this repository invented. Every repair reports itself — in the build
+log, on the crosswalk page and as `fdoreg:readRepair` on the catalogue record —
+and `fdoreg:sha256` stays the hash of the original file as Zenodo holds it. A
+defect that cannot be fixed without guessing at content is not repaired; it goes
+into the quality report instead.
+
+### The catalogue
+
+`dist/fdo-registry.ttl` is a `dcat:Catalog`. DCAT's own distinction carries the
+versioning: the **dataset** is the FDO, identified by its Zenodo concept DOI,
+which is the IRI the harvested `fdo-metadata.ttl` uses as its own subject; the
+**catalogue record** is this registry's entry for one pinned version of it. Two
+pinned versions of one FDO give two records over one dataset.
+
+Everything that is only unique inside its own package is rewritten before the
+graphs are merged, and the original is kept as `dct:identifier`. Distributions
+and file entries are scoped to the record; people are registry-global, because
+the hash in `urn:fdo-squirrel:person/…` identifies the person and not the
+package. People known by an ORCID keep it. Two nodes that carry the same name
+are reported and never merged — asserting identity on a matching name is not
+this registry's job.
+
+`dist/fdo-registry.nt` is written beside it, as sorted N-Triples. That is the
+canonical form; comparing two runs means comparing the `.nt`.
 
 ### The CIDOC CRM bridge
 
