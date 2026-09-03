@@ -257,7 +257,7 @@ def main(strict: bool = False) -> None:
     counts, unreadable = observed_roles()
     u.DOCS.mkdir(parents=True, exist_ok=True)
     page = u.DOCS / "crosswalk.html"
-    page.write_text(render_page(rows, roles, counts, unreadable), encoding="utf-8")
+    u.write_text(page, render_page(rows, roles, counts, unreadable))
 
     by_mechanism: dict[str, int] = {}
     for row in rows:

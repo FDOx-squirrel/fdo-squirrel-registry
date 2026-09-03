@@ -9,6 +9,9 @@ Single entry point for this repository:
     python main.py --skip harvest   run everything except this step
     python main.py --dry-run        print the plan, run nothing
     python main.py --strict         warnings become errors (this is what CI runs)
+    python main.py --open           build, then open docs/index.html from disk
+    python main.py --serve          build, then serve docs/ on 127.0.0.1:8000
+                                    until Ctrl+C (--serve 8080 for another port)
 
 Steps that reach the network are NOT part of the default run. They carry
 `network=True` below and are only executed when named explicitly, e.g.
@@ -84,6 +87,11 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--dry-run", action="store_true", help="print the plan only")
     parser.add_argument("--strict", action="store_true",
                         help="treat warnings as errors")
+    parser.add_argument("--open", dest="open_page", action="store_true",
+                        help="open docs/index.html in the browser when the run is done")
+    parser.add_argument("--serve", nargs="?", const=8000, type=int, metavar="PORT",
+                        help="serve docs/ on http://127.0.0.1:PORT (default 8000) "
+                             "and open it; Ctrl+C stops it")
     return parser.parse_args()
 
 
@@ -120,6 +128,61 @@ def run_step(name: str, module_name: str, strict: bool) -> float:
     else:
         module.main()
     return time.perf_counter() - started
+
+
+def show(page: Path) -> None:
+    """Open the built page in the default browser, straight off the disk.
+
+    No server: the page carries its data inside it precisely so that this
+    works. `--serve` exists for the cases where a browser insists on an
+    http:// origin - which will be the Pyodide page in S7, not this one.
+    """
+    import webbrowser
+
+    if not page.exists():
+        print(f"\nnot opening: {page} does not exist - run the site step first")
+        return
+    print(f"\nopening {page.as_uri()}")
+    webbrowser.open(page.as_uri())
+
+
+def serve(directory: Path, port: int, page_name: str = "index.html") -> None:
+    """Serve one directory on localhost until Ctrl+C. Nothing is installed.
+
+    This is a plain Python process holding a port for as long as it runs.
+    There is no mode to leave and nothing to undo: press Ctrl+C, or close the
+    window, and the port is free again. If a port is still taken by an earlier
+    run, `netstat -ano | findstr :<port>` names the process id and
+    `taskkill /PID <id> /F` ends it.
+    """
+    import functools
+    import http.server
+    import webbrowser
+
+    if not directory.exists():
+        print(f"\nnot serving: {directory} does not exist - run the site step first")
+        return
+
+    handler = functools.partial(http.server.SimpleHTTPRequestHandler,
+                                directory=str(directory))
+    try:
+        server = http.server.ThreadingHTTPServer(("127.0.0.1", port), handler)
+    except OSError as error:
+        print(f"\ncannot serve on port {port}: {error}")
+        print(f"  another process holds it. On Windows: "
+              f"netstat -ano | findstr :{port}   then   taskkill /PID <id> /F")
+        return
+
+    url = f"http://127.0.0.1:{port}/{page_name}"
+    print(f"\nserving {directory} at {url}")
+    print("  press Ctrl+C to stop (nothing is left running afterwards)")
+    webbrowser.open(url)
+    try:
+        server.serve_forever()
+    except KeyboardInterrupt:
+        print("\nstopped; the port is free again")
+    finally:
+        server.server_close()
 
 
 def main() -> int:
@@ -173,6 +236,13 @@ def main() -> int:
 
             if failed:
                 print(f"\nFAILED in step: {failed}")
+
+    if not failed:
+        page = ROOT / "docs" / "index.html"
+        if args.serve is not None:
+            serve(page.parent, args.serve)
+        elif args.open_page:
+            show(page)
 
     return 1 if failed else 0
 

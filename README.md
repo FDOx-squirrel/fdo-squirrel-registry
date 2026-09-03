@@ -62,10 +62,20 @@ python main.py --only bundle       run one step
 python main.py --from bundle       run this step and everything after it
 python main.py --dry-run           print the plan, run nothing
 python main.py --strict            warnings become errors (this is what CI runs)
+python main.py --open              build, then open docs/index.html from disk
+python main.py --serve             build, then serve docs/ on 127.0.0.1:8000
 ```
 
 `main.py` writes `dist/pipeline_report.txt` with the same lines it prints, plus
 a timing table.
+
+The facet page needs no server — `--open` hands the file to the browser and the
+page carries its data inside it. `--serve` is there for the pages that will
+need an `http://` origin, and takes a port (`--serve 8080`). It is a plain
+Python process holding that port: Ctrl+C, or closing the window, frees it
+again, and nothing is left behind. If a port is still taken by an earlier run,
+`netstat -ano | findstr :8000` names the process and `taskkill /PID <id> /F`
+ends it.
 
 **Harvesting is not part of the default run.** It is the only step that reaches
 the network, so it has to be asked for:

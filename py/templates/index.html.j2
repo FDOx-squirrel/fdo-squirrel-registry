@@ -43,6 +43,11 @@
            gap: 1rem; }
   .card { background: var(--card); border: 1px solid var(--rule); border-radius: 4px;
           padding: 1rem 1.1rem 1.1rem; display: flex; flex-direction: column; }
+  /* The `hidden` attribute is only display:none in the user-agent stylesheet,
+     and an author rule beats the user agent whatever its specificity - so the
+     `display: flex` above would keep every filtered card on screen. This rule
+     is an author rule too, and more specific, so it wins. */
+  .card[hidden] { display: none; }
   .card h3 { margin: 0 0 .3rem; font-size: 1.05rem; }
   .card h3 a { text-decoration: none; }
   .card h3 a:hover { text-decoration: underline; }

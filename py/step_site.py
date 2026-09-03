@@ -99,15 +99,14 @@ def main(strict: bool = False) -> None:
         facets=facets,
         index_json=json.dumps(index, sort_keys=True, ensure_ascii=False),
     )
-    u.SITE_INDEX.write_text(page, encoding="utf-8")
+    u.write_text(u.SITE_INDEX, page)
 
     record_template = env.get_template("record.html.j2")
     written = []
     for entry in index["entries"]:
         target = u.SITE_RECORDS / f"{entry['record_id']}.html"
-        target.write_text(record_template.render(
-            release=u.RELEASE, catalog=index["catalog"], entry=entry),
-            encoding="utf-8")
+        u.write_text(target, record_template.render(
+            release=u.RELEASE, catalog=index["catalog"], entry=entry))
         written.append(target)
 
     # Records that were dropped from sources.json would otherwise keep their

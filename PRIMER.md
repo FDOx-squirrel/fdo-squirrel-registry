@@ -243,6 +243,32 @@ Tripeln):
     eine Datei geschrieben wird, durch `registry_utils.rel()`. Determinismus
     je Rechner reicht nicht, sobald mehr als ein Rechner baut.
 
+**Befunde aus dem ersten Lauf auf einem echten Rechner** (2026-09-03, Windows,
+Browser):
+
+28. **Die Facettenfilterung wählte richtig aus und blendete nichts aus.**
+    Zähler und Facettenzahlen stimmten („1 of 7"), auf dem Schirm standen
+    weiter alle sieben Kacheln. Ursache ist nicht JavaScript, sondern die
+    Kaskade: `hidden` ist nur im *User-Agent*-Stylesheet `display: none`, und
+    **jede** Autorenregel schlägt das User-Agent-Stylesheet — die eigene Regel
+    `.card { display: flex }` hielt also genau die Kacheln sichtbar, die das
+    Skript versteckt hatte. Behoben durch `.card[hidden] { display: none }`.
+    Lehre für die Prüfung, nicht nur fürs CSS: die statische Kontrolle im
+    Sandkasten (eingebettetes JSON parst, kein `fetch`, Skript
+    syntaxgeprüft, Filterlogik ausserhalb des Browsers durchgerechnet) hat
+    **jede** dieser Aussagen bestätigt und den Fehler trotzdem nicht gesehen,
+    weil er im Rendern sitzt. Auch `jsdom` meldet hier fälschlich Erfolg — es
+    gibt dem User-Agent-Stylesheet den Vorrang, den ein Browser ihm nicht
+    gibt. Eine Seite ist erst geprüft, wenn ein Browser sie gezeichnet hat.
+29. **Erzeugte Textdateien tragen unter Windows CRLF.** `Path.write_text()`
+    übersetzt `\n` in `os.linesep`; dieselbe Zeile Python schreibt also unter
+    Windows andere Bytes als unter Linux — in jeder erzeugten Datei, nicht nur
+    im Bericht aus Befund 27. Git versteckt das beim Commit meist über
+    `core.autocrlf`, was es gefährlicher macht statt harmloser: der
+    Byte-Vergleich zweier Rechner wird dadurch bedeutungslos, ohne dass jemand
+    etwas merkt. Seit S6a schreibt alles über `registry_utils.write_text()`
+    mit `newline="\n"`.
+
 **Was das Anwendungsprofil nicht abdeckt** (geprüft 2026-09-03 an
 <https://nfdi4objects.github.io/crm-rdf-ap/>, Fassung 2025-01-27, Jakob Voß):
 Es behandelt CRM-Kern, SKOS, GeoSPARQL, Time Ontology und BIBO. Zu **CRMdig
@@ -457,6 +483,9 @@ dem es zum ersten Mal wirkt.
 | Facette „Jahr" | Erscheinungsjahr des FDO (`dct:issued`, ersatzweise `dct:created`), nicht der Zeitraum des Objekts. Der Zeitraum steht auf Kachel und Detailseite, ist aber als Facette wertlos: fünf der sieben Pakete tragen dieselbe Ogham-Spanne | 2026-09-03 |
 | Personen-IRIs auf der Seite | nur ORCIDs werden verlinkt. Die registry-eigenen `agent/`-IRIs haben noch keine Seite, und ein Link ins Leere sieht aus wie ein Angebot. Stattdessen steht dort „no ORCID in the package" — dieselbe Aussage wie im Qualitätsbericht, nur dort, wo sie jemand liest | 2026-09-03 |
 | Pfade in Erzeugnissen | über `registry_utils.rel()`, nie über `Path.relative_to()` direkt (Befund 27). Terminalausgabe darf plattformnativ bleiben, Dateiinhalt nicht | 2026-09-03 |
+| Zeilenenden in Erzeugnissen | LF, immer, über `registry_utils.write_text()` mit `newline="\n"` (Befund 29). Kein Generator benutzt `Path.write_text()` direkt | 2026-09-03 |
+| Seite ansehen | `python main.py --open` öffnet `docs/index.html` von der Platte — die Seite braucht keinen Server, deshalb bekommt sie auch keinen. `python main.py --serve [PORT]` liefert `docs/` auf `127.0.0.1:8000` aus und läuft bis Ctrl+C; es gibt keinen Modus zu verlassen, nur einen Prozess, der endet. Gedacht für S7, wo Pyodide einen `http://`-Origin verlangt | 2026-09-03 |
+| Wann eine Seite geprüft ist | wenn ein Browser sie gezeichnet hat. Statische Prüfungen und `jsdom` haben die kaputte Filterung in Befund 28 beide bestanden; `jsdom` bildet die Kaskade zwischen Autor- und User-Agent-Stylesheet nicht korrekt ab. Im Chat wird deshalb gesagt, was nur am Rechner prüfbar ist, statt es als geprüft auszugeben | 2026-09-03 |
 
 ## A5. Was in welchem Chat hochgeladen wird
 
@@ -1267,6 +1296,19 @@ Offen und an S7 weitergegeben: `dist/registry-index.json` ist die zweite
 Lesart des Bundles neben SPARQL. Wenn eine Abfrage in S7 etwas anderes zählt
 als die Facette hier, ist eine von beiden falsch — das ist ein billiger
 Gegentest und gehört in den Startsatz an Abfragen.
+
+### Nachtrag 2026-09-03, erster Lauf im Browser
+
+Die Filterung wählte richtig und blendete nichts aus (Befund 28): `.card`
+setzt `display: flex`, und eine Autorenregel schlägt das
+User-Agent-`[hidden]`. Eine Zeile CSS (`.card[hidden] { display: none }`).
+Dabei fiel Befund 29 auf, die CRLF unter Windows.
+
+Zwei Flags kamen dazu, weil die Frage „muss ich das auf localhost laufen
+lassen?" nach dem Fehler naheliegend war und die Antwort nein lautet:
+`--open` öffnet die gebaute Seite von der Platte, `--serve` liefert `docs/`
+bis Ctrl+C aus. Die Facettenseite braucht `--serve` nicht; S7 wird es
+brauchen, weil Pyodide seine Module nicht über `file://` nachlädt.
 
 ## S7 — SPARQL-Seite
 

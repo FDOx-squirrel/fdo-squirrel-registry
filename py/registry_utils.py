@@ -225,12 +225,25 @@ def read_json(path: Path):
     return json.loads(path.read_text(encoding="utf-8"))
 
 
+def write_text(path: Path, text: str) -> Path:
+    """Write a generated text file with LF endings on every platform.
+
+    `Path.write_text()` translates "\\n" to `os.linesep`, so the same generator
+    produces CRLF on Windows and LF elsewhere - the same defect as the path
+    separators in `rel()`, one layer down and across every artefact rather than
+    one report. Git usually hides it on the way into a commit, which is exactly
+    what makes it worth pinning down here: a byte comparison between two
+    machines is otherwise meaningless.
+    """
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(text, encoding="utf-8", newline="\n")
+    return path
+
+
 def write_json(data, path: Path) -> Path:
     """Sorted keys, real UTF-8, trailing newline — so diffs mean something."""
-    path.parent.mkdir(parents=True, exist_ok=True)
     text = json.dumps(data, indent=2, sort_keys=True, ensure_ascii=False)
-    path.write_text(text + "\n", encoding="utf-8")
-    return path
+    return write_text(path, text + "\n")
 
 
 def bind_remaining(graph) -> list[str]:
@@ -285,14 +298,14 @@ def write_canonical_turtle(graph, path: Path, *, keep_nt: bool = True) -> Path:
         line for line in graph.serialize(format="nt").splitlines() if line.strip()
     )
     nt_path = path.with_suffix(".nt")
-    nt_path.write_text("\n".join(lines) + "\n", encoding="utf-8")
+    write_text(nt_path, "\n".join(lines) + "\n")
 
     canonical = Graph()
     for prefix, namespace in graph.namespaces():
         canonical.bind(prefix, namespace)
     canonical.parse(nt_path, format="nt")
     bind_remaining(canonical)
-    path.write_text(canonical.serialize(format="turtle"), encoding="utf-8")
+    write_text(path, canonical.serialize(format="turtle"))
 
     if not keep_nt:
         nt_path.unlink()

@@ -299,9 +299,8 @@ def main(strict: bool = False) -> None:
 
     u.ensure_dirs(u.DIST)
     u.write_canonical_turtle(graph, u.N4O_BUNDLE, keep_nt=False)
-    u.QUALITY_REPORT.write_text(
-        write_report(by_rule, corpus_state(), concept_map(graph), sources),
-        encoding="utf-8")
+    u.write_text(u.QUALITY_REPORT,
+                 write_report(by_rule, corpus_state(), concept_map(graph), sources))
 
     if violations:
         for (_, message), nodes in sorted(violations.items(), key=lambda item: item[0][1]):
