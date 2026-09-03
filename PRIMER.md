@@ -87,8 +87,13 @@ falsch — sie sind hier korrigiert, nicht gelöscht:
    gebildet durch Anhängen an die DOI-IRI. Sie sind eindeutig, aber sie
    behaupten DOIs, die es nicht gibt. A3 erlaubt nur die Umschreibung von
    `urn:` — ob diese beiden dazukommen, ist in S4 zu entscheiden.
-7. **`fdo:role` hat vier Werte, nicht drei:** `model` (4), `documentation` (3),
-   `metadata` (2), `data` (2). Das SKOS-Vokabular in S3 braucht vier Konzepte.
+7. **~~`fdo:role` hat vier Werte, nicht drei.~~ Korrigiert 2026-09-03 in S3:
+   sechs Werte über den ganzen Bestand.** `software` (311), `documentation`
+   (123), `script` (28), `model` (12), `data` (9), `metadata` (8). Die vier aus
+   dem Auftaktchat stammten aus einem einzigen 3D-Paket; die Software-Pakete
+   bringen `software` und `script` mit. Das SKOS-Vokabular hat sechs Konzepte,
+   flach — die Quelle kennt keine Hierarchie zwischen den Werten, und eine hier
+   erfundene wäre Struktur, die in keinem Paket steht.
 
 **Was schon da ist und wiederverwendet wird.** `fdox_sparql_explorer/` in
 `fdo-squirrel` ist ein nbconvert-Export eines Notebooks mit rdflib in Python,
@@ -112,6 +117,59 @@ S3 folgt.
    Namensvariante. Der Ernter überspringt ihn mit Begründung — das ist der
    erste echte Eintrag für den Qualitätsbericht aus S5 und eine Rückmeldung an
    den Paketautor, keine Aufgabe der Registry (A3).
+
+**Befunde am vollen geernteten Bestand** (geprüft 2026-09-03 in S3 an allen
+sieben `fdo-metadata.ttl` unter `data/raw/fdo/`, zusammen 4845 Tripel):
+
+10. **Vier von sieben TTL sind kein gültiges Turtle.** Zwei Defektklassen:
+    `18369126`, `18369157` und `18369866` benutzen `crm:` und `crmdig:`, ohne
+    die Präfixe je zu deklarieren; `18369866` und `18732893` haben unescapte
+    Anführungszeichen im JSON-Literal an `dct:provenance`. Beides sind
+    Generator-Jahrgänge, beides ist upstream repariert worden — die neueren
+    Pakete (`18742694`, `18744133`, `18744583`) sind sauber. Unter A3 hat die
+    Registry damit heute **drei** lesbare Einträge, nicht sieben. Wer die
+    Zahlen auf der Seite mit den Papieren vergleicht, muss das wissen.
+11. **Die Personen-URN ist über Paketgrenzen hinweg stabil.**
+    `urn:fdo-squirrel:person/8e916ce55425de21` ist in vier verschiedenen
+    Records dieselbe Person (Thiery, Florian). Damit ist der offene Punkt aus
+    Teil D entschieden und der Beschluss in A4 war falsch: eine Umschreibung je
+    Record würde dieselbe Person vervierfachen. Die Umschreibung muss
+    registry-global sein.
+12. **Zwei Personendialekte.** Die älteren Pakete tragen ORCID-IRIs direkt
+    (`18369126`, `18369157`, `18369866`), die neueren die Personen-URN — der
+    Generator hat unterwegs aufgehört, ORCIDs zu benutzen. Das
+    Anwendungsprofil will ausdrücklich die etablierte IRI (DOI, ORCID, ROR).
+    Rückmeldung an `fdo-squirrel`.
+13. **Drei Zeilen der Entwurfsabbildung haben keine Quelle in den Daten.** Es
+    gibt keinen Knoten für das physische Objekt — FDO und Objekt sind derselbe
+    Knoten, `crm:E22` lässt sich also nicht verankern, ohne einen Knoten zu
+    erfinden. `technique.acquisition` überlebt nur als undurchsichtiges
+    JSON-Literal an `dct:provenance` (`{"software": "KIRI Engine", …}`), also
+    haben `crmdig:D2`, `D8` und `crm:P16` keine strukturierte Quelle. Und
+    `fdo:AnalysisFDO` kommt im Bestand nicht vor: beide „Analyse"-Pakete sind
+    `fdo:SoftwareFDO`. Die Entwurfstabelle war aus `MD.cff` gedacht — die
+    Registry sieht aber nur das TTL.
+14. **Das Subjekt im TTL ist die Concept-DOI, nicht die Versions-DOI.**
+    Record `18744133` beschreibt `zenodo.18724635`, Record `18744583`
+    beschreibt `zenodo.18369720`. Der Dataset-Knoten des Bundles trägt damit
+    eine IRI, die auf ein bewegliches Ziel zeigt; die feste Kennung sitzt am
+    `dcat:CatalogRecord`. In S4 zu berücksichtigen, wenn zwei Records je
+    dieselbe Concept-DOI beschreiben — derzeit sind alle sieben verschieden.
+15. **Zeiten stehen als `xsd:integer`.** `dcat:startDate "300"^^xsd:integer`
+    am `dct:PeriodOfTime`-Knoten. Das Profil listet für Zeitwerte nur
+    `xsd:*`-Datumstypen und EDTF; `xsd:integer` ist keiner davon.
+16. **`dcat:bbox` gibt es auch**, in zwei Paketen, als DCAT-Zeichenkette. Das
+    Profil bevorzugt `geo:hasBoundingBox`. Wird gemeldet, nicht umgeschrieben.
+
+**Was das Anwendungsprofil nicht abdeckt** (geprüft 2026-09-03 an
+<https://nfdi4objects.github.io/crm-rdf-ap/>, Fassung 2025-01-27, Jakob Voß):
+Es behandelt CRM-Kern, SKOS, GeoSPARQL, Time Ontology und BIBO. Zu **CRMdig
+sagt es kein Wort** — weder erlaubend noch verbietend. Genau dort sitzt aber
+der Kern unserer Abbildung, das Digitalobjekt. Die Verbotsliste in S3 ist
+gegen die Quelle geprüft und stimmt vollständig. Eine Unstimmigkeit im Profil
+selbst: Abschnitt 3 nennt `skos:Concept` eine Unterklasse von „E27 Conceptual
+Object", Abschnitt 7 von `E28 Conceptual Object`. E27 ist *Site*; E28 ist
+gemeint. Die Brücke benutzt E28 und meldet es upstream.
 
 **Zenodo ist nicht immer da.** Am 2026-09-03 antwortete `zenodo.org/api/` über
 Stunden mit `504 Gateway Time-out`, der Dateipfad mit `404`. Ein Ernter ohne
@@ -185,10 +243,20 @@ Vier Eigenschaften, an denen sich alles Weitere messen lassen muss:
   und geht als Rückmeldung an `fdo-squirrel` oder an den Paketautor. Das ist die
   Rückkopplung, die den Bestand über die Zeit besser macht; stilles Reparieren
   im Bundle würde sie abschalten.
-- **Genau eine Ausnahme davon:** die Umschreibung der paketrelativen
-  `urn:fdo-squirrel:*`-IRIs in Registry-IRIs (A1, Befund 2) und die
-  Skolemisierung der Blank Nodes (Befund 3). Beides ist mechanisch, beides wird
-  in `prov:`-Aussagen am `dcat:CatalogRecord` festgehalten, beides steht in S4.
+- **Genau zwei Ausnahmen davon**, beide mechanisch, beide in `prov:`-Aussagen
+  am `dcat:CatalogRecord` festgehalten, beide in S4: die Umschreibung der
+  paketrelativen `urn:fdo-squirrel:*`-IRIs in Registry-IRIs (A1, Befund 2) und
+  die Normalisierung der abgekürzten Klassen-IRIs `crm:E73`, `crmdig:D1`,
+  `crmdig:D9` auf ihre offiziellen Formen (Befund 3, A4). Die zweite repariert
+  eine Kodierung, keine Aussage: `crmdig:D1` löst nicht auf und trifft kein
+  Vokabular, `crmdig:D1_Digital_Object` sagt dasselbe und tut es.
+  Skolemisierung steht hier nicht mehr — es gibt im ganzen Bestand keinen
+  einzigen Blank Node (Befund 4).
+- **Nicht parsebares Turtle wird nicht zurechtgebogen.** Ein geerntetes TTL,
+  das rdflib nicht liest, wird übersprungen, mit Grund und Zeilennummer
+  gemeldet und geht in den Qualitätsbericht. Alle Schritte lesen den Bestand
+  über `registry_utils.read_fdo_graph()`, damit sie sich nie darüber uneinig
+  sind, welche Pakete drin sind.
 - **Fremde Namensräume werden nicht axiomatisiert.** `fdo:`-Terme dürfen
   `rdfs:subClassOf` auf CRM bekommen — der Namensraum gehört uns. `dcat:`,
   `schema:` und `dct:` bekommen keine Axiome von uns; wo dort ein CRM-Anker
@@ -245,12 +313,12 @@ dem es zum ersten Mal wirkt.
 | Wo entsteht der CRM-Anker | zuerst in der Registry als Brückendatei, `fdo-squirrel` bleibt unangetastet; Übernahme upstream später, wenn die Abbildung steht | 2026-09-03 |
 | Browser-SPARQL | Pyodide + rdflib, wie in der `wdt-*`-Familie | 2026-09-03 |
 | Orchestrator | `main.py` im Repo-Wurzelverzeichnis, Schritte einzeln aufrufbar, Windows-`cmd` als Referenz | 2026-09-03 |
-| Registry-Namensraum | `https://w3id.org/fdo-squirrel/registry/`, Präfix `fdoreg:` — hängt unter den bestehenden FDOx-Namensraum | Vorschlag |
+| Registry-Namensraum | `https://w3id.org/fdo-squirrel/registry/`, Präfix `fdoreg:` — hängt unter den bestehenden FDOx-Namensraum | 2026-09-03, bestätigt in S3 (Rollen-Schema) |
 | DOI-Pinning | `sources.json` hält Concept-DOI **und** gepinnte Versions-DOI; geerntet wird die gepinnte. `main.py check-updates` meldet neuere Versionen, ändert aber nichts | Vorschlag |
 | Records ohne `fdo-metadata.ttl` | werden übersprungen und im Qualitätsbericht genannt; das ZIP wird **nicht** durch `fdo-squirrel` gejagt (Aufgabe des Autors, nicht der Registry) | Vorschlag |
 | IRI-Umschreibung | `urn:fdo-squirrel:dist/<sha>` → `<record-IRI>/dist/<sha>`, `urn:fdo-squirrel:content/<pfad>` → `<record-IRI>/content/<pfad>`; die Originale bleiben als `dct:identifier` erhalten | Vorschlag |
-| Personenknoten | ORCID-IRI, wo vorhanden; sonst skolemisiert aus Nachname+Vorname unter `<record-IRI>/agent/<slug>` | Vorschlag |
-| CRM-Profil | N4O-Anwendungsprofil (crm-rdf-ap), nicht die offizielle RDF-Kodierung. Abweichungen in S3 tabelliert | Vorschlag |
+| ~~Personenknoten je Record~~ | hinfällig: `<record-IRI>/agent/<slug>` hätte denselben Menschen je Paket einmal angelegt. Siehe die registry-globale Fassung weiter unten | hinfällig 2026-09-03 |
+| CRM-Profil | N4O-Anwendungsprofil (crm-rdf-ap), nicht die offizielle RDF-Kodierung. Abweichungen in S3 tabelliert; die eine echte Lücke ist CRMdig, siehe unten | 2026-09-03, bestätigt in S3 |
 | Facettenseite | eigenes `dist/registry-index.json`, beim Build erzeugt; SPARQL bleibt der zweiten Seite vorbehalten. Niemand soll auf eine WASM-Runtime warten, um nach „3D" zu filtern | Vorschlag |
 | Bundle im Repo | ja, `dist/fdo-registry.ttl` ist versioniert — er ist das zitierbare Erzeugnis und Eingabe der Seite | Vorschlag |
 | Lizenz | Code MIT wie `fdo-squirrel`; der Bundle CC BY 4.0, Lizenzen der geernteten FDOs bleiben je Eintrag erhalten | Vorschlag |
@@ -272,6 +340,13 @@ dem es zum ersten Mal wirkt.
 | Nicht implementierte Schritte | melden `pending`, sobald ihre Eingabe da ist, statt zu werfen. Sonst bricht der Rauchtest genau in dem Moment, in dem der vorige Schritt zu liefern beginnt | 2026-09-03 |
 | Netzausfall | ein nicht erreichbarer Record ist eine Aussage über Zenodo, nicht über den Record: nichts wird geschrieben, nichts gemerkt, der Lauf geht weiter. Nach drei Ausfällen in Folge bricht er ab und sagt, dass Zenodo nicht antwortet. Exitcode ≠ 0, damit die CI es merkt | 2026-09-03 |
 | Zenodo-Endpunkte | Community-Suche über `/api/communities/<slug>/records`, **ohne selbst gebaute Query-Parameter**: erste Seite nackt, danach `links.next` folgen. `size`/`page` anzuhängen quittiert Zenodo mit 400, der nackte Pfad mit 200 (geprüft 2026-09-03). `check-updates` probiert die bekannten Formen der Reihe nach und schreibt in den Bericht, welche geantwortet hat. Ein Bericht ist keinen kaputten Build wert | 2026-09-03 |
+| Nicht parsebare TTL | werden übersprungen, mit Grund und Fundstelle im Bericht; A3 gilt strikt, es wird nichts zurechtgebogen. Die Reparatur gehört in den Generator, nicht in die Registry. Alle Schritte lesen den Bestand über `registry_utils.read_fdo_graph()`, damit Brücke, Bundle und Qualitätsbericht sich nie über den Bestand uneinig sind | 2026-09-03 |
+| CRMdig trotz Profillücke | bleibt. `fdo:3DDataFDO` → `crmdig:D1_Digital_Object`, `fdo:SoftwareFDO` → `crmdig:D14_Software`, Distributionen → `crmdig:D9_Data_Object`; dazu die aus CRMdig **zitierten** Axiome `D1 ⊑ E73`, `D9 ⊑ D1`, `D14 ⊑ D1`. Damit sieht auch ein Konsument, der nur CRM-Kern liest, jedes FDO als `E73_Information_Object` | 2026-09-03 |
+| Abgekürzte Klassen-IRIs | der Bundle soll korrekt sein: `crm:E73`, `crmdig:D1`, `crmdig:D9` werden in S4 durch die offiziellen IRIs ersetzt (`normalise`-Zeilen der Crosswalk-CSV). Das ist die **zweite** erlaubte Ausnahme zu A3 neben der `urn:`-Umschreibung — sie repariert die Kodierung, nicht die Aussage. Ziel bleibt, dass neu publizierte FDOs den aktuellen Stand von `fdo-squirrel` tragen und die Normalisierung leerläuft | 2026-09-03 |
+| Fremde Namensräume im Brückenfile | drei Mechanismen statt zwei: `axiom` nur über `fdo:`/`fdoreg:`, `ext-axiom` **wörtlich zitiert** aus der eigenen Ontologie des Terms (CRMdig, GeoSPARQL, das Profil) mit Quellenangabe in der CSV, `instance` für alles andere. Beides wird beim Build geprüft; ein `axiom` über `dcat:` oder ein `ext-axiom` ohne Quelle bricht S3 ab | 2026-09-03 |
+| Personenknoten | **registry-global**, nicht je Record: `<registry>/agent/<hash>` aus der Personen-URN, ORCID wo vorhanden. Ersetzt den Beschluss vom selben Tag, der je Record skolemisierte — A1, Befund 11 zeigt, dass die URN paketübergreifend stabil ist und eine Umschreibung je Record dieselbe Person vervielfacht hätte | 2026-09-03, ersetzt den Vorschlag vom selben Tag |
+| Rollen-Vokabular | sechs SKOS-Konzepte, flach, unter `https://w3id.org/fdo-squirrel/registry/role/`; verknüpft über `crm:P2_has_type`, nicht über `crm:E55_Type`, das das Profil verbietet. Der Build meldet jeden `fdo:role`-Wert im lesbaren Bestand, der im Vokabular fehlt; unter `--strict` bricht er ab | 2026-09-03 |
+| Zwei Crosswalk-CSV | `fdo--crm.csv` ist die Abbildung nach CRM, `fdo-role--skos.csv` das Rollenvokabular. Getrennt, weil das zweite kein Crosswalk ist, sondern eine Begriffsliste, und in `note` gepresste Definitionen später niemand pflegt | 2026-09-03 |
 | `check-updates` | eigener Netzschritt, ändert nichts. Meldet neuere Versionen gepinnter Records *und* Records der Zenodo-Community `squirrel-fdo`, die nicht in `sources.json` stehen | 2026-09-03 |
 
 ## A5. Was in welchem Chat hochgeladen wird
@@ -313,11 +388,11 @@ existiert oder ob die IRI bisher nur als Präfix benutzt wird.
 | Pfad | Inhalt | Ziel des Redirects | Status |
 |---|---|---|---|
 | `/fdo-squirrel/` | FDOx-Vokabular: `fdo:3DDataFDO`, `fdo:role`, `fdo:sha256` … | `fdo-squirrel`, Datei noch zu bestimmen | in Benutzung, Eintrag ungeprüft |
-| `/fdo-squirrel/crm/` | Brücke FDOx → CIDOC CRM | `metadata/crm_bridge.ttl` | geplant (S3) |
+| `/fdo-squirrel/crm/` | Brücke FDOx → CIDOC CRM | `metadata/crm_bridge.ttl` | gebaut (S3), w3id-Eintrag offen |
 | `/fdo-squirrel/registry/` | Registry-Vokabular `fdoreg:` | `metadata/registry_ontology.ttl` | geplant (S1) |
 | `/fdo-squirrel/registry/catalog` | der Katalogknoten selbst | `dist/fdo-registry.ttl` | geplant (S4) |
 | `/fdo-squirrel/registry/record/{id}` | ein `dcat:CatalogRecord` je Eintrag | Detailansicht auf Pages | geplant (S6) |
-| `/fdo-squirrel/registry/role/` | SKOS-Vokabular zu `fdo:role` | `metadata/vocab/role.ttl` | geplant (S3) |
+| `/fdo-squirrel/registry/role/` | SKOS-Vokabular zu `fdo:role`, sechs Konzepte | `metadata/vocab/role.ttl` | gebaut (S3), w3id-Eintrag offen |
 | `/fdo-squirrel/registry/shapes/` | SHACL-Gate | `metadata/shapes.ttl` | geplant (S5) |
 
 **Zu klären beim Eintragen.** Ein Redirect auf GitHub Pages liefert genau eine
@@ -333,7 +408,7 @@ Repräsentation aus. Für echte Content Negotiation braucht es w3id-seitige
 | S0 | Festlegungen, kein Code | — | teilweise erledigt 2026-09-03 |
 | S1 | Repo-Skelett und Orchestrator | S0 | erledigt 2026-09-03 |
 | S2 | Ernte aus Zenodo | S1 | erledigt 2026-09-03 |
-| S3 | Crosswalk FDOx → CIDOC CRM | S0, S2 (ein echtes TTL) | offen |
+| S3 | Crosswalk FDOx → CIDOC CRM | S0, S2 (ein echtes TTL) | erledigt 2026-09-03 |
 | S4 | Bundle-Build als DCAT-Katalog | S2, S3 | offen |
 | S5 | SHACL-Gate und Qualitätsbericht | S4 | offen |
 | S6 | Registry-Index und Facettenseite | S4 | offen |
@@ -695,60 +770,116 @@ entstehen, und die dem N4O-Anwendungsprofil folgt.
 
 **Uploads:** ein echtes `fdo-metadata.ttl` aus S2.
 
-**`crosswalks/fdo--crm.csv`** im Stil der vorhandenen Crosswalk-CSVs:
+**Zwei CSV.** `crosswalks/fdo--crm.csv` ist die Abbildung nach CRM,
+`crosswalks/fdo-role--skos.csv` das Rollenvokabular — getrennt, weil das zweite
+kein Crosswalk ist, sondern eine Begriffsliste mit Definitionen, und in eine
+`note`-Spalte gequetschte Definitionen später niemand pflegt.
 
 | Spalte | Inhalt |
 |---|---|
-| `fdo_term` | Term aus `fdo:` oder Feldpfad aus `MD.cff` |
+| `fdo_term` | Term aus `fdo:`, fremder Term, oder Feldpfad aus `MD.cff`. Ein Suffix `@iri`/`@literal` unterscheidet zwei Zeilen zum selben Prädikat |
 | `kind` | `class` \| `property` \| `field` |
 | `target` | CRM/CRMdig/GeoSPARQL/SKOS-Term |
-| `mechanism` | `axiom` (nur für `fdo:`-Terme) \| `instance` (materialisiert in S4) |
+| `mechanism` | `axiom` \| `ext-axiom` \| `normalise` \| `instance` \| `none` |
 | `ap_rule` | Verweis auf die Regel im Anwendungsprofil, wo einschlägig |
+| `source` | wörtlich zitierte Quelle — Pflicht bei `ext-axiom` |
 | `note` | Begründung, besonders bei „kein Anker" |
 
+**Fünf Mechanismen, nicht zwei.** Das ist der Kern des Schritts, und er kommt
+aus A3: über fremde Namensräume wird nichts behauptet.
+
+- `axiom` — Aussage über einen Term aus `fdo:`/`fdoreg:`, geht nach
+  `metadata/crm_bridge.ttl`.
+- `ext-axiom` — Aussage über einen fremden Term, **wörtlich zitiert** aus dessen
+  eigener Ontologie oder aus dem Profil, mit Quellenangabe. Ohne diese Kategorie
+  gäbe es keinen Weg von `crmdig:D1` nach `crm:E73`, ohne etwas zu erfinden.
+- `normalise` — abgekürzte Klassen-IRI, die S4 ersetzt (A4).
+- `instance` — Anker, den S4 je Objekt materialisiert, weil das Subjekt in einem
+  fremden Namensraum liegt.
+- `none` — bewusst ohne Anker, mit Begründung daneben.
+
+Beides wird beim Build geprüft und bricht S3 ab: ein `axiom` über `dcat:`, ein
+`ext-axiom` ohne Quelle, ein unbekanntes Präfix, eine Zeile ohne Ziel *und* ohne
+Begründung.
+
 **Was das Anwendungsprofil verbietet.** Das ist der Teil, den eine naive
-CRM-Abbildung zuerst falsch macht. Aus
-<https://nfdi4objects.github.io/crm-rdf-ap/>:
+CRM-Abbildung zuerst falsch macht. Gegen
+<https://nfdi4objects.github.io/crm-rdf-ap/> geprüft am 2026-09-03; die Liste
+stimmt vollständig:
 
 | Naheliegend | Im Profil | Stattdessen |
 |---|---|---|
-| `crm:E55_Type` für Keywords und Rollen | MUST NOT | `skos:Concept`, `skos:broader`/`narrower` |
+| `crm:E55_Type` für Keywords und Rollen | MUST NOT | `skos:Concept`, `skos:broader`/`narrower`; `crm:P2_has_type` bleibt erlaubt und wird im Profil selbst so benutzt |
 | `crm:E32_Authority_Document`, `P71 lists` | MUST NOT | `skos:ConceptScheme`, `skos:inScheme` |
 | `crm:E52_Time-Span` mit `P82a`/`P82b` | ausdrücklich nicht erwünscht | typisierte Literale (`xsd:date`, `xsd:gYear`, `edtf:EDTF`) an `crm:P4_has_time-span`; komplexe Fälle als `time:Interval` |
 | `crm:E94_Space_Primitive`, `P168 place is defined by` | ersetzt | `geo:hasGeometry` auf `geo:Geometry` mit `geo:asWKT` |
 | `crm:E95_Spacetime_Primitive`, `P169i` | MUST NOT | `P4` für Zeit + `geo:hasGeometry` für Ort |
 | `crm:E41/E35/E42` für Titel und Identifier | zu vermeiden | Literale, `skos:prefLabel`/`altLabel`, Identifier als IRI + `owl:sameAs` |
+| `crm:E58_Measurement_Unit` selbst prägen | zu vermeiden | QUDT oder UCUM-Datentyp |
 | eigene Klassen für Literaturangaben | MUST NOT | BIBO |
 
-Die MD.cff-Felder `spatial.wkt`, `spatial.lat/lon` und `temporal.start/end`
-treffen davon gleich drei Regeln — die Abbildung wird also nicht schematisch,
-sondern feldweise begründet.
+**Was das Profil *nicht* sagt.** Es kennt CRM-Kern, SKOS, GeoSPARQL, Time
+Ontology und BIBO — und schweigt zu CRMdig. Genau dort sitzt aber der Kern
+dieser Registry: das Digitalobjekt. Beschluss (A4): CRMdig bleibt, und die drei
+Unterklassenaxiome aus CRMdig werden zitiert, damit jedes FDO auch für einen
+Konsumenten, der nur CRM-Kern liest, ein `E73_Information_Object` ist.
 
-**Der Kern der Abbildung** (Arbeitsstand, in S3 gegen CRMdig 3.2.2 zu prüfen;
-die CRMdig-Property-Namen sind zwischen den Versionen gewandert, hier wird
-nichts aus dem Gedächtnis übernommen):
+**Der Kern der Abbildung**, gegen den echten Bestand geprüft:
 
 | FDOx | CRM-Anker | Mechanismus |
 |---|---|---|
 | `fdo:3DDataFDO` | `crmdig:D1_Digital_Object` | Axiom |
 | `fdo:SoftwareFDO` | `crmdig:D14_Software` | Axiom |
-| `fdo:AnalysisFDO` | `crmdig:D1_Digital_Object` | Axiom |
-| `dcat:Distribution` (im Bundle) | `crmdig:D1_Digital_Object` | Instanz |
-| `heritage_object` | `crm:E22_Human-Made_Object`, mit dem FDO verbunden über den Digitalisierungsvorgang | Instanz |
-| `technique.acquisition` | `crmdig:D2_Digitization_Process`, Gerät und Software als `crm:P16_used_specific_object` | Instanz |
-| `creators`, `publishers` | `crm:E39_Actor` (ORCID/ROR als IRI) | Instanz |
-| `keywords` | `skos:Concept`, verknüpft über `crm:P2_has_type` | Instanz |
-| `spatial` | `crm:E53_Place` + `geo:hasGeometry` | Instanz |
-| `temporal` | `crm:P4_has_time-span` mit typisiertem Literal | Instanz |
-| `license`, `version`, `sha256` | kein Anker, begründet — bleiben bei `dct:`/`fdo:` | — |
+| `fdo:AnalysisFDO` | `crmdig:D1_Digital_Object` | Axiom (im Bestand nicht vorhanden, A1 Befund 13) |
+| `crmdig:D1` ⊑ `crm:E73_Information_Object` | — | ext-Axiom, zitiert aus CRMdig 3.2.1 |
+| `sf:Point` ⊑ `geosparql:Geometry` | — | ext-Axiom, zitiert aus GeoSPARQL |
+| `skos:Concept` ⊑ `crm:E28_Conceptual_Object` | — | ext-Axiom, zitiert aus dem Profil |
+| `dcat:Distribution` | `crmdig:D9_Data_Object` | Instanz |
+| `schema:Person` / `schema:Organization` | `crm:E21_Person` / `crm:E74_Group` | Instanz |
+| `dct:title` | `crm:P102_has_title` mit Literal | Instanz |
+| `dct:description`, `dct:provenance`, `fdo:context` | `crm:P3_has_note` | Instanz bzw. Axiom |
+| `dct:type`, `dcat:keyword` (IRI), `dct:subject`, `fdo:role` | `crm:P2_has_type` | Instanz bzw. Axiom |
+| `dct:spatial` | `crm:P67_refers_to` auf `crm:E53_Place` | Instanz |
+| `dct:temporal` | `crm:P4_has_time-span` mit typisiertem Literal | Instanz |
+| `dct:creator`, `dct:publisher` | kein Anker, begründet: bräuchte ein `E65`-Ereignis, das im FDO nicht steht | — |
+| `heritage_object`, `technique.acquisition` | kein Anker, begründet: im geernteten TTL nicht vorhanden | — |
+| `dct:license`, `dct:hasVersion`, `fdo:sha256`, `dcat:byteSize`, `dcat:mediaType` | kein Anker, begründet | — |
 
-**`py/build_bridge.py`** erzeugt aus der CSV `metadata/crm_bridge.ttl` (nur die
-`axiom`-Zeilen) und einen Abschnitt in `docs/crosswalk.html`. Die `instance`-
-Zeilen liest S4.
+**`py/step_bridge.py`** erzeugt `metadata/crm_bridge.ttl` (nur `axiom` und
+`ext-axiom`), `metadata/vocab/role.ttl` und `docs/crosswalk.html`. Die
+`instance`- und `normalise`-Zeilen liest S4 aus derselben CSV.
 
 **Abnahme:** jede Zeile der CSV hat entweder ein Ziel oder eine Begründung in
 `note`; `crm_bridge.ttl` parst; keine Aussage über einen fremden Namensraum, die
-nicht im Anwendungsprofil steht.
+nicht zitiert und mit Quelle belegt ist.
+
+### Erledigt 2026-09-03
+
+42 Zeilen: 5 `axiom`, 5 `ext-axiom`, 3 `normalise`, 11 `instance`, 18 `none`.
+`crm_bridge.ttl` hat 17 Tripel, `role.ttl` 39 bei sechs Konzepten. Zwei Läufe
+hintereinander sind byte-gleich.
+
+Was anders kam als gedacht:
+
+- Die Hälfte des Schritts war **nicht** Abbilden, sondern Streichen. 18 von 42
+  Zeilen haben keinen Anker, und die drei interessantesten davon —
+  `heritage_object`, `technique.acquisition`, `dct:creator` — scheitern nicht am
+  Profil, sondern daran, dass die Quelle die Information gar nicht führt. Eine
+  Abbildung, die aus `MD.cff` gedacht ist, verspricht Anker, die das TTL nicht
+  einlösen kann.
+- Die Prüfungen wurden gegen absichtlich kaputte Zeilen getestet und schlagen
+  alle an (Axiom über `dcat:`, `ext-axiom` ohne Quelle, unbekanntes Präfix,
+  unbekannter Mechanismus, Zeile ohne Ziel und ohne Begründung). Eine Prüfung,
+  die nie ausgelöst hat, ist ungeprüft.
+- Der Rollenzähler sieht im lesbaren Bestand nur `documentation` 48, `model` 9,
+  `metadata` 6, `data` 5 — `software` und `script` stecken in den vier Paketen,
+  die nicht parsen. Das Vokabular hat trotzdem sechs Konzepte: die Zahlen aus
+  Befund 7 stammen aus dem vollständigen Bestand, den S3 einmal von Hand
+  repariert gelesen hat, um überhaupt zu wissen, was es zu modellieren gibt.
+- `registry_utils.read_fdo_graph()` ist in S3 entstanden, gehört aber S4 und S5
+  genauso. Der Grund steht in A4: drei Schritte, die sich uneinig sind, welche
+  Pakete im Katalog stehen, sind schlimmer als drei Schritte, die alle dasselbe
+  auslassen.
 
 ## S4 — Bundle-Build als DCAT-Katalog
 
@@ -759,13 +890,21 @@ nicht im Anwendungsprofil steht.
 **Reihenfolge im Skript.** Sie ist nicht beliebig; die Vereindeutigung muss vor
 dem Zusammenführen passieren, sonst ist die Kollision schon eingetreten:
 
-1. Je Eintrag das TTL **in einen eigenen Graph** parsen.
-2. Blank Nodes skolemisieren (A4): Personen auf ORCID, sonst auf
-   `<record-IRI>/agent/<slug>`.
+1. Je Eintrag das TTL über `registry_utils.read_fdo_graph()` **in einen eigenen
+   Graph** parsen. Was nicht parst, wird übersprungen und gemeldet (A3, A4).
+2. Personen vereinheitlichen: ORCID, wo vorhanden; sonst
+   `urn:fdo-squirrel:person/<hash>` → `<registry>/agent/<hash>`,
+   **registry-global**, nicht je Record (A1, Befund 11). Skolemisierung
+   entfällt, es gibt keine Blank Nodes.
 3. `urn:fdo-squirrel:*` umschreiben auf `<record-IRI>/dist/<sha>` bzw.
    `<record-IRI>/content/<pfad>`; die Original-URN als `dct:identifier` erhalten.
-4. CRM-Anker je Instanz materialisieren, nach den `instance`-Zeilen aus S3.
-5. In den Katalog hängen:
+4. Abgekürzte Klassen-IRIs normalisieren, nach den `normalise`-Zeilen der
+   Crosswalk-CSV: `crm:E73` → `crm:E73_Information_Object` usw.
+5. CRM-Anker je Instanz materialisieren, nach den `instance`-Zeilen aus S3.
+   `dct:temporal` wird dabei zu `crm:P4_has_time-span` mit `xsd:gYear`, wo
+   `dcat:startDate` und `dcat:endDate` gleich sind, sonst zu `time:Interval` —
+   die Quelle schreibt `xsd:integer`, was das Profil nicht führt (Befund 15).
+6. In den Katalog hängen:
 
 ```turtle
 <https://w3id.org/fdo-squirrel/registry/catalog> a dcat:Catalog ;
@@ -783,7 +922,7 @@ dem Zusammenführen passieren, sonst ist die Kollision schon eingetreten:
     prov:wasDerivedFrom <https://zenodo.org/api/records/18724635/files/fdo-metadata.ttl> .
 ```
 
-6. Kanonisch serialisieren: sortierte N-Triples nach `dist/fdo-registry.nt`,
+7. Kanonisch serialisieren: sortierte N-Triples nach `dist/fdo-registry.nt`,
    daraus `dist/fdo-registry.ttl`.
 
 **Was der Bundle nicht tut.** Er zieht keine Wikidata- oder OSM-Daten nach. Der
@@ -938,10 +1077,14 @@ Graphen unter `https://graph.nfdi4objects.net/collection/<n>`.
 - **`fdo:RegistryFDO`.** Falls S8 einen neuen FDO-Typ braucht, gehört er nach
   `fdo-squirrel`, nicht hierher — und dann ist die Beschlusslage in A4 zum
   Ort des Ankers ohnehin nochmal zu betrachten.
-- **Personen-URN über Paketgrenzen.** Ist `urn:fdo-squirrel:person/<hash>` für
-  denselben Menschen in zwei Paketen gleich, wäre eine Umschreibung je Record
-  falsch — sie würde eine Person vervielfachen, die die Quelle bereits
-  zusammengeführt hat. Entscheidet sich an einem zweiten TTL, spätestens in S3.
+- ~~**Personen-URN über Paketgrenzen.**~~ Erledigt 2026-09-03 in S3: sie ist
+  stabil (A1, Befund 11), die Umschreibung ist registry-global (A4).
+- **Fehlerhafte Pakete im Bestand.** Vier von sieben TTL parsen nicht (A1,
+  Befund 10). Die Registry überspringt sie, aber damit steht ein Katalog mit
+  drei Einträgen für sieben publizierte FDOs. Ob wir vor S6 einen Durchgang
+  „upstream reparieren und neu publizieren" einschieben, ist eine Frage an den
+  Zeitplan, nicht an die Technik — der Qualitätsbericht aus S5 liefert die
+  Liste, aus der er gefahren wird.
 - **`<DOI>_geom` und `<DOI>_temporal`.** Vom Generator geprägte IRIs in einem
   fremden Namensraum (A1, Befund 6). Umschreiben verletzt A3, Stehenlassen
   veröffentlicht DOI-artige IRIs, die nicht auflösen. In S4 zu entscheiden;

@@ -1,0 +1,49 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+<https://w3id.org/fdo-squirrel/registry/role/data> a skos:Concept ;
+    skos:definition "A data file that is neither a model, documentation, metadata nor code."@en ;
+    skos:inScheme <https://w3id.org/fdo-squirrel/registry/role/> ;
+    skos:notation "data" ;
+    skos:prefLabel "Data"@en .
+
+<https://w3id.org/fdo-squirrel/registry/role/documentation> a skos:Concept ;
+    skos:definition "Human-readable documentation of the package or of the object it describes."@en ;
+    skos:inScheme <https://w3id.org/fdo-squirrel/registry/role/> ;
+    skos:notation "documentation" ;
+    skos:prefLabel "Documentation"@en .
+
+<https://w3id.org/fdo-squirrel/registry/role/metadata> a skos:Concept ;
+    skos:definition "A file describing the package or its contents, such as MD.cff or CITATION.cff."@en ;
+    skos:inScheme <https://w3id.org/fdo-squirrel/registry/role/> ;
+    skos:notation "metadata" ;
+    skos:prefLabel "Metadata"@en .
+
+<https://w3id.org/fdo-squirrel/registry/role/model> a skos:Concept ;
+    skos:definition "A file holding the three-dimensional geometry or texture of the documented object."@en ;
+    skos:inScheme <https://w3id.org/fdo-squirrel/registry/role/> ;
+    skos:notation "model" ;
+    skos:prefLabel "3D model"@en .
+
+<https://w3id.org/fdo-squirrel/registry/role/script> a skos:Concept ;
+    skos:definition "An executable script that is part of the package rather than of a released software component."@en ;
+    skos:inScheme <https://w3id.org/fdo-squirrel/registry/role/> ;
+    skos:notation "script" ;
+    skos:prefLabel "Script"@en .
+
+<https://w3id.org/fdo-squirrel/registry/role/software> a skos:Concept ;
+    skos:definition "A source, build or configuration file of a software component."@en ;
+    skos:inScheme <https://w3id.org/fdo-squirrel/registry/role/> ;
+    skos:notation "software" ;
+    skos:prefLabel "Software"@en .
+
+<https://w3id.org/fdo-squirrel/registry/role/> a skos:ConceptScheme ;
+    dct:description "The values fdo:role takes on a dcat:Distribution inside an FDOx package. A flat list: the source draws no hierarchy between the values, and inventing one here would put structure into the registry that the packages do not carry."@en ;
+    dct:title "FDOx distribution roles"@en ;
+    skos:hasTopConcept <https://w3id.org/fdo-squirrel/registry/role/data>,
+        <https://w3id.org/fdo-squirrel/registry/role/documentation>,
+        <https://w3id.org/fdo-squirrel/registry/role/metadata>,
+        <https://w3id.org/fdo-squirrel/registry/role/model>,
+        <https://w3id.org/fdo-squirrel/registry/role/script>,
+        <https://w3id.org/fdo-squirrel/registry/role/software> .
+

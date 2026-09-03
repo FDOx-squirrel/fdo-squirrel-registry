@@ -31,6 +31,49 @@ RELEASE = "2026-09-03"
 FDO_NS = "https://w3id.org/fdo-squirrel/"
 REGISTRY_NS = FDO_NS + "registry/"
 CATALOG_IRI = REGISTRY_NS + "catalog"
+ROLE_SCHEME = REGISTRY_NS + "role/"
+
+# Prefixes used across the repository. One table, so the bridge file, the
+# bundle and the query page cannot disagree about what `crmdig:` means.
+PREFIXES: dict[str, str] = {
+    "bibo": "http://purl.org/ontology/bibo/",
+    "crm": "http://www.cidoc-crm.org/cidoc-crm/",
+    "crmdig": "http://www.ics.forth.gr/isl/CRMdig/",
+    "dcat": "http://www.w3.org/ns/dcat#",
+    "dct": "http://purl.org/dc/terms/",
+    "edtf": "http://id.loc.gov/datatypes/edtf/",
+    "fdo": FDO_NS,
+    "fdoreg": REGISTRY_NS,
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "geosparql": "http://www.opengis.net/ont/geosparql#",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "prov": "http://www.w3.org/ns/prov#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "schema": "https://schema.org/",
+    "sf": "http://www.opengis.net/ont/sf#",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "time": "http://www.w3.org/2006/time#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+}
+
+# Namespaces this repository is allowed to make axiomatic statements about.
+# Everything else is either quoted from its own ontology or materialised per
+# instance (PRIMER A3).
+OWN_NAMESPACES = (FDO_NS, REGISTRY_NS)
+
+
+def expand(curie: str) -> str:
+    """'crm:E73_Information_Object' -> the full IRI. Raises on an unknown prefix.
+
+    Refusing an unknown prefix is the point: a typo in the crosswalk would
+    otherwise become a triple in a namespace nobody owns.
+    """
+    if curie.startswith("http://") or curie.startswith("https://"):
+        return curie
+    prefix, _, local = curie.partition(":")
+    if not local or prefix not in PREFIXES:
+        raise ValueError(f"unknown prefix in {curie!r}")
+    return PREFIXES[prefix] + local
 
 # ---------------------------------------------------------------------------
 # Paths
@@ -45,11 +88,17 @@ RAW_FDO = RAW / "fdo"
 DERIVED = DATA / "derived"
 CROSSWALKS = ROOT / "crosswalks"
 METADATA = ROOT / "metadata"
+VOCAB = METADATA / "vocab"
 DIST = ROOT / "dist"
 DOCS = ROOT / "docs"
+TEMPLATES = ROOT / "py" / "templates"
 
 BUNDLE = DIST / "fdo-registry.ttl"
 INDEX = DIST / "registry-index.json"
+CRM_CROSSWALK = CROSSWALKS / "fdo--crm.csv"
+ROLE_CROSSWALK = CROSSWALKS / "fdo-role--skos.csv"
+CRM_BRIDGE = METADATA / "crm_bridge.ttl"
+ROLE_VOCAB = VOCAB / "role.ttl"
 
 
 def ensure_dirs(*paths: Path) -> None:
@@ -84,6 +133,11 @@ def content_iri(record_id: str | int, path_in_zip: str) -> str:
 def agent_iri(record_id: str | int, name: str) -> str:
     """Fallback for a creator without an ORCID; ORCID IRIs are used directly."""
     return f"{record_iri(record_id)}/agent/{slugify(name)}"
+
+
+def role_iri(value: str) -> str:
+    """A skos:Concept for one value of fdo:role, in the registry role scheme."""
+    return f"{ROLE_SCHEME}{slugify(value)}"
 
 
 def slugify(text: str) -> str:
@@ -245,6 +299,46 @@ def harvested_records() -> list[Path]:
     pinned = pinned_record_ids()
     return sorted(p.parent for p in RAW_FDO.glob("*/fdo-metadata.ttl")
                   if not pinned or p.parent.name in pinned)
+
+
+def read_fdo_graph(directory: Path):
+    """Parse one harvested fdo-metadata.ttl. Returns (graph, None) or (None, reason).
+
+    Four of the seven packages harvested on 2026-09-03 are not valid Turtle:
+    three use crm:/crmdig: without declaring the prefixes, two carry unescaped
+    quotes in the JSON literal at dct:provenance. The registry reads, it does
+    not correct (A3), so a file that does not parse is skipped with a reason
+    and reported - never patched into shape on the way in. Every step that
+    touches the corpus goes through this function, so the bridge, the bundle
+    and the quality report always agree on which packages are in.
+    """
+    from rdflib import Graph  # kept out of module import so --list stays cheap
+
+    path = directory / "fdo-metadata.ttl"
+    if not path.exists():
+        return None, "no fdo-metadata.ttl in the package"
+    graph = Graph()
+    try:
+        graph.parse(path, format="turtle")
+    except Exception as error:                      # rdflib raises BadSyntax
+        return None, f"not valid Turtle: {parse_error(error)}"
+    return graph, None
+
+
+def parse_error(error: Exception) -> str:
+    """One readable line out of an rdflib BadSyntax.
+
+    Its str() spans four lines and buries the actual complaint under a line
+    number and an excerpt; a report that says "at line 17 of <>" tells nobody
+    which of the two known defects they are looking at.
+    """
+    lines = [line.strip() for line in str(error).strip().splitlines() if line.strip()]
+    location = next((line for line in lines if line.startswith("at line ")), "")
+    location = location.split(" of ")[0]            # 'at line 17'
+    complaint = next((line for line in lines if line.startswith("Bad syntax")), "")
+    complaint = complaint.split(" at ^")[0]         # drop the excerpt pointer
+    detail = ", ".join(part for part in (location, complaint) if part)
+    return detail or lines[0] if lines else type(error).__name__
 
 
 def orphan_records() -> list[Path]:

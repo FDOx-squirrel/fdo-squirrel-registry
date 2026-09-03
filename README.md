@@ -9,10 +9,10 @@ published on Zenodo, bundles them into a DCAT catalogue anchored in CIDOC CRM,
 validates the result with SHACL, and publishes a filter page and a browser-based
 SPARQL page as a static site — no server, no endpoint, no database.
 
-> **Status: S2 of the work plan.** The skeleton, the orchestrator and the
-> Zenodo harvest are in place; the remaining pipeline steps report
-> `skipped (no input)` until the step that implements them is done. See
-> [`PRIMER.md`](PRIMER.md) for the plan.
+> **Status: S3 of the work plan.** The skeleton, the orchestrator, the Zenodo
+> harvest and the CIDOC CRM crosswalk are in place; the remaining pipeline
+> steps report `skipped (no input)` until the step that implements them is
+> done. See [`PRIMER.md`](PRIMER.md) for the plan.
 
 ## Pipeline
 
@@ -21,6 +21,9 @@ registry/sources.json            curated list of DOIs
         │  py/step_harvest.py    Zenodo REST: record → files → fdo-metadata.ttl
         ▼
 data/raw/fdo/<record-id>/        harvested, unchanged, read-only
+        │                        crosswalks/fdo--crm.csv
+        │  py/step_bridge.py     → metadata/crm_bridge.ttl, vocab/role.ttl,
+        │                          docs/crosswalk.html
         │  py/step_bundle.py     catalogue, IRI disambiguation, CRM anchors
         ▼
 dist/fdo-registry.ttl            DCAT + FDOx + CRM/CRMdig + GeoSPARQL + SKOS
@@ -116,6 +119,32 @@ With `package_dir` set, the harvest reads a package from disk whenever the
 folder holds a file of the record's file name, and falls back to Zenodo
 otherwise. The file may be absent.
 
+### The CIDOC CRM bridge
+
+`crosswalks/fdo--crm.csv` is the single source for `metadata/crm_bridge.ttl`,
+`metadata/vocab/role.ttl` and the human-readable page `docs/crosswalk.html`.
+Every row carries one of five mechanisms, and the distinction is the point: this
+repository asserts nothing about a namespace it does not own.
+
+| Mechanism | Meaning |
+|---|---|
+| `axiom` | a statement about a term in `fdo:`/`fdoreg:`, written into the bridge |
+| `ext-axiom` | a statement about a foreign term, quoted verbatim from that term's own ontology or from the application profile, with the source named |
+| `normalise` | an abbreviated class IRI the generator writes, replaced when the bundle is built |
+| `instance` | an anchor materialised per object, because the subject is in a foreign namespace |
+| `none` | deliberately unanchored, with the reason in the row |
+
+The build fails on an `axiom` about a foreign namespace, an `ext-axiom` without
+a named source, an unknown prefix, or a row with neither a target nor a reason.
+
+The anchors follow the
+[NFDI4Objects CIDOC-CRM in RDF application profile](https://nfdi4objects.github.io/crm-rdf-ap/),
+which forbids several constructs a naive CRM mapping reaches for first — `E55
+Type` for keywords, `E32 Authority Document`, `E95 Spacetime Primitive`, the
+`P82a`/`P82b` time properties. The profile says nothing about CRMdig, so the
+CRMdig subclass axioms are quoted from CRMdig itself: every FDO is reachable as
+a `crm:E73_Information_Object` by a consumer that reads only CRM core.
+
 Every step is also runnable on its own, for example `python py/step_bundle.py`.
 
 ## Layout
@@ -127,13 +156,13 @@ Every step is also runnable on its own, for example `python py/step_bundle.py`.
 | `py/step_*.py` | one module per pipeline step |
 | `registry/sources.json` | the curated list of harvested DOIs |
 | `data/raw/fdo/` | harvested FDO metadata, unchanged and read-only (generated) |
-| `crosswalks/` | `fdo--crm.csv`, the source of the CIDOC CRM bridge |
-| `metadata/` | registry vocabulary, CRM bridge, SHACL shapes |
+| `crosswalks/` | `fdo--crm.csv` and `fdo-role--skos.csv`, the sources of the bridge |
+| `metadata/` | registry vocabulary, CRM bridge, role vocabulary, SHACL shapes (generated) |
 | `dist/` | the products: bundle, index, reports (generated, versioned) |
 | `docs/` | the published site (generated) |
 | `PRIMER.md` | the work plan — German, internal, and the place decisions live |
 
-Anything under `dist/` and `docs/` is rebuilt by `python main.py`. It is
+Anything under `dist/`, `docs/` and `metadata/` is rebuilt by `python main.py`. It is
 versioned all the same, because the bundle is the citable output of this
 repository. Edit the generator, never the artefact.
 

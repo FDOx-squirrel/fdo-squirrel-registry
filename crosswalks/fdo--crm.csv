@@ -1,0 +1,43 @@
+fdo_term,kind,target,mechanism,ap_rule,source,note
+fdo:3DDataFDO,class,crmdig:D1_Digital_Object,axiom,,,"A 3D data FDO is a digital object. The CRM-core anchor E73 follows from the quoted CRMdig axiom below, so no statement about crm: is made here."
+fdo:SoftwareFDO,class,crmdig:D14_Software,axiom,,,"D14 is a subclass of D1, so this FDO reaches E73 by the same route."
+fdo:AnalysisFDO,class,crmdig:D1_Digital_Object,axiom,,,"Declared in the FDOx vocabulary but absent from the harvested corpus on 2026-09-03: both analysis packages are typed fdo:SoftwareFDO. The axiom is written anyway, because the bridge describes the vocabulary and not the current stock."
+fdo:role,property,crm:P2_has_type,axiom,section 3,,"rdfs:subPropertyOf. The object is a skos:Concept from the registry role scheme, never an E55 Type, which the profile forbids. The profile's own E41 example uses P2 with a plain external concept IRI, so the property survives the replacement of the class."
+fdo:context,property,crm:P3_has_note,axiom,,,Free-text remark on the documented object.
+fdo:sha256,property,,none,,,"No CRM property fits a checksum. E42 Identifier is discouraged by the profile, and a digest does not identify the object anyway. The term stays in the fdo: namespace."
+fdo:path,property,,none,,,Package-relative path inside the ZIP. Meaningless outside the package; S4 rewrites the value into a registry IRI but the property gets no anchor.
+crmdig:D1_Digital_Object,class,crm:E73_Information_Object,ext-axiom,,CIDOC CRM Digital (CRMdig) v3.2.1,"Quoted from CRMdig, not invented here. This is the axiom that makes every FDO visible to a consumer who only reads CRM core - the application profile itself says nothing about CRMdig."
+crmdig:D9_Data_Object,class,crmdig:D1_Digital_Object,ext-axiom,,CIDOC CRM Digital (CRMdig) v3.2.1,Quoted from CRMdig. Carries every distribution up to D1 and from there to E73.
+crmdig:D14_Software,class,crmdig:D1_Digital_Object,ext-axiom,,CIDOC CRM Digital (CRMdig) v3.2.1,Quoted from CRMdig.
+sf:Point,class,geosparql:Geometry,ext-axiom,section 2 Spatial data,"GeoSPARQL 1.0, Simple Features geometry vocabulary","Quoted from GeoSPARQL. The profile requires the geometry to be a geo:Geometry; the generator types it sf:Point, and without this axiom the requirement is unmet although the data is right."
+skos:Concept,class,crm:E28_Conceptual_Object,ext-axiom,section 7,NFDI4Objects CIDOC-CRM in RDF application profile,"Quoted from the profile's own replacement of E55 Type. Section 3 of the profile writes E27 for the same statement, which is Site; section 7 writes E28 Conceptual Object, which is the one that makes sense. Reported upstream, E28 used here."
+crm:E73,class,crm:E73_Information_Object,normalise,,,Abbreviated class IRI written by the generator. It does not resolve and matches no vocabulary. S4 replaces it.
+crmdig:D1,class,crmdig:D1_Digital_Object,normalise,,,"Abbreviated. After normalisation this is redundant beside E73, because D1 is a subclass of E73; both are kept, because dropping a statement would be a content change."
+crmdig:D9,class,crmdig:D9_Data_Object,normalise,,,"Abbreviated. 491 occurrences in the corpus, one per distribution."
+dcat:Distribution,class,crmdig:D9_Data_Object,instance,,,"Materialised per distribution. The generator already writes the abbreviated crmdig:D9, which the normalise rows repair; this row covers distributions that carry no CRMdig type at all."
+schema:Person,class,crm:E21_Person,instance,section 6,,"Foreign namespace: materialised per instance, never axiomatised (A3). The profile's bridge axioms cover foaf: and dcterms:, not schema:."
+schema:Organization,class,crm:E74_Group,instance,section 6,,As schema:Person. The only organisation in the corpus is the Research Squirrel Engineers Network under its Wikidata IRI.
+dct:title,property,crm:P102_has_title,instance,section 4 E41,,Literal object. E35 Title is avoided as the profile requires; the profile's own example uses P102 with a plain literal.
+dct:description,property,crm:P3_has_note,instance,,,"Repeatable, so all four descriptions per FDO (A1, Befund 5) are carried and none is chosen. Which of them is the real description is a question for the quality report, not for the mapping."
+dct:provenance,property,crm:P3_has_note,instance,,,"Carries a JSON string, not a structure. D2 Digitization Process and P16 used specific object have no source to be built from - see the note on technique.acquisition."
+dct:type,property,crm:P2_has_type,instance,section 3,,"Object is an external concept IRI (Wikidata, in one package an OpenStreetMap relation)."
+dcat:keyword@iri,property,crm:P2_has_type,instance,section 3,,Only the IRI-valued keywords. The string-valued ones are a separate row.
+dct:subject,property,crm:P2_has_type,instance,section 3,,"Duplicates dcat:keyword in every harvested package, IRIs and strings alike."
+dct:spatial,property,crm:P67_refers_to,instance,,,"The object is typed crm:E53_Place. The FDO refers to the place; it does not happen there, so P7 took place at would be wrong - an information object is not an event."
+dct:temporal,property,crm:P4_has_time-span,instance,section 2 Temporal data,,"A typed literal derived from dcat:startDate and dcat:endDate on the dct:PeriodOfTime node: xsd:gYear when the two are equal, time:Interval otherwise. The source writes xsd:integer, which the profile does not list."
+geosparql:hasGeometry,property,,none,section 2 Spatial data,,"Already profile-conform and deliberately left alone: the profile replaces P168 place is defined by with geo:hasGeometry, which is exactly what the generator writes."
+dcat:keyword@literal,property,,none,section 3,,A bare string cannot be a concept and must not become an E55 Type. Reported per package in the quality report (S5); the fix belongs upstream.
+dct:creator,property,,none,,,"Creatorship in CRM needs an E65 Creation event, which the FDO does not record. Minting one would be modelling rather than mapping (A3). The relation stays at dct: and is well understood there."
+dct:publisher,property,,none,,,As dct:creator.
+dct:license,property,,none,,,No CRM property for rights. Stays at dct: and schema:; the profile is silent and inventing a term would be worse than leaving it.
+dct:created,property,,none,,,"A date about the package, not about the documented object. P4 on the FDO would claim the object existed then."
+dct:issued,property,,none,,,As dct:created; S4 uses it on the dcat:CatalogRecord instead.
+dct:modified,property,,none,,,As dct:created.
+dct:hasVersion,property,,none,,,Version of the package. LRMoo would be the CRM answer and the profile explicitly rejects it for anything short of bibliographic work.
+dcat:byteSize,property,,none,section 4 E58,,"A dimension would need E54 Dimension with a QUDT unit. The profile discourages minting units, and the value is already machine-readable at dcat:."
+dcat:mediaType,property,,none,,,A format is not a type of the object in the CRM sense; P2 here would make a JPEG a kind of thing.
+dcat:accessURL,property,,none,,,"Access path, no CRM counterpart. Rewritten to a registry IRI in S4."
+dcat:bbox,property,,none,section 2 Spatial data,,"Present in two packages only. The profile prefers geo:hasBoundingBox; converting the DCAT literal would be a content change, so it is reported, not rewritten."
+schema:funding,property,,none,,,A bare string (Community Project) with no funder IRI. Nothing to anchor; reported in the quality report.
+heritage_object,field,,none,,,Corrects the draft mapping. The harvested TTL has no node for the physical object at all - the FDO and the object it documents are the same node - so E22 Human-Made Object cannot be anchored without inventing a node. The fix belongs upstream in fdo-squirrel.
+technique.acquisition,field,,none,,,"Corrects the draft mapping. The acquisition survives only as the JSON literal in dct:provenance, so D2 Digitization Process, D8 Digital Device and P16 used specific object have no structured source. Anchoring it means parsing a string, which is not mapping."

@@ -1,0 +1,7 @@
+value,pref_label,definition
+data,Data,"A data file that is neither a model, documentation, metadata nor code."
+documentation,Documentation,"Human-readable documentation of the package or of the object it describes."
+metadata,Metadata,"A file describing the package or its contents, such as MD.cff or CITATION.cff."
+model,3D model,"A file holding the three-dimensional geometry or texture of the documented object."
+script,Script,"An executable script that is part of the package rather than of a released software component."
+software,Software,"A source, build or configuration file of a software component."

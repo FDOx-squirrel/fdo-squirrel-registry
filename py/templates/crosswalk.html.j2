@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FDOx to CIDOC CRM crosswalk</title>
+<style>
+  :root { --ink: #1c1c1c; --muted: #5c5c5c; --rule: #d8d4cc; --bg: #fbfaf7;
+          --accent: #7a4b17; --warn: #8a1c1c; }
+  * { box-sizing: border-box; }
+  body { margin: 0; padding: 2rem 1.5rem 5rem; background: var(--bg); color: var(--ink);
+         font: 16px/1.55 "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif; }
+  main { max-width: 62rem; margin: 0 auto; }
+  h1 { font-size: 1.9rem; margin: 0 0 .25rem; letter-spacing: -.01em; }
+  h2 { font-size: 1.15rem; margin: 2.6rem 0 .4rem; border-bottom: 1px solid var(--rule);
+       padding-bottom: .3rem; }
+  p { max-width: 46rem; }
+  .lede { color: var(--muted); margin: 0 0 1.4rem; }
+  .meta { color: var(--muted); font-size: .85rem; }
+  table { border-collapse: collapse; width: 100%; margin: .8rem 0 0;
+          font-family: ui-sans-serif, system-ui, sans-serif; font-size: .84rem; }
+  th, td { text-align: left; vertical-align: top; padding: .42rem .6rem;
+           border-bottom: 1px solid var(--rule); }
+  th { font-weight: 600; color: var(--muted); text-transform: uppercase;
+       letter-spacing: .04em; font-size: .7rem; white-space: nowrap; }
+  code, .term { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+                font-size: .82em; }
+  .term { color: var(--accent); white-space: nowrap; }
+  td.note { color: var(--muted); }
+  .rule { white-space: nowrap; color: var(--muted); font-size: .78rem; }
+  .count { text-align: right; font-variant-numeric: tabular-nums; }
+  .warn { color: var(--warn); }
+  .none td.target { color: var(--muted); }
+</style>
+</head>
+<body>
+<main>
+
+<h1>FDOx to CIDOC CRM crosswalk</h1>
+<p class="lede">How the FDOx registry anchors harvested FDO metadata in CIDOC CRM,
+following the <a href="https://nfdi4objects.github.io/crm-rdf-ap/">NFDI4Objects
+CIDOC-CRM in RDF application profile</a>. Generated from
+<code>crosswalks/fdo--crm.csv</code>; edit the table, not this page.</p>
+
+<p>A row is one of five kinds. <strong>axiom</strong> states something about a
+term in the FDOx or registry namespace and goes into
+<code>metadata/crm_bridge.ttl</code>. <strong>ext-axiom</strong> quotes a
+statement from an external ontology verbatim and names its source; nothing in
+this repository is invented about a namespace it does not own.
+<strong>normalise</strong> repairs an abbreviated class IRI that the generator
+writes and that resolves to nothing. <strong>instance</strong> is materialised
+per object when the bundle is built, because its subject is in a foreign
+namespace. <strong>none</strong> is a term left deliberately unanchored, with
+the reason beside it.</p>
+
+{% for mechanism, rows in groups %}{% if rows %}
+<h2>{{ mechanism }} <span class="meta">&mdash; {{ rows | length }} row{{ '' if rows | length == 1 else 's' }}</span></h2>
+<table class="{{ mechanism }}">
+<thead><tr>
+  <th>Term</th><th>Kind</th><th>Target</th><th>Profile / source</th><th>Note</th>
+</tr></thead>
+<tbody>
+{% for row in rows %}
+<tr>
+  <td class="term">{{ row.fdo_term }}</td>
+  <td>{{ row.kind }}</td>
+  <td class="target term">{{ row.target or '&mdash;' | safe }}</td>
+  <td class="rule">{{ row.source or row.ap_rule }}</td>
+  <td class="note">{{ row.note }}</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+{% endif %}{% endfor %}
+
+<h2>Role vocabulary</h2>
+<p>The values <code>fdo:role</code> takes on a distribution, as SKOS concepts in
+<code>{{ role_scheme }}</code>. The list is flat: the packages draw no hierarchy
+between the values, and inventing one would put structure into the registry that
+its sources do not carry. Counts are occurrences in the harvested packages the
+registry can read.</p>
+<table>
+<thead><tr><th>Concept</th><th>Label</th><th>Definition</th><th class="count">In corpus</th></tr></thead>
+<tbody>
+{% for role in roles %}
+<tr>
+  <td class="term">{{ role.value }}</td>
+  <td>{{ role.pref_label }}</td>
+  <td class="note">{{ role.definition }}</td>
+  <td class="count">{{ role.count }}</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+
+{% if unreadable %}
+<h2>Packages the registry cannot read</h2>
+<p>The registry reads, it does not correct. A harvested
+<code>fdo-metadata.ttl</code> that is not valid Turtle is skipped with a reason
+and reported here and in the quality report; the fix belongs in the generator
+that wrote it, not in the registry that reads it.</p>
+<table>
+<thead><tr><th>Record</th><th>Reason</th></tr></thead>
+<tbody>
+{% for record, reason in unreadable %}
+<tr><td class="term warn">{{ record }}</td><td class="note">{{ reason }}</td></tr>
+{% endfor %}
+</tbody>
+</table>
+{% endif %}
+
+<p class="meta" style="margin-top:3rem">FDOx Registry &middot; release {{ release }}
+&middot; <a href="https://github.com/Research-Squirrel-Engineers/fdo-squirrel-registry">source</a></p>
+
+</main>
+</body>
+</html>

@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FDOx to CIDOC CRM crosswalk</title>
+<style>
+  :root { --ink: #1c1c1c; --muted: #5c5c5c; --rule: #d8d4cc; --bg: #fbfaf7;
+          --accent: #7a4b17; --warn: #8a1c1c; }
+  * { box-sizing: border-box; }
+  body { margin: 0; padding: 2rem 1.5rem 5rem; background: var(--bg); color: var(--ink);
+         font: 16px/1.55 "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif; }
+  main { max-width: 62rem; margin: 0 auto; }
+  h1 { font-size: 1.9rem; margin: 0 0 .25rem; letter-spacing: -.01em; }
+  h2 { font-size: 1.15rem; margin: 2.6rem 0 .4rem; border-bottom: 1px solid var(--rule);
+       padding-bottom: .3rem; }
+  p { max-width: 46rem; }
+  .lede { color: var(--muted); margin: 0 0 1.4rem; }
+  .meta { color: var(--muted); font-size: .85rem; }
+  table { border-collapse: collapse; width: 100%; margin: .8rem 0 0;
+          font-family: ui-sans-serif, system-ui, sans-serif; font-size: .84rem; }
+  th, td { text-align: left; vertical-align: top; padding: .42rem .6rem;
+           border-bottom: 1px solid var(--rule); }
+  th { font-weight: 600; color: var(--muted); text-transform: uppercase;
+       letter-spacing: .04em; font-size: .7rem; white-space: nowrap; }
+  code, .term { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+                font-size: .82em; }
+  .term { color: var(--accent); white-space: nowrap; }
+  td.note { color: var(--muted); }
+  .rule { white-space: nowrap; color: var(--muted); font-size: .78rem; }
+  .count { text-align: right; font-variant-numeric: tabular-nums; }
+  .warn { color: var(--warn); }
+  .none td.target { color: var(--muted); }
+</style>
+</head>
+<body>
+<main>
+
+<h1>FDOx to CIDOC CRM crosswalk</h1>
+<p class="lede">How the FDOx registry anchors harvested FDO metadata in CIDOC CRM,
+following the <a href="https://nfdi4objects.github.io/crm-rdf-ap/">NFDI4Objects
+CIDOC-CRM in RDF application profile</a>. Generated from
+<code>crosswalks/fdo--crm.csv</code>; edit the table, not this page.</p>
+
+<p>A row is one of five kinds. <strong>axiom</strong> states something about a
+term in the FDOx or registry namespace and goes into
+<code>metadata/crm_bridge.ttl</code>. <strong>ext-axiom</strong> quotes a
+statement from an external ontology verbatim and names its source; nothing in
+this repository is invented about a namespace it does not own.
+<strong>normalise</strong> repairs an abbreviated class IRI that the generator
+writes and that resolves to nothing. <strong>instance</strong> is materialised
+per object when the bundle is built, because its subject is in a foreign
+namespace. <strong>none</strong> is a term left deliberately unanchored, with
+the reason beside it.</p>
+
+
+<h2>axiom <span class="meta">&mdash; 5 rows</span></h2>
+<table class="axiom">
+<thead><tr>
+  <th>Term</th><th>Kind</th><th>Target</th><th>Profile / source</th><th>Note</th>
+</tr></thead>
+<tbody>
+
+<tr>
+  <td class="term">fdo:3DDataFDO</td>
+  <td>class</td>
+  <td class="target term">crmdig:D1_Digital_Object</td>
+  <td class="rule"></td>
+  <td class="note">A 3D data FDO is a digital object. The CRM-core anchor E73 follows from the quoted CRMdig axiom below, so no statement about crm: is made here.</td>
+</tr>
+
+<tr>
+  <td class="term">fdo:SoftwareFDO</td>
+  <td>class</td>
+  <td class="target term">crmdig:D14_Software</td>
+  <td class="rule"></td>
+  <td class="note">D14 is a subclass of D1, so this FDO reaches E73 by the same route.</td>
+</tr>
+
+<tr>
+  <td class="term">fdo:AnalysisFDO</td>
+  <td>class</td>
+  <td class="target term">crmdig:D1_Digital_Object</td>
+  <td class="rule"></td>
+  <td class="note">Declared in the FDOx vocabulary but absent from the harvested corpus on 2026-09-03: both analysis packages are typed fdo:SoftwareFDO. The axiom is written anyway, because the bridge describes the vocabulary and not the current stock.</td>
+</tr>
+
+<tr>
+  <td class="term">fdo:role</td>
+  <td>property</td>
+  <td class="target term">crm:P2_has_type</td>
+  <td class="rule">section 3</td>
+  <td class="note">rdfs:subPropertyOf. The object is a skos:Concept from the registry role scheme, never an E55 Type, which the profile forbids. The profile's own E41 example uses P2 with a plain external concept IRI, so the property survives the replacement of the class.</td>
+</tr>
+
+<tr>
+  <td class="term">fdo:context</td>
+  <td>property</td>
+  <td class="target term">crm:P3_has_note</td>
+  <td class="rule"></td>
+  <td class="note">Free-text remark on the documented object.</td>
+</tr>
+
+</tbody>
+</table>
+
+<h2>ext-axiom <span class="meta">&mdash; 5 rows</span></h2>
+<table class="ext-axiom">
+<thead><tr>
+  <th>Term</th><th>Kind</th><th>Target</th><th>Profile / source</th><th>Note</th>
+</tr></thead>
+<tbody>
+
+<tr>
+  <td class="term">crmdig:D1_Digital_Object</td>
+  <td>class</td>
+  <td class="target term">crm:E73_Information_Object</td>
+  <td class="rule">CIDOC CRM Digital (CRMdig) v3.2.1</td>
+  <td class="note">Quoted from CRMdig, not invented here. This is the axiom that makes every FDO visible to a consumer who only reads CRM core - the application profile itself says nothing about CRMdig.</td>
+</tr>
+
+<tr>
+  <td class="term">crmdig:D9_Data_Object</td>
+  <td>class</td>
+  <td class="target term">crmdig:D1_Digital_Object</td>
+  <td class="rule">CIDOC CRM Digital (CRMdig) v3.2.1</td>
+  <td class="note">Quoted from CRMdig. Carries every distribution up to D1 and from there to E73.</td>
+</tr>
+
+<tr>
+  <td class="term">crmdig:D14_Software</td>
+  <td>class</td>
+  <td class="target term">crmdig:D1_Digital_Object</td>
+  <td class="rule">CIDOC CRM Digital (CRMdig) v3.2.1</td>
+  <td class="note">Quoted from CRMdig.</td>
+</tr>
+
+<tr>
+  <td class="term">sf:Point</td>
+  <td>class</td>
+  <td class="target term">geosparql:Geometry</td>
+  <td class="rule">GeoSPARQL 1.0, Simple Features geometry vocabulary</td>
+  <td class="note">Quoted from GeoSPARQL. The profile requires the geometry to be a geo:Geometry; the generator types it sf:Point, and without this axiom the requirement is unmet although the data is right.</td>
+</tr>
+
+<tr>
+  <td class="term">skos:Concept</td>
+  <td>class</td>
+  <td class="target term">crm:E28_Conceptual_Object</td>
+  <td class="rule">NFDI4Objects CIDOC-CRM in RDF application profile</td>
+  <td class="note">Quoted from the profile's own replacement of E55 Type. Section 3 of the profile writes E27 for the same statement, which is Site; section 7 writes E28 Conceptual Object, which is the one that makes sense. Reported upstream, E28 used here.</td>
+</tr>
+
+</tbody>
+</table>
+
+<h2>normalise <span class="meta">&mdash; 3 rows</span></h2>
+<table class="normalise">
+<thead><tr>
+  <th>Term</th><th>Kind</th><th>Target</th><th>Profile / source</th><th>Note</th>
+</tr></thead>
+<tbody>
+
+<tr>
+  <td class="term">crm:E73</td>
+  <td>class</td>
+  <td class="target term">crm:E73_Information_Object</td>
+  <td class="rule"></td>
+  <td class="note">Abbreviated class IRI written by the generator. It does not resolve and matches no vocabulary. S4 replaces it.</td>
+</tr>
+
+<tr>
+  <td class="term">crmdig:D1</td>
+  <td>class</td>
+  <td class="target term">crmdig:D1_Digital_Object</td>
+  <td class="rule"></td>
+  <td class="note">Abbreviated. After normalisation this is redundant beside E73, because D1 is a subclass of E73; both are kept, because dropping a statement would be a content change.</td>
+</tr>
+
+<tr>
+  <td class="term">crmdig:D9</td>
+  <td>class</td>
+  <td class="target term">crmdig:D9_Data_Object</td>
+  <td class="rule"></td>
+  <td class="note">Abbreviated. 491 occurrences in the corpus, one per distribution.</td>
+</tr>
+
+</tbody>
+</table>
+
+<h2>instance <span class="meta">&mdash; 11 rows</span></h2>
+<table class="instance">
+<thead><tr>
+  <th>Term</th><th>Kind</th><th>Target</th><th>Profile / source</th><th>Note</th>
+</tr></thead>
+<tbody>
+
+<tr>
+  <td class="term">dcat:Distribution</td>
+  <td>class</td>
+  <td class="target term">crmdig:D9_Data_Object</td>
+  <td class="rule"></td>
+  <td class="note">Materialised per distribution. The generator already writes the abbreviated crmdig:D9, which the normalise rows repair; this row covers distributions that carry no CRMdig type at all.</td>
+</tr>
+
+<tr>
+  <td class="term">schema:Person</td>
+  <td>class</td>
+  <td class="target term">crm:E21_Person</td>
+  <td class="rule">section 6</td>
+  <td class="note">Foreign namespace: materialised per instance, never axiomatised (A3). The profile's bridge axioms cover foaf: and dcterms:, not schema:.</td>
+</tr>
+
+<tr>
+  <td class="term">schema:Organization</td>
+  <td>class</td>
+  <td class="target term">crm:E74_Group</td>
+  <td class="rule">section 6</td>
+  <td class="note">As schema:Person. The only organisation in the corpus is the Research Squirrel Engineers Network under its Wikidata IRI.</td>
+</tr>
+
+<tr>
+  <td class="term">dct:title</td>
+  <td>property</td>
+  <td class="target term">crm:P102_has_title</td>
+  <td class="rule">section 4 E41</td>
+  <td class="note">Literal object. E35 Title is avoided as the profile requires; the profile's own example uses P102 with a plain literal.</td>
+</tr>
+
+<tr>
+  <td class="term">dct:description</td>
+  <td>property</td>
+  <td class="target term">crm:P3_has_note</td>
+  <td class="rule"></td>
+  <td class="note">Repeatable, so all four descriptions per FDO (A1, Befund 5) are carried and none is chosen. Which of them is the real description is a question for the quality report, not for the mapping.</td>
+</tr>
+
+<tr>
+  <td class="term">dct:provenance</td>
+  <td>property</td>
+  <td class="target term">crm:P3_has_note</td>
+  <td class="rule"></td>
+  <td class="note">Carries a JSON string, not a structure. D2 Digitization Process and P16 used specific object have no source to be built from - see the note on technique.acquisition.</td>
+</tr>
+
+<tr>
+  <td class="term">dct:type</td>
+  <td>property</td>
+  <td class="target term">crm:P2_has_type</td>
+  <td class="rule">section 3</td>
+  <td class="note">Object is an external concept IRI (Wikidata, in one package an OpenStreetMap relation).</td>
+</tr>
+
+<tr>
+  <td class="term">dcat:keyword@iri</td>
+  <td>property</td>
+  <td class="target term">crm:P2_has_type</td>
+  <td class="rule">section 3</td>
+  <td class="note">Only the IRI-valued keywords. The string-valued ones are a separate row.</td>
+</tr>
+
+<tr>
+  <td class="term">dct:subject</td>
+  <td>property</td>
+  <td class="target term">crm:P2_has_type</td>
+  <td class="rule">section 3</td>
+  <td class="note">Duplicates dcat:keyword in every harvested package, IRIs and strings alike.</td>
+</tr>
+
+<tr>
+  <td class="term">dct:spatial</td>
+  <td>property</td>
+  <td class="target term">crm:P67_refers_to</td>
+  <td class="rule"></td>
+  <td class="note">The object is typed crm:E53_Place. The FDO refers to the place; it does not happen there, so P7 took place at would be wrong - an information object is not an event.</td>
+</tr>
+
+<tr>
+  <td class="term">dct:temporal</td>
+  <td>property</td>
+  <td class="target term">crm:P4_has_time-span</td>
+  <td class="rule">section 2 Temporal data</td>
+  <td class="note">A typed literal derived from dcat:startDate and dcat:endDate on the dct:PeriodOfTime node: xsd:gYear when the two are equal, time:Interval otherwise. The source writes xsd:integer, which the profile does not list.</td>
+</tr>
+
+</tbody>
+</table>
+
+<h2>none <span class="meta">&mdash; 18 rows</span></h2>
+<table class="none">
+<thead><tr>
+  <th>Term</th><th>Kind</th><th>Target</th><th>Profile / source</th><th>Note</th>
+</tr></thead>
+<tbody>
+
+<tr>
+  <td class="term">fdo:sha256</td>
+  <td>property</td>
+  <td class="target term">&mdash;</td>
+  <td class="rule"></td>
+  <td class="note">No CRM property fits a checksum. E42 Identifier is discouraged by the profile, and a digest does not identify the object anyway. The term stays in the fdo: namespace.</td>
+</tr>
+
+<tr>
+  <td class="term">fdo:path</td>
+  <td>property</td>
+  <td class="target term">&mdash;</td>
+  <td class="rule"></td>
+  <td class="note">Package-relative path inside the ZIP. Meaningless outside the package; S4 rewrites the value into a registry IRI but the property gets no anchor.</td>
+</tr>
+
+<tr>
+  <td class="term">geosparql:hasGeometry</td>
+  <td>property</td>
+  <td class="target term">&mdash;</td>
+  <td class="rule">section 2 Spatial data</td>
+  <td class="note">Already profile-conform and deliberately left alone: the profile replaces P168 place is defined by with geo:hasGeometry, which is exactly what the generator writes.</td>
+</tr>
+
+<tr>
+  <td class="term">dcat:keyword@literal</td>
+  <td>property</td>
+  <td class="target term">&mdash;</td>
+  <td class="rule">section 3</td>
+  <td class="note">A bare string cannot be a concept and must not become an E55 Type. Reported per package in the quality report (S5); the fix belongs upstream.</td>
+</tr>
+
+<tr>
+  <td class="term">dct:creator</td>
+  <td>property</td>
+  <td class="target term">&mdash;</td>
+  <td class="rule"></td>
+  <td class="note">Creatorship in CRM needs an E65 Creation event, which the FDO does not record. Minting one would be modelling rather than mapping (A3). The relation stays at dct: and is well understood there.</td>
+</tr>
+
+<tr>
+  <td class="term">dct:publisher</td>
+  <td>property</td>
+  <td class="target term">&mdash;</td>
+  <td class="rule"></td>
+  <td class="note">As dct:creator.</td>
+</tr>
+
+<tr>
+  <td class="term">dct:license</td>
+  <td>property</td>
+  <td class="target term">&mdash;</td>
+  <td class="rule"></td>
+  <td class="note">No CRM property for rights. Stays at dct: and schema:; the profile is silent and inventing a term would be worse than leaving it.</td>
+</tr>
+
+<tr>
+  <td class="term">dct:created</td>
+  <td>property</td>
+  <td class="target term">&mdash;</td>
+  <td class="rule"></td>
+  <td class="note">A date about the package, not about the documented object. P4 on the FDO would claim the object existed then.</td>
+</tr>
+
+<tr>
+  <td class="term">dct:issued</td>
+  <td>property</td>
+  <td class="target term">&mdash;</td>
+  <td class="rule"></td>
+  <td class="note">As dct:created; S4 uses it on the dcat:CatalogRecord instead.</td>
+</tr>
+
+<tr>
+  <td class="term">dct:modified</td>
+  <td>property</td>
+  <td class="target term">&mdash;</td>
+  <td class="rule"></td>
+  <td class="note">As dct:created.</td>
+</tr>
+
+<tr>
+  <td class="term">dct:hasVersion</td>
+  <td>property</td>
+  <td class="target term">&mdash;</td>
+  <td class="rule"></td>
+  <td class="note">Version of the package. LRMoo would be the CRM answer and the profile explicitly rejects it for anything short of bibliographic work.</td>
+</tr>
+
+<tr>
+  <td class="term">dcat:byteSize</td>
+  <td>property</td>
+  <td class="target term">&mdash;</td>
+  <td class="rule">section 4 E58</td>
+  <td class="note">A dimension would need E54 Dimension with a QUDT unit. The profile discourages minting units, and the value is already machine-readable at dcat:.</td>
+</tr>
+
+<tr>
+  <td class="term">dcat:mediaType</td>
+  <td>property</td>
+  <td class="target term">&mdash;</td>
+  <td class="rule"></td>
+  <td class="note">A format is not a type of the object in the CRM sense; P2 here would make a JPEG a kind of thing.</td>
+</tr>
+
+<tr>
+  <td class="term">dcat:accessURL</td>
+  <td>property</td>
+  <td class="target term">&mdash;</td>
+  <td class="rule"></td>
+  <td class="note">Access path, no CRM counterpart. Rewritten to a registry IRI in S4.</td>
+</tr>
+
+<tr>
+  <td class="term">dcat:bbox</td>
+  <td>property</td>
+  <td class="target term">&mdash;</td>
+  <td class="rule">section 2 Spatial data</td>
+  <td class="note">Present in two packages only. The profile prefers geo:hasBoundingBox; converting the DCAT literal would be a content change, so it is reported, not rewritten.</td>
+</tr>
+
+<tr>
+  <td class="term">schema:funding</td>
+  <td>property</td>
+  <td class="target term">&mdash;</td>
+  <td class="rule"></td>
+  <td class="note">A bare string (Community Project) with no funder IRI. Nothing to anchor; reported in the quality report.</td>
+</tr>
+
+<tr>
+  <td class="term">heritage_object</td>
+  <td>field</td>
+  <td class="target term">&mdash;</td>
+  <td class="rule"></td>
+  <td class="note">Corrects the draft mapping. The harvested TTL has no node for the physical object at all - the FDO and the object it documents are the same node - so E22 Human-Made Object cannot be anchored without inventing a node. The fix belongs upstream in fdo-squirrel.</td>
+</tr>
+
+<tr>
+  <td class="term">technique.acquisition</td>
+  <td>field</td>
+  <td class="target term">&mdash;</td>
+  <td class="rule"></td>
+  <td class="note">Corrects the draft mapping. The acquisition survives only as the JSON literal in dct:provenance, so D2 Digitization Process, D8 Digital Device and P16 used specific object have no structured source. Anchoring it means parsing a string, which is not mapping.</td>
+</tr>
+
+</tbody>
+</table>
+
+
+<h2>Role vocabulary</h2>
+<p>The values <code>fdo:role</code> takes on a distribution, as SKOS concepts in
+<code>https://w3id.org/fdo-squirrel/registry/role/</code>. The list is flat: the packages draw no hierarchy
+between the values, and inventing one would put structure into the registry that
+its sources do not carry. Counts are occurrences in the harvested packages the
+registry can read.</p>
+<table>
+<thead><tr><th>Concept</th><th>Label</th><th>Definition</th><th class="count">In corpus</th></tr></thead>
+<tbody>
+
+<tr>
+  <td class="term">data</td>
+  <td>Data</td>
+  <td class="note">A data file that is neither a model, documentation, metadata nor code.</td>
+  <td class="count">5</td>
+</tr>
+
+<tr>
+  <td class="term">documentation</td>
+  <td>Documentation</td>
+  <td class="note">Human-readable documentation of the package or of the object it describes.</td>
+  <td class="count">48</td>
+</tr>
+
+<tr>
+  <td class="term">metadata</td>
+  <td>Metadata</td>
+  <td class="note">A file describing the package or its contents, such as MD.cff or CITATION.cff.</td>
+  <td class="count">6</td>
+</tr>
+
+<tr>
+  <td class="term">model</td>
+  <td>3D model</td>
+  <td class="note">A file holding the three-dimensional geometry or texture of the documented object.</td>
+  <td class="count">9</td>
+</tr>
+
+<tr>
+  <td class="term">script</td>
+  <td>Script</td>
+  <td class="note">An executable script that is part of the package rather than of a released software component.</td>
+  <td class="count">0</td>
+</tr>
+
+<tr>
+  <td class="term">software</td>
+  <td>Software</td>
+  <td class="note">A source, build or configuration file of a software component.</td>
+  <td class="count">0</td>
+</tr>
+
+</tbody>
+</table>
+
+
+<h2>Packages the registry cannot read</h2>
+<p>The registry reads, it does not correct. A harvested
+<code>fdo-metadata.ttl</code> that is not valid Turtle is skipped with a reason
+and reported here and in the quality report; the fix belongs in the generator
+that wrote it, not in the registry that reads it.</p>
+<table>
+<thead><tr><th>Record</th><th>Reason</th></tr></thead>
+<tbody>
+
+<tr><td class="term warn">18369126</td><td class="note">not valid Turtle: at line 17, Bad syntax (Prefix "crmdig:" not bound)</td></tr>
+
+<tr><td class="term warn">18369157</td><td class="note">not valid Turtle: at line 17, Bad syntax (Prefix "crmdig:" not bound)</td></tr>
+
+<tr><td class="term warn">18369866</td><td class="note">not valid Turtle: at line 17, Bad syntax (Prefix "crmdig:" not bound)</td></tr>
+
+<tr><td class="term warn">18732893</td><td class="note">not valid Turtle: at line 39, Bad syntax (expected '.' or '}' or ']' at end of statement)</td></tr>
+
+<tr><td class="term warn">18740524</td><td class="note">no fdo-metadata.ttl in the package</td></tr>
+
+</tbody>
+</table>
+
+
+<p class="meta" style="margin-top:3rem">FDOx Registry &middot; release 2026-09-03
+&middot; <a href="https://github.com/Research-Squirrel-Engineers/fdo-squirrel-registry">source</a></p>
+
+</main>
+</body>
+</html>
