@@ -87,6 +87,12 @@ reads the clock, graphs are serialised through sorted N-Triples, and JSON is
 written with sorted keys. The check is to run the pipeline twice and confirm
 `git status` is empty the second time.
 
+## AI usage
+
+Parts of the Python code in this repository were written with the assistance of
+Claude (Anthropic). All AI-assisted code was reviewed, validated and supervised
+by Florian Thiery (research software engineering).
+
 ## Licence
 
 Code: MIT (see [`LICENSE`](LICENSE)). The generated bundle is CC BY 4.0; the
@@ -95,3 +101,10 @@ licences of the harvested FDOs are preserved per entry.
 ## Citation
 
 See [`CITATION.cff`](CITATION.cff).
+
+## Acknowledgements
+
+This work is part of the DFG-funded NFDI initiative, specifically the
+[Research Data Infrastructure for the Material Remains of Human History
+(NFDI4Objects)](https://www.nfdi4objects.net/) — DFG project number
+**501836407**.
