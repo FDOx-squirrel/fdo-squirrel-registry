@@ -9,9 +9,10 @@ published on Zenodo, bundles them into a DCAT catalogue anchored in CIDOC CRM,
 validates the result with SHACL, and publishes a filter page and a browser-based
 SPARQL page as a static site — no server, no endpoint, no database.
 
-> **Status: S1 of the work plan.** The skeleton and the orchestrator are in
-> place; every pipeline step reports `skipped (no input)` until the step that
-> implements it is done. See [`PRIMER.md`](PRIMER.md) for the plan.
+> **Status: S2 of the work plan.** The skeleton, the orchestrator and the
+> Zenodo harvest are in place; the remaining pipeline steps report
+> `skipped (no input)` until the step that implements them is done. See
+> [`PRIMER.md`](PRIMER.md) for the plan.
 
 ## Pipeline
 
@@ -56,8 +57,64 @@ a timing table.
 the network, so it has to be asked for:
 
 ```
-python main.py --only harvest
+python main.py --only harvest          fetch the FDO metadata
+python main.py --only check-updates    report newer versions, change nothing
 ```
+
+### Harvesting
+
+`registry/sources.json` is the curated list of pinned Zenodo version DOIs. For
+each entry the harvest fetches the record, obtains `fdo-metadata.ttl` and
+writes it unchanged to `data/raw/fdo/<record-id>/` beside the record and a
+`harvest.json` manifest.
+
+An FDOx package is a single ZIP holding the data *and* its metadata, so the TTL
+is normally inside a file of several hundred megabytes. It is obtained by the
+cheapest trustworthy route: a top-level file in the record if there is one, a
+local copy of the package if you have one, otherwise the one ZIP member read
+through HTTP Range requests — one or two requests and a few kilobytes instead
+of the whole archive. `harvest.json` records which route was taken and whether
+the ZIP's MD5 or the member's CRC-32 was verified.
+
+```
+python py\step_harvest.py --resolve              what does each DOI resolve to?
+python py\step_harvest.py --resolve --write      pin the resolved versions
+python py\step_harvest.py --force                 re-fetch even if up to date
+python py\step_harvest.py --only 18724635         one record
+python py\step_harvest.py --full                  whole-ZIP download, no Range reads
+python py\step_harvest.py --offline               no network; local packages only
+python py\step_harvest.py --offline --zip 18724635=C:\tmp\fdo\CO074-148----.zip
+```
+
+Repeated runs fetch nothing when the metadata is already present and unchanged.
+
+A DOI taken from a paper or a Zenodo landing page is usually the *concept* DOI,
+which always resolves to the newest version — the opposite of a pin. `--resolve`
+asks Zenodo what each entry really is, reports entries that turn out to be the
+same record seen from two directions, and proposes a corrected `sources.json`;
+`--write` applies it. Run it once before the first harvest.
+
+`check-updates` additionally searches the Zenodo community `squirrel-fdo` for
+records that are not listed yet. Zenodo runs InvenioRDM and has moved that
+endpoint before, so the known forms are tried in order and the report says
+which one answered; if none does, the report is marked incomplete rather than
+failing the step.
+
+A record that cannot be reached is a statement about Zenodo, not about the
+record: nothing is written, nothing is remembered, and the run continues with
+the next entry, stopping after three consecutive failures.
+
+### Local configuration
+
+Machine-specific paths go into `config.local.json`, which is not committed:
+
+```json
+{ "package_dir": "C:\\tmp\\fdo" }
+```
+
+With `package_dir` set, the harvest reads a package from disk whenever the
+folder holds a file of the record's file name, and falls back to Zenodo
+otherwise. The file may be absent.
 
 Every step is also runnable on its own, for example `python py/step_bundle.py`.
 

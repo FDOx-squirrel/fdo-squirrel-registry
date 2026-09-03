@@ -1,0 +1,594 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix fdo: <https://w3id.org/fdo-squirrel/> .
+@prefix schema: <https://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix geosparql: <http://www.opengis.net/ont/geosparql#> .
+@prefix sf: <http://www.opengis.net/ont/sf#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix codemeta: <https://codemeta.github.io/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix cff: <https://citation-file-format.github.io/terms/> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix wdt: <http://www.wikidata.org/prop/direct/> .
+@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix crmdig: <http://www.ics.forth.gr/isl/CRMdig/> .
+<https://doi.org/10.5281/zenodo.18732892> a dcat:Dataset, crmdig:D1, crm:E73, fdo:3DDataFDO ;
+    dct:description "Steinmännchen / Lago di Anterselva (Antholzer See) 03.01.2026 14:36h" ;
+    dct:hasVersion "1.0" ;
+    dct:creator <urn:fdo-squirrel:person/8e916ce55425de21> ;
+    dct:license <https://spdx.org/licenses/CC-BY-4.0.html> ;
+    dct:publisher <http://www.wikidata.org/entity/Q73901970> ;
+    dct:title "Steinmännchen / Antholzer See 03.01.2026" ;
+    dcat:distribution <urn:fdo-squirrel:dist/ac0e3dd45c2e93b4>,<urn:fdo-squirrel:dist/a3fd1cfe863212b3>,<urn:fdo-squirrel:dist/1ba9202816550e92>,<urn:fdo-squirrel:dist/a38b4aebd0b51930>,<urn:fdo-squirrel:dist/e3135c91580ddb90>,<urn:fdo-squirrel:dist/4faddff755e582b6>,<urn:fdo-squirrel:dist/8e554b8299325521>,<urn:fdo-squirrel:dist/6597db9250d97680>,<urn:fdo-squirrel:dist/2f74ec88e9d23848>,<urn:fdo-squirrel:dist/e7dc137fe7e0e9cb>,<urn:fdo-squirrel:dist/5b76f0553bfce084>,<urn:fdo-squirrel:dist/ac33eee302e5b136>,<urn:fdo-squirrel:dist/f2d89c7561324fe0>,<urn:fdo-squirrel:dist/eac7481e59858c48>,<urn:fdo-squirrel:dist/89d913ce10df5474>,<urn:fdo-squirrel:dist/476d560522815f12>,<urn:fdo-squirrel:dist/ff1199cf8bf47b05>,<urn:fdo-squirrel:dist/c6e4452cda0a4760>,<urn:fdo-squirrel:dist/50897c8eddd65482>,<urn:fdo-squirrel:dist/8efc669953a0f953>,<urn:fdo-squirrel:dist/7463098fed5d47fe>,<urn:fdo-squirrel:dist/e9a2d630d8708489>,<urn:fdo-squirrel:dist/46e866874ff33339>,<urn:fdo-squirrel:dist/516fd40c40486ab2>,<urn:fdo-squirrel:dist/3792da71d0e147b6>,<urn:fdo-squirrel:dist/1bde74911132de04>,<urn:fdo-squirrel:dist/e7a7fbeffd98ba0e>,<urn:fdo-squirrel:dist/c38aa6711fa752e4>,<urn:fdo-squirrel:dist/506075f682ff946d>,<urn:fdo-squirrel:dist/d3ee039ba8e873b3>,<urn:fdo-squirrel:dist/1f3da09e8b7a9ace>,<urn:fdo-squirrel:dist/f930a77e5c76c5f5>,<urn:fdo-squirrel:dist/e7d97d04af4fea0d>,<urn:fdo-squirrel:dist/eecb88af079af0e2>,<urn:fdo-squirrel:dist/5a01343d1d48dce7>,<urn:fdo-squirrel:dist/0e2410288f6a3525>,<urn:fdo-squirrel:dist/5c3f30826295695b>,<urn:fdo-squirrel:dist/e209d938ae00b6e4>,<urn:fdo-squirrel:dist/82b4a51a40707700>,<urn:fdo-squirrel:dist/71617044dcc6f849>,<urn:fdo-squirrel:dist/eef4dd9f775a3d91>,<urn:fdo-squirrel:dist/5ace1cf19ebbacc0>,<urn:fdo-squirrel:dist/9f4f2e10f65ae77b>,<urn:fdo-squirrel:dist/092e0f3917ad267c>,<urn:fdo-squirrel:dist/6de3aacb8d3aa2bf>,<urn:fdo-squirrel:dist/46208ff730585829>,<urn:fdo-squirrel:dist/1bdc552bf5f1936f>,<urn:fdo-squirrel:dist/6524b121a9f7e264>,<urn:fdo-squirrel:dist/8eaa19312236e533>,<urn:fdo-squirrel:dist/f030f4cdd9a9fa89>,<urn:fdo-squirrel:dist/88b641381ff8126e>,<urn:fdo-squirrel:dist/10c5effe28f7384c>,<urn:fdo-squirrel:dist/de6cf28409c65682>,<urn:fdo-squirrel:dist/e31317c94bcf3b89>,<urn:fdo-squirrel:dist/5a031855fc58a797>,<urn:fdo-squirrel:dist/1d4307f42ae227f8>,<urn:fdo-squirrel:dist/9f480866f3573013>,<urn:fdo-squirrel:dist/037b867f03f279b9>,<urn:fdo-squirrel:dist/6d161ce12257c873>,<urn:fdo-squirrel:dist/d6c76af4108225b6>,<urn:fdo-squirrel:dist/3a5190da646db1d7>,<urn:fdo-squirrel:dist/de7b72a40ede05ff>,<urn:fdo-squirrel:dist/efb3665689e5cbc8>,<urn:fdo-squirrel:dist/d16c1445da3298f2> ;
+    dct:created "2026-01-03"^^xsd:date ;
+    dct:issued "2026-01-03"^^xsd:date ;
+    dct:modified "2026-02-22"^^xsd:date ;
+    schema:funding "Community Project" ;
+    dct:spatial <https://www.openstreetmap.org/relation/14599988> ;
+    schema:latitude "46.888362"^^xsd:decimal ;
+    schema:longitude "12.16988"^^xsd:decimal ;
+    fdo:context "cairn temporally created by Florian Thiery and Fiona Schenk 2026" ;
+    dct:type <http://www.wikidata.org/entity/Q7321974> ;
+    dct:subject <http://www.wikidata.org/entity/Q22731> ;
+    dct:description "make 3d model available" ;
+    dct:description "good" ;
+    dct:description "low" ;
+    dct:provenance "{"software": "KIRI Engine", "steps": "Take photos, align photos; build dense cloud; generate mesh; texture; export."}"  .
+
+<https://doi.org/10.5281/zenodo.18732892> geosparql:hasGeometry <https://doi.org/10.5281/zenodo.18732892_geom> .
+<https://doi.org/10.5281/zenodo.18732892_geom> a sf:Point .
+<https://doi.org/10.5281/zenodo.18732892_geom> geosparql:asWKT "<http://www.opengis.net/def/crs/EPSG/0/4326> POINT(12.16988 46.888362)"^^geosparql:wktLiteral .
+<https://doi.org/10.5281/zenodo.18732892> dct:temporal <https://doi.org/10.5281/zenodo.18732892_temporal> .
+<https://doi.org/10.5281/zenodo.18732892_temporal> a dct:PeriodOfTime .
+<https://doi.org/10.5281/zenodo.18732892_temporal> owl:sameAs <http://chronontology.dainst.org/period/dfwAgTD5WMEV> .
+<https://doi.org/10.5281/zenodo.18732892_temporal> rdfs:label "Modern, temporal object 2026" .
+<https://doi.org/10.5281/zenodo.18732892_temporal> dcat:startDate "2026"^^xsd:integer .
+<https://doi.org/10.5281/zenodo.18732892_temporal> dcat:endDate "2026"^^xsd:integer .
+
+<http://www.wikidata.org/entity/Q73901970> a schema:Organization ;
+    schema:name "Research Squirrel Engineers Network" .
+
+<urn:fdo-squirrel:person/8e916ce55425de21> a schema:Person ;
+    schema:name "Thiery, Florian" .
+
+<urn:fdo-squirrel:dist/ac0e3dd45c2e93b4> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/3DModel.glb> ;
+    dcat:byteSize 12269280 ;
+    dcat:mediaType "model/gltf-binary" ;
+    fdo:path "3DModel.glb" ;
+    fdo:role "model" ;
+    fdo:sha256 "ac0e3dd45c2e93b448591ba4ade9ee1c4b432797063f16113f27b8c46d89d507"  .
+
+<urn:fdo-squirrel:dist/a3fd1cfe863212b3> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/CITATION.cff> ;
+    dcat:byteSize 296 ;
+    dcat:mediaType "text/yaml" ;
+    fdo:path "CITATION.cff" ;
+    fdo:role "metadata" ;
+    fdo:sha256 "a3fd1cfe863212b3e36314dea087b6b5736fab9c894a699f055d4b478bb384c5"  .
+
+<urn:fdo-squirrel:dist/1ba9202816550e92> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/img%2F2026-01-03-14-34-40-977.jpg> ;
+    dcat:byteSize 947402 ;
+    dcat:mediaType "image/jpeg" ;
+    fdo:path "img/2026-01-03-14-34-40-977.jpg" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "1ba9202816550e9298c2f5af9bb98c7596e9a3787c30514aa30b7fa2538b4d33"  .
+
+<urn:fdo-squirrel:dist/a38b4aebd0b51930> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/img%2F2026-01-03-14-34-42-746.jpg> ;
+    dcat:byteSize 970812 ;
+    dcat:mediaType "image/jpeg" ;
+    fdo:path "img/2026-01-03-14-34-42-746.jpg" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "a38b4aebd0b519306f6cd633005979894385edaebd8f792a3c4f568e29daf519"  .
+
+<urn:fdo-squirrel:dist/e3135c91580ddb90> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/img%2F2026-01-03-14-34-44-490.jpg> ;
+    dcat:byteSize 1003314 ;
+    dcat:mediaType "image/jpeg" ;
+    fdo:path "img/2026-01-03-14-34-44-490.jpg" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "e3135c91580ddb908835225e845353c7742ccfcd67c4bfe0c853dd55d3765945"  .
+
+<urn:fdo-squirrel:dist/4faddff755e582b6> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/img%2F2026-01-03-14-34-46-008.jpg> ;
+    dcat:byteSize 1029232 ;
+    dcat:mediaType "image/jpeg" ;
+    fdo:path "img/2026-01-03-14-34-46-008.jpg" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "4faddff755e582b6a6e00f43d2cbbd9932f72e29e9e9068d59507eb53d5e0c5c"  .
+
+<urn:fdo-squirrel:dist/8e554b8299325521> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/img%2F2026-01-03-14-34-48-300.jpg> ;
+    dcat:byteSize 1111009 ;
+    dcat:mediaType "image/jpeg" ;
+    fdo:path "img/2026-01-03-14-34-48-300.jpg" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "8e554b82993255211763fbceb5103cac4b8f96fc2fc37a8c779a36e7eef769d6"  .
+
+<urn:fdo-squirrel:dist/6597db9250d97680> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/img%2F2026-01-03-14-34-49-616.jpg> ;
+    dcat:byteSize 1127963 ;
+    dcat:mediaType "image/jpeg" ;
+    fdo:path "img/2026-01-03-14-34-49-616.jpg" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "6597db9250d9768005f969513e277e01fde2b4b5ba4d97fc32cd3037d0af7591"  .
+
+<urn:fdo-squirrel:dist/2f74ec88e9d23848> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/img%2F2026-01-03-14-34-51-179.jpg> ;
+    dcat:byteSize 1167244 ;
+    dcat:mediaType "image/jpeg" ;
+    fdo:path "img/2026-01-03-14-34-51-179.jpg" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "2f74ec88e9d238485abed1a36eb1575b1dd9435992a5a4e2e748fe98babd0221"  .
+
+<urn:fdo-squirrel:dist/e7dc137fe7e0e9cb> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/img%2F2026-01-03-14-34-52-681.jpg> ;
+    dcat:byteSize 1189760 ;
+    dcat:mediaType "image/jpeg" ;
+    fdo:path "img/2026-01-03-14-34-52-681.jpg" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "e7dc137fe7e0e9cb991bdcccb8f2ed71db437422f80eaa1641a2dac93f2221cd"  .
+
+<urn:fdo-squirrel:dist/5b76f0553bfce084> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/img%2F2026-01-03-14-34-54-036.jpg> ;
+    dcat:byteSize 1155852 ;
+    dcat:mediaType "image/jpeg" ;
+    fdo:path "img/2026-01-03-14-34-54-036.jpg" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "5b76f0553bfce0840327adb35acab50056d40b15ff68e21c6e81eeec22d9f1ea"  .
+
+<urn:fdo-squirrel:dist/ac33eee302e5b136> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/img%2F2026-01-03-14-34-55-206.jpg> ;
+    dcat:byteSize 1141097 ;
+    dcat:mediaType "image/jpeg" ;
+    fdo:path "img/2026-01-03-14-34-55-206.jpg" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "ac33eee302e5b136c71ca9fd5f0a9e1dc3c4b926f9c14655e66d5c7495f4074f"  .
+
+<urn:fdo-squirrel:dist/f2d89c7561324fe0> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/img%2F2026-01-03-14-34-56-188.jpg> ;
+    dcat:byteSize 1090210 ;
+    dcat:mediaType "image/jpeg" ;
+    fdo:path "img/2026-01-03-14-34-56-188.jpg" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "f2d89c7561324fe06de6d233f09d8f295812c2e5b21b763c2c791c3a3c2280f5"  .
+
+<urn:fdo-squirrel:dist/eac7481e59858c48> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/img%2F2026-01-03-14-34-57-315.jpg> ;
+    dcat:byteSize 1059835 ;
+    dcat:mediaType "image/jpeg" ;
+    fdo:path "img/2026-01-03-14-34-57-315.jpg" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "eac7481e59858c4849a547c6afbda8d77be1f06cec3eecd946389b93b2d75fd6"  .
+
+<urn:fdo-squirrel:dist/89d913ce10df5474> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/img%2F2026-01-03-14-34-58-333.jpg> ;
+    dcat:byteSize 1020683 ;
+    dcat:mediaType "image/jpeg" ;
+    fdo:path "img/2026-01-03-14-34-58-333.jpg" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "89d913ce10df547458951729adc99a8f91be85e9179ec7f01c1d40cc15aaddb9"  .
+
+<urn:fdo-squirrel:dist/476d560522815f12> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/img%2F2026-01-03-14-34-59-452.jpg> ;
+    dcat:byteSize 917880 ;
+    dcat:mediaType "image/jpeg" ;
+    fdo:path "img/2026-01-03-14-34-59-452.jpg" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "476d560522815f12631e4e7c5649ec19831e1665361b2ecfdf79e9b8fb9ecaa5"  .
+
+<urn:fdo-squirrel:dist/ff1199cf8bf47b05> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/img%2F2026-01-03-14-35-00-580.jpg> ;
+    dcat:byteSize 875662 ;
+    dcat:mediaType "image/jpeg" ;
+    fdo:path "img/2026-01-03-14-35-00-580.jpg" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "ff1199cf8bf47b0542f47895c83fc30119e17cac02a7cd017c815b3e84da8732"  .
+
+<urn:fdo-squirrel:dist/c6e4452cda0a4760> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/img%2F2026-01-03-14-35-01-548.jpg> ;
+    dcat:byteSize 954945 ;
+    dcat:mediaType "image/jpeg" ;
+    fdo:path "img/2026-01-03-14-35-01-548.jpg" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "c6e4452cda0a4760f8b3ff970924a572827b4a0381ee222a116c8a6231e90365"  .
+
+<urn:fdo-squirrel:dist/50897c8eddd65482> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/img%2F2026-01-03-14-35-02-636.jpg> ;
+    dcat:byteSize 1071545 ;
+    dcat:mediaType "image/jpeg" ;
+    fdo:path "img/2026-01-03-14-35-02-636.jpg" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "50897c8eddd65482444479d14516ecc529573e1fefc9713e23b39adf0dec113f"  .
+
+<urn:fdo-squirrel:dist/8efc669953a0f953> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/img%2F2026-01-03-14-35-03-402.jpg> ;
+    dcat:byteSize 1101920 ;
+    dcat:mediaType "image/jpeg" ;
+    fdo:path "img/2026-01-03-14-35-03-402.jpg" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "8efc669953a0f953bb44242c87f26bc54cd042d2bc68e9980a0d805dd1f43f03"  .
+
+<urn:fdo-squirrel:dist/7463098fed5d47fe> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/img%2F2026-01-03-14-35-04-320.jpg> ;
+    dcat:byteSize 1103005 ;
+    dcat:mediaType "image/jpeg" ;
+    fdo:path "img/2026-01-03-14-35-04-320.jpg" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "7463098fed5d47fef8dd72922f88d8ac37744f20d7fc10007ee25450edafcac4"  .
+
+<urn:fdo-squirrel:dist/e9a2d630d8708489> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/img%2F2026-01-03-14-35-05-274.jpg> ;
+    dcat:byteSize 1126548 ;
+    dcat:mediaType "image/jpeg" ;
+    fdo:path "img/2026-01-03-14-35-05-274.jpg" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "e9a2d630d8708489b8ad70dda8a09a57e8cda4125fec7e235f278d82945039da"  .
+
+<urn:fdo-squirrel:dist/46e866874ff33339> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/img%2F2026-01-03-14-35-06-243.jpg> ;
+    dcat:byteSize 1153623 ;
+    dcat:mediaType "image/jpeg" ;
+    fdo:path "img/2026-01-03-14-35-06-243.jpg" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "46e866874ff33339118722ab169df8d874c040f803ad3a9d2e5be8ecbf16b0b5"  .
+
+<urn:fdo-squirrel:dist/516fd40c40486ab2> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/img%2F2026-01-03-14-35-06-910.jpg> ;
+    dcat:byteSize 1171380 ;
+    dcat:mediaType "image/jpeg" ;
+    fdo:path "img/2026-01-03-14-35-06-910.jpg" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "516fd40c40486ab24d06056bbb34ce514e17a45ce08f1e2b714a3d14905112c0"  .
+
+<urn:fdo-squirrel:dist/3792da71d0e147b6> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/img%2F2026-01-03-14-35-07-815.jpg> ;
+    dcat:byteSize 1193904 ;
+    dcat:mediaType "image/jpeg" ;
+    fdo:path "img/2026-01-03-14-35-07-815.jpg" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "3792da71d0e147b6faefb6d0b30df341286b2bae5132758605e54fa59d14d5f6"  .
+
+<urn:fdo-squirrel:dist/1bde74911132de04> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/img%2F2026-01-03-14-35-08-712.jpg> ;
+    dcat:byteSize 1184141 ;
+    dcat:mediaType "image/jpeg" ;
+    fdo:path "img/2026-01-03-14-35-08-712.jpg" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "1bde74911132de04021b3af51d97e567fbcaa05ec1cfadf0258b0bf1ccffe837"  .
+
+<urn:fdo-squirrel:dist/e7a7fbeffd98ba0e> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/img%2F2026-01-03-14-35-09-782.jpg> ;
+    dcat:byteSize 1182830 ;
+    dcat:mediaType "image/jpeg" ;
+    fdo:path "img/2026-01-03-14-35-09-782.jpg" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "e7a7fbeffd98ba0ed85824a5eda586ef29b5abd464773842138bacf6d638b58a"  .
+
+<urn:fdo-squirrel:dist/c38aa6711fa752e4> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/img%2F2026-01-03-14-35-10-582.jpg> ;
+    dcat:byteSize 1169963 ;
+    dcat:mediaType "image/jpeg" ;
+    fdo:path "img/2026-01-03-14-35-10-582.jpg" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "c38aa6711fa752e44bcb63e6457cc273a0d18753ef98c5e2d1a19c0eb4cfd313"  .
+
+<urn:fdo-squirrel:dist/506075f682ff946d> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/img%2F2026-01-03-14-35-11-276.jpg> ;
+    dcat:byteSize 1146304 ;
+    dcat:mediaType "image/jpeg" ;
+    fdo:path "img/2026-01-03-14-35-11-276.jpg" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "506075f682ff946deadf7e47610f03e2060a12deae8bae069db1d70680371c89"  .
+
+<urn:fdo-squirrel:dist/d3ee039ba8e873b3> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/img%2F2026-01-03-14-35-12-203.jpg> ;
+    dcat:byteSize 1142700 ;
+    dcat:mediaType "image/jpeg" ;
+    fdo:path "img/2026-01-03-14-35-12-203.jpg" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "d3ee039ba8e873b3781ec890736dfe46063897682b7e71b809f8cc15145e8873"  .
+
+<urn:fdo-squirrel:dist/1f3da09e8b7a9ace> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/img%2F2026-01-03-14-35-13-112.jpg> ;
+    dcat:byteSize 1070013 ;
+    dcat:mediaType "image/jpeg" ;
+    fdo:path "img/2026-01-03-14-35-13-112.jpg" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "1f3da09e8b7a9acebe28efa47f1b86f6f5585df697cae6c9feb6bba735342eae"  .
+
+<urn:fdo-squirrel:dist/f930a77e5c76c5f5> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/img%2F2026-01-03-14-35-14-034.jpg> ;
+    dcat:byteSize 1114483 ;
+    dcat:mediaType "image/jpeg" ;
+    fdo:path "img/2026-01-03-14-35-14-034.jpg" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "f930a77e5c76c5f578401443e60d001e7b4e99dcb4c2ded2833b7d7357a61521"  .
+
+<urn:fdo-squirrel:dist/e7d97d04af4fea0d> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/img%2F2026-01-03-14-35-14-825.jpg> ;
+    dcat:byteSize 1118584 ;
+    dcat:mediaType "image/jpeg" ;
+    fdo:path "img/2026-01-03-14-35-14-825.jpg" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "e7d97d04af4fea0dcebd97e63c0715834cb09edc1d4120d10646c906cbe6d1dd"  .
+
+<urn:fdo-squirrel:dist/eecb88af079af0e2> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/img%2F2026-01-03-14-35-15-551.jpg> ;
+    dcat:byteSize 1147188 ;
+    dcat:mediaType "image/jpeg" ;
+    fdo:path "img/2026-01-03-14-35-15-551.jpg" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "eecb88af079af0e2cb8b17d8a0f21db81f90b91a3956c3b9e255725ca716f15d"  .
+
+<urn:fdo-squirrel:dist/5a01343d1d48dce7> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/img%2F2026-01-03-14-35-17-714.jpg> ;
+    dcat:byteSize 1038134 ;
+    dcat:mediaType "image/jpeg" ;
+    fdo:path "img/2026-01-03-14-35-17-714.jpg" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "5a01343d1d48dce748811fcc612d6ffa31fe4a170de0982dbb17dde33ba6ba53"  .
+
+<urn:fdo-squirrel:dist/0e2410288f6a3525> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/img%2F2026-01-03-14-35-19-660.jpg> ;
+    dcat:byteSize 937331 ;
+    dcat:mediaType "image/jpeg" ;
+    fdo:path "img/2026-01-03-14-35-19-660.jpg" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "0e2410288f6a352540faa744672c889abd23900cbabd30c453a6b3a82ce8d09c"  .
+
+<urn:fdo-squirrel:dist/5c3f30826295695b> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/img%2F2026-01-03-14-35-20-940.jpg> ;
+    dcat:byteSize 955049 ;
+    dcat:mediaType "image/jpeg" ;
+    fdo:path "img/2026-01-03-14-35-20-940.jpg" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "5c3f30826295695b78596803829ed4c94baf78a310e506f83a6f2784ddf0945b"  .
+
+<urn:fdo-squirrel:dist/e209d938ae00b6e4> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/img%2F2026-01-03-14-35-21-974.jpg> ;
+    dcat:byteSize 963312 ;
+    dcat:mediaType "image/jpeg" ;
+    fdo:path "img/2026-01-03-14-35-21-974.jpg" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "e209d938ae00b6e4b3ee15e61d39a3debdb46e5174b8dff5b4624b7aae98f4d7"  .
+
+<urn:fdo-squirrel:dist/82b4a51a40707700> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/img%2F2026-01-03-14-35-23-193.jpg> ;
+    dcat:byteSize 996449 ;
+    dcat:mediaType "image/jpeg" ;
+    fdo:path "img/2026-01-03-14-35-23-193.jpg" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "82b4a51a40707700e11e55dee0d6465d3c1427b548f3cab452d1ec4010eef4ad"  .
+
+<urn:fdo-squirrel:dist/71617044dcc6f849> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/img%2F2026-01-03-14-35-24-236.jpg> ;
+    dcat:byteSize 1085036 ;
+    dcat:mediaType "image/jpeg" ;
+    fdo:path "img/2026-01-03-14-35-24-236.jpg" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "71617044dcc6f84989b3bf1aabcf81259ef9729f0d4a04d0ae05864286667f57"  .
+
+<urn:fdo-squirrel:dist/eef4dd9f775a3d91> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/img%2F2026-01-03-14-35-25-048.jpg> ;
+    dcat:byteSize 1054121 ;
+    dcat:mediaType "image/jpeg" ;
+    fdo:path "img/2026-01-03-14-35-25-048.jpg" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "eef4dd9f775a3d9126a1426c7348d533715026e5c46fd97e1c7eba96d808f621"  .
+
+<urn:fdo-squirrel:dist/5ace1cf19ebbacc0> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/img%2F2026-01-03-14-35-26-024.jpg> ;
+    dcat:byteSize 1013995 ;
+    dcat:mediaType "image/jpeg" ;
+    fdo:path "img/2026-01-03-14-35-26-024.jpg" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "5ace1cf19ebbacc09142a25659fa1cc07f4334a56f700cef421cfd9b69749e0b"  .
+
+<urn:fdo-squirrel:dist/9f4f2e10f65ae77b> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/img%2F2026-01-03-14-35-26-969.jpg> ;
+    dcat:byteSize 991778 ;
+    dcat:mediaType "image/jpeg" ;
+    fdo:path "img/2026-01-03-14-35-26-969.jpg" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "9f4f2e10f65ae77b255004ebe85a0006218e6e6ad1d796f8b2594132fc72822b"  .
+
+<urn:fdo-squirrel:dist/092e0f3917ad267c> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/img%2F2026-01-03-14-35-29-114.jpg> ;
+    dcat:byteSize 818250 ;
+    dcat:mediaType "image/jpeg" ;
+    fdo:path "img/2026-01-03-14-35-29-114.jpg" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "092e0f3917ad267c478be817e5a52c16af9cc972b8b34e878d1496a30468063e"  .
+
+<urn:fdo-squirrel:dist/6de3aacb8d3aa2bf> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/img%2F2026-01-03-14-35-30-426.jpg> ;
+    dcat:byteSize 676977 ;
+    dcat:mediaType "image/jpeg" ;
+    fdo:path "img/2026-01-03-14-35-30-426.jpg" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "6de3aacb8d3aa2bf014b92f087075c1a1636c5a54823196aa4e22e28ab1bf443"  .
+
+<urn:fdo-squirrel:dist/46208ff730585829> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/img%2F2026-01-03-14-35-31-829.jpg> ;
+    dcat:byteSize 711694 ;
+    dcat:mediaType "image/jpeg" ;
+    fdo:path "img/2026-01-03-14-35-31-829.jpg" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "46208ff730585829520e5a03ef91d3d21cc77f3200209a218dd35cab65a54cc4"  .
+
+<urn:fdo-squirrel:dist/1bdc552bf5f1936f> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/img%2F2026-01-03-14-35-35-812.jpg> ;
+    dcat:byteSize 979564 ;
+    dcat:mediaType "image/jpeg" ;
+    fdo:path "img/2026-01-03-14-35-35-812.jpg" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "1bdc552bf5f1936f27d4f6671df061ebb0295eb19be2d7e72d61f1d8071f407c"  .
+
+<urn:fdo-squirrel:dist/6524b121a9f7e264> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/img%2F2026-01-03-14-35-39-147.jpg> ;
+    dcat:byteSize 1055174 ;
+    dcat:mediaType "image/jpeg" ;
+    fdo:path "img/2026-01-03-14-35-39-147.jpg" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "6524b121a9f7e2640582275537686129aed4036e0b8842a29e4f72c6154aeb91"  .
+
+<urn:fdo-squirrel:dist/8eaa19312236e533> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/img%2F2026-01-03-14-35-43-025.jpg> ;
+    dcat:byteSize 1038837 ;
+    dcat:mediaType "image/jpeg" ;
+    fdo:path "img/2026-01-03-14-35-43-025.jpg" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "8eaa19312236e53319ff670cf0d3b30013ebc73e5ef6b2052e1d1c0954e3d5cc"  .
+
+<urn:fdo-squirrel:dist/f030f4cdd9a9fa89> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/img%2F2026-01-03-14-35-44-582.jpg> ;
+    dcat:byteSize 1065850 ;
+    dcat:mediaType "image/jpeg" ;
+    fdo:path "img/2026-01-03-14-35-44-582.jpg" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "f030f4cdd9a9fa8940c735bb68b82088e7abe7eb98f0c9bde27bc7ceadd3c912"  .
+
+<urn:fdo-squirrel:dist/88b641381ff8126e> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/img%2F2026-01-03-14-35-45-542.jpg> ;
+    dcat:byteSize 1085389 ;
+    dcat:mediaType "image/jpeg" ;
+    fdo:path "img/2026-01-03-14-35-45-542.jpg" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "88b641381ff8126ea2961ae02d3bd91d79e92ffb01b37171ffa385e581ea1366"  .
+
+<urn:fdo-squirrel:dist/10c5effe28f7384c> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/img%2F2026-01-03-14-35-48-891.jpg> ;
+    dcat:byteSize 953773 ;
+    dcat:mediaType "image/jpeg" ;
+    fdo:path "img/2026-01-03-14-35-48-891.jpg" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "10c5effe28f7384c437692b1c85928f9913e9ee77c374e9b1a066f60a5dd2a28"  .
+
+<urn:fdo-squirrel:dist/de6cf28409c65682> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/img%2F2026-01-03-14-35-49-751.jpg> ;
+    dcat:byteSize 914568 ;
+    dcat:mediaType "image/jpeg" ;
+    fdo:path "img/2026-01-03-14-35-49-751.jpg" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "de6cf28409c65682fc8dbb7d488945541e99bba9e742c1ce400f584caa44ee86"  .
+
+<urn:fdo-squirrel:dist/e31317c94bcf3b89> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/img%2F2026-01-03-14-35-53-936.jpg> ;
+    dcat:byteSize 1083036 ;
+    dcat:mediaType "image/jpeg" ;
+    fdo:path "img/2026-01-03-14-35-53-936.jpg" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "e31317c94bcf3b89dc88734d316604547bfb51bd9350d9bff3363db89698cdbd"  .
+
+<urn:fdo-squirrel:dist/5a031855fc58a797> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/img%2F2026-01-03-14-35-56-274.jpg> ;
+    dcat:byteSize 1009272 ;
+    dcat:mediaType "image/jpeg" ;
+    fdo:path "img/2026-01-03-14-35-56-274.jpg" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "5a031855fc58a797533c8bd76cd65e5ab671abd3c1ae13e77053515356a77ff5"  .
+
+<urn:fdo-squirrel:dist/1d4307f42ae227f8> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/img%2F2026-01-03-14-36-00-936.jpg> ;
+    dcat:byteSize 670494 ;
+    dcat:mediaType "image/jpeg" ;
+    fdo:path "img/2026-01-03-14-36-00-936.jpg" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "1d4307f42ae227f8908d68467dcde453a01ab35d1c079bd9ff51e6de86b71c03"  .
+
+<urn:fdo-squirrel:dist/9f480866f3573013> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/img%2F2026-01-03-14-36-02-547.jpg> ;
+    dcat:byteSize 892473 ;
+    dcat:mediaType "image/jpeg" ;
+    fdo:path "img/2026-01-03-14-36-02-547.jpg" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "9f480866f35730138db51767f51e4119e7776240e62f2cb7dc78b310f180085f"  .
+
+<urn:fdo-squirrel:dist/037b867f03f279b9> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/img%2F2026-01-03-14-36-04-143.jpg> ;
+    dcat:byteSize 901401 ;
+    dcat:mediaType "image/jpeg" ;
+    fdo:path "img/2026-01-03-14-36-04-143.jpg" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "037b867f03f279b977548b3b3e893f32a04b218bc3f70ce7c95a2094babc82d3"  .
+
+<urn:fdo-squirrel:dist/6d161ce12257c873> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/img%2F2026-01-03-14-36-07-558.jpg> ;
+    dcat:byteSize 851430 ;
+    dcat:mediaType "image/jpeg" ;
+    fdo:path "img/2026-01-03-14-36-07-558.jpg" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "6d161ce12257c87367e1fc880510a1260055fcee5f026093a5f31b65bd85f2a3"  .
+
+<urn:fdo-squirrel:dist/d6c76af4108225b6> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/img%2F2026-01-03-14-36-09-632.jpg> ;
+    dcat:byteSize 914572 ;
+    dcat:mediaType "image/jpeg" ;
+    fdo:path "img/2026-01-03-14-36-09-632.jpg" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "d6c76af4108225b63589cfdc10c53cbd3576c5f063b60dc637faecfda5efd1ba"  .
+
+<urn:fdo-squirrel:dist/3a5190da646db1d7> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/img%2F2026-01-03-14-36-16-496.jpg> ;
+    dcat:byteSize 1085087 ;
+    dcat:mediaType "image/jpeg" ;
+    fdo:path "img/2026-01-03-14-36-16-496.jpg" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "3a5190da646db1d75929013cb8a4826feb3cfe49933c816314390d26c97f5e83"  .
+
+<urn:fdo-squirrel:dist/de7b72a40ede05ff> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/img%2F2026-01-03-14-36-20-981.jpg> ;
+    dcat:byteSize 1025214 ;
+    dcat:mediaType "image/jpeg" ;
+    fdo:path "img/2026-01-03-14-36-20-981.jpg" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "de7b72a40ede05ff223711c57e6287fc48e27dd728108748a08d1942218948e6"  .
+
+<urn:fdo-squirrel:dist/efb3665689e5cbc8> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/img%2F2026-01-03-14-36-24-989.jpg> ;
+    dcat:byteSize 1019847 ;
+    dcat:mediaType "image/jpeg" ;
+    fdo:path "img/2026-01-03-14-36-24-989.jpg" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "efb3665689e5cbc82790f10ec3d34f50ea50fe04afc3ce9a109a31f4a16b2500"  .
+
+<urn:fdo-squirrel:dist/d16c1445da3298f2> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/MD.cff> ;
+    dcat:byteSize 2245 ;
+    dcat:mediaType "text/yaml" ;
+    fdo:path "MD.cff" ;
+    fdo:role "metadata" ;
+    fdo:sha256 "d16c1445da3298f23ae7407e1e6bd91b9461e2f3f43834cfaa0adb695aa38d89"  .
+
+<https://doi.org/10.5281/zenodo.18732892> cff:keywords "Antholzer See" .
+<https://doi.org/10.5281/zenodo.18732892> cff:keywords "Steinmännchen" .
+<https://doi.org/10.5281/zenodo.18732892> cff:license "CC BY 4.0" .
+<https://doi.org/10.5281/zenodo.18732892> cff:license <https://spdx.org/licenses/CC-BY-4.0.html> .
+<https://doi.org/10.5281/zenodo.18732892> cff:license-url "CC BY 4.0" .
+<https://doi.org/10.5281/zenodo.18732892> cff:license-url <https://spdx.org/licenses/CC-BY-4.0.html> .
+<https://doi.org/10.5281/zenodo.18732892> codemeta:keywords "Antholzer See" .
+<https://doi.org/10.5281/zenodo.18732892> codemeta:keywords "Steinmännchen" .
+<https://doi.org/10.5281/zenodo.18732892> codemeta:license "CC BY 4.0" .
+<https://doi.org/10.5281/zenodo.18732892> codemeta:license <https://spdx.org/licenses/CC-BY-4.0.html> .
+<https://doi.org/10.5281/zenodo.18732892> dcat:keyword "Antholzer See" .
+<https://doi.org/10.5281/zenodo.18732892> dcat:keyword "Steinmännchen" .
+<https://doi.org/10.5281/zenodo.18732892> dct:license <https://spdx.org/licenses/CC-BY-4.0.html> .
+<https://doi.org/10.5281/zenodo.18732892> dct:subject "Antholzer See" .
+<https://doi.org/10.5281/zenodo.18732892> dct:subject "Steinmännchen" .
+<https://doi.org/10.5281/zenodo.18732892> schema:description "Steinmännchen / Lago di Anterselva (Antholzer See) 03.01.2026 14:36h" .
+<https://doi.org/10.5281/zenodo.18732892> schema:keywords "Antholzer See" .
+<https://doi.org/10.5281/zenodo.18732892> schema:keywords "Steinmännchen" .
+<https://doi.org/10.5281/zenodo.18732892> schema:license "CC BY 4.0" .
+<https://doi.org/10.5281/zenodo.18732892> schema:license <https://spdx.org/licenses/CC-BY-4.0.html> .
+<https://doi.org/10.5281/zenodo.18732892> wdt:P275 "CC BY 4.0" .
+<https://doi.org/10.5281/zenodo.18732892> wdt:P275 <https://spdx.org/licenses/CC-BY-4.0.html> .
+<https://doi.org/10.5281/zenodo.18732892> wdt:P921 "Antholzer See" .
+<https://doi.org/10.5281/zenodo.18732892> wdt:P921 "Steinmännchen" .
+
+<https://spdx.org/licenses/CC-BY-4.0.html> rdfs:label "CC BY 4.0" .

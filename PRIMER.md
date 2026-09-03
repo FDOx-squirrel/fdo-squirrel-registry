@@ -40,27 +40,55 @@ aktuellen Stand sehen.
   `https://w3id.org/fdo-squirrel/`.
 - Nebenausgaben je Paket: `rdf_modelling_report.json` und `.html`.
 
-**Vier Befunde, an denen die Registry ansetzt.** Sie sind der eigentliche Grund
-für die Schritte S3 bis S5 und stehen deshalb hier oben:
+**Befunde am echten Paket** (geprüft 2026-09-03 an `fdo-metadata.ttl` aus
+Record 18724635, 163 Tripel, aus `CO074-148----.zip`). Drei der vier Befunde
+des Auftaktchats stammten aus dem Demo-TTL in `fdo-squirrel/fdo/` und waren
+falsch — sie sind hier korrigiert, nicht gelöscht:
 
-1. **Kein CIDOC CRM.** Im erzeugten TTL kommt weder `crm:` noch `crmdig:` vor,
-   obwohl die Papiere CRM/CRMdig als Zielvokabular nennen. Der Anker fehlt
-   nicht in der Konzeption, sondern in der Ausgabe.
-2. **Paketrelative `urn:`-IRIs.** Distributionen tragen
-   `urn:fdo-squirrel:dist/<sha-prefix>`, ihr `dcat:accessURL` lautet
-   `urn:fdo-squirrel:content/<pfad im ZIP>`. Beides ist *innerhalb* eines Pakets
-   eindeutig und *über* Pakete hinweg nicht: zwei FDOs mit einer Datei
-   `CITATION.cff` kollidieren im accessURL. Ein Bundle, das die TTL nur
-   aneinanderhängt, verschmilzt fremde Dateien zu einem Knoten. Das ist der
-   Grund für die IRI-Umschreibung in S4 — die einzige erlaubte.
-3. **Blank Nodes für Personen.** `fdo:authors [ a schema:Person ; … ]` erzeugt
-   bei jedem Parsen neue IDs. Ohne Skolemisierung ist kein Bundle-Lauf mit dem
-   vorigen vergleichbar, und dieselbe Person erscheint n-mal.
-4. **Doppelte Aussagen aus zwei Quellen.** `dct:title` (aus `MD.cff`) und
-   `fdo:title` (aus `CITATION.cff`) stehen nebeneinander, ebenso `dct:license`
-   als IRI *und* als String `"CC-BY-4.0"`, `dct:spatial` als Wikidata-IRI *und*
-   als `"Ireland"`. Die Registry entscheidet, welche Aussage sie liest — sie
-   korrigiert nichts (A3).
+1. **Das TTL liegt *im* ZIP, nicht neben ihm.** Ein FDOx-Paket ist genau eine
+   Datei im Record: das ZIP mit Daten *und* Metadaten (hier ≈ 300 MB, das TTL
+   darin 10 073 Byte). Ein Ernter, der nur die Dateiliste des Records nach
+   `fdo-metadata.ttl` durchsucht, findet nichts und meldet den ganzen Bestand
+   als „übersprungen". Das ist der Grund für die vier Bezugswege in S2.
+2. **Paketrelative `urn:`-IRIs — bestätigt, und eine Familie mehr.**
+   11 × `urn:fdo-squirrel:dist/<sha-prefix>`, 11 × `urn:fdo-squirrel:content/<pfad>`
+   als `dcat:accessURL`, dazu 2 × `urn:fdo-squirrel:person/<16 hex>`. Alle drei
+   sind innerhalb eines Pakets eindeutig und über Pakete hinweg nicht: zwei FDOs
+   mit einer Datei `CITATION.cff` kollidieren im accessURL. Ein Bundle, das die
+   TTL nur aneinanderhängt, verschmilzt fremde Dateien zu einem Knoten. Das ist
+   der Grund für die IRI-Umschreibung in S4 — die einzige erlaubte.
+3. **~~Kein CIDOC CRM.~~ Korrigiert 2026-09-03: CRM ist da, aber mit
+   abgekürzten Klassen-IRIs.** Das FDO trägt `crm:E73` und `crmdig:D1`, jede
+   Distribution `crmdig:D9`. Die offiziellen IRIs heissen
+   `E73_Information_Object`, `D1_Digital_Object`, `D9_Data_Object`; die
+   verkürzten Formen lösen nicht auf und treffen kein Vokabular. S3 ist damit
+   nicht mehr „CRM einführen", sondern „IRIs geradeziehen und die Abbildung
+   vervollständigen" — die kleinere, aber unangenehmere Aufgabe, weil ein
+   falscher Anker wie ein vorhandener aussieht.
+4. **~~Blank Nodes für Personen.~~ Korrigiert 2026-09-03: es gibt im ganzen
+   TTL keinen einzigen Blank Node.** Personen sind
+   `urn:fdo-squirrel:person/<16 hex>` mit `schema:name "Nachname, Vorname"`.
+   Skolemisierung entfällt also; stattdessen ist die Personen-URN die dritte
+   Familie in Befund 2. Offen: ob derselbe Mensch in zwei Paketen denselben
+   Hash bekommt — dann führt eine reine Umschreibung je Record dieselbe Person
+   n-fach; ist zu prüfen, sobald ein zweites TTL vorliegt (S3).
+5. **Doppelte Aussagen aus mehreren Quellen — bestätigt, und breiter als
+   gedacht.** Die Lizenz steht 11-mal da, über sechs Prädikate (`dct:license`,
+   `cff:license`, `cff:license-url`, `codemeta:license`, `schema:license`,
+   `wdt:P275`), jeweils als IRI *und* als Zeichenkette `"CC-BY-NC-SA-4.0"` —
+   auch `cff:license-url`, wo die Zeichenkette keine URL ist. Keywords: 13
+   Aussagen über sechs Prädikate. `dct:description` steht viermal, mit
+   `"make 3d model available"`, `"good"` und `"low"` — das sind erkennbar
+   andere `MD.cff`-Felder (Zweck, Qualität, Auflösung), die in die Beschreibung
+   gelaufen sind. Die Registry entscheidet, welche Aussage sie liest, und
+   berichtet den Rest (A3).
+6. **Der Generator prägt IRIs in einem fremden Namensraum.** Geometrie und
+   Zeitraum hängen als `<DOI>_geom` und `<DOI>_temporal` unter `doi.org`,
+   gebildet durch Anhängen an die DOI-IRI. Sie sind eindeutig, aber sie
+   behaupten DOIs, die es nicht gibt. A3 erlaubt nur die Umschreibung von
+   `urn:` — ob diese beiden dazukommen, ist in S4 zu entscheiden.
+7. **`fdo:role` hat vier Werte, nicht drei:** `model` (4), `documentation` (3),
+   `metadata` (2), `data` (2). Das SKOS-Vokabular in S3 braucht vier Konzepte.
 
 **Was schon da ist und wiederverwendet wird.** `fdox_sparql_explorer/` in
 `fdo-squirrel` ist ein nbconvert-Export eines Notebooks mit rdflib in Python,
@@ -69,8 +97,34 @@ Registry-Seite beantworten soll. Die CSV-Crosswalks (`cwreference--cff.csv`,
 `schema-org--codemeta.csv`) sind das Muster, dem `crosswalks/fdo--crm.csv` in
 S3 folgt.
 
-**Erste Kandidaten für `registry/sources.json`** (aus den Papieren, jeweils zu
-prüfen ob `fdo-metadata.ttl` im Record liegt):
+8. **Die Kandidatenliste aus den Papieren besteht aus Concept-DOIs.**
+   `10.5281/zenodo.18724635` löst auf Record **18744133** auf, `…18732892` auf
+   `…18732893` (geprüft 2026-09-03 im ersten echten Lauf). Zenodo beantwortet
+   eine Concept-ID stillschweigend mit der neuesten Version — wer das nicht
+   prüft, pinnt nichts, sondern folgt einem beweglichen Ziel. Zwei Folgen:
+   Erstens muss die Liste einmal aufgelöst werden (`--resolve`). Zweitens ist
+   sie kürzer als sie aussieht: die für den Vortrag ergänzten DOIs sind zum
+   Teil genau die Versionen, auf die ältere Einträge zeigen — 18744133 steht in
+   der Liste und ist zugleich das Ziel von 18724635.
+
+9. **Ein Paket im Bestand hat keine `fdo-metadata.ttl`.** Record 18740524
+   („Heinz Eau", SquirrelBase Q55) liefert `Q55.zip` ohne TTL darin und ohne
+   Namensvariante. Der Ernter überspringt ihn mit Begründung — das ist der
+   erste echte Eintrag für den Qualitätsbericht aus S5 und eine Rückmeldung an
+   den Paketautor, keine Aufgabe der Registry (A3).
+
+**Zenodo ist nicht immer da.** Am 2026-09-03 antwortete `zenodo.org/api/` über
+Stunden mit `504 Gateway Time-out`, der Dateipfad mit `404`. Ein Ernter ohne
+Wiederholung und ohne lokalen Bezugsweg macht daraus einen leeren Bestand und
+eine kaputte Seite. Beides ist deshalb in S2 eingebaut, nicht nachgerüstet.
+
+**Erste Kandidaten für `registry/sources.json`** (aus den Papieren; nach
+Befund 8 sind das Concept-DOIs, die vor dem Pinnen aufzulösen sind):
+
+Aufgelöst am 2026-09-03 (`--resolve --write`): aus zehn Einträgen wurden
+**acht** Records, zwei waren Dubletten — `18369866` ist die Version von
+`18369865`, `18744133` die von `18724635`. Der gepinnte Stand steht in
+`registry/sources.json`; die Tabelle hier bleibt als Herkunftsnachweis stehen.
 
 | DOI | Was | Typ |
 |---|---|---|
@@ -161,6 +215,10 @@ Vier Eigenschaften, an denen sich alles Weitere messen lassen muss:
   Argumente erntet **nicht** — es baut aus dem, was da ist. Ernten ist ein
   bewusster Aufruf. Sonst ist kein Lauf reproduzierbar und keine
   Netzwerkstörung von einem Datenfehler zu unterscheiden.
+- **Maschinenlokale Pfade stehen in `config.local.json`**, nie in einer
+  versionierten Datei. `sources.json` ist kuratierter Bestand und muss auf
+  jedem Rechner gleich sein; wo die ZIP-Pakete zufällig liegen, geht nur den
+  einen Rechner etwas an. Die Datei ist in `.gitignore` und darf fehlen.
 - **Windows ist die Referenzplattform.** Alle Kommandos werden für `cmd`
   angegeben, jeder Befehl auf **einer** Zeile, keine Fortsetzungszeichen. Pfade
   über `pathlib`, keine Shell-Pipes im Python-Code, keine Abhängigkeit von
@@ -201,6 +259,17 @@ dem es zum ersten Mal wirkt.
 | Netzschritt im Standardlauf | nein — `harvest` trägt `network=True` und wird von `select()` aus dem Standardlauf herausgefiltert. Nur `python main.py --only harvest` holt | 2026-09-03 |
 | `dist/` in `.gitignore` | **nicht** ignoriert — es hält die zitierbaren Erzeugnisse. Ausgenommen `dist/pipeline_report.txt`: das Log trägt Laufzeiten und wäre bei jedem Lauf verändert | 2026-09-03 |
 | PRIMER-Sprache | deutsch — internes Arbeitsdokument | 2026-09-03 |
+| Bezugsweg für das TTL | vier Wege in fester Reihenfolge: Einzeldatei im Record → lokales ZIP → HTTP-Range in das ZIP auf Zenodo → Volldownload. Das TTL liegt im ZIP (A1, Befund 1), und 300 MB je Eintrag zu ziehen, um 10 kB zu lesen, ist keine Ernte | 2026-09-03 |
+| Prüfung des Geernteten | was prüfbar ist, wird geprüft und in `harvest.json` protokolliert: MD5 des ZIP gegen den Record, wo das ganze ZIP gelesen wurde; sonst CRC-32 des Members aus dem ZIP-Verzeichnis. `harvest.json` sagt, welches von beiden | 2026-09-03 |
+| Records ohne `fdo-metadata.ttl` | wie beschlossen übersprungen — und der Übersprung wird gemerkt: ein publizierter Zenodo-Record ist unveränderlich, ein zweiter Lauf fragt ihn nicht erneut. `--force` prüft trotzdem nach | 2026-09-03 |
+| Offline-Betrieb | `--offline` erntet ohne Netz aus lokalen ZIPs; ohne `record.json` wird der Eintrag mit leeren Record-Feldern und Warnung angelegt, damit S3/S4 weiterlaufen. Ein späterer Online-Lauf vervollständigt ihn und gilt bis dahin nie als „up to date" | 2026-09-03 |
+| Concept-DOI | bleibt kuratiert in `sources.json`; der Ernter prüft sie gegen den Record und meldet Abweichung oder Fehlen, überschreibt aber nichts | 2026-09-03 |
+| Concept-DOI statt Versions-DOI in `sources.json` | harter Fehler vor dem ersten Schreibzugriff. Zenodo löst eine Concept-ID auf die neueste Version auf; eine gepinnte Registry darf nicht stillschweigend einen Record aufnehmen, den sie nicht angefragt hat | 2026-09-03 |
+| Concept-DOI statt Versions-DOI beim Ernten | kein Abbruch: der Eintrag wird übersprungen, die aufgelöste Versions-DOI in `harvest.json` genannt, die Ernte läuft weiter. Ein falscher Pin unter zehn darf nicht neun andere verhindern | 2026-09-03, ersetzt den harten Fehler vom selben Tag |
+| Auflösen der Liste | `--resolve` fragt Zenodo, was jede DOI wirklich ist, und **schlägt** die korrigierte `sources.json` vor; erst `--resolve --write` schreibt. Doppelte, die dabei sichtbar werden, werden gemeldet und beim Schreiben zusammengeführt — der Kommentar des ersten Eintrags gewinnt | 2026-09-03 |
+| Netzausfall | ein nicht erreichbarer Record ist eine Aussage über Zenodo, nicht über den Record: nichts wird geschrieben, nichts gemerkt, der Lauf geht weiter. Nach drei Ausfällen in Folge bricht er ab und sagt, dass Zenodo nicht antwortet. Exitcode ≠ 0, damit die CI es merkt | 2026-09-03 |
+| Zenodo-Endpunkte | Zenodo läuft auf InvenioRDM; die Community-Suche liegt unter `/api/communities/<slug>/records`, die alte `?communities=`-Form antwortet mit 400. `check-updates` probiert die bekannten Formen der Reihe nach und schreibt in den Bericht, welche geantwortet hat. Ein Bericht ist keinen kaputten Build wert | 2026-09-03 |
+| `check-updates` | eigener Netzschritt, ändert nichts. Meldet neuere Versionen gepinnter Records *und* Records der Zenodo-Community `squirrel-fdo`, die nicht in `sources.json` stehen | 2026-09-03 |
 
 ## A5. Was in welchem Chat hochgeladen wird
 
@@ -219,9 +288,14 @@ powershell -NoProfile -Command "Compress-Archive -Path 'bundle\fdo-registry' -De
 
 Robocopy meldet Exitcode 1 bei Erfolg.
 
-**Für S2 und S3 zusätzlich nützlich:** ein echtes `fdo-metadata.ttl` aus einem
-Zenodo-Record, nicht das Demo-TTL aus `fdo-squirrel/fdo/`. Das Demo mischt
-Software- und 3D-Metadaten und taugt nicht als Referenz für die Abbildung.
+**Für S3 und S4:** ein echtes `fdo-metadata.ttl`, nicht das Demo-TTL aus
+`fdo-squirrel/fdo/` — das Demo hat drei der vier Befunde in A1 falsch
+suggeriert. Am besten zwei aus verschiedenen Paketen, weil erst der Vergleich
+zeigt, ob die Personen-URN über Pakete hinweg stabil ist (A1, Befund 4).
+
+Nach einer lokalen Ernte liegen sie ohnehin unter `data/raw/fdo/<id>/` und
+kommen mit dem Bundle mit; `data/raw/` ist klein, weil dort nur TTL und
+`record.json` landen, nie die Pakete selbst.
 
 **Nicht hochladen:** `.venv/`, `.git/`, heruntergeladene ZIP-Pakete,
 `config.local.json`.
@@ -255,7 +329,7 @@ Repräsentation aus. Für echte Content Negotiation braucht es w3id-seitige
 |---|---|---|---|
 | S0 | Festlegungen, kein Code | — | teilweise erledigt 2026-09-03 |
 | S1 | Repo-Skelett und Orchestrator | S0 | erledigt 2026-09-03 |
-| S2 | Ernte aus Zenodo | S1 | offen |
+| S2 | Ernte aus Zenodo | S1 | erledigt 2026-09-03 |
 | S3 | Crosswalk FDOx → CIDOC CRM | S0, S2 (ein echtes TTL) | offen |
 | S4 | Bundle-Build als DCAT-Katalog | S2, S3 | offen |
 | S5 | SHACL-Gate und Qualitätsbericht | S4 | offen |
@@ -399,7 +473,7 @@ Sandkasten hatte `rdflib` bereits, die übrigen vier sind nur deklariert.
 **Ziel:** aus einer DOI-Liste ein lokales, unverändertes Abbild der
 FDO-Metadaten.
 
-**Uploads:** keine, aber Netz.
+**Uploads:** keine, aber Netz — oder die Pakete lokal (`--offline`).
 
 **`registry/sources.json`.** Bewusst schmal — alles Beschreibende steht im
 FDO selbst und wird nicht doppelt gepflegt:
@@ -421,28 +495,145 @@ FDO selbst und wird nicht doppelt gepflegt:
 `note` ist für Menschen und geht **nicht** in den Bundle — sonst konkurriert sie
 mit `dct:description` aus dem FDO.
 
+**Vier Bezugswege für das TTL, in dieser Reihenfolge** (A4). Das TTL liegt im
+Paket-ZIP, nicht daneben (A1, Befund 1):
+
+| # | Weg | wann | Prüfung |
+|---|---|---|---|
+| a | Einzeldatei `fdo-metadata.ttl` im Record | wenn der Autor sie zusätzlich hochlädt | MD5 gegen den Record |
+| b | lokales Paket-ZIP (`--zip <id>=<pfad>`, oder `package_dir` aus `config.local.json`) | wenn das Paket schon auf der Platte liegt | MD5 des ZIP gegen den Record, CRC-32 des Members |
+| c | HTTP-Range in das ZIP auf Zenodo | Regelfall | CRC-32 des Members aus dem ZIP-Verzeichnis |
+| d | Volldownload des ZIP (`--full`, oder wenn der Server keine Ranges liefert) | Notnagel | MD5 des ZIP, CRC-32 des Members |
+
+Weg c ist der Grund, warum die Ernte praktikabel ist: `zipfile` parst
+Zentralverzeichnis und Eintrag, `py/package_zip.py` macht eine URL über
+Range-Requests seekbar. Gemessen: **ein bis zwei Requests und 10 kB statt
+300 MB je Paket.** Die MD5, die Zenodo veröffentlicht, gilt für das ganze ZIP
+und kann auf diesem Weg nicht geprüft werden — dafür prüft das ZIP-Format den
+Member selbst per CRC-32, und `harvest.json` schreibt hin, welche der beiden
+Prüfungen gelaufen ist. Eine Prüfsumme, von der man nicht weiss, was sie
+abdeckt, ist keine.
+
 **Ablauf je Eintrag.**
 
-1. Aus der Versions-DOI die Zenodo-Record-ID ableiten (Suffix nach
-   `10.5281/zenodo.`), `https://zenodo.org/api/records/<id>` abrufen.
-2. `record.json` unverändert nach `data/raw/fdo/<id>/` schreiben.
-3. In `files` nach `fdo-metadata.ttl` suchen (Name exakt; Varianten protokollieren,
-   nicht raten). Fehlt sie: Eintrag überspringen, Grund in `harvest.json`
-   festhalten, Ernte fortsetzen. Ein fehlendes TTL ist ein Befund, kein Abbruch.
-4. Datei herunterladen, SHA-256 bilden und gegen `checksum` aus dem Record
-   prüfen. Bei Abweichung: harter Fehler.
-5. `harvest.json` schreiben: Record-ID, beide DOIs, Titel, `created`/`updated`
-   aus dem Record, Dateiname, Prüfsumme, Bezugsdatum.
+1. Record-ID aus der Versions-DOI, `https://zenodo.org/api/records/<id>`
+   abrufen, `record.json` unverändert nach `data/raw/fdo/<id>/`.
+2. Löst Zenodo auf eine andere ID auf, war es eine Concept-DOI: **harter
+   Fehler vor dem ersten Schreibzugriff** (A4).
+3. TTL über die Wege a–d beziehen. Namensvarianten werden protokolliert, nicht
+   geraten. Fehlt es: Eintrag überspringen, Grund in `harvest.json`, Ernte
+   fortsetzen. Ein fehlendes TTL ist ein Befund, kein Abbruch.
+4. `harvest.json` schreiben: beide DOIs, Titel, `created`/`updated`, Paketname,
+   Weg, was geprüft wurde, SHA-256 des Members, Bezugsdatum.
 
-**Wiederholte Läufe laden nicht neu.** Liegt das TTL mit passender Prüfsumme
-bereits vor, wird es übersprungen. `--force` erzwingt den Neuabruf.
+**Vor dem ersten Ernten: auflösen.** Eine frisch zusammengetragene Liste
+enthält Concept-DOIs (A1, Befund 8). `python py\step_harvest.py --resolve`
+fragt für jeden Eintrag nach, was Zenodo daraus macht, meldet Doppelte und
+schlägt die korrigierte Datei vor; `--write` schreibt sie. Danach steht in
+`sources.json` je Eintrag die Versions-DOI im Pin und die Concept-DOI daneben,
+und beide sind geprüft statt geraten.
 
-**`check-updates`** vergleicht die gepinnte Version mit der neuesten Version des
-Concept-Records und schreibt einen Bericht. Es ändert `sources.json` nicht — das
+**Wiederholte Läufe holen nichts.** Liegt das TTL mit passender SHA-256 vor,
+wird übersprungen; ein einmal übersprungener Record wird nicht erneut
+angefragt, weil ein publizierter Zenodo-Record unveränderlich ist. `--force`
+prüft trotzdem nach. Ein offline ohne `record.json` angelegter Eintrag gilt nie
+als „up to date".
+
+**Netzverhalten.** Fünf Versuche mit 2/5/10/20 s Pause bei 5xx und Timeouts;
+4xx wird nicht wiederholt, weil ein 404 eine Aussage über den Record ist und
+keine über das Netz. Bleibt ein Record unerreichbar, wird für ihn nichts
+geschrieben und nichts gemerkt, und der Lauf geht zum nächsten; nach drei
+Ausfällen in Folge bricht er mit einer Erklärung ab (A4). Lange Wartezeiten
+sind hier kein Vorteil: wenn Zenodo einen Tag lang steht, verzögert jede
+Sekunde Backoff nur die Meldung, die das sagt.
+
+**`check-updates`** ist ein eigener Netzschritt und ändert nichts: er meldet
+neuere Versionen der gepinnten Records (über `/versions/latest`, also ohne
+Concept-DOI) und Records der Community `squirrel-fdo`, die nicht in
+`sources.json` stehen. Bericht nach `data/raw/check-updates.json`. Das
 Nachziehen einer Version ist eine kuratorische Entscheidung.
 
 **Abnahme:** alle Einträge aus A1 geerntet oder mit Grund übersprungen; zweiter
-Lauf lädt nichts nach und lässt `git status` sauber.
+Lauf holt nichts nach und lässt `git status` sauber.
+
+### Erledigt 2026-09-03
+
+Ernter und `check-updates` stehen, geprüft gegen einen lokalen HTTP-Server mit
+echtem 3-MB-ZIP und dem echten `fdo-metadata.ttl` aus Record 18724635. Zehn
+Fälle: Range-Weg, TTL im Unterordner, ZIP ohne TTL, Einzeldatei im Record,
+zweiter Lauf ohne Request, lokales ZIP über `package_dir`, `--offline --zip`
+ohne `record.json` mit anschliessendem Online-Lauf, Server ohne Range-Unterstützung,
+`--full`, falsche MD5.
+
+Was beim Bauen herauskam:
+
+- **Der Anlass für den Range-Weg war ein Ausfall.** Zenodo antwortete den
+  ganzen Tag mit 504, und der Versuch, das TTL über den Dateipfad des Records
+  zu ziehen, lieferte 404 — weil es diesen Pfad nicht gibt (A1, Befund 1). Der
+  Ausfall hat den Entwurfsfehler sichtbar gemacht, den ein guter Tag verdeckt
+  hätte.
+- **CRC-32 als Gegenprobe funktioniert.** Der aus dem entfernten ZIP gelesene
+  Member hat `b7d449a9` — dieselbe Prüfsumme, die 7-Zip für die Datei im
+  lokalen Paket anzeigt. Damit ist der Range-Weg nicht nur schnell, sondern
+  gegen eine unabhängige Angabe geprüft.
+- **Ein übersprungener Record muss gemerkt werden.** Ohne das fragt jeder Lauf
+  alle TTL-losen Records erneut an — bei einem Bestand, der wächst, der
+  teuerste Teil der Ernte, und der einzige ohne Ertrag.
+- **`registry/sources.json` ist mit zehn Einträgen gefüllt**, Concept-DOIs
+  noch `null`. Der erste Online-Lauf meldet je Record die Concept-DOI aus dem
+  Record als Warnung; sie wandert von Hand in die Datei, statt geraten zu
+  werden.
+### Nachtrag 2026-09-03, erster echter Lauf
+
+Der erste Lauf auf der Zielmaschine hat zwei Dinge erledigt, die im Sandkasten
+nicht zu sehen waren:
+
+- **Die Kandidatenliste besteht aus Concept-DOIs** (A1, Befund 8). Der harte
+  Fehler, den S2 dafür ursprünglich vorsah, war die falsche Reaktion: er hat
+  den Lauf beim ersten Eintrag beendet und die neun anderen nie erreicht. Jetzt
+  wird übersprungen, benannt und weitergemacht, und `--resolve` macht aus dem
+  Befund eine Änderung an `sources.json`, die man vorher liest.
+- **Ein Ausfall darf nicht als Abbruch enden.** `check-updates` lief in einen
+  Traceback und dann in ein Ctrl-C, weil jeder Record einzeln fünfmal auf ein
+  totes Zenodo wartete. Beide Netzschritte fangen den Ausfall jetzt je Eintrag
+  ab, melden ihn im Bericht als „unerreichbar" — was etwas anderes ist als „es
+  gibt nichts Neues" — und halten nach drei Fehlschlägen an.
+
+### Nachtrag 2026-09-03, zweiter echter Lauf
+
+Die Ernte läuft. **Acht Records, sieben geerntet, einer übersprungen, 5,5
+Sekunden** — alle sieben über den Range-Weg. Damit ist der teuerste Teil des
+Entwurfs auch der schnellste: sieben Pakete mit zusammen mehreren Gigabyte
+kosten so viel wie ein paar Dutzend HTTP-Requests.
+
+- **`--resolve` hat die Liste halbiert, wo sie doppelt war** (A1, Befund 8).
+  Zehn Einträge, acht Records, zwei Dubletten benannt und beim Schreiben
+  zusammengeführt.
+- **Record 18740524 hat kein TTL** (A1, Befund 9). Der erste Eintrag für den
+  Qualitätsbericht — genau der Fall, für den „übersprungen mit Grund" statt
+  „Abbruch" gebaut wurde.
+- **Die Community-Suche lief auf 400.** Die benutzte URL war die alte
+  Zenodo-Form; Zenodo ist inzwischen InvenioRDM. Jetzt werden die bekannten
+  Endpunkte der Reihe nach probiert, und ein Fehlschlag aller drei macht den
+  Bericht unvollständig statt den Schritt kaputt. Ein 4xx ist seitdem ein
+  eigener Fehlertyp: der Server hat verstanden und nein gesagt, das ist etwas
+  anderes als ein Ausfall.
+
+**Die Community-Suche findet ihren Endpunkt noch nicht.** Alle bekannten Formen
+antworten mit **400**, auch die InvenioRDM-Pfadform — und 400 heisst, dass der
+Pfad abgelehnt wird, nicht die Community, sonst käme 404. Der Schritt läuft
+korrekt weiter und meldet den Bericht als unvollständig; das ist das gewünschte
+Verhalten, aber es ist noch nicht die Antwort. Sie steht in Teil D, weil sie mit
+Ausprobieren an einer Zenodo-URL zu klären ist und nicht am Quelltext.
+
+**Offen aus diesem Lauf:** die Kommentare in `sources.json` stammen noch aus
+der Kandidatenliste; für `18744583` steht dort „added for the talk", während
+der Record `CHUIS/1` heisst. Kosmetik, aber sie steht im kuratierten Kern.
+
+- **Nicht geprüft:** ein echter Lauf gegen zenodo.org. Der Sandkasten darf
+  nicht ins Netz, und Zenodo war ohnehin nicht erreichbar. Was hier gegen einen
+  lokalen Server läuft, kann an einer Eigenheit der echten API noch scheitern —
+  der erste Lauf auf deiner Maschine ist die eigentliche Abnahme.
 
 ## S3 — Crosswalk FDOx → CIDOC CRM
 
@@ -694,6 +885,29 @@ Graphen unter `https://graph.nfdi4objects.net/collection/<n>`.
 - **`fdo:RegistryFDO`.** Falls S8 einen neuen FDO-Typ braucht, gehört er nach
   `fdo-squirrel`, nicht hierher — und dann ist die Beschlusslage in A4 zum
   Ort des Ankers ohnehin nochmal zu betrachten.
+- **Endpunkt der Community-Suche.** Vier Formen, alle 400 (Stand 2026-09-03).
+  Zu klären mit drei Aufrufen, jeder auf einer Zeile:
+
+  ```cmd
+  curl -s -o nul -w "%{http_code} communities/slug\n" https://zenodo.org/api/communities/squirrel-fdo
+  curl -s -o nul -w "%{http_code} communities/slug/records\n" https://zenodo.org/api/communities/squirrel-fdo/records
+  curl -s -o nul -w "%{http_code} records?q=slug\n" "https://zenodo.org/api/records?q=parent.communities.entries.slug:%22squirrel-fdo%22"
+  ```
+
+  Antwortet die erste Zeile mit 200 und die zweite mit 400, liegt es am
+  Unterpfad; antwortet auch die erste nicht, stimmt der Slug nicht — die
+  Community-URL im Browser sagt dann, wie er wirklich heisst. Was 200 liefert,
+  wandert als erster Eintrag in `COMMUNITY_SEARCH`. Bis dahin ist die Ernte
+  davon unberührt: die Suche ergänzt `sources.json` um Vorschläge, sie füttert
+  sie nicht.
+- **Personen-URN über Paketgrenzen.** Ist `urn:fdo-squirrel:person/<hash>` für
+  denselben Menschen in zwei Paketen gleich, wäre eine Umschreibung je Record
+  falsch — sie würde eine Person vervielfachen, die die Quelle bereits
+  zusammengeführt hat. Entscheidet sich an einem zweiten TTL, spätestens in S3.
+- **`<DOI>_geom` und `<DOI>_temporal`.** Vom Generator geprägte IRIs in einem
+  fremden Namensraum (A1, Befund 6). Umschreiben verletzt A3, Stehenlassen
+  veröffentlicht DOI-artige IRIs, die nicht auflösen. In S4 zu entscheiden;
+  die saubere Lösung liegt upstream.
 - **Rückfluss nach `fdo-squirrel`.** Der Beschluss lautet „Registry zuerst,
   upstream später". Wann später ist, hängt an S3: sobald die Abbildung ein
   echtes Paket unbeanstandet durchs Gate bringt, ist sie reif für den

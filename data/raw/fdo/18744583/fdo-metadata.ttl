@@ -1,0 +1,162 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix fdo: <https://w3id.org/fdo-squirrel/> .
+@prefix schema: <https://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix geosparql: <http://www.opengis.net/ont/geosparql#> .
+@prefix sf: <http://www.opengis.net/ont/sf#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix codemeta: <https://codemeta.github.io/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix cff: <https://citation-file-format.github.io/terms/> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix wdt: <http://www.wikidata.org/prop/direct/> .
+@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix crmdig: <http://www.ics.forth.gr/isl/CRMdig/> .
+<https://doi.org/10.5281/zenodo.18369720> a dcat:Dataset, crmdig:D1, crm:E73, fdo:3DDataFDO ;
+    dct:description "Ogham Stone CHUIS/1 located in the Cork Public Museum" ;
+    dct:hasVersion "1.0" ;
+    dct:creator <urn:fdo-squirrel:person/8e916ce55425de21> ;
+    dct:license <https://spdx.org/licenses/CC-BY-SA-4.0.html> ;
+    dct:publisher <http://www.wikidata.org/entity/Q73901970> ;
+    dct:title "CHUIS/1" ;
+    dcat:distribution <urn:fdo-squirrel:dist/a38bdba40d281c5f>,<urn:fdo-squirrel:dist/ad106454448bfc9b>,<urn:fdo-squirrel:dist/e8b0736ae7265071>,<urn:fdo-squirrel:dist/23b0e534f5a9b40f>,<urn:fdo-squirrel:dist/1ffe5e794229db4f>,<urn:fdo-squirrel:dist/12e586334338f444>,<urn:fdo-squirrel:dist/f54cceb345af74e3>,<urn:fdo-squirrel:dist/6acdb6353bc97f82>,<urn:fdo-squirrel:dist/6605246a5cff03ba>,<urn:fdo-squirrel:dist/1c2b731eae72334c> ;
+    dct:created "2024-06-06"^^xsd:date ;
+    dct:issued "2024-06-09"^^xsd:date ;
+    dct:modified "2024-06-19"^^xsd:date ;
+    schema:funding "Community Project" ;
+    dct:spatial <https://www.openstreetmap.org/node/11966430251> ;
+    schema:latitude "51.8961"^^xsd:decimal ;
+    schema:longitude "-8.4943"^^xsd:decimal ;
+    fdo:context "Ogham Stones in the Wild and in Museums in Ireland bearing Ogham inscriptions." ;
+    dct:type <http://www.wikidata.org/entity/Q2016147> ;
+    dct:subject <http://www.wikidata.org/entity/Q22731> ;
+    dct:description "make 3d model available" ;
+    dct:description "good" ;
+    dct:description "low" ;
+    dct:provenance "{\"software\": \"KIRI Engine\", \"steps\": \"Take photos, align photos; build dense cloud; generate mesh; texture; export.\"}"  .
+
+<https://doi.org/10.5281/zenodo.18369720> geosparql:hasGeometry <https://doi.org/10.5281/zenodo.18369720_geom> .
+<https://doi.org/10.5281/zenodo.18369720_geom> a sf:Point .
+<https://doi.org/10.5281/zenodo.18369720_geom> geosparql:asWKT "<http://www.opengis.net/def/crs/EPSG/0/4326> POINT(-8.4943 51.8961)"^^geosparql:wktLiteral .
+<https://doi.org/10.5281/zenodo.18369720> dct:temporal <https://doi.org/10.5281/zenodo.18369720_temporal> .
+<https://doi.org/10.5281/zenodo.18369720_temporal> a dct:PeriodOfTime .
+<https://doi.org/10.5281/zenodo.18369720_temporal> owl:sameAs <http://chronontology.dainst.org/period/aChcHZdlBhkt> .
+<https://doi.org/10.5281/zenodo.18369720_temporal> rdfs:label "Ogham stone inscriptions (ca. 4th–7th century CE)" .
+<https://doi.org/10.5281/zenodo.18369720_temporal> dcat:startDate "300"^^xsd:integer .
+<https://doi.org/10.5281/zenodo.18369720_temporal> dcat:endDate "699"^^xsd:integer .
+
+<http://www.wikidata.org/entity/Q73901970> a schema:Organization ;
+    schema:name "Research Squirrel Engineers Network" .
+
+<urn:fdo-squirrel:person/8e916ce55425de21> a schema:Person ;
+    schema:name "Thiery, Florian" .
+
+<urn:fdo-squirrel:dist/a38bdba40d281c5f> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/CHUIS_1.jpg> ;
+    dcat:byteSize 1453939 ;
+    dcat:mediaType "image/jpeg" ;
+    fdo:path "CHUIS_1.jpg" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "a38bdba40d281c5f0237a2f358ba32abe19863974d6fdc972d1bb0c1232d5155"  .
+
+<urn:fdo-squirrel:dist/ad106454448bfc9b> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/CHUIS_1.nxs> ;
+    dcat:byteSize 77169408 ;
+    dcat:mediaType "application/octet-stream" ;
+    fdo:path "CHUIS_1.nxs" ;
+    fdo:role "model" ;
+    fdo:sha256 "ad106454448bfc9b3a31e4151c7d99b9f90eda0c50ce4f7d6cd193e7ceba314f"  .
+
+<urn:fdo-squirrel:dist/e8b0736ae7265071> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/CHUIS_1.nxz> ;
+    dcat:byteSize 18801920 ;
+    dcat:mediaType "application/octet-stream" ;
+    fdo:path "CHUIS_1.nxz" ;
+    fdo:role "model" ;
+    fdo:sha256 "e8b0736ae7265071bfff4284129ab01a97aa1b473e603a62e395057a47f43857"  .
+
+<urn:fdo-squirrel:dist/23b0e534f5a9b40f> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/CHUIS_1.ply> ;
+    dcat:byteSize 95846610 ;
+    dcat:mediaType "application/octet-stream" ;
+    fdo:path "CHUIS_1.ply" ;
+    fdo:role "model" ;
+    fdo:sha256 "23b0e534f5a9b40f21cfceeeda0a2008b0b601173a55a7507c3e386fd115bfa0"  .
+
+<urn:fdo-squirrel:dist/1ffe5e794229db4f> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/CITATION.cff> ;
+    dcat:byteSize 253 ;
+    dcat:mediaType "text/yaml" ;
+    fdo:path "CITATION.cff" ;
+    fdo:role "metadata" ;
+    fdo:sha256 "1ffe5e794229db4fcdf67b9974a176d59c0d0001f8d1a5ea762c85a800fe17a9"  .
+
+<urn:fdo-squirrel:dist/12e586334338f444> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/cork_public_museum_chuis1.glb> ;
+    dcat:byteSize 56819948 ;
+    dcat:mediaType "model/gltf-binary" ;
+    fdo:path "cork_public_museum_chuis1.glb" ;
+    fdo:role "model" ;
+    fdo:sha256 "12e586334338f44421d20d8bd5d2dbeabe61c0fbb7222560c552ba7e40602b61"  .
+
+<urn:fdo-squirrel:dist/f54cceb345af74e3> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/fdo-metadata.ttl> ;
+    dcat:byteSize 8318 ;
+    dcat:mediaType "application/octet-stream" ;
+    fdo:path "fdo-metadata.ttl" ;
+    fdo:role "data" ;
+    fdo:sha256 "f54cceb345af74e3ec9e762d1655c552a00bf28832104232e0b1e903dd3c96ca"  .
+
+<urn:fdo-squirrel:dist/6acdb6353bc97f82> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/MD.cff> ;
+    dcat:byteSize 2178 ;
+    dcat:mediaType "text/yaml" ;
+    fdo:path "MD.cff" ;
+    fdo:role "metadata" ;
+    fdo:sha256 "6acdb6353bc97f8213f6da5eccddc6f0af9a7668332e99823e27c5a1994b6434"  .
+
+<urn:fdo-squirrel:dist/6605246a5cff03ba> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/rdf_modelling_report.html> ;
+    dcat:byteSize 16747 ;
+    dcat:mediaType "text/html" ;
+    fdo:path "rdf_modelling_report.html" ;
+    fdo:role "data" ;
+    fdo:sha256 "6605246a5cff03bacd3045c913abec574f225e372bc3f660abc794b6f95687bd"  .
+
+<urn:fdo-squirrel:dist/1c2b731eae72334c> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/rdf_modelling_report.json> ;
+    dcat:byteSize 13587 ;
+    dcat:mediaType "application/json" ;
+    fdo:path "rdf_modelling_report.json" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "1c2b731eae72334cc8d5df8b1492b24880440646b1364ee5c6f6383c0dbe6efb"  .
+
+<https://doi.org/10.5281/zenodo.18369720> cff:keywords "Cork Public Museum" .
+<https://doi.org/10.5281/zenodo.18369720> cff:keywords "Ogham Stone" .
+<https://doi.org/10.5281/zenodo.18369720> cff:license "CC-BY-SA-4.0" .
+<https://doi.org/10.5281/zenodo.18369720> cff:license <https://spdx.org/licenses/CC-BY-SA-4.0.html> .
+<https://doi.org/10.5281/zenodo.18369720> cff:license-url "CC-BY-SA-4.0" .
+<https://doi.org/10.5281/zenodo.18369720> cff:license-url <https://spdx.org/licenses/CC-BY-SA-4.0.html> .
+<https://doi.org/10.5281/zenodo.18369720> codemeta:keywords "Cork Public Museum" .
+<https://doi.org/10.5281/zenodo.18369720> codemeta:keywords "Ogham Stone" .
+<https://doi.org/10.5281/zenodo.18369720> codemeta:license "CC-BY-SA-4.0" .
+<https://doi.org/10.5281/zenodo.18369720> codemeta:license <https://spdx.org/licenses/CC-BY-SA-4.0.html> .
+<https://doi.org/10.5281/zenodo.18369720> dcat:keyword "Cork Public Museum" .
+<https://doi.org/10.5281/zenodo.18369720> dcat:keyword "Ogham Stone" .
+<https://doi.org/10.5281/zenodo.18369720> dct:license <https://spdx.org/licenses/CC-BY-SA-4.0.html> .
+<https://doi.org/10.5281/zenodo.18369720> dct:subject "Cork Public Museum" .
+<https://doi.org/10.5281/zenodo.18369720> dct:subject "Ogham Stone" .
+<https://doi.org/10.5281/zenodo.18369720> schema:description "Ogham Stone CHUIS/1 located in the Cork Public Museum" .
+<https://doi.org/10.5281/zenodo.18369720> schema:keywords "Cork Public Museum" .
+<https://doi.org/10.5281/zenodo.18369720> schema:keywords "Ogham Stone" .
+<https://doi.org/10.5281/zenodo.18369720> schema:license "CC-BY-SA-4.0" .
+<https://doi.org/10.5281/zenodo.18369720> schema:license <https://spdx.org/licenses/CC-BY-SA-4.0.html> .
+<https://doi.org/10.5281/zenodo.18369720> wdt:P275 "CC-BY-SA-4.0" .
+<https://doi.org/10.5281/zenodo.18369720> wdt:P275 <https://spdx.org/licenses/CC-BY-SA-4.0.html> .
+<https://doi.org/10.5281/zenodo.18369720> wdt:P921 "Cork Public Museum" .
+<https://doi.org/10.5281/zenodo.18369720> wdt:P921 "Ogham Stone" .
+
+<https://spdx.org/licenses/CC-BY-SA-4.0.html> rdfs:label "CC-BY-SA-4.0" .

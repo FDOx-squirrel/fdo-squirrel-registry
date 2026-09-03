@@ -14,6 +14,7 @@ Steps that reach the network are NOT part of the default run. They carry
 `network=True` below and are only executed when named explicitly, e.g.
 
     python main.py --only harvest
+    python main.py --only check-updates
 
 The steps mirror Teil B of PRIMER.md; each is implemented in the step it is
 named after and reports "skipped (no input)" until then.
@@ -40,6 +41,7 @@ REPORT = ROOT / "dist" / "pipeline_report.txt"
 # name        module (in py/)   description                                   network
 STEPS: list[tuple[str, str, str, bool]] = [
     ("harvest", "step_harvest", "S2  fetch FDOx metadata from Zenodo", True),
+    ("check-updates", "step_check_updates", "S2  report newer versions and unlisted community records", True),
     ("bridge", "step_bridge", "S3  crosswalks/fdo--crm.csv -> crm_bridge.ttl", False),
     ("bundle", "step_bundle", "S4  build dist/fdo-registry.ttl", False),
     ("validate", "step_validate", "S5  SHACL gate and quality report", False),

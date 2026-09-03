@@ -1,0 +1,1112 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix fdo: <https://w3id.org/fdo-squirrel/> .
+@prefix schema: <https://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix geosparql: <http://www.opengis.net/ont/geosparql#> .
+@prefix sf: <http://www.opengis.net/ont/sf#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix codemeta: <https://codemeta.github.io/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix cff: <https://citation-file-format.github.io/terms/> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix wdt: <http://www.wikidata.org/prop/direct/> .
+
+<https://doi.org/10.5281/zenodo.18369156> a dcat:Dataset, crmdig:D1, crm:E73, fdo:SoftwareFDO ;
+    dct:description "Ogham Analysis with R" ;
+    dct:hasVersion "1.1" ;
+    dct:creator <https://orcid.org/0000-0003-4696-2101> ;
+    dct:license <https://spdx.org/licenses/MIT.html> ;
+    dct:publisher <http://www.wikidata.org/entity/Q73901970> ;
+    dct:title "Ogham Analysis" ;
+    dcat:keyword <http://www.wikidata.org/entity/Q2016147>,
+        "Ogham Stone" ;
+    dct:subject <http://www.wikidata.org/entity/Q2016147>,
+        "Ogham Stone" ;
+    dcat:distribution <urn:fdo-squirrel:dist/b0ab81060ce9c20a>,
+        <urn:fdo-squirrel:dist/ff6b0fca99259e62>,
+        <urn:fdo-squirrel:dist/8f2bf0b7a494ee73>,
+        <urn:fdo-squirrel:dist/187aa4f36e03a8dd>,
+        <urn:fdo-squirrel:dist/e3b0c44298fc1c14>,
+        <urn:fdo-squirrel:dist/9936810ece1e6a93>,
+        <urn:fdo-squirrel:dist/ca9a05275f2e1a50>,
+        <urn:fdo-squirrel:dist/04c8be0df7da865e>,
+        <urn:fdo-squirrel:dist/ff4a917c2efb1cba>,
+        <urn:fdo-squirrel:dist/108ff00f5b665a97>,
+        <urn:fdo-squirrel:dist/18f352260da6e68a>,
+        <urn:fdo-squirrel:dist/413b75844b9379a1>,
+        <urn:fdo-squirrel:dist/611e28f71ab31828>,
+        <urn:fdo-squirrel:dist/a68f7d5699881574>,
+        <urn:fdo-squirrel:dist/2c057eaf3058d330>,
+        <urn:fdo-squirrel:dist/413b75844b9379a1>,
+        <urn:fdo-squirrel:dist/9eba05872ec34e4c>,
+        <urn:fdo-squirrel:dist/4f191746e5e730b7>,
+        <urn:fdo-squirrel:dist/3ad3031f5503a440>,
+        <urn:fdo-squirrel:dist/ab704a1f57ee79c9>,
+        <urn:fdo-squirrel:dist/3259f0e55290a82b>,
+        <urn:fdo-squirrel:dist/15ac9e8f6be81acd>,
+        <urn:fdo-squirrel:dist/cac55dac62647d3d>,
+        <urn:fdo-squirrel:dist/3ad3031f5503a440>,
+        <urn:fdo-squirrel:dist/16898ebf86304289>,
+        <urn:fdo-squirrel:dist/3259f0e55290a82b>,
+        <urn:fdo-squirrel:dist/cf63ea771896fccc>,
+        <urn:fdo-squirrel:dist/53939a660e294707>,
+        <urn:fdo-squirrel:dist/3ad3031f5503a440>,
+        <urn:fdo-squirrel:dist/4b4f72bf36eacebf>,
+        <urn:fdo-squirrel:dist/3259f0e55290a82b>,
+        <urn:fdo-squirrel:dist/08e341606e8391e4>,
+        <urn:fdo-squirrel:dist/8b0be2ad97dd484a>,
+        <urn:fdo-squirrel:dist/0874a8fe36effb87>,
+        <urn:fdo-squirrel:dist/6a4ed9b0eef528f7>,
+        <urn:fdo-squirrel:dist/57b777ba3001d103>,
+        <urn:fdo-squirrel:dist/e414d276023e9cba>,
+        <urn:fdo-squirrel:dist/25b59cf738289517>,
+        <urn:fdo-squirrel:dist/92c65f20b05ecc09>,
+        <urn:fdo-squirrel:dist/aa06c90b38371573>,
+        <urn:fdo-squirrel:dist/86dcad5417fdad6e>,
+        <urn:fdo-squirrel:dist/f1db72c6480807c3>,
+        <urn:fdo-squirrel:dist/492af64b287f56e1>,
+        <urn:fdo-squirrel:dist/d881cb78c67e78c6>,
+        <urn:fdo-squirrel:dist/4059bb2508fdbfe7>,
+        <urn:fdo-squirrel:dist/01b99fd170c212c0>,
+        <urn:fdo-squirrel:dist/f7809c54d9216ad6>,
+        <urn:fdo-squirrel:dist/2ccca6f387833e07>,
+        <urn:fdo-squirrel:dist/3f4db0c61f05d5b5>,
+        <urn:fdo-squirrel:dist/c817ae19c87fa8be>,
+        <urn:fdo-squirrel:dist/0c55a916f3f717eb>,
+        <urn:fdo-squirrel:dist/a9bd4c06e51b4f23>,
+        <urn:fdo-squirrel:dist/64a33592fab88f2e>,
+        <urn:fdo-squirrel:dist/ada6f0db6c7ac594>,
+        <urn:fdo-squirrel:dist/5afb9571882dbfbe>,
+        <urn:fdo-squirrel:dist/760c61e5be4d914f>,
+        <urn:fdo-squirrel:dist/2975f3cb417372a1>,
+        <urn:fdo-squirrel:dist/be16dacad97f1f42>,
+        <urn:fdo-squirrel:dist/caeafc44e1cf9d80>,
+        <urn:fdo-squirrel:dist/70919be1274436fd>,
+        <urn:fdo-squirrel:dist/583ec604919ede07>,
+        <urn:fdo-squirrel:dist/2c6f94f9051cbb09>,
+        <urn:fdo-squirrel:dist/3fbc864ed55aa4b3>,
+        <urn:fdo-squirrel:dist/222d658c7f13fd43>,
+        <urn:fdo-squirrel:dist/2b4bfd6a6fbe6a73>,
+        <urn:fdo-squirrel:dist/501a0f3b7e248090>,
+        <urn:fdo-squirrel:dist/319c1a89d4dcd3d0>,
+        <urn:fdo-squirrel:dist/ba20b5d243d3ed5e>,
+        <urn:fdo-squirrel:dist/deae4ae760bffb4e>,
+        <urn:fdo-squirrel:dist/e8e023283c251c60>,
+        <urn:fdo-squirrel:dist/e80c6b674a244dea>,
+        <urn:fdo-squirrel:dist/2622728358c398a2>,
+        <urn:fdo-squirrel:dist/07ef96830b55c94b>,
+        <urn:fdo-squirrel:dist/2176865256c4ba20>,
+        <urn:fdo-squirrel:dist/fdc11341e1504e76>,
+        <urn:fdo-squirrel:dist/392b04acb7071ad9>,
+        <urn:fdo-squirrel:dist/c241c0e693ece2f3>,
+        <urn:fdo-squirrel:dist/df2cb963c90f5a5e>,
+        <urn:fdo-squirrel:dist/9607689cf3578f5c>,
+        <urn:fdo-squirrel:dist/5ac027408f84f30a>,
+        <urn:fdo-squirrel:dist/b757c3369e068ac0>,
+        <urn:fdo-squirrel:dist/be0a175774324390>,
+        <urn:fdo-squirrel:dist/36e8a3cfade75fe1>,
+        <urn:fdo-squirrel:dist/0d2b13316248970e>,
+        <urn:fdo-squirrel:dist/08a964dfabb33437>,
+        <urn:fdo-squirrel:dist/4aec4ced3602a6cd>,
+        <urn:fdo-squirrel:dist/59efeebac164b20b>,
+        <urn:fdo-squirrel:dist/60ba6eb837ae46b7>,
+        <urn:fdo-squirrel:dist/f2f53e6b2ec3dbaf>,
+        <urn:fdo-squirrel:dist/2bf1a5555d54003d>,
+        <urn:fdo-squirrel:dist/ad7a37dd13e917b0>,
+        <urn:fdo-squirrel:dist/99a970b56d85b007>,
+        <urn:fdo-squirrel:dist/681f171cae605f6d>,
+        <urn:fdo-squirrel:dist/09525f8a35f7be0b>,
+        <urn:fdo-squirrel:dist/f0c17632233099e1>,
+        <urn:fdo-squirrel:dist/1ae3fc2969a76446>,
+        <urn:fdo-squirrel:dist/70808d20cee32033>,
+        <urn:fdo-squirrel:dist/bfc9fd329db4bd4c>,
+        <urn:fdo-squirrel:dist/f8fb0060eb68b426>,
+        <urn:fdo-squirrel:dist/d54b041866b30cd9>,
+        <urn:fdo-squirrel:dist/364a7160ced37710>,
+        <urn:fdo-squirrel:dist/e3e017286980f80d>,
+        <urn:fdo-squirrel:dist/26cd57d1b2342cf6>,
+        <urn:fdo-squirrel:dist/98190254814342f6>,
+        <urn:fdo-squirrel:dist/dce87580354cdeb0>,
+        <urn:fdo-squirrel:dist/8ed98793d768b152>,
+        <urn:fdo-squirrel:dist/689e454a9f6dfc1a>,
+        <urn:fdo-squirrel:dist/a897bc0b6c4a1e22>,
+        <urn:fdo-squirrel:dist/88a6cea6897937d6>,
+        <urn:fdo-squirrel:dist/4c2973cfe5815158>,
+        <urn:fdo-squirrel:dist/0b9977644ec41c15>,
+        <urn:fdo-squirrel:dist/04fb8a2b32023374>,
+        <urn:fdo-squirrel:dist/9c41a752a8282658>,
+        <urn:fdo-squirrel:dist/9278a159b2e40d19>,
+        <urn:fdo-squirrel:dist/ad7a37dd13e917b0>,
+        <urn:fdo-squirrel:dist/283e035f950836bb>,
+        <urn:fdo-squirrel:dist/a284fb5b74d7020a> ;
+    dct:created "2019-08-24"^^xsd:date ;
+    dct:issued "2021-01-15"^^xsd:date ;
+    dct:modified "2021-01-15"^^xsd:date ;
+    schema:funding "Community Project" ;
+    dct:contributor <https://orcid.org/0000-0002-3246-3531> ;
+    dct:spatial <https://www.openstreetmap.org/relation/62273> ;
+    dcat:bbox "-10.6695833333,51.4199444444,-5.9977222222,55.3841944444" ;
+    schema:latitude "53.0"^^xsd:decimal ;
+    schema:longitude "-8.0"^^xsd:decimal ;
+    fdo:context "Ogham Stones in the Wild and in Museums in Ireland bearing Ogham inscriptions." ;
+    dct:type <http://www.wikidata.org/entity/Q2016147> ;
+    dct:subject <http://www.wikidata.org/entity/Q22731> ;
+    codemeta:programmingLanguage "R" ;
+    codemeta:codeRepository <https://linkedopenogham.github.io/ogham-analysis/>  .
+
+<https://doi.org/10.5281/zenodo.18369156> geosparql:hasGeometry <https://doi.org/10.5281/zenodo.18369156_geom> .
+<https://doi.org/10.5281/zenodo.18369156_geom> a sf:Point .
+<https://doi.org/10.5281/zenodo.18369156_geom> geosparql:asWKT "<http://www.opengis.net/def/crs/EPSG/0/4326> POINT(-8.0 53.0)"^^geosparql:wktLiteral .
+<https://doi.org/10.5281/zenodo.18369156> dct:temporal <https://doi.org/10.5281/zenodo.18369156_temporal> .
+<https://doi.org/10.5281/zenodo.18369156_temporal> a dct:PeriodOfTime .
+<https://doi.org/10.5281/zenodo.18369156_temporal> rdfs:label "Ogham stone inscriptions (ca. 4th–7th century CE)" .
+<https://doi.org/10.5281/zenodo.18369156_temporal> dcat:startDate "300"^^xsd:integer .
+<https://doi.org/10.5281/zenodo.18369156_temporal> dcat:endDate "699"^^xsd:integer .
+
+<http://www.wikidata.org/entity/Q73901970> a schema:Organization ;
+    schema:name "Research Squirrel Engineers Network" .
+
+<https://orcid.org/0000-0003-4696-2101> a schema:Person ;
+    schema:name "Schmidt, Sophie C." .
+
+<urn:fdo-squirrel:dist/b0ab81060ce9c20a> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/.gitignore> ;
+    dcat:byteSize 29 ;
+    dcat:mediaType "application/octet-stream" ;
+    fdo:path ".gitignore" ;
+    fdo:role "software" ;
+    fdo:sha256 "b0ab81060ce9c20a0b17e38328651f149788c144366bf6e841baf03674d1817d"  .
+
+<urn:fdo-squirrel:dist/ff6b0fca99259e62> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/.Rbuildignore> ;
+    dcat:byteSize 121 ;
+    dcat:mediaType "application/octet-stream" ;
+    fdo:path ".Rbuildignore" ;
+    fdo:role "software" ;
+    fdo:sha256 "ff6b0fca99259e626d55162c0547e08b19e210f74c680408a6dc4cc274cc19c1"  .
+
+<urn:fdo-squirrel:dist/8f2bf0b7a494ee73> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/analysis%2Fdata%2Fderived_data%2Fogha.Rdata> ;
+    dcat:byteSize 3536 ;
+    dcat:mediaType "application/octet-stream" ;
+    fdo:path "analysis/data/derived_data/ogha.Rdata" ;
+    fdo:role "software" ;
+    fdo:sha256 "8f2bf0b7a494ee73812d453f075fe04750e351c779666369546e11e5a122f382"  .
+
+<urn:fdo-squirrel:dist/187aa4f36e03a8dd> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/analysis%2Fdata%2Fderived_data%2Ftownlands_merge_cisp.csv> ;
+    dcat:byteSize 51421 ;
+    dcat:mediaType "application/vnd.ms-excel" ;
+    fdo:path "analysis/data/derived_data/townlands_merge_cisp.csv" ;
+    fdo:role "software" ;
+    fdo:sha256 "187aa4f36e03a8ddb62da36deec66427df49fd3e7234d7c106e85414b30e48b1"  .
+
+<urn:fdo-squirrel:dist/e3b0c44298fc1c14> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/analysis%2Fdata%2FDO-NOT-EDIT-ANY-FILES-IN-HERE-BY-HAND> ;
+    dcat:byteSize 0 ;
+    dcat:mediaType "application/octet-stream" ;
+    fdo:path "analysis/data/DO-NOT-EDIT-ANY-FILES-IN-HERE-BY-HAND" ;
+    fdo:role "software" ;
+    fdo:sha256 "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"  .
+
+<urn:fdo-squirrel:dist/9936810ece1e6a93> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/analysis%2Fdata%2Fraw_data%2F2020-01-09_townlandxy.csv> ;
+    dcat:byteSize 7177 ;
+    dcat:mediaType "application/vnd.ms-excel" ;
+    fdo:path "analysis/data/raw_data/2020-01-09_townlandxy.csv" ;
+    fdo:role "software" ;
+    fdo:sha256 "9936810ece1e6a93582f26295d3774274c644f83f75aa94e8a35fc19ff12d09f"  .
+
+<urn:fdo-squirrel:dist/ca9a05275f2e1a50> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/analysis%2Fdata%2Fraw_data%2F2020-01-10_townlandsxy.csv> ;
+    dcat:byteSize 6897 ;
+    dcat:mediaType "application/vnd.ms-excel" ;
+    fdo:path "analysis/data/raw_data/2020-01-10_townlandsxy.csv" ;
+    fdo:role "software" ;
+    fdo:sha256 "ca9a05275f2e1a507a60b7e0bcd0f226c555ec4b4acb6fc348d55589c9edb6ee"  .
+
+<urn:fdo-squirrel:dist/04c8be0df7da865e> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/analysis%2Fdata%2Fraw_data%2Fciictowords2.csv> ;
+    dcat:byteSize 52110 ;
+    dcat:mediaType "application/vnd.ms-excel" ;
+    fdo:path "analysis/data/raw_data/ciictowords2.csv" ;
+    fdo:role "software" ;
+    fdo:sha256 "04c8be0df7da865e0738ecbac63a6b2573c972b168fae84a18e9ddf2dc6abb5f"  .
+
+<urn:fdo-squirrel:dist/ff4a917c2efb1cba> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/analysis%2Fdata%2Fraw_data%2Fciic_inscriptions.csv> ;
+    dcat:byteSize 11542 ;
+    dcat:mediaType "application/vnd.ms-excel" ;
+    fdo:path "analysis/data/raw_data/ciic_inscriptions.csv" ;
+    fdo:role "software" ;
+    fdo:sha256 "ff4a917c2efb1cbae53ad294119d4599f2860958c7f6c48364cefc0aededa47e"  .
+
+<urn:fdo-squirrel:dist/108ff00f5b665a97> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/analysis%2Fdata%2Fraw_data%2Fcisp_site.csv> ;
+    dcat:byteSize 262108 ;
+    dcat:mediaType "application/vnd.ms-excel" ;
+    fdo:path "analysis/data/raw_data/cisp_site.csv" ;
+    fdo:role "software" ;
+    fdo:sha256 "108ff00f5b665a97827cc73f9eb238c96e2d3cee5fdfeee0a6c91afcb82c578e"  .
+
+<urn:fdo-squirrel:dist/18f352260da6e68a> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/analysis%2Fdata%2Fraw_data%2Fgb_100km.dbf> ;
+    dcat:byteSize 5457 ;
+    dcat:mediaType "application/octet-stream" ;
+    fdo:path "analysis/data/raw_data/gb_100km.dbf" ;
+    fdo:role "software" ;
+    fdo:sha256 "18f352260da6e68a9bc4270f25738d38a513edeaf411043d1701964228261620"  .
+
+<urn:fdo-squirrel:dist/413b75844b9379a1> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/analysis%2Fdata%2Fraw_data%2Fgb_100km.prj> ;
+    dcat:byteSize 604 ;
+    dcat:mediaType "application/octet-stream" ;
+    fdo:path "analysis/data/raw_data/gb_100km.prj" ;
+    fdo:role "software" ;
+    fdo:sha256 "413b75844b9379a1eb6ffad5b3978ee0202bdbea93eb9ec24ab4a82e98d271c5"  .
+
+<urn:fdo-squirrel:dist/611e28f71ab31828> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/analysis%2Fdata%2Fraw_data%2Fgb_100km.shp> ;
+    dcat:byteSize 19684 ;
+    dcat:mediaType "application/octet-stream" ;
+    fdo:path "analysis/data/raw_data/gb_100km.shp" ;
+    fdo:role "software" ;
+    fdo:sha256 "611e28f71ab318281cfbc68f1db9b6a1b291554239a53d1d582c6b6f174cbe93"  .
+
+<urn:fdo-squirrel:dist/a68f7d5699881574> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/analysis%2Fdata%2Fraw_data%2Fgb_100km.shx> ;
+    dcat:byteSize 1252 ;
+    dcat:mediaType "application/octet-stream" ;
+    fdo:path "analysis/data/raw_data/gb_100km.shx" ;
+    fdo:role "software" ;
+    fdo:sha256 "a68f7d56998815749e2a71b3cc63dec38c814aa4378a8addff860aa3fc99cc6f"  .
+
+<urn:fdo-squirrel:dist/2c057eaf3058d330> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/analysis%2Fdata%2Fraw_data%2Fie_100km.dbf> ;
+    dcat:byteSize 2830 ;
+    dcat:mediaType "application/octet-stream" ;
+    fdo:path "analysis/data/raw_data/ie_100km.dbf" ;
+    fdo:role "software" ;
+    fdo:sha256 "2c057eaf3058d33075824823288ca2224850688d3002ccba6dab57e241726aeb"  .
+
+<urn:fdo-squirrel:dist/413b75844b9379a1> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/analysis%2Fdata%2Fraw_data%2Fie_100km.prj> ;
+    dcat:byteSize 604 ;
+    dcat:mediaType "application/octet-stream" ;
+    fdo:path "analysis/data/raw_data/ie_100km.prj" ;
+    fdo:role "software" ;
+    fdo:sha256 "413b75844b9379a1eb6ffad5b3978ee0202bdbea93eb9ec24ab4a82e98d271c5"  .
+
+<urn:fdo-squirrel:dist/9eba05872ec34e4c> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/analysis%2Fdata%2Fraw_data%2Fie_100km.shp> ;
+    dcat:byteSize 10028 ;
+    dcat:mediaType "application/octet-stream" ;
+    fdo:path "analysis/data/raw_data/ie_100km.shp" ;
+    fdo:role "software" ;
+    fdo:sha256 "9eba05872ec34e4c6a7d0411a7d83669b3e0b3f60e92d1574a15b1ff6328ccb1"  .
+
+<urn:fdo-squirrel:dist/4f191746e5e730b7> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/analysis%2Fdata%2Fraw_data%2Fie_100km.shx> ;
+    dcat:byteSize 684 ;
+    dcat:mediaType "application/octet-stream" ;
+    fdo:path "analysis/data/raw_data/ie_100km.shx" ;
+    fdo:role "software" ;
+    fdo:sha256 "4f191746e5e730b702142c1ac710142fc771f0ab9a128a723a90f6eb2e8df500"  .
+
+<urn:fdo-squirrel:dist/3ad3031f5503a440> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/analysis%2Fdata%2Fraw_data%2Fne_10m_admin_0_countries.cpg> ;
+    dcat:byteSize 5 ;
+    dcat:mediaType "application/octet-stream" ;
+    fdo:path "analysis/data/raw_data/ne_10m_admin_0_countries.cpg" ;
+    fdo:role "software" ;
+    fdo:sha256 "3ad3031f5503a4404af825262ee8232cc04d4ea6683d42c5dd0a2f2a27ac9824"  .
+
+<urn:fdo-squirrel:dist/ab704a1f57ee79c9> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/analysis%2Fdata%2Fraw_data%2Fne_10m_admin_0_countries.dbf> ;
+    dcat:byteSize 599487 ;
+    dcat:mediaType "application/octet-stream" ;
+    fdo:path "analysis/data/raw_data/ne_10m_admin_0_countries.dbf" ;
+    fdo:role "software" ;
+    fdo:sha256 "ab704a1f57ee79c94956a64db2423660a014fd8f07c1bb968000e6551a47161b"  .
+
+<urn:fdo-squirrel:dist/3259f0e55290a82b> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/analysis%2Fdata%2Fraw_data%2Fne_10m_admin_0_countries.prj> ;
+    dcat:byteSize 147 ;
+    dcat:mediaType "application/octet-stream" ;
+    fdo:path "analysis/data/raw_data/ne_10m_admin_0_countries.prj" ;
+    fdo:role "software" ;
+    fdo:sha256 "3259f0e55290a82b1350646f604e8a7ee1e2136c0320a40fad838ab40819fff8"  .
+
+<urn:fdo-squirrel:dist/15ac9e8f6be81acd> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/analysis%2Fdata%2Fraw_data%2Fne_10m_admin_0_countries.shp> ;
+    dcat:byteSize 8800376 ;
+    dcat:mediaType "application/octet-stream" ;
+    fdo:path "analysis/data/raw_data/ne_10m_admin_0_countries.shp" ;
+    fdo:role "software" ;
+    fdo:sha256 "15ac9e8f6be81acd954aa91976fbb0590a96aebe462b1da38ba7c407500a7edf"  .
+
+<urn:fdo-squirrel:dist/cac55dac62647d3d> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/analysis%2Fdata%2Fraw_data%2Fne_10m_admin_0_countries.shx> ;
+    dcat:byteSize 2140 ;
+    dcat:mediaType "application/octet-stream" ;
+    fdo:path "analysis/data/raw_data/ne_10m_admin_0_countries.shx" ;
+    fdo:role "software" ;
+    fdo:sha256 "cac55dac62647d3ddbee3d08afbba9014d2a1d33bfdbfcdef3691ca0badcffbc"  .
+
+<urn:fdo-squirrel:dist/3ad3031f5503a440> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/analysis%2Fdata%2Fraw_data%2Fne_10m_admin_0_sovereignty.cpg> ;
+    dcat:byteSize 5 ;
+    dcat:mediaType "application/octet-stream" ;
+    fdo:path "analysis/data/raw_data/ne_10m_admin_0_sovereignty.cpg" ;
+    fdo:role "software" ;
+    fdo:sha256 "3ad3031f5503a4404af825262ee8232cc04d4ea6683d42c5dd0a2f2a27ac9824"  .
+
+<urn:fdo-squirrel:dist/16898ebf86304289> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/analysis%2Fdata%2Fraw_data%2Fne_10m_admin_0_sovereignty.dbf> ;
+    dcat:byteSize 401034 ;
+    dcat:mediaType "application/octet-stream" ;
+    fdo:path "analysis/data/raw_data/ne_10m_admin_0_sovereignty.dbf" ;
+    fdo:role "software" ;
+    fdo:sha256 "16898ebf863042890f0b1783d1975bbb3f83799866e94acc4720a55935138880"  .
+
+<urn:fdo-squirrel:dist/3259f0e55290a82b> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/analysis%2Fdata%2Fraw_data%2Fne_10m_admin_0_sovereignty.prj> ;
+    dcat:byteSize 147 ;
+    dcat:mediaType "application/octet-stream" ;
+    fdo:path "analysis/data/raw_data/ne_10m_admin_0_sovereignty.prj" ;
+    fdo:role "software" ;
+    fdo:sha256 "3259f0e55290a82b1350646f604e8a7ee1e2136c0320a40fad838ab40819fff8"  .
+
+<urn:fdo-squirrel:dist/cf63ea771896fccc> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/analysis%2Fdata%2Fraw_data%2Fne_10m_admin_0_sovereignty.shp> ;
+    dcat:byteSize 8791384 ;
+    dcat:mediaType "application/octet-stream" ;
+    fdo:path "analysis/data/raw_data/ne_10m_admin_0_sovereignty.shp" ;
+    fdo:role "software" ;
+    fdo:sha256 "cf63ea771896fcccf73617186af59a00175b2f3b43a6eba2eb92b31afdd0fdb7"  .
+
+<urn:fdo-squirrel:dist/53939a660e294707> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/analysis%2Fdata%2Fraw_data%2Fne_10m_admin_0_sovereignty.shx> ;
+    dcat:byteSize 1748 ;
+    dcat:mediaType "application/octet-stream" ;
+    fdo:path "analysis/data/raw_data/ne_10m_admin_0_sovereignty.shx" ;
+    fdo:role "software" ;
+    fdo:sha256 "53939a660e29470795e2ad64d232ae9443549f6c3d5ea578d06e7c04d6ab7886"  .
+
+<urn:fdo-squirrel:dist/3ad3031f5503a440> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/analysis%2Fdata%2Fraw_data%2Fne_110m_admin_0_countries.cpg> ;
+    dcat:byteSize 5 ;
+    dcat:mediaType "application/octet-stream" ;
+    fdo:path "analysis/data/raw_data/ne_110m_admin_0_countries.cpg" ;
+    fdo:role "software" ;
+    fdo:sha256 "3ad3031f5503a4404af825262ee8232cc04d4ea6683d42c5dd0a2f2a27ac9824"  .
+
+<urn:fdo-squirrel:dist/4b4f72bf36eacebf> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/analysis%2Fdata%2Fraw_data%2Fne_110m_admin_0_countries.dbf> ;
+    dcat:byteSize 375450 ;
+    dcat:mediaType "application/octet-stream" ;
+    fdo:path "analysis/data/raw_data/ne_110m_admin_0_countries.dbf" ;
+    fdo:role "software" ;
+    fdo:sha256 "4b4f72bf36eacebf43c681810f80732e5f58725ecdc012f56650db8079c54fb6"  .
+
+<urn:fdo-squirrel:dist/3259f0e55290a82b> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/analysis%2Fdata%2Fraw_data%2Fne_110m_admin_0_countries.prj> ;
+    dcat:byteSize 147 ;
+    dcat:mediaType "application/octet-stream" ;
+    fdo:path "analysis/data/raw_data/ne_110m_admin_0_countries.prj" ;
+    fdo:role "software" ;
+    fdo:sha256 "3259f0e55290a82b1350646f604e8a7ee1e2136c0320a40fad838ab40819fff8"  .
+
+<urn:fdo-squirrel:dist/08e341606e8391e4> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/analysis%2Fdata%2Fraw_data%2Fne_110m_admin_0_countries.shp> ;
+    dcat:byteSize 180924 ;
+    dcat:mediaType "application/octet-stream" ;
+    fdo:path "analysis/data/raw_data/ne_110m_admin_0_countries.shp" ;
+    fdo:role "software" ;
+    fdo:sha256 "08e341606e8391e458c3f08deb312de664b56bfae376064c5aa0aee6681a5f55"  .
+
+<urn:fdo-squirrel:dist/8b0be2ad97dd484a> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/analysis%2Fdata%2Fraw_data%2Fne_110m_admin_0_countries.shx> ;
+    dcat:byteSize 1516 ;
+    dcat:mediaType "application/octet-stream" ;
+    fdo:path "analysis/data/raw_data/ne_110m_admin_0_countries.shx" ;
+    fdo:role "software" ;
+    fdo:sha256 "8b0be2ad97dd484aee5c2ebc98697d5372e832b8ae58a35a661aeef6b985668d"  .
+
+<urn:fdo-squirrel:dist/0874a8fe36effb87> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/analysis%2Fdata%2Fraw_data%2Fne_110m_admin_0_countries.VERSION.txt> ;
+    dcat:byteSize 7 ;
+    dcat:mediaType "text/plain" ;
+    fdo:path "analysis/data/raw_data/ne_110m_admin_0_countries.VERSION.txt" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "0874a8fe36effb87780f431845b5a7d85be657f2bd998ce8eeace717860d3b78"  .
+
+<urn:fdo-squirrel:dist/6a4ed9b0eef528f7> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/analysis%2Fdata%2Fraw_data%2Freading.csv> ;
+    dcat:byteSize 183508 ;
+    dcat:mediaType "application/vnd.ms-excel" ;
+    fdo:path "analysis/data/raw_data/reading.csv" ;
+    fdo:role "software" ;
+    fdo:sha256 "6a4ed9b0eef528f760c16982d9e2eb23b16c0865831603f507680c9f3ae5654b"  .
+
+<urn:fdo-squirrel:dist/57b777ba3001d103> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/analysis%2Fdata%2Fraw_data%2Ftownland_abgetipptMacalister1945.csv> ;
+    dcat:byteSize 11103 ;
+    dcat:mediaType "application/vnd.ms-excel" ;
+    fdo:path "analysis/data/raw_data/townland_abgetipptMacalister1945.csv" ;
+    fdo:role "software" ;
+    fdo:sha256 "57b777ba3001d103fdfc8f6e39abaae572b5aaa30e3b43dd3f07f393f855e7b0"  .
+
+<urn:fdo-squirrel:dist/e414d276023e9cba> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/analysis%2Fdata%2Fraw_data%2Fwords.csv> ;
+    dcat:byteSize 12235 ;
+    dcat:mediaType "application/vnd.ms-excel" ;
+    fdo:path "analysis/data/raw_data/words.csv" ;
+    fdo:role "software" ;
+    fdo:sha256 "e414d276023e9cbadf2d0947e60aeeec5797042fbd010a9d4934fe92ced453dd"  .
+
+<urn:fdo-squirrel:dist/25b59cf738289517> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/analysis%2Ffigures%2Fco-occurence.jpg> ;
+    dcat:byteSize 413866 ;
+    dcat:mediaType "image/jpeg" ;
+    fdo:path "analysis/figures/co-occurence.jpg" ;
+    fdo:role "software" ;
+    fdo:sha256 "25b59cf738289517798eb586fe61e78ea8453b41b193099b8e0764bcd2538d33"  .
+
+<urn:fdo-squirrel:dist/92c65f20b05ecc09> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/analysis%2Ffigures%2Fdensitymap.jpg> ;
+    dcat:byteSize 197574 ;
+    dcat:mediaType "image/jpeg" ;
+    fdo:path "analysis/figures/densitymap.jpg" ;
+    fdo:role "software" ;
+    fdo:sha256 "92c65f20b05ecc0928c95572e09a1d54e4f3f71b89c93c52292ce87f3623410e"  .
+
+<urn:fdo-squirrel:dist/aa06c90b38371573> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/analysis%2Ffigures%2Fogham_words_count.png> ;
+    dcat:byteSize 84278 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "analysis/figures/ogham_words_count.png" ;
+    fdo:role "software" ;
+    fdo:sha256 "aa06c90b38371573d902e560d4bc69bf5f9350362bbc0b8ab9d75d182213962e"  .
+
+<urn:fdo-squirrel:dist/86dcad5417fdad6e> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/analysis%2Fpaper%2Fanalysis_results%2Fanalysis_by_radius.csv> ;
+    dcat:byteSize 1266 ;
+    dcat:mediaType "application/vnd.ms-excel" ;
+    fdo:path "analysis/paper/analysis_results/analysis_by_radius.csv" ;
+    fdo:role "software" ;
+    fdo:sha256 "86dcad5417fdad6e2d22f88cc066e902da6d404f75b5593bbbbf91292cdeb08a"  .
+
+<urn:fdo-squirrel:dist/f1db72c6480807c3> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/analysis%2Fpaper%2Fanalysis_results%2Fmember_cluster_by_radius.csv> ;
+    dcat:byteSize 13715 ;
+    dcat:mediaType "application/vnd.ms-excel" ;
+    fdo:path "analysis/paper/analysis_results/member_cluster_by_radius.csv" ;
+    fdo:role "software" ;
+    fdo:sha256 "f1db72c6480807c383a832a839a248fab5837c7672efec8b47b89bb98f5c9f39"  .
+
+<urn:fdo-squirrel:dist/492af64b287f56e1> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/analysis%2Fpaper%2Fanalysis_results%2Fradius_to_max_cluster_size.png> ;
+    dcat:byteSize 43125 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "analysis/paper/analysis_results/radius_to_max_cluster_size.png" ;
+    fdo:role "software" ;
+    fdo:sha256 "492af64b287f56e1a49754add287a5d561427b6a3457be0896b49956b9a5e683"  .
+
+<urn:fdo-squirrel:dist/d881cb78c67e78c6> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/analysis%2Fpaper%2Fanalysis_results%2Fradius_to_mean_cluster_size.png> ;
+    dcat:byteSize 43842 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "analysis/paper/analysis_results/radius_to_mean_cluster_size.png" ;
+    fdo:role "software" ;
+    fdo:sha256 "d881cb78c67e78c6d623bdbfd82aeb59b95b1fe4688c7b3df1bc3665e941ef6b"  .
+
+<urn:fdo-squirrel:dist/4059bb2508fdbfe7> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/analysis%2Fpaper%2Fanalysis_results%2Fradius_to_norm_max_cluster_size.png> ;
+    dcat:byteSize 46215 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "analysis/paper/analysis_results/radius_to_norm_max_cluster_size.png" ;
+    fdo:role "software" ;
+    fdo:sha256 "4059bb2508fdbfe72572c4748f0cb5fa3760b3c0e6a3a6c6b5a835842b98b1e4"  .
+
+<urn:fdo-squirrel:dist/01b99fd170c212c0> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/analysis%2Fpaper%2Fanalysis_results%2Fsite_cluster_rank_by_radius.csv> ;
+    dcat:byteSize 13149 ;
+    dcat:mediaType "application/vnd.ms-excel" ;
+    fdo:path "analysis/paper/analysis_results/site_cluster_rank_by_radius.csv" ;
+    fdo:role "software" ;
+    fdo:sha256 "01b99fd170c212c0683d3ed5e049a84a854a881bdc47ce2daa0dc4bf3117df92"  .
+
+<urn:fdo-squirrel:dist/f7809c54d9216ad6> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/analysis%2Fpaper%2Fdatabase_mapping.Rmd> ;
+    dcat:byteSize 2083 ;
+    dcat:mediaType "application/octet-stream" ;
+    fdo:path "analysis/paper/database_mapping.Rmd" ;
+    fdo:role "software" ;
+    fdo:sha256 "f7809c54d9216ad6ae24f59f75a4d23276ada19e59dca950b485f0963cd81b21"  .
+
+<urn:fdo-squirrel:dist/2ccca6f387833e07> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/analysis%2Fpaper%2Fmaps%2Fafter%20MacAlister%201945.dbf> ;
+    dcat:byteSize 143322 ;
+    dcat:mediaType "application/octet-stream" ;
+    fdo:path "analysis/paper/maps/after MacAlister 1945.dbf" ;
+    fdo:role "software" ;
+    fdo:sha256 "2ccca6f387833e07b031410d61e54f452e47259ca366929bfd0912ce5bddee95"  .
+
+<urn:fdo-squirrel:dist/3f4db0c61f05d5b5> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/analysis%2Fpaper%2Fmaps%2Fafter%20MacAlister%201945.prj> ;
+    dcat:byteSize 407 ;
+    dcat:mediaType "application/octet-stream" ;
+    fdo:path "analysis/paper/maps/after MacAlister 1945.prj" ;
+    fdo:role "software" ;
+    fdo:sha256 "3f4db0c61f05d5b5f4512721f15029f178cf12a12d3a7b2a5d8b934426b896dc"  .
+
+<urn:fdo-squirrel:dist/c817ae19c87fa8be> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/analysis%2Fpaper%2Fmaps%2Fafter%20MacAlister%201945.shp> ;
+    dcat:byteSize 5588 ;
+    dcat:mediaType "application/octet-stream" ;
+    fdo:path "analysis/paper/maps/after MacAlister 1945.shp" ;
+    fdo:role "software" ;
+    fdo:sha256 "c817ae19c87fa8be16e0228ee775df0e098354042fa07b3dee33f308ebb20736"  .
+
+<urn:fdo-squirrel:dist/0c55a916f3f717eb> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/analysis%2Fpaper%2Fmaps%2Fafter%20MacAlister%201945.shx> ;
+    dcat:byteSize 1668 ;
+    dcat:mediaType "application/octet-stream" ;
+    fdo:path "analysis/paper/maps/after MacAlister 1945.shx" ;
+    fdo:role "software" ;
+    fdo:sha256 "0c55a916f3f717eb421000d71950902ffac8a1dd1e5c3a1cbbc8f8167266e154"  .
+
+<urn:fdo-squirrel:dist/a9bd4c06e51b4f23> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/analysis%2Fpaper%2Fmaps%2Fpercolation_plots_ogham%20stones%20in%20Ireland_all.png> ;
+    dcat:byteSize 75415 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "analysis/paper/maps/percolation_plots_ogham stones in Ireland_all.png" ;
+    fdo:role "software" ;
+    fdo:sha256 "a9bd4c06e51b4f230f8837163808d50ebc8b68abb95987a7b99bec772f505ed6"  .
+
+<urn:fdo-squirrel:dist/64a33592fab88f2e> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/analysis%2Fpaper%2Fmaps%2Fpercolation_plots_ogham%20stones%20in%20Ireland_rad_10.png> ;
+    dcat:byteSize 75923 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "analysis/paper/maps/percolation_plots_ogham stones in Ireland_rad_10.png" ;
+    fdo:role "software" ;
+    fdo:sha256 "64a33592fab88f2e5c03258eda59753c4dd227f48918958eebf41dac5709d5cd"  .
+
+<urn:fdo-squirrel:dist/ada6f0db6c7ac594> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/analysis%2Fpaper%2Fmaps%2Fpercolation_plots_ogham%20stones%20in%20Ireland_rad_12.png> ;
+    dcat:byteSize 75597 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "analysis/paper/maps/percolation_plots_ogham stones in Ireland_rad_12.png" ;
+    fdo:role "software" ;
+    fdo:sha256 "ada6f0db6c7ac59466dfbef13aaad1db529dbd296ab2c276a33e8645fb03a1b1"  .
+
+<urn:fdo-squirrel:dist/5afb9571882dbfbe> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/analysis%2Fpaper%2Fmaps%2Fpercolation_plots_ogham%20stones%20in%20Ireland_rad_14.png> ;
+    dcat:byteSize 74127 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "analysis/paper/maps/percolation_plots_ogham stones in Ireland_rad_14.png" ;
+    fdo:role "software" ;
+    fdo:sha256 "5afb9571882dbfbe8bb2d1a80e33efc087637dad6c6bf634b160ce2a0f0995a8"  .
+
+<urn:fdo-squirrel:dist/760c61e5be4d914f> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/analysis%2Fpaper%2Fmaps%2Fpercolation_plots_ogham%20stones%20in%20Ireland_rad_16.png> ;
+    dcat:byteSize 72438 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "analysis/paper/maps/percolation_plots_ogham stones in Ireland_rad_16.png" ;
+    fdo:role "software" ;
+    fdo:sha256 "760c61e5be4d914f44a31f78a4d1f0579b17858d71352bb29fc7ad93c6874e8e"  .
+
+<urn:fdo-squirrel:dist/2975f3cb417372a1> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/analysis%2Fpaper%2Fmaps%2Fpercolation_plots_ogham%20stones%20in%20Ireland_rad_18.png> ;
+    dcat:byteSize 71927 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "analysis/paper/maps/percolation_plots_ogham stones in Ireland_rad_18.png" ;
+    fdo:role "software" ;
+    fdo:sha256 "2975f3cb417372a16f64033686b2c0734a58a61da70a133a37e69dff9472cf46"  .
+
+<urn:fdo-squirrel:dist/be16dacad97f1f42> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/analysis%2Fpaper%2Fmaps%2Fpercolation_plots_ogham%20stones%20in%20Ireland_rad_2.png> ;
+    dcat:byteSize 75669 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "analysis/paper/maps/percolation_plots_ogham stones in Ireland_rad_2.png" ;
+    fdo:role "software" ;
+    fdo:sha256 "be16dacad97f1f42c5a0998dfb513fe985e7b566644067cba8d1fd8279d38d13"  .
+
+<urn:fdo-squirrel:dist/caeafc44e1cf9d80> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/analysis%2Fpaper%2Fmaps%2Fpercolation_plots_ogham%20stones%20in%20Ireland_rad_20.png> ;
+    dcat:byteSize 71956 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "analysis/paper/maps/percolation_plots_ogham stones in Ireland_rad_20.png" ;
+    fdo:role "software" ;
+    fdo:sha256 "caeafc44e1cf9d80cce02f91076ae736e965690e7bb5d9b2ab5485e99567fe37"  .
+
+<urn:fdo-squirrel:dist/70919be1274436fd> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/analysis%2Fpaper%2Fmaps%2Fpercolation_plots_ogham%20stones%20in%20Ireland_rad_22.png> ;
+    dcat:byteSize 71283 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "analysis/paper/maps/percolation_plots_ogham stones in Ireland_rad_22.png" ;
+    fdo:role "software" ;
+    fdo:sha256 "70919be1274436fdb7ae7f4c51827464cdfbb6c87a065b31ecb67b65646b367b"  .
+
+<urn:fdo-squirrel:dist/583ec604919ede07> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/analysis%2Fpaper%2Fmaps%2Fpercolation_plots_ogham%20stones%20in%20Ireland_rad_24.png> ;
+    dcat:byteSize 70318 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "analysis/paper/maps/percolation_plots_ogham stones in Ireland_rad_24.png" ;
+    fdo:role "software" ;
+    fdo:sha256 "583ec604919ede077f7bb35a634073a2263a260410dbfc36d55373d0fc824486"  .
+
+<urn:fdo-squirrel:dist/2c6f94f9051cbb09> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/analysis%2Fpaper%2Fmaps%2Fpercolation_plots_ogham%20stones%20in%20Ireland_rad_26.png> ;
+    dcat:byteSize 70414 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "analysis/paper/maps/percolation_plots_ogham stones in Ireland_rad_26.png" ;
+    fdo:role "software" ;
+    fdo:sha256 "2c6f94f9051cbb0926f7d8d44e81a9177272822e82a8fd61d768995142f7b7e6"  .
+
+<urn:fdo-squirrel:dist/3fbc864ed55aa4b3> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/analysis%2Fpaper%2Fmaps%2Fpercolation_plots_ogham%20stones%20in%20Ireland_rad_28.png> ;
+    dcat:byteSize 70376 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "analysis/paper/maps/percolation_plots_ogham stones in Ireland_rad_28.png" ;
+    fdo:role "software" ;
+    fdo:sha256 "3fbc864ed55aa4b3268b93c8edee2d29f81316a35c5275f9ab30dbb6afb97c03"  .
+
+<urn:fdo-squirrel:dist/222d658c7f13fd43> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/analysis%2Fpaper%2Fmaps%2Fpercolation_plots_ogham%20stones%20in%20Ireland_rad_30.png> ;
+    dcat:byteSize 70351 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "analysis/paper/maps/percolation_plots_ogham stones in Ireland_rad_30.png" ;
+    fdo:role "software" ;
+    fdo:sha256 "222d658c7f13fd430513e4ad4bb1cc993e5349e91997de408fd72f1c2175e274"  .
+
+<urn:fdo-squirrel:dist/2b4bfd6a6fbe6a73> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/analysis%2Fpaper%2Fmaps%2Fpercolation_plots_ogham%20stones%20in%20Ireland_rad_32.png> ;
+    dcat:byteSize 70341 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "analysis/paper/maps/percolation_plots_ogham stones in Ireland_rad_32.png" ;
+    fdo:role "software" ;
+    fdo:sha256 "2b4bfd6a6fbe6a731df8c8ab7914447c220ffd4fe0247492c4a403eed8056576"  .
+
+<urn:fdo-squirrel:dist/501a0f3b7e248090> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/analysis%2Fpaper%2Fmaps%2Fpercolation_plots_ogham%20stones%20in%20Ireland_rad_34.png> ;
+    dcat:byteSize 69018 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "analysis/paper/maps/percolation_plots_ogham stones in Ireland_rad_34.png" ;
+    fdo:role "software" ;
+    fdo:sha256 "501a0f3b7e2480904de662a67317f49a69a7793cd4b73bac54dbbf11a51a3927"  .
+
+<urn:fdo-squirrel:dist/319c1a89d4dcd3d0> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/analysis%2Fpaper%2Fmaps%2Fpercolation_plots_ogham%20stones%20in%20Ireland_rad_36.png> ;
+    dcat:byteSize 69605 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "analysis/paper/maps/percolation_plots_ogham stones in Ireland_rad_36.png" ;
+    fdo:role "software" ;
+    fdo:sha256 "319c1a89d4dcd3d014d38a42d610d508082bd51f3e8579fe6698b338180713b7"  .
+
+<urn:fdo-squirrel:dist/ba20b5d243d3ed5e> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/analysis%2Fpaper%2Fmaps%2Fpercolation_plots_ogham%20stones%20in%20Ireland_rad_38.png> ;
+    dcat:byteSize 69564 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "analysis/paper/maps/percolation_plots_ogham stones in Ireland_rad_38.png" ;
+    fdo:role "software" ;
+    fdo:sha256 "ba20b5d243d3ed5ee1e8ba9879d2feb9d5c04b98f7f7ff3057c479db1e6d3bfa"  .
+
+<urn:fdo-squirrel:dist/deae4ae760bffb4e> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/analysis%2Fpaper%2Fmaps%2Fpercolation_plots_ogham%20stones%20in%20Ireland_rad_4.png> ;
+    dcat:byteSize 75705 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "analysis/paper/maps/percolation_plots_ogham stones in Ireland_rad_4.png" ;
+    fdo:role "software" ;
+    fdo:sha256 "deae4ae760bffb4e6bec2d9ff626407e948912f681c0d489bc09a2e0ab030f13"  .
+
+<urn:fdo-squirrel:dist/e8e023283c251c60> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/analysis%2Fpaper%2Fmaps%2Fpercolation_plots_ogham%20stones%20in%20Ireland_rad_40.png> ;
+    dcat:byteSize 69493 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "analysis/paper/maps/percolation_plots_ogham stones in Ireland_rad_40.png" ;
+    fdo:role "software" ;
+    fdo:sha256 "e8e023283c251c6005194e5de5871e4dfa7cd6ca1373508d96eae92e5115a0e4"  .
+
+<urn:fdo-squirrel:dist/e80c6b674a244dea> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/analysis%2Fpaper%2Fmaps%2Fpercolation_plots_ogham%20stones%20in%20Ireland_rad_42.png> ;
+    dcat:byteSize 69016 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "analysis/paper/maps/percolation_plots_ogham stones in Ireland_rad_42.png" ;
+    fdo:role "software" ;
+    fdo:sha256 "e80c6b674a244deafba16afe8c0c386718e70c028020eddaff5b45416ff72bba"  .
+
+<urn:fdo-squirrel:dist/2622728358c398a2> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/analysis%2Fpaper%2Fmaps%2Fpercolation_plots_ogham%20stones%20in%20Ireland_rad_44.png> ;
+    dcat:byteSize 67895 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "analysis/paper/maps/percolation_plots_ogham stones in Ireland_rad_44.png" ;
+    fdo:role "software" ;
+    fdo:sha256 "2622728358c398a2f4c8a8a3db6c7f599aedf0121840b54b435adfc37d7aba1a"  .
+
+<urn:fdo-squirrel:dist/07ef96830b55c94b> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/analysis%2Fpaper%2Fmaps%2Fpercolation_plots_ogham%20stones%20in%20Ireland_rad_46.png> ;
+    dcat:byteSize 68027 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "analysis/paper/maps/percolation_plots_ogham stones in Ireland_rad_46.png" ;
+    fdo:role "software" ;
+    fdo:sha256 "07ef96830b55c94b0fcef6633d169a8a4f6ced924cabef8827ddb91dbeacb25a"  .
+
+<urn:fdo-squirrel:dist/2176865256c4ba20> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/analysis%2Fpaper%2Fmaps%2Fpercolation_plots_ogham%20stones%20in%20Ireland_rad_48.png> ;
+    dcat:byteSize 67982 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "analysis/paper/maps/percolation_plots_ogham stones in Ireland_rad_48.png" ;
+    fdo:role "software" ;
+    fdo:sha256 "2176865256c4ba20de9250da21318e50f0b410e5e57805c631de24d3973aa553"  .
+
+<urn:fdo-squirrel:dist/fdc11341e1504e76> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/analysis%2Fpaper%2Fmaps%2Fpercolation_plots_ogham%20stones%20in%20Ireland_rad_50.png> ;
+    dcat:byteSize 67997 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "analysis/paper/maps/percolation_plots_ogham stones in Ireland_rad_50.png" ;
+    fdo:role "software" ;
+    fdo:sha256 "fdc11341e1504e765338c02c8cf358166ab0257470e7dff20d7065d53e905e71"  .
+
+<urn:fdo-squirrel:dist/392b04acb7071ad9> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/analysis%2Fpaper%2Fmaps%2Fpercolation_plots_ogham%20stones%20in%20Ireland_rad_52.png> ;
+    dcat:byteSize 67541 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "analysis/paper/maps/percolation_plots_ogham stones in Ireland_rad_52.png" ;
+    fdo:role "software" ;
+    fdo:sha256 "392b04acb7071ad947c09d3f66e69bf4d39ee951a3ca2ab6d6b6ad5950d8a417"  .
+
+<urn:fdo-squirrel:dist/c241c0e693ece2f3> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/analysis%2Fpaper%2Fmaps%2Fpercolation_plots_ogham%20stones%20in%20Ireland_rad_54.png> ;
+    dcat:byteSize 67474 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "analysis/paper/maps/percolation_plots_ogham stones in Ireland_rad_54.png" ;
+    fdo:role "software" ;
+    fdo:sha256 "c241c0e693ece2f328eb5b8c34f5243eb1894faaf981573247aa5712cc2ca157"  .
+
+<urn:fdo-squirrel:dist/df2cb963c90f5a5e> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/analysis%2Fpaper%2Fmaps%2Fpercolation_plots_ogham%20stones%20in%20Ireland_rad_56.png> ;
+    dcat:byteSize 67586 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "analysis/paper/maps/percolation_plots_ogham stones in Ireland_rad_56.png" ;
+    fdo:role "software" ;
+    fdo:sha256 "df2cb963c90f5a5e21cdbe9574233c5321477a5b2d683970915727dfd565aaa3"  .
+
+<urn:fdo-squirrel:dist/9607689cf3578f5c> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/analysis%2Fpaper%2Fmaps%2Fpercolation_plots_ogham%20stones%20in%20Ireland_rad_58.png> ;
+    dcat:byteSize 67550 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "analysis/paper/maps/percolation_plots_ogham stones in Ireland_rad_58.png" ;
+    fdo:role "software" ;
+    fdo:sha256 "9607689cf3578f5cc282b1e20c549f539d3e54cdf62b5d91b6de78d8aaf6fe2c"  .
+
+<urn:fdo-squirrel:dist/5ac027408f84f30a> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/analysis%2Fpaper%2Fmaps%2Fpercolation_plots_ogham%20stones%20in%20Ireland_rad_6.png> ;
+    dcat:byteSize 76034 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "analysis/paper/maps/percolation_plots_ogham stones in Ireland_rad_6.png" ;
+    fdo:role "software" ;
+    fdo:sha256 "5ac027408f84f30ac4dc90c3e69af1debda7495a50b697b3860fb1c05d352cf4"  .
+
+<urn:fdo-squirrel:dist/b757c3369e068ac0> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/analysis%2Fpaper%2Fmaps%2Fpercolation_plots_ogham%20stones%20in%20Ireland_rad_60.png> ;
+    dcat:byteSize 67634 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "analysis/paper/maps/percolation_plots_ogham stones in Ireland_rad_60.png" ;
+    fdo:role "software" ;
+    fdo:sha256 "b757c3369e068ac0dc3ca4af28a38a915fac4a69b2ee00d4f8e3be1a1632d9af"  .
+
+<urn:fdo-squirrel:dist/be0a175774324390> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/analysis%2Fpaper%2Fmaps%2Fpercolation_plots_ogham%20stones%20in%20Ireland_rad_8.png> ;
+    dcat:byteSize 76272 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "analysis/paper/maps/percolation_plots_ogham stones in Ireland_rad_8.png" ;
+    fdo:role "software" ;
+    fdo:sha256 "be0a175774324390f76c8452d3d479adbbfbc3e876b2d1e7acf3deec1cabb90d"  .
+
+<urn:fdo-squirrel:dist/36e8a3cfade75fe1> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/analysis%2Fpaper%2Fnodes_list_d.txt> ;
+    dcat:byteSize 177644 ;
+    dcat:mediaType "text/plain" ;
+    fdo:path "analysis/paper/nodes_list_d.txt" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "36e8a3cfade75fe140bae5ccabdc0cb04c77ea345788aca71cdce2b39673465b"  .
+
+<urn:fdo-squirrel:dist/0d2b13316248970e> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/analysis%2Fpaper%2Fogham_words_count.png> ;
+    dcat:byteSize 84164 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "analysis/paper/ogham_words_count.png" ;
+    fdo:role "software" ;
+    fdo:sha256 "0d2b13316248970e04fa962edb28018768a4e6c210263c4aec92ad19f672e523"  .
+
+<urn:fdo-squirrel:dist/08a964dfabb33437> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/analysis%2Fpaper%2Fpaper.Rmd> ;
+    dcat:byteSize 10901 ;
+    dcat:mediaType "application/octet-stream" ;
+    fdo:path "analysis/paper/paper.Rmd" ;
+    fdo:role "software" ;
+    fdo:sha256 "08a964dfabb33437c54a3cc7a5edef7359204ed45554f965a5e4771e91b2b5f2"  .
+
+<urn:fdo-squirrel:dist/4aec4ced3602a6cd> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/analysis%2Fpaper%2Freferences.bib> ;
+    dcat:byteSize 1266 ;
+    dcat:mediaType "application/x-bibtex" ;
+    fdo:path "analysis/paper/references.bib" ;
+    fdo:role "software" ;
+    fdo:sha256 "4aec4ced3602a6cdc4458088dbd195a5d96ed71baca124c749712a7d1cfcfbe3"  .
+
+<urn:fdo-squirrel:dist/59efeebac164b20b> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/analysis%2Fpaper%2Ftry_multivariate.Rmd> ;
+    dcat:byteSize 1153 ;
+    dcat:mediaType "application/octet-stream" ;
+    fdo:path "analysis/paper/try_multivariate.Rmd" ;
+    fdo:role "software" ;
+    fdo:sha256 "59efeebac164b20bf2dde82b8505de4395f80b0adeb65ec6de9ea95d7dd6c720"  .
+
+<urn:fdo-squirrel:dist/60ba6eb837ae46b7> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/analysis%2Fpaper%2Fworking_data%2Fdata.csv> ;
+    dcat:byteSize 7745 ;
+    dcat:mediaType "application/vnd.ms-excel" ;
+    fdo:path "analysis/paper/working_data/data.csv" ;
+    fdo:role "software" ;
+    fdo:sha256 "60ba6eb837ae46b7b4bde4ec7f750eca7093ff703326a99ef9f8d22e5bf7c402"  .
+
+<urn:fdo-squirrel:dist/f2f53e6b2ec3dbaf> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/analysis%2Fpaper%2Fworking_data%2Fduplicate_entries.txt> ;
+    dcat:byteSize 192 ;
+    dcat:mediaType "text/plain" ;
+    fdo:path "analysis/paper/working_data/duplicate_entries.txt" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "f2f53e6b2ec3dbaf79a80634e2a7137564ef2f84ff170fb2da69f177696647d8"  .
+
+<urn:fdo-squirrel:dist/2bf1a5555d54003d> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/analysis%2Fpaper%2Fworking_data%2Fnodes_list_d.txt> ;
+    dcat:byteSize 146791 ;
+    dcat:mediaType "text/plain" ;
+    fdo:path "analysis/paper/working_data/nodes_list_d.txt" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "2bf1a5555d54003d2ec58d1521379af9f1d5f067123f735dceb26d39823e81b6"  .
+
+<urn:fdo-squirrel:dist/ad7a37dd13e917b0> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/analysis%2Fpaper%2Fworking_data%2Fnull_entries.txt> ;
+    dcat:byteSize 32 ;
+    dcat:mediaType "text/plain" ;
+    fdo:path "analysis/paper/working_data/null_entries.txt" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "ad7a37dd13e917b05165f2523810f61423ebdfc197083771d32ff4f27d0e5fd3"  .
+
+<urn:fdo-squirrel:dist/99a970b56d85b007> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/analysis%2Fpaper%2Fworking_data%2FPlcIndex.csv> ;
+    dcat:byteSize 1089 ;
+    dcat:mediaType "application/vnd.ms-excel" ;
+    fdo:path "analysis/paper/working_data/PlcIndex.csv" ;
+    fdo:role "software" ;
+    fdo:sha256 "99a970b56d85b0075a583d1e33b6887fb271584885a1137fcbb1ff75a8491b08"  .
+
+<urn:fdo-squirrel:dist/681f171cae605f6d> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/analysis%2Fpaper%2Fworking_data%2Fsource_file_name_out.csv> ;
+    dcat:byteSize 32 ;
+    dcat:mediaType "application/vnd.ms-excel" ;
+    fdo:path "analysis/paper/working_data/source_file_name_out.csv" ;
+    fdo:role "software" ;
+    fdo:sha256 "681f171cae605f6d69df7229d52c4fcbae65c3ebe02a4667f9756f628ad45084"  .
+
+<urn:fdo-squirrel:dist/09525f8a35f7be0b> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/analysis%2Fpaper%2Fworking_data%2Fworking_data.csv> ;
+    dcat:byteSize 91 ;
+    dcat:mediaType "application/vnd.ms-excel" ;
+    fdo:path "analysis/paper/working_data/working_data.csv" ;
+    fdo:role "software" ;
+    fdo:sha256 "09525f8a35f7be0b80aaeb22dab7ed3241d95788c1c5563cb10e0558a9f7b180"  .
+
+<urn:fdo-squirrel:dist/f0c17632233099e1> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/analysis%2Fplot_Jenks.R> ;
+    dcat:byteSize 1936 ;
+    dcat:mediaType "application/octet-stream" ;
+    fdo:path "analysis/plot_Jenks.R" ;
+    fdo:role "script" ;
+    fdo:sha256 "f0c17632233099e1609f6e814e4607c142040549c3b87321bb417863f68d8140"  .
+
+<urn:fdo-squirrel:dist/1ae3fc2969a76446> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/analysis%2Ftemplates%2Fjournal-of-archaeological-science.csl> ;
+    dcat:byteSize 830 ;
+    dcat:mediaType "application/vnd.citationstyles.style+xml" ;
+    fdo:path "analysis/templates/journal-of-archaeological-science.csl" ;
+    fdo:role "software" ;
+    fdo:sha256 "1ae3fc2969a76446e67cd33a2858fac9a50ae9f1d456c2e141eab0ba752624ad"  .
+
+<urn:fdo-squirrel:dist/70808d20cee32033> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/analysis%2Ftemplates%2Ftemplate.docx> ;
+    dcat:byteSize 22456 ;
+    dcat:mediaType "application/vnd.openxmlformats-officedocument.wordprocessingml.document" ;
+    fdo:path "analysis/templates/template.docx" ;
+    fdo:role "software" ;
+    fdo:sha256 "70808d20cee32033b0533343488475cf700ffc61d54471f5b6adb7fa43f47d1d"  .
+
+<urn:fdo-squirrel:dist/bfc9fd329db4bd4c> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/analysis%2Ftemplates%2Ftemplate.Rmd> ;
+    dcat:byteSize 1319 ;
+    dcat:mediaType "application/octet-stream" ;
+    fdo:path "analysis/templates/template.Rmd" ;
+    fdo:role "software" ;
+    fdo:sha256 "bfc9fd329db4bd4cabf9fcad6f5f67df869082e8c80c58ec1bceb2ac422aad1e"  .
+
+<urn:fdo-squirrel:dist/f8fb0060eb68b426> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/analysis_results%2Fanalysis_by_radius.csv> ;
+    dcat:byteSize 559 ;
+    dcat:mediaType "application/vnd.ms-excel" ;
+    fdo:path "analysis_results/analysis_by_radius.csv" ;
+    fdo:role "software" ;
+    fdo:sha256 "f8fb0060eb68b4264ef02d8978599dae5be5963d607b005d03bc141c788b16ef"  .
+
+<urn:fdo-squirrel:dist/d54b041866b30cd9> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/analysis_results%2Fmember_cluster_by_radius.csv> ;
+    dcat:byteSize 7081 ;
+    dcat:mediaType "application/vnd.ms-excel" ;
+    fdo:path "analysis_results/member_cluster_by_radius.csv" ;
+    fdo:role "software" ;
+    fdo:sha256 "d54b041866b30cd9f18923704d6dc2e4f117ed2c19c95ba485da48d027df9c86"  .
+
+<urn:fdo-squirrel:dist/364a7160ced37710> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/CITATION.cff> ;
+    dcat:byteSize 283 ;
+    dcat:mediaType "text/yaml" ;
+    fdo:path "CITATION.cff" ;
+    fdo:role "software" ;
+    fdo:sha256 "364a7160ced377103f62afc14f92445eb350ff14ed5b86105f3717990322c5ae"  .
+
+<urn:fdo-squirrel:dist/e3e017286980f80d> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/CONDUCT.md> ;
+    dcat:byteSize 1387 ;
+    dcat:mediaType "application/octet-stream" ;
+    fdo:path "CONDUCT.md" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "e3e017286980f80dbdbdf8b76f2ea853fa960c556f136bb8f1d8630fbd64c685"  .
+
+<urn:fdo-squirrel:dist/26cd57d1b2342cf6> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/CONTRIBUTING.md> ;
+    dcat:byteSize 2201 ;
+    dcat:mediaType "application/octet-stream" ;
+    fdo:path "CONTRIBUTING.md" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "26cd57d1b2342cf6d20d04e07c9543f9ada043289c6c3aa6e27600c4b742da4f"  .
+
+<urn:fdo-squirrel:dist/98190254814342f6> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/DESCRIPTION> ;
+    dcat:byteSize 383 ;
+    dcat:mediaType "application/octet-stream" ;
+    fdo:path "DESCRIPTION" ;
+    fdo:role "software" ;
+    fdo:sha256 "98190254814342f688588c6bbd42f08da20c8ff3218091a166530ee6991bfbca"  .
+
+<urn:fdo-squirrel:dist/dce87580354cdeb0> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/LICENSE> ;
+    dcat:byteSize 30 ;
+    dcat:mediaType "application/octet-stream" ;
+    fdo:path "LICENSE" ;
+    fdo:role "software" ;
+    fdo:sha256 "dce87580354cdeb05d83b46aa5efc280acd0d238c0061ebaf017266abed6e9ac"  .
+
+<urn:fdo-squirrel:dist/8ed98793d768b152> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/LICENSE.md> ;
+    dcat:byteSize 1059 ;
+    dcat:mediaType "application/octet-stream" ;
+    fdo:path "LICENSE.md" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "8ed98793d768b152f11f6d2843fac45b757707e9fd13dc0836765b056b681fe9"  .
+
+<urn:fdo-squirrel:dist/689e454a9f6dfc1a> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/MD.cff> ;
+    dcat:byteSize 2078 ;
+    dcat:mediaType "text/yaml" ;
+    fdo:path "MD.cff" ;
+    fdo:role "software" ;
+    fdo:sha256 "689e454a9f6dfc1a8cf481b6870541c0ff5b5cc086f51d05957f4ee10ca6778a"  .
+
+<urn:fdo-squirrel:dist/a897bc0b6c4a1e22> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/NAMESPACE> ;
+    dcat:byteSize 96 ;
+    dcat:mediaType "application/octet-stream" ;
+    fdo:path "NAMESPACE" ;
+    fdo:role "software" ;
+    fdo:sha256 "a897bc0b6c4a1e220cdb2036b014cdbbe07583f6c40673cb5d98f53e8fed7bdf"  .
+
+<urn:fdo-squirrel:dist/88a6cea6897937d6> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/oghamaps.Rproj> ;
+    dcat:byteSize 386 ;
+    dcat:mediaType "application/octet-stream" ;
+    fdo:path "oghamaps.Rproj" ;
+    fdo:role "software" ;
+    fdo:sha256 "88a6cea6897937d69011da84b452aa3eef70a62f3e3b5583cfb8c7e79020b712"  .
+
+<urn:fdo-squirrel:dist/4c2973cfe5815158> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/README.md> ;
+    dcat:byteSize 1527 ;
+    dcat:mediaType "application/octet-stream" ;
+    fdo:path "README.md" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "4c2973cfe58151588d731f94617bc14b4d62c13533257a1dc29a9a794c66a079"  .
+
+<urn:fdo-squirrel:dist/0b9977644ec41c15> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/README.Rmd> ;
+    dcat:byteSize 1813 ;
+    dcat:mediaType "application/octet-stream" ;
+    fdo:path "README.Rmd" ;
+    fdo:role "software" ;
+    fdo:sha256 "0b9977644ec41c15765fdce88bc1c4cc48873b2d4e6bce7ae15118fb179428d0"  .
+
+<urn:fdo-squirrel:dist/04fb8a2b32023374> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/working_data%2Fdata.csv> ;
+    dcat:byteSize 4803 ;
+    dcat:mediaType "application/vnd.ms-excel" ;
+    fdo:path "working_data/data.csv" ;
+    fdo:role "software" ;
+    fdo:sha256 "04fb8a2b320233742c589811d5e968ae1c7bb7bcda19fb043793e94fda9309dc"  .
+
+<urn:fdo-squirrel:dist/9c41a752a8282658> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/working_data%2Fduplicate_entries.txt> ;
+    dcat:byteSize 147 ;
+    dcat:mediaType "text/plain" ;
+    fdo:path "working_data/duplicate_entries.txt" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "9c41a752a8282658224618939dc38cbe263f0f7b40aac0e5d775dbd5b2abe973"  .
+
+<urn:fdo-squirrel:dist/9278a159b2e40d19> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/working_data%2Fnodes_list_d.txt> ;
+    dcat:byteSize 117644 ;
+    dcat:mediaType "text/plain" ;
+    fdo:path "working_data/nodes_list_d.txt" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "9278a159b2e40d196d3ea2707c3203f71adf89929a55e54f51befd3e45867721"  .
+
+<urn:fdo-squirrel:dist/ad7a37dd13e917b0> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/working_data%2Fnull_entries.txt> ;
+    dcat:byteSize 32 ;
+    dcat:mediaType "text/plain" ;
+    fdo:path "working_data/null_entries.txt" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "ad7a37dd13e917b05165f2523810f61423ebdfc197083771d32ff4f27d0e5fd3"  .
+
+<urn:fdo-squirrel:dist/283e035f950836bb> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/working_data%2FPlcIndex.csv> ;
+    dcat:byteSize 1275 ;
+    dcat:mediaType "application/vnd.ms-excel" ;
+    fdo:path "working_data/PlcIndex.csv" ;
+    fdo:role "software" ;
+    fdo:sha256 "283e035f950836bb08251e49da8937fefea46ea39d24d54543533aa32fbd3c6f"  .
+
+<urn:fdo-squirrel:dist/a284fb5b74d7020a> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/working_data%2Fworking_data.csv> ;
+    dcat:byteSize 91 ;
+    dcat:mediaType "application/vnd.ms-excel" ;
+    fdo:path "working_data/working_data.csv" ;
+    fdo:role "software" ;
+    fdo:sha256 "a284fb5b74d7020ae34433169cbe6632ec861eb80b7c4a09928923f2caa093b5"  .
+
+
+<https://spdx.org/licenses/MIT.html> rdfs:label "MIT" .

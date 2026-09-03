@@ -1,0 +1,150 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix fdo: <https://w3id.org/fdo-squirrel/> .
+@prefix schema: <https://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix geosparql: <http://www.opengis.net/ont/geosparql#> .
+@prefix sf: <http://www.opengis.net/ont/sf#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix codemeta: <https://codemeta.github.io/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix cff: <https://citation-file-format.github.io/terms/> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix wdt: <http://www.wikidata.org/prop/direct/> .
+
+<https://doi.org/10.5281/zenodo.18369865> a dcat:Dataset, crmdig:D1, crm:E73, fdo:3DDataFDO ;
+    dct:description "Ogham Stone GEARS/1 located in the Cork Public Museum" ;
+    dct:hasVersion "1.0" ;
+    dct:creator <https://orcid.org/0000-0002-3246-3531> ;
+    dct:license <https://spdx.org/licenses/CC-BY-SA-4.0.html> ;
+    dct:publisher <http://www.wikidata.org/entity/Q73901970> ;
+    dct:title "GEARS/1" ;
+    dcat:keyword <http://www.wikidata.org/entity/Q2016147>,
+        "Ogham Stone",
+        <http://www.wikidata.org/entity/Q24041450>,
+        "Cork Public Museum" ;
+    dct:subject <http://www.wikidata.org/entity/Q2016147>,
+        "Ogham Stone",
+        <http://www.wikidata.org/entity/Q24041450>,
+        "Cork Public Museum" ;
+    dcat:distribution <urn:fdo-squirrel:dist/d97e5e0c09fed6c8>,
+        <urn:fdo-squirrel:dist/fc48f6f7235f6dc6>,
+        <urn:fdo-squirrel:dist/e81858feccfec805>,
+        <urn:fdo-squirrel:dist/853dcb6e003e4f8b>,
+        <urn:fdo-squirrel:dist/bc9836c6caab52de>,
+        <urn:fdo-squirrel:dist/00366251a7c8f755>,
+        <urn:fdo-squirrel:dist/e72a2136f5e603de> ;
+    dct:created "2024-06-06"^^xsd:date ;
+    dct:issued "2024-06-09"^^xsd:date ;
+    dct:modified "2024-06-19"^^xsd:date ;
+    schema:funding "Community Project" ;
+    dct:spatial <https://www.openstreetmap.org/node/11966441102> ;
+    schema:latitude "51.896151"^^xsd:decimal ;
+    schema:longitude "-8.4942742"^^xsd:decimal ;
+    fdo:context "Ogham Stones in the Wild and in Museums in Ireland bearing Ogham inscriptions." ;
+    dct:type <http://www.wikidata.org/entity/Q2016147> ;
+    dct:subject <http://www.wikidata.org/entity/Q22731> ;
+    dct:description "make 3d model available" ;
+    dct:description "good" ;
+    dct:description "low" ;
+    dct:provenance "{"software": "KIRI Engine", "steps": "Take photos, align photos; build dense cloud; generate mesh; texture; export."}"  .
+
+<https://doi.org/10.5281/zenodo.18369865> geosparql:hasGeometry <https://doi.org/10.5281/zenodo.18369865_geom> .
+<https://doi.org/10.5281/zenodo.18369865_geom> a sf:Point .
+<https://doi.org/10.5281/zenodo.18369865_geom> geosparql:asWKT "<http://www.opengis.net/def/crs/EPSG/0/4326> POINT(-8.4942742 51.8961510)"^^geosparql:wktLiteral .
+<https://doi.org/10.5281/zenodo.18369865> dct:temporal <https://doi.org/10.5281/zenodo.18369865_temporal> .
+<https://doi.org/10.5281/zenodo.18369865_temporal> a dct:PeriodOfTime .
+<https://doi.org/10.5281/zenodo.18369865_temporal> rdfs:label "Ogham stone inscriptions (ca. 4th–7th century CE)" .
+<https://doi.org/10.5281/zenodo.18369865_temporal> dcat:startDate "300"^^xsd:integer .
+<https://doi.org/10.5281/zenodo.18369865_temporal> dcat:endDate "699"^^xsd:integer .
+
+<http://www.wikidata.org/entity/Q73901970> a schema:Organization ;
+    schema:name "Research Squirrel Engineers Network" .
+
+<https://orcid.org/0000-0002-3246-3531> a schema:Person ;
+    schema:name "Thiery, Florian" .
+
+<urn:fdo-squirrel:dist/d97e5e0c09fed6c8> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/CITATION.cff> ;
+    dcat:byteSize 253 ;
+    dcat:mediaType "text/yaml" ;
+    fdo:path "CITATION.cff" ;
+    fdo:role "data" ;
+    fdo:sha256 "d97e5e0c09fed6c85e1aabe27be6362a326ae100b26e23c5e129461d4a75f167"  .
+
+<urn:fdo-squirrel:dist/fc48f6f7235f6dc6> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/cork_public_museum_gaers1.glb> ;
+    dcat:byteSize 32274472 ;
+    dcat:mediaType "model/gltf-binary" ;
+    fdo:path "cork_public_museum_gaers1.glb" ;
+    fdo:role "model" ;
+    fdo:sha256 "fc48f6f7235f6dc6b8e4704fb1f05d73078458dc7f0de67d5cf782d180d5edd6"  .
+
+<urn:fdo-squirrel:dist/e81858feccfec805> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/GEARS_1.jpg> ;
+    dcat:byteSize 1970953 ;
+    dcat:mediaType "image/jpeg" ;
+    fdo:path "GEARS_1.jpg" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "e81858feccfec80578ce9c2ae5563ac9522e581ef9bec3966114e1979d267edf"  .
+
+<urn:fdo-squirrel:dist/853dcb6e003e4f8b> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/GEARS_1.nxs> ;
+    dcat:byteSize 39376128 ;
+    dcat:mediaType "application/octet-stream" ;
+    fdo:path "GEARS_1.nxs" ;
+    fdo:role "data" ;
+    fdo:sha256 "853dcb6e003e4f8b1533a37326c7c87a50936bc464dfe0b2f29ade2d88b2db96"  .
+
+<urn:fdo-squirrel:dist/bc9836c6caab52de> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/GEARS_1.nxz> ;
+    dcat:byteSize 7729408 ;
+    dcat:mediaType "application/octet-stream" ;
+    fdo:path "GEARS_1.nxz" ;
+    fdo:role "data" ;
+    fdo:sha256 "bc9836c6caab52de0478157874d842dbd6f1771f5a74438610b29c469cb93409"  .
+
+<urn:fdo-squirrel:dist/00366251a7c8f755> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/GEARS_1.ply> ;
+    dcat:byteSize 51698715 ;
+    dcat:mediaType "application/octet-stream" ;
+    fdo:path "GEARS_1.ply" ;
+    fdo:role "model" ;
+    fdo:sha256 "00366251a7c8f7556ac84811c35e95ff42fb5390b4abb0a4dffb4bc14bd80fb9"  .
+
+<urn:fdo-squirrel:dist/e72a2136f5e603de> a dcat:Distribution, crmdig:D9 ;
+    dcat:accessURL <urn:fdo-squirrel:content/MD.cff> ;
+    dcat:byteSize 2190 ;
+    dcat:mediaType "text/yaml" ;
+    fdo:path "MD.cff" ;
+    fdo:role "data" ;
+    fdo:sha256 "e72a2136f5e603de9e93ec43fb7a55b09406722e62e9bcd1f21394c1fc146851"  .
+
+<https://doi.org/10.5281/zenodo.18369865> cff:keywords "Cork Public Museum" .
+<https://doi.org/10.5281/zenodo.18369865> cff:keywords "Ogham Stone" .
+<https://doi.org/10.5281/zenodo.18369865> cff:license "CC-BY-SA-4.0" .
+<https://doi.org/10.5281/zenodo.18369865> cff:license <https://spdx.org/licenses/CC-BY-SA-4.0.html> .
+<https://doi.org/10.5281/zenodo.18369865> cff:license-url "CC-BY-SA-4.0" .
+<https://doi.org/10.5281/zenodo.18369865> cff:license-url <https://spdx.org/licenses/CC-BY-SA-4.0.html> .
+<https://doi.org/10.5281/zenodo.18369865> codemeta:keywords "Cork Public Museum" .
+<https://doi.org/10.5281/zenodo.18369865> codemeta:keywords "Ogham Stone" .
+<https://doi.org/10.5281/zenodo.18369865> codemeta:license "CC-BY-SA-4.0" .
+<https://doi.org/10.5281/zenodo.18369865> codemeta:license <https://spdx.org/licenses/CC-BY-SA-4.0.html> .
+<https://doi.org/10.5281/zenodo.18369865> dcat:keyword "Cork Public Museum" .
+<https://doi.org/10.5281/zenodo.18369865> dcat:keyword "Ogham Stone" .
+<https://doi.org/10.5281/zenodo.18369865> dct:license <https://spdx.org/licenses/CC-BY-SA-4.0.html> .
+<https://doi.org/10.5281/zenodo.18369865> dct:subject "Cork Public Museum" .
+<https://doi.org/10.5281/zenodo.18369865> dct:subject "Ogham Stone" .
+<https://doi.org/10.5281/zenodo.18369865> schema:description "Ogham Stone GEARS/1 located in the Cork Public Museum" .
+<https://doi.org/10.5281/zenodo.18369865> schema:keywords "Cork Public Museum" .
+<https://doi.org/10.5281/zenodo.18369865> schema:keywords "Ogham Stone" .
+<https://doi.org/10.5281/zenodo.18369865> schema:license "CC-BY-SA-4.0" .
+<https://doi.org/10.5281/zenodo.18369865> schema:license <https://spdx.org/licenses/CC-BY-SA-4.0.html> .
+<https://doi.org/10.5281/zenodo.18369865> wdt:P275 "CC-BY-SA-4.0" .
+<https://doi.org/10.5281/zenodo.18369865> wdt:P275 <https://spdx.org/licenses/CC-BY-SA-4.0.html> .
+<https://doi.org/10.5281/zenodo.18369865> wdt:P921 "Cork Public Museum" .
+<https://doi.org/10.5281/zenodo.18369865> wdt:P921 "Ogham Stone" .
+
+<https://spdx.org/licenses/CC-BY-SA-4.0.html> rdfs:label "CC-BY-SA-4.0" .

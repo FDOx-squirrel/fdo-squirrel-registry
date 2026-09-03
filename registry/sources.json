@@ -1,4 +1,53 @@
 {
   "schema_version": "1",
-  "sources": []
+  "sources": [
+    {
+      "added": "2026-09-03",
+      "concept_doi": "10.5281/zenodo.18724635",
+      "note": "CIIC 81, KIRI Engine SfM scan, Ogham stone",
+      "version_doi": "10.5281/zenodo.18744133"
+    },
+    {
+      "added": "2026-09-03",
+      "concept_doi": "10.5281/zenodo.18732892",
+      "note": "Lago di Anterselva, cairn (SquirrelBase Q60)",
+      "version_doi": "10.5281/zenodo.18732893"
+    },
+    {
+      "added": "2026-09-03",
+      "concept_doi": "10.5281/zenodo.18740523",
+      "note": "Cologne, Heinzelmännchen 'Heinz Eau' (SquirrelBase Q55)",
+      "version_doi": "10.5281/zenodo.18740524"
+    },
+    {
+      "added": "2026-09-03",
+      "concept_doi": "10.5281/zenodo.18742693",
+      "note": "Kassel, Beuys stele B 1036 (SquirrelBase Q56)",
+      "version_doi": "10.5281/zenodo.18742694"
+    },
+    {
+      "added": "2026-09-03",
+      "concept_doi": "10.5281/zenodo.18369125",
+      "note": "o3d-epidoc-extractor (software FDO)",
+      "version_doi": "10.5281/zenodo.18369126"
+    },
+    {
+      "added": "2026-09-03",
+      "concept_doi": "10.5281/zenodo.18369156",
+      "note": "ogham-analysis (analysis FDO)",
+      "version_doi": "10.5281/zenodo.18369157"
+    },
+    {
+      "added": "2026-09-03",
+      "concept_doi": "10.5281/zenodo.18369865",
+      "note": "GEARS/1",
+      "version_doi": "10.5281/zenodo.18369866"
+    },
+    {
+      "added": "2026-09-03",
+      "concept_doi": "10.5281/zenodo.18369720",
+      "note": "added for the talk; title to be taken from the record",
+      "version_doi": "10.5281/zenodo.18744583"
+    }
+  ]
 }

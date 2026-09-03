@@ -1,0 +1,27 @@
+{
+  "access_right": null,
+  "concept_doi": null,
+  "concept_doi_record": null,
+  "concept_record_id": null,
+  "crc32_verified": false,
+  "created": null,
+  "doi": null,
+  "fetched": "2026-09-03",
+  "lookalikes": [],
+  "package": null,
+  "package_checksum_zenodo": null,
+  "package_md5_verified": false,
+  "publication_date": null,
+  "reason": "offline, no record.json on disk and no --zip given for this record",
+  "record_available": false,
+  "record_id": "18369865",
+  "route": null,
+  "status": "skipped",
+  "title": null,
+  "updated": null,
+  "version": null,
+  "version_doi": "10.5281/zenodo.18369865",
+  "warnings": [
+    "offline and no record.json on disk — record fields left empty; re-run online to complete this entry"
+  ]
+}

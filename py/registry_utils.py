@@ -93,10 +93,18 @@ def slugify(text: str) -> str:
 
 
 def zenodo_record_id(doi: str) -> str:
-    """'10.5281/zenodo.18724635' or a DOI URL -> '18724635'."""
+    """'10.5281/zenodo.18724635', a DOI URL, or a bare '18724635' -> '18724635'.
+
+    The bare form is accepted because that is how a record is named on the
+    command line (`--zip 18724635=...`) and in a Zenodo URL; sources.json is
+    still validated separately, so a bare id cannot slip into the curated list.
+    """
+    doi = doi.strip()
+    if doi.isdigit():
+        return doi
     match = re.search(r"zenodo\.(\d+)", doi)
     if not match:
-        raise ValueError(f"not a Zenodo DOI: {doi}")
+        raise ValueError(f"not a Zenodo DOI or record id: {doi}")
     return match.group(1)
 
 
@@ -208,3 +216,27 @@ def harvested_records() -> list[Path]:
     if not RAW_FDO.exists():
         return []
     return sorted(p.parent for p in RAW_FDO.glob("*/fdo-metadata.ttl"))
+
+
+# ---------------------------------------------------------------------------
+# Local, uncommitted configuration
+# ---------------------------------------------------------------------------
+
+LOCAL_CONFIG = ROOT / "config.local.json"
+
+
+def local_config() -> dict:
+    """config.local.json — machine-specific paths, gitignored. Missing is fine.
+
+    Known keys:
+      package_dir   folder holding FDOx package ZIPs by their Zenodo file name,
+                    so the harvest reads them instead of downloading (S2).
+    Path values are returned as Path objects.
+    """
+    if not LOCAL_CONFIG.exists():
+        return {}
+    config = read_json(LOCAL_CONFIG)
+    for key in ("package_dir",):
+        if config.get(key):
+            config[key] = Path(config[key]).expanduser()
+    return config
