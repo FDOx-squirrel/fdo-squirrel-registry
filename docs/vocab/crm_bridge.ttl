@@ -1,0 +1,49 @@
+@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix crmdig: <http://www.ics.forth.gr/isl/CRMdig/> .
+@prefix crmgeo: <http://www.ics.forth.gr/isl/CRMgeo/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix fdo: <https://w3id.org/fdo-squirrel/> .
+@prefix fdoreg: <https://w3id.org/fdo-squirrel/registry/> .
+@prefix geosparql: <http://www.opengis.net/ont/geosparql#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sf: <http://www.opengis.net/ont/sf#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+crmdig:D9_Data_Object rdfs:subClassOf crmdig:D1_Digital_Object .
+
+crmgeo:SP5_Geometric_Place_Expression rdfs:subClassOf crm:E73_Information_Object .
+
+sf:Point rdfs:subClassOf geosparql:Geometry .
+
+skos:Concept rdfs:subClassOf crm:E28_Conceptual_Object .
+
+skos:ConceptScheme rdfs:subClassOf crm:E31_Document .
+
+skos:inScheme rdfs:subPropertyOf crm:P67_refers_to .
+
+fdo:3DDataFDO rdfs:subClassOf crmdig:D1_Digital_Object .
+
+fdo:AnalysisFDO rdfs:subClassOf crmdig:D1_Digital_Object .
+
+fdo:SoftwareFDO rdfs:subClassOf crmdig:D14_Software .
+
+fdo:context rdfs:subPropertyOf crm:P3_has_note .
+
+<https://w3id.org/fdo-squirrel/crm/> a owl:Ontology ;
+    rdfs:label "FDOx to CIDOC CRM bridge"@en ;
+    dct:source "CIDOC CRM Digital (CRMdig) v3.2.1",
+        "CRMgeo v1.0, class declaration of SP5_Geometric_Place_Expression",
+        "GeoSPARQL 1.0, Simple Features geometry vocabulary",
+        "NFDI4Objects CIDOC-CRM in RDF application profile" ;
+    rdfs:comment "Generated from crosswalks/fdo--crm.csv. Every statement about a term outside the FDOx namespace is quoted from that term's own ontology or from the NFDI4Objects application profile; nothing is asserted here about a namespace this registry does not own."@en ;
+    rdfs:seeAlso <https://nfdi4objects.github.io/crm-rdf-ap/> .
+
+fdoreg:squirrelbaseItem rdfs:subPropertyOf crm:P67_refers_to .
+
+fdo:role rdfs:subPropertyOf crm:P2_has_type .
+
+crmdig:D14_Software rdfs:subClassOf crmdig:D1_Digital_Object .
+
+crmdig:D1_Digital_Object rdfs:subClassOf crm:E73_Information_Object .
+

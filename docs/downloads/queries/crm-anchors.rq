@@ -1,0 +1,49 @@
+# Every class in the catalogue and how it reaches CIDOC CRM
+# The claim of PRIMER A2, as a table anyone can re-run. Two columns, because
+# there are two mechanisms: a class in our own namespace may be anchored by an
+# axiom in the bridge, and everything else is anchored on each instance, since
+# this registry does not make axiomatic statements about namespaces it does
+# not own. A CRM class needs no anchor — it is one — and the owl:* rows
+# describe the vocabulary files themselves rather than anything in the
+# catalogue.
+#
+# Needs, besides the bundle: metadata/crm_bridge.ttl, metadata/vocab/role.ttl, metadata/registry_ontology.ttl
+
+PREFIX crm: <http://www.cidoc-crm.org/cidoc-crm/>
+PREFIX crmdig: <http://www.ics.forth.gr/isl/CRMdig/>
+PREFIX dcat: <http://www.w3.org/ns/dcat#>
+PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX fdo: <https://w3id.org/fdo-squirrel/>
+PREFIX fdoreg: <https://w3id.org/fdo-squirrel/registry/>
+PREFIX geosparql: <http://www.opengis.net/ont/geosparql#>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX role: <https://w3id.org/fdo-squirrel/registry/role/>
+PREFIX schema: <https://schema.org/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT ?class (COUNT(DISTINCT ?node) AS ?nodes)
+       (GROUP_CONCAT(DISTINCT COALESCE(?instanceAnchor, ""); separator=", ")
+        AS ?anchoredOnEachInstance)
+       (GROUP_CONCAT(DISTINCT COALESCE(?axiomAnchor, ""); separator=", ")
+        AS ?anchoredByAxiom)
+WHERE {
+  ?node a ?class .
+  OPTIONAL {
+    ?node a ?coType .
+    FILTER(?coType != ?class)
+    FILTER(STRSTARTS(STR(?coType), STR(crm:))
+           || STRSTARTS(STR(?coType), "http://www.ics.forth.gr/isl/"))
+    BIND(REPLACE(STR(?coType), "^.*[/#]", "") AS ?instanceAnchor)
+  }
+  OPTIONAL {
+    ?class rdfs:subClassOf+ ?superClass .
+    FILTER(STRSTARTS(STR(?superClass), STR(crm:))
+           || STRSTARTS(STR(?superClass), "http://www.ics.forth.gr/isl/"))
+    BIND(REPLACE(STR(?superClass), "^.*[/#]", "") AS ?axiomAnchor)
+  }
+}
+GROUP BY ?class
+ORDER BY DESC(?nodes) ?class

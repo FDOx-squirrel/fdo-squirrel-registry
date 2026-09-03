@@ -1,0 +1,35 @@
+# Every 3D model file, with format, size and role
+# fdo:role stays in the bundle as the literal the package wrote, and beside it
+# stands crm:P2_has_type on a SKOS concept. The label of that concept is not
+# in the bundle, so this query loads the role vocabulary as well — which is
+# exactly the difference between a value and a term.
+#
+# Needs, besides the bundle: metadata/crm_bridge.ttl, metadata/vocab/role.ttl, metadata/registry_ontology.ttl
+
+PREFIX crm: <http://www.cidoc-crm.org/cidoc-crm/>
+PREFIX crmdig: <http://www.ics.forth.gr/isl/CRMdig/>
+PREFIX dcat: <http://www.w3.org/ns/dcat#>
+PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX fdo: <https://w3id.org/fdo-squirrel/>
+PREFIX fdoreg: <https://w3id.org/fdo-squirrel/registry/>
+PREFIX geosparql: <http://www.opengis.net/ont/geosparql#>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX role: <https://w3id.org/fdo-squirrel/registry/role/>
+PREFIX schema: <https://schema.org/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT ?title ?path ?mediaType ?bytes ?role
+WHERE {
+  ?fdo dct:title ?title ;
+       dcat:distribution ?distribution .
+  ?distribution fdo:role "model" ;
+                fdo:path ?path ;
+                crm:P2_has_type ?concept .
+  ?concept skos:prefLabel ?role .
+  OPTIONAL { ?distribution dcat:mediaType ?mediaType }
+  OPTIONAL { ?distribution dcat:byteSize ?bytes }
+}
+ORDER BY DESC(?bytes)

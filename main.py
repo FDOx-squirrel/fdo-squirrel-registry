@@ -49,8 +49,10 @@ STEPS: list[tuple[str, str, str, bool]] = [
     ("bundle", "step_bundle", "S4  build dist/fdo-registry.ttl", False),
     ("validate", "step_validate", "S5  SHACL gate and quality report", False),
     ("index", "step_index", "S6  build dist/registry-index.json", False),
-    ("sparql", "step_sparql", "S7  build the browser query page", False),
     ("site", "step_site", "S6  render docs/ for GitHub Pages", False),
+    # After site: the query page is served from the docs/ tree the site step
+    # lays out, and it fetches the bundle the site step publishes there.
+    ("sparql", "step_sparql", "S7  build the browser query page", False),
 ]
 
 

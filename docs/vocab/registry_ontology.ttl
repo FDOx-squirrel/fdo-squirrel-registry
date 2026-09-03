@@ -1,0 +1,48 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix fdoreg: <https://w3id.org/fdo-squirrel/registry/> .
+@prefix ns01: <https://spdx.org/licenses/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+fdoreg:conceptDoi a owl:ObjectProperty ;
+    rdfs:label "concept DOI"@en ;
+    rdfs:comment "The Zenodo concept DOI of the FDO a catalogue record describes. It is the DOI the harvested fdo-metadata.ttl uses as its own subject, and therefore the identity that survives a new version."@en ;
+    rdfs:domain dcat:CatalogRecord ;
+    rdfs:isDefinedBy fdoreg: ;
+    rdfs:range dcat:Dataset .
+
+fdoreg:readRepair a owl:DatatypeProperty ;
+    rdfs:label "encoding repair applied on reading"@en ;
+    rdfs:comment "Names a declared repair from py/repair.py that had to be applied before the harvested Turtle would parse. Present only where the published file is not valid Turtle; its absence means the file was read exactly as published."@en ;
+    rdfs:domain dcat:CatalogRecord ;
+    rdfs:isDefinedBy fdoreg: ;
+    rdfs:range xsd:string .
+
+fdoreg:sha256 a owl:DatatypeProperty ;
+    rdfs:label "SHA-256 of the harvested metadata file"@en ;
+    rdfs:comment "Of the fdo-metadata.ttl exactly as it lies in the published package - never of a repaired reading of it, so the value can be checked against Zenodo."@en ;
+    rdfs:domain dcat:CatalogRecord ;
+    rdfs:isDefinedBy fdoreg: ;
+    rdfs:range xsd:string .
+
+fdoreg:squirrelbaseItem a owl:ObjectProperty ;
+    rdfs:label "SquirrelBase item"@en ;
+    rdfs:comment "The item in SquirrelBase that stands for the object this FDO was made of. No package names it - the value is curated in registry/sources.json, because the connection is knowledge a human holds and the metadata does not. Deliberately without a range: what the item denotes is a question for SquirrelBase, not for this vocabulary."@en ;
+    rdfs:domain dcat:CatalogRecord ;
+    rdfs:isDefinedBy fdoreg: .
+
+fdoreg:versionDoi a owl:ObjectProperty ;
+    rdfs:label "version DOI"@en ;
+    rdfs:comment "The pinned Zenodo version DOI the registry harvested. One catalogue record per version DOI; several records may share a concept DOI."@en ;
+    rdfs:domain dcat:CatalogRecord ;
+    rdfs:isDefinedBy fdoreg: ;
+    rdfs:range dcat:Dataset .
+
+fdoreg: a owl:Ontology ;
+    rdfs:label "FDOx registry vocabulary"@en ;
+    dct:license ns01:CC-BY-4.0.html ;
+    rdfs:comment "The few terms the registry needs for its own catalogue records and which neither DCAT nor PROV provides. Everything the registry says about the FDOs themselves is said in DCAT, CIDOC CRM and CRMdig; this vocabulary is deliberately small."@en ;
+    rdfs:seeAlso <https://w3id.org/fdo-squirrel/crm/> .
+

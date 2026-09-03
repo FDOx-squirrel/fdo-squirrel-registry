@@ -1,0 +1,32 @@
+# Wikidata concepts that more than one FDO points at
+# What the packages have in common, in their own words. This is the query that
+# would show a subject vocabulary drifting apart: two packages meaning the
+# same thing and saying it with two different Q-ids appear here as two rows of
+# one, not as one row of two.
+
+PREFIX crm: <http://www.cidoc-crm.org/cidoc-crm/>
+PREFIX crmdig: <http://www.ics.forth.gr/isl/CRMdig/>
+PREFIX dcat: <http://www.w3.org/ns/dcat#>
+PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX fdo: <https://w3id.org/fdo-squirrel/>
+PREFIX fdoreg: <https://w3id.org/fdo-squirrel/registry/>
+PREFIX geosparql: <http://www.opengis.net/ont/geosparql#>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX role: <https://w3id.org/fdo-squirrel/registry/role/>
+PREFIX schema: <https://schema.org/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT ?concept (COUNT(DISTINCT ?fdo) AS ?fdos)
+       (GROUP_CONCAT(?title; separator=" · ") AS ?objects)
+WHERE {
+  ?fdo a dcat:Dataset ;
+       dct:title ?title ;
+       dct:subject ?concept .
+  FILTER(STRSTARTS(STR(?concept), STR(wd:)))
+}
+GROUP BY ?concept
+HAVING (COUNT(DISTINCT ?fdo) > 1)
+ORDER BY DESC(?fdos) ?concept

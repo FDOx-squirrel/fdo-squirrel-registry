@@ -274,6 +274,49 @@ Browser):
     `.gitattributes`. Geprüft: `git add --renormalize .` gegen den
     unveränderten Klon ändert nichts, die abgelegten Blobs sind bereits LF.
 
+**Befunde aus dem Bau der Abfrageseite** (geprüft 2026-09-03 in S7 an denselben
+6584 Tripeln):
+
+30. **Die Templates werden nicht escaped, und niemand hat es gemerkt.**
+    `select_autoescape(["html"])` vergleicht das Ende des Dateinamens; alle
+    Templates hier heissen `*.html.j2` und enden auf `.j2`, also liefert der
+    Helfer `False`. `step_site` glaubt seit S6, es escape, und tut es nicht.
+    Heute fällt es nicht auf, weil kein geernteter Wert ein `<` oder `&`
+    enthält — geprüft: in `docs/` steht kein einziges `&amp;`, das nicht aus
+    dem Template selbst stammt. Ein Pakettitel mit einem `<` würde die Seite
+    zerlegen. `step_sparql` setzt deshalb `autoescape=True` ausdrücklich; für
+    `step_site` steht der Punkt in Teil D, weil er zu S6 gehört und nicht
+    hierher.
+31. **Zwei rdflib-Fallen in einer Abfrage.** `OPTIONAL { … UNION … }` bindet in
+    rdflib nichts: die Anker-Abfrage lief durch, meldete 7 statt 24 Zeilen und
+    liess die per Instanz verankerten Klassen leer aussehen — ein falsches
+    Ergebnis, das wie ein Befund über den Graphen aussah. Und
+    `GROUP_CONCAT(DISTINCT ?x)` wirft `NotBoundError`, sobald `?x` in einer
+    Zeile ungebunden ist, statt sie zu überspringen. Beides umgangen: zwei
+    getrennte `OPTIONAL`-Blöcke, `COALESCE(?x, "")` in der Aggregation. Die
+    zwei Spalten sind ohnehin die bessere Auskunft, weil sie die beiden
+    Ankermechanismen aus A3 trennen, statt sie zu einer Liste zu verrühren.
+32. **Der Bundle allein beantwortet zwei der acht Fragen nicht.** Die
+    Rollenkonzepte stehen darin mit genau einem Tripel — ihrem `rdf:type` —,
+    die `skos:prefLabel` liegen in `vocab/role.ttl`, die Klassenaxiome in
+    `crm_bridge.ttl`. Das ist Befund 18 aus Sicht eines Lesers und kein Mangel:
+    A3 verbietet die Axiome im Bundle. Die Seite lädt die drei
+    Vokabulardateien deshalb je Abfrage dazu (A4) — und macht damit sichtbar,
+    wo diese Aussagen wirklich stehen.
+33. **Die `content/`-IRIs sind doppelt prozentkodiert.** Die Quelle schreibt
+    `urn:fdo-squirrel:content/docs%2Fjs%2Fjsts.js`, `content_iri()` quotet
+    erneut, im Bundle steht `…/content/docs%252Fjs%252Fjsts.js`. Eindeutig ist
+    das, auflösbar nicht: `%252F` dekodiert zu `%2F`, nicht zu `/`. Ein Fehler
+    aus S4, den erst eine Abfrage über `dcat:accessURL` sichtbar gemacht hat.
+    Nicht in S7 repariert — die Umschreibung zu ändern heisst Bundle, Gate und
+    beide Seiten neu zu bauen; siehe Teil D.
+34. **Die Personenabfrage zählt fünf, die Facette vier.** Kein Widerspruch,
+    sondern Befund 12 an der Oberfläche: „Thiery, Florian" ist im Graphen zwei
+    Knoten (ORCID und Registry-Agent), die Facettenseite führt sie unter einem
+    Namen zusammen. Genau deshalb ist der Gegentest in A4 auf Lizenz, Jahr und
+    Eintragszahl beschränkt und nicht auf die Creator-Facette: dort *müssen*
+    beide verschieden zählen, und das steht in der Einleitung der Abfrage.
+
 **Was das Anwendungsprofil nicht abdeckt** (geprüft 2026-09-03 an
 <https://nfdi4objects.github.io/crm-rdf-ap/>, Fassung 2025-01-27, Jakob Voß):
 Es behandelt CRM-Kern, SKOS, GeoSPARQL, Time Ontology und BIBO. Zu **CRMdig
@@ -492,6 +535,13 @@ dem es zum ersten Mal wirkt.
 | Zeilenenden im Repository | `.gitattributes` mit `* text=auto eol=lf`: LF im Repository **und** im Arbeitsverzeichnis, auf jeder Plattform. Sonst hängt es an `core.autocrlf` des jeweiligen Klons, und ein Byte-Vergleich zwischen zwei Rechnern sagt nichts mehr. Binärendungen sind dort deklariert statt geraten, und `dist/`, `docs/`, `data/raw/` sowie die erzeugten TTL unter `metadata/` tragen `linguist-generated=true` — ihre Diffs sind auf GitHub eingeklappt, nicht versteckt | 2026-09-03 |
 | Seite ansehen | `python main.py --open` öffnet `docs/index.html` von der Platte — die Seite braucht keinen Server, deshalb bekommt sie auch keinen. `python main.py --serve [PORT]` liefert `docs/` auf `127.0.0.1:8000` aus und läuft bis Ctrl+C; es gibt keinen Modus zu verlassen, nur einen Prozess, der endet. Gedacht für S7, wo Pyodide einen `http://`-Origin verlangt | 2026-09-03 |
 | Wann eine Seite geprüft ist | wenn ein Browser sie gezeichnet hat. Statische Prüfungen und `jsdom` haben die kaputte Filterung in Befund 28 beide bestanden; `jsdom` bildet die Kaskade zwischen Autor- und User-Agent-Stylesheet nicht korrekt ab. Im Chat wird deshalb gesagt, was nur am Rechner prüfbar ist, statt es als geprüft auszugeben | 2026-09-03 |
+| Graph der Abfrageseite | Basisgraph ist der **publizierte** `docs/fdo-registry.ttl` — dieselbe Datei, die die Facettenseite zum Download anbietet, damit ein Leser jede Antwort mit der Datei in der Hand nachvollziehen kann. Brücke, Rollen- und Registry-Vokabular werden je Abfrage über `needs: vocab` dazugeladen und dafür nach `docs/vocab/` kopiert. Nicht der n4o-Bundle: der wäre eine zweite 380-KB-Kopie fast desselben Inhalts und würde die Trennung aus A3 gerade unsichtbar machen | 2026-09-03 |
+| Leeres Ergebnis | bricht den Bau ab, immer, auch ohne `--strict`. SPARQL scheitert nicht an einer falsch geschriebenen IRI, es liefert nichts; null Zeilen sind also das übliche Symptom eines kaputten Graphen. Negativprobe gefahren: eine Abfrage auf eine erfundene Klasse beendet den Schritt mit Exitcode 1 und schreibt keine Datei | 2026-09-03 |
+| Gegentest gegen den Index | eine Abfrage darf `crosscheck` deklarieren und wird dann gegen `dist/registry-index.json` gerechnet: `catalogue-overview` gegen die Eintragszahl, `holdings-by-licence` und `holdings-by-year` gegen die gleichnamige Facette. Abweichung bricht ab. Die Creator-Facette bleibt aussen vor, weil sie nach Namen zusammenführt und der Graph nach Knoten zählt (Befund 34) | 2026-09-03 |
+| Gepinnte Laufzeit | Pyodide 0.26.4 und rdflib 7.1.1, beide als Konstante in `py/step_sparql.py`. Ein ungepinnter CDN-Pfad folgt dem, was als nächstes erscheint, und ein rdflib, das dieses Turtle nicht mehr liest, zerlegt die Seite lautlos. Alle acht Abfragen sind gegen genau diese rdflib-Fassung nachgerechnet, nicht nur gegen die des Bausystems | 2026-09-03 |
+| Kein quarto-live-Notebook | die `wdt-*`-Familie erzeugt aus `queries.yaml` drei Erzeugnisse; hier sind es zwei. Ein Notebook ist ein Lehrmittel, und die Registry hat noch keinen Kurs. Kommt dazu, sobald es einen gibt — `queries.yaml` bleibt die Quelle, es ist eine Vorlage mehr | 2026-09-03 |
+| Reihenfolge im Orchestrator | `sparql` läuft **nach** `site`: die Seite wird aus dem `docs/`-Baum bedient, den `site` anlegt, und liest den Bundle, den `site` dorthin publiziert. Läuft sie davor, meldet sie eine Warnung statt eine 404 zu erzeugen | 2026-09-03 |
+| Autoescape in den Templates | `autoescape=True` ausdrücklich, nicht `select_autoescape(["html"])`: der Helfer prüft die Dateiendung, und alle Templates enden auf `.j2` (Befund 30). Die drei JSON-Blöcke im Skript sind einzeln mit `| safe` markiert — genau dort ist rohe Ausgabe gewollt und nirgends sonst | 2026-09-03 |
 
 ## A5. Was in welchem Chat hochgeladen wird
 
@@ -539,13 +589,13 @@ existiert oder ob die IRI bisher nur als Präfix benutzt wird.
 | Pfad | Inhalt | Ziel des Redirects | Status |
 |---|---|---|---|
 | `/fdo-squirrel/` | FDOx-Vokabular: `fdo:3DDataFDO`, `fdo:role`, `fdo:sha256` … | `fdo-squirrel`, Datei noch zu bestimmen | in Benutzung, Eintrag ungeprüft |
-| `/fdo-squirrel/crm/` | Brücke FDOx → CIDOC CRM | `metadata/crm_bridge.ttl` | gebaut (S3), w3id-Eintrag offen |
-| `/fdo-squirrel/registry/` | Registry-Vokabular `fdoreg:`, vier Terme | `metadata/registry_ontology.ttl` | gebaut (S4), w3id-Eintrag offen |
+| `/fdo-squirrel/crm/` | Brücke FDOx → CIDOC CRM | `docs/vocab/crm_bridge.ttl` (Kopie aus `metadata/`, seit S7 auf Pages) | gebaut (S3), w3id-Eintrag offen |
+| `/fdo-squirrel/registry/` | Registry-Vokabular `fdoreg:`, vier Terme | `docs/vocab/registry_ontology.ttl` (Kopie, seit S7 auf Pages) | gebaut (S4), w3id-Eintrag offen |
 | `/fdo-squirrel/registry/catalog` | der Katalogknoten selbst | `dist/fdo-registry.ttl` | gebaut (S4), w3id-Eintrag offen |
 | `/fdo-squirrel/registry/record/{id}` | ein `dcat:CatalogRecord` je gepinnter Version | `docs/record/{id}.html` | gebaut (S6), w3id-Eintrag offen |
 | `/fdo-squirrel/registry/record/{id}/dist/{sha}` | eine `dcat:Distribution` | Detailansicht auf Pages | im Bundle vergeben (S4) |
 | `/fdo-squirrel/registry/agent/{hash}` | eine Person ohne ORCID, registry-global | Detailansicht auf Pages | im Bundle vergeben (S4), keine Seite — die Detailseiten verlinken solche IRIs deshalb nicht (A4) |
-| `/fdo-squirrel/registry/role/` | SKOS-Vokabular zu `fdo:role`, sechs Konzepte | `metadata/vocab/role.ttl` | gebaut (S3), w3id-Eintrag offen |
+| `/fdo-squirrel/registry/role/` | SKOS-Vokabular zu `fdo:role`, sechs Konzepte | `docs/vocab/role.ttl` (Kopie, seit S7 auf Pages) | gebaut (S3), w3id-Eintrag offen |
 | `/fdo-squirrel/registry/shapes/` | SHACL-Gate, 38 Regeln | `metadata/shapes.ttl` | gebaut (S5), w3id-Eintrag offen |
 | `/fdo-squirrel/registry/squirrelbaseItem` | Verweis auf das SquirrelBase-Item zum Objekt | `metadata/registry_ontology.ttl` | gebaut (S6), w3id-Eintrag offen |
 
@@ -566,7 +616,7 @@ Repräsentation aus. Für echte Content Negotiation braucht es w3id-seitige
 | S4 | Bundle-Build als DCAT-Katalog | S2, S3 | erledigt 2026-09-03 |
 | S5 | SHACL-Gate und Qualitätsbericht | S4 | erledigt 2026-09-03 |
 | S6 | Registry-Index und Facettenseite | S4 | erledigt 2026-09-03 |
-| S7 | SPARQL-Seite | S4, S6 | offen |
+| S7 | SPARQL-Seite | S4, S6 | erledigt 2026-09-03 |
 | S8 | Registry als FDO, Release und CI | S5, S7 | offen |
 | S9 | N4O-Andockung | S5, S8 | offen |
 
@@ -1348,6 +1398,43 @@ also das übliche Symptom eines kaputten Graphen, nicht einer langweiligen Frage
 **Abnahme:** die Seite antwortet auf allen Abfragen im Browser; die `.rq`-Dateien
 liefern gegen `dist/fdo-registry.ttl` dieselben Ergebnisse.
 
+### Erledigt 2026-09-03
+
+Gebaut wie geplant, mit zwei Abweichungen vom Familienmuster: der Generator
+heisst `py/step_sparql.py` statt `build_sparql.py` (Schrittvertrag dieses Repos)
+und es entsteht kein quarto-live-Notebook (A4). Neu im Baum: `queries.yaml`,
+`py/templates/sparql.html.j2`, `docs/sparql.html`, `docs/downloads/queries/*.rq`,
+`docs/vocab/` mit den drei Vokabulardateien. Der Link von der Facettenseite auf
+`sparql.html` ist gesetzt — die eine Stelle, an der S7 auf S6 zurückgreift.
+
+Acht Abfragen statt sieben: „Bestand je Lizenz und je Jahr" ist zweigeteilt,
+weil beide Hälften so einzeln gegen die Facette gerechnet werden können.
+Zeilenzahlen im Bau: `catalogue-overview` 7, `models-with-coordinates` 5,
+`model-files` 12, `shared-concepts` 2, `creators-across-packages` 5,
+`holdings-by-licence` 4, `holdings-by-year` 5, `crm-anchors` 24.
+
+Der Gegentest, den S6 weitergegeben hat, ist eingebaut und grün: sieben
+Einträge wie im Index, vier Lizenzwerte und fünf Jahreswerte deckungsgleich mit
+den Facetten. Negativproben gefahren — eine Abfrage auf eine erfundene Klasse
+und eine künstlich verstimmte Lizenzabfrage beenden den Schritt mit Exitcode 1,
+ohne eine Datei zu schreiben.
+
+Zwei Dinge waren anders als gedacht. Die Anker-Abfrage lieferte zunächst 7
+statt 24 Zeilen, weil rdflib in `OPTIONAL { … UNION … }` nichts bindet
+(Befund 31) — ein falsches Ergebnis, das wie eine Aussage über den Graphen
+aussah. Und die Templates escapen seit S6 nicht, was hier auffiel, weil die
+Abfragen in ein `<textarea>` gehen (Befund 30). Dazu ein Fund, der nicht in
+diesen Schritt gehört: die `content/`-IRIs sind doppelt prozentkodiert
+(Befund 33, Teil D).
+
+Alle acht Abfragen sind zusätzlich gegen rdflib 7.1.1 nachgerechnet — die
+Fassung, die die Seite im Browser installiert, nicht die des Bausystems. Gleiche
+Zeilenzahlen. Was hier **nicht** geprüft werden konnte, ist die Seite selbst:
+Pyodide verlangt einen `http://`-Origin und einen Browser. Geprüft ist, dass
+alle vierzehn URLs, die die Seite anfasst, über `python main.py --serve` mit 200
+antworten, dass das Skript syntaktisch fehlerfrei ist und die drei JSON-Blöcke
+parsen. Ob die Seite antwortet, sagt erst ein Browser (A4).
+
 ## S8 — Registry als FDO, Release und CI
 
 **Ziel:** der Katalog wird nach denselben Regeln zitierbar wie sein Inhalt.
@@ -1395,6 +1482,16 @@ Graphen unter `https://graph.nfdi4objects.net/collection/<n>`.
   Instanz (`SQUIRRELBASE_ENTITY_NS`, A4) und die Gegenrichtung: ob die
   SquirrelBase je Objekt auf den Katalogeintrag zeigen soll statt nur auf die
   FDO-URL. Das ist eine Frage an die SquirrelBase, nicht an dieses Repo.
+- **Doppelt kodierte `content/`-IRIs.** `content_iri()` quotet einen Pfad, der
+  in der Quelle bereits prozentkodiert ist (A1, Befund 33). Die Reparatur ist
+  eine Zeile, ihre Folge ist ein neuer Bundle: 492 Distributionen bekommen neue
+  `dcat:accessURL`, Gate, Index und beide Seiten laufen neu. Gehört als eigener
+  Schritt nach S4 und nicht nebenbei in einen Chat über die Abfrageseite.
+- **`select_autoescape` greift in `step_site` nicht** (A1, Befund 30). Heute
+  folgenlos, weil kein geernteter Wert ein `<` enthält; das ist eine Aussage
+  über den heutigen Bestand und keine über die Zukunft. Eine Zeile in
+  `step_site.environment()`, aber sie gehört zu S6 und will einen Blick auf die
+  erzeugten Seiten danach.
 - **Labels für fremde IRIs auf Dauer.** `registry/labels.json` ist von Hand
   gepflegt (A4) und wächst mit jedem Paket. Ab welcher Zahl das lästig wird,
   ist offen; der billigste Ausweg wäre ein Netzschritt neben `harvest`, der

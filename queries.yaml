@@ -1,0 +1,243 @@
+# The example queries of the FDOx registry — one source, two products.
+#
+#   queries.yaml  ->  docs/sparql.html               the page (rdflib under Pyodide)
+#                 ->  docs/downloads/queries/*.rq    the same queries as plain files
+#
+# Every query here is executed against the real bundle when the page is built,
+# and a query that returns no rows fails the build: SPARQL does not fail on a
+# mistyped IRI, it returns nothing, so an empty result is the ordinary symptom
+# of a broken graph rather than of a boring question (PRIMER, S7).
+#
+# Queries do NOT carry their own PREFIX lines; the block below is prepended to
+# every one of them, in the page, in the .rq files and in the build check alike.
+
+graph:
+  file: dist/fdo-registry.ttl
+  # Relative to docs/. The site step (S6) publishes the bundle there; the query
+  # page deliberately reads exactly the file the catalogue offers for download,
+  # so a reader can reproduce every answer with the file in their hand.
+  url: fdo-registry.ttl
+  publish: false
+  extra:
+    vocab:
+      label: "registry vocabularies"
+      # Bridge, role vocabulary and registry vocabulary are NOT in the published
+      # bundle (PRIMER A4, Befund 18): the bundle stays free of axioms about
+      # namespaces this repository does not own. Queries that need a class
+      # anchor or a SKOS label therefore load them on demand — which is also the
+      # cheapest way to show a reader where those statements actually live.
+      files:
+        - metadata/crm_bridge.ttl
+        - metadata/vocab/role.ttl
+        - metadata/registry_ontology.ttl
+      dir: vocab
+      note: "about 95 triples, loaded from this site"
+
+page:
+  title: "Query the registry"
+  intro: >-
+    The whole catalogue is one Turtle file, and this page runs SPARQL over it in
+    your browser. Every query below is editable: change it, press Run, and see
+    what the graph actually says rather than what the tiles on the front page
+    chose to show.
+  nav:
+    - {href: "index.html", label: "Catalogue"}
+    - {href: "crosswalk.html", label: "CRM crosswalk"}
+    - {href: "sparql.html", label: "Query", active: true}
+
+prefixes: |
+  PREFIX crm: <http://www.cidoc-crm.org/cidoc-crm/>
+  PREFIX crmdig: <http://www.ics.forth.gr/isl/CRMdig/>
+  PREFIX dcat: <http://www.w3.org/ns/dcat#>
+  PREFIX dct: <http://purl.org/dc/terms/>
+  PREFIX fdo: <https://w3id.org/fdo-squirrel/>
+  PREFIX fdoreg: <https://w3id.org/fdo-squirrel/registry/>
+  PREFIX geosparql: <http://www.opengis.net/ont/geosparql#>
+  PREFIX prov: <http://www.w3.org/ns/prov#>
+  PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+  PREFIX role: <https://w3id.org/fdo-squirrel/registry/role/>
+  PREFIX schema: <https://schema.org/>
+  PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+  PREFIX wd: <http://www.wikidata.org/entity/>
+  PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+queries:
+  - id: catalogue-overview
+    title: "Every FDO with its type, licence and file count"
+    intro: >-
+      The list the catalogue exists for. One row per FDO, counted from the
+      catalogue node outwards, so an entry that has lost its link to the
+      catalogue disappears here rather than quietly staying in the tiles.
+    crosscheck:
+      entries: true
+    sparql: |
+      SELECT ?fdo ?title ?type ?licence (COUNT(?distribution) AS ?files)
+      WHERE {
+        ?catalogue a dcat:Catalog ;
+                   dcat:dataset ?fdo .
+        ?fdo dct:title ?title ;
+             a ?type .
+        FILTER(STRSTARTS(STR(?type), STR(fdo:)))
+        OPTIONAL { ?fdo dct:license ?licence }
+        OPTIONAL { ?fdo dcat:distribution ?distribution }
+      }
+      GROUP BY ?fdo ?title ?type ?licence
+      ORDER BY ?title
+
+  - id: models-with-coordinates
+    title: "3D models with their coordinate, as WKT"
+    intro: >-
+      The column ?wkt is a GeoSPARQL literal with its CRS in front, so the
+      result can be pasted into QGIS as delimited text without further
+      conversion. The point is the one the package states — for several of these
+      objects that is the centroid of a country, not the find spot.
+    sparql: |
+      SELECT ?title ?wkt ?fdo
+      WHERE {
+        ?fdo a fdo:3DDataFDO ;
+             dct:title ?title ;
+             geosparql:hasGeometry/geosparql:asWKT ?wkt .
+      }
+      ORDER BY ?title
+
+  - id: model-files
+    title: "Every 3D model file, with format, size and role"
+    intro: >-
+      fdo:role stays in the bundle as the literal the package wrote, and beside
+      it stands crm:P2_has_type on a SKOS concept. The label of that concept is
+      not in the bundle, so this query loads the role vocabulary as well — which
+      is exactly the difference between a value and a term.
+    needs: vocab
+    sparql: |
+      SELECT ?title ?path ?mediaType ?bytes ?role
+      WHERE {
+        ?fdo dct:title ?title ;
+             dcat:distribution ?distribution .
+        ?distribution fdo:role "model" ;
+                      fdo:path ?path ;
+                      crm:P2_has_type ?concept .
+        ?concept skos:prefLabel ?role .
+        OPTIONAL { ?distribution dcat:mediaType ?mediaType }
+        OPTIONAL { ?distribution dcat:byteSize ?bytes }
+      }
+      ORDER BY DESC(?bytes)
+
+  - id: shared-concepts
+    title: "Wikidata concepts that more than one FDO points at"
+    intro: >-
+      What the packages have in common, in their own words. This is the query
+      that would show a subject vocabulary drifting apart: two packages meaning
+      the same thing and saying it with two different Q-ids appear here as two
+      rows of one, not as one row of two.
+    sparql: |
+      SELECT ?concept (COUNT(DISTINCT ?fdo) AS ?fdos)
+             (GROUP_CONCAT(?title; separator=" · ") AS ?objects)
+      WHERE {
+        ?fdo a dcat:Dataset ;
+             dct:title ?title ;
+             dct:subject ?concept .
+        FILTER(STRSTARTS(STR(?concept), STR(wd:)))
+      }
+      GROUP BY ?concept
+      HAVING (COUNT(DISTINCT ?fdo) > 1)
+      ORDER BY DESC(?fdos) ?concept
+
+  - id: creators-across-packages
+    title: "Every creator, over all packages"
+    intro: >-
+      Counted per node, not per name, and that is the point: the same person
+      appears twice here, once with an ORCID and once as a registry agent IRI,
+      because the older packages carry ORCIDs and the newer ones a package-local
+      person URN. The catalogue page merges the two by name; the graph does not,
+      because merging identity on a name is a claim no package makes.
+    sparql: |
+      SELECT ?creator ?name (COUNT(DISTINCT ?fdo) AS ?fdos)
+      WHERE {
+        ?fdo a dcat:Dataset ;
+             dct:creator ?creator .
+        OPTIONAL { ?creator schema:name ?name }
+      }
+      GROUP BY ?creator ?name
+      ORDER BY DESC(?fdos) ?name
+
+  - id: holdings-by-licence
+    title: "Holdings by licence"
+    intro: >-
+      The licence is an SPDX IRI in the graph; the short id in the result is
+      derived here the same way the catalogue page derives its facet, so the two
+      numbers can be compared. If they ever disagree, one of them is wrong.
+    crosscheck:
+      facet: license
+      value: licence
+      count: fdos
+    sparql: |
+      SELECT ?licence (COUNT(DISTINCT ?fdo) AS ?fdos)
+      WHERE {
+        ?catalogue a dcat:Catalog ;
+                   dcat:dataset ?fdo .
+        ?fdo dct:license ?url .
+        BIND(REPLACE(REPLACE(STR(?url), "^https://spdx.org/licenses/", ""),
+                     "[.]html$", "") AS ?licence)
+      }
+      GROUP BY ?licence
+      ORDER BY DESC(?fdos) ?licence
+
+  - id: holdings-by-year
+    title: "Holdings by year of publication"
+    intro: >-
+      The year the FDO was published, falling back to the creation date where a
+      package states none — not the period of the object it describes. Five of
+      seven packages carry the same Ogham date range, so the object's period
+      makes a poor facet and a good column.
+    crosscheck:
+      facet: year
+      value: year
+      count: fdos
+    sparql: |
+      SELECT ?year (COUNT(DISTINCT ?fdo) AS ?fdos)
+      WHERE {
+        ?catalogue a dcat:Catalog ;
+                   dcat:dataset ?fdo .
+        OPTIONAL { ?fdo dct:issued ?issued }
+        OPTIONAL { ?fdo dct:created ?created }
+        BIND(SUBSTR(STR(COALESCE(?issued, ?created)), 1, 4) AS ?year)
+        FILTER(BOUND(?year))
+      }
+      GROUP BY ?year
+      ORDER BY ?year
+
+  - id: crm-anchors
+    title: "Every class in the catalogue and how it reaches CIDOC CRM"
+    intro: >-
+      The claim of PRIMER A2, as a table anyone can re-run. Two columns, because
+      there are two mechanisms: a class in our own namespace may be anchored by
+      an axiom in the bridge, and everything else is anchored on each instance,
+      since this registry does not make axiomatic statements about namespaces it
+      does not own. A CRM class needs no anchor — it is one — and the owl:* rows
+      describe the vocabulary files themselves rather than anything in the
+      catalogue.
+    needs: vocab
+    sparql: |
+      SELECT ?class (COUNT(DISTINCT ?node) AS ?nodes)
+             (GROUP_CONCAT(DISTINCT COALESCE(?instanceAnchor, ""); separator=", ")
+              AS ?anchoredOnEachInstance)
+             (GROUP_CONCAT(DISTINCT COALESCE(?axiomAnchor, ""); separator=", ")
+              AS ?anchoredByAxiom)
+      WHERE {
+        ?node a ?class .
+        OPTIONAL {
+          ?node a ?coType .
+          FILTER(?coType != ?class)
+          FILTER(STRSTARTS(STR(?coType), STR(crm:))
+                 || STRSTARTS(STR(?coType), "http://www.ics.forth.gr/isl/"))
+          BIND(REPLACE(STR(?coType), "^.*[/#]", "") AS ?instanceAnchor)
+        }
+        OPTIONAL {
+          ?class rdfs:subClassOf+ ?superClass .
+          FILTER(STRSTARTS(STR(?superClass), STR(crm:))
+                 || STRSTARTS(STR(?superClass), "http://www.ics.forth.gr/isl/"))
+          BIND(REPLACE(STR(?superClass), "^.*[/#]", "") AS ?axiomAnchor)
+        }
+      }
+      GROUP BY ?class
+      ORDER BY DESC(?nodes) ?class

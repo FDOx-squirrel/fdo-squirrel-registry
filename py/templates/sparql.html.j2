@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ page.title }} &middot; FDOx Registry</title>
+<style>
+  :root { --ink: #1c1c1c; --muted: #5c5c5c; --rule: #d8d4cc; --bg: #fbfaf7;
+          --card: #fff; --accent: #7a4b17; --warn: #8a1c1c; --ok: #2f6b2f; }
+  * { box-sizing: border-box; }
+  body { margin: 0; padding: 2rem 1.5rem 5rem; background: var(--bg); color: var(--ink);
+         font: 16px/1.55 "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif; }
+  main { max-width: 74rem; margin: 0 auto; }
+  h1 { font-size: 1.9rem; margin: 0 0 .25rem; letter-spacing: -.01em; }
+  h2 { font-size: 1.15rem; margin: 0 0 .4rem; border-bottom: 1px solid var(--rule);
+       padding-bottom: .3rem; }
+  p { max-width: 46rem; }
+  a { color: var(--accent); }
+  .lede { color: var(--muted); margin: 0 0 1rem; }
+  .meta { color: var(--muted); font-size: .85rem; }
+  .note { color: var(--muted); font-size: .85rem;
+          font-family: ui-sans-serif, system-ui, sans-serif; }
+  .note.warn { color: var(--warn); }
+  button { font: inherit; font-size: .85rem; padding: .4rem .7rem; cursor: pointer;
+           border: 1px solid var(--rule); border-radius: 3px; background: var(--card);
+           color: var(--ink); }
+  button:hover:enabled { border-color: var(--accent); }
+  button:disabled { opacity: .45; cursor: default; }
+  .status { display: flex; gap: .5rem; align-items: baseline; margin: 1.2rem 0;
+            font-family: ui-sans-serif, system-ui, sans-serif; font-size: .85rem;
+            color: var(--muted); }
+  .dot { width: .55rem; height: .55rem; border-radius: 50%; background: var(--muted);
+         display: inline-block; }
+  .dot.busy { background: var(--accent); }
+  .dot.ok { background: var(--ok); }
+  .dot.err { background: var(--warn); }
+  .query { background: var(--card); border: 1px solid var(--rule); border-radius: 4px;
+           padding: 1rem 1.1rem 1.1rem; margin: 0 0 1.4rem; }
+  textarea.sparql { width: 100%; font-family: ui-monospace, Menlo, Consolas, monospace;
+                    font-size: .8rem; line-height: 1.45; padding: .6rem .7rem;
+                    border: 1px solid var(--rule); border-radius: 3px;
+                    background: var(--bg); color: var(--ink); resize: vertical; }
+  .query-bar { display: flex; flex-wrap: wrap; gap: .6rem; align-items: baseline;
+               margin-top: .6rem; }
+  .timing { font-family: ui-sans-serif, system-ui, sans-serif; font-size: .78rem;
+            color: var(--muted); }
+  .query-bar .grow { margin-left: auto; }
+  .result { margin-top: .9rem; }
+  .table-scroll { overflow-x: auto; }
+  table { border-collapse: collapse; width: 100%;
+          font-family: ui-sans-serif, system-ui, sans-serif; font-size: .78rem; }
+  th, td { text-align: left; padding: .3rem .55rem; border-bottom: 1px solid var(--rule);
+           vertical-align: top; }
+  th { color: var(--muted); text-transform: uppercase; letter-spacing: .04em;
+       font-size: .68rem; white-space: nowrap; }
+  td.nil { color: var(--rule); }
+  td a { word-break: break-all; }
+  pre.error { background: #fdf3f3; border: 1px solid var(--warn); border-radius: 3px;
+              padding: .6rem .7rem; font-size: .78rem; white-space: pre-wrap;
+              color: var(--warn); }
+  code { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: .85em; }
+  footer { margin-top: 3.5rem; border-top: 1px solid var(--rule); padding-top: 1rem; }
+</style>
+<script src="https://cdn.jsdelivr.net/pyodide/v{{ pyodide_version }}/full/pyodide.js"></script>
+</head>
+<body>
+<main>
+
+<h1>{{ page.title }}</h1>
+<p class="lede">{{ page.intro }}</p>
+<p class="meta">Release {{ release }} &middot;
+  {{ triples }} triples &middot;
+  {% for link in page.nav %}{% if link.active %}{{ link.label }}{% else %}<a href="{{ link.href }}">{{ link.label }}</a>{% endif %}
+  {% if not loop.last %}&middot; {% endif %}{% endfor %}
+</p>
+
+<p class="note">
+  There is no SPARQL endpoint and no server behind this page. The catalogue is
+  fetched as a static Turtle file &mdash;
+  <a href="{{ graph.url }}"><code>{{ graph.file }}</code></a>, the same file the
+  front page offers for download &mdash; and parsed in your browser with
+  <code>rdflib&nbsp;{{ rdflib_version }}</code> under
+  <code>Pyodide&nbsp;{{ pyodide_version }}</code>. Nothing you type leaves your
+  machine, and an archived copy of this repository stays queryable with no
+  service kept alive for it. The first visit downloads about 10&nbsp;MB of
+  Python runtime.
+</p>
+
+<div class="status" id="status">
+  <span class="dot" id="dot"></span>
+  <span id="status-text">Loading the Python runtime&hellip;</span>
+</div>
+
+<p class="note" id="graph-note" hidden></p>
+
+{% for q in queries %}
+<section class="query" id="q-{{ q.id }}">
+  <h2>{{ loop.index }}. {{ q.title }}</h2>
+  <p class="note">{{ q.intro }}</p>
+  {% if q.needs %}
+  <p class="note">
+    Also loads the {{ graph.extra[q.needs].label }}
+    ({{ graph.extra[q.needs].note }}): those statements are deliberately not in
+    the published bundle, so this query needs them beside it.
+  </p>
+  {% endif %}
+  <textarea class="sparql" id="src-{{ q.id }}" spellcheck="false"
+            rows="{{ q.rows }}">{{ q.sparql }}</textarea>
+  <div class="query-bar">
+    <button class="run" data-q="{{ q.id }}" data-needs="{{ q.needs | default('', true) }}" disabled>Run</button>
+    <button class="reset" data-q="{{ q.id }}">Reset</button>
+    <span class="timing" id="time-{{ q.id }}"></span>
+    <span class="timing grow">{{ q.rows_at_build }} rows when this page was built &middot;
+      <a href="downloads/queries/{{ q.id }}.rq">{{ q.id }}.rq</a></span>
+  </div>
+  <div class="result" id="out-{{ q.id }}"></div>
+</section>
+{% endfor %}
+
+<footer>
+  <p class="note">
+    The queries on this page come from <code>queries.yaml</code> in the
+    repository and are executed against this bundle whenever the site is built;
+    a query that returns nothing fails that build. The same queries are in
+    <code>docs/downloads/queries/</code> as plain <code>.rq</code> files, with
+    the prefix block included, for use against any other SPARQL processor.
+  </p>
+</footer>
+
+</main>
+<script>
+/* Written from queries.yaml by py/step_sparql.py, so the page, the .rq files
+   and the build check cannot drift apart. */
+const PREFIXES = {{ prefixes_json | safe }};
+const QUERIES  = {{ queries_json | safe }};
+const GRAPH    = {{ graph_json | safe }};
+const MAX_ROWS = {{ max_rows }};
+
+const statusText = document.getElementById("status-text");
+const dot = document.getElementById("dot");
+let pyodide = null;
+
+function setStatus(text, state) {
+  statusText.textContent = text;
+  dot.className = "dot " + (state || "");
+}
+
+/* Escaped once, centrally: cell values come from the graph and may contain <,
+   & or a stray quote, and building a table by concatenation without this is how
+   an injection bug gets in. */
+function esc(s) {
+  return String(s).replace(/[&<>"']/g, c => ({
+    "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
+  }[c]));
+}
+
+function renderTable(cols, rows, elId, total) {
+  const out = document.getElementById(elId);
+  if (!rows.length) {
+    out.innerHTML = '<p class="note">No results. The query is valid but matched nothing.</p>';
+    return;
+  }
+  let h = '<div class="table-scroll"><table><thead><tr>';
+  h += cols.map(c => `<th>${esc(c)}</th>`).join("");
+  h += "</tr></thead><tbody>";
+  for (const r of rows) {
+    h += "<tr>" + cols.map(c => {
+      const v = r[c];
+      if (v === null || v === undefined || v === "") return '<td class="nil">&mdash;</td>';
+      const s = String(v);
+      return /^https?:\/\//.test(s)
+        ? `<td><a href="${esc(s)}" target="_blank" rel="noopener">${esc(s)}</a></td>`
+        : `<td>${esc(s)}</td>`;
+    }).join("") + "</tr>";
+  }
+  h += "</tbody></table></div>";
+  h += `<p class="note">${total > rows.length
+    ? `Showing the first ${rows.length} of ${total} rows.`
+    : `${rows.length} row${rows.length === 1 ? "" : "s"}.`}</p>`;
+  out.innerHTML = h;
+}
+
+async function boot() {
+  try {
+    pyodide = await loadPyodide();
+    setStatus("Installing rdflib\u2026", "busy");
+    await pyodide.loadPackage("micropip");
+    await pyodide.runPythonAsync(`
+import micropip
+await micropip.install("rdflib=={{ rdflib_version }}")
+`);
+    setStatus("Loading the catalogue\u2026", "busy");
+    await pyodide.runPythonAsync(`
+from pyodide.http import pyfetch
+from rdflib import Graph
+
+_graphs = {}
+
+async def load(key, urls):
+    """Fetch Turtle files and parse them into one graph. Cached: re-running a
+    query must not refetch."""
+    if key in _graphs:
+        return _graphs[key]
+    graph = Graph()
+    for url in urls:
+        response = await pyfetch(url)
+        if response.status != 200:
+            raise RuntimeError(f"{url} -> HTTP {response.status}")
+        graph.parse(data=await response.string(), format="turtle")
+    _graphs[key] = graph
+    return graph
+
+base = await load("base", [${JSON.stringify(GRAPH.url)}])
+n_base = len(base)
+`);
+    const note = document.getElementById("graph-note");
+    note.hidden = false;
+    note.innerHTML = `Catalogue loaded: <strong>${pyodide.globals.get("n_base")}</strong> triples from <code>${esc(GRAPH.url)}</code>.`;
+    setStatus("Ready \u2014 edit a query and press Run.", "ok");
+    document.querySelectorAll("button.run").forEach(b => (b.disabled = false));
+  } catch (err) {
+    setStatus("Could not start: " + err.message, "err");
+    console.error(err);
+  }
+}
+
+async function runQuery(id, needs) {
+  const btn = document.querySelector(`button.run[data-q="${id}"]`);
+  const timing = document.getElementById("time-" + id);
+  const out = document.getElementById("out-" + id);
+  btn.disabled = true;
+  timing.textContent = needs ? "loading the extra graph\u2026" : "running\u2026";
+  out.innerHTML = "";
+  const t0 = performance.now();
+  try {
+    pyodide.globals.set("_q_src", PREFIXES + "\n" + document.getElementById("src-" + id).value);
+    pyodide.globals.set("_q_needs", needs || "");
+    pyodide.globals.set("_q_urls", needs ? GRAPH.extra[needs].urls.join(" ") : "");
+    const json = await pyodide.runPythonAsync(`
+import json
+
+g = _graphs["base"]
+if _q_needs:
+    # Merged into a copy, so the base graph stays as published and the other
+    # queries are not silently answering over a different dataset.
+    extra = await load(_q_needs, _q_urls.split())
+    if _q_needs + ":merged" not in _graphs:
+        merged = Graph()
+        for triple in _graphs["base"]:
+            merged.add(triple)
+        for triple in extra:
+            merged.add(triple)
+        _graphs[_q_needs + ":merged"] = merged
+    g = _graphs[_q_needs + ":merged"]
+
+result = g.query(_q_src)
+cols = [str(v) for v in result.vars]
+_all = list(result)
+rows = [{c: (None if r[i] is None else str(r[i])) for i, c in enumerate(cols)}
+        for r in _all[:${MAX_ROWS}]]
+json.dumps({"cols": cols, "rows": rows, "n": len(g), "total": len(_all)})
+`);
+    const data = JSON.parse(json);
+    renderTable(data.cols, data.rows, "out-" + id, data.total);
+    timing.textContent = `${((performance.now() - t0) / 1000).toFixed(1)}s over ${data.n} triples`;
+  } catch (err) {
+    /* Show the real error: a malformed query is the normal case here, since
+       people are meant to edit these, so the message has to be the actual one. */
+    out.innerHTML = `<pre class="error">${esc(err.message)}</pre>`;
+    timing.textContent = "";
+  }
+  btn.disabled = false;
+}
+
+document.querySelectorAll("button.run").forEach(b =>
+  b.addEventListener("click", () => runQuery(b.dataset.q, b.dataset.needs)));
+document.querySelectorAll("button.reset").forEach(b =>
+  b.addEventListener("click", () => {
+    const id = b.dataset.q;
+    document.getElementById("src-" + id).value = QUERIES[id];
+    document.getElementById("out-" + id).innerHTML = "";
+    document.getElementById("time-" + id).textContent = "";
+  }));
+
+boot();
+</script>
+</body>
+</html>

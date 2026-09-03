@@ -1,0 +1,28 @@
+# 3D models with their coordinate, as WKT
+# The column ?wkt is a GeoSPARQL literal with its CRS in front, so the result
+# can be pasted into QGIS as delimited text without further conversion. The
+# point is the one the package states — for several of these objects that is
+# the centroid of a country, not the find spot.
+
+PREFIX crm: <http://www.cidoc-crm.org/cidoc-crm/>
+PREFIX crmdig: <http://www.ics.forth.gr/isl/CRMdig/>
+PREFIX dcat: <http://www.w3.org/ns/dcat#>
+PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX fdo: <https://w3id.org/fdo-squirrel/>
+PREFIX fdoreg: <https://w3id.org/fdo-squirrel/registry/>
+PREFIX geosparql: <http://www.opengis.net/ont/geosparql#>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX role: <https://w3id.org/fdo-squirrel/registry/role/>
+PREFIX schema: <https://schema.org/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT ?title ?wkt ?fdo
+WHERE {
+  ?fdo a fdo:3DDataFDO ;
+       dct:title ?title ;
+       geosparql:hasGeometry/geosparql:asWKT ?wkt .
+}
+ORDER BY ?title

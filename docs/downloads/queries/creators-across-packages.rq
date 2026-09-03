@@ -1,0 +1,30 @@
+# Every creator, over all packages
+# Counted per node, not per name, and that is the point: the same person
+# appears twice here, once with an ORCID and once as a registry agent IRI,
+# because the older packages carry ORCIDs and the newer ones a package-local
+# person URN. The catalogue page merges the two by name; the graph does not,
+# because merging identity on a name is a claim no package makes.
+
+PREFIX crm: <http://www.cidoc-crm.org/cidoc-crm/>
+PREFIX crmdig: <http://www.ics.forth.gr/isl/CRMdig/>
+PREFIX dcat: <http://www.w3.org/ns/dcat#>
+PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX fdo: <https://w3id.org/fdo-squirrel/>
+PREFIX fdoreg: <https://w3id.org/fdo-squirrel/registry/>
+PREFIX geosparql: <http://www.opengis.net/ont/geosparql#>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX role: <https://w3id.org/fdo-squirrel/registry/role/>
+PREFIX schema: <https://schema.org/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT ?creator ?name (COUNT(DISTINCT ?fdo) AS ?fdos)
+WHERE {
+  ?fdo a dcat:Dataset ;
+       dct:creator ?creator .
+  OPTIONAL { ?creator schema:name ?name }
+}
+GROUP BY ?creator ?name
+ORDER BY DESC(?fdos) ?name

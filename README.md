@@ -9,10 +9,11 @@ published on Zenodo, bundles them into a DCAT catalogue anchored in CIDOC CRM,
 validates the result with SHACL, and publishes a filter page and a browser-based
 SPARQL page as a static site — no server, no endpoint, no database.
 
-> **Status: S4 of the work plan.** The skeleton, the orchestrator, the Zenodo
-> harvest, the CIDOC CRM crosswalk and the catalogue bundle are in place; the
-> remaining pipeline steps report `skipped (no input)` until the step that
-> implements them is done. See [`PRIMER.md`](PRIMER.md) for the plan.
+> **Status: S7 of the work plan.** The skeleton, the orchestrator, the Zenodo
+> harvest, the CIDOC CRM crosswalk, the catalogue bundle, the SHACL gate, the
+> facet page and the browser query page are in place. What remains is the
+> release of the registry as an FDO of its own (S8) and the NFDI4Objects
+> connection (S9). See [`PRIMER.md`](PRIMER.md) for the plan.
 
 ## Pipeline
 
@@ -33,15 +34,22 @@ dist/fdo-registry.ttl            DCAT + FDOx + CRM/CRMdig/CRMgeo + GeoSPARQL + S
         │  py/step_index.py      SPARQL → dist/registry-index.json
         │                        registry/labels.json
         │  py/step_site.py       → docs/index.html, docs/record/<id>.html
+        │                        queries.yaml
+        │  py/step_sparql.py     → docs/sparql.html, docs/downloads/queries/*.rq
         ▼
 docs/                            index.html (facets) · record/<id>.html ·
-                                 sparql.html (Pyodide, S7) · fdo-registry.ttl
+                                 sparql.html (Pyodide) · fdo-registry.ttl
 ```
 
 The facet page carries its index inside it rather than fetching it, so
 `docs/index.html` works opened straight from disk, with no server and no
 network. The same data is written beside it as `docs/registry-index.json` for
 anyone who wants the catalogue without RDF.
+
+`docs/sparql.html` runs SPARQL over the same bundle in the browser, with
+`rdflib` under Pyodide — no endpoint and no server, so an archived copy of this
+repository stays queryable. It needs an `http://` origin, which is what
+`python main.py --serve` is for; the facet page does not.
 
 ## Requirements
 
@@ -228,6 +236,31 @@ a `crm:E73_Information_Object` by a consumer that reads only CRM core.
 
 Every step is also runnable on its own, for example `python py/step_bundle.py`.
 
+### The query page
+
+`queries.yaml` is the single source for `docs/sparql.html` and for the plain
+`.rq` files under `docs/downloads/queries/`, so the page and the files cannot
+drift apart. Prefixes are declared once, in a block that is prepended to every
+query in all three places: the page, the files and the build check.
+
+Every query is executed against the real bundle when the site is built, and **a
+query that returns no rows fails the build**. SPARQL does not fail on a mistyped
+IRI, it returns nothing, so an empty result is the ordinary symptom of a broken
+graph rather than of a boring question — and a page whose examples do not run is
+worse than no page, because the reader cannot tell whether they broke it or it
+arrived broken.
+
+A query may also declare a `crosscheck` against `dist/registry-index.json`, the
+second reading of the same bundle. Today three do: the number of catalogue
+entries, and the holdings per licence and per year against the facets of the
+same name. If a query and a facet ever disagree, one of them is wrong, and the
+build says so instead of publishing both.
+
+The bridge, the role vocabulary and the registry vocabulary are deliberately not
+part of the published bundle — this repository does not assert axioms about
+namespaces it does not own — so the two queries that need a class anchor or a
+SKOS label load them beside it, from `docs/vocab/`.
+
 ## Layout
 
 | Path | Contents |
@@ -239,6 +272,7 @@ Every step is also runnable on its own, for example `python py/step_bundle.py`.
 | `registry/labels.json` | curated display labels for IRIs the packages do not name |
 | `data/raw/fdo/` | harvested FDO metadata, unchanged and read-only (generated) |
 | `crosswalks/` | `fdo--crm.csv` and `fdo-role--skos.csv`, the sources of the bridge |
+| `queries.yaml` | the example queries: one source for the query page and the `.rq` files |
 | `metadata/shapes.ttl` | the SHACL gate; `shapes_selftest.ttl` is the broken graph it is tested against |
 | `metadata/` | registry vocabulary, CRM bridge, role vocabulary (generated) |
 | `dist/` | the products: bundle, index, reports (generated, versioned) |

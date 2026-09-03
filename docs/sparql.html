@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Query the registry &middot; FDOx Registry</title>
+<style>
+  :root { --ink: #1c1c1c; --muted: #5c5c5c; --rule: #d8d4cc; --bg: #fbfaf7;
+          --card: #fff; --accent: #7a4b17; --warn: #8a1c1c; --ok: #2f6b2f; }
+  * { box-sizing: border-box; }
+  body { margin: 0; padding: 2rem 1.5rem 5rem; background: var(--bg); color: var(--ink);
+         font: 16px/1.55 "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif; }
+  main { max-width: 74rem; margin: 0 auto; }
+  h1 { font-size: 1.9rem; margin: 0 0 .25rem; letter-spacing: -.01em; }
+  h2 { font-size: 1.15rem; margin: 0 0 .4rem; border-bottom: 1px solid var(--rule);
+       padding-bottom: .3rem; }
+  p { max-width: 46rem; }
+  a { color: var(--accent); }
+  .lede { color: var(--muted); margin: 0 0 1rem; }
+  .meta { color: var(--muted); font-size: .85rem; }
+  .note { color: var(--muted); font-size: .85rem;
+          font-family: ui-sans-serif, system-ui, sans-serif; }
+  .note.warn { color: var(--warn); }
+  button { font: inherit; font-size: .85rem; padding: .4rem .7rem; cursor: pointer;
+           border: 1px solid var(--rule); border-radius: 3px; background: var(--card);
+           color: var(--ink); }
+  button:hover:enabled { border-color: var(--accent); }
+  button:disabled { opacity: .45; cursor: default; }
+  .status { display: flex; gap: .5rem; align-items: baseline; margin: 1.2rem 0;
+            font-family: ui-sans-serif, system-ui, sans-serif; font-size: .85rem;
+            color: var(--muted); }
+  .dot { width: .55rem; height: .55rem; border-radius: 50%; background: var(--muted);
+         display: inline-block; }
+  .dot.busy { background: var(--accent); }
+  .dot.ok { background: var(--ok); }
+  .dot.err { background: var(--warn); }
+  .query { background: var(--card); border: 1px solid var(--rule); border-radius: 4px;
+           padding: 1rem 1.1rem 1.1rem; margin: 0 0 1.4rem; }
+  textarea.sparql { width: 100%; font-family: ui-monospace, Menlo, Consolas, monospace;
+                    font-size: .8rem; line-height: 1.45; padding: .6rem .7rem;
+                    border: 1px solid var(--rule); border-radius: 3px;
+                    background: var(--bg); color: var(--ink); resize: vertical; }
+  .query-bar { display: flex; flex-wrap: wrap; gap: .6rem; align-items: baseline;
+               margin-top: .6rem; }
+  .timing { font-family: ui-sans-serif, system-ui, sans-serif; font-size: .78rem;
+            color: var(--muted); }
+  .query-bar .grow { margin-left: auto; }
+  .result { margin-top: .9rem; }
+  .table-scroll { overflow-x: auto; }
+  table { border-collapse: collapse; width: 100%;
+          font-family: ui-sans-serif, system-ui, sans-serif; font-size: .78rem; }
+  th, td { text-align: left; padding: .3rem .55rem; border-bottom: 1px solid var(--rule);
+           vertical-align: top; }
+  th { color: var(--muted); text-transform: uppercase; letter-spacing: .04em;
+       font-size: .68rem; white-space: nowrap; }
+  td.nil { color: var(--rule); }
+  td a { word-break: break-all; }
+  pre.error { background: #fdf3f3; border: 1px solid var(--warn); border-radius: 3px;
+              padding: .6rem .7rem; font-size: .78rem; white-space: pre-wrap;
+              color: var(--warn); }
+  code { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: .85em; }
+  footer { margin-top: 3.5rem; border-top: 1px solid var(--rule); padding-top: 1rem; }
+</style>
+<script src="https://cdn.jsdelivr.net/pyodide/v0.26.4/full/pyodide.js"></script>
+</head>
+<body>
+<main>
+
+<h1>Query the registry</h1>
+<p class="lede">The whole catalogue is one Turtle file, and this page runs SPARQL over it in your browser. Every query below is editable: change it, press Run, and see what the graph actually says rather than what the tiles on the front page chose to show.</p>
+<p class="meta">Release 2026-09-03 &middot;
+  6584 triples &middot;
+  <a href="index.html">Catalogue</a>
+  &middot; <a href="crosswalk.html">CRM crosswalk</a>
+  &middot; Query
+  
+</p>
+
+<p class="note">
+  There is no SPARQL endpoint and no server behind this page. The catalogue is
+  fetched as a static Turtle file &mdash;
+  <a href="fdo-registry.ttl"><code>dist/fdo-registry.ttl</code></a>, the same file the
+  front page offers for download &mdash; and parsed in your browser with
+  <code>rdflib&nbsp;7.1.1</code> under
+  <code>Pyodide&nbsp;0.26.4</code>. Nothing you type leaves your
+  machine, and an archived copy of this repository stays queryable with no
+  service kept alive for it. The first visit downloads about 10&nbsp;MB of
+  Python runtime.
+</p>
+
+<div class="status" id="status">
+  <span class="dot" id="dot"></span>
+  <span id="status-text">Loading the Python runtime&hellip;</span>
+</div>
+
+<p class="note" id="graph-note" hidden></p>
+
+
+<section class="query" id="q-catalogue-overview">
+  <h2>1. Every FDO with its type, licence and file count</h2>
+  <p class="note">The list the catalogue exists for. One row per FDO, counted from the catalogue node outwards, so an entry that has lost its link to the catalogue disappears here rather than quietly staying in the tiles.</p>
+  
+  <textarea class="sparql" id="src-catalogue-overview" spellcheck="false"
+            rows="13">SELECT ?fdo ?title ?type ?licence (COUNT(?distribution) AS ?files)
+WHERE {
+  ?catalogue a dcat:Catalog ;
+             dcat:dataset ?fdo .
+  ?fdo dct:title ?title ;
+       a ?type .
+  FILTER(STRSTARTS(STR(?type), STR(fdo:)))
+  OPTIONAL { ?fdo dct:license ?licence }
+  OPTIONAL { ?fdo dcat:distribution ?distribution }
+}
+GROUP BY ?fdo ?title ?type ?licence
+ORDER BY ?title</textarea>
+  <div class="query-bar">
+    <button class="run" data-q="catalogue-overview" data-needs="" disabled>Run</button>
+    <button class="reset" data-q="catalogue-overview">Reset</button>
+    <span class="timing" id="time-catalogue-overview"></span>
+    <span class="timing grow">7 rows when this page was built &middot;
+      <a href="downloads/queries/catalogue-overview.rq">catalogue-overview.rq</a></span>
+  </div>
+  <div class="result" id="out-catalogue-overview"></div>
+</section>
+
+<section class="query" id="q-models-with-coordinates">
+  <h2>2. 3D models with their coordinate, as WKT</h2>
+  <p class="note">The column ?wkt is a GeoSPARQL literal with its CRS in front, so the result can be pasted into QGIS as delimited text without further conversion. The point is the one the package states — for several of these objects that is the centroid of a country, not the find spot.</p>
+  
+  <textarea class="sparql" id="src-models-with-coordinates" spellcheck="false"
+            rows="8">SELECT ?title ?wkt ?fdo
+WHERE {
+  ?fdo a fdo:3DDataFDO ;
+       dct:title ?title ;
+       geosparql:hasGeometry/geosparql:asWKT ?wkt .
+}
+ORDER BY ?title</textarea>
+  <div class="query-bar">
+    <button class="run" data-q="models-with-coordinates" data-needs="" disabled>Run</button>
+    <button class="reset" data-q="models-with-coordinates">Reset</button>
+    <span class="timing" id="time-models-with-coordinates"></span>
+    <span class="timing grow">5 rows when this page was built &middot;
+      <a href="downloads/queries/models-with-coordinates.rq">models-with-coordinates.rq</a></span>
+  </div>
+  <div class="result" id="out-models-with-coordinates"></div>
+</section>
+
+<section class="query" id="q-model-files">
+  <h2>3. Every 3D model file, with format, size and role</h2>
+  <p class="note">fdo:role stays in the bundle as the literal the package wrote, and beside it stands crm:P2_has_type on a SKOS concept. The label of that concept is not in the bundle, so this query loads the role vocabulary as well — which is exactly the difference between a value and a term.</p>
+  
+  <p class="note">
+    Also loads the registry vocabularies
+    (about 95 triples, loaded from this site): those statements are deliberately not in
+    the published bundle, so this query needs them beside it.
+  </p>
+  
+  <textarea class="sparql" id="src-model-files" spellcheck="false"
+            rows="13">SELECT ?title ?path ?mediaType ?bytes ?role
+WHERE {
+  ?fdo dct:title ?title ;
+       dcat:distribution ?distribution .
+  ?distribution fdo:role &#34;model&#34; ;
+                fdo:path ?path ;
+                crm:P2_has_type ?concept .
+  ?concept skos:prefLabel ?role .
+  OPTIONAL { ?distribution dcat:mediaType ?mediaType }
+  OPTIONAL { ?distribution dcat:byteSize ?bytes }
+}
+ORDER BY DESC(?bytes)</textarea>
+  <div class="query-bar">
+    <button class="run" data-q="model-files" data-needs="vocab" disabled>Run</button>
+    <button class="reset" data-q="model-files">Reset</button>
+    <span class="timing" id="time-model-files"></span>
+    <span class="timing grow">12 rows when this page was built &middot;
+      <a href="downloads/queries/model-files.rq">model-files.rq</a></span>
+  </div>
+  <div class="result" id="out-model-files"></div>
+</section>
+
+<section class="query" id="q-shared-concepts">
+  <h2>4. Wikidata concepts that more than one FDO points at</h2>
+  <p class="note">What the packages have in common, in their own words. This is the query that would show a subject vocabulary drifting apart: two packages meaning the same thing and saying it with two different Q-ids appear here as two rows of one, not as one row of two.</p>
+  
+  <textarea class="sparql" id="src-shared-concepts" spellcheck="false"
+            rows="12">SELECT ?concept (COUNT(DISTINCT ?fdo) AS ?fdos)
+       (GROUP_CONCAT(?title; separator=&#34; · &#34;) AS ?objects)
+WHERE {
+  ?fdo a dcat:Dataset ;
+       dct:title ?title ;
+       dct:subject ?concept .
+  FILTER(STRSTARTS(STR(?concept), STR(wd:)))
+}
+GROUP BY ?concept
+HAVING (COUNT(DISTINCT ?fdo) &gt; 1)
+ORDER BY DESC(?fdos) ?concept</textarea>
+  <div class="query-bar">
+    <button class="run" data-q="shared-concepts" data-needs="" disabled>Run</button>
+    <button class="reset" data-q="shared-concepts">Reset</button>
+    <span class="timing" id="time-shared-concepts"></span>
+    <span class="timing grow">2 rows when this page was built &middot;
+      <a href="downloads/queries/shared-concepts.rq">shared-concepts.rq</a></span>
+  </div>
+  <div class="result" id="out-shared-concepts"></div>
+</section>
+
+<section class="query" id="q-creators-across-packages">
+  <h2>5. Every creator, over all packages</h2>
+  <p class="note">Counted per node, not per name, and that is the point: the same person appears twice here, once with an ORCID and once as a registry agent IRI, because the older packages carry ORCIDs and the newer ones a package-local person URN. The catalogue page merges the two by name; the graph does not, because merging identity on a name is a claim no package makes.</p>
+  
+  <textarea class="sparql" id="src-creators-across-packages" spellcheck="false"
+            rows="9">SELECT ?creator ?name (COUNT(DISTINCT ?fdo) AS ?fdos)
+WHERE {
+  ?fdo a dcat:Dataset ;
+       dct:creator ?creator .
+  OPTIONAL { ?creator schema:name ?name }
+}
+GROUP BY ?creator ?name
+ORDER BY DESC(?fdos) ?name</textarea>
+  <div class="query-bar">
+    <button class="run" data-q="creators-across-packages" data-needs="" disabled>Run</button>
+    <button class="reset" data-q="creators-across-packages">Reset</button>
+    <span class="timing" id="time-creators-across-packages"></span>
+    <span class="timing grow">5 rows when this page was built &middot;
+      <a href="downloads/queries/creators-across-packages.rq">creators-across-packages.rq</a></span>
+  </div>
+  <div class="result" id="out-creators-across-packages"></div>
+</section>
+
+<section class="query" id="q-holdings-by-licence">
+  <h2>6. Holdings by licence</h2>
+  <p class="note">The licence is an SPDX IRI in the graph; the short id in the result is derived here the same way the catalogue page derives its facet, so the two numbers can be compared. If they ever disagree, one of them is wrong.</p>
+  
+  <textarea class="sparql" id="src-holdings-by-licence" spellcheck="false"
+            rows="11">SELECT ?licence (COUNT(DISTINCT ?fdo) AS ?fdos)
+WHERE {
+  ?catalogue a dcat:Catalog ;
+             dcat:dataset ?fdo .
+  ?fdo dct:license ?url .
+  BIND(REPLACE(REPLACE(STR(?url), &#34;^https://spdx.org/licenses/&#34;, &#34;&#34;),
+               &#34;[.]html$&#34;, &#34;&#34;) AS ?licence)
+}
+GROUP BY ?licence
+ORDER BY DESC(?fdos) ?licence</textarea>
+  <div class="query-bar">
+    <button class="run" data-q="holdings-by-licence" data-needs="" disabled>Run</button>
+    <button class="reset" data-q="holdings-by-licence">Reset</button>
+    <span class="timing" id="time-holdings-by-licence"></span>
+    <span class="timing grow">4 rows when this page was built &middot;
+      <a href="downloads/queries/holdings-by-licence.rq">holdings-by-licence.rq</a></span>
+  </div>
+  <div class="result" id="out-holdings-by-licence"></div>
+</section>
+
+<section class="query" id="q-holdings-by-year">
+  <h2>7. Holdings by year of publication</h2>
+  <p class="note">The year the FDO was published, falling back to the creation date where a package states none — not the period of the object it describes. Five of seven packages carry the same Ogham date range, so the object&#39;s period makes a poor facet and a good column.</p>
+  
+  <textarea class="sparql" id="src-holdings-by-year" spellcheck="false"
+            rows="12">SELECT ?year (COUNT(DISTINCT ?fdo) AS ?fdos)
+WHERE {
+  ?catalogue a dcat:Catalog ;
+             dcat:dataset ?fdo .
+  OPTIONAL { ?fdo dct:issued ?issued }
+  OPTIONAL { ?fdo dct:created ?created }
+  BIND(SUBSTR(STR(COALESCE(?issued, ?created)), 1, 4) AS ?year)
+  FILTER(BOUND(?year))
+}
+GROUP BY ?year
+ORDER BY ?year</textarea>
+  <div class="query-bar">
+    <button class="run" data-q="holdings-by-year" data-needs="" disabled>Run</button>
+    <button class="reset" data-q="holdings-by-year">Reset</button>
+    <span class="timing" id="time-holdings-by-year"></span>
+    <span class="timing grow">5 rows when this page was built &middot;
+      <a href="downloads/queries/holdings-by-year.rq">holdings-by-year.rq</a></span>
+  </div>
+  <div class="result" id="out-holdings-by-year"></div>
+</section>
+
+<section class="query" id="q-crm-anchors">
+  <h2>8. Every class in the catalogue and how it reaches CIDOC CRM</h2>
+  <p class="note">The claim of PRIMER A2, as a table anyone can re-run. Two columns, because there are two mechanisms: a class in our own namespace may be anchored by an axiom in the bridge, and everything else is anchored on each instance, since this registry does not make axiomatic statements about namespaces it does not own. A CRM class needs no anchor — it is one — and the owl:* rows describe the vocabulary files themselves rather than anything in the catalogue.</p>
+  
+  <p class="note">
+    Also loads the registry vocabularies
+    (about 95 triples, loaded from this site): those statements are deliberately not in
+    the published bundle, so this query needs them beside it.
+  </p>
+  
+  <textarea class="sparql" id="src-crm-anchors" spellcheck="false"
+            rows="24">SELECT ?class (COUNT(DISTINCT ?node) AS ?nodes)
+       (GROUP_CONCAT(DISTINCT COALESCE(?instanceAnchor, &#34;&#34;); separator=&#34;, &#34;)
+        AS ?anchoredOnEachInstance)
+       (GROUP_CONCAT(DISTINCT COALESCE(?axiomAnchor, &#34;&#34;); separator=&#34;, &#34;)
+        AS ?anchoredByAxiom)
+WHERE {
+  ?node a ?class .
+  OPTIONAL {
+    ?node a ?coType .
+    FILTER(?coType != ?class)
+    FILTER(STRSTARTS(STR(?coType), STR(crm:))
+           || STRSTARTS(STR(?coType), &#34;http://www.ics.forth.gr/isl/&#34;))
+    BIND(REPLACE(STR(?coType), &#34;^.*[/#]&#34;, &#34;&#34;) AS ?instanceAnchor)
+  }
+  OPTIONAL {
+    ?class rdfs:subClassOf+ ?superClass .
+    FILTER(STRSTARTS(STR(?superClass), STR(crm:))
+           || STRSTARTS(STR(?superClass), &#34;http://www.ics.forth.gr/isl/&#34;))
+    BIND(REPLACE(STR(?superClass), &#34;^.*[/#]&#34;, &#34;&#34;) AS ?axiomAnchor)
+  }
+}
+GROUP BY ?class
+ORDER BY DESC(?nodes) ?class</textarea>
+  <div class="query-bar">
+    <button class="run" data-q="crm-anchors" data-needs="vocab" disabled>Run</button>
+    <button class="reset" data-q="crm-anchors">Reset</button>
+    <span class="timing" id="time-crm-anchors"></span>
+    <span class="timing grow">24 rows when this page was built &middot;
+      <a href="downloads/queries/crm-anchors.rq">crm-anchors.rq</a></span>
+  </div>
+  <div class="result" id="out-crm-anchors"></div>
+</section>
+
+
+<footer>
+  <p class="note">
+    The queries on this page come from <code>queries.yaml</code> in the
+    repository and are executed against this bundle whenever the site is built;
+    a query that returns nothing fails that build. The same queries are in
+    <code>docs/downloads/queries/</code> as plain <code>.rq</code> files, with
+    the prefix block included, for use against any other SPARQL processor.
+  </p>
+</footer>
+
+</main>
+<script>
+/* Written from queries.yaml by py/step_sparql.py, so the page, the .rq files
+   and the build check cannot drift apart. */
+const PREFIXES = "PREFIX crm: <http://www.cidoc-crm.org/cidoc-crm/>\nPREFIX crmdig: <http://www.ics.forth.gr/isl/CRMdig/>\nPREFIX dcat: <http://www.w3.org/ns/dcat#>\nPREFIX dct: <http://purl.org/dc/terms/>\nPREFIX fdo: <https://w3id.org/fdo-squirrel/>\nPREFIX fdoreg: <https://w3id.org/fdo-squirrel/registry/>\nPREFIX geosparql: <http://www.opengis.net/ont/geosparql#>\nPREFIX prov: <http://www.w3.org/ns/prov#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX role: <https://w3id.org/fdo-squirrel/registry/role/>\nPREFIX schema: <https://schema.org/>\nPREFIX skos: <http://www.w3.org/2004/02/skos/core#>\nPREFIX wd: <http://www.wikidata.org/entity/>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\n";
+const QUERIES  = {"catalogue-overview": "SELECT ?fdo ?title ?type ?licence (COUNT(?distribution) AS ?files)\nWHERE {\n  ?catalogue a dcat:Catalog ;\n             dcat:dataset ?fdo .\n  ?fdo dct:title ?title ;\n       a ?type .\n  FILTER(STRSTARTS(STR(?type), STR(fdo:)))\n  OPTIONAL { ?fdo dct:license ?licence }\n  OPTIONAL { ?fdo dcat:distribution ?distribution }\n}\nGROUP BY ?fdo ?title ?type ?licence\nORDER BY ?title", "creators-across-packages": "SELECT ?creator ?name (COUNT(DISTINCT ?fdo) AS ?fdos)\nWHERE {\n  ?fdo a dcat:Dataset ;\n       dct:creator ?creator .\n  OPTIONAL { ?creator schema:name ?name }\n}\nGROUP BY ?creator ?name\nORDER BY DESC(?fdos) ?name", "crm-anchors": "SELECT ?class (COUNT(DISTINCT ?node) AS ?nodes)\n       (GROUP_CONCAT(DISTINCT COALESCE(?instanceAnchor, \"\"); separator=\", \")\n        AS ?anchoredOnEachInstance)\n       (GROUP_CONCAT(DISTINCT COALESCE(?axiomAnchor, \"\"); separator=\", \")\n        AS ?anchoredByAxiom)\nWHERE {\n  ?node a ?class .\n  OPTIONAL {\n    ?node a ?coType .\n    FILTER(?coType != ?class)\n    FILTER(STRSTARTS(STR(?coType), STR(crm:))\n           || STRSTARTS(STR(?coType), \"http://www.ics.forth.gr/isl/\"))\n    BIND(REPLACE(STR(?coType), \"^.*[/#]\", \"\") AS ?instanceAnchor)\n  }\n  OPTIONAL {\n    ?class rdfs:subClassOf+ ?superClass .\n    FILTER(STRSTARTS(STR(?superClass), STR(crm:))\n           || STRSTARTS(STR(?superClass), \"http://www.ics.forth.gr/isl/\"))\n    BIND(REPLACE(STR(?superClass), \"^.*[/#]\", \"\") AS ?axiomAnchor)\n  }\n}\nGROUP BY ?class\nORDER BY DESC(?nodes) ?class", "holdings-by-licence": "SELECT ?licence (COUNT(DISTINCT ?fdo) AS ?fdos)\nWHERE {\n  ?catalogue a dcat:Catalog ;\n             dcat:dataset ?fdo .\n  ?fdo dct:license ?url .\n  BIND(REPLACE(REPLACE(STR(?url), \"^https://spdx.org/licenses/\", \"\"),\n               \"[.]html$\", \"\") AS ?licence)\n}\nGROUP BY ?licence\nORDER BY DESC(?fdos) ?licence", "holdings-by-year": "SELECT ?year (COUNT(DISTINCT ?fdo) AS ?fdos)\nWHERE {\n  ?catalogue a dcat:Catalog ;\n             dcat:dataset ?fdo .\n  OPTIONAL { ?fdo dct:issued ?issued }\n  OPTIONAL { ?fdo dct:created ?created }\n  BIND(SUBSTR(STR(COALESCE(?issued, ?created)), 1, 4) AS ?year)\n  FILTER(BOUND(?year))\n}\nGROUP BY ?year\nORDER BY ?year", "model-files": "SELECT ?title ?path ?mediaType ?bytes ?role\nWHERE {\n  ?fdo dct:title ?title ;\n       dcat:distribution ?distribution .\n  ?distribution fdo:role \"model\" ;\n                fdo:path ?path ;\n                crm:P2_has_type ?concept .\n  ?concept skos:prefLabel ?role .\n  OPTIONAL { ?distribution dcat:mediaType ?mediaType }\n  OPTIONAL { ?distribution dcat:byteSize ?bytes }\n}\nORDER BY DESC(?bytes)", "models-with-coordinates": "SELECT ?title ?wkt ?fdo\nWHERE {\n  ?fdo a fdo:3DDataFDO ;\n       dct:title ?title ;\n       geosparql:hasGeometry/geosparql:asWKT ?wkt .\n}\nORDER BY ?title", "shared-concepts": "SELECT ?concept (COUNT(DISTINCT ?fdo) AS ?fdos)\n       (GROUP_CONCAT(?title; separator=\" · \") AS ?objects)\nWHERE {\n  ?fdo a dcat:Dataset ;\n       dct:title ?title ;\n       dct:subject ?concept .\n  FILTER(STRSTARTS(STR(?concept), STR(wd:)))\n}\nGROUP BY ?concept\nHAVING (COUNT(DISTINCT ?fdo) > 1)\nORDER BY DESC(?fdos) ?concept"};
+const GRAPH    = {"extra": {"vocab": {"label": "registry vocabularies", "note": "about 95 triples, loaded from this site", "urls": ["vocab/crm_bridge.ttl", "vocab/role.ttl", "vocab/registry_ontology.ttl"]}}, "url": "fdo-registry.ttl"};
+const MAX_ROWS = 500;
+
+const statusText = document.getElementById("status-text");
+const dot = document.getElementById("dot");
+let pyodide = null;
+
+function setStatus(text, state) {
+  statusText.textContent = text;
+  dot.className = "dot " + (state || "");
+}
+
+/* Escaped once, centrally: cell values come from the graph and may contain <,
+   & or a stray quote, and building a table by concatenation without this is how
+   an injection bug gets in. */
+function esc(s) {
+  return String(s).replace(/[&<>"']/g, c => ({
+    "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
+  }[c]));
+}
+
+function renderTable(cols, rows, elId, total) {
+  const out = document.getElementById(elId);
+  if (!rows.length) {
+    out.innerHTML = '<p class="note">No results. The query is valid but matched nothing.</p>';
+    return;
+  }
+  let h = '<div class="table-scroll"><table><thead><tr>';
+  h += cols.map(c => `<th>${esc(c)}</th>`).join("");
+  h += "</tr></thead><tbody>";
+  for (const r of rows) {
+    h += "<tr>" + cols.map(c => {
+      const v = r[c];
+      if (v === null || v === undefined || v === "") return '<td class="nil">&mdash;</td>';
+      const s = String(v);
+      return /^https?:\/\//.test(s)
+        ? `<td><a href="${esc(s)}" target="_blank" rel="noopener">${esc(s)}</a></td>`
+        : `<td>${esc(s)}</td>`;
+    }).join("") + "</tr>";
+  }
+  h += "</tbody></table></div>";
+  h += `<p class="note">${total > rows.length
+    ? `Showing the first ${rows.length} of ${total} rows.`
+    : `${rows.length} row${rows.length === 1 ? "" : "s"}.`}</p>`;
+  out.innerHTML = h;
+}
+
+async function boot() {
+  try {
+    pyodide = await loadPyodide();
+    setStatus("Installing rdflib\u2026", "busy");
+    await pyodide.loadPackage("micropip");
+    await pyodide.runPythonAsync(`
+import micropip
+await micropip.install("rdflib==7.1.1")
+`);
+    setStatus("Loading the catalogue\u2026", "busy");
+    await pyodide.runPythonAsync(`
+from pyodide.http import pyfetch
+from rdflib import Graph
+
+_graphs = {}
+
+async def load(key, urls):
+    """Fetch Turtle files and parse them into one graph. Cached: re-running a
+    query must not refetch."""
+    if key in _graphs:
+        return _graphs[key]
+    graph = Graph()
+    for url in urls:
+        response = await pyfetch(url)
+        if response.status != 200:
+            raise RuntimeError(f"{url} -> HTTP {response.status}")
+        graph.parse(data=await response.string(), format="turtle")
+    _graphs[key] = graph
+    return graph
+
+base = await load("base", [${JSON.stringify(GRAPH.url)}])
+n_base = len(base)
+`);
+    const note = document.getElementById("graph-note");
+    note.hidden = false;
+    note.innerHTML = `Catalogue loaded: <strong>${pyodide.globals.get("n_base")}</strong> triples from <code>${esc(GRAPH.url)}</code>.`;
+    setStatus("Ready \u2014 edit a query and press Run.", "ok");
+    document.querySelectorAll("button.run").forEach(b => (b.disabled = false));
+  } catch (err) {
+    setStatus("Could not start: " + err.message, "err");
+    console.error(err);
+  }
+}
+
+async function runQuery(id, needs) {
+  const btn = document.querySelector(`button.run[data-q="${id}"]`);
+  const timing = document.getElementById("time-" + id);
+  const out = document.getElementById("out-" + id);
+  btn.disabled = true;
+  timing.textContent = needs ? "loading the extra graph\u2026" : "running\u2026";
+  out.innerHTML = "";
+  const t0 = performance.now();
+  try {
+    pyodide.globals.set("_q_src", PREFIXES + "\n" + document.getElementById("src-" + id).value);
+    pyodide.globals.set("_q_needs", needs || "");
+    pyodide.globals.set("_q_urls", needs ? GRAPH.extra[needs].urls.join(" ") : "");
+    const json = await pyodide.runPythonAsync(`
+import json
+
+g = _graphs["base"]
+if _q_needs:
+    # Merged into a copy, so the base graph stays as published and the other
+    # queries are not silently answering over a different dataset.
+    extra = await load(_q_needs, _q_urls.split())
+    if _q_needs + ":merged" not in _graphs:
+        merged = Graph()
+        for triple in _graphs["base"]:
+            merged.add(triple)
+        for triple in extra:
+            merged.add(triple)
+        _graphs[_q_needs + ":merged"] = merged
+    g = _graphs[_q_needs + ":merged"]
+
+result = g.query(_q_src)
+cols = [str(v) for v in result.vars]
+_all = list(result)
+rows = [{c: (None if r[i] is None else str(r[i])) for i, c in enumerate(cols)}
+        for r in _all[:${MAX_ROWS}]]
+json.dumps({"cols": cols, "rows": rows, "n": len(g), "total": len(_all)})
+`);
+    const data = JSON.parse(json);
+    renderTable(data.cols, data.rows, "out-" + id, data.total);
+    timing.textContent = `${((performance.now() - t0) / 1000).toFixed(1)}s over ${data.n} triples`;
+  } catch (err) {
+    /* Show the real error: a malformed query is the normal case here, since
+       people are meant to edit these, so the message has to be the actual one. */
+    out.innerHTML = `<pre class="error">${esc(err.message)}</pre>`;
+    timing.textContent = "";
+  }
+  btn.disabled = false;
+}
+
+document.querySelectorAll("button.run").forEach(b =>
+  b.addEventListener("click", () => runQuery(b.dataset.q, b.dataset.needs)));
+document.querySelectorAll("button.reset").forEach(b =>
+  b.addEventListener("click", () => {
+    const id = b.dataset.q;
+    document.getElementById("src-" + id).value = QUERIES[id];
+    document.getElementById("out-" + id).innerHTML = "";
+    document.getElementById("time-" + id).textContent = "";
+  }));
+
+boot();
+</script>
+</body>
+</html>
