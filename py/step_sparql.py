@@ -26,7 +26,6 @@ finding out which costs nothing here and a lot later.
 
 from __future__ import annotations
 
-import json
 import shutil
 import textwrap
 
@@ -242,28 +241,6 @@ def publish_extra_graphs(config: dict) -> dict:
     return published
 
 
-def environment():
-    from jinja2 import Environment, FileSystemLoader
-
-    # autoescape=True, not select_autoescape(["html"]): that helper compares the
-    # end of the file name, and every template here ends in `.j2`, so it quietly
-    # returns False and nothing is escaped. It matters on this page more than on
-    # the others - the query bodies go into a <textarea>, and one `<` in a query
-    # would end it early and take the rest of the page with it. The JSON blobs
-    # below are marked `| safe`, which is the one place raw output is wanted.
-    return Environment(
-        loader=FileSystemLoader(str(u.TEMPLATES)),
-        autoescape=True,
-        keep_trailing_newline=True,
-    )
-
-
-def as_json(value) -> str:
-    """JSON for a <script> block: sorted, and unable to close the block early."""
-    return (json.dumps(value, sort_keys=True, ensure_ascii=False)
-            .replace("</", "<\\/"))
-
-
 def render(config: dict, published: dict, triples: int) -> None:
     graph = dict(config["graph"])
     graph["extra"] = published
@@ -276,7 +253,7 @@ def render(config: dict, published: dict, triples: int) -> None:
         item["rows"] = max(6, item["sparql"].count("\n") + 2)
         queries.append(item)
 
-    page = environment().get_template("sparql.html.j2").render(
+    page = u.template_environment().get_template("sparql.html.j2").render(
         release=u.RELEASE,
         page=config.get("page", {}),
         graph=graph,
@@ -285,9 +262,9 @@ def render(config: dict, published: dict, triples: int) -> None:
         pyodide_version=PYODIDE_VERSION,
         rdflib_version=RDFLIB_VERSION,
         max_rows=MAX_ROWS,
-        prefixes_json=as_json(config["prefixes"]),
-        graph_json=as_json({"url": graph["url"], "extra": published}),
-        queries_json=as_json({query["id"]: query["sparql"] for query in queries}),
+        prefixes_json=u.script_json(config["prefixes"]),
+        graph_json=u.script_json({"url": graph["url"], "extra": published}),
+        queries_json=u.script_json({query["id"]: query["sparql"] for query in queries}),
     )
     u.write_text(PAGE, page)
     print(f"  {u.rel(PAGE)}: {len(queries)} queries, "

@@ -216,14 +216,7 @@ def graph_objects(graph, predicate) -> list[str]:
 
 
 def render_page(rows, roles, counts, unreadable) -> str:
-    from jinja2 import Environment, FileSystemLoader, select_autoescape
-
-    environment = Environment(
-        loader=FileSystemLoader(str(u.TEMPLATES)),
-        autoescape=select_autoescape(["html"]),
-        keep_trailing_newline=True,
-    )
-    template = environment.get_template("crosswalk.html.j2")
+    template = u.template_environment().get_template("crosswalk.html.j2")
     groups = [(mechanism, [r for r in rows if r["mechanism"] == mechanism])
               for mechanism in ("axiom", "ext-axiom", "normalise", "instance", "none")]
     return template.render(

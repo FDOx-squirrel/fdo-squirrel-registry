@@ -266,7 +266,7 @@ SKOS label load them beside it, from `docs/vocab/`.
 | Path | Contents |
 |---|---|
 | `main.py` | the orchestrator, the only entry point |
-| `py/registry_utils.py` | release date, paths, IRI builders, deterministic writers |
+| `py/registry_utils.py` | release date, paths, IRI builders, deterministic writers, the shared template environment |
 | `py/step_*.py` | one module per pipeline step |
 | `registry/sources.json` | the curated list of harvested DOIs |
 | `registry/labels.json` | curated display labels for IRIs the packages do not name |

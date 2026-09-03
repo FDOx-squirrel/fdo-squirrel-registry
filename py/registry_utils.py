@@ -312,6 +312,47 @@ def write_canonical_turtle(graph, path: Path, *, keep_nt: bool = True) -> Path:
     return path
 
 
+def script_json(value) -> str:
+    """JSON to be embedded in a <script> block, marked `| safe` in the template.
+
+    A `<script>` element holds raw text: the HTML parser does not decode
+    entities inside it, so escaping this blob with the template's autoescape
+    turns every quote into `&#34;` and `JSON.parse` fails on the first one. It
+    must therefore go in raw - and raw means it has to be unable to end the
+    element or start a tag, which is what the `\\u00xx` escapes below do. They
+    are ordinary JSON string escapes: any parser reads them back as the
+    original characters.
+    """
+    return (json.dumps(value, sort_keys=True, ensure_ascii=False)
+            .replace("<", "\\u003c").replace(">", "\\u003e")
+            .replace("&", "\\u0026"))
+
+
+def template_environment():
+    """The Jinja environment every page generator uses. Escapes, and means it.
+
+    Not `select_autoescape(["html"])`: that helper compares the end of the file
+    name, every template here is called `*.html.j2`, and `.j2` is not in its
+    list - so it returns False and nothing is escaped. Both page builders had
+    it, both believed they escaped, and neither did (PRIMER A1, Befund 30). The
+    defect was invisible because no harvested value carries a `<` today; that
+    is a statement about the current holdings, not about the next package.
+
+    So: `autoescape=True`, in one place rather than in each step, and every
+    fragment that is deliberately raw - embedded JSON, a prepared HTML snippet -
+    is marked `| safe` at the point where it is written into the page. That
+    makes raw output a decision somebody took and can be shown, instead of the
+    default nobody noticed.
+    """
+    from jinja2 import Environment, FileSystemLoader
+
+    return Environment(
+        loader=FileSystemLoader(str(TEMPLATES)),
+        autoescape=True,
+        keep_trailing_newline=True,
+    )
+
+
 # ---------------------------------------------------------------------------
 # Provenance
 # ---------------------------------------------------------------------------

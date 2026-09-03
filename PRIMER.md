@@ -280,13 +280,14 @@ Browser):
 30. **Die Templates werden nicht escaped, und niemand hat es gemerkt.**
     `select_autoescape(["html"])` vergleicht das Ende des Dateinamens; alle
     Templates hier heissen `*.html.j2` und enden auf `.j2`, also liefert der
-    Helfer `False`. `step_site` glaubt seit S6, es escape, und tut es nicht.
-    Heute fällt es nicht auf, weil kein geernteter Wert ein `<` oder `&`
-    enthält — geprüft: in `docs/` steht kein einziges `&amp;`, das nicht aus
-    dem Template selbst stammt. Ein Pakettitel mit einem `<` würde die Seite
-    zerlegen. `step_sparql` setzt deshalb `autoescape=True` ausdrücklich; für
-    `step_site` steht der Punkt in Teil D, weil er zu S6 gehört und nicht
-    hierher.
+    Helfer `False`. `step_site` und `step_bridge` glauben seit S6, sie escapen,
+    und tun es nicht. **Nachtrag aus S6b, 2026-09-03: der Fehler war nicht
+    folgenlos.** Das WKT-Literal beginnt mit
+    `<http://www.opengis.net/def/crs/EPSG/0/4326>`; roh in ein `<code>`
+    geschrieben nimmt der HTML-Parser das für ein unbekanntes Element und wirft
+    es weg. Sieben Detailseiten zeigten ihre Koordinate ohne CRS, und niemand
+    hat es gesehen, weil die Zeile plausibel aussieht. Behoben in S6b (A4).
+
 31. **Zwei rdflib-Fallen in einer Abfrage.** `OPTIONAL { … UNION … }` bindet in
     rdflib nichts: die Anker-Abfrage lief durch, meldete 7 statt 24 Zeilen und
     liess die per Instanz verankerten Klassen leer aussehen — ein falsches
@@ -543,7 +544,9 @@ dem es zum ersten Mal wirkt.
 | Reihenfolge im Orchestrator | `sparql` läuft **nach** `site`: die Seite wird aus dem `docs/`-Baum bedient, den `site` anlegt, und liest den Bundle, den `site` dorthin publiziert. Läuft sie davor, meldet sie eine Warnung statt eine 404 zu erzeugen | 2026-09-03 |
 | Autoescape in den Templates | `autoescape=True` ausdrücklich, nicht `select_autoescape(["html"])`: der Helfer prüft die Dateiendung, und alle Templates enden auf `.j2` (Befund 30). Die drei JSON-Blöcke im Skript sind einzeln mit `| safe` markiert — genau dort ist rohe Ausgabe gewollt und nirgends sonst | 2026-09-03 |
 | Doppelt kodierte `content/`-IRIs | **upstream in `fdo-squirrel` lösen**, nicht in der Registry. Die Umschreibung so zu ändern, dass sie eine fremde Kodierung repariert, wäre eine dritte Ausnahme zu A3 — und die Registry korrigiert nicht, sie meldet. Sobald der Generator den Pfad unkodiert in die URN schreibt, liefert `content_iri()` von selbst die richtige Form; im Code hier ändert sich nichts. Bis dahin bleiben die publizierten Records und damit der Bundle so, wie sie sind | 2026-09-03 |
-| Autoescape in `step_site` | eigener Schritt **S6b**, nicht nebenbei. Eine Zeile ändern heisst hier, an jeder Stelle zu entscheiden, ob dort ein Fragment roh gemeint war; das ist ein Durchgang durch drei Templates und braucht ein Fixture, kein Beiwerk in einem anderen Chat | 2026-09-03 |
+| Autoescape in `step_site` | erledigt in **S6b**. Nicht zwei Zeilen in zwei Schritten, sondern eine Funktion in `py/registry_utils.py`: `template_environment()` mit `autoescape=True`, benutzt von `step_site`, `step_bridge` und `step_sparql`. Ein Fehler, den zwei Generatoren unabhängig hatten, wird einmal repariert und nicht zweimal | 2026-09-03, ausgeführt in S6b |
+| JSON in einem `<script>` | über `registry_utils.script_json()`: sortierte Schlüssel, `<`, `>` und `&` als `\uXXXX`, im Template roh ausgegeben. Autoescape würde die Anführungszeichen zu `&#34;` machen, und ein `<script>` ist Rohtext — der Browser dekodiert darin keine Entities, `JSON.parse` scheitert an der ersten. Roh muss es sein, unfähig das Element zu beenden auch | 2026-09-03 |
+| Rohe Ausgabe im Template | nur ausdrücklich markiert und nur an einer Stelle, die man zeigen kann. Die Zelle `row.target or '&mdash;'` in der Crosswalk-Seite war das Gegenbeispiel: die Präzedenz von `or` machte allein den Ersatzwert roh, was aussieht wie eine Aussage über die ganze Zelle. Sie steht jetzt als Zeichen „—“ da und braucht keine Markierung mehr | 2026-09-03 |
 | Kein quarto-live-Notebook | bestätigt: es bleibt bei zwei Erzeugnissen aus `queries.yaml`. Das Notebook kommt, wenn es einen Kurs gibt, der es braucht | bestätigt 2026-09-03 |
 
 ## A5. Was in welchem Chat hochgeladen wird
@@ -619,7 +622,7 @@ Repräsentation aus. Für echte Content Negotiation braucht es w3id-seitige
 | S4 | Bundle-Build als DCAT-Katalog | S2, S3 | erledigt 2026-09-03 |
 | S5 | SHACL-Gate und Qualitätsbericht | S4 | erledigt 2026-09-03 |
 | S6 | Registry-Index und Facettenseite | S4 | erledigt 2026-09-03 |
-| S6b | Autoescape in den Seitentemplates | S6 | offen |
+| S6b | Autoescape in den Seitentemplates | S6 | erledigt 2026-09-03 |
 | S7 | SPARQL-Seite | S4, S6 | erledigt 2026-09-03 |
 | S8 | Registry als FDO, Release und CI | S5, S7 | offen |
 | S9 | N4O-Andockung | S5, S8 | offen |
@@ -1397,11 +1400,54 @@ Ein Fixture gehört dazu, sonst prüft man Abwesenheit: ein Paketwert mit `<`,
 `&` und einem Anführungszeichen (etwa ein Titel `R&D <test> "x"`), einmal durch
 den Seitenbau, und die Seite muss ihn anzeigen statt an ihm zu zerbrechen.
 
-**Abnahme:** `python main.py` läuft durch; `docs/` unterscheidet sich gegenüber
-dem Stand davor **nicht** (kein geernteter Wert enthält heute ein
-Sonderzeichen, das ist der Beweis, dass nur die Absicherung dazukam); mit dem
-Fixture im Bestand steht der Titel vollständig auf Kachel und Detailseite, und
-die eingebettete Index-JSON parst weiterhin.
+**Abnahme:** ~~`docs/` unterscheidet sich gegenüber dem Stand davor nicht~~ —
+diese Erwartung war falsch, siehe unten. Statt dessen: `python main.py` läuft
+durch, jede Änderung an `docs/` ist einzeln erklärt, die eingebettete Index-JSON
+parst, und ein Fixture-Titel mit `<`, `&`, Anführungszeichen und `</script>`
+steht vollständig auf Kachel und Detailseite, statt die Seite zu zerlegen.
+
+### Erledigt 2026-09-03
+
+Der Umbau ist nicht eine Zeile in `step_site`, sondern eine Funktion in
+`registry_utils`: `template_environment()` mit `autoescape=True`, benutzt von
+`step_site`, `step_bridge` und `step_sparql`. Beide Seitenbauer hatten den
+Fehler, nicht einer; ihn zweimal zu reparieren hiesse, ihn beim dritten
+Generator wieder zu machen. `step_sparql` hat seine eigene Fassung aus S7
+abgegeben. Dazu `script_json()` an derselben Stelle: JSON, das in einem
+`<script>` landet, escaped `<`, `>` und `&` als `\uXXXX` und wird im Template
+mit `| safe` roh ausgegeben.
+
+**Die Annahme in der Planung war falsch: `docs/` ändert sich, und zwar an einer
+Stelle, an der die Seite bisher etwas Falsches zeigte.** Drei Klassen von
+Änderung, alle nachgesehen:
+
+1. **Sieben Detailseiten zeigten ihre Koordinate unvollständig.** Das WKT-Literal
+   beginnt mit `<http://www.opengis.net/def/crs/EPSG/0/4326>`; roh in ein
+   `<code>` geschrieben liest der HTML-Parser das als unbekanntes Element und
+   wirft es weg. Gemessen am gerenderten Text: vorher `POINT(-8.0 53.0)`,
+   nachher `<http://…/4326> POINT(-8.0 53.0)`. Der Befund 30 war also nicht
+   theoretisch, er hat die CRS-Angabe auf jeder Detailseite verschluckt.
+2. **Die eingebettete Index-JSON** wurde durch das Autoescape zu `&#34;` und
+   damit unbrauchbar — ein `<script>`-Element ist Rohtext, der Browser
+   dekodiert darin keine Entities. Genau deshalb `script_json()` und `| safe`:
+   roh, aber unfähig, das Element zu beenden oder ein Tag zu öffnen.
+3. **Apostrophe in den Notizen der Crosswalk-Seite** stehen jetzt als `&#39;`.
+   Bytes anders, Anzeige gleich. Die eine Zelle mit `{{ row.target or '&mdash;'
+   | safe }}` ist auf das Zeichen „—" umgestellt: die Präzedenz von `or` und
+   `| safe` machte dort nur den Ersatzwert roh, was niemand mehr erraten muss.
+
+Fixture zweimal gefahren, gegen den gepushten Stand und gegen diesen. Titel
+`R&D <test> "x" — fixture`: vorher zeigt die Kachel `"x" — fixture`, das
+`<test>` steht als erfundenes Element im DOM; nachher steht der Titel
+vollständig da. Titel `closing </script> fixture`: vorher scheitert
+`JSON.parse` auf der eingebetteten Index-JSON, womit Suche und Facetten der
+ganzen Startseite tot sind; nachher parst sie. Das ist der Schaden, den der
+Fehler angerichtet hätte, sobald ein Paket einen solchen Wert trägt — und
+Paketautoren schreiben Titel, keine HTML-sicheren Zeichenketten.
+
+Zwei Läufe hintereinander, `git status` sauber; `--strict` grün; alle Seiten
+über `--serve` mit 200, eingebettete JSON parst auch über HTTP. Was auch hier
+nicht geprüft werden konnte: ob ein Browser die Seiten zeichnet (A4).
 
 ## S7 — SPARQL-Seite
 

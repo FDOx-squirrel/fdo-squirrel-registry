@@ -32,13 +32,7 @@ TEMPLATES = u.ROOT / "py" / "templates"
 
 
 def environment():
-    from jinja2 import Environment, FileSystemLoader, select_autoescape
-
-    env = Environment(
-        loader=FileSystemLoader(str(TEMPLATES)),
-        autoescape=select_autoescape(["html"]),
-        keep_trailing_newline=True,
-    )
+    env = u.template_environment()
     env.filters["filesize"] = filesize
     env.filters["json"] = lambda value: json.dumps(
         value, sort_keys=True, ensure_ascii=False)
@@ -97,7 +91,7 @@ def main(strict: bool = False) -> None:
         catalog=index["catalog"],
         entries=index["entries"],
         facets=facets,
-        index_json=json.dumps(index, sort_keys=True, ensure_ascii=False),
+        index_json=u.script_json(index),
     )
     u.write_text(u.SITE_INDEX, page)
 
