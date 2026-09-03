@@ -550,6 +550,16 @@ Ausfällen in Folge bricht er mit einer Erklärung ab (A4). Lange Wartezeiten
 sind hier kein Vorteil: wenn Zenodo einen Tag lang steht, verzögert jede
 Sekunde Backoff nur die Meldung, die das sagt.
 
+**`check-updates` fragt einmal, nicht achtmal.** Die Community-Liste liefert je
+Concept die neueste Version — damit ist die Frage „gibt es etwas Neueres" für
+jeden gepinnten Record beantwortet, dessen Concept darin vorkommt, ohne eine
+eigene Abfrage. Nur was die Liste nicht abdeckt, kostet einen Request. Der
+Unterschied ist nicht kosmetisch: mit einer Abfrage je Record dauerte der
+Schritt 335 Sekunden, weil zwei davon in 504-Wiederholungen liefen (gemessen
+2026-09-03). Dazu ist das Wiederholungsbudget hier kleiner als beim Ernten —
+ein etwas älterer Bericht kostet weniger als eine lange Wartezeit, eine
+ausgefallene Ernte dagegen kostet die Daten selbst.
+
 **`check-updates`** ist ein eigener Netzschritt und ändert nichts: er meldet
 neuere Versionen der gepinnten Records (über `/versions/latest`, also ohne
 Concept-DOI) und Records der Community `squirrel-fdo`, die nicht in
@@ -621,6 +631,12 @@ kosten so viel wie ein paar Dutzend HTTP-Requests.
   Bericht unvollständig statt den Schritt kaputt. Ein 4xx ist seitdem ein
   eigener Fehlertyp: der Server hat verstanden und nein gesagt, das ist etwas
   anderes als ein Ausfall.
+
+**Ein Record ohne ZIP ist kein leerer Record.** Von den sieben ungelisteten
+Community-Einträgen sind mehrere Papiere und Vorträge — sie haben ein PDF, kein
+FDOx-Paket, und gehören nicht in `sources.json`. Der Bericht sagt das jetzt
+(„no package — a paper or slides") statt „no files", was nach einem defekten
+Record aussah.
 
 **Die Community-Suche scheiterte nicht am Pfad, sondern an meinen Parametern.**
 Vier Formen antworteten mit 400. Drei `curl`-Proben zeigten dann, dass genau

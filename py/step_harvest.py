@@ -103,7 +103,7 @@ class HttpStatusError(RuntimeError):
 # ---------------------------------------------------------------------------
 
 
-def _with_retries(request):
+def _with_retries(request, attempts: int = RETRIES):
     """Run `request()` up to RETRIES times on 5xx or connection problems.
 
     Zenodo's API regularly answers 504 Gateway Time-out under load and is fine
@@ -115,7 +115,7 @@ def _with_retries(request):
     import requests
 
     last_error: Exception | None = None
-    for attempt in range(RETRIES):
+    for attempt in range(attempts):
         try:
             response = request()
             if 400 <= response.status_code < 500:
@@ -127,18 +127,23 @@ def _with_retries(request):
             last_error = requests.HTTPError(f"{response.status_code} for {response.url}")
         except (requests.Timeout, requests.ConnectionError) as error:
             last_error = error
-        if attempt < RETRIES - 1:
+        if attempt < attempts - 1:
             wait = BACKOFF[min(attempt, len(BACKOFF) - 1)]
-            print(f"             retry {attempt + 1}/{RETRIES - 1} in {wait} s: {last_error}")
+            print(f"             retry {attempt + 1}/{attempts - 1} in {wait} s: {last_error}")
             time.sleep(wait)
-    raise Unreachable(f"gave up after {RETRIES} attempts: {last_error}")
+    raise Unreachable(f"gave up after {attempts} attempts: {last_error}")
 
 
-def http_get(url: str) -> bytes:
+def http_get(url: str, attempts: int = RETRIES) -> bytes:
+    """GET with retries. `attempts` is lower for reporting than for ingest:
+    waiting three quarters of a minute on a dead URL is worth it when the run
+    would otherwise have no data, and not worth it when it would only have a
+    slightly staler report."""
     import requests  # imported here so --list, --dry-run and --offline stay offline
 
     return _with_retries(
-        lambda: requests.get(url, headers={"User-Agent": USER_AGENT}, timeout=TIMEOUT)
+        lambda: requests.get(url, headers={"User-Agent": USER_AGENT}, timeout=TIMEOUT),
+        attempts,
     ).content
 
 
@@ -183,7 +188,11 @@ def find_metadata_file(record: dict) -> tuple[dict | None, list[str]]:
 
 
 def package_files(record: dict) -> list[dict]:
-    """The record's ZIP files — the FDOx packages — in name order."""
+    """The record's ZIP files — the FDOx packages — in name order.
+
+    A record with no ZIP is not empty: it is usually a paper or a slide deck,
+    which is why the community report says "no package" and not "no files".
+    """
     return sorted((e for e in record.get("files") or [] if e.get("key", "").lower().endswith(".zip")),
                   key=lambda e: e["key"])
 
