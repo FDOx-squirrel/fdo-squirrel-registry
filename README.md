@@ -243,6 +243,7 @@ Every step is also runnable on its own, for example `python py/step_bundle.py`.
 | `metadata/` | registry vocabulary, CRM bridge, role vocabulary (generated) |
 | `dist/` | the products: bundle, index, reports (generated, versioned) |
 | `docs/` | the published site (generated) |
+| `.gitattributes` | LF everywhere, and which paths are generated |
 | `PRIMER.md` | the work plan — German, internal, and the place decisions live |
 
 `metadata/shapes.ttl` and `metadata/shapes_selftest.ttl` are written by hand;

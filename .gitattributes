@@ -1,0 +1,33 @@
+# Line endings belong to the repository, not to each clone's core.autocrlf.
+#
+# Every generator here writes LF (py/registry_utils.py, write_text), and the
+# products under dist/ and docs/ are versioned so they can be cited and
+# diffed. If the working tree ending depended on who cloned it, a byte
+# comparison between two machines would mean nothing and `git add` would warn
+# about a conversion on every run. So: LF in the repository and LF on disk,
+# on every platform.
+* text=auto eol=lf
+
+# Binary by declaration rather than by detection. None of these are in the
+# tree today; they arrive the moment somebody drops a package or a figure in,
+# and a mis-detected binary is corrupted silently.
+*.png    binary
+*.jpg    binary
+*.pdf    binary
+*.zip    binary
+*.xlsx   binary
+*.nxz    binary
+*.ply    binary
+*.glb    binary
+
+# Written by `python main.py`, never by hand. Marking them collapses their
+# diffs on GitHub and keeps them out of the language statistics, so a pull
+# request shows the change to the generator rather than six thousand lines of
+# regenerated Turtle. They stay versioned and they stay reviewable - a marked
+# file is folded, not hidden.
+dist/**                 linguist-generated=true
+docs/**                 linguist-generated=true
+metadata/crm_bridge.ttl linguist-generated=true
+metadata/registry_ontology.ttl linguist-generated=true
+metadata/vocab/**       linguist-generated=true
+data/raw/**             linguist-generated=true

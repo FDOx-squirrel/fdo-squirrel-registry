@@ -267,7 +267,12 @@ Browser):
     `core.autocrlf`, was es gefährlicher macht statt harmloser: der
     Byte-Vergleich zweier Rechner wird dadurch bedeutungslos, ohne dass jemand
     etwas merkt. Seit S6a schreibt alles über `registry_utils.write_text()`
-    mit `newline="\n"`.
+    mit `newline="\n"`. Nachtrag vom selben Tag: der Lauf auf dem Zielrechner
+    hat `core.autocrlf=true` und meldete beim `git add` dreimal „LF will be
+    replaced by CRLF the next time Git touches it". Harmlos, aber es zeigt,
+    dass das Verhalten am Klon hängt und nicht am Repository — deshalb die
+    `.gitattributes`. Geprüft: `git add --renormalize .` gegen den
+    unveränderten Klon ändert nichts, die abgelegten Blobs sind bereits LF.
 
 **Was das Anwendungsprofil nicht abdeckt** (geprüft 2026-09-03 an
 <https://nfdi4objects.github.io/crm-rdf-ap/>, Fassung 2025-01-27, Jakob Voß):
@@ -484,6 +489,7 @@ dem es zum ersten Mal wirkt.
 | Personen-IRIs auf der Seite | nur ORCIDs werden verlinkt. Die registry-eigenen `agent/`-IRIs haben noch keine Seite, und ein Link ins Leere sieht aus wie ein Angebot. Stattdessen steht dort „no ORCID in the package" — dieselbe Aussage wie im Qualitätsbericht, nur dort, wo sie jemand liest | 2026-09-03 |
 | Pfade in Erzeugnissen | über `registry_utils.rel()`, nie über `Path.relative_to()` direkt (Befund 27). Terminalausgabe darf plattformnativ bleiben, Dateiinhalt nicht | 2026-09-03 |
 | Zeilenenden in Erzeugnissen | LF, immer, über `registry_utils.write_text()` mit `newline="\n"` (Befund 29). Kein Generator benutzt `Path.write_text()` direkt | 2026-09-03 |
+| Zeilenenden im Repository | `.gitattributes` mit `* text=auto eol=lf`: LF im Repository **und** im Arbeitsverzeichnis, auf jeder Plattform. Sonst hängt es an `core.autocrlf` des jeweiligen Klons, und ein Byte-Vergleich zwischen zwei Rechnern sagt nichts mehr. Binärendungen sind dort deklariert statt geraten, und `dist/`, `docs/`, `data/raw/` sowie die erzeugten TTL unter `metadata/` tragen `linguist-generated=true` — ihre Diffs sind auf GitHub eingeklappt, nicht versteckt | 2026-09-03 |
 | Seite ansehen | `python main.py --open` öffnet `docs/index.html` von der Platte — die Seite braucht keinen Server, deshalb bekommt sie auch keinen. `python main.py --serve [PORT]` liefert `docs/` auf `127.0.0.1:8000` aus und läuft bis Ctrl+C; es gibt keinen Modus zu verlassen, nur einen Prozess, der endet. Gedacht für S7, wo Pyodide einen `http://`-Origin verlangt | 2026-09-03 |
 | Wann eine Seite geprüft ist | wenn ein Browser sie gezeichnet hat. Statische Prüfungen und `jsdom` haben die kaputte Filterung in Befund 28 beide bestanden; `jsdom` bildet die Kaskade zwischen Autor- und User-Agent-Stylesheet nicht korrekt ab. Im Chat wird deshalb gesagt, was nur am Rechner prüfbar ist, statt es als geprüft auszugeben | 2026-09-03 |
 
