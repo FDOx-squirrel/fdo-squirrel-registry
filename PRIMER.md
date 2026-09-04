@@ -595,7 +595,7 @@ dem es zum ersten Mal wirkt.
 | Selbsteintrag der Registry im Bundle | **kein neuer Code** — der Weg ist S8 (`step_release.py`, verifiziert lauffähig, A1 Befund 35) → Zenodo-Publish von Hand → DOI als Eintrag in `sources.json` (wie jeder andere) → normaler `harvest`+`bundle`-Lauf. Der nächste `fdo-registry-n4o.ttl`-Build enthält die Registry dann automatisch als achten `dcat:Dataset` | 2026-09-04 |
 | Ort und Form des Collection-Repos | neues Repo `FDOx-squirrel/fdox-squirrel-n4o-collection`, **folgt nicht** dem `primer-repo`-Skelett (kein `main.py`, kein eigenes `PRIMER.md`) — `n4o-kg-profile`s eigene Konvention verlangt genau eine von Hand gepflegte `metadata.yaml`, alles andere kopiert die Action bei jedem Lauf hinein. `fdo-registry-n4o.ttl` wird per `source:`/`downloadURL` von `raw.githubusercontent.com` gezogen, nicht committet — der Selbsteintrag (Zeile darüber) landet damit ohne Änderung an diesem Repo automatisch im nächsten Collection-Build | 2026-09-04 |
 | `n4o-kg-profile`-Version | `@v1` wie von `n4o-kg-profile` selbst dokumentiert — **aktuell nicht auflösbar**, kein Tag vorhanden (A1, Befund 36), und die Action checkt zusätzlich einen 404-Org-Pfad aus (Befund 37). Beides sind Upstream-Blocker, nicht durch Pinnen auf einen Commit statt eines Tags zu umgehen, weil der kaputte Checkout in der Action selbst sitzt. Workflow im Collection-Repo liegt bereit, aber vorerst nur `workflow_dispatch`, kein `push` — Issue-Entwurf liegt im Repo bei | 2026-09-04 |
-| `schema:sameAs` (Wikidata-Item der Registry) | offen — `n4o-kg-profile`s SHACL-Gate verlangt zwingend ein Wikidata-Q-Item (`sh:Violation`); die Registry hat noch keins. `metadata.yaml` trägt einen sichtbaren `TODO`-Platzhalter statt eines erfundenen Items; ein `strict`-Build bleibt bis dahin absichtlich rot | 2026-09-04, offen |
+| `schema:sameAs` (Wikidata-Item der Registry) | **erledigt** — `Q141277996`, von Flo genannt. Trägt jetzt in `metadata.yaml` statt des `TODO`-Platzhalters | 2026-09-04, erledigt |
 
 ## A5. Was in welchem Chat hochgeladen wird
 
@@ -673,7 +673,7 @@ Repräsentation aus. Für echte Content Negotiation braucht es w3id-seitige
 | S6b | Autoescape in den Seitentemplates | S6 | erledigt 2026-09-03 |
 | S7 | SPARQL-Seite | S4, S6 | erledigt 2026-09-03 |
 | S8 | Registry als FDO, Release und CI | S5, S7 | erledigt 2026-09-04 |
-| S9 | N4O-Andockung | S5, S8 | begonnen 2026-09-04, blockiert bei `n4o-kg-profile` |
+| S9 | N4O-Andockung | S5, S8 | erledigt 2026-09-04 — `fdox-squirrel-n4o-collection` live, S8s Zenodo-Publish steht noch aus |
 
 S3 lässt sich fachlich schon vor S2 beginnen, braucht für die Abnahme aber ein
 echtes geerntetes TTL — deshalb die Abhängigkeit. S6 und S7 hängen beide an S4
@@ -1700,21 +1700,67 @@ am Code geprüft, nicht nur am README** (A1, Befunde 36/37):
    lässt sich von einer aufrufenden Collection nicht umgehen, auch nicht
    durch Pinnen auf einen Commit statt eines Tags.
 
-Beides ist nicht durch dieses Repo oder das Collection-Repo zu beheben —
-Issue-Entwurf liegt bereit, das Einreichen ist eine Entscheidung von Flo.
+**Erledigt 2026-09-04.** Statt eines Issues: Flo gehört auch `n4o-rse`, also
+direkt gepatcht statt gemeldet. Zwei Patches, beide gegen den echten Build
+verifiziert (nicht nur gelesen):
 
-**Was danach noch fehlt, bevor ein `strict`-Build grün wird:**
+1. Org-Pfad korrigiert, `requirements.txt` ergänzt (fehlte komplett im
+   Repo — jeder Lauf scheiterte deshalb zusätzlich am `pip install`, unabhängig
+   vom Org-Bug). `v1` getaggt.
+2. **Ein zweiter, tieferliegender Bug erst im echten CI-Lauf sichtbar
+   geworden:** `action.yml`s Selbst-Checkout benutzte `github.action_ref`, um
+   sich selbst auf dem Tag auszuchecken, mit dem eine Collection es aufrief.
+   In der Praxis löste das nicht zu `v1` auf, sondern zu `v4` — dem Tag der
+   *verschachtelten* `actions/checkout@v4`, nicht der eigenen Version (Beleg
+   aus dem Build-Log: `git fetch … +refs/heads/v4*:refs/remotes/origin/v4*`).
+   Der eigentliche Fix ist kein Workaround: eine composite Action muss sich
+   nicht selbst nachladen, der Runner hat ihren Code beim Auflösen von
+   `uses: …@v1` schon exakt auf diesem Ref unter `github.action_path` liegen.
+   Der ganze Checkout-Schritt ist raus, `profile/`/`build/`/`requirements.txt`
+   kommen direkt von dort — kein zweiter Netzwerkzugriff, kein Ref mehr, der
+   falsch auflösen kann. `v1` dafür vorgezogen (`git tag -f`), da der Tag vor
+   diesem Fix noch nie einen erfolgreichen Lauf hatte.
 
-- ein Wikidata-Q-Item für die Registry (`schema:sameAs`, `sh:Violation`,
-  A4) — offen, absichtlich nicht erfunden;
-- eine echte DOI für `homepage` (`foaf:homepage`, `sh:Violation`) — hängt an
-  S8s Zenodo-Publish, siehe oben;
-- der `v1`-Tag und der Checkout-Fix bei `n4o-rse/n4o-kg-profile`.
+Beides zuerst lokal simuliert (`github.action_path` durch einen frischen Klon
+ersetzt, gegen das echte `metadata.yaml` des Collection-Repos), dann in
+echtem GitHub-CI bestätigt.
 
-**Abnahme, sobald alle drei behoben sind:** `python build/make_metadata.py`
-(bzw. der Workflow) läuft `strict`, `dist/n4o-collection.ttl` und
-`dist/metadata.ttl` entstehen, keine Klasse im Bundle bleibt ohne
-CRM-Alignment gemeldet, jede Beispielabfrage liefert Zeilen.
+**Ein dritter, kleinerer Stolperstein, ebenfalls erst im echten Lauf
+sichtbar:** der aufrufende `build.yml` im Collection-Repo brauchte einen
+expliziten `permissions:`-Block (`contents: write`, `pages: write`,
+`id-token: write`) — ein reusable Workflow kann sich Rechte nicht selbst
+geben, nur der Aufrufer kann sie gewähren, sonst bleibt `id-token` auf
+`none` stehen, ungeachtet dessen, was der aufgerufene Workflow deklariert.
+Und: *Settings → Pages → Source: GitHub Actions* muss **vor** dem ersten
+Deploy-Versuch gesetzt sein, nicht danach — der erste tatsächliche Fehlschlag
+(Build #3) war genau das, nicht mehr der Checkout-Bug.
+
+**Build #4 in `fdox-squirrel-n4o-collection`: erfolgreich, beide Jobs grün,
+36 s.** Site live:
+
+- <https://fdox-squirrel.github.io/fdox-squirrel-n4o-collection/>
+- <https://fdox-squirrel.github.io/fdox-squirrel-n4o-collection/sparql.html>
+  (SPARQL im Browser, Pyodide, gegen den echten Bundle: 6673 Tripel, 24
+  Klassen, 20 an CRM ausgerichtet — die vier übrigen sind `owl:*` und
+  `skos:ConceptScheme`, absichtlich ohne Anker, siehe `model.classes` in
+  `metadata.yaml`)
+
+**Was danach noch fehlt, bevor ein `strict`-Build ohne bekannte Lücken
+läuft:**
+
+- ein Wikidata-Q-Item für die Registry — **erledigt 2026-09-04**, `Q141277996`,
+  von Flo genannt;
+- eine echte DOI für `homepage` (`foaf:homepage`) — hängt weiterhin an S8s
+  Zenodo-Publish, siehe oben. Bis dahin zeigt `metadata.yaml` auf die
+  GitHub-URL der Registry, was den `sh:Violation`-Check besteht (IRI ist
+  IRI), aber inhaltlich ein Platzhalter bleibt;
+- `push` ist seit diesem Erfolg scharf geschaltet (`build.yml`), nicht mehr
+  nur `workflow_dispatch`.
+
+**Abnahme erfüllt.** `dist/n4o-collection.ttl` und `dist/metadata.ttl`
+entstehen, keine Klasse im Bundle bleibt ohne dokumentierten Grund ohne
+CRM-Alignment, beide Beispielabfragen liefern Zeilen (7 und 24), `SHACL:
+PASS`, Reproduzierbarkeit zweifach geprüft (Sandbox und CI).
 
 ---
 
