@@ -25,6 +25,7 @@ from __future__ import annotations
 import shutil
 import subprocess
 import sys
+import sysconfig
 from pathlib import Path
 
 import registry_utils as u
@@ -37,23 +38,40 @@ REQUIRED = [u.BUNDLE, u.INDEX, u.SHAPES, u.MD_CFF, u.CITATION_CFF]
 
 def _fdo_squirrel_executable() -> Path | None:
     """The fdo-squirrel console script installed in *this* interpreter's
-    environment, found the way pip put it there - next to the interpreter
-    itself - rather than via $PATH or a module import.
+    environment, found the way pip actually put it there.
 
     Not `shutil.which("fdo-squirrel")`: that walks $PATH, which does not
-    include a venv's bin/ unless the venv was activated - true even when
-    fdo-squirrel is correctly installed in the exact environment running
-    this script (e.g. `venv/bin/python main.py` without `source
+    include a venv's scripts directory unless the venv was activated - true
+    even when fdo-squirrel is correctly installed in the exact environment
+    running this script (e.g. `venv/bin/python main.py` without `source
     venv/bin/activate`). Not `sys.executable -m main` either: fdo-squirrel's
     entry module is named `main`, and Python puts the current directory
     first on a subprocess's sys.path for `-m` - since this repository's own
     orchestrator is also `main.py`, that resolves to *this* file, not
     fdo-squirrel's, the moment this step runs from the repository root,
     which is exactly the case here.
+
+    Not `Path(sys.executable).parent / "fdo-squirrel"` either, on its own:
+    that is right for a POSIX venv (`venv/bin/python` and
+    `venv/bin/fdo-squirrel` are siblings) and for a Windows venv
+    (`venv\\Scripts\\python.exe` and `venv\\Scripts\\fdo-squirrel.exe` are
+    siblings too) - but wrong for a plain, non-venv Windows install, where
+    `python.exe` sits at the installation root while pip puts console
+    scripts in a `Scripts\\` subdirectory next to it, not beside it.
+    `sysconfig.get_path("scripts")` is what pip itself consults to decide
+    where a console script goes, so it is correct in all three layouts;
+    kept as the first candidate, with the sibling-of-python.exe path second
+    as a fallback for anything unusual enough to disagree with it.
     """
     name = "fdo-squirrel.exe" if sys.platform == "win32" else "fdo-squirrel"
-    candidate = Path(sys.executable).parent / name
-    return candidate if candidate.exists() else None
+    candidates = [
+        Path(sysconfig.get_path("scripts")) / name,
+        Path(sys.executable).parent / name,
+    ]
+    for candidate in candidates:
+        if candidate.exists():
+            return candidate
+    return None
 
 
 def _stage() -> None:
