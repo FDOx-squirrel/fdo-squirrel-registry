@@ -30,6 +30,14 @@ Thumbs.db
 # diff any more.
 dist/pipeline_report.txt
 
+# S8's release package (fdo-metadata.ttl, the finished bundle ZIP, Mermaid
+# preview, ...): rebuilt by every `release` run from dist/fdo-registry.ttl,
+# dist/registry-index.json and metadata/shapes.ttl, which are already
+# versioned - a second, repackaged copy adds nothing citable, and the
+# bundle ZIP is a one-time artefact meant for a manual Zenodo upload, not
+# for tracking. Same reasoning as pipeline_report.txt above.
+dist/release/
+
 # --- Note ---
 # dist/ is NOT ignored here, unlike the usual Python template: in this family
 # it holds the repository's products (graphs, tables, reports), which are

@@ -1,0 +1,35 @@
+name: build
+
+# Rebuilds the whole default pipeline on every push and pull request, and
+# fails the moment the SHACL gate goes red. main.py --strict is exactly the
+# smoke test A4 describes ("Schrittvertrag") run in CI instead of by hand -
+# nothing here that `pip install -r requirements.txt && python main.py
+# --strict` would not also do on a laptop.
+#
+# Deliberately excludes `harvest`/`check-updates`: they are network=True and
+# already outside the default run (PRIMER A4, "Netzschritt im
+# Standardlauf") - main.py filters them out on its own, so no extra flag is
+# needed here to keep this workflow from touching Zenodo.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run the default pipeline with the SHACL gate strict
+        run: python main.py --strict

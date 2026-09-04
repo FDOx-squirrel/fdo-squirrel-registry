@@ -1,0 +1,49 @@
+md_cff_version: "0.1"
+fdo_type: "fdo:RegistryFDO"
+
+# No DOI yet - this is the pre-publication identifier. Update to the Zenodo
+# concept DOI once S8's release is actually published, matching how every
+# other catalogue entry is identified (PRIMER A4, "Identität eines
+# Katalogeintrags").
+id: "https://github.com/FDOx-squirrel/fdo-squirrel-registry"
+
+title: "FDOx Registry"
+description: >-
+  A registry for FAIR Digital Objects packaged with the FDOx Squirrel
+  reference implementation: harvests FDO metadata published on Zenodo,
+  bundles it into a DCAT catalogue anchored in CIDOC CRM, validates it with
+  SHACL, and publishes a filter and SPARQL interface as a static site.
+
+version: "0.1.0"
+date_created: "2026-09-03"
+date_released: "2026-09-03"
+
+publishers:
+  - id: "https://ror.org/0483qx226"
+    label: "Leibniz-Zentrum für Archäologie (LEIZA)"
+
+license:
+  id: "https://spdx.org/licenses/CC-BY-4.0.html"
+  label: "CC-BY-4.0"
+
+creators:
+  - id: "https://orcid.org/0000-0002-3246-3531"
+    label: "Florian Thiery"
+
+keywords:
+  - label: "FAIR Digital Object"
+  - label: "Linked Open Data"
+  - label: "DCAT"
+  - label: "CIDOC CRM"
+  - label: "SHACL"
+  - label: "knowledge graph"
+
+related_resources:
+  - relation: "isDocumentedBy"
+    target:
+      id: "https://github.com/FDOx-squirrel/fdo-squirrel-registry"
+      label: "Source repository"
+  - relation: "isDerivedFrom"
+    target:
+      id: "https://doi.org/10.5281/zenodo.18441772"
+      label: "FDOx Squirrel reference implementation"

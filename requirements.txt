@@ -5,3 +5,11 @@ pyshacl>=0.26          # SHACL gate (S5)
 requests>=2.31         # Zenodo REST API (S2, the only step that uses the network)
 PyYAML>=6.0            # queries.yaml (S7)
 Jinja2>=3.1            # page templates (S6, S7)
+
+# S8: packages the registry itself into an FDO. Pinned to the commit that
+# landed the fdo:RegistryFDO type and pip-installability (fdo-squirrel
+# patches 1+2), same reasoning as the pinned Pyodide/rdflib versions in
+# step_sparql.py (PRIMER A4, "Gepinnte Laufzeit") - an unpinned main
+# follows whatever lands there next, and a generator change silently
+# reshapes every future release build.
+fdo-squirrel @ git+https://github.com/FDOx-squirrel/fdo-squirrel.git@504b7af

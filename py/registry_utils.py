@@ -129,6 +129,9 @@ ROLE_VOCAB = VOCAB / "role.ttl"
 SHAPES = METADATA / "shapes.ttl"
 SHAPES_SELFTEST = METADATA / "shapes_selftest.ttl"
 QUALITY_REPORT = DIST / "quality_report.md"
+MD_CFF = ROOT / "MD.cff"
+CITATION_CFF = ROOT / "CITATION.cff"
+RELEASE_DIR = DIST / "release"
 
 
 def ensure_dirs(*paths: Path) -> None:

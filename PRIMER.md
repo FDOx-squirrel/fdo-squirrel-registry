@@ -548,6 +548,8 @@ dem es zum ersten Mal wirkt.
 | JSON in einem `<script>` | über `registry_utils.script_json()`: sortierte Schlüssel, `<`, `>` und `&` als `\uXXXX`, im Template roh ausgegeben. Autoescape würde die Anführungszeichen zu `&#34;` machen, und ein `<script>` ist Rohtext — der Browser dekodiert darin keine Entities, `JSON.parse` scheitert an der ersten. Roh muss es sein, unfähig das Element zu beenden auch | 2026-09-03 |
 | Rohe Ausgabe im Template | nur ausdrücklich markiert und nur an einer Stelle, die man zeigen kann. Die Zelle `row.target or '&mdash;'` in der Crosswalk-Seite war das Gegenbeispiel: die Präzedenz von `or` machte allein den Ersatzwert roh, was aussieht wie eine Aussage über die ganze Zelle. Sie steht jetzt als Zeichen „—“ da und braucht keine Markierung mehr | 2026-09-03 |
 | Kein quarto-live-Notebook | bestätigt: es bleibt bei zwei Erzeugnissen aus `queries.yaml`. Das Notebook kommt, wenn es einen Kurs gibt, der es braucht | bestätigt 2026-09-03 |
+| `fdo_type` der Registry selbst | neuer `fdo:RegistryFDO` statt `fdo:AnalysisFDO` — die Registry ist kein Analyseergebnis. Braucht einen Patch in `fdo-squirrel` (Schema-Enum, Rollenklassifikation innerhalb des sechswertigen Vokabulars aus S3) | 2026-09-04 |
+| Einbindung von `fdo-squirrel` in S8 | echter Schritt `step_release.py`, `fdo-squirrel` als `pip`-Abhängigkeit von GitHub (`requirements.txt`, auf Commit gepinnt statt `main` zu tracken — dieselbe Begründung wie bei Pyodide/rdflib in S7). Dieselbe Frage steht bei `fdo-3d-packager`/`fdo-git-packager` noch offen; dort noch zu übernehmen | 2026-09-04 |
 
 ## A5. Was in welchem Chat hochgeladen wird
 
@@ -624,7 +626,7 @@ Repräsentation aus. Für echte Content Negotiation braucht es w3id-seitige
 | S6 | Registry-Index und Facettenseite | S4 | erledigt 2026-09-03 |
 | S6b | Autoescape in den Seitentemplates | S6 | erledigt 2026-09-03 |
 | S7 | SPARQL-Seite | S4, S6 | erledigt 2026-09-03 |
-| S8 | Registry als FDO, Release und CI | S5, S7 | offen |
+| S8 | Registry als FDO, Release und CI | S5, S7 | erledigt 2026-09-04 |
 | S9 | N4O-Andockung | S5, S8 | offen |
 
 S3 lässt sich fachlich schon vor S2 beginnen, braucht für die Abnahme aber ein
@@ -1522,15 +1524,54 @@ parsen. Ob die Seite antwortet, sagt erst ein Browser (A4).
 
 **Ziel:** der Katalog wird nach denselben Regeln zitierbar wie sein Inhalt.
 
-`MD.cff` und `CITATION.cff` fürs Repo, `fdo_type: fdo:AnalysisFDO` (oder ein
-neuer `fdo:RegistryFDO` — in S8 zu entscheiden, betrifft `fdo-squirrel`). Der
-Bundle plus Index plus Shapes werden als ZIP durch `fdo-squirrel` geschickt und
-nach Zenodo publiziert. Der so entstehende DOI kann in `sources.json` — die
-Registry katalogisiert sich selbst, und der Rundlauf ist zugleich der beste
-Integrationstest.
+`MD.cff` und `CITATION.cff` liegen im Repo-Root. `fdo_type: fdo:RegistryFDO`
+— neuer vierter Typ, entschieden statt des vorgeschlagenen `fdo:AnalysisFDO`:
+die Registry ist kein Analyseergebnis, und ein eigener Typ hält das für
+spätere N4O-Konsumenten unterscheidbar. Der Typ, die Rollenklassifikation
+(innerhalb des festen sechswertigen Vokabulars aus S3) und die
+Pip-Installierbarkeit von `fdo-squirrel` selbst sind in drei Patches dort
+gelandet (Befund 33 vorweg, dann `fdo:RegistryFDO` + `pyproject.toml` +
+`--outdir`, dann ein zweiter, unabhängiger `--outdir`-Leck in
+`rdf_modelling_report.json`) — alle drei gegen frische Klone verifiziert und
+gepusht: `4ca86ae`, `3593c9f`, `504b7af`. `requirements.txt` pinnt auf den
+letzten davon, dieselbe Begründung wie bei Pyodide/rdflib in S7.
 
-Zwei GitHub Actions: eine baut bei jedem Push `main.py --strict` und schlägt bei
-rotem Gate fehl, eine deployt `docs/` nach Pages.
+**`py/step_release.py`** (neuer Schritt, network=False): kopiert
+`dist/fdo-registry.ttl`, `dist/registry-index.json`, `metadata/shapes.ttl`,
+`MD.cff` und `CITATION.cff` in ein ZIP und schickt es durch das
+pip-installierte `fdo-squirrel` — nicht über `$PATH`
+(`shutil.which`, findet eine nicht aktivierte venv nicht) und nicht über
+`-m main` (Namenskollision: `fdo-squirrel`s Einstiegsmodul heißt `main`,
+genau wie der Orchestrator hier — `-m` stellt das Arbeitsverzeichnis vor die
+Paketpfade und träfe dieses `main.py`, nicht das installierte). Stattdessen
+das Konsolenskript direkt neben `sys.executable` gesucht, wie `pip` es dort
+platziert. Ergebnis landet in `dist/release/` (gitignored — ein
+rebuildbares Nebenprodukt aus bereits versionierten Quellen, keine zweite
+zitierbare Fassung, siehe `.gitignore`).
+
+**Eine zweite Namenskollision, hier statt in `fdo-squirrel`:** die neue
+Pfadkonstante für `dist/release/` hieß zuerst `RELEASE` — und überschrieb
+damit stillschweigend das schon vorhandene `RELEASE` (das Release-*Datum*
+der Registry, `"2026-09-03"`, in `dct:issued`, dem User-Agent, den
+Templates und dem Qualitätsbericht verwendet). Ein `python main.py
+--strict` gegen einen frischen Klon hat es gezeigt: `dct:issued` bekam den
+Dateipfad statt des Datums, `step_index` stürzte beim JSON-Schreiben eines
+`Path`-Objekts ab. Umbenannt in `RELEASE_DIR`; derselbe Rundlauf danach
+grün. Festhaltenswert, weil `u.RELEASE` als Name naheliegend war und der
+Fehler erst beim vollen `--strict`-Lauf auffiel, nicht beim isolierten Test
+von `step_release` allein.
+
+**Bewusst nicht automatisiert:** der Zenodo-Publish. Braucht einen Menschen
+mit Zugangsdaten, dieselbe Begründung wie bei `harvest` (A4,
+„Netzschritt im Standardlauf"). `step_release` baut das fertige Bundle-ZIP
+und sagt, dass es von Hand hochzuladen ist; die daraus entstehende DOI geht
+danach von Hand in `registry/sources.json`, wie jeder andere Eintrag.
+
+**Zwei GitHub Actions:** `build.yml` baut bei jedem Push/PR `main.py
+--strict` (schließt `harvest`/`check-updates` automatisch aus, da
+network=True); `pages.yml` deployt das bereits committete `docs/` nach
+GitHub Pages, ohne selbst neu zu bauen — dieselbe Begründung wie bei
+`dist/`: `docs/` ist versioniertes Erzeugnis, kein CI-Artefakt.
 
 ## S9 — N4O-Andockung
 
@@ -1567,10 +1608,15 @@ Graphen unter `https://graph.nfdi4objects.net/collection/<n>`.
   FDO-URL. Das ist eine Frage an die SquirrelBase, nicht an dieses Repo.
 - ~~**Doppelt kodierte `content/`-IRIs.**~~ Entschieden 2026-09-03 nach S7: der
   Fehler wird upstream in `fdo-squirrel` behoben, nicht in der Registry (A4,
-  Befund 33). Offen bleibt nur der Zeitpunkt, und der hängt an der Liste im
-  Qualitätsbericht — dieselbe Rückmeldung wie die abgekürzten Klassen-IRIs und
-  die fehlenden Labels. Solange der Generator nicht nachzieht, tragen die
-  publizierten Records und damit der Bundle `%252F`.
+  Befund 33). **Behoben 2026-09-04 in `fdo-squirrel`** (`fdo_rdf.py`, Commit
+  „Stop double-percent-encoding content/ distribution IRIs"): der Generator
+  schreibt den Pfad jetzt roh (Turtle-escaped, nicht prozentkodiert) in die
+  URN, `content_iri()` hier kodiert ihn dadurch wie vorgesehen genau einmal.
+  Gegen ein synthetisches Testpaket mit Leerzeichen/Kommas/Unterordnern im
+  Dateinamen (der Härtefall für diesen Bug) end-to-end durch `term_map()` +
+  `content_iri()` geprüft: einfach kodiert, kein `%25` mehr. Betrifft nur neu
+  generierte Pakete — die sieben bereits publizierten Zenodo-Records tragen
+  `%252F` weiterhin, das ist unveränderlich (A3).
 - ~~**`select_autoescape` greift in `step_site` nicht.**~~ Ist seit 2026-09-03
   Schritt **S6b** in Teil B (A1, Befund 30).
 - **Labels für fremde IRIs auf Dauer.** `registry/labels.json` ist von Hand
@@ -1587,6 +1633,14 @@ Graphen unter `https://graph.nfdi4objects.net/collection/<n>`.
 - **`fdo:RegistryFDO`.** Falls S8 einen neuen FDO-Typ braucht, gehört er nach
   `fdo-squirrel`, nicht hierher — und dann ist die Beschlusslage in A4 zum
   Ort des Ankers ohnehin nochmal zu betrachten.
+- **`fdo-squirrel`s Beispielpaket ist stehen geblieben.** Beim S8-Vorlauf
+  geprüft (2026-09-04): `example_fdo/MD.cff` validiert nicht mehr gegen das
+  aktuell geladene Schema (`schemas/md_cff/MD.cff-schema.yaml`) — es benutzt
+  noch die Feldnamen einer älteren Fassung (`abstract`/`publisher` statt
+  `description`/`publishers` u.a.). Dazu liegt am Repo-Root ein totes
+  `MD.cff.schema.yaml`, das laut `main.py` gar nicht mehr geladen wird — zwei
+  Schemadateien, eine davon Leiche. Reine Aufräumarbeit in `fdo-squirrel`,
+  nichts, das S8 hier blockiert.
 - ~~**Personen-URN über Paketgrenzen.**~~ Erledigt 2026-09-03 in S3: sie ist
   stabil (A1, Befund 11), die Umschreibung ist registry-global (A4).
 - **Fehlerhafte Pakete im Bestand.** Vier von sieben TTL parsen nicht (A1,

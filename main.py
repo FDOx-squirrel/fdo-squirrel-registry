@@ -53,6 +53,7 @@ STEPS: list[tuple[str, str, str, bool]] = [
     # After site: the query page is served from the docs/ tree the site step
     # lays out, and it fetches the bundle the site step publishes there.
     ("sparql", "step_sparql", "S7  build the browser query page", False),
+    ("release", "step_release", "S8  package the registry itself via fdo-squirrel", False),
 ]
 
 
