@@ -594,7 +594,7 @@ dem es zum ersten Mal wirkt.
 | Umfang von S9 | **korrigiert:** kein Eintrag in `n4o-collections.json` durch die Registry — das übernimmt VZG von Hand, sobald ein Bundle vorliegt. S9 endet bei: alle geernteten FDO-TTL plus die Registry selbst als DCAT modelliert, vollständig an CIDOC CRM verankert, durch `n4o-rse/n4o-kg-profile` SHACL-validiert, in einem eigenen Repo, das per Hand mit Zenodo gesynct wird. Ersetzt den bisherigen A2-Absatz zum `n4o-collections.json`-Eintrag | 2026-09-04, ersetzt den Plan vom selben Tag |
 | Selbsteintrag der Registry im Bundle | **kein neuer Code** — der Weg ist S8 (`step_release.py`, verifiziert lauffähig, A1 Befund 35) → Zenodo-Publish von Hand → DOI als Eintrag in `sources.json` (wie jeder andere) → normaler `harvest`+`bundle`-Lauf. Der nächste `fdo-registry-n4o.ttl`-Build enthält die Registry dann automatisch als achten `dcat:Dataset` | 2026-09-04 |
 | Ort und Form des Collection-Repos | neues Repo `FDOx-squirrel/fdox-squirrel-n4o-collection`, **folgt nicht** dem `primer-repo`-Skelett (kein `main.py`, kein eigenes `PRIMER.md`) — `n4o-kg-profile`s eigene Konvention verlangt genau eine von Hand gepflegte `metadata.yaml`, alles andere kopiert die Action bei jedem Lauf hinein. `fdo-registry-n4o.ttl` wird per `source:`/`downloadURL` von `raw.githubusercontent.com` gezogen, nicht committet — der Selbsteintrag (Zeile darüber) landet damit ohne Änderung an diesem Repo automatisch im nächsten Collection-Build | 2026-09-04 |
-| `n4o-kg-profile`-Version | `@v1` wie von `n4o-kg-profile` selbst dokumentiert — **aktuell nicht auflösbar**, kein Tag vorhanden (A1, Befund 36), und die Action checkt zusätzlich einen 404-Org-Pfad aus (Befund 37). Beides sind Upstream-Blocker, nicht durch Pinnen auf einen Commit statt eines Tags zu umgehen, weil der kaputte Checkout in der Action selbst sitzt. Workflow im Collection-Repo liegt bereit, aber vorerst nur `workflow_dispatch`, kein `push` — Issue-Entwurf liegt im Repo bei | 2026-09-04 |
+| `n4o-kg-profile`-Version | `@v1`, wie von `n4o-kg-profile` selbst dokumentiert. **Beide Startblocker behoben 2026-09-04** (kein Tag, 404-Org-Pfad im Checkout) und ein dritter erst im echten CI-Lauf gefunden (Selbst-Checkout via `github.action_ref` löste auf `v4` statt `v1` auf) — alle drei direkt in `n4o-rse/n4o-kg-profile` gepatcht, kein Issue nötig, Flo gehört beide Orgs. Details in S9 | 2026-09-04, erledigt |
 | `schema:sameAs` (Wikidata-Item der Registry) | **erledigt** — `Q141277996`, von Flo genannt. Trägt jetzt in `metadata.yaml` statt des `TODO`-Platzhalters | 2026-09-04, erledigt |
 
 ## A5. Was in welchem Chat hochgeladen wird
@@ -674,6 +674,7 @@ Repräsentation aus. Für echte Content Negotiation braucht es w3id-seitige
 | S7 | SPARQL-Seite | S4, S6 | erledigt 2026-09-03 |
 | S8 | Registry als FDO, Release und CI | S5, S7 | erledigt 2026-09-04 |
 | S9 | N4O-Andockung | S5, S8 | erledigt 2026-09-04 — `fdox-squirrel-n4o-collection` live, S8s Zenodo-Publish steht noch aus |
+| S10 | Restarbeiten | S9 | laufend — Aufgabenliste, kein Abnahmeschritt |
 
 S3 lässt sich fachlich schon vor S2 beginnen, braucht für die Abnahme aber ein
 echtes geerntetes TTL — deshalb die Abhängigkeit. S6 und S7 hängen beide an S4
@@ -1623,209 +1624,126 @@ GitHub Pages, ohne selbst neu zu bauen — dieselbe Begründung wie bei
 
 **Ziel — korrigiert 2026-09-04 (Flo):** kein Eintrag in `n4o-collections.json`
 durch dieses Repo — das übernimmt VZG von Hand, sobald ein gültiges Bundle
-vorliegt. Unsere Aufgabe endet hier: alle geernteten FDO-TTL plus die Registry
-selbst als DCAT modelliert, vollständig an CIDOC CRM verankert (das ist,
-wofür `dist/fdo-registry-n4o.ttl` seit S5 schon gebaut wird), durch
-`n4o-rse/n4o-kg-profile` SHACL-validiert, in einem eigenen Repo, das per Hand
-mit Zenodo gesynct wird.
+vorliegt. Unsere Aufgabe endet bei einem Bundle, das alle geernteten FDO-TTL
+plus die Registry selbst als DCAT modelliert, vollständig an CIDOC CRM
+verankert (`dist/fdo-registry-n4o.ttl`, seit S5), durch
+`n4o-rse/n4o-kg-profile` SHACL-validiert.
 
-**Drei-Repo-Muster von `n4o-kg-profile`**, gegen den echten Code geprüft
-(nicht nur das README), 2026-09-04:
+**Erledigt und live.**
 
 ```
-fdo-squirrel-registry            Quellrepo — baut das Bundle, kennt den KG nicht
-    dist/fdo-registry-n4o.ttl    schon da, SHACL-gated seit S5
-        │  raw.githubusercontent.com, je Build gezogen
+fdo-squirrel-registry           Quellrepo — baut das Bundle, kennt den KG nicht
+    dist/fdo-registry-n4o.ttl   schon da, SHACL-gated seit S5
+        │  raw.githubusercontent.com, je Build frisch gezogen
         ▼
-fdox-squirrel-n4o-collection      Collection-Repo, neu angelegt
-    metadata.yaml                 die einzige von Hand gepflegte Datei
-    .github/workflows/build.yml   ruft n4o-kg-profile als reusable workflow
+fdox-squirrel-n4o-collection    neues Repo, kein primer-repo-Skelett
+    metadata.yaml                die einzige von Hand gepflegte Datei
         │  uses: n4o-rse/n4o-kg-profile/…/collection.yml@v1
         ▼
-dist/n4o-collection.ttl           Registrierungssatz, das liest N4O
-dist/metadata.ttl                 DCAT + VoID-Statistik + CRM-Alignment + Queries
+https://fdox-squirrel.github.io/fdox-squirrel-n4o-collection/
 ```
 
-**Was dafür *nicht* gebraucht wird — A1 Befund 35:** der Selbsteintrag der
-Registry braucht keinen neuen Code in `step_bundle.py`. `python main.py --only release` (S8) tatsächlich laufen lassen bestätigt: die bestehende Kette
-erzeugt schon `dist/release/fdo-metadata.ttl`, typisiert
-`a dcat:Dataset, crmdig:D1_Digital_Object, crm:E73_Information_Object, fdo:RegistryFDO`. Was fehlt, sind drei von Hand zu tuende Schritte, alle schon in A4/S2/S8
-vorgesehen: Zenodo-Publish, DOI in `sources.json`, `harvest`+`bundle` neu
-laufen lassen. Danach steht die Registry im nächsten `fdo-registry-n4o.ttl`
-als achter `dcat:Dataset` — ohne dass dieser Schritt hier etwas ändern
-musste.
+- **Selbsteintrag der Registry braucht keinen neuen Code** (A1, Befund 35):
+  `python main.py --only release` (S8) erzeugt bereits ein gültiges
+  `dist/release/fdo-metadata.ttl`, typisiert
+  `dcat:Dataset, crmdig:D1_Digital_Object, crm:E73_Information_Object, fdo:RegistryFDO`. Fehlender Rest ist reines Handanlegen — siehe S10.
+- **`n4o-rse/n4o-kg-profile` (gehört ebenfalls Flo) hatte drei Bugs**, alle
+  direkt gepatcht statt gemeldet, alle gegen echtes GitHub-CI verifiziert,
+  nicht nur lokal:
+  1. kein `v1`-Tag + `action.yml` checkte einen 404-Org-Pfad aus (A1,
+     Befund 36/37);
+  2. der Selbst-Checkout via `github.action_ref` löste in der Praxis auf
+     `v4` auf — den Tag der *verschachtelten* `actions/checkout@v4`, nicht
+     die eigene Version (Beleg im Build-Log:
+     `git fetch … +refs/heads/v4*:refs/remotes/origin/v4*`). Kein
+     Workaround, sondern der eigentliche Fix: eine composite Action muss
+     sich nicht selbst nachladen, der Code liegt beim Runner schon unter
+     `github.action_path`;
+  3. der aufrufende `build.yml` brauchte einen eigenen `permissions:`-Block
+     (`id-token: write` u. a.) — ein reusable Workflow kann sich Rechte
+     nicht selbst geben.
+- **Pages-Reihenfolge:** *Settings → Pages → Source: GitHub Actions* muss
+  **vor** dem ersten Deploy-Versuch gesetzt sein, nicht danach.
+- Wikidata-Item `Q141277996` (Flo) eingetragen.
 
-**Was `fdox-squirrel-n4o-collection` bekommen hat** (voller Baum, kein
-`primer-repo`-Skelett — `n4o-kg-profile`s eigene Konvention verlangt genau
-eine `metadata.yaml`):
+**Live:**
+<https://fdox-squirrel.github.io/fdox-squirrel-n4o-collection/> und
+`/sparql.html` (SPARQL im Browser, Pyodide, gegen den echten Bundle: 6673
+Tripel, 24 Klassen, 20 an CRM ausgerichtet — die übrigen vier sind
+`owl:*`/`skos:ConceptScheme`, absichtlich ohne Anker).
 
-- `metadata.yaml` — die vier N4O-Pflichtfakten (`title`, `homepage`,
-  `sameAs`, `license`), NCMDP-Kern, `distributions` zeigt per `source:`/
-  `downloadURL` auf `raw.githubusercontent.com/FDOx-squirrel/fdo-squirrel-registry/main/dist/fdo-registry-n4o.ttl` (nicht committet — jeder Build zieht frisch, der Selbsteintrag
-  landet damit automatisch, ohne Änderung an diesem Repo), `model.classes`
-  ordnet jede im Bundle vorkommende native Klasse ihrem CRM-Anker zu.
-  `sameAs` trägt einen sichtbaren `TODO`-Platzhalter (kein Wikidata-Item
-  vorhanden, A4) — ein `strict`-Build bleibt bis dahin absichtlich rot.
-- `model.classes`, gegen den echten Bundle geprüft (`rdflib`, `SELECT DISTINCT ?class (COUNT(?s) AS ?n) WHERE { ?s a ?class }` gegen
-  `dist/fdo-registry-n4o.ttl`, 2026-09-04): die meisten Klassen tragen ihren
-  CRM-Anker schon direkt am Knoten (A3, „instance"-Mechanismus — z. B. jede
-  `dcat:Distribution` ist zugleich `crmdig:D9_Data_Object`), die Zuordnung
-  dokumentiert diese Paarung. Die einzige echte Ausnahme ist `skos:Concept`:
-  die sechs Rollenkonzepte hängen nur über ein globales Ext-Axiom
-  (`crm_bridge.ttl`, im n4o-Bundle enthalten) an `crm:E28_Conceptual_Object`,
-  nicht je Instanz — deshalb steht diese Zeile explizit da. Terminologische
-  Knoten (`owl:Ontology`, `owl:ObjectProperty`, `owl:DatatypeProperty`) und
-  `skos:ConceptScheme` (das Profil selbst hat dafür bewusst keine
-  CRM-Klasse) sind ausgelassen, aus denselben Gründen wie in unserer eigenen
-  Ankerprüfung (A4).
-- `.github/workflows/build.yml` — auf `@v1` gepinnt, wie `n4o-kg-profile`
-  selbst dokumentiert (A4), aber **nur `workflow_dispatch`, kein `push`**:
-  siehe die beiden Blocker unten. Sobald behoben, ist das Nachtragen von
-  `push: {branches: [main]}` die einzige nötige Änderung.
-- `ISSUE-DRAFT-n4o-kg-profile.md` — fertiger Text für ein Issue in
-  `n4o-rse/n4o-kg-profile`, mit den Belegen aus den Befunden unten. Nicht
-  automatisch eingereicht.
-- `README.md`, `LICENSE` (MIT), `CITATION.cff`.
+**Abnahme erfüllt.** `SHACL: PASS`, beide Beispielabfragen liefern Zeilen
+(7, 24), Reproduzierbarkeit zweifach geprüft (Sandbox und CI), `push` seit
+diesem Erfolg scharf geschaltet.
 
-**Zwei Upstream-Blocker in `n4o-rse/n4o-kg-profile`, beide 2026-09-04 direkt
-am Code geprüft, nicht nur am README** (A1, Befunde 36/37):
+## S10 — Restarbeiten
 
-1. **Kein `v1`-Tag.** `git ls-remote --tags https://github.com/n4o-rse/n4o-kg-profile.git` liefert nichts — `uses: …@v1` hat aktuell nichts, worauf es
-   auflösen könnte.
-2. **`action.yml` checkt einen 404-Org-Pfad aus.** `actions/checkout` darin
-   zeigt fest auf `repository: Research-Squirrel-Engineers/n4o-kg-profile` —
-   die Org existiert (200), das Repo liegt dort nicht (404, kein Redirect,
-   anders als bei `fdo-squirrel-registry` selbst, das tatsächlich
-   transferiert wurde, A1 Befund 38). Das sitzt in der Action selbst und
-   lässt sich von einer aufrufenden Collection nicht umgehen, auch nicht
-   durch Pinnen auf einen Commit statt eines Tags.
+**Ziel:** alles bündeln, was nach S9 noch offen ist, damit ein neuer Chat
+nicht erst das ganze `PRIMER.md` nach verstreuten TODOs durchsuchen muss.
+Kein technischer Schritt mit fester Abnahme wie S1–S9, sondern eine
+Aufgabenliste — abgehakt wird hier per Datum, nicht per Patch.
 
-**Erledigt 2026-09-04.** Statt eines Issues: Flo gehört auch `n4o-rse`, also
-direkt gepatcht statt gemeldet. Zwei Patches, beide gegen den echten Build
-verifiziert (nicht nur gelesen):
+1. **Registry-Selbsteintrag abschließen** (S8/S9 sind technisch fertig, drei
+   manuelle Schritte fehlen noch):
+   - `dist/release/…-fdo-bundle.zip` auf Zenodo veröffentlichen (Mensch,
+     Credentials — nichts, das ein Chat tun kann).
+   - Concept-DOI + Versions-DOI als neunten Eintrag in `registry/sources.json`.
+   - `harvest` + `bundle` neu laufen lassen — die Registry steht danach als
+     achter `dcat:Dataset` im Katalog.
+   - `fdox-squirrel-n4o-collection/metadata.yaml`: `id`/`homepage` von der
+     GitHub-URL auf die echte DOI umstellen.
+2. **VZG-Registrierung** (extern, nur zu verfolgen). Sobald das Bundle mit
+   echter DOI steht: Kontakt zu VZG für den Eintrag in
+   `n4o-collections.json` — das ist ausdrücklich nicht unsere Aufgabe (A4,
+   „Umfang von S9"), nur der Anstoß dazu.
+3. **Labels für fremde IRIs auf Dauer.** `registry/labels.json` ist von Hand
+   gepflegt (A4) und wächst mit jedem Paket, aktuell vierzehn IRIs. Ab
+   welcher Zahl das lästig wird, ist offen; der billigste Ausweg wäre ein
+   Netzschritt neben `harvest`, der Labels holt und *vorschlägt*, wie
+   `--resolve` es mit `sources.json` tut.
+4. **Wer darf einreichen.** Bislang kuratiert (A4). Sobald Dritte FDOs
+   beitragen wollen: Pull Request auf `sources.json` mit CI-Prüfung wäre der
+   billigste Weg. Erst relevant, wenn es Dritte gibt.
+5. **Zenodo als einzige Quelle.** Der Ernter kennt heute nur die Zenodo-API.
+   Ein FDO auf einem anderen Repositorium wäre über eine direkte TTL-URL in
+   `sources.json` einzubinden; das würde die Prüfsummen-Logik ändern.
+6. **Fehlerhafte Pakete im Bestand reparieren.** Vier von sieben TTL parsen
+   nicht (A1, Befund 10) und werden seit S4 mit deklarierten Reparaturen
+   gelesen — der Defekt bleibt aber in den publizierten Zenodo-Records
+   bestehen. Ob ein Durchgang „upstream reparieren und neu publizieren"
+   eingeschoben wird, ist eine Terminfrage, keine technische:
+   `dist/quality_report.md` (S5) ist die Liste, aus der er gefahren würde —
+   46 Befunde über sieben Pakete, dazu Record 18740524 ganz ohne TTL.
+7. **`<DOI>_geom` und `<DOI>_temporal`.** Generator-geprägte IRIs in einem
+   fremden Namensraum (A1, Befund 6). Umschreiben verletzt A3, Stehenlassen
+   veröffentlicht DOI-artige IRIs, die nicht auflösen — Entscheidung steht
+   aus, die saubere Lösung liegt upstream.
+8. **Rückfluss nach `fdo-squirrel`.** Beschluss „Registry zuerst, upstream
+   später" — die Abbildung ist inzwischen reif (bringt echte Pakete
+   unbeanstandet durchs Gate), die Liste steht: abgekürzte Klassen-IRIs
+   (Befund 3), fehlende Labels an Orten und Konzepten (Befund 24), ORCID
+   statt Personen-URN (Befund 12), `xsd:integer` an Zeitgrenzen (Befund 15),
+   `dcat:bbox` statt `geo:hasBoundingBox` (Befund 16). Dazu, beim
+   S8-Vorlauf gefunden (2026-09-04): `example_fdo/MD.cff` in `fdo-squirrel`
+   validiert nicht mehr gegen das aktuell geladene Schema (alte Feldnamen
+   `abstract`/`publisher`), und ein totes `MD.cff.schema.yaml` liegt am
+   Repo-Root, das `main.py` gar nicht mehr lädt — reine Aufräumarbeit dort,
+   blockiert nichts hier.
 
-1. Org-Pfad korrigiert, `requirements.txt` ergänzt (fehlte komplett im
-   Repo — jeder Lauf scheiterte deshalb zusätzlich am `pip install`, unabhängig
-   vom Org-Bug). `v1` getaggt.
-2. **Ein zweiter, tieferliegender Bug erst im echten CI-Lauf sichtbar
-   geworden:** `action.yml`s Selbst-Checkout benutzte `github.action_ref`, um
-   sich selbst auf dem Tag auszuchecken, mit dem eine Collection es aufrief.
-   In der Praxis löste das nicht zu `v1` auf, sondern zu `v4` — dem Tag der
-   *verschachtelten* `actions/checkout@v4`, nicht der eigenen Version (Beleg
-   aus dem Build-Log: `git fetch … +refs/heads/v4*:refs/remotes/origin/v4*`).
-   Der eigentliche Fix ist kein Workaround: eine composite Action muss sich
-   nicht selbst nachladen, der Runner hat ihren Code beim Auflösen von
-   `uses: …@v1` schon exakt auf diesem Ref unter `github.action_path` liegen.
-   Der ganze Checkout-Schritt ist raus, `profile/`/`build/`/`requirements.txt`
-   kommen direkt von dort — kein zweiter Netzwerkzugriff, kein Ref mehr, der
-   falsch auflösen kann. `v1` dafür vorgezogen (`git tag -f`), da der Tag vor
-   diesem Fix noch nie einen erfolgreichen Lauf hatte.
-
-Beides zuerst lokal simuliert (`github.action_path` durch einen frischen Klon
-ersetzt, gegen das echte `metadata.yaml` des Collection-Repos), dann in
-echtem GitHub-CI bestätigt.
-
-**Ein dritter, kleinerer Stolperstein, ebenfalls erst im echten Lauf
-sichtbar:** der aufrufende `build.yml` im Collection-Repo brauchte einen
-expliziten `permissions:`-Block (`contents: write`, `pages: write`,
-`id-token: write`) — ein reusable Workflow kann sich Rechte nicht selbst
-geben, nur der Aufrufer kann sie gewähren, sonst bleibt `id-token` auf
-`none` stehen, ungeachtet dessen, was der aufgerufene Workflow deklariert.
-Und: *Settings → Pages → Source: GitHub Actions* muss **vor** dem ersten
-Deploy-Versuch gesetzt sein, nicht danach — der erste tatsächliche Fehlschlag
-(Build #3) war genau das, nicht mehr der Checkout-Bug.
-
-**Build #4 in `fdox-squirrel-n4o-collection`: erfolgreich, beide Jobs grün,
-36 s.** Site live:
-
-- <https://fdox-squirrel.github.io/fdox-squirrel-n4o-collection/>
-- <https://fdox-squirrel.github.io/fdox-squirrel-n4o-collection/sparql.html>
-  (SPARQL im Browser, Pyodide, gegen den echten Bundle: 6673 Tripel, 24
-  Klassen, 20 an CRM ausgerichtet — die vier übrigen sind `owl:*` und
-  `skos:ConceptScheme`, absichtlich ohne Anker, siehe `model.classes` in
-  `metadata.yaml`)
-
-**Was danach noch fehlt, bevor ein `strict`-Build ohne bekannte Lücken
-läuft:**
-
-- ein Wikidata-Q-Item für die Registry — **erledigt 2026-09-04**, `Q141277996`,
-  von Flo genannt;
-- eine echte DOI für `homepage` (`foaf:homepage`) — hängt weiterhin an S8s
-  Zenodo-Publish, siehe oben. Bis dahin zeigt `metadata.yaml` auf die
-  GitHub-URL der Registry, was den `sh:Violation`-Check besteht (IRI ist
-  IRI), aber inhaltlich ein Platzhalter bleibt;
-- `push` ist seit diesem Erfolg scharf geschaltet (`build.yml`), nicht mehr
-  nur `workflow_dispatch`.
-
-**Abnahme erfüllt.** `dist/n4o-collection.ttl` und `dist/metadata.ttl`
-entstehen, keine Klasse im Bundle bleibt ohne dokumentierten Grund ohne
-CRM-Alignment, beide Beispielabfragen liefern Zeilen (7 und 24), `SHACL:
-PASS`, Reproduzierbarkeit zweifach geprüft (Sandbox und CI).
+Erledigt aus derselben Liste: doppelte Prozentkodierung in
+`urn:fdo-squirrel:content/…` (Befund 33) ist am 2026-09-04 in `fdo-squirrel`
+behoben; `fdo:RegistryFDO` als Typ ist seit S8 in Benutzung.
 
 ---
 
 # Teil D — Offene Punkte
 
-- ~~**Verhältnis zur SquirrelBase.**~~ Entschieden 2026-09-03 in S6: die
-  Registry nimmt die Q-ID auf, wenn ein Mensch sie in `sources.json` einträgt,
-  und fragt die SquirrelBase nie selbst. Offen bleibt nur die IRI-Form der
-  Instanz (`SQUIRRELBASE_ENTITY_NS`, A4) und die Gegenrichtung: ob die
-  SquirrelBase je Objekt auf den Katalogeintrag zeigen soll statt nur auf die
-  FDO-URL. Das ist eine Frage an die SquirrelBase, nicht an dieses Repo.
-- ~~**Doppelt kodierte `content/`-IRIs.**~~ Entschieden 2026-09-03 nach S7: der
-  Fehler wird upstream in `fdo-squirrel` behoben, nicht in der Registry (A4,
-  Befund 33). **Behoben 2026-09-04 in `fdo-squirrel`** (`fdo_rdf.py`, Commit
-  „Stop double-percent-encoding content/ distribution IRIs"): der Generator
-  schreibt den Pfad jetzt roh (Turtle-escaped, nicht prozentkodiert) in die
-  URN, `content_iri()` hier kodiert ihn dadurch wie vorgesehen genau einmal.
-  Gegen ein synthetisches Testpaket mit Leerzeichen/Kommas/Unterordnern im
-  Dateinamen (der Härtefall für diesen Bug) end-to-end durch `term_map()` +
-  `content_iri()` geprüft: einfach kodiert, kein `%25` mehr. Betrifft nur neu
-  generierte Pakete — die sieben bereits publizierten Zenodo-Records tragen
-  `%252F` weiterhin, das ist unveränderlich (A3).
-- ~~**`select_autoescape` greift in `step_site` nicht.**~~ Ist seit 2026-09-03
-  Schritt **S6b** in Teil B (A1, Befund 30).
-- **Labels für fremde IRIs auf Dauer.** `registry/labels.json` ist von Hand
-  gepflegt (A4) und wächst mit jedem Paket. Ab welcher Zahl das lästig wird,
-  ist offen; der billigste Ausweg wäre ein Netzschritt neben `harvest`, der
-  Labels holt und *vorschlägt*, wie `--resolve` es mit `sources.json` tut.
-  Nicht vor S8 — heute sind es vierzehn IRIs.
-- **Wer darf einreichen.** Bislang kuratiert (A4). Sobald Dritte FDOs beitragen
-  wollen, braucht es einen Weg: Pull Request auf `sources.json` mit
-  CI-Prüfung wäre der billigste. Erst relevant, wenn es Dritte gibt.
-- **Zenodo als einzige Quelle.** Der Ernter kennt heute nur die Zenodo-API. Ein
-  FDO auf einem anderen Repositorium wäre über eine direkte TTL-URL im
-  `sources.json` einzubinden; das würde die Prüfsummen-Logik ändern.
-- **`fdo:RegistryFDO`.** Falls S8 einen neuen FDO-Typ braucht, gehört er nach
-  `fdo-squirrel`, nicht hierher — und dann ist die Beschlusslage in A4 zum
-  Ort des Ankers ohnehin nochmal zu betrachten.
-- **`fdo-squirrel`s Beispielpaket ist stehen geblieben.** Beim S8-Vorlauf
-  geprüft (2026-09-04): `example_fdo/MD.cff` validiert nicht mehr gegen das
-  aktuell geladene Schema (`schemas/md_cff/MD.cff-schema.yaml`) — es benutzt
-  noch die Feldnamen einer älteren Fassung (`abstract`/`publisher` statt
-  `description`/`publishers` u.a.). Dazu liegt am Repo-Root ein totes
-  `MD.cff.schema.yaml`, das laut `main.py` gar nicht mehr geladen wird — zwei
-  Schemadateien, eine davon Leiche. Reine Aufräumarbeit in `fdo-squirrel`,
-  nichts, das S8 hier blockiert.
-- ~~**Personen-URN über Paketgrenzen.**~~ Erledigt 2026-09-03 in S3: sie ist
-  stabil (A1, Befund 11), die Umschreibung ist registry-global (A4).
-- **Fehlerhafte Pakete im Bestand.** Vier von sieben TTL parsen nicht (A1,
-  Befund 10); seit S4 werden sie mit deklarierten Reparaturen gelesen, stehen
-  also im Katalog, aber der Defekt bleibt in den publizierten Records. Ob wir
-  vor S6 einen Durchgang „upstream reparieren und neu publizieren" einschieben,
-  ist eine Frage an den Zeitplan, nicht an die Technik — `dist/quality_report.md`
-  aus S5 ist die Liste, aus der er gefahren wird: 46 Befunde über sieben
-  Pakete, dazu Record 18740524 ganz ohne TTL.
-- **`<DOI>_geom` und `<DOI>_temporal`.** Vom Generator geprägte IRIs in einem
-  fremden Namensraum (A1, Befund 6). Umschreiben verletzt A3, Stehenlassen
-  veröffentlicht DOI-artige IRIs, die nicht auflösen. In S4 zu entscheiden;
-  die saubere Lösung liegt upstream.
-- **Rückfluss nach `fdo-squirrel`.** Der Beschluss lautet „Registry zuerst,
-  upstream später". Wann später ist, hängt an S3: sobald die Abbildung ein
-  echtes Paket unbeanstandet durchs Gate bringt, ist sie reif für den
-  Generator. Der Qualitätsbericht aus S5 sagt, was dabei zuerst zu reparieren
-  ist. Die Liste ist inzwischen benannt: abgekürzte Klassen-IRIs (Befund 3),
-  fehlende Labels an Orten und Konzepten (Befund 24), ORCID statt Personen-URN
-  (Befund 12), `xsd:integer` an Zeitgrenzen (Befund 15), `dcat:bbox` statt
-  `geo:hasBoundingBox` (Befund 16) und die doppelte Prozentkodierung in
-  `urn:fdo-squirrel:content/…` (Befund 33, A4).
+Aufgaben stehen ab jetzt gebündelt in S10, statt hier verstreut. Diese Rubrik
+bleibt für echte offene *Fragen* reserviert, keine *Aufgaben*:
+
+- **Verhältnis zur SquirrelBase, Restfrage.** Entschieden 2026-09-03 in S6:
+  die Registry nimmt die Q-ID auf, wenn ein Mensch sie in `sources.json`
+  einträgt, und fragt die SquirrelBase nie selbst. Offen bleibt nur die
+  Gegenrichtung: ob die SquirrelBase je Objekt auf den Katalogeintrag zeigen
+  soll statt nur auf die FDO-URL. Das ist eine Frage an die SquirrelBase,
+  nicht an dieses Repo.
