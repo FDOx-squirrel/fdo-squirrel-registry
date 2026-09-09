@@ -5,7 +5,7 @@
       "added": "2026-09-03",
       "concept_doi": "10.5281/zenodo.18724635",
       "note": "CIIC 81, KIRI Engine SfM scan, Ogham stone",
-      "version_doi": "10.5281/zenodo.18744133"
+      "version_doi": "10.5281/zenodo.22675886"
     },
     {
       "added": "2026-09-03",
@@ -51,6 +51,12 @@
       "concept_doi": "10.5281/zenodo.18369720",
       "note": "added for the talk; title to be taken from the record",
       "version_doi": "10.5281/zenodo.18744583"
+    },
+    {
+      "added": "2026-09-09",
+      "concept_doi": "10.5281/zenodo.22676379",
+      "note": "Freshford: St Lachtain's Well (FDOx)",
+      "version_doi": "10.5281/zenodo.22676380"
     }
   ]
 }

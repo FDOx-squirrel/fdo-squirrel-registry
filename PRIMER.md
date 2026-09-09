@@ -1025,6 +1025,34 @@ der Record `CHUIS/1` heisst. Kosmetik, aber sie steht im kuratierten Kern.
   lokalen Server läuft, kann an einer Eigenheit der echten API noch scheitern —
   der erste Lauf auf deiner Maschine ist die eigentliche Abnahme.
 
+### Nachtrag 2026-09-09, sources.json kuratorisch aktualisiert
+
+Zwei Änderungen von Hand, ausgelöst durch ein Zenodo-Update von Flo (kein
+Code-Patch, reine Kuration nach A4-Prinzip: „die Community-Suche meldet, der
+Mensch trägt in `sources.json` ein"):
+
+- **CIIC 81 (Concept-DOI `10.5281/zenodo.18724635`) auf die aktuelle Version
+  gehoben.** Gepinnte Versions-DOI von `10.5281/zenodo.18744133` auf
+  `10.5281/zenodo.22675886` geändert — laut Zenodo-Landing-Page "Version v3",
+  publiziert 2026-09-09. Flo nennt diese Version "v1.0.0"; ob das die
+  FDOx-eigene Semver-Angabe in den Paketmetadaten ist oder Zenodos eigener
+  Versionszähler gemeint war, ist beim nächsten `harvest` an `record.json`
+  ablesbar und hier nicht weiter verfolgt.
+- **Neuer neunter Eintrag: Freshford, St Lachtain's Well (FDOx).** Bisher
+  nicht in `sources.json`. Concept-DOI `10.5281/zenodo.22676379` löst auf
+  Versions-DOI `10.5281/zenodo.22676380` auf (Version v1, publiziert
+  2026-09-09, Autor:innen Distel/Thiery, Bundle
+  `freshford-st-lachtains-well-low-poly-fdo-bundle.zip`, 23,1 MB).
+
+Beide Angaben stammen aus der öffentlichen Zenodo-Landing-Page (HTML, per
+Fetch gelesen), nicht aus der `/api/records/…`-JSON-Antwort und nicht aus
+einem `harvest`-Lauf — der Sandkasten hat wie beim ersten Mal (A1) kein Netz
+zu `zenodo.org`. Record-Details (Lizenz-IRI, Concept-DOI-Gegenprobe, MD5 des
+ZIP, `fdo-metadata.ttl`-Fund) sind damit **nicht** geprüft; das übernimmt der
+nächste `python main.py --only harvest` auf deiner Maschine, gefolgt von
+`bridge`/`bundle`/`validate`/`index`/`site`/`sparql`, um `dist/` und `docs/`
+neu zu bauen.
+
 ## S3 — Crosswalk FDOx → CIDOC CRM
 
 **Ziel:** eine Tabelle, aus der die Brückendatei *und* die Dokumentation
