@@ -129,7 +129,8 @@ def build_ontology():
 # ---------------------------------------------------------------------------
 
 
-def term_map(graph, record_id: str) -> tuple[dict, list[str]]:
+def term_map(graph, record_id: str,
+             concept_doi: str | None = None) -> tuple[dict, list[str], str | None]:
     """IRI -> IRI for everything that is only unique inside its own package.
 
     Persons are keyed on the hash in their URN and become registry-global: the
@@ -138,11 +139,24 @@ def term_map(graph, record_id: str) -> tuple[dict, list[str]]:
     many IRIs as they have FDOs. Distributions and content entries are the
     opposite case - `urn:fdo-squirrel:content/CITATION.cff` names a different
     file in every package - and are therefore scoped to the record.
+
+    `urn:fdo-squirrel:unpublished/<slug>` is fdo-squirrel's own fallback
+    subject (`resolve_dataset_id()`, A1 Befund from S13/fdo-squirrel), written
+    when the package was built before its Zenodo DOI existed and never backed
+    out again after publish (registry PRIMER, Nachtrag 2026-09-09). The
+    registry has an independent, harvester-checked answer for what the FDO's
+    DOI actually is - `harvest.json`'s `concept_doi`, verified against the
+    live record and never itself invented (S2, "Concept-DOI") - so a single
+    such placeholder is repaired to it, the same way a missing prefix is
+    repaired: declared below, not silent, original kept as dct:identifier.
+    Repaired only when there is exactly *one* unpublished slug in the package;
+    more than one is not this pattern and is left unknown rather than guessed.
     """
     from rdflib import URIRef
 
     mapping: dict = {}
     unknown: list[str] = []
+    unpublished: dict = {}
     for node in set(graph.all_nodes()):
         if not isinstance(node, URIRef):
             continue
@@ -156,11 +170,20 @@ def term_map(graph, record_id: str) -> tuple[dict, list[str]]:
             mapping[node] = URIRef(u.distribution_iri(record_id, local))
         elif kind == "content":
             mapping[node] = URIRef(u.content_iri(record_id, local))
+        elif kind == "unpublished":
+            unpublished[node] = iri
         else:
             # Not silently passed through: an unhandled urn: in the output is
             # exactly the collision this step exists to prevent.
             unknown.append(iri)
-    return mapping, unknown
+
+    subject_repair: str | None = None
+    if len(unpublished) == 1 and concept_doi:
+        node, subject_repair = next(iter(unpublished.items()))
+        mapping[node] = URIRef(f"https://doi.org/{concept_doi}")
+    else:
+        unknown.extend(unpublished.values())
+    return mapping, unknown, subject_repair
 
 
 def rewrite(graph, mapping: dict):
@@ -501,7 +524,11 @@ def main(strict: bool = False) -> None:
 
         harvest = u.read_json(directory / "harvest.json")
 
-        mapping, unknown = term_map(reading.graph, record_id)
+        mapping, unknown, subject_repair = term_map(
+            reading.graph, record_id, harvest.get("concept_doi"))
+        if subject_repair:
+            print(f"  repaired: {record_id}: unpublished-subject "
+                  f"{subject_repair} -> https://doi.org/{harvest['concept_doi']}")
         for iri in unknown:
             problems.append(f"{record_id}: unhandled {iri}")
         present = [old for old in normalise if (None, None, old) in reading.graph]

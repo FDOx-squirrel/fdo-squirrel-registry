@@ -596,6 +596,7 @@ dem es zum ersten Mal wirkt.
 | Ort und Form des Collection-Repos | neues Repo `FDOx-squirrel/fdox-squirrel-n4o-collection`, **folgt nicht** dem `primer-repo`-Skelett (kein `main.py`, kein eigenes `PRIMER.md`) — `n4o-kg-profile`s eigene Konvention verlangt genau eine von Hand gepflegte `metadata.yaml`, alles andere kopiert die Action bei jedem Lauf hinein. `fdo-registry-n4o.ttl` wird per `source:`/`downloadURL` von `raw.githubusercontent.com` gezogen, nicht committet — der Selbsteintrag (Zeile darüber) landet damit ohne Änderung an diesem Repo automatisch im nächsten Collection-Build | 2026-09-04 |
 | `n4o-kg-profile`-Version | `@v1`, wie von `n4o-kg-profile` selbst dokumentiert. **Beide Startblocker behoben 2026-09-04** (kein Tag, 404-Org-Pfad im Checkout) und ein dritter erst im echten CI-Lauf gefunden (Selbst-Checkout via `github.action_ref` löste auf `v4` statt `v1` auf) — alle drei direkt in `n4o-rse/n4o-kg-profile` gepatcht, kein Issue nötig, Flo gehört beide Orgs. Details in S9 | 2026-09-04, erledigt |
 | `schema:sameAs` (Wikidata-Item der Registry) | **erledigt** — `Q141277996`, von Flo genannt. Trägt jetzt in `metadata.yaml` statt des `TODO`-Platzhalters | 2026-09-04, erledigt |
+| Reparatur der `unpublished`-Subjekt-URN | Ausnahme zu „die Registry liest, sie korrigiert nicht": ein Paket-Subjekt `urn:fdo-squirrel:unpublished/<slug>` wird auf die kuratierte, ernter-geprüfte `concept_doi` umgeschrieben (S4, `term_map()`), wenn es davon genau eins im Paket gibt. Begründet über die übliche Reparatur-Deklaration hinaus, weil eine Identitätsaussage geändert wird, nicht nur eine Serialisierung — auf Flos Wunsch als gezielter Hotfix, den er nach `fdo-squirrel`/`fdo-3d-packager` überträgt. Die eigentliche Behebung (DOI vor dem Build reservieren, oder nach Publikation neu bauen) bleibt dort offen | Vorschlag, 2026-09-09 |
 
 ## A5. Was in welchem Chat hochgeladen wird
 
@@ -1346,6 +1347,57 @@ Offen aus diesem Lauf: der Präfixkopf des Bundles trägt rund dreissig
 generierte `nsNN:`-Zeilen, je eine für die `content/`- und `dist/`-Namensräume
 der sieben Records. Deterministisch, aber unschön; ob das die Lesbarkeit einer
 publizierten Datei genug stört, um die IRI-Form zu ändern, gehört zu S6.
+
+### Nachtrag 2026-09-09, Hotfix: unpublished-Subjekt wird repariert statt nur gemeldet
+
+Nach dem Crosswalk-Fix von oben blieb genau ein Gate-Fehler übrig:
+`urn:fdo-squirrel:unpublished/freshford-st-lachtains-well-low-poly` ist nicht
+seine DOI-IRI. Ursache (A1-Befund, aus dem `fdo-squirrel`-PRIMER zitiert):
+`resolve_dataset_id()` schreibt diese `unpublished/<slug>`-URN als
+Fallback-Subjekt, wenn ein Paket gebaut wird, bevor seine Zenodo-DOI
+existiert — und niemand hat das TTL nach der Publikation neu gebaut. Das ist
+kein Registry-Fehler, sondern fehlt auf der Erzeuger-Seite; die eigentliche
+Behebung gehört dorthin (DOI vor dem Build reservieren, oder nach der ersten
+Publikation neu bauen und als neue Version nachlegen).
+
+Auf Flos Wunsch trotzdem ein **gezielter Hotfix hier im Repo**, den er auf
+`fdo-squirrel`/`fdo-3d-packager` übertragen kann: die Registry kennt die
+richtige DOI längst — `harvest.json`s `concept_doi`, vom Ernter aktiv gegen
+den lebenden Zenodo-Record geprüft, nicht geraten (S2). `term_map()` in
+`py/step_bundle.py` behandelt `unpublished` jetzt als vierte URN-Art: findet
+das Paket **genau einen** solchen Platzhalter und ist die Concept-DOI
+bekannt, wird er auf `https://doi.org/<concept_doi>` umgeschrieben — exakt
+wie `dist`/`content`, mit demselben `dct:identifier`-Rückweg zum Original.
+Deklariert, nicht still: `repaired: <id>: unpublished-subject <alt> -> <neu>`
+erscheint beim Bundle-Lauf, genau wie die bestehenden
+Turtle-Reparaturen aus S3. Mehr als ein Platzhalter im selben Paket wird
+**nicht** geraten und bleibt wie bisher `unknown` — dieses Muster ist
+ausschliesslich für das eine Fallback-Subjekt pro Paket belegt.
+
+**Grenze der Reparatur, bewusst gezogen:** das ist eine Aussage über die
+*Identität* des FDO (welche IRI es ist), nicht über die Serialisierung wie
+die bisherigen Reparaturen (fehlender Prefix, Anführungszeichen). A3 sagt
+„die Registry liest, sie korrigiert nicht" — hier wird die Ausnahme gemacht,
+weil die Ersatz-DOI nicht erfunden, sondern unabhängig vom Ernter
+gegengeprüft ist, und weil das Original vollständig erhalten bleibt. Als
+Vorschlag markiert; falls das die falsche Abwägung ist, sag Bescheid und der
+Commit wird zurückgenommen.
+
+**Geprüft:** ein Fixture, das Freshfords realen Zuschnitt nachbildet
+(`unpublished`-Subjekt, die S14-PROV-Knoten, eine Distribution, FDOx-Typ,
+Titel, Lizenz) lief durch `term_map()` → `rewrite()` → `anchor()` → `pyshacl`
+gegen `metadata/shapes.ttl`: **beide** ursprünglichen Verstösse
+(„No CRM anchor" und „not identified by a DOI IRI") sind weg; was bleibt,
+sind vier Meldungen zu Feldern, die das absichtlich minimale Fixture nie
+gesetzt hat (`dcat:accessURL`, `fdo:role`, `fdo:sha256`,
+Rollen-Auflösung an der Distribution) — Artefakte des Tests, nicht des
+Fixes. Zusätzlich `python main.py --from bridge --skip release` gegen die
+sieben echten Bestandspakete gefahren: `conforms: True`, `6 of 9 pinned
+records in the catalogue` (drei fehlen im Sandkasten mangels Netz zu
+`zenodo.org`: 18740524 wie immer, plus die beiden neuen, deren Rohdaten hier
+nicht liegen) — keine Regression. **Nicht geprüft:** der echte Lauf gegen
+22676380 selbst; das ist der nächste `harvest` + `--from bridge` auf deiner
+Maschine.
 
 ## S5 — SHACL-Gate und Qualitätsbericht
 
