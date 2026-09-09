@@ -1,7 +1,9 @@
 # Holdings by licence
 # The licence is an SPDX IRI in the graph; the short id in the result is
 # derived here the same way the catalogue page derives its facet, so the two
-# numbers can be compared. If they ever disagree, one of them is wrong.
+# numbers can be compared. If they ever disagree, one of them is wrong. A non-
+# SPDX licence IRI on the same FDO is excluded here too, for the same reason
+# (S6, derived_label; see catalogue-overview).
 
 PREFIX crm: <http://www.cidoc-crm.org/cidoc-crm/>
 PREFIX crmdig: <http://www.ics.forth.gr/isl/CRMdig/>
@@ -23,6 +25,7 @@ WHERE {
   ?catalogue a dcat:Catalog ;
              dcat:dataset ?fdo .
   ?fdo dct:license ?url .
+  FILTER(STRSTARTS(STR(?url), "https://spdx.org/licenses/"))
   BIND(REPLACE(REPLACE(STR(?url), "^https://spdx.org/licenses/", ""),
                "[.]html$", "") AS ?licence)
 }

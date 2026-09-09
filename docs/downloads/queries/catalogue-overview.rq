@@ -1,7 +1,10 @@
 # Every FDO with its type, licence and file count
 # The list the catalogue exists for. One row per FDO, counted from the
 # catalogue node outwards, so an entry that has lost its link to the catalogue
-# disappears here rather than quietly staying in the tiles.
+# disappears here rather than quietly staying in the tiles. ?licence only
+# takes the SPDX-form IRI (S6, derived_label) - a second, non-SPDX licence IRI
+# for the same FDO would otherwise split it into two rows and is reported
+# instead in the quality report.
 
 PREFIX crm: <http://www.cidoc-crm.org/cidoc-crm/>
 PREFIX crmdig: <http://www.ics.forth.gr/isl/CRMdig/>
@@ -25,7 +28,7 @@ WHERE {
   ?fdo dct:title ?title ;
        a ?type .
   FILTER(STRSTARTS(STR(?type), STR(fdo:)))
-  OPTIONAL { ?fdo dct:license ?licence }
+  OPTIONAL { ?fdo dct:license ?licence . FILTER(STRSTARTS(STR(?licence), "https://spdx.org/licenses/")) }
   OPTIONAL { ?fdo dcat:distribution ?distribution }
 }
 GROUP BY ?fdo ?title ?type ?licence

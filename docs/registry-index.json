@@ -6,7 +6,7 @@
     "issued": "2026-09-03",
     "license": "https://spdx.org/licenses/CC-BY-4.0.html",
     "title": "FDOx Registry",
-    "triples": 6584
+    "triples": 7793
   },
   "entries": [
     {
@@ -850,175 +850,6 @@
       "context": "Ogham Stones in the Wild and in Museums in Ireland bearing Ogham inscriptions.",
       "creators": [
         {
-          "iri": "https://w3id.org/fdo-squirrel/registry/agent/1ef85dc7cadee6db",
-          "name": "Distel, Anne-Karoline"
-        },
-        {
-          "iri": "https://w3id.org/fdo-squirrel/registry/agent/8e916ce55425de21",
-          "name": "Thiery, Florian"
-        }
-      ],
-      "dataset_iri": "https://doi.org/10.5281/zenodo.18724635",
-      "description": "Ogham Stone CO074-148---- located in the UCC Stone Corridor",
-      "facets": {
-        "creator": [
-          "Distel, Anne-Karoline",
-          "Thiery, Florian"
-        ],
-        "keyword": [
-          "Ogham Stone",
-          "UCC Stone Corridor"
-        ],
-        "license": [
-          "CC-BY-NC-SA-4.0"
-        ],
-        "place": [
-          "OSM node 11071361392"
-        ],
-        "type": [
-          "3DDataFDO"
-        ],
-        "year": [
-          "2024"
-        ]
-      },
-      "files": {
-        "bytes": 297492184,
-        "count": 11,
-        "largest": [
-          {
-            "bytes": 126317064,
-            "media_type": "model/gltf-binary",
-            "path": "CO074-148----.glb",
-            "role": "model"
-          },
-          {
-            "bytes": 84070110,
-            "media_type": "application/octet-stream",
-            "path": "CO074-148----.ply",
-            "role": "model"
-          },
-          {
-            "bytes": 67575296,
-            "media_type": "application/octet-stream",
-            "path": "CO074-148----.nxs",
-            "role": "model"
-          },
-          {
-            "bytes": 15864576,
-            "media_type": "application/octet-stream",
-            "path": "CO074-148----.nxz",
-            "role": "model"
-          },
-          {
-            "bytes": 2307100,
-            "media_type": "image/jpeg",
-            "path": "Texture_Ortho.jpg",
-            "role": "documentation"
-          },
-          {
-            "bytes": 1311939,
-            "media_type": "image/jpeg",
-            "path": "CO074-148----.jpg",
-            "role": "documentation"
-          },
-          {
-            "bytes": 17757,
-            "media_type": "text/html",
-            "path": "rdf_modelling_report.html",
-            "role": "data"
-          },
-          {
-            "bytes": 14611,
-            "media_type": "application/json",
-            "path": "rdf_modelling_report.json",
-            "role": "documentation"
-          },
-          {
-            "bytes": 11096,
-            "media_type": "application/octet-stream",
-            "path": "fdo-metadata.ttl",
-            "role": "data"
-          },
-          {
-            "bytes": 2309,
-            "media_type": "text/yaml",
-            "path": "MD.cff",
-            "role": "metadata"
-          },
-          {
-            "bytes": 326,
-            "media_type": "text/yaml",
-            "path": "CITATION.cff",
-            "role": "metadata"
-          }
-        ],
-        "roles": {
-          "data": 2,
-          "documentation": 3,
-          "metadata": 2,
-          "model": 4
-        }
-      },
-      "geometry": "<http://www.opengis.net/def/crs/EPSG/0/4326> POINT(-8.4924208 51.8937150)",
-      "issued": "2024-06-05",
-      "keywords": [
-        {
-          "iri": null,
-          "label": "Ogham Stone",
-          "named": true
-        },
-        {
-          "iri": null,
-          "label": "UCC Stone Corridor",
-          "named": true
-        }
-      ],
-      "licenses": [
-        {
-          "iri": "https://spdx.org/licenses/CC-BY-NC-SA-4.0.html",
-          "label": "CC-BY-NC-SA-4.0"
-        }
-      ],
-      "metadata_url": "https://zenodo.org/api/records/18744133/files/CO074-148----.zip/content",
-      "other_descriptions": [
-        "make 3d model available",
-        "good",
-        "low"
-      ],
-      "period": {
-        "end": "699",
-        "iri": "https://doi.org/10.5281/zenodo.18724635_temporal",
-        "label": "Ogham stone inscriptions (ca. 4th–7th century CE)",
-        "start": "300",
-        "value": "0300/0699"
-      },
-      "places": [
-        {
-          "iri": "https://www.openstreetmap.org/node/11071361392",
-          "label": "OSM node 11071361392",
-          "named": false
-        }
-      ],
-      "record_id": "18744133",
-      "record_iri": "https://w3id.org/fdo-squirrel/registry/record/18744133",
-      "repairs": [],
-      "sha256": "3515fbfeb9d79cc0d82cd61c5b4a9a669a349c9f49215561e2b3f48f8ad092aa",
-      "squirrelbase": null,
-      "title": "CO074-148----",
-      "types": [
-        {
-          "iri": "https://w3id.org/fdo-squirrel/3DDataFDO",
-          "label": "3DDataFDO"
-        }
-      ],
-      "version_doi": "https://doi.org/10.5281/zenodo.18744133",
-      "zenodo_url": "https://zenodo.org/records/18744133"
-    },
-    {
-      "context": "Ogham Stones in the Wild and in Museums in Ireland bearing Ogham inscriptions.",
-      "creators": [
-        {
           "iri": "https://w3id.org/fdo-squirrel/registry/agent/8e916ce55425de21",
           "name": "Thiery, Florian"
         }
@@ -1172,6 +1003,371 @@
       ],
       "version_doi": "https://doi.org/10.5281/zenodo.18744583",
       "zenodo_url": "https://zenodo.org/records/18744583"
+    },
+    {
+      "context": "Ogham Stones in the Wild and in Museums in Ireland bearing Ogham inscriptions.",
+      "creators": [
+        {
+          "iri": "https://w3id.org/fdo-squirrel/registry/agent/1ef85dc7cadee6db",
+          "name": "Distel, Anne-Karoline"
+        },
+        {
+          "iri": "https://w3id.org/fdo-squirrel/registry/agent/8e916ce55425de21",
+          "name": "Thiery, Florian"
+        }
+      ],
+      "dataset_iri": "https://doi.org/10.5281/zenodo.18724635",
+      "description": "Ogham Stone CO074-148---- located in the UCC Stone Corridor",
+      "facets": {
+        "creator": [
+          "Distel, Anne-Karoline",
+          "Thiery, Florian"
+        ],
+        "keyword": [
+          "Ogham Stone",
+          "UCC Stone Corridor"
+        ],
+        "license": [
+          "CC-BY-NC-SA-4.0"
+        ],
+        "place": [
+          "CO074-148----"
+        ],
+        "type": [
+          "3DDataFDO"
+        ],
+        "year": [
+          "2024"
+        ]
+      },
+      "files": {
+        "bytes": 673330149,
+        "count": 50,
+        "largest": [
+          {
+            "bytes": 451381739,
+            "media_type": "model/obj",
+            "path": "data/model/model.obj",
+            "role": "model"
+          },
+          {
+            "bytes": 181670144,
+            "media_type": "application/octet-stream",
+            "path": "data/model/model.nxs",
+            "role": "model"
+          },
+          {
+            "bytes": 31808000,
+            "media_type": "application/octet-stream",
+            "path": "data/model/model.nxz",
+            "role": "model"
+          },
+          {
+            "bytes": 4556730,
+            "media_type": "image/jpeg",
+            "path": "data/textures/3DModel_baseColor.jpeg",
+            "role": "auxiliary"
+          },
+          {
+            "bytes": 1430240,
+            "media_type": "image/png",
+            "path": "data/images/preview.png",
+            "role": "documentation"
+          },
+          {
+            "bytes": 376794,
+            "media_type": "image/png",
+            "path": "fdo_overview.png",
+            "role": "documentation"
+          },
+          {
+            "bytes": 294526,
+            "media_type": "image/png",
+            "path": "fdo_ttl_snippet_metadata.png",
+            "role": "documentation"
+          },
+          {
+            "bytes": 251336,
+            "media_type": "image/png",
+            "path": "fdo_ttl_snippet_distributions.png",
+            "role": "documentation"
+          },
+          {
+            "bytes": 190272,
+            "media_type": "application/javascript",
+            "path": "viewer/js/spidergl.js",
+            "role": "auxiliary"
+          },
+          {
+            "bytes": 173132,
+            "media_type": "image/png",
+            "path": "fdo_md_cff.png",
+            "role": "documentation"
+          },
+          {
+            "bytes": 164247,
+            "media_type": "image/png",
+            "path": "fdo_md_cff_graph.png",
+            "role": "documentation"
+          },
+          {
+            "bytes": 147108,
+            "media_type": "image/png",
+            "path": "fdo_ttl_snippet_links.png",
+            "role": "documentation"
+          }
+        ],
+        "roles": {
+          "auxiliary": 25,
+          "data": 10,
+          "documentation": 9,
+          "metadata": 2,
+          "model": 4
+        }
+      },
+      "geometry": "<http://www.opengis.net/def/crs/EPSG/0/4326> POINT(-8.4924208 51.8937150)",
+      "issued": "2024-06-05",
+      "keywords": [
+        {
+          "iri": null,
+          "label": "Ogham Stone",
+          "named": true
+        },
+        {
+          "iri": null,
+          "label": "UCC Stone Corridor",
+          "named": true
+        }
+      ],
+      "licenses": [
+        {
+          "iri": "https://spdx.org/licenses/CC-BY-NC-SA-4.0.html",
+          "label": "CC-BY-NC-SA-4.0"
+        }
+      ],
+      "metadata_url": "https://zenodo.org/api/records/22675886/files/cork-ogham-stone-ciic-81-ucc-4-fdo-bundle.zip/content",
+      "other_descriptions": [
+        "make 3d model available",
+        "good",
+        "low"
+      ],
+      "period": {
+        "end": "0699",
+        "iri": "https://doi.org/10.5281/zenodo.18724635_temporal",
+        "label": "Ogham stone inscriptions (ca. 4th–7th century CE)",
+        "start": "0300",
+        "value": "0300/0699"
+      },
+      "places": [
+        {
+          "iri": "https://www.openstreetmap.org/node/11071361392",
+          "label": "CO074-148----",
+          "named": true
+        }
+      ],
+      "record_id": "22675886",
+      "record_iri": "https://w3id.org/fdo-squirrel/registry/record/22675886",
+      "repairs": [],
+      "sha256": "01241980664c9b79d22cd703c1a66c10a402f377c25199ada4047d6508704dd0",
+      "squirrelbase": null,
+      "title": "CO074-148----",
+      "types": [
+        {
+          "iri": "https://w3id.org/fdo-squirrel/3DDataFDO",
+          "label": "3DDataFDO"
+        }
+      ],
+      "version_doi": "https://doi.org/10.5281/zenodo.22675886",
+      "zenodo_url": "https://zenodo.org/records/22675886"
+    },
+    {
+      "context": null,
+      "creators": [
+        {
+          "iri": "https://w3id.org/fdo-squirrel/registry/agent/2424425c3325db08",
+          "name": "b-unicycling"
+        }
+      ],
+      "dataset_iri": "https://doi.org/10.5281/zenodo.22676379",
+      "description": "Low resolution model of St. Lachtain's well in Freshford. The flower decorations were not there at my last few visits. A lady in the village told me that the water is supposed to heal sores. I would not recommend trying that, especially after the hedgehog has been floating in there for a while.\n\nWikidata: Q121840779\n\nSMR no: KK013-025----\n\nMade in KiriEngine from 156 images.",
+      "facets": {
+        "creator": [
+          "b-unicycling"
+        ],
+        "keyword": [
+          "3D data",
+          "Cultural Heritage",
+          "Cultural Heritage & History",
+          "holy-well",
+          "holywell",
+          "ireland",
+          "kilkenny3d",
+          "kiriengine"
+        ],
+        "license": [
+          "CC-BY-4.0"
+        ],
+        "place": [],
+        "type": [
+          "3DDataFDO"
+        ],
+        "year": [
+          "2024"
+        ]
+      },
+      "files": {
+        "bytes": 24778961,
+        "count": 50,
+        "largest": [
+          {
+            "bytes": 6825728,
+            "media_type": "application/octet-stream",
+            "path": "data/model/model.nxs",
+            "role": "model"
+          },
+          {
+            "bytes": 6820957,
+            "media_type": "image/jpeg",
+            "path": "data/textures/3DModel_LowPoly_baseColor.jpeg",
+            "role": "auxiliary"
+          },
+          {
+            "bytes": 6436864,
+            "media_type": "application/octet-stream",
+            "path": "data/model/model.nxz",
+            "role": "model"
+          },
+          {
+            "bytes": 1474497,
+            "media_type": "image/png",
+            "path": "data/images/preview.png",
+            "role": "documentation"
+          },
+          {
+            "bytes": 1092434,
+            "media_type": "model/obj",
+            "path": "data/model/model.obj",
+            "role": "model"
+          },
+          {
+            "bytes": 297178,
+            "media_type": "image/png",
+            "path": "fdo_overview.png",
+            "role": "documentation"
+          },
+          {
+            "bytes": 256635,
+            "media_type": "image/png",
+            "path": "fdo_ttl_snippet_distributions.png",
+            "role": "documentation"
+          },
+          {
+            "bytes": 245641,
+            "media_type": "image/png",
+            "path": "fdo_ttl_snippet_metadata.png",
+            "role": "documentation"
+          },
+          {
+            "bytes": 190272,
+            "media_type": "application/javascript",
+            "path": "viewer/js/spidergl.js",
+            "role": "auxiliary"
+          },
+          {
+            "bytes": 142700,
+            "media_type": "image/jpeg",
+            "path": "viewer/skins/backgrounds/light.jpg",
+            "role": "auxiliary"
+          },
+          {
+            "bytes": 135389,
+            "media_type": "application/javascript",
+            "path": "viewer/js/presenter.js",
+            "role": "auxiliary"
+          },
+          {
+            "bytes": 120340,
+            "media_type": "image/png",
+            "path": "fdo_md_cff.png",
+            "role": "documentation"
+          }
+        ],
+        "roles": {
+          "auxiliary": 25,
+          "data": 10,
+          "documentation": 9,
+          "metadata": 2,
+          "model": 4
+        }
+      },
+      "geometry": null,
+      "issued": "2024-06-12",
+      "keywords": [
+        {
+          "iri": null,
+          "label": "3D data",
+          "named": true
+        },
+        {
+          "iri": null,
+          "label": "Cultural Heritage",
+          "named": true
+        },
+        {
+          "iri": null,
+          "label": "Cultural Heritage & History",
+          "named": true
+        },
+        {
+          "iri": null,
+          "label": "holy-well",
+          "named": true
+        },
+        {
+          "iri": null,
+          "label": "holywell",
+          "named": true
+        },
+        {
+          "iri": null,
+          "label": "ireland",
+          "named": true
+        },
+        {
+          "iri": null,
+          "label": "kilkenny3d",
+          "named": true
+        },
+        {
+          "iri": null,
+          "label": "kiriengine",
+          "named": true
+        }
+      ],
+      "licenses": [
+        {
+          "iri": "https://spdx.org/licenses/CC-BY-4.0.html",
+          "label": "CC-BY-4.0"
+        }
+      ],
+      "metadata_url": "https://zenodo.org/api/records/22676380/files/freshford-st-lachtains-well-low-poly-fdo-bundle.zip/content",
+      "other_descriptions": [],
+      "period": null,
+      "places": [],
+      "record_id": "22676380",
+      "record_iri": "https://w3id.org/fdo-squirrel/registry/record/22676380",
+      "repairs": [],
+      "sha256": "76d13945f5945563deb617db2d26e461f2309cc3861b98dd4c267294b06c5d75",
+      "squirrelbase": null,
+      "title": "Freshford: St Lachtain's Well (low poly)",
+      "types": [
+        {
+          "iri": "https://w3id.org/fdo-squirrel/3DDataFDO",
+          "label": "3DDataFDO"
+        }
+      ],
+      "version_doi": "https://doi.org/10.5281/zenodo.22676380",
+      "zenodo_url": "https://zenodo.org/records/22676380"
     }
   ],
   "facets": [

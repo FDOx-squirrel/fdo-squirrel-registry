@@ -1,14 +1,6 @@
 {
   "missing": [
     {
-      "iri": "https://www.openstreetmap.org/node/11071361392",
-      "records": [
-        "18744133"
-      ],
-      "shown_as": "OSM node 11071361392",
-      "used_as": "place"
-    },
-    {
       "iri": "https://www.openstreetmap.org/node/11966430251",
       "records": [
         "18744583"

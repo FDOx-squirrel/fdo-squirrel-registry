@@ -220,7 +220,7 @@ the reason beside it.</p>
 </tbody>
 </table>
 
-<h2>instance <span class="meta">&mdash; 18 rows</span></h2>
+<h2>instance <span class="meta">&mdash; 20 rows</span></h2>
 <table class="instance">
 <thead><tr>
   <th>Term</th><th>Kind</th><th>Target</th><th>Profile / source</th><th>Note</th>
@@ -345,6 +345,22 @@ the reason beside it.</p>
   <td class="target term">crm:P70_documents</td>
   <td class="rule"></td>
   <td class="note">The CRM reading of what a catalogue record is: an E31 Document that documents the FDO. Runs beside foaf:primaryTopic, which stays as DCAT expects it.</td>
+</tr>
+
+<tr>
+  <td class="term">prov:Activity</td>
+  <td>class</td>
+  <td class="target term">crm:E7_Activity</td>
+  <td class="rule"></td>
+  <td class="note">Materialised per instance. `urn:fdo-squirrel:activity/build` is the generic build event fdo-squirrel writes into every package since its S14 (registry PRIMER, Nachtrag 2026-09-09); foreign namespace, so anchored rather than axiomatised (A3). E7 Activity is the CRM class for a deliberate action, which a software build step is.</td>
+</tr>
+
+<tr>
+  <td class="term">prov:SoftwareAgent</td>
+  <td>class</td>
+  <td class="target term">crm:E39_Actor</td>
+  <td class="rule"></td>
+  <td class="note">Materialised per instance; the node also carries schema:SoftwareApplication, left untouched. `urn:fdo-squirrel:agent/fdo-squirrel` names the software that produced the package. CIDOC CRM has no software-specific actor subclass, so E39 Actor is used directly - the same pattern the CRM community uses for non-human actors that are neither E21 Person nor E74 Group.</td>
 </tr>
 
 <tr>
@@ -559,28 +575,28 @@ registry can read.</p>
   <td class="term">data</td>
   <td>Data</td>
   <td class="note">A data file that is neither a model, documentation, metadata nor code.</td>
-  <td class="count">9</td>
+  <td class="count">29</td>
 </tr>
 
 <tr>
   <td class="term">documentation</td>
   <td>Documentation</td>
   <td class="note">Human-readable documentation of the package or of the object it describes.</td>
-  <td class="count">123</td>
+  <td class="count">141</td>
 </tr>
 
 <tr>
   <td class="term">metadata</td>
   <td>Metadata</td>
   <td class="note">A file describing the package or its contents, such as MD.cff or CITATION.cff.</td>
-  <td class="count">8</td>
+  <td class="count">12</td>
 </tr>
 
 <tr>
   <td class="term">model</td>
   <td>3D model</td>
   <td class="note">A file holding the three-dimensional geometry or texture of the documented object.</td>
-  <td class="count">12</td>
+  <td class="count">20</td>
 </tr>
 
 <tr>

@@ -69,7 +69,7 @@
 <h1>Query the registry</h1>
 <p class="lede">The whole catalogue is one Turtle file, and this page runs SPARQL over it in your browser. Every query below is editable: change it, press Run, and see what the graph actually says rather than what the tiles on the front page chose to show.</p>
 <p class="meta">Release 2026-09-03 &middot;
-  6584 triples &middot;
+  7793 triples &middot;
   <a href="index.html">Catalogue</a>
   &middot; <a href="crosswalk.html">CRM crosswalk</a>
   &middot; Query
@@ -98,7 +98,7 @@
 
 <section class="query" id="q-catalogue-overview">
   <h2>1. Every FDO with its type, licence and file count</h2>
-  <p class="note">The list the catalogue exists for. One row per FDO, counted from the catalogue node outwards, so an entry that has lost its link to the catalogue disappears here rather than quietly staying in the tiles.</p>
+  <p class="note">The list the catalogue exists for. One row per FDO, counted from the catalogue node outwards, so an entry that has lost its link to the catalogue disappears here rather than quietly staying in the tiles. ?licence only takes the SPDX-form IRI (S6, derived_label) - a second, non-SPDX licence IRI for the same FDO would otherwise split it into two rows and is reported instead in the quality report.</p>
   
   <textarea class="sparql" id="src-catalogue-overview" spellcheck="false"
             rows="13">SELECT ?fdo ?title ?type ?licence (COUNT(?distribution) AS ?files)
@@ -108,7 +108,7 @@ WHERE {
   ?fdo dct:title ?title ;
        a ?type .
   FILTER(STRSTARTS(STR(?type), STR(fdo:)))
-  OPTIONAL { ?fdo dct:license ?licence }
+  OPTIONAL { ?fdo dct:license ?licence . FILTER(STRSTARTS(STR(?licence), &#34;https://spdx.org/licenses/&#34;)) }
   OPTIONAL { ?fdo dcat:distribution ?distribution }
 }
 GROUP BY ?fdo ?title ?type ?licence
@@ -117,7 +117,7 @@ ORDER BY ?title</textarea>
     <button class="run" data-q="catalogue-overview" data-needs="" disabled>Run</button>
     <button class="reset" data-q="catalogue-overview">Reset</button>
     <span class="timing" id="time-catalogue-overview"></span>
-    <span class="timing grow">7 rows when this page was built &middot;
+    <span class="timing grow">8 rows when this page was built &middot;
       <a href="downloads/queries/catalogue-overview.rq">catalogue-overview.rq</a></span>
   </div>
   <div class="result" id="out-catalogue-overview"></div>
@@ -172,7 +172,7 @@ ORDER BY DESC(?bytes)</textarea>
     <button class="run" data-q="model-files" data-needs="vocab" disabled>Run</button>
     <button class="reset" data-q="model-files">Reset</button>
     <span class="timing" id="time-model-files"></span>
-    <span class="timing grow">12 rows when this page was built &middot;
+    <span class="timing grow">16 rows when this page was built &middot;
       <a href="downloads/queries/model-files.rq">model-files.rq</a></span>
   </div>
   <div class="result" id="out-model-files"></div>
@@ -221,7 +221,7 @@ ORDER BY DESC(?fdos) ?name</textarea>
     <button class="run" data-q="creators-across-packages" data-needs="" disabled>Run</button>
     <button class="reset" data-q="creators-across-packages">Reset</button>
     <span class="timing" id="time-creators-across-packages"></span>
-    <span class="timing grow">5 rows when this page was built &middot;
+    <span class="timing grow">6 rows when this page was built &middot;
       <a href="downloads/queries/creators-across-packages.rq">creators-across-packages.rq</a></span>
   </div>
   <div class="result" id="out-creators-across-packages"></div>
@@ -229,14 +229,15 @@ ORDER BY DESC(?fdos) ?name</textarea>
 
 <section class="query" id="q-holdings-by-licence">
   <h2>6. Holdings by licence</h2>
-  <p class="note">The licence is an SPDX IRI in the graph; the short id in the result is derived here the same way the catalogue page derives its facet, so the two numbers can be compared. If they ever disagree, one of them is wrong.</p>
+  <p class="note">The licence is an SPDX IRI in the graph; the short id in the result is derived here the same way the catalogue page derives its facet, so the two numbers can be compared. If they ever disagree, one of them is wrong. A non-SPDX licence IRI on the same FDO is excluded here too, for the same reason (S6, derived_label; see catalogue-overview).</p>
   
   <textarea class="sparql" id="src-holdings-by-licence" spellcheck="false"
-            rows="11">SELECT ?licence (COUNT(DISTINCT ?fdo) AS ?fdos)
+            rows="12">SELECT ?licence (COUNT(DISTINCT ?fdo) AS ?fdos)
 WHERE {
   ?catalogue a dcat:Catalog ;
              dcat:dataset ?fdo .
   ?fdo dct:license ?url .
+  FILTER(STRSTARTS(STR(?url), &#34;https://spdx.org/licenses/&#34;))
   BIND(REPLACE(REPLACE(STR(?url), &#34;^https://spdx.org/licenses/&#34;, &#34;&#34;),
                &#34;[.]html$&#34;, &#34;&#34;) AS ?licence)
 }
@@ -316,7 +317,7 @@ ORDER BY DESC(?nodes) ?class</textarea>
     <button class="run" data-q="crm-anchors" data-needs="vocab" disabled>Run</button>
     <button class="reset" data-q="crm-anchors">Reset</button>
     <span class="timing" id="time-crm-anchors"></span>
-    <span class="timing grow">24 rows when this page was built &middot;
+    <span class="timing grow">29 rows when this page was built &middot;
       <a href="downloads/queries/crm-anchors.rq">crm-anchors.rq</a></span>
   </div>
   <div class="result" id="out-crm-anchors"></div>
@@ -338,7 +339,7 @@ ORDER BY DESC(?nodes) ?class</textarea>
 /* Written from queries.yaml by py/step_sparql.py, so the page, the .rq files
    and the build check cannot drift apart. */
 const PREFIXES = "PREFIX crm: \u003chttp://www.cidoc-crm.org/cidoc-crm/\u003e\nPREFIX crmdig: \u003chttp://www.ics.forth.gr/isl/CRMdig/\u003e\nPREFIX dcat: \u003chttp://www.w3.org/ns/dcat#\u003e\nPREFIX dct: \u003chttp://purl.org/dc/terms/\u003e\nPREFIX fdo: \u003chttps://w3id.org/fdo-squirrel/\u003e\nPREFIX fdoreg: \u003chttps://w3id.org/fdo-squirrel/registry/\u003e\nPREFIX geosparql: \u003chttp://www.opengis.net/ont/geosparql#\u003e\nPREFIX prov: \u003chttp://www.w3.org/ns/prov#\u003e\nPREFIX rdfs: \u003chttp://www.w3.org/2000/01/rdf-schema#\u003e\nPREFIX role: \u003chttps://w3id.org/fdo-squirrel/registry/role/\u003e\nPREFIX schema: \u003chttps://schema.org/\u003e\nPREFIX skos: \u003chttp://www.w3.org/2004/02/skos/core#\u003e\nPREFIX wd: \u003chttp://www.wikidata.org/entity/\u003e\nPREFIX xsd: \u003chttp://www.w3.org/2001/XMLSchema#\u003e\n";
-const QUERIES  = {"catalogue-overview": "SELECT ?fdo ?title ?type ?licence (COUNT(?distribution) AS ?files)\nWHERE {\n  ?catalogue a dcat:Catalog ;\n             dcat:dataset ?fdo .\n  ?fdo dct:title ?title ;\n       a ?type .\n  FILTER(STRSTARTS(STR(?type), STR(fdo:)))\n  OPTIONAL { ?fdo dct:license ?licence }\n  OPTIONAL { ?fdo dcat:distribution ?distribution }\n}\nGROUP BY ?fdo ?title ?type ?licence\nORDER BY ?title", "creators-across-packages": "SELECT ?creator ?name (COUNT(DISTINCT ?fdo) AS ?fdos)\nWHERE {\n  ?fdo a dcat:Dataset ;\n       dct:creator ?creator .\n  OPTIONAL { ?creator schema:name ?name }\n}\nGROUP BY ?creator ?name\nORDER BY DESC(?fdos) ?name", "crm-anchors": "SELECT ?class (COUNT(DISTINCT ?node) AS ?nodes)\n       (GROUP_CONCAT(DISTINCT COALESCE(?instanceAnchor, \"\"); separator=\", \")\n        AS ?anchoredOnEachInstance)\n       (GROUP_CONCAT(DISTINCT COALESCE(?axiomAnchor, \"\"); separator=\", \")\n        AS ?anchoredByAxiom)\nWHERE {\n  ?node a ?class .\n  OPTIONAL {\n    ?node a ?coType .\n    FILTER(?coType != ?class)\n    FILTER(STRSTARTS(STR(?coType), STR(crm:))\n           || STRSTARTS(STR(?coType), \"http://www.ics.forth.gr/isl/\"))\n    BIND(REPLACE(STR(?coType), \"^.*[/#]\", \"\") AS ?instanceAnchor)\n  }\n  OPTIONAL {\n    ?class rdfs:subClassOf+ ?superClass .\n    FILTER(STRSTARTS(STR(?superClass), STR(crm:))\n           || STRSTARTS(STR(?superClass), \"http://www.ics.forth.gr/isl/\"))\n    BIND(REPLACE(STR(?superClass), \"^.*[/#]\", \"\") AS ?axiomAnchor)\n  }\n}\nGROUP BY ?class\nORDER BY DESC(?nodes) ?class", "holdings-by-licence": "SELECT ?licence (COUNT(DISTINCT ?fdo) AS ?fdos)\nWHERE {\n  ?catalogue a dcat:Catalog ;\n             dcat:dataset ?fdo .\n  ?fdo dct:license ?url .\n  BIND(REPLACE(REPLACE(STR(?url), \"^https://spdx.org/licenses/\", \"\"),\n               \"[.]html$\", \"\") AS ?licence)\n}\nGROUP BY ?licence\nORDER BY DESC(?fdos) ?licence", "holdings-by-year": "SELECT ?year (COUNT(DISTINCT ?fdo) AS ?fdos)\nWHERE {\n  ?catalogue a dcat:Catalog ;\n             dcat:dataset ?fdo .\n  OPTIONAL { ?fdo dct:issued ?issued }\n  OPTIONAL { ?fdo dct:created ?created }\n  BIND(SUBSTR(STR(COALESCE(?issued, ?created)), 1, 4) AS ?year)\n  FILTER(BOUND(?year))\n}\nGROUP BY ?year\nORDER BY ?year", "model-files": "SELECT ?title ?path ?mediaType ?bytes ?role\nWHERE {\n  ?fdo dct:title ?title ;\n       dcat:distribution ?distribution .\n  ?distribution fdo:role \"model\" ;\n                fdo:path ?path ;\n                crm:P2_has_type ?concept .\n  ?concept skos:prefLabel ?role .\n  OPTIONAL { ?distribution dcat:mediaType ?mediaType }\n  OPTIONAL { ?distribution dcat:byteSize ?bytes }\n}\nORDER BY DESC(?bytes)", "models-with-coordinates": "SELECT ?title ?wkt ?fdo\nWHERE {\n  ?fdo a fdo:3DDataFDO ;\n       dct:title ?title ;\n       geosparql:hasGeometry/geosparql:asWKT ?wkt .\n}\nORDER BY ?title", "shared-concepts": "SELECT ?concept (COUNT(DISTINCT ?fdo) AS ?fdos)\n       (GROUP_CONCAT(?title; separator=\" · \") AS ?objects)\nWHERE {\n  ?fdo a dcat:Dataset ;\n       dct:title ?title ;\n       dct:subject ?concept .\n  FILTER(STRSTARTS(STR(?concept), STR(wd:)))\n}\nGROUP BY ?concept\nHAVING (COUNT(DISTINCT ?fdo) \u003e 1)\nORDER BY DESC(?fdos) ?concept"};
+const QUERIES  = {"catalogue-overview": "SELECT ?fdo ?title ?type ?licence (COUNT(?distribution) AS ?files)\nWHERE {\n  ?catalogue a dcat:Catalog ;\n             dcat:dataset ?fdo .\n  ?fdo dct:title ?title ;\n       a ?type .\n  FILTER(STRSTARTS(STR(?type), STR(fdo:)))\n  OPTIONAL { ?fdo dct:license ?licence . FILTER(STRSTARTS(STR(?licence), \"https://spdx.org/licenses/\")) }\n  OPTIONAL { ?fdo dcat:distribution ?distribution }\n}\nGROUP BY ?fdo ?title ?type ?licence\nORDER BY ?title", "creators-across-packages": "SELECT ?creator ?name (COUNT(DISTINCT ?fdo) AS ?fdos)\nWHERE {\n  ?fdo a dcat:Dataset ;\n       dct:creator ?creator .\n  OPTIONAL { ?creator schema:name ?name }\n}\nGROUP BY ?creator ?name\nORDER BY DESC(?fdos) ?name", "crm-anchors": "SELECT ?class (COUNT(DISTINCT ?node) AS ?nodes)\n       (GROUP_CONCAT(DISTINCT COALESCE(?instanceAnchor, \"\"); separator=\", \")\n        AS ?anchoredOnEachInstance)\n       (GROUP_CONCAT(DISTINCT COALESCE(?axiomAnchor, \"\"); separator=\", \")\n        AS ?anchoredByAxiom)\nWHERE {\n  ?node a ?class .\n  OPTIONAL {\n    ?node a ?coType .\n    FILTER(?coType != ?class)\n    FILTER(STRSTARTS(STR(?coType), STR(crm:))\n           || STRSTARTS(STR(?coType), \"http://www.ics.forth.gr/isl/\"))\n    BIND(REPLACE(STR(?coType), \"^.*[/#]\", \"\") AS ?instanceAnchor)\n  }\n  OPTIONAL {\n    ?class rdfs:subClassOf+ ?superClass .\n    FILTER(STRSTARTS(STR(?superClass), STR(crm:))\n           || STRSTARTS(STR(?superClass), \"http://www.ics.forth.gr/isl/\"))\n    BIND(REPLACE(STR(?superClass), \"^.*[/#]\", \"\") AS ?axiomAnchor)\n  }\n}\nGROUP BY ?class\nORDER BY DESC(?nodes) ?class", "holdings-by-licence": "SELECT ?licence (COUNT(DISTINCT ?fdo) AS ?fdos)\nWHERE {\n  ?catalogue a dcat:Catalog ;\n             dcat:dataset ?fdo .\n  ?fdo dct:license ?url .\n  FILTER(STRSTARTS(STR(?url), \"https://spdx.org/licenses/\"))\n  BIND(REPLACE(REPLACE(STR(?url), \"^https://spdx.org/licenses/\", \"\"),\n               \"[.]html$\", \"\") AS ?licence)\n}\nGROUP BY ?licence\nORDER BY DESC(?fdos) ?licence", "holdings-by-year": "SELECT ?year (COUNT(DISTINCT ?fdo) AS ?fdos)\nWHERE {\n  ?catalogue a dcat:Catalog ;\n             dcat:dataset ?fdo .\n  OPTIONAL { ?fdo dct:issued ?issued }\n  OPTIONAL { ?fdo dct:created ?created }\n  BIND(SUBSTR(STR(COALESCE(?issued, ?created)), 1, 4) AS ?year)\n  FILTER(BOUND(?year))\n}\nGROUP BY ?year\nORDER BY ?year", "model-files": "SELECT ?title ?path ?mediaType ?bytes ?role\nWHERE {\n  ?fdo dct:title ?title ;\n       dcat:distribution ?distribution .\n  ?distribution fdo:role \"model\" ;\n                fdo:path ?path ;\n                crm:P2_has_type ?concept .\n  ?concept skos:prefLabel ?role .\n  OPTIONAL { ?distribution dcat:mediaType ?mediaType }\n  OPTIONAL { ?distribution dcat:byteSize ?bytes }\n}\nORDER BY DESC(?bytes)", "models-with-coordinates": "SELECT ?title ?wkt ?fdo\nWHERE {\n  ?fdo a fdo:3DDataFDO ;\n       dct:title ?title ;\n       geosparql:hasGeometry/geosparql:asWKT ?wkt .\n}\nORDER BY ?title", "shared-concepts": "SELECT ?concept (COUNT(DISTINCT ?fdo) AS ?fdos)\n       (GROUP_CONCAT(?title; separator=\" · \") AS ?objects)\nWHERE {\n  ?fdo a dcat:Dataset ;\n       dct:title ?title ;\n       dct:subject ?concept .\n  FILTER(STRSTARTS(STR(?concept), STR(wd:)))\n}\nGROUP BY ?concept\nHAVING (COUNT(DISTINCT ?fdo) \u003e 1)\nORDER BY DESC(?fdos) ?concept"};
 const GRAPH    = {"extra": {"vocab": {"label": "registry vocabularies", "note": "about 95 triples, loaded from this site", "urls": ["vocab/crm_bridge.ttl", "vocab/role.ttl", "vocab/registry_ontology.ttl"]}}, "url": "fdo-registry.ttl"};
 const MAX_ROWS = 500;
 
