@@ -68,6 +68,9 @@ queries:
       The list the catalogue exists for. One row per FDO, counted from the
       catalogue node outwards, so an entry that has lost its link to the
       catalogue disappears here rather than quietly staying in the tiles.
+      ?licence only takes the SPDX-form IRI (S6, derived_label) - a second,
+      non-SPDX licence IRI for the same FDO would otherwise split it into two
+      rows and is reported instead in the quality report.
     crosscheck:
       entries: true
     sparql: |
@@ -78,7 +81,7 @@ queries:
         ?fdo dct:title ?title ;
              a ?type .
         FILTER(STRSTARTS(STR(?type), STR(fdo:)))
-        OPTIONAL { ?fdo dct:license ?licence }
+        OPTIONAL { ?fdo dct:license ?licence . FILTER(STRSTARTS(STR(?licence), "https://spdx.org/licenses/")) }
         OPTIONAL { ?fdo dcat:distribution ?distribution }
       }
       GROUP BY ?fdo ?title ?type ?licence
@@ -165,7 +168,9 @@ queries:
     intro: >-
       The licence is an SPDX IRI in the graph; the short id in the result is
       derived here the same way the catalogue page derives its facet, so the two
-      numbers can be compared. If they ever disagree, one of them is wrong.
+      numbers can be compared. If they ever disagree, one of them is wrong. A
+      non-SPDX licence IRI on the same FDO is excluded here too, for the same
+      reason (S6, derived_label; see catalogue-overview).
     crosscheck:
       facet: license
       value: licence
@@ -176,6 +181,7 @@ queries:
         ?catalogue a dcat:Catalog ;
                    dcat:dataset ?fdo .
         ?fdo dct:license ?url .
+        FILTER(STRSTARTS(STR(?url), "https://spdx.org/licenses/"))
         BIND(REPLACE(REPLACE(STR(?url), "^https://spdx.org/licenses/", ""),
                      "[.]html$", "") AS ?licence)
       }

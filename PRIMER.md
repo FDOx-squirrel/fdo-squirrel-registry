@@ -1720,6 +1720,67 @@ alle vierzehn URLs, die die Seite anfasst, über `python main.py --serve` mit 20
 antworten, dass das Skript syntaktisch fehlerfrei ist und die drei JSON-Blöcke
 parsen. Ob die Seite antwortet, sagt erst ein Browser (A4).
 
+### Nachtrag 2026-09-09, Gegentest rot: doppelte Lizenz-IRI bei Freshford
+
+Nach dem `unpublished`-Subjekt-Hotfix lief der Bau erstmals bis S7 durch und
+brach dort ab dem eigenen Gegentest ab: `catalogue-overview: 9 rows, but the
+index has 8 entries`. Flos Diagnose (kleines Python-Skript gegen das lokale
+`dist/fdo-registry.ttl`, kein Netz nötig) fand die Ursache sofort:
+
+    https://doi.org/10.5281/zenodo.22676379
+      licences: ['http://creativecommons.org/licenses/by/4.0/',
+                 'https://spdx.org/licenses/CC-BY-4.0.html']
+
+Freshford trägt zwei `dct:license`-IRIs für dieselbe Lizenz — die übliche
+SPDX-Form, die alle acht anderen Pakete ausschliesslich verwenden (geprüft:
+kein einziges Vorkommen einer Creative-Commons-URL im ganzen Bestand ausser
+hier), plus zusätzlich die rohe Creative-Commons-URL. `catalogue-overview.rq`
+gruppiert `GROUP BY ?fdo ?title ?type ?licence` — zwei Lizenzwerte heisst
+zwei Zeilen für ein FDO. Ursache vermutlich `fdo-3d-packager`s
+Local-Metadata-Override (S10 dort): eine zusätzliche, roh übernommene
+Lizenz-URL neben der normalen SPDX-Ableitung aus `MD.cff`. Wie beim
+`unpublished`-Subjekt: kein Registry-Fehler, aber die Registry setzt
+(zu Recht) voraus, dass `dct:license` genau eine SPDX-IRI ist — diese
+Annahme steckt schon lange in `step_index.py::derived_label()` und in
+`holdings-by-licence`.
+
+**Fix, dreiteilig, alle drei mussten zusammen passen, weil der Gegentest
+genau das prüft:**
+
+1. `py/step_index.py` — die `licenses`-Facette filtert jetzt auf
+   `https://spdx.org/licenses/`, nach demselben Muster, das `types` schon
+   für `fdo:`-IRIs benutzt (eine Zeile drüber).
+2. `queries.yaml`, `catalogue-overview` — dieselbe Filterung im `OPTIONAL`
+   um `?licence`.
+3. `queries.yaml`, `holdings-by-licence` — dieselbe Filterung, sonst hätte
+   die rohe CC-URL dort einen eigenen, falsch beschrifteten Balken erzeugt
+   und den *nächsten* Gegentest gerissen.
+
+Der Bundle selbst bleibt unangetastet — beide Lizenz-Tripel stehen weiter in
+`dist/fdo-registry.ttl` (A3, „die Registry liest, sie korrigiert nicht");
+nur die drei Erzeugnisse, die „eine Lizenz pro FDO" versprechen, wählen
+konsequent die SPDX-Form. Die zweite IRI wird nicht stillschweigend
+verschluckt: neue `sh:maxCount 1`-Warnregel auf `dct:license`
+(`metadata/shapes.ttl`, `fdosh:DatasetQualityShape`, wie schon bei
+`dct:description`), meldet sich in `dist/quality_report.md` und ist die
+Zeile, die Freshfords Paket zum Aufräumen an fdo-squirrel zurückgibt.
+`metadata/shapes_selftest.ttl` bekommt eine zweite `dct:license`-IRI am
+bestehenden „unclean"-Testknoten, damit die neue Regel dieselbe
+Selbstprüfung durchläuft wie jede andere (38 → 39 Regeln).
+
+**Geprüft:** vollständiger Fixture-Durchlauf mit einem Freshford-Nachbau
+(Doppel-Lizenz genau wie oben, `unpublished`-Subjekt, die S14-PROV-Knoten,
+eine vollständige Distribution) durch den ganzen Sandkasten-Bestand
+geschleust — `python main.py --from bridge --skip release`: `conforms:
+True`, `catalogue-overview: 7 rows` gegen `7 entries` im Index (`ok
+catalogue-overview`), `holdings-by-licence` ebenfalls grün (`ok`,
+3 Werte statt vier), und `dist/quality_report.md` nennt genau einen Fund
+unter „More than one dct:license" — die neue Regel greift und feuert nicht
+zu oft. Danach Fixture wieder entfernt, Regressionslauf gegen die sieben
+echten Bestandspakete: unverändert grün. **Nicht geprüft:** der echte Lauf
+gegen 22676380 selbst — nächster `harvest` + `--from bridge` auf deiner
+Maschine.
+
 ## S8 — Registry als FDO, Release und CI
 
 **Ziel:** der Katalog wird nach denselben Regeln zitierbar wie sein Inhalt.

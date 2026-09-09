@@ -187,7 +187,8 @@ def entry_for(graph, record, labels, sources) -> dict:
         "other_descriptions": other_descriptions,
         "types": [{"iri": iri, "label": display(iri, labels)[0]} for iri in types],
         "licenses": [{"iri": iri, "label": display(iri, labels)[0]}
-                     for iri in objects("dct:license")],
+                     for iri in objects("dct:license")
+                     if iri.startswith("https://spdx.org/licenses/")],
         "creators": [{"iri": iri, "name": display(iri, labels, graph)[0]}
                      for iri in objects("dct:creator")],
         "keywords": keywords,

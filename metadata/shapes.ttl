@@ -240,6 +240,8 @@ fdosh:DatasetQualityShape a sh:NodeShape ;
     sh:targetClass dcat:Dataset ;
     sh:property [ sh:path dct:license ; sh:nodeKind sh:IRI ; sh:severity sh:Warning ;
         sh:message "dct:license carries a string. A licence is an IRI (SPDX or the licence text); the string form cannot be resolved or compared." ] ;
+    sh:property [ sh:path dct:license ; sh:maxCount 1 ; sh:severity sh:Warning ;
+        sh:message "More than one dct:license. The catalogue page and the SPARQL facets both key on the SPDX-form IRI (S6, derived_label); an additional non-SPDX IRI for the same licence is carried in the bundle but excluded from the facet and the overview query, so it does not appear twice there." ] ;
     sh:property [ sh:path dcat:keyword ; sh:nodeKind sh:IRI ; sh:severity sh:Warning ;
         sh:message "dcat:keyword carries a bare string. Only IRI-valued keywords can be anchored as a type; a string cannot become a concept and must not become an E55 Type." ] ;
     sh:property [ sh:path dct:description ; sh:maxCount 1 ; sh:severity sh:Warning ;

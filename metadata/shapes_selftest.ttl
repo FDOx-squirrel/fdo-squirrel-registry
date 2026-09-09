@@ -60,7 +60,7 @@ x:coordinates a crm:E94_Space_Primitive .
 # --- quality: an FDO that is complete but unclean --------------------------
 <https://doi.org/10.5281/zenodo.99999999> a dcat:Dataset , fdo:3DDataFDO ;
     dct:title "A complete but unclean package" ;
-    dct:license "CC-BY-NC-SA-4.0" ;
+    dct:license "CC-BY-NC-SA-4.0" , <https://spdx.org/licenses/MIT.html> ;
     dct:description "make 3d model available" , "good" ;
     dcat:keyword "ogham" ;
     dcat:bbox "POLYGON((0 0,0 1,1 1,1 0,0 0))" ;
