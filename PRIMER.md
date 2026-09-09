@@ -1171,6 +1171,79 @@ Was anders kam als gedacht:
   Pakete im Katalog stehen, sind schlimmer als drei Schritte, die alle dasselbe
   auslassen.
 
+### Nachtrag 2026-09-09, SHACL-Gate rot nach dem sources.json-Update
+
+Flos erster echter Lauf nach dem Nachtrag von oben (harvest + `--from bridge`)
+bricht bei S5 mit drei Verstössen ab:
+
+    error: No CRM anchor: ... urn:fdo-squirrel:activity/build
+    error: No CRM anchor: ... urn:fdo-squirrel:agent/fdo-squirrel
+    error: The FDO is not identified by a DOI IRI.
+        urn:fdo-squirrel:unpublished/freshford-st-lachtains-well-low-poly
+
+Zwei getrennte Ursachen, nur eine davon Sache dieses Repos:
+
+- **`urn:fdo-squirrel:activity/build` und `urn:fdo-squirrel:agent/fdo-squirrel`
+  — Registry-seitiger Nachholbedarf, jetzt behoben.** `fdo-squirrel` schreibt
+  seit S14 (siehe dortiges PRIMER, `fdo_rdf.py`) in jedes Paket dieselben zwei
+  statischen PROV-O-Knoten:
+
+      <urn:fdo-squirrel:activity/build> a prov:Activity ;
+          prov:wasAssociatedWith <urn:fdo-squirrel:agent/fdo-squirrel> .
+      <urn:fdo-squirrel:agent/fdo-squirrel> a prov:SoftwareAgent, schema:SoftwareApplication ; ...
+
+  `term_map()` in `py/step_bundle.py` kennt bislang nur `person`, `dist` und
+  `content` als `urn:fdo-squirrel:`-Arten; `agent` und `activity` fielen in
+  `unknown` und blieben unangetastet im Bundle stehen — deshalb greifen beide
+  neuen Pakete (22675886, 22676380) dieselben zwei globalen Knoten auf und
+  reissen den Gate-Lauf für die ganze Ernte mit, nicht nur für sich selbst.
+  **Fix:** zwei neue `instance`-Zeilen in `crosswalks/fdo--crm.csv` —
+  `prov:Activity → crm:E7_Activity`, `prov:SoftwareAgent → crm:E39_Actor`
+  (E39, weil CIDOC CRM keine eigene Software-Actor-Unterklasse kennt; dasselbe
+  Muster wie bei nicht-menschlichen Akteuren üblich). Das reicht: `anchor()`
+  läuft nach `rewrite()` auf denselben (noch nicht umgeschriebenen) Knoten und
+  vergibt den CRM-Typ unabhängig davon, ob die `urn:` selbst umgeschrieben
+  wird oder nicht.
+
+  **Geprüft, nicht nur behauptet:** die realen S14-Tripel (aus dem
+  `fdo-squirrel`-Chat zitiert, nicht geraten) in ein Fixture gepackt, direkt
+  gegen `anchor()` und danach mit `pyshacl` gegen `metadata/shapes.ttl` +
+  die neu gebaute `crm_bridge.ttl` laufen lassen: die zwei
+  „No CRM anchor"-Verstösse verschwinden vollständig, die vier übrig
+  bleibenden Meldungen (fehlende `dcat:distribution`/`dct:license`/
+  `dct:title`/FDOx-Typ) sind reine Artefakte des absichtlich unvollständigen
+  Fixtures. Zusätzlich `python main.py --from bridge` gegen die sieben echten
+  Bestandspakete im Sandkasten gefahren: `conforms: True, 8 pinned records`,
+  identisch zum Stand vor der Änderung — keine Regression. **Nicht geprüft:**
+  ein Lauf mit den echten 22675886/22676380-Paketen selbst, weil der
+  Sandkasten kein Netz zu `zenodo.org` hat; das ist Teil des nächsten
+  `harvest` + `--from bridge` auf deiner Maschine.
+
+  IRI-Umschreibung von `agent`/`activity` in eigene Registry-IRIs (wie bei
+  `dist`/`content`) ist bewusst **nicht** Teil dieses Fixes — nur der
+  CRM-Anker, der den Gate-Fehler behebt. Ob sie registry-global (ein Knoten
+  für „das Werkzeug fdo-squirrel", parallel zu `person`) oder pro Record
+  gescopt werden sollten, ist eine IRI-Entscheidung, keine Fehlerbehebung;
+  bis dahin bleiben sie als `urn:` stehen und die Build-Warnung
+  „unhandled urn:fdo-squirrel:agent/activity" erscheint weiter — kosmetisch,
+  blockiert nichts (Vorschlag, noch zu bestätigen).
+
+- **`urn:fdo-squirrel:unpublished/freshford-st-lachtains-well-low-poly` —
+  kein Registry-Fehler, sondern der Gate tut genau, wofür er gebaut ist.**
+  Das Freshford-Paket trägt als eigenes Subjekt noch den
+  Vor-Publikations-Platzhalter statt der DOI-IRI
+  `https://doi.org/10.5281/zenodo.22676379` — die Zeile in
+  `py/registry_utils.py` bei `fdoreg:conceptDoi` sagt es direkt: „the DOI the
+  harvested fdo-metadata.ttl uses as its own subject". Das TTL im Zenodo-Record
+  wurde offenbar publiziert, bevor die reservierte DOI ins Paket zurückgeschrieben
+  wurde. **Gehört nicht in diesen Chat/dieses Repo** — das ist
+  `fdo-3d-packager`/`fdo-squirrel`-Terrain (vermutlich der Chat, der gerade an
+  den CIIC-81-/Freshford-Bundles sitzt): Paket mit der bekannten DOI als
+  Subjekt neu bauen und als neue Zenodo-Version nachlegen, danach hier wieder
+  `sources.json` aktualisieren (wie im Nachtrag oben). Bis dahin bleibt
+  Freshford im Katalog aussen vor — S5 lässt keinen Datensatz durch, der sein
+  eigenes Versprechen bricht.
+
 ## S4 — Bundle-Build als DCAT-Katalog
 
 **Ziel:** `dist/fdo-registry.ttl` — ein Graph, byte-gleich bei gleicher Eingabe.
