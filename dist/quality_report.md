@@ -19,13 +19,14 @@ Everything below is a **warning**: a statement about a harvested package, not ab
 | `22676380` | Freshford: St Lachtain's Well (FDOx) | read as published | — |
 | `24305241` | Lego Pyramid / KIRI Original (FDOx) | read as published | — |
 | `24305344` | Lego Pyramid / Reconstruction claude.ai (FDOx) | read as published | — |
-| `24309838` | Lego Pyramid Maya / KIRI Original (FDOx) | read as published | — |
+| `24310015` | Lego Pyramid Maya / KIRI Original (FDOx) | read as published | — |
+| `24310030` | Lego Pyramid Maya / Reconstruction claude.ai (FDOx) | read as published | — |
 
-1 of 12 pinned records are not in the catalogue. A published Zenodo record never changes, so these can only be fixed by publishing a new version.
+1 of 13 pinned records are not in the catalogue. A published Zenodo record never changes, so these can only be fixed by publishing a new version.
 
 ## Findings
 
-55 finding(s) over 10 rule(s).
+57 finding(s) over 10 rule(s).
 
 ### A person without an ORCID. The profile asks for the established IRI (DOI, ORCID, ROR); the registry-minted agent IRI is a fallback that only works inside this catalogue.
 
@@ -47,12 +48,13 @@ Everything below is a **warning**: a statement about a harvested package, not ab
 
 ### More than one dct:license. The catalogue page and the SPARQL facets both key on the SPDX-form IRI (S6, derived_label); an additional non-SPDX IRI for the same licence is carried in the bundle but excluded from the facet and the overview query, so it does not appear twice there.
 
-4 node(s):
+5 node(s):
 
 - `https://doi.org/10.5281/zenodo.22676379`
 - `https://doi.org/10.5281/zenodo.24305240`
 - `https://doi.org/10.5281/zenodo.24305343`
 - `https://doi.org/10.5281/zenodo.24305428`
+- `https://doi.org/10.5281/zenodo.24305436`
 
 ### The same name is carried by more than one person node. The registry never merges on a matching name - that would invent identity - so the decision is left to a human.
 
@@ -81,7 +83,7 @@ Everything below is a **warning**: a statement about a harvested package, not ab
 
 ### dcat:keyword carries a bare string. Only IRI-valued keywords can be anchored as a type; a string cannot become a concept and must not become an E55 Type.
 
-11 node(s):
+12 node(s):
 
 - `https://doi.org/10.5281/zenodo.18369125`
 - `https://doi.org/10.5281/zenodo.18369156`
@@ -91,7 +93,7 @@ Everything below is a **warning**: a statement about a harvested package, not ab
 - `https://doi.org/10.5281/zenodo.18732892`
 - `https://doi.org/10.5281/zenodo.18742693`
 - `https://doi.org/10.5281/zenodo.22676379`
-- … and 3 more
+- … and 4 more
 
 ### dcat:startDate is written as xsd:integer. The profile lists only XSD date types and EDTF for temporal values; the registry adds the typed literal beside it but does not touch the original.
 
@@ -144,6 +146,7 @@ Everything below is a **warning**: a statement about a harvested package, not ab
 | `22676380` | 2 |
 | `24305241` | 3 |
 | `24305344` | 2 |
-| `24309838` | 3 |
+| `24310015` | 3 |
+| `24310030` | 2 |
 | `across packages` | 5 |
 

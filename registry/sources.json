@@ -74,7 +74,13 @@
       "added": "2026-11-17",
       "concept_doi": "10.5281/zenodo.24305428",
       "note": "LEGO-Pyramide Maya: KIRI-Scan (FDOx)",
-      "version_doi": "10.5281/zenodo.24309838"
+      "version_doi": "10.5281/zenodo.24310015"
+    },
+    {
+      "added": "2026-11-17",
+      "concept_doi": "10.5281/zenodo.24305436",
+      "note": "LEGO-Pyramide Maya: Rekonstruktion claude.ai (FDOx)",
+      "version_doi": "10.5281/zenodo.24310030"
     }
   ]
 }

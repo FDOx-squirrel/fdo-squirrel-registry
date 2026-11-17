@@ -6,7 +6,7 @@
     "issued": "2026-09-03",
     "license": "https://spdx.org/licenses/CC-BY-4.0.html",
     "title": "FDOx Registry",
-    "triples": 9961
+    "triples": 10682
   },
   "entries": [
     {
@@ -1748,7 +1748,7 @@
         ]
       },
       "files": {
-        "bytes": 21356929,
+        "bytes": 21357864,
         "count": 51,
         "largest": [
           {
@@ -1782,19 +1782,19 @@
             "role": "documentation"
           },
           {
-            "bytes": 305578,
+            "bytes": 305282,
             "media_type": "image/png",
             "path": "fdo_ttl_snippet_metadata.png",
             "role": "documentation"
           },
           {
-            "bytes": 258879,
+            "bytes": 260305,
             "media_type": "image/png",
             "path": "fdo_ttl_snippet_distributions.png",
             "role": "documentation"
           },
           {
-            "bytes": 215378,
+            "bytes": 215394,
             "media_type": "image/png",
             "path": "fdo_md_cff.png",
             "role": "documentation"
@@ -1806,13 +1806,13 @@
             "role": "auxiliary"
           },
           {
-            "bytes": 183569,
+            "bytes": 183546,
             "media_type": "image/png",
             "path": "fdo_md_cff_graph.png",
             "role": "documentation"
           },
           {
-            "bytes": 148720,
+            "bytes": 148532,
             "media_type": "image/png",
             "path": "fdo_ttl_snippet_links.png",
             "role": "documentation"
@@ -1867,7 +1867,7 @@
           "label": "CC-BY-4.0"
         }
       ],
-      "metadata_url": "https://zenodo.org/api/records/24309838/files/lego-pyramid-maya-kiri-original-fdo-bundle.zip/content",
+      "metadata_url": "https://zenodo.org/api/records/24310015/files/lego-pyramid-maya-kiri-original-fdo-bundle.zip/content",
       "other_descriptions": [],
       "period": {
         "end": "2026",
@@ -1883,10 +1883,10 @@
           "named": true
         }
       ],
-      "record_id": "24309838",
-      "record_iri": "https://w3id.org/fdo-squirrel/registry/record/24309838",
+      "record_id": "24310015",
+      "record_iri": "https://w3id.org/fdo-squirrel/registry/record/24310015",
       "repairs": [],
-      "sha256": "eeff10cb61f05f101858a693bea19bbe4ceb3f9938fffe4c6365ea383b23b833",
+      "sha256": "2112151e258b18bdad920aebb870f03d071a89ed9e0af294a234138aec93d1c2",
       "squirrelbase": null,
       "title": "Lego Pyramid Maya (KIRI Original)",
       "types": [
@@ -1895,8 +1895,197 @@
           "label": "3DDataFDO"
         }
       ],
-      "version_doi": "https://doi.org/10.5281/zenodo.24309838",
-      "zenodo_url": "https://zenodo.org/records/24309838"
+      "version_doi": "https://doi.org/10.5281/zenodo.24310015",
+      "zenodo_url": "https://zenodo.org/records/24310015"
+    },
+    {
+      "context": "Self-built (own design, no commercial set) by Daria Stefan (TU Wien). Shown at the Apothekertrakt of Schönbrunn Palace during CHNT31, 2026-11-12 (https://www.openstreetmap.org/relation/6892072). Identification as a Maya-style stepped pyramid with a temple was confirmed by the builder. A specific model such as El Castillo (Chichén Itzá) is NOT confirmed.",
+      "creators": [
+        {
+          "iri": "https://orcid.org/0000-0002-3246-3531",
+          "name": "Thiery, Florian"
+        }
+      ],
+      "dataset_iri": "https://doi.org/10.5281/zenodo.24305436",
+      "description": "Idealised reconstruction of a stepped LEGO pyramid with four grey stair arms (seven levels) and a small temple with four corner pillars on top, a hobby build by Daria Stefan (TU Wien), rebuilt procedurally from clean LEGO bricks after a KIRI Engine scan. Only dimensions and structure were read from the scan; no scan mesh or texture was reused. AI disclosure: the reconstruction was generated with Claude (Anthropic, claude-sonnet-5-5) on behalf of Florian Thiery. It is an interpretation model, not a measurement.",
+      "facets": {
+        "creator": [
+          "Thiery, Florian"
+        ],
+        "keyword": [
+          "3D data",
+          "Architecture",
+          "Claude",
+          "Cultural Heritage",
+          "lego",
+          "maya",
+          "pyramid",
+          "reconstruction"
+        ],
+        "license": [
+          "CC-BY-4.0"
+        ],
+        "place": [],
+        "type": [
+          "3DDataFDO"
+        ],
+        "year": [
+          "2026"
+        ]
+      },
+      "files": {
+        "bytes": 8735980,
+        "count": 50,
+        "largest": [
+          {
+            "bytes": 3483398,
+            "media_type": "model/obj",
+            "path": "data/model/model.obj",
+            "role": "model"
+          },
+          {
+            "bytes": 1453056,
+            "media_type": "application/octet-stream",
+            "path": "data/model/model.nxs",
+            "role": "model"
+          },
+          {
+            "bytes": 1372306,
+            "media_type": "image/png",
+            "path": "data/images/preview.png",
+            "role": "documentation"
+          },
+          {
+            "bytes": 268631,
+            "media_type": "image/png",
+            "path": "fdo_ttl_snippet_metadata.png",
+            "role": "documentation"
+          },
+          {
+            "bytes": 266747,
+            "media_type": "image/png",
+            "path": "fdo_md_cff.png",
+            "role": "documentation"
+          },
+          {
+            "bytes": 262372,
+            "media_type": "image/png",
+            "path": "fdo_ttl_snippet_distributions.png",
+            "role": "documentation"
+          },
+          {
+            "bytes": 226295,
+            "media_type": "image/png",
+            "path": "fdo_md_cff_graph.png",
+            "role": "documentation"
+          },
+          {
+            "bytes": 190272,
+            "media_type": "application/javascript",
+            "path": "viewer/js/spidergl.js",
+            "role": "auxiliary"
+          },
+          {
+            "bytes": 179968,
+            "media_type": "application/octet-stream",
+            "path": "data/model/model.nxz",
+            "role": "model"
+          },
+          {
+            "bytes": 142700,
+            "media_type": "image/jpeg",
+            "path": "viewer/skins/backgrounds/light.jpg",
+            "role": "auxiliary"
+          },
+          {
+            "bytes": 135389,
+            "media_type": "application/javascript",
+            "path": "viewer/js/presenter.js",
+            "role": "auxiliary"
+          },
+          {
+            "bytes": 119263,
+            "media_type": "application/javascript",
+            "path": "viewer/js/corto.em.js",
+            "role": "auxiliary"
+          }
+        ],
+        "roles": {
+          "auxiliary": 24,
+          "data": 11,
+          "documentation": 9,
+          "metadata": 2,
+          "model": 4
+        }
+      },
+      "geometry": null,
+      "issued": "2026-11-17",
+      "keywords": [
+        {
+          "iri": null,
+          "label": "3D data",
+          "named": true
+        },
+        {
+          "iri": null,
+          "label": "Architecture",
+          "named": true
+        },
+        {
+          "iri": null,
+          "label": "Claude",
+          "named": true
+        },
+        {
+          "iri": null,
+          "label": "Cultural Heritage",
+          "named": true
+        },
+        {
+          "iri": null,
+          "label": "lego",
+          "named": true
+        },
+        {
+          "iri": null,
+          "label": "maya",
+          "named": true
+        },
+        {
+          "iri": null,
+          "label": "pyramid",
+          "named": true
+        },
+        {
+          "iri": null,
+          "label": "reconstruction",
+          "named": true
+        }
+      ],
+      "licenses": [
+        {
+          "iri": "https://spdx.org/licenses/CC-BY-4.0.html",
+          "label": "CC-BY-4.0"
+        }
+      ],
+      "metadata_url": "https://zenodo.org/api/records/24310030/files/lego-pyramid-maya-reconstruction-claudeai-fdo-bundle.zip/content",
+      "other_descriptions": [],
+      "period": null,
+      "places": [],
+      "record_id": "24310030",
+      "record_iri": "https://w3id.org/fdo-squirrel/registry/record/24310030",
+      "repairs": [],
+      "sha256": "78303925a9c6e48b5fc881935fcd3c82b7cf2ae3fee4c58beeefdb51cf6db6f5",
+      "squirrelbase": null,
+      "title": "Lego Pyramid Maya (Reconstruction claude.ai)",
+      "types": [
+        {
+          "iri": "https://w3id.org/fdo-squirrel/3DDataFDO",
+          "label": "3DDataFDO"
+        }
+      ],
+      "version_doi": "https://doi.org/10.5281/zenodo.24310030",
+      "zenodo_url": "https://zenodo.org/records/24310030"
     }
   ],
   "facets": [

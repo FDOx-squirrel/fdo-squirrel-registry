@@ -23,7 +23,7 @@
     dct:license <http://creativecommons.org/licenses/by/4.0/> ;
     dct:publisher <http://www.wikidata.org/entity/Q73901970> ;
     dct:title "Lego Pyramid Maya (KIRI Original)" ;
-    dcat:distribution <urn:fdo-squirrel:dist/217ec3e7b4407e60>,<urn:fdo-squirrel:dist/afd8fcaf630d3d64>,<urn:fdo-squirrel:dist/81ad99017ff8e468>,<urn:fdo-squirrel:dist/6c2c935cd95e8d0b>,<urn:fdo-squirrel:dist/ecded0cdd4949370>,<urn:fdo-squirrel:dist/92f6aab6eaa90eea>,<urn:fdo-squirrel:dist/5f6904c85e155dfd>,<urn:fdo-squirrel:dist/ee7276e95e39f636>,<urn:fdo-squirrel:dist/5782d58d11437c0f>,<urn:fdo-squirrel:dist/04b54942c91c510e>,<urn:fdo-squirrel:dist/0e623d3c26743f35>,<urn:fdo-squirrel:dist/6132a60724847178>,<urn:fdo-squirrel:dist/f7f6a5894f1d19dd>,<urn:fdo-squirrel:dist/012d3ae0f6007283>,<urn:fdo-squirrel:dist/4ceb643e8b6d7cd2>,<urn:fdo-squirrel:dist/b4416be937053d8a>,<urn:fdo-squirrel:dist/f6e15e9e5f49e3de>,<urn:fdo-squirrel:dist/fe753c2685ec886c>,<urn:fdo-squirrel:dist/cf14dd446fc3537f>,<urn:fdo-squirrel:dist/5ed91bb5c3d8a4b1>,<urn:fdo-squirrel:dist/50e62db9b10cc50c>,<urn:fdo-squirrel:dist/ada023eb80b0ce5c>,<urn:fdo-squirrel:dist/0b383d5a63da644f>,<urn:fdo-squirrel:dist/1a8195ca9d0812e7>,<urn:fdo-squirrel:dist/0e4d58088180effe>,<urn:fdo-squirrel:dist/3b2a44995e927286>,<urn:fdo-squirrel:dist/536c5576e2ee7561>,<urn:fdo-squirrel:dist/2ad4f592d31cf358>,<urn:fdo-squirrel:dist/9fd7be788d73ee57>,<urn:fdo-squirrel:dist/25108ed495e10582>,<urn:fdo-squirrel:dist/e221c116fce7a4fc>,<urn:fdo-squirrel:dist/ff48136f9eeca235> ;
+    dcat:distribution <urn:fdo-squirrel:dist/71e9e9f0b883b34c>,<urn:fdo-squirrel:dist/afd8fcaf630d3d64>,<urn:fdo-squirrel:dist/81ad99017ff8e468>,<urn:fdo-squirrel:dist/6c2c935cd95e8d0b>,<urn:fdo-squirrel:dist/ecded0cdd4949370>,<urn:fdo-squirrel:dist/92f6aab6eaa90eea>,<urn:fdo-squirrel:dist/5f6904c85e155dfd>,<urn:fdo-squirrel:dist/ee7276e95e39f636>,<urn:fdo-squirrel:dist/5782d58d11437c0f>,<urn:fdo-squirrel:dist/04b54942c91c510e>,<urn:fdo-squirrel:dist/0e623d3c26743f35>,<urn:fdo-squirrel:dist/6132a60724847178>,<urn:fdo-squirrel:dist/f7f6a5894f1d19dd>,<urn:fdo-squirrel:dist/012d3ae0f6007283>,<urn:fdo-squirrel:dist/4ceb643e8b6d7cd2>,<urn:fdo-squirrel:dist/b4416be937053d8a>,<urn:fdo-squirrel:dist/f6e15e9e5f49e3de>,<urn:fdo-squirrel:dist/fe753c2685ec886c>,<urn:fdo-squirrel:dist/cf14dd446fc3537f>,<urn:fdo-squirrel:dist/5ed91bb5c3d8a4b1>,<urn:fdo-squirrel:dist/50e62db9b10cc50c>,<urn:fdo-squirrel:dist/ada023eb80b0ce5c>,<urn:fdo-squirrel:dist/0b383d5a63da644f>,<urn:fdo-squirrel:dist/1a8195ca9d0812e7>,<urn:fdo-squirrel:dist/0e4d58088180effe>,<urn:fdo-squirrel:dist/3b2a44995e927286>,<urn:fdo-squirrel:dist/536c5576e2ee7561>,<urn:fdo-squirrel:dist/2ad4f592d31cf358>,<urn:fdo-squirrel:dist/9fd7be788d73ee57>,<urn:fdo-squirrel:dist/25108ed495e10582>,<urn:fdo-squirrel:dist/e221c116fce7a4fc>,<urn:fdo-squirrel:dist/ff48136f9eeca235> ;
     dct:created "2026-11-12"^^xsd:date ;
     dct:issued "2026-11-17"^^xsd:date ;
     dct:contributor <https://orcid.org/0009-0008-0586-9350> ;
@@ -36,8 +36,8 @@
     dcat:keyword "Architecture" ;
     dct:relation <https://sketchfab.com/3d-models/lego-pyramid-maya-kiri-original-1e9a188abf974999b7909e15323ded0a> ;
     prov:wasDerivedFrom <https://sketchfab.com/3d-models/lego-pyramid-maya-kiri-original-1e9a188abf974999b7909e15323ded0a> ;
-    dct:relation <https://doi.org/10.5281/zenodo.24305438> ;
-    dct:isReferencedBy <https://doi.org/10.5281/zenodo.24305438> ;
+    dct:relation <https://doi.org/10.5281/zenodo.24305436> ;
+    dct:isReferencedBy <https://doi.org/10.5281/zenodo.24305436> ;
     dct:spatial <http://www.wikidata.org/entity/Q131330> ;
     schema:latitude "48.184424"^^xsd:decimal ;
     schema:longitude "16.318911"^^xsd:decimal ;
@@ -51,10 +51,10 @@
 
 <https://orcid.org/0009-0008-0586-9350> rdfs:label "Daria Stefan" .
 <https://sketchfab.com/3d-models/lego-pyramid-maya-kiri-original-1e9a188abf974999b7909e15323ded0a> rdfs:label "Source: Lego Pyramid Maya (KIRI Original)" .
-<https://doi.org/10.5281/zenodo.24305438> rdfs:label "Lego Pyramid Maya (Reconstruction claude.ai)" .
+<https://doi.org/10.5281/zenodo.24305436> rdfs:label "Lego Pyramid Maya (Reconstruction claude.ai)" .
 <https://doi.org/10.5281/zenodo.24305428> dcat:qualifiedRelation _:related_resources1_rel .
 _:related_resources1_rel a dcat:Relationship .
-_:related_resources1_rel dct:relation <https://doi.org/10.5281/zenodo.24305438> .
+_:related_resources1_rel dct:relation <https://doi.org/10.5281/zenodo.24305436> .
 _:related_resources1_rel dcat:hadRole dct:isReferencedBy .
 _:related_resources1_rel rdfs:comment "Procedural reconstruction from idealised bricks, derived from this scan." .
 <http://www.wikidata.org/entity/Q131330> rdfs:label "Schönbrunn Palace, Apothekertrakt, Vienna" .
@@ -82,13 +82,13 @@ _:heritage_object_object_type0_1 rdfs:label "LEGO model (interlocking-brick toy,
 <https://orcid.org/0000-0002-3246-3531> a schema:Person ;
     schema:name "Thiery, Florian" .
 
-<urn:fdo-squirrel:dist/217ec3e7b4407e60> a dcat:Distribution, crmdig:D9_Data_Object ;
+<urn:fdo-squirrel:dist/71e9e9f0b883b34c> a dcat:Distribution, crmdig:D9_Data_Object ;
     dcat:accessURL <urn:fdo-squirrel:content/MD.cff> ;
     dcat:byteSize 3005 ;
     dcat:mediaType "text/yaml" ;
     fdo:path "MD.cff" ;
     fdo:role "metadata" ;
-    fdo:sha256 "217ec3e7b4407e6070436e9f7016e26c39e5b499fcc5e225b244a083b1d21030"  .
+    fdo:sha256 "71e9e9f0b883b34ce0c9297f5cde0927081812196bf3a6b6b2018729581e7041"  .
 
 <urn:fdo-squirrel:dist/afd8fcaf630d3d64> a dcat:Distribution, crmdig:D9_Data_Object ;
     dcat:accessURL <urn:fdo-squirrel:content/CITATION.cff> ;
@@ -381,31 +381,31 @@ _:heritage_object_object_type0_1 rdfs:label "LEGO model (interlocking-brick toy,
 
 <http://creativecommons.org/licenses/by/4.0/> rdfs:label "CC Attribution" .
 
-<https://doi.org/10.5281/zenodo.24305428> dcat:distribution <urn:fdo-squirrel:dist/ac9bb2cd89e191c5>,<urn:fdo-squirrel:dist/9671fa54922e365f>,<urn:fdo-squirrel:dist/6fca4e2fa6be4d7d>,<urn:fdo-squirrel:dist/c038334d2068bdd7>,<urn:fdo-squirrel:dist/c15ea2d0206974fa>,<urn:fdo-squirrel:dist/ae0aa710ea4270bb>,<urn:fdo-squirrel:dist/864fe529b558331c>,<urn:fdo-squirrel:dist/b724ae22e11ff8c8>,<urn:fdo-squirrel:dist/56e2292b60b6aa08>,<urn:fdo-squirrel:dist/aac373879061b739>,<urn:fdo-squirrel:dist/7b1b09c2211deb84>,<urn:fdo-squirrel:dist/8d9a4fea6c2c4574>,<urn:fdo-squirrel:dist/05e321654b0866a5>,<urn:fdo-squirrel:dist/50060c12e3f7787d>,<urn:fdo-squirrel:dist/656d57f27ed2cdf0>,<urn:fdo-squirrel:dist/2e10fccaceb68d5d>,<urn:fdo-squirrel:dist/fb069753c73f9bf1>,<urn:fdo-squirrel:dist/16e88ba4536e2447>,<urn:fdo-squirrel:dist/516a2d8e42714d68> .
+<https://doi.org/10.5281/zenodo.24305428> dcat:distribution <urn:fdo-squirrel:dist/b1059aedfede42f6>,<urn:fdo-squirrel:dist/fc29b8c798786372>,<urn:fdo-squirrel:dist/5ed53686b05a0789>,<urn:fdo-squirrel:dist/c038334d2068bdd7>,<urn:fdo-squirrel:dist/c15ea2d0206974fa>,<urn:fdo-squirrel:dist/ae0aa710ea4270bb>,<urn:fdo-squirrel:dist/8097698c27f1bdba>,<urn:fdo-squirrel:dist/3ea8b23529052599>,<urn:fdo-squirrel:dist/a97e9310f22eec48>,<urn:fdo-squirrel:dist/34d2f9778bcd0601>,<urn:fdo-squirrel:dist/7b1b09c2211deb84>,<urn:fdo-squirrel:dist/b31769ec672b2f5d>,<urn:fdo-squirrel:dist/ba589477f6081e6f>,<urn:fdo-squirrel:dist/055ee71cb71a011f>,<urn:fdo-squirrel:dist/5121959e809bee9a>,<urn:fdo-squirrel:dist/674531cbf00239eb>,<urn:fdo-squirrel:dist/657a1996e07a1311>,<urn:fdo-squirrel:dist/16e88ba4536e2447>,<urn:fdo-squirrel:dist/441b77c903b1141a> .
 
-<urn:fdo-squirrel:dist/ac9bb2cd89e191c5> a dcat:Distribution, crmdig:D9_Data_Object ;
+<urn:fdo-squirrel:dist/b1059aedfede42f6> a dcat:Distribution, crmdig:D9_Data_Object ;
     dcat:accessURL <urn:fdo-squirrel:content/fdo-metadata.ttl> ;
     dcat:byteSize 23968 ;
     dcat:mediaType "application/octet-stream" ;
     fdo:path "fdo-metadata.ttl" ;
     fdo:role "data" ;
-    fdo:sha256 "ac9bb2cd89e191c5245245b63af68f075ba184661eaa4acd6b5782ab1b2c6cf5" .
+    fdo:sha256 "b1059aedfede42f6eeb0ea1225b9a5e402f5b2c338ecebbc233f63380f02b5b6" .
 
-<urn:fdo-squirrel:dist/9671fa54922e365f> a dcat:Distribution, crmdig:D9_Data_Object ;
+<urn:fdo-squirrel:dist/fc29b8c798786372> a dcat:Distribution, crmdig:D9_Data_Object ;
     dcat:accessURL <urn:fdo-squirrel:content/rdf_modelling_report.json> ;
     dcat:byteSize 26740 ;
     dcat:mediaType "application/json" ;
     fdo:path "rdf_modelling_report.json" ;
     fdo:role "documentation" ;
-    fdo:sha256 "9671fa54922e365f7efe9775e716d7eb1ac4ad4b9ce45d33434d5ee41b64180c" .
+    fdo:sha256 "fc29b8c79878637237e165834b2e09efddd40399b98b096f9b7357a137fb71aa" .
 
-<urn:fdo-squirrel:dist/6fca4e2fa6be4d7d> a dcat:Distribution, crmdig:D9_Data_Object ;
+<urn:fdo-squirrel:dist/5ed53686b05a0789> a dcat:Distribution, crmdig:D9_Data_Object ;
     dcat:accessURL <urn:fdo-squirrel:content/rdf_modelling_report.html> ;
     dcat:byteSize 12566 ;
     dcat:mediaType "text/html" ;
     fdo:path "rdf_modelling_report.html" ;
     fdo:role "data" ;
-    fdo:sha256 "6fca4e2fa6be4d7dd7a3238d1e01ee2b2cff250905a39d2d65ce04e931e118a1" .
+    fdo:sha256 "5ed53686b05a0789aea3ce70785da7c72f9fc17fe175591c4a43c1767e44ec7f" .
 
 <urn:fdo-squirrel:dist/c038334d2068bdd7> a dcat:Distribution, crmdig:D9_Data_Object ;
     dcat:accessURL <urn:fdo-squirrel:content/FDOx.yaml> ;
@@ -431,37 +431,37 @@ _:heritage_object_object_type0_1 rdfs:label "LEGO model (interlocking-brick toy,
     fdo:role "documentation" ;
     fdo:sha256 "ae0aa710ea4270bb6711d10d5e2953ed5af1c33187e0e15feda2a68130ab3673" .
 
-<urn:fdo-squirrel:dist/864fe529b558331c> a dcat:Distribution, crmdig:D9_Data_Object ;
+<urn:fdo-squirrel:dist/8097698c27f1bdba> a dcat:Distribution, crmdig:D9_Data_Object ;
     dcat:accessURL <urn:fdo-squirrel:content/fdo_md_cff.svg> ;
     dcat:byteSize 9929 ;
     dcat:mediaType "image/svg+xml" ;
     fdo:path "fdo_md_cff.svg" ;
     fdo:role "data" ;
-    fdo:sha256 "864fe529b558331cd2def6fbd53bca34e594550c3eabbe42fa6e0075d5c97bd7" .
+    fdo:sha256 "8097698c27f1bdba47541cc4619cc2b36b2da6d21634d2e8d68c05fbde3d0738" .
 
-<urn:fdo-squirrel:dist/b724ae22e11ff8c8> a dcat:Distribution, crmdig:D9_Data_Object ;
+<urn:fdo-squirrel:dist/3ea8b23529052599> a dcat:Distribution, crmdig:D9_Data_Object ;
     dcat:accessURL <urn:fdo-squirrel:content/fdo_md_cff.png> ;
-    dcat:byteSize 215378 ;
+    dcat:byteSize 215394 ;
     dcat:mediaType "image/png" ;
     fdo:path "fdo_md_cff.png" ;
     fdo:role "documentation" ;
-    fdo:sha256 "b724ae22e11ff8c827f2b8f9e89790580af297a14cd2499f68d752e7890dc0ae" .
+    fdo:sha256 "3ea8b23529052599444d8292d5b7c116dfdc4de98ba91079612641918fadc27b" .
 
-<urn:fdo-squirrel:dist/56e2292b60b6aa08> a dcat:Distribution, crmdig:D9_Data_Object ;
+<urn:fdo-squirrel:dist/a97e9310f22eec48> a dcat:Distribution, crmdig:D9_Data_Object ;
     dcat:accessURL <urn:fdo-squirrel:content/fdo_md_cff_graph.svg> ;
     dcat:byteSize 13313 ;
     dcat:mediaType "image/svg+xml" ;
     fdo:path "fdo_md_cff_graph.svg" ;
     fdo:role "data" ;
-    fdo:sha256 "56e2292b60b6aa081c0d28f914e7dcbbc2b14dc1e3f73712d753b18dffbc7855" .
+    fdo:sha256 "a97e9310f22eec48b810b916ae44b2085cd4dd41d6e18a5da1edbbea954d4576" .
 
-<urn:fdo-squirrel:dist/aac373879061b739> a dcat:Distribution, crmdig:D9_Data_Object ;
+<urn:fdo-squirrel:dist/34d2f9778bcd0601> a dcat:Distribution, crmdig:D9_Data_Object ;
     dcat:accessURL <urn:fdo-squirrel:content/fdo_md_cff_graph.png> ;
-    dcat:byteSize 183569 ;
+    dcat:byteSize 183546 ;
     dcat:mediaType "image/png" ;
     fdo:path "fdo_md_cff_graph.png" ;
     fdo:role "documentation" ;
-    fdo:sha256 "aac373879061b7393280109d78792f229f1e718e6f8bde1cbf81d219ce72b278" .
+    fdo:sha256 "34d2f9778bcd0601dada465d6f5633285898edfd20894c3ae967090cace0d14f" .
 
 <urn:fdo-squirrel:dist/7b1b09c2211deb84> a dcat:Distribution, crmdig:D9_Data_Object ;
     dcat:accessURL <urn:fdo-squirrel:content/fdo_overview.mermaid> ;
@@ -471,53 +471,53 @@ _:heritage_object_object_type0_1 rdfs:label "LEGO model (interlocking-brick toy,
     fdo:role "data" ;
     fdo:sha256 "7b1b09c2211deb84506462156e1b71e14c9acc1e1ddf0483f29732722eef77d6" .
 
-<urn:fdo-squirrel:dist/8d9a4fea6c2c4574> a dcat:Distribution, crmdig:D9_Data_Object ;
+<urn:fdo-squirrel:dist/b31769ec672b2f5d> a dcat:Distribution, crmdig:D9_Data_Object ;
     dcat:accessURL <urn:fdo-squirrel:content/fdo_ttl_snippet_metadata.svg> ;
     dcat:byteSize 5683 ;
     dcat:mediaType "image/svg+xml" ;
     fdo:path "fdo_ttl_snippet_metadata.svg" ;
     fdo:role "data" ;
-    fdo:sha256 "8d9a4fea6c2c45747cccd3a2a27d20ff66964dea30ae188ec0543128206f587b" .
+    fdo:sha256 "b31769ec672b2f5d83d914079436e19e617947577b4abd9d0aef5f5f172104ae" .
 
-<urn:fdo-squirrel:dist/05e321654b0866a5> a dcat:Distribution, crmdig:D9_Data_Object ;
+<urn:fdo-squirrel:dist/ba589477f6081e6f> a dcat:Distribution, crmdig:D9_Data_Object ;
     dcat:accessURL <urn:fdo-squirrel:content/fdo_ttl_snippet_metadata.png> ;
-    dcat:byteSize 305578 ;
+    dcat:byteSize 305282 ;
     dcat:mediaType "image/png" ;
     fdo:path "fdo_ttl_snippet_metadata.png" ;
     fdo:role "documentation" ;
-    fdo:sha256 "05e321654b0866a5ca5bb763c0ef53f062cb86be6fd2765de2d55aaf3aef6714" .
+    fdo:sha256 "ba589477f6081e6f41386231fcb7d9978317db2ea63790915bbc35e53927d8cd" .
 
-<urn:fdo-squirrel:dist/50060c12e3f7787d> a dcat:Distribution, crmdig:D9_Data_Object ;
+<urn:fdo-squirrel:dist/055ee71cb71a011f> a dcat:Distribution, crmdig:D9_Data_Object ;
     dcat:accessURL <urn:fdo-squirrel:content/fdo_ttl_snippet_distributions.svg> ;
     dcat:byteSize 5736 ;
     dcat:mediaType "image/svg+xml" ;
     fdo:path "fdo_ttl_snippet_distributions.svg" ;
     fdo:role "data" ;
-    fdo:sha256 "50060c12e3f7787da4119a3968893ed6bf3ee2d0a81d3b6f7c9934e5fa826fcc" .
+    fdo:sha256 "055ee71cb71a011f2b0295bf837ec47b5714b862a2a4ce60035367f8fda8612c" .
 
-<urn:fdo-squirrel:dist/656d57f27ed2cdf0> a dcat:Distribution, crmdig:D9_Data_Object ;
+<urn:fdo-squirrel:dist/5121959e809bee9a> a dcat:Distribution, crmdig:D9_Data_Object ;
     dcat:accessURL <urn:fdo-squirrel:content/fdo_ttl_snippet_distributions.png> ;
-    dcat:byteSize 258879 ;
+    dcat:byteSize 260305 ;
     dcat:mediaType "image/png" ;
     fdo:path "fdo_ttl_snippet_distributions.png" ;
     fdo:role "documentation" ;
-    fdo:sha256 "656d57f27ed2cdf04bb76d236796a52e86dde78f349583c4a6870b12b292c083" .
+    fdo:sha256 "5121959e809bee9ae4175007cb495e94f7ee0e492bb66500b4fc081d33df3e53" .
 
-<urn:fdo-squirrel:dist/2e10fccaceb68d5d> a dcat:Distribution, crmdig:D9_Data_Object ;
+<urn:fdo-squirrel:dist/674531cbf00239eb> a dcat:Distribution, crmdig:D9_Data_Object ;
     dcat:accessURL <urn:fdo-squirrel:content/fdo_ttl_snippet_links.svg> ;
     dcat:byteSize 2653 ;
     dcat:mediaType "image/svg+xml" ;
     fdo:path "fdo_ttl_snippet_links.svg" ;
     fdo:role "data" ;
-    fdo:sha256 "2e10fccaceb68d5d242f03c4280ece8f6074733337445054e52ca623d9116e70" .
+    fdo:sha256 "674531cbf00239ebef5aea91ec676a9385a710f364353c340b2c885e277959ed" .
 
-<urn:fdo-squirrel:dist/fb069753c73f9bf1> a dcat:Distribution, crmdig:D9_Data_Object ;
+<urn:fdo-squirrel:dist/657a1996e07a1311> a dcat:Distribution, crmdig:D9_Data_Object ;
     dcat:accessURL <urn:fdo-squirrel:content/fdo_ttl_snippet_links.png> ;
-    dcat:byteSize 148720 ;
+    dcat:byteSize 148532 ;
     dcat:mediaType "image/png" ;
     fdo:path "fdo_ttl_snippet_links.png" ;
     fdo:role "documentation" ;
-    fdo:sha256 "fb069753c73f9bf15441fd585902cfcc1a39bb677228b2ebc41d20732cc7b000" .
+    fdo:sha256 "657a1996e07a131122f0c5fad0d64c702860ff5aff2c231a9e7491339f2fe01c" .
 
 <urn:fdo-squirrel:dist/16e88ba4536e2447> a dcat:Distribution, crmdig:D9_Data_Object ;
     dcat:accessURL <urn:fdo-squirrel:content/fdo-landing-page.html> ;
@@ -527,11 +527,11 @@ _:heritage_object_object_type0_1 rdfs:label "LEGO model (interlocking-brick toy,
     fdo:role "data" ;
     fdo:sha256 "16e88ba4536e2447278c8ce8d01f789d913d78127a46c237e8edf91d8da9148e" .
 
-<urn:fdo-squirrel:dist/516a2d8e42714d68> a dcat:Distribution, crmdig:D9_Data_Object ;
+<urn:fdo-squirrel:dist/441b77c903b1141a> a dcat:Distribution, crmdig:D9_Data_Object ;
     dcat:accessURL <urn:fdo-squirrel:content/ro-crate-metadata.json> ;
     dcat:byteSize 24591 ;
     dcat:mediaType "application/json" ;
     fdo:path "ro-crate-metadata.json" ;
     fdo:role "documentation" ;
-    fdo:sha256 "516a2d8e42714d68eddae5f3d3d873a15df0ddc7cd731eb9b6e05a1f7d9e4955" .
+    fdo:sha256 "441b77c903b1141ae6b27ee786071ee7bf19e6dc0cabddb914371c6ed0516688" .
 
