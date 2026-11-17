@@ -1953,13 +1953,30 @@ behoben; `fdo:RegistryFDO` als Typ ist seit S8 in Benutzung.
 
 ### Nachtrag 2026-11-17, vier LEGO-Pyramiden-FDOx aufgenommen
 
-Flo hat die vier Pyramiden-FDOx (Concept-DOIs 24305240, 24305343, 24305428, 24305438) veröffentlicht; `sources.json` wurde per Skript um vier Einträge ergänzt, die Versions-DOIs fragt das Skript bei Zenodo ab.
+Flo hat die vier Pyramiden-FDOx veröffentlicht. `sources.json` ist kuratorisch um vier Einträge ergänzt worden (Concept-DOI → gepinnte Versions-DOI):
 
-- **Befund 1:** Das SHACL-Gate wurde rot (3 Verstösse „No CRM anchor"), jeweils der `dcat:Relationship`-Knoten der Scan↔Rekonstruktion-Verknüpfung. Behebung: Crosswalk-Zeile `dcat:Relationship` → `crm:E13_Attribute_Assignment` (`instance`), siehe A4.
-- **Befund 2:** Warnung beim Bündeln: das Paket 24305429 (Maya-Scan) trägt als Subjekt `…24305240` statt `…24305428`. Das veröffentlichte ZIP hat also eine falsche `id`; neue Zenodo-Version nötig.
-- **Befund 3:** Die Concept-ID 24305438 löst auf einen fremden Record („Simulator for Topological Tensor Networks", Versions-ID 24305439). Die DOI der Maya-Rekonstruktion ist zu klären; der Eintrag bleibt bis dahin ausser Betracht.
+| FDOx | Concept-DOI | gepinnte Version |
+|---|---|---|
+| Pyramide, KIRI-Scan | 10.5281/zenodo.24305240 | 24305241 (v1) |
+| Pyramide, Rekonstruktion | 10.5281/zenodo.24305343 | 24305344 (v1) |
+| Maya-Pyramide, KIRI-Scan | 10.5281/zenodo.24305428 | 24310015 (v3) |
+| Maya-Pyramide, Rekonstruktion | 10.5281/zenodo.24305436 | 24310030 (v2) |
 
-**Offen:** Versions-DOIs der korrigierten Pakete nach der neuen Zenodo-Version eintragen; Registry-Pin `fdo-squirrel@504b7af` bei Gelegenheit auf v1.3.0 heben.
+Stand nach dem Lauf: 13 Einträge in `sources.json`, 12 Records im Katalog (Heinz Eau, 18740524, bleibt wie zuvor „skipped“: kein `fdo-metadata.ttl` im ZIP), SHACL-Gate `conforms: True, 13 pinned records`, `catalogue-overview` 12 Zeilen wie der Index.
+
+**Befunde dieses Laufs**
+
+1. **Gate rot, 3 × „No CRM anchor“.** Betroffen waren die `dcat:Relationship`-Knoten der Scan↔Rekonstruktion-Verknüpfung (fdo-squirrel v1.3.0, `note` an `related_resources`). Behebung: Zeile `dcat:Relationship` → `crm:E13_Attribute_Assignment` (`instance`) in `crosswalks/fdo--crm.csv`, Beschluss in A4 (Vorschlag).
+2. **Falsche Datei im Zenodo-Record des Maya-Scans.** Version v1 (24305429) enthielt das Bundle der ersten Pyramide (`lego-pyramid-kiri-original-fdo-bundle.zip`, MD5 `defdada2…`, 26 MB) statt des Maya-Bundles. Die Registry zeigte das als `package subject …24305240 is not its concept DOI …24305428` und als Abweichung `catalogue-overview` (10 Zeilen, 11 Index-Einträge), weil zwei Records dieselbe Dataset-IRI trugen. Behebung: neue Zenodo-Version mit dem richtigen Bundle.
+3. **Falsche Concept-DOI in den Overrides.** `10.5281/zenodo.24305438` gehört zu einem fremden Record („Simulator for Topological Tensor Networks“, Versions-ID 24305439). Die Maya-Rekonstruktion hat die Concept-DOI `…24305436`. Die falsche DOI stand in der `id` und in der `doi` der Rekonstruktion und im Link des Maya-Scans. Behebung: DOI in `data/local-metadata` korrigiert, beide Bundles neu gebaut und als neue Zenodo-Versionen veröffentlicht (Scan v3, Rekonstruktion v2).
+4. **Das Eintragsskript prüfte zu wenig.** Es verglich nur Concept-ID und Record-ID, zeigte den Titel an und schrieb den fremden Record trotzdem in `sources.json`. Aufgefallen ist es am Titel in der Ausgabe und am fehlenden `fdo-metadata.ttl`. Lehre: Beim Eintragen neuer DOIs den Titel gegen die Erwartung prüfen; ein Titel, der nicht passt, ist ein Abbruchgrund.
+
+**Offen aus diesem Lauf**
+
+- Registry-Pin `fdo-squirrel@504b7af` in `requirements.txt` bei Gelegenheit auf v1.3.0 heben.
+- `mmdc … unknown option '-w'` beim Release-Schritt: Mermaid-Bild wird nicht erzeugt, gehört zu fdo-squirrel.
+- Das Registry-Release-Bundle (`dist/release/_release_stage-fdo-bundle.zip`) ist weiterhin nicht auf Zenodo veröffentlicht (S8, von Hand).
+
 
 # Teil D — Offene Punkte
 
