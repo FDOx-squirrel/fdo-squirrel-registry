@@ -567,6 +567,7 @@ dem es zum ersten Mal wirkt.
 | `check-updates` | eigener Netzschritt, ändert nichts. Meldet neuere Versionen gepinnter Records *und* Records der Zenodo-Community `squirrel-fdo`, die nicht in `sources.json` stehen | 2026-09-03 |
 | Labels für fremde IRIs | kuratierte `registry/labels.json`, von Hand gepflegt, mit Unterstützung: `python main.py --only index` schreibt jede IRI ohne Label nach `dist/labels_missing.json`, fertig zum Ausfüllen. Ein `null`-Label heisst „gesehen, noch nicht benannt"; die Seite zeigt dann die nackte Kennung und verlinkt zur Quelle. Labels sind reine Anzeige und kommen in keinen Graphen | 2026-09-03 |
 | SquirrelBase-Q-ID | kuratiertes Feld `squirrelbase_item` in `registry/sources.json`, im Bundle als `fdoreg:squirrelbaseItem` am `dcat:CatalogRecord` (`rdfs:subPropertyOf crm:P67_refers_to`). Aus dem ZIP-Dateinamen *abgeleitet* wird sie nicht — die drei Zuordnungen Q55/Q56/Q60 stammen aus der Tabelle in A1 und sind vom Menschen zu bestätigen | 2026-09-03 |
+| `dcat:Relationship` im CRM-Anker | fdo-squirrel v1.3.0 schreibt die `note` einer verwandten Ressource als `dcat:qualifiedRelation`-Knoten (`dcat:Relationship`, Blank Node). Der Knoten bekommt in `crosswalks/fdo--crm.csv` per Zeile (`instance`) die Klasse `crm:E13_Attribute_Assignment`, sonst schlägt die Regel „No CRM anchor" an. E13 ist eine Deutung (Aussage des Pakets über eine Beziehung), kein Axiom aus DCAT | Vorschlag 2026-11-17 |
 | IRI-Form der SquirrelBase | eine Konstante `SQUIRRELBASE_ENTITY_NS` in `py/registry_utils.py`, nicht je Eintrag wiederholt. Steht auf `https://squirrelbase.wikibase.cloud/entity/`, **ungeprüft** gegen die laufende Instanz; jeder Bundle-Lauf sagt das dazu. Auf `None` gesetzt bleibt das Tripel ganz draussen | 2026-09-03, zu prüfen |
 | Form der Seite | `docs/index.html` mit eingebettetem Index plus je Eintrag eine statische `docs/record/<id>.html`. Eingebettet, weil `fetch()` unter `file://` scheitert (Befund 25); je Eintrag eine Datei, weil A6 dem Record einen eigenen Pfad gibt und ein w3id-Redirect auf ein Fragment nicht zeigen kann | 2026-09-03 |
 | Welches `dct:description` die Seite zeigt | das längste. Die kurzen Werte („good", „low") sind erkennbar andere `MD.cff`-Felder; welches wohin gehört, weiss nur der Autor (A4, Grenze der Reparatur). Die Detailseite nennt die übrigen und sagt, dass die Quelle mehrdeutig ist | 2026-09-03 |
@@ -1949,6 +1950,16 @@ Erledigt aus derselben Liste: doppelte Prozentkodierung in
 behoben; `fdo:RegistryFDO` als Typ ist seit S8 in Benutzung.
 
 ---
+
+### Nachtrag 2026-11-17, vier LEGO-Pyramiden-FDOx aufgenommen
+
+Flo hat die vier Pyramiden-FDOx (Concept-DOIs 24305240, 24305343, 24305428, 24305438) veröffentlicht; `sources.json` wurde per Skript um vier Einträge ergänzt, die Versions-DOIs fragt das Skript bei Zenodo ab.
+
+- **Befund 1:** Das SHACL-Gate wurde rot (3 Verstösse „No CRM anchor"), jeweils der `dcat:Relationship`-Knoten der Scan↔Rekonstruktion-Verknüpfung. Behebung: Crosswalk-Zeile `dcat:Relationship` → `crm:E13_Attribute_Assignment` (`instance`), siehe A4.
+- **Befund 2:** Warnung beim Bündeln: das Paket 24305429 (Maya-Scan) trägt als Subjekt `…24305240` statt `…24305428`. Das veröffentlichte ZIP hat also eine falsche `id`; neue Zenodo-Version nötig.
+- **Befund 3:** Die Concept-ID 24305438 löst auf einen fremden Record („Simulator for Topological Tensor Networks", Versions-ID 24305439). Die DOI der Maya-Rekonstruktion ist zu klären; der Eintrag bleibt bis dahin ausser Betracht.
+
+**Offen:** Versions-DOIs der korrigierten Pakete nach der neuen Zenodo-Version eintragen; Registry-Pin `fdo-squirrel@504b7af` bei Gelegenheit auf v1.3.0 heben.
 
 # Teil D — Offene Punkte
 

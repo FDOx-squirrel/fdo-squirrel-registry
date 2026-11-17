@@ -220,7 +220,7 @@ the reason beside it.</p>
 </tbody>
 </table>
 
-<h2>instance <span class="meta">&mdash; 20 rows</span></h2>
+<h2>instance <span class="meta">&mdash; 21 rows</span></h2>
 <table class="instance">
 <thead><tr>
   <th>Term</th><th>Kind</th><th>Target</th><th>Profile / source</th><th>Note</th>
@@ -385,6 +385,14 @@ the reason beside it.</p>
   <td class="target term">crmgeo:SP5_Geometric_Place_Expression</td>
   <td class="rule">section 2 Spatial data</td>
   <td class="note">The profile replaces E94 Space Primitive with a GeoSPARQL geometry and points at CRMgeo for the CRM side of that bridge. A WKT point in a coordinate reference system is precisely an SP5 Geometric Place Expression, so typing these seven nodes gives the geometry a CRM anchor without asserting anything about geo:Geometry in general.</td>
+</tr>
+
+<tr>
+  <td class="term">dcat:Relationship</td>
+  <td>class</td>
+  <td class="target term">crm:E13_Attribute_Assignment</td>
+  <td class="rule"></td>
+  <td class="note">Materialised per instance. fdo-squirrel v1.3.0 writes the `note` of a related resource as a `dcat:qualifiedRelation` node (`dcat:Relationship` with `dct:relation`, `dcat:hadRole` and `rdfs:comment`): a statement about how two resources are related, made by the package. E13 Attribute Assignment is the CRM class for such a statement about a property of an entity. Foreign namespace and not a CRM axiom of DCAT, so anchored rather than axiomatised (A3). Proposal, to be confirmed in the registry PRIMER (A4).</td>
 </tr>
 
 </tbody>
@@ -575,28 +583,28 @@ registry can read.</p>
   <td class="term">data</td>
   <td>Data</td>
   <td class="note">A data file that is neither a model, documentation, metadata nor code.</td>
-  <td class="count">29</td>
+  <td class="count">49</td>
 </tr>
 
 <tr>
   <td class="term">documentation</td>
   <td>Documentation</td>
   <td class="note">Human-readable documentation of the package or of the object it describes.</td>
-  <td class="count">141</td>
+  <td class="count">156</td>
 </tr>
 
 <tr>
   <td class="term">metadata</td>
   <td>Metadata</td>
   <td class="note">A file describing the package or its contents, such as MD.cff or CITATION.cff.</td>
-  <td class="count">12</td>
+  <td class="count">14</td>
 </tr>
 
 <tr>
   <td class="term">model</td>
   <td>3D model</td>
   <td class="note">A file holding the three-dimensional geometry or texture of the documented object.</td>
-  <td class="count">20</td>
+  <td class="count">24</td>
 </tr>
 
 <tr>

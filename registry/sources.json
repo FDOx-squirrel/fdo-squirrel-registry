@@ -57,6 +57,18 @@
       "concept_doi": "10.5281/zenodo.22676379",
       "note": "Freshford: St Lachtain's Well (FDOx)",
       "version_doi": "10.5281/zenodo.22676380"
+    },
+    {
+      "added": "2026-11-17",
+      "concept_doi": "10.5281/zenodo.24305240",
+      "note": "LEGO-Pyramide: KIRI-Scan (FDOx)",
+      "version_doi": "10.5281/zenodo.24305241"
+    },
+    {
+      "added": "2026-11-17",
+      "concept_doi": "10.5281/zenodo.24305343",
+      "note": "LEGO-Pyramide: Rekonstruktion claude.ai (FDOx)",
+      "version_doi": "10.5281/zenodo.24305344"
     }
   ]
 }

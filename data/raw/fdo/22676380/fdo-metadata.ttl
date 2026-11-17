@@ -1,0 +1,518 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix fdo: <https://w3id.org/fdo-squirrel/> .
+@prefix schema: <https://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix geosparql: <http://www.opengis.net/ont/geosparql#> .
+@prefix sf: <http://www.opengis.net/ont/sf#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix codemeta: <https://codemeta.github.io/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix cff: <https://citation-file-format.github.io/terms/> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix wdt: <http://www.wikidata.org/prop/direct/> .
+@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix crmdig: <http://www.ics.forth.gr/isl/CRMdig/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+<urn:fdo-squirrel:unpublished/freshford-st-lachtains-well-low-poly> a dcat:Dataset, crmdig:D1_Digital_Object, crm:E73_Information_Object, fdo:3DDataFDO ;
+    prov:wasGeneratedBy <urn:fdo-squirrel:activity/build> ;
+    dct:description "Low resolution model of St. Lachtain's well in Freshford. The flower decorations were not there at my last few visits. A lady in the village told me that the water is supposed to heal sores. I would not recommend trying that, especially after the hedgehog has been floating in there for a while.\n\nWikidata: Q121840779\n\nSMR no: KK013-025----\n\nMade in KiriEngine from 156 images." ;
+    dct:creator <urn:fdo-squirrel:person/2424425c3325db08> ;
+    dct:license <http://creativecommons.org/licenses/by/4.0/> ;
+    dct:publisher <http://www.wikidata.org/entity/Q73901970> ;
+    dct:title "Freshford: St Lachtain's Well (low poly)" ;
+    dcat:distribution <urn:fdo-squirrel:dist/4fc1d5c932128fdd>,<urn:fdo-squirrel:dist/f3739bbc98ed6a3d>,<urn:fdo-squirrel:dist/1f703b8d72330398>,<urn:fdo-squirrel:dist/c32ea5ffa47a873b>,<urn:fdo-squirrel:dist/3f40399215e7d5ca>,<urn:fdo-squirrel:dist/954e734d3413e7c7>,<urn:fdo-squirrel:dist/6205f9564818dc7a>,<urn:fdo-squirrel:dist/a22e21b75dab02fb>,<urn:fdo-squirrel:dist/5782d58d11437c0f>,<urn:fdo-squirrel:dist/04b54942c91c510e>,<urn:fdo-squirrel:dist/0e623d3c26743f35>,<urn:fdo-squirrel:dist/6132a60724847178>,<urn:fdo-squirrel:dist/f7f6a5894f1d19dd>,<urn:fdo-squirrel:dist/012d3ae0f6007283>,<urn:fdo-squirrel:dist/4ceb643e8b6d7cd2>,<urn:fdo-squirrel:dist/b4416be937053d8a>,<urn:fdo-squirrel:dist/f6e15e9e5f49e3de>,<urn:fdo-squirrel:dist/fe753c2685ec886c>,<urn:fdo-squirrel:dist/cf14dd446fc3537f>,<urn:fdo-squirrel:dist/5ed91bb5c3d8a4b1>,<urn:fdo-squirrel:dist/50e62db9b10cc50c>,<urn:fdo-squirrel:dist/ada023eb80b0ce5c>,<urn:fdo-squirrel:dist/0b383d5a63da644f>,<urn:fdo-squirrel:dist/1a8195ca9d0812e7>,<urn:fdo-squirrel:dist/0e4d58088180effe>,<urn:fdo-squirrel:dist/3b2a44995e927286>,<urn:fdo-squirrel:dist/536c5576e2ee7561>,<urn:fdo-squirrel:dist/2ad4f592d31cf358>,<urn:fdo-squirrel:dist/9fd7be788d73ee57>,<urn:fdo-squirrel:dist/25108ed495e10582>,<urn:fdo-squirrel:dist/e221c116fce7a4fc>,<urn:fdo-squirrel:dist/ff48136f9eeca235> ;
+    dct:created "2024-06-12"^^xsd:date ;
+    dct:issued "2024-06-12"^^xsd:date ;
+    dcat:keyword "3D data" ;
+    dct:subject <http://www.wikidata.org/entity/Q229370> ;
+    dcat:keyword "Cultural Heritage" ;
+    dct:subject <http://www.wikidata.org/entity/Q110840> ;
+    dcat:keyword "ireland" ;
+    dcat:keyword "holywell" ;
+    dcat:keyword "holy-well" ;
+    dcat:keyword "kilkenny3d" ;
+    dcat:keyword "kiriengine" ;
+    dcat:keyword "Cultural Heritage & History" ;
+    dct:relation <https://sketchfab.com/3d-models/freshford-st-lachtains-well-low-poly-ae1e1f4daa7d433dbbf076407134e81e> ;
+    dct:provenance "Sketchfab upload: 11,347 faces, 5,991 vertices."  .
+
+<https://sketchfab.com/3d-models/freshford-st-lachtains-well-low-poly-ae1e1f4daa7d433dbbf076407134e81e> rdfs:label "Source: Freshford: St Lachtain's Well (low poly)" .
+
+<http://www.wikidata.org/entity/Q73901970> a schema:Organization ;
+    schema:name "Research Squirrel Engineers Network" .
+
+<urn:fdo-squirrel:activity/build> a prov:Activity ;
+    prov:wasAssociatedWith <urn:fdo-squirrel:agent/fdo-squirrel> .
+
+<urn:fdo-squirrel:agent/fdo-squirrel> a prov:SoftwareAgent, schema:SoftwareApplication ;
+    schema:name "fdo-squirrel" ;
+    schema:softwareVersion "0.3.1" ;
+    schema:codeRepository <https://github.com/FDOx-squirrel/fdo-squirrel> .
+
+<urn:fdo-squirrel:person/2424425c3325db08> a schema:Person ;
+    schema:name "b-unicycling" .
+
+<urn:fdo-squirrel:dist/4fc1d5c932128fdd> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/MD.cff> ;
+    dcat:byteSize 1498 ;
+    dcat:mediaType "text/yaml" ;
+    fdo:path "MD.cff" ;
+    fdo:role "metadata" ;
+    fdo:sha256 "4fc1d5c932128fdde25ba0703ce449ad071176da553d4a7b84efd695eb4cb191"  .
+
+<urn:fdo-squirrel:dist/f3739bbc98ed6a3d> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/CITATION.cff> ;
+    dcat:byteSize 514 ;
+    dcat:mediaType "text/yaml" ;
+    fdo:path "CITATION.cff" ;
+    fdo:role "metadata" ;
+    fdo:sha256 "f3739bbc98ed6a3de065b0ad87f938588f73b7fc44dca2c1f1c553e9da25f531"  .
+
+<urn:fdo-squirrel:dist/1f703b8d72330398> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/data/model/model.obj> ;
+    dcat:byteSize 1092434 ;
+    dcat:mediaType "model/obj" ;
+    fdo:path "data/model/model.obj" ;
+    fdo:role "model" ;
+    fdo:sha256 "1f703b8d723303988b0e8e12fecf68651d090ceed5725ac6315da172d9c76c4c"  .
+
+<urn:fdo-squirrel:dist/c32ea5ffa47a873b> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/data/model/model.mtl> ;
+    dcat:byteSize 271 ;
+    dcat:mediaType "application/octet-stream" ;
+    fdo:path "data/model/model.mtl" ;
+    fdo:role "model" ;
+    fdo:sha256 "c32ea5ffa47a873b0505cc9a998001da3d675c4381bf6e3620d336e357dd9acb"  .
+
+<urn:fdo-squirrel:dist/3f40399215e7d5ca> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/data/model/model.nxs> ;
+    dcat:byteSize 6825728 ;
+    dcat:mediaType "application/octet-stream" ;
+    fdo:path "data/model/model.nxs" ;
+    fdo:role "model" ;
+    fdo:sha256 "3f40399215e7d5caa77ed332d957a1c82789bfb8c4bd99d5840c201f0a69f1e7"  .
+
+<urn:fdo-squirrel:dist/954e734d3413e7c7> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/data/model/model.nxz> ;
+    dcat:byteSize 6436864 ;
+    dcat:mediaType "application/octet-stream" ;
+    fdo:path "data/model/model.nxz" ;
+    fdo:role "model" ;
+    fdo:sha256 "954e734d3413e7c7c6d1fb37069ddc1ebcb95de867dcf0441e8949145ef11b4c"  .
+
+<urn:fdo-squirrel:dist/6205f9564818dc7a> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/data/textures/3DModel_LowPoly_baseColor.jpeg> ;
+    dcat:byteSize 6820957 ;
+    dcat:mediaType "image/jpeg" ;
+    fdo:path "data/textures/3DModel_LowPoly_baseColor.jpeg" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "6205f9564818dc7ab5cb30a3d86320cd4bae8e6657def638d4704be5f16d3d46"  .
+
+<urn:fdo-squirrel:dist/a22e21b75dab02fb> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/data/images/preview.png> ;
+    dcat:byteSize 1474497 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "data/images/preview.png" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "a22e21b75dab02fb5c6b94e0e6034d5e6aa6d0c59ded8f864025cad493cf61de"  .
+
+<urn:fdo-squirrel:dist/5782d58d11437c0f> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/viewer/index.html> ;
+    dcat:byteSize 3017 ;
+    dcat:mediaType "text/html" ;
+    fdo:path "viewer/index.html" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "5782d58d11437c0f31e0b4b83f2daa9fc21b6875399abb37db6e5d84f417795b"  .
+
+<urn:fdo-squirrel:dist/04b54942c91c510e> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/viewer/js/corto.em.js> ;
+    dcat:byteSize 119263 ;
+    dcat:mediaType "application/javascript" ;
+    fdo:path "viewer/js/corto.em.js" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "04b54942c91c510e882664ebccea4797f778651ac752a96a215fb7f66219c87f"  .
+
+<urn:fdo-squirrel:dist/0e623d3c26743f35> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/viewer/js/corto.js> ;
+    dcat:byteSize 27809 ;
+    dcat:mediaType "application/javascript" ;
+    fdo:path "viewer/js/corto.js" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "0e623d3c26743f35eb18415378674c75c60928cf8c1ef3a7910d5bc115b72447"  .
+
+<urn:fdo-squirrel:dist/6132a60724847178> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/viewer/js/init.js> ;
+    dcat:byteSize 21598 ;
+    dcat:mediaType "application/javascript" ;
+    fdo:path "viewer/js/init.js" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "6132a60724847178a5438548cce1633c327f48a78db202ae54e8f05f6d0b0c3e"  .
+
+<urn:fdo-squirrel:dist/f7f6a5894f1d19dd> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/viewer/js/jquery.js> ;
+    dcat:byteSize 89476 ;
+    dcat:mediaType "application/javascript" ;
+    fdo:path "viewer/js/jquery.js" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "f7f6a5894f1d19ddad6fa392b2ece2c5e578cbf7da4ea805b6885eb6985b6e3d"  .
+
+<urn:fdo-squirrel:dist/012d3ae0f6007283> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/viewer/js/meco.js> ;
+    dcat:byteSize 26193 ;
+    dcat:mediaType "application/javascript" ;
+    fdo:path "viewer/js/meco.js" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "012d3ae0f600728308dd47552298d7dc9e38390c67cfc3c8a1ac2cd31ba09afc"  .
+
+<urn:fdo-squirrel:dist/4ceb643e8b6d7cd2> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/viewer/js/nexus.js> ;
+    dcat:byteSize 38388 ;
+    dcat:mediaType "application/javascript" ;
+    fdo:path "viewer/js/nexus.js" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "4ceb643e8b6d7cd26bce53419bc6a781674c4a714f22525716e9e2b6e4469c83"  .
+
+<urn:fdo-squirrel:dist/b4416be937053d8a> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/viewer/js/ply.js> ;
+    dcat:byteSize 29251 ;
+    dcat:mediaType "application/javascript" ;
+    fdo:path "viewer/js/ply.js" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "b4416be937053d8a0f938940805374abb298de26481def809c8e4c2fcc00c1a9"  .
+
+<urn:fdo-squirrel:dist/f6e15e9e5f49e3de> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/viewer/js/presenter.js> ;
+    dcat:byteSize 135389 ;
+    dcat:mediaType "application/javascript" ;
+    fdo:path "viewer/js/presenter.js" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "f6e15e9e5f49e3dec53f1a31dff4d6091c8b7aa4dd65793655dd22eb9c6497e3"  .
+
+<urn:fdo-squirrel:dist/fe753c2685ec886c> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/viewer/js/spidergl.js> ;
+    dcat:byteSize 190272 ;
+    dcat:mediaType "application/javascript" ;
+    fdo:path "viewer/js/spidergl.js" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "fe753c2685ec886cfce08a07f8f9e0a48bd2ae197694eae84de53de129414690"  .
+
+<urn:fdo-squirrel:dist/cf14dd446fc3537f> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/viewer/js/trackball_pantilt.js> ;
+    dcat:byteSize 12476 ;
+    dcat:mediaType "application/javascript" ;
+    fdo:path "viewer/js/trackball_pantilt.js" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "cf14dd446fc3537fc5f988d3eab11b8bb30daa1b2a3f906a7f319f22c86c2058"  .
+
+<urn:fdo-squirrel:dist/5ed91bb5c3d8a4b1> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/viewer/js/trackball_sphere.js> ;
+    dcat:byteSize 6252 ;
+    dcat:mediaType "application/javascript" ;
+    fdo:path "viewer/js/trackball_sphere.js" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "5ed91bb5c3d8a4b1e19631014d4250f82a0ff045bd10765360c024219944a667"  .
+
+<urn:fdo-squirrel:dist/50e62db9b10cc50c> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/viewer/js/trackball_turntable.js> ;
+    dcat:byteSize 10700 ;
+    dcat:mediaType "application/javascript" ;
+    fdo:path "viewer/js/trackball_turntable.js" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "50e62db9b10cc50c669e74ad26e92d9f7623ccfa6dcbed30d2aaca9f92f78b3e"  .
+
+<urn:fdo-squirrel:dist/ada023eb80b0ce5c> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/viewer/js/trackball_turntable_pan.js> ;
+    dcat:byteSize 15658 ;
+    dcat:mediaType "application/javascript" ;
+    fdo:path "viewer/js/trackball_turntable_pan.js" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "ada023eb80b0ce5cb03853ab091e028d56c3c830bb5eaa55b7e57673ab9a583b"  .
+
+<urn:fdo-squirrel:dist/0b383d5a63da644f> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/viewer/LICENSE.txt> ;
+    dcat:byteSize 35821 ;
+    dcat:mediaType "text/plain" ;
+    fdo:path "viewer/LICENSE.txt" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "0b383d5a63da644f628d99c33976ea6487ed89aaa59f0b3257992deac1171e6b"  .
+
+<urn:fdo-squirrel:dist/1a8195ca9d0812e7> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/viewer/skins/backgrounds/light.jpg> ;
+    dcat:byteSize 142700 ;
+    dcat:mediaType "image/jpeg" ;
+    fdo:path "viewer/skins/backgrounds/light.jpg" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "1a8195ca9d0812e7aa881cb9730d4c34a50eb58ac13a3de12b6c3fc4dedc0c4d"  .
+
+<urn:fdo-squirrel:dist/0e4d58088180effe> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/viewer/skins/dark/full.png> ;
+    dcat:byteSize 1272 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "viewer/skins/dark/full.png" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "0e4d58088180effe13afcb4583bc938ecdbd6f738330c7a6734e9df2e534ab1a"  .
+
+<urn:fdo-squirrel:dist/3b2a44995e927286> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/viewer/skins/dark/full_on.png> ;
+    dcat:byteSize 1272 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "viewer/skins/dark/full_on.png" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "3b2a44995e9272862c6b9e192f366b73cbf848b7e247bcb477cb3aa6edc9d73e"  .
+
+<urn:fdo-squirrel:dist/536c5576e2ee7561> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/viewer/skins/dark/home.png> ;
+    dcat:byteSize 1807 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "viewer/skins/dark/home.png" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "536c5576e2ee7561bc75845b511ef82ba69f801edb3c11b8154580f2695d4042"  .
+
+<urn:fdo-squirrel:dist/2ad4f592d31cf358> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/viewer/skins/dark/lightcontrol.png> ;
+    dcat:byteSize 3342 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "viewer/skins/dark/lightcontrol.png" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "2ad4f592d31cf35838405ea47413111ea1d2307f7e155d32744a714f2e304488"  .
+
+<urn:fdo-squirrel:dist/9fd7be788d73ee57> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/viewer/skins/dark/lightcontrol_on.png> ;
+    dcat:byteSize 3502 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "viewer/skins/dark/lightcontrol_on.png" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "9fd7be788d73ee570f64df3aa8d3be9feeeffd36e13841acf27946bcf98b0440"  .
+
+<urn:fdo-squirrel:dist/25108ed495e10582> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/viewer/skins/dark/zoomin.png> ;
+    dcat:byteSize 3354 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "viewer/skins/dark/zoomin.png" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "25108ed495e1058238580d64f8704fac3c8c43a1480a2a713c0efd0c471f7eda"  .
+
+<urn:fdo-squirrel:dist/e221c116fce7a4fc> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/viewer/skins/dark/zoomout.png> ;
+    dcat:byteSize 3266 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "viewer/skins/dark/zoomout.png" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "e221c116fce7a4fc6c3fd4e0024f7b4aaa4c9003b365067e3c43a638c91216f2"  .
+
+<urn:fdo-squirrel:dist/ff48136f9eeca235> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/viewer/stylesheet/3dhop.css> ;
+    dcat:byteSize 5839 ;
+    dcat:mediaType "text/css" ;
+    fdo:path "viewer/stylesheet/3dhop.css" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "ff48136f9eeca23576768c62add1976ba8442110cc9ebf007efd370d5c1b9095"  .
+
+<urn:fdo-squirrel:unpublished/freshford-st-lachtains-well-low-poly> cff:keywords "Cultural Heritage & History" .
+<urn:fdo-squirrel:unpublished/freshford-st-lachtains-well-low-poly> cff:keywords "holy-well" .
+<urn:fdo-squirrel:unpublished/freshford-st-lachtains-well-low-poly> cff:keywords "holywell" .
+<urn:fdo-squirrel:unpublished/freshford-st-lachtains-well-low-poly> cff:keywords "ireland" .
+<urn:fdo-squirrel:unpublished/freshford-st-lachtains-well-low-poly> cff:keywords "kilkenny3d" .
+<urn:fdo-squirrel:unpublished/freshford-st-lachtains-well-low-poly> cff:keywords "kiriengine" .
+<urn:fdo-squirrel:unpublished/freshford-st-lachtains-well-low-poly> cff:license "CC-BY-4.0" .
+<urn:fdo-squirrel:unpublished/freshford-st-lachtains-well-low-poly> cff:license <https://spdx.org/licenses/CC-BY-4.0.html> .
+<urn:fdo-squirrel:unpublished/freshford-st-lachtains-well-low-poly> cff:license-url "CC-BY-4.0" .
+<urn:fdo-squirrel:unpublished/freshford-st-lachtains-well-low-poly> cff:license-url <https://spdx.org/licenses/CC-BY-4.0.html> .
+<urn:fdo-squirrel:unpublished/freshford-st-lachtains-well-low-poly> cff:repository <https://sketchfab.com/3d-models/freshford-st-lachtains-well-low-poly-ae1e1f4daa7d433dbbf076407134e81e> .
+<urn:fdo-squirrel:unpublished/freshford-st-lachtains-well-low-poly> cff:url <https://sketchfab.com/3d-models/freshford-st-lachtains-well-low-poly-ae1e1f4daa7d433dbbf076407134e81e> .
+<urn:fdo-squirrel:unpublished/freshford-st-lachtains-well-low-poly> codemeta:keywords "Cultural Heritage & History" .
+<urn:fdo-squirrel:unpublished/freshford-st-lachtains-well-low-poly> codemeta:keywords "holy-well" .
+<urn:fdo-squirrel:unpublished/freshford-st-lachtains-well-low-poly> codemeta:keywords "holywell" .
+<urn:fdo-squirrel:unpublished/freshford-st-lachtains-well-low-poly> codemeta:keywords "ireland" .
+<urn:fdo-squirrel:unpublished/freshford-st-lachtains-well-low-poly> codemeta:keywords "kilkenny3d" .
+<urn:fdo-squirrel:unpublished/freshford-st-lachtains-well-low-poly> codemeta:keywords "kiriengine" .
+<urn:fdo-squirrel:unpublished/freshford-st-lachtains-well-low-poly> codemeta:license "CC-BY-4.0" .
+<urn:fdo-squirrel:unpublished/freshford-st-lachtains-well-low-poly> codemeta:license <https://spdx.org/licenses/CC-BY-4.0.html> .
+<urn:fdo-squirrel:unpublished/freshford-st-lachtains-well-low-poly> codemeta:url <https://sketchfab.com/3d-models/freshford-st-lachtains-well-low-poly-ae1e1f4daa7d433dbbf076407134e81e> .
+<urn:fdo-squirrel:unpublished/freshford-st-lachtains-well-low-poly> dcat:keyword "Cultural Heritage & History" .
+<urn:fdo-squirrel:unpublished/freshford-st-lachtains-well-low-poly> dcat:keyword "holy-well" .
+<urn:fdo-squirrel:unpublished/freshford-st-lachtains-well-low-poly> dcat:keyword "holywell" .
+<urn:fdo-squirrel:unpublished/freshford-st-lachtains-well-low-poly> dcat:keyword "ireland" .
+<urn:fdo-squirrel:unpublished/freshford-st-lachtains-well-low-poly> dcat:keyword "kilkenny3d" .
+<urn:fdo-squirrel:unpublished/freshford-st-lachtains-well-low-poly> dcat:keyword "kiriengine" .
+<urn:fdo-squirrel:unpublished/freshford-st-lachtains-well-low-poly> dct:license <https://spdx.org/licenses/CC-BY-4.0.html> .
+<urn:fdo-squirrel:unpublished/freshford-st-lachtains-well-low-poly> dct:subject "Cultural Heritage & History" .
+<urn:fdo-squirrel:unpublished/freshford-st-lachtains-well-low-poly> dct:subject "holy-well" .
+<urn:fdo-squirrel:unpublished/freshford-st-lachtains-well-low-poly> dct:subject "holywell" .
+<urn:fdo-squirrel:unpublished/freshford-st-lachtains-well-low-poly> dct:subject "ireland" .
+<urn:fdo-squirrel:unpublished/freshford-st-lachtains-well-low-poly> dct:subject "kilkenny3d" .
+<urn:fdo-squirrel:unpublished/freshford-st-lachtains-well-low-poly> dct:subject "kiriengine" .
+<urn:fdo-squirrel:unpublished/freshford-st-lachtains-well-low-poly> schema:author "b-unicycling" .
+<urn:fdo-squirrel:unpublished/freshford-st-lachtains-well-low-poly> schema:datePublished "2024-06-12" .
+<urn:fdo-squirrel:unpublished/freshford-st-lachtains-well-low-poly> schema:keywords "Cultural Heritage & History" .
+<urn:fdo-squirrel:unpublished/freshford-st-lachtains-well-low-poly> schema:keywords "holy-well" .
+<urn:fdo-squirrel:unpublished/freshford-st-lachtains-well-low-poly> schema:keywords "holywell" .
+<urn:fdo-squirrel:unpublished/freshford-st-lachtains-well-low-poly> schema:keywords "ireland" .
+<urn:fdo-squirrel:unpublished/freshford-st-lachtains-well-low-poly> schema:keywords "kilkenny3d" .
+<urn:fdo-squirrel:unpublished/freshford-st-lachtains-well-low-poly> schema:keywords "kiriengine" .
+<urn:fdo-squirrel:unpublished/freshford-st-lachtains-well-low-poly> schema:license "CC-BY-4.0" .
+<urn:fdo-squirrel:unpublished/freshford-st-lachtains-well-low-poly> schema:license <https://spdx.org/licenses/CC-BY-4.0.html> .
+<urn:fdo-squirrel:unpublished/freshford-st-lachtains-well-low-poly> schema:name "Freshford: St Lachtain's Well (low poly)" .
+<urn:fdo-squirrel:unpublished/freshford-st-lachtains-well-low-poly> schema:relatedLink <https://sketchfab.com/3d-models/freshford-st-lachtains-well-low-poly-ae1e1f4daa7d433dbbf076407134e81e> .
+<urn:fdo-squirrel:unpublished/freshford-st-lachtains-well-low-poly> schema:url <https://sketchfab.com/3d-models/freshford-st-lachtains-well-low-poly-ae1e1f4daa7d433dbbf076407134e81e> .
+<urn:fdo-squirrel:unpublished/freshford-st-lachtains-well-low-poly> wdt:P275 "CC-BY-4.0" .
+<urn:fdo-squirrel:unpublished/freshford-st-lachtains-well-low-poly> wdt:P275 <https://spdx.org/licenses/CC-BY-4.0.html> .
+<urn:fdo-squirrel:unpublished/freshford-st-lachtains-well-low-poly> wdt:P856 <https://sketchfab.com/3d-models/freshford-st-lachtains-well-low-poly-ae1e1f4daa7d433dbbf076407134e81e> .
+<urn:fdo-squirrel:unpublished/freshford-st-lachtains-well-low-poly> wdt:P921 "Cultural Heritage & History" .
+<urn:fdo-squirrel:unpublished/freshford-st-lachtains-well-low-poly> wdt:P921 "holy-well" .
+<urn:fdo-squirrel:unpublished/freshford-st-lachtains-well-low-poly> wdt:P921 "holywell" .
+<urn:fdo-squirrel:unpublished/freshford-st-lachtains-well-low-poly> wdt:P921 "ireland" .
+<urn:fdo-squirrel:unpublished/freshford-st-lachtains-well-low-poly> wdt:P921 "kilkenny3d" .
+<urn:fdo-squirrel:unpublished/freshford-st-lachtains-well-low-poly> wdt:P921 "kiriengine" .
+
+<http://creativecommons.org/licenses/by/4.0/> rdfs:label "CC Attribution" .
+
+<urn:fdo-squirrel:unpublished/freshford-st-lachtains-well-low-poly> dcat:distribution <urn:fdo-squirrel:dist/77ad2afeb7a6fcbe>,<urn:fdo-squirrel:dist/700f23f61f2c96e5>,<urn:fdo-squirrel:dist/a1393e78ef7e4449>,<urn:fdo-squirrel:dist/1f18802e956c9437>,<urn:fdo-squirrel:dist/c508a3e36348db01>,<urn:fdo-squirrel:dist/a55623e83f21de89>,<urn:fdo-squirrel:dist/d5e149488a70fcf6>,<urn:fdo-squirrel:dist/3946a31e6b71752f>,<urn:fdo-squirrel:dist/710738b3fafc624e>,<urn:fdo-squirrel:dist/1d026df36d2bd850>,<urn:fdo-squirrel:dist/a0518e889b7fecb2>,<urn:fdo-squirrel:dist/a2bdb11ace5f85df>,<urn:fdo-squirrel:dist/b26b520fa2fb32f5>,<urn:fdo-squirrel:dist/32624efc55f039c6>,<urn:fdo-squirrel:dist/352794dc6d209c01>,<urn:fdo-squirrel:dist/5c1f76b2a5ffd704>,<urn:fdo-squirrel:dist/85b8e1c3121224f7>,<urn:fdo-squirrel:dist/08bd91ac7cca0d9a> .
+
+<urn:fdo-squirrel:dist/77ad2afeb7a6fcbe> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/fdo-metadata.ttl> ;
+    dcat:byteSize 23339 ;
+    dcat:mediaType "application/octet-stream" ;
+    fdo:path "fdo-metadata.ttl" ;
+    fdo:role "data" ;
+    fdo:sha256 "77ad2afeb7a6fcbe6efc60db1720670874781608d4b3572b112d11c73dceae6f" .
+
+<urn:fdo-squirrel:dist/700f23f61f2c96e5> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/rdf_modelling_report.json> ;
+    dcat:byteSize 23052 ;
+    dcat:mediaType "application/json" ;
+    fdo:path "rdf_modelling_report.json" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "700f23f61f2c96e5bdf1ed89b6d141dde046749c0ad2f9144ddeebf35d5794d9" .
+
+<urn:fdo-squirrel:dist/a1393e78ef7e4449> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/rdf_modelling_report.html> ;
+    dcat:byteSize 10299 ;
+    dcat:mediaType "text/html" ;
+    fdo:path "rdf_modelling_report.html" ;
+    fdo:role "data" ;
+    fdo:sha256 "a1393e78ef7e4449deb0dd7367c6233a65c1c68535469383342ee999758955fb" .
+
+<urn:fdo-squirrel:dist/1f18802e956c9437> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/FDOx.yaml> ;
+    dcat:byteSize 836 ;
+    dcat:mediaType "text/yaml" ;
+    fdo:path "FDOx.yaml" ;
+    fdo:role "data" ;
+    fdo:sha256 "1f18802e956c9437e062a129851b0fa2402007455521594ee3d494f56d722ccc" .
+
+<urn:fdo-squirrel:dist/c508a3e36348db01> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/fdo_files_roles_graph.svg> ;
+    dcat:byteSize 4803 ;
+    dcat:mediaType "image/svg+xml" ;
+    fdo:path "fdo_files_roles_graph.svg" ;
+    fdo:role "data" ;
+    fdo:sha256 "c508a3e36348db01ccceffdade1f86f3c6fa62e2da530ad94c092f3b50db8b84" .
+
+<urn:fdo-squirrel:dist/a55623e83f21de89> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/fdo_files_roles_graph.png> ;
+    dcat:byteSize 43150 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "fdo_files_roles_graph.png" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "a55623e83f21de893aaa45e573ca841dca4d666b16427fb935bbfd7597c5b17c" .
+
+<urn:fdo-squirrel:dist/d5e149488a70fcf6> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/fdo_md_cff.svg> ;
+    dcat:byteSize 6127 ;
+    dcat:mediaType "image/svg+xml" ;
+    fdo:path "fdo_md_cff.svg" ;
+    fdo:role "data" ;
+    fdo:sha256 "d5e149488a70fcf6826d0f9cea2e9c3c1838f56cc056340afca1265f6e7f02f1" .
+
+<urn:fdo-squirrel:dist/3946a31e6b71752f> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/fdo_md_cff.png> ;
+    dcat:byteSize 120340 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "fdo_md_cff.png" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "3946a31e6b71752f1810925090ddd21dcc140efa0ee929214650eabbb709a4e4" .
+
+<urn:fdo-squirrel:dist/710738b3fafc624e> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/fdo_md_cff_graph.svg> ;
+    dcat:byteSize 7124 ;
+    dcat:mediaType "image/svg+xml" ;
+    fdo:path "fdo_md_cff_graph.svg" ;
+    fdo:role "data" ;
+    fdo:sha256 "710738b3fafc624e8c412bf206be0aa1a550de861ef6f8cec8168f3b056cb489" .
+
+<urn:fdo-squirrel:dist/1d026df36d2bd850> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/fdo_md_cff_graph.png> ;
+    dcat:byteSize 85236 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "fdo_md_cff_graph.png" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "1d026df36d2bd8501a97eca3659a3b314514777d140abe33a3694f69dc5824df" .
+
+<urn:fdo-squirrel:dist/a0518e889b7fecb2> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/fdo_overview.mermaid> ;
+    dcat:byteSize 1606 ;
+    dcat:mediaType "application/octet-stream" ;
+    fdo:path "fdo_overview.mermaid" ;
+    fdo:role "data" ;
+    fdo:sha256 "a0518e889b7fecb2c3fd02021becbd1a24a4ea2c6fce874af97da90869587ff2" .
+
+<urn:fdo-squirrel:dist/a2bdb11ace5f85df> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/fdo_overview.png> ;
+    dcat:byteSize 297178 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "fdo_overview.png" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "a2bdb11ace5f85df804c0a62678e7fbd4d29b27002c53671b4876a39b6488423" .
+
+<urn:fdo-squirrel:dist/b26b520fa2fb32f5> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/fdo_ttl_snippet_metadata.svg> ;
+    dcat:byteSize 5149 ;
+    dcat:mediaType "image/svg+xml" ;
+    fdo:path "fdo_ttl_snippet_metadata.svg" ;
+    fdo:role "data" ;
+    fdo:sha256 "b26b520fa2fb32f5f43c120513b5516a4b08c2cd11eab1dcf99cda520ee0fdf9" .
+
+<urn:fdo-squirrel:dist/32624efc55f039c6> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/fdo_ttl_snippet_metadata.png> ;
+    dcat:byteSize 245641 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "fdo_ttl_snippet_metadata.png" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "32624efc55f039c606e4e1819909ff442b792daa408a123142a31298df7deb01" .
+
+<urn:fdo-squirrel:dist/352794dc6d209c01> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/fdo_ttl_snippet_distributions.svg> ;
+    dcat:byteSize 5743 ;
+    dcat:mediaType "image/svg+xml" ;
+    fdo:path "fdo_ttl_snippet_distributions.svg" ;
+    fdo:role "data" ;
+    fdo:sha256 "352794dc6d209c017466bae53d564c80c56297345d20601b46053385093019b1" .
+
+<urn:fdo-squirrel:dist/5c1f76b2a5ffd704> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/fdo_ttl_snippet_distributions.png> ;
+    dcat:byteSize 256635 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "fdo_ttl_snippet_distributions.png" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "5c1f76b2a5ffd704aff75982dac08f2090567151e847217dbc17f9370e58cccc" .
+
+<urn:fdo-squirrel:dist/85b8e1c3121224f7> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/fdo_ttl_snippet_links.svg> ;
+    dcat:byteSize 1445 ;
+    dcat:mediaType "image/svg+xml" ;
+    fdo:path "fdo_ttl_snippet_links.svg" ;
+    fdo:role "data" ;
+    fdo:sha256 "85b8e1c3121224f7527cdcd7f210b9a5c18e56fbd5e7fbd4d45051e1a2d55386" .
+
+<urn:fdo-squirrel:dist/08bd91ac7cca0d9a> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/fdo_ttl_snippet_links.png> ;
+    dcat:byteSize 60578 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "fdo_ttl_snippet_links.png" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "08bd91ac7cca0d9afb028b41b9c69dd3556fcebcf2c9d89f933fb0b2175ea071" .
+

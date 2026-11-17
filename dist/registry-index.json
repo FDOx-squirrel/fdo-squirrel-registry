@@ -6,7 +6,7 @@
     "issued": "2026-09-03",
     "license": "https://spdx.org/licenses/CC-BY-4.0.html",
     "title": "FDOx Registry",
-    "triples": 7793
+    "triples": 9232
   },
   "entries": [
     {
@@ -1368,6 +1368,350 @@
       ],
       "version_doi": "https://doi.org/10.5281/zenodo.22676380",
       "zenodo_url": "https://zenodo.org/records/22676380"
+    },
+    {
+      "context": "Self-built (own design, no commercial set) by Florian Thiery. Shown at the Apothekertrakt of Schönbrunn Palace during CHNT31, 2026-11-12 (https://www.openstreetmap.org/relation/6892072). The figure on top is read as a medieval warrior; that and any further identification are open hypotheses, not confirmed.",
+      "creators": [
+        {
+          "iri": "https://orcid.org/0000-0002-3246-3531",
+          "name": "Thiery, Florian"
+        }
+      ],
+      "dataset_iri": "https://doi.org/10.5281/zenodo.24305240",
+      "description": "Photogrammetric 3D scan (KIRI Engine) of a white stepped LEGO pyramid (nine levels) with a five-brick column and a minifigure-style warrior figure on top (spiked helmet, mail shirt, tunic, cloak), a hobby build by Florian Thiery; scanned on 2026-11-12 in the Apothekertrakt of Schönbrunn Palace, Vienna, where the model was on display during the CHNT31 conference. Raw scan without clean-up. The paired reconstruction is a separate FDOx and derives from this one.",
+      "facets": {
+        "creator": [
+          "Thiery, Florian"
+        ],
+        "keyword": [
+          "3D data",
+          "Architecture",
+          "Cultural Heritage",
+          "lego"
+        ],
+        "license": [
+          "CC-BY-4.0"
+        ],
+        "place": [
+          "Schönbrunn Palace, Apothekertrakt, Vienna"
+        ],
+        "type": [
+          "3DDataFDO"
+        ],
+        "year": [
+          "2026"
+        ]
+      },
+      "files": {
+        "bytes": 44716894,
+        "count": 51,
+        "largest": [
+          {
+            "bytes": 21735468,
+            "media_type": "model/obj",
+            "path": "data/model/model.obj",
+            "role": "model"
+          },
+          {
+            "bytes": 10955008,
+            "media_type": "application/octet-stream",
+            "path": "data/model/model.nxs",
+            "role": "model"
+          },
+          {
+            "bytes": 4976128,
+            "media_type": "application/octet-stream",
+            "path": "data/model/model.nxz",
+            "role": "model"
+          },
+          {
+            "bytes": 3404741,
+            "media_type": "image/jpeg",
+            "path": "data/textures/3DModel_Custom_baseColor.jpeg",
+            "role": "auxiliary"
+          },
+          {
+            "bytes": 1482116,
+            "media_type": "image/png",
+            "path": "data/images/preview.png",
+            "role": "documentation"
+          },
+          {
+            "bytes": 301113,
+            "media_type": "image/png",
+            "path": "fdo_ttl_snippet_metadata.png",
+            "role": "documentation"
+          },
+          {
+            "bytes": 256560,
+            "media_type": "image/png",
+            "path": "fdo_ttl_snippet_distributions.png",
+            "role": "documentation"
+          },
+          {
+            "bytes": 199829,
+            "media_type": "image/png",
+            "path": "fdo_md_cff.png",
+            "role": "documentation"
+          },
+          {
+            "bytes": 190272,
+            "media_type": "application/javascript",
+            "path": "viewer/js/spidergl.js",
+            "role": "auxiliary"
+          },
+          {
+            "bytes": 167337,
+            "media_type": "image/png",
+            "path": "fdo_md_cff_graph.png",
+            "role": "documentation"
+          },
+          {
+            "bytes": 142700,
+            "media_type": "image/jpeg",
+            "path": "viewer/skins/backgrounds/light.jpg",
+            "role": "auxiliary"
+          },
+          {
+            "bytes": 135389,
+            "media_type": "application/javascript",
+            "path": "viewer/js/presenter.js",
+            "role": "auxiliary"
+          }
+        ],
+        "roles": {
+          "auxiliary": 25,
+          "data": 11,
+          "documentation": 9,
+          "metadata": 2,
+          "model": 4
+        }
+      },
+      "geometry": "<http://www.opengis.net/def/crs/EPSG/0/4326> POINT(16.318911 48.184424)",
+      "issued": "2026-11-17",
+      "keywords": [
+        {
+          "iri": null,
+          "label": "3D data",
+          "named": true
+        },
+        {
+          "iri": null,
+          "label": "Architecture",
+          "named": true
+        },
+        {
+          "iri": null,
+          "label": "Cultural Heritage",
+          "named": true
+        },
+        {
+          "iri": null,
+          "label": "lego",
+          "named": true
+        }
+      ],
+      "licenses": [
+        {
+          "iri": "https://spdx.org/licenses/CC-BY-4.0.html",
+          "label": "CC-BY-4.0"
+        }
+      ],
+      "metadata_url": "https://zenodo.org/api/records/24305241/files/lego-pyramid-kiri-original-fdo-bundle.zip/content",
+      "other_descriptions": [],
+      "period": {
+        "end": "2026",
+        "iri": "https://doi.org/10.5281/zenodo.24305240_temporal",
+        "label": "Scan session 2026-11-12 (during CHNT31)",
+        "start": "2026",
+        "value": "2026"
+      },
+      "places": [
+        {
+          "iri": "http://www.wikidata.org/entity/Q131330",
+          "label": "Schönbrunn Palace, Apothekertrakt, Vienna",
+          "named": true
+        }
+      ],
+      "record_id": "24305241",
+      "record_iri": "https://w3id.org/fdo-squirrel/registry/record/24305241",
+      "repairs": [],
+      "sha256": "438a6d3ffa9dd089518b6c916dcba16a5fb9bfec599f50a41c6cf07c514dde89",
+      "squirrelbase": null,
+      "title": "Lego Pyramid (KIRI Original)",
+      "types": [
+        {
+          "iri": "https://w3id.org/fdo-squirrel/3DDataFDO",
+          "label": "3DDataFDO"
+        }
+      ],
+      "version_doi": "https://doi.org/10.5281/zenodo.24305241",
+      "zenodo_url": "https://zenodo.org/records/24305241"
+    },
+    {
+      "context": "Self-built (own design, no commercial set) by Florian Thiery. Shown at the Apothekertrakt of Schönbrunn Palace during CHNT31, 2026-11-12 (https://www.openstreetmap.org/relation/6892072). The figure on top is read as a medieval warrior; that and any further identification are open hypotheses, not confirmed.",
+      "creators": [
+        {
+          "iri": "https://orcid.org/0000-0002-3246-3531",
+          "name": "Thiery, Florian"
+        }
+      ],
+      "dataset_iri": "https://doi.org/10.5281/zenodo.24305343",
+      "description": "Idealised reconstruction of a white stepped LEGO pyramid (nine levels) with a five-brick column and a minifigure-style warrior figure on top (spiked helmet, mail shirt, tunic, cloak), a hobby build by Florian Thiery, rebuilt procedurally from clean LEGO bricks after a KIRI Engine scan. Only dimensions and structure were read from the scan; no scan mesh or texture was reused. AI disclosure: the reconstruction was generated with Claude (Anthropic, claude-sonnet-5-5) on behalf of Florian Thiery. It is an interpretation model, not a measurement.",
+      "facets": {
+        "creator": [
+          "Thiery, Florian"
+        ],
+        "keyword": [
+          "3D data",
+          "Architecture",
+          "Cultural Heritage",
+          "lego"
+        ],
+        "license": [
+          "CC-BY-4.0"
+        ],
+        "place": [],
+        "type": [
+          "3DDataFDO"
+        ],
+        "year": [
+          "2026"
+        ]
+      },
+      "files": {
+        "bytes": 10055396,
+        "count": 52,
+        "largest": [
+          {
+            "bytes": 3815814,
+            "media_type": "model/obj",
+            "path": "data/model/model.obj",
+            "role": "model"
+          },
+          {
+            "bytes": 2262016,
+            "media_type": "application/octet-stream",
+            "path": "data/model/model.nxs",
+            "role": "model"
+          },
+          {
+            "bytes": 1360539,
+            "media_type": "image/png",
+            "path": "data/images/preview.png",
+            "role": "documentation"
+          },
+          {
+            "bytes": 371968,
+            "media_type": "application/octet-stream",
+            "path": "data/model/model.nxz",
+            "role": "model"
+          },
+          {
+            "bytes": 309792,
+            "media_type": "image/png",
+            "path": "fdo_ttl_snippet_metadata.png",
+            "role": "documentation"
+          },
+          {
+            "bytes": 257616,
+            "media_type": "image/png",
+            "path": "fdo_ttl_snippet_distributions.png",
+            "role": "documentation"
+          },
+          {
+            "bytes": 230761,
+            "media_type": "image/png",
+            "path": "fdo_md_cff.png",
+            "role": "documentation"
+          },
+          {
+            "bytes": 190436,
+            "media_type": "image/png",
+            "path": "fdo_md_cff_graph.png",
+            "role": "documentation"
+          },
+          {
+            "bytes": 190272,
+            "media_type": "application/javascript",
+            "path": "viewer/js/spidergl.js",
+            "role": "auxiliary"
+          },
+          {
+            "bytes": 142700,
+            "media_type": "image/jpeg",
+            "path": "viewer/skins/backgrounds/light.jpg",
+            "role": "auxiliary"
+          },
+          {
+            "bytes": 135389,
+            "media_type": "application/javascript",
+            "path": "viewer/js/presenter.js",
+            "role": "auxiliary"
+          },
+          {
+            "bytes": 119263,
+            "media_type": "application/javascript",
+            "path": "viewer/js/corto.em.js",
+            "role": "auxiliary"
+          }
+        ],
+        "roles": {
+          "auxiliary": 26,
+          "data": 11,
+          "documentation": 9,
+          "metadata": 2,
+          "model": 4
+        }
+      },
+      "geometry": null,
+      "issued": "2026-11-17",
+      "keywords": [
+        {
+          "iri": null,
+          "label": "3D data",
+          "named": true
+        },
+        {
+          "iri": null,
+          "label": "Architecture",
+          "named": true
+        },
+        {
+          "iri": null,
+          "label": "Cultural Heritage",
+          "named": true
+        },
+        {
+          "iri": null,
+          "label": "lego",
+          "named": true
+        }
+      ],
+      "licenses": [
+        {
+          "iri": "https://spdx.org/licenses/CC-BY-4.0.html",
+          "label": "CC-BY-4.0"
+        }
+      ],
+      "metadata_url": "https://zenodo.org/api/records/24305344/files/lego-pyramid-reconstruction-claudeai-fdo-bundle.zip/content",
+      "other_descriptions": [],
+      "period": null,
+      "places": [],
+      "record_id": "24305344",
+      "record_iri": "https://w3id.org/fdo-squirrel/registry/record/24305344",
+      "repairs": [],
+      "sha256": "27c8fd5549c584a03987d29d5f60bfaad470f01a8442af6a32e32c6316b0b34b",
+      "squirrelbase": null,
+      "title": "Lego Pyramid (Reconstruction claude.ai)",
+      "types": [
+        {
+          "iri": "https://w3id.org/fdo-squirrel/3DDataFDO",
+          "label": "3DDataFDO"
+        }
+      ],
+      "version_doi": "https://doi.org/10.5281/zenodo.24305344",
+      "zenodo_url": "https://zenodo.org/records/24305344"
     }
   ],
   "facets": [

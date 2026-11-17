@@ -54,19 +54,41 @@
 @prefix ns42: <https://w3id.org/fdo-squirrel/registry/record/22676380/content/viewer/skins/dark/> .
 @prefix ns43: <https://w3id.org/fdo-squirrel/registry/record/22676380/content/viewer/stylesheet/> .
 @prefix ns44: <https://w3id.org/fdo-squirrel/registry/record/22676380/dist/> .
-@prefix ns45: <https://www.openstreetmap.org/node/> .
-@prefix ns46: <https://www.openstreetmap.org/relation/> .
-@prefix ns47: <https://zenodo.org/api/records/18369126/files/o3d-epidoc-extractor.zip/> .
-@prefix ns48: <https://zenodo.org/api/records/18369157/files/ogham-analysis.zip/> .
-@prefix ns49: <https://zenodo.org/api/records/18369866/files/GEARS_1.zip/> .
-@prefix ns50: <https://zenodo.org/api/records/18732893/files/Q60.zip/> .
-@prefix ns51: <https://zenodo.org/api/records/18742694/files/Q56.zip/> .
-@prefix ns52: <https://zenodo.org/api/records/18744583/files/CHUIS_1.zip/> .
-@prefix ns53: <https://zenodo.org/api/records/22675886/files/cork-ogham-stone-ciic-81-ucc-4-fdo-bundle.zip/> .
-@prefix ns54: <https://zenodo.org/api/records/22676380/files/freshford-st-lachtains-well-low-poly-fdo-bundle.zip/> .
-@prefix ns55: <https://zenodo.org/records/> .
-@prefix ns56: <urn:fdo-squirrel:activity/> .
-@prefix ns57: <urn:fdo-squirrel:agent/> .
+@prefix ns45: <https://w3id.org/fdo-squirrel/registry/record/24305241/content/> .
+@prefix ns46: <https://w3id.org/fdo-squirrel/registry/record/24305241/content/data/images/> .
+@prefix ns47: <https://w3id.org/fdo-squirrel/registry/record/24305241/content/data/model/> .
+@prefix ns48: <https://w3id.org/fdo-squirrel/registry/record/24305241/content/data/textures/> .
+@prefix ns49: <https://w3id.org/fdo-squirrel/registry/record/24305241/content/viewer/> .
+@prefix ns50: <https://w3id.org/fdo-squirrel/registry/record/24305241/content/viewer/js/> .
+@prefix ns51: <https://w3id.org/fdo-squirrel/registry/record/24305241/content/viewer/skins/backgrounds/> .
+@prefix ns52: <https://w3id.org/fdo-squirrel/registry/record/24305241/content/viewer/skins/dark/> .
+@prefix ns53: <https://w3id.org/fdo-squirrel/registry/record/24305241/content/viewer/stylesheet/> .
+@prefix ns54: <https://w3id.org/fdo-squirrel/registry/record/24305241/dist/> .
+@prefix ns55: <https://w3id.org/fdo-squirrel/registry/record/24305344/content/> .
+@prefix ns56: <https://w3id.org/fdo-squirrel/registry/record/24305344/content/data/images/> .
+@prefix ns57: <https://w3id.org/fdo-squirrel/registry/record/24305344/content/data/model/> .
+@prefix ns58: <https://w3id.org/fdo-squirrel/registry/record/24305344/content/data/textures/> .
+@prefix ns59: <https://w3id.org/fdo-squirrel/registry/record/24305344/content/viewer/> .
+@prefix ns60: <https://w3id.org/fdo-squirrel/registry/record/24305344/content/viewer/js/> .
+@prefix ns61: <https://w3id.org/fdo-squirrel/registry/record/24305344/content/viewer/skins/backgrounds/> .
+@prefix ns62: <https://w3id.org/fdo-squirrel/registry/record/24305344/content/viewer/skins/dark/> .
+@prefix ns63: <https://w3id.org/fdo-squirrel/registry/record/24305344/content/viewer/stylesheet/> .
+@prefix ns64: <https://w3id.org/fdo-squirrel/registry/record/24305344/dist/> .
+@prefix ns65: <https://www.openstreetmap.org/node/> .
+@prefix ns66: <https://www.openstreetmap.org/relation/> .
+@prefix ns67: <https://zenodo.org/api/records/18369126/files/o3d-epidoc-extractor.zip/> .
+@prefix ns68: <https://zenodo.org/api/records/18369157/files/ogham-analysis.zip/> .
+@prefix ns69: <https://zenodo.org/api/records/18369866/files/GEARS_1.zip/> .
+@prefix ns70: <https://zenodo.org/api/records/18732893/files/Q60.zip/> .
+@prefix ns71: <https://zenodo.org/api/records/18742694/files/Q56.zip/> .
+@prefix ns72: <https://zenodo.org/api/records/18744583/files/CHUIS_1.zip/> .
+@prefix ns73: <https://zenodo.org/api/records/22675886/files/cork-ogham-stone-ciic-81-ucc-4-fdo-bundle.zip/> .
+@prefix ns74: <https://zenodo.org/api/records/22676380/files/freshford-st-lachtains-well-low-poly-fdo-bundle.zip/> .
+@prefix ns75: <https://zenodo.org/api/records/24305241/files/lego-pyramid-kiri-original-fdo-bundle.zip/> .
+@prefix ns76: <https://zenodo.org/api/records/24305344/files/lego-pyramid-reconstruction-claudeai-fdo-bundle.zip/> .
+@prefix ns77: <https://zenodo.org/records/> .
+@prefix ns78: <urn:fdo-squirrel:activity/> .
+@prefix ns79: <urn:fdo-squirrel:agent/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -95,7 +117,9 @@ fdoreg:catalog a crm:E31_Document,
         ns03:zenodo.18724635,
         ns03:zenodo.18732892,
         ns03:zenodo.18742693,
-        ns03:zenodo.22676379 ;
+        ns03:zenodo.22676379,
+        ns03:zenodo.24305240,
+        ns03:zenodo.24305343 ;
     dcat:record ns10:18369126,
         ns10:18369157,
         ns10:18369866,
@@ -103,11 +127,11 @@ fdoreg:catalog a crm:E31_Document,
         ns10:18742694,
         ns10:18744583,
         ns10:22675886,
-        ns10:22676380 .
+        ns10:22676380,
+        ns10:24305241,
+        ns10:24305344 .
 
 ns01:CO074-148---- rdfs:label "3D repository" .
-
-<http://creativecommons.org/licenses/by/4.0/> rdfs:label "CC Attribution" .
 
 ns03:zenodo.18369125_geom a crmgeo:SP5_Geometric_Place_Expression,
         sf:Point ;
@@ -137,6 +161,10 @@ ns03:zenodo.18742693_geom a crmgeo:SP5_Geometric_Place_Expression,
         sf:Point ;
     geosparql:asWKT "<http://www.opengis.net/def/crs/EPSG/0/4326> POINT(9.4982136 51.3131242)"^^geosparql:wktLiteral .
 
+ns03:zenodo.24305240_geom a crmgeo:SP5_Geometric_Place_Expression,
+        sf:Point ;
+    geosparql:asWKT "<http://www.opengis.net/def/crs/EPSG/0/4326> POINT(16.318911 48.184424)"^^geosparql:wktLiteral .
+
 ns05:0000-0002-9499-5840 a crm:E21_Person,
         schema:Person ;
     schema:name "Homburg, Timo" .
@@ -158,11 +186,11 @@ ns09:2424425c3325db08 a crm:E21_Person,
 ns10:18369126 a crm:E31_Document,
         dcat:CatalogRecord ;
     dct:issued "2026-01-25"^^xsd:date ;
-    dct:source ns55:18369126 ;
+    dct:source ns77:18369126 ;
     dct:title "o3d-epidoc-extractor (FAIR Digital Object)"@en ;
     crm:P102_has_title "o3d-epidoc-extractor (FAIR Digital Object)"@en ;
     crm:P70_documents ns03:zenodo.18369125 ;
-    prov:wasDerivedFrom ns47:content ;
+    prov:wasDerivedFrom ns67:content ;
     foaf:primaryTopic ns03:zenodo.18369125 ;
     fdoreg:conceptDoi ns03:zenodo.18369125 ;
     fdoreg:readRepair "missing-prefix:crm",
@@ -3367,11 +3395,11 @@ ns13:ff09f5fe4738abd3 a crmdig:D9_Data_Object,
 ns10:18369157 a crm:E31_Document,
         dcat:CatalogRecord ;
     dct:issued "2026-01-25"^^xsd:date ;
-    dct:source ns55:18369157 ;
+    dct:source ns77:18369157 ;
     dct:title "ogham-analysis (FAIR Digital Object)"@en ;
     crm:P102_has_title "ogham-analysis (FAIR Digital Object)"@en ;
     crm:P70_documents ns03:zenodo.18369156 ;
-    prov:wasDerivedFrom ns48:content ;
+    prov:wasDerivedFrom ns68:content ;
     foaf:primaryTopic ns03:zenodo.18369156 ;
     fdoreg:conceptDoi ns03:zenodo.18369156 ;
     fdoreg:readRepair "missing-prefix:crm",
@@ -4849,11 +4877,11 @@ ns16:ff6b0fca99259e62 a crmdig:D9_Data_Object,
 ns10:18369866 a crm:E31_Document,
         dcat:CatalogRecord ;
     dct:issued "2026-01-25"^^xsd:date ;
-    dct:source ns55:18369866 ;
+    dct:source ns77:18369866 ;
     dct:title "GEARS/1 (FAIR Digital Object)"@en ;
     crm:P102_has_title "GEARS/1 (FAIR Digital Object)"@en ;
     crm:P70_documents ns03:zenodo.18369865 ;
-    prov:wasDerivedFrom ns49:content ;
+    prov:wasDerivedFrom ns69:content ;
     foaf:primaryTopic ns03:zenodo.18369865 ;
     fdoreg:conceptDoi ns03:zenodo.18369865 ;
     fdoreg:readRepair "missing-prefix:crm",
@@ -4956,11 +4984,11 @@ ns18:fc48f6f7235f6dc6 a crmdig:D9_Data_Object,
 ns10:18732893 a crm:E31_Document,
         dcat:CatalogRecord ;
     dct:issued "2026-02-22"^^xsd:date ;
-    dct:source ns55:18732893 ;
+    dct:source ns77:18732893 ;
     dct:title "Steinmännchen / Lago di Anterselva (Antholzer See) 03.01.2026 14:36h (FAIR Digital Object)"@en ;
     crm:P102_has_title "Steinmännchen / Lago di Anterselva (Antholzer See) 03.01.2026 14:36h (FAIR Digital Object)"@en ;
     crm:P70_documents ns03:zenodo.18732892 ;
-    prov:wasDerivedFrom ns50:content ;
+    prov:wasDerivedFrom ns70:content ;
     foaf:primaryTopic ns03:zenodo.18732892 ;
     fdoreg:conceptDoi ns03:zenodo.18732892 ;
     fdoreg:readRepair "unescaped-quote" ;
@@ -5803,11 +5831,11 @@ ns20:ff1199cf8bf47b05 a crmdig:D9_Data_Object,
 ns10:18742694 a crm:E31_Document,
         dcat:CatalogRecord ;
     dct:issued "2026-02-23"^^xsd:date ;
-    dct:source ns55:18742694 ;
+    dct:source ns77:18742694 ;
     dct:title "Beuys-Stele B 1036 in Kassel als Teil der \"7000 Eichen\" (FAIR Digital Object)"@en ;
     crm:P102_has_title "Beuys-Stele B 1036 in Kassel als Teil der \"7000 Eichen\" (FAIR Digital Object)"@en ;
     crm:P70_documents ns03:zenodo.18742693 ;
-    prov:wasDerivedFrom ns51:content ;
+    prov:wasDerivedFrom ns71:content ;
     foaf:primaryTopic ns03:zenodo.18742693 ;
     fdoreg:conceptDoi ns03:zenodo.18742693 ;
     fdoreg:sha256 "58dcdd847288754d030bb8ffc4a67b5ca0aefe0c57798c0390f6a061e142e223" ;
@@ -6428,11 +6456,11 @@ ns22:f343ad11ac0526ad a crmdig:D9_Data_Object,
 ns10:18744583 a crm:E31_Document,
         dcat:CatalogRecord ;
     dct:issued "2026-02-23"^^xsd:date ;
-    dct:source ns55:18744583 ;
+    dct:source ns77:18744583 ;
     dct:title "CHUIS/1 (FAIR Digital Object)"@en ;
     crm:P102_has_title "CHUIS/1 (FAIR Digital Object)"@en ;
     crm:P70_documents ns03:zenodo.18369720 ;
-    prov:wasDerivedFrom ns52:content ;
+    prov:wasDerivedFrom ns72:content ;
     foaf:primaryTopic ns03:zenodo.18369720 ;
     fdoreg:conceptDoi ns03:zenodo.18369720 ;
     fdoreg:sha256 "ead2cb115418b76f127221a94a85ab78ac0142438d8cc0b0ee4e97862ad80b1b" ;
@@ -6571,11 +6599,11 @@ ns24:f54cceb345af74e3 a crmdig:D9_Data_Object,
 ns10:22675886 a crm:E31_Document,
         dcat:CatalogRecord ;
     dct:issued "2026-09-09"^^xsd:date ;
-    dct:source ns55:22675886 ;
+    dct:source ns77:22675886 ;
     dct:title "CO074-148---- (FAIR Digital Object)"@en ;
     crm:P102_has_title "CO074-148---- (FAIR Digital Object)"@en ;
     crm:P70_documents ns03:zenodo.18724635 ;
-    prov:wasDerivedFrom ns53:content ;
+    prov:wasDerivedFrom ns73:content ;
     foaf:primaryTopic ns03:zenodo.18724635 ;
     fdoreg:conceptDoi ns03:zenodo.18724635 ;
     fdoreg:sha256 "01241980664c9b79d22cd703c1a66c10a402f377c25199ada4047d6508704dd0" ;
@@ -7234,11 +7262,11 @@ ns34:ff5f534d4b57dcc7 a crmdig:D9_Data_Object,
 ns10:22676380 a crm:E31_Document,
         dcat:CatalogRecord ;
     dct:issued "2026-09-09"^^xsd:date ;
-    dct:source ns55:22676380 ;
+    dct:source ns77:22676380 ;
     dct:title "Freshford: St Lachtain's Well (FDOx)"@en ;
     crm:P102_has_title "Freshford: St Lachtain's Well (FDOx)"@en ;
     crm:P70_documents ns03:zenodo.22676379 ;
-    prov:wasDerivedFrom ns54:content ;
+    prov:wasDerivedFrom ns74:content ;
     foaf:primaryTopic ns03:zenodo.22676379 ;
     fdoreg:conceptDoi ns03:zenodo.22676379 ;
     fdoreg:sha256 "76d13945f5945563deb617db2d26e461f2309cc3861b98dd4c267294b06c5d75" ;
@@ -7894,12 +7922,1381 @@ ns44:ff48136f9eeca235 a crmdig:D9_Data_Object,
     fdo:role "auxiliary" ;
     fdo:sha256 "ff48136f9eeca23576768c62add1976ba8442110cc9ebf007efd370d5c1b9095" .
 
-ns57:fdo-squirrel a crm:E39_Actor,
+ns10:24305241 a crm:E31_Document,
+        dcat:CatalogRecord ;
+    dct:issued "2026-11-17"^^xsd:date ;
+    dct:source ns77:24305241 ;
+    dct:title "Lego Pyramid / KIRI Original (FDOx)"@en ;
+    crm:P102_has_title "Lego Pyramid / KIRI Original (FDOx)"@en ;
+    crm:P70_documents ns03:zenodo.24305240 ;
+    prov:wasDerivedFrom ns75:content ;
+    foaf:primaryTopic ns03:zenodo.24305240 ;
+    fdoreg:conceptDoi ns03:zenodo.24305240 ;
+    fdoreg:sha256 "438a6d3ffa9dd089518b6c916dcba16a5fb9bfec599f50a41c6cf07c514dde89" ;
+    fdoreg:versionDoi ns03:zenodo.24305241 .
+
+ns45:CITATION.cff dct:identifier "urn:fdo-squirrel:content/CITATION.cff" .
+
+ns45:FDOx.yaml dct:identifier "urn:fdo-squirrel:content/FDOx.yaml" .
+
+ns45:MD.cff dct:identifier "urn:fdo-squirrel:content/MD.cff" .
+
+ns46:preview.png dct:identifier "urn:fdo-squirrel:content/data/images/preview.png" .
+
+ns47:model.mtl dct:identifier "urn:fdo-squirrel:content/data/model/model.mtl" .
+
+ns47:model.nxs dct:identifier "urn:fdo-squirrel:content/data/model/model.nxs" .
+
+ns47:model.nxz dct:identifier "urn:fdo-squirrel:content/data/model/model.nxz" .
+
+ns47:model.obj dct:identifier "urn:fdo-squirrel:content/data/model/model.obj" .
+
+ns48:3DModel_Custom_baseColor.jpeg dct:identifier "urn:fdo-squirrel:content/data/textures/3DModel_Custom_baseColor.jpeg" .
+
+ns45:fdo-landing-page.html dct:identifier "urn:fdo-squirrel:content/fdo-landing-page.html" .
+
+ns45:fdo-metadata.ttl dct:identifier "urn:fdo-squirrel:content/fdo-metadata.ttl" .
+
+ns45:fdo_files_roles_graph.png dct:identifier "urn:fdo-squirrel:content/fdo_files_roles_graph.png" .
+
+ns45:fdo_files_roles_graph.svg dct:identifier "urn:fdo-squirrel:content/fdo_files_roles_graph.svg" .
+
+ns45:fdo_md_cff.png dct:identifier "urn:fdo-squirrel:content/fdo_md_cff.png" .
+
+ns45:fdo_md_cff.svg dct:identifier "urn:fdo-squirrel:content/fdo_md_cff.svg" .
+
+ns45:fdo_md_cff_graph.png dct:identifier "urn:fdo-squirrel:content/fdo_md_cff_graph.png" .
+
+ns45:fdo_md_cff_graph.svg dct:identifier "urn:fdo-squirrel:content/fdo_md_cff_graph.svg" .
+
+ns45:fdo_overview.mermaid dct:identifier "urn:fdo-squirrel:content/fdo_overview.mermaid" .
+
+ns45:fdo_ttl_snippet_distributions.png dct:identifier "urn:fdo-squirrel:content/fdo_ttl_snippet_distributions.png" .
+
+ns45:fdo_ttl_snippet_distributions.svg dct:identifier "urn:fdo-squirrel:content/fdo_ttl_snippet_distributions.svg" .
+
+ns45:fdo_ttl_snippet_links.png dct:identifier "urn:fdo-squirrel:content/fdo_ttl_snippet_links.png" .
+
+ns45:fdo_ttl_snippet_links.svg dct:identifier "urn:fdo-squirrel:content/fdo_ttl_snippet_links.svg" .
+
+ns45:fdo_ttl_snippet_metadata.png dct:identifier "urn:fdo-squirrel:content/fdo_ttl_snippet_metadata.png" .
+
+ns45:fdo_ttl_snippet_metadata.svg dct:identifier "urn:fdo-squirrel:content/fdo_ttl_snippet_metadata.svg" .
+
+ns45:rdf_modelling_report.html dct:identifier "urn:fdo-squirrel:content/rdf_modelling_report.html" .
+
+ns45:rdf_modelling_report.json dct:identifier "urn:fdo-squirrel:content/rdf_modelling_report.json" .
+
+ns45:ro-crate-metadata.json dct:identifier "urn:fdo-squirrel:content/ro-crate-metadata.json" .
+
+ns49:LICENSE.txt dct:identifier "urn:fdo-squirrel:content/viewer/LICENSE.txt" .
+
+ns49:index.html dct:identifier "urn:fdo-squirrel:content/viewer/index.html" .
+
+ns50:corto.em.js dct:identifier "urn:fdo-squirrel:content/viewer/js/corto.em.js" .
+
+ns50:corto.js dct:identifier "urn:fdo-squirrel:content/viewer/js/corto.js" .
+
+ns50:init.js dct:identifier "urn:fdo-squirrel:content/viewer/js/init.js" .
+
+ns50:jquery.js dct:identifier "urn:fdo-squirrel:content/viewer/js/jquery.js" .
+
+ns50:meco.js dct:identifier "urn:fdo-squirrel:content/viewer/js/meco.js" .
+
+ns50:nexus.js dct:identifier "urn:fdo-squirrel:content/viewer/js/nexus.js" .
+
+ns50:ply.js dct:identifier "urn:fdo-squirrel:content/viewer/js/ply.js" .
+
+ns50:presenter.js dct:identifier "urn:fdo-squirrel:content/viewer/js/presenter.js" .
+
+ns50:spidergl.js dct:identifier "urn:fdo-squirrel:content/viewer/js/spidergl.js" .
+
+ns50:trackball_pantilt.js dct:identifier "urn:fdo-squirrel:content/viewer/js/trackball_pantilt.js" .
+
+ns50:trackball_sphere.js dct:identifier "urn:fdo-squirrel:content/viewer/js/trackball_sphere.js" .
+
+ns50:trackball_turntable.js dct:identifier "urn:fdo-squirrel:content/viewer/js/trackball_turntable.js" .
+
+ns50:trackball_turntable_pan.js dct:identifier "urn:fdo-squirrel:content/viewer/js/trackball_turntable_pan.js" .
+
+ns51:light.jpg dct:identifier "urn:fdo-squirrel:content/viewer/skins/backgrounds/light.jpg" .
+
+ns52:full.png dct:identifier "urn:fdo-squirrel:content/viewer/skins/dark/full.png" .
+
+ns52:full_on.png dct:identifier "urn:fdo-squirrel:content/viewer/skins/dark/full_on.png" .
+
+ns52:home.png dct:identifier "urn:fdo-squirrel:content/viewer/skins/dark/home.png" .
+
+ns52:lightcontrol.png dct:identifier "urn:fdo-squirrel:content/viewer/skins/dark/lightcontrol.png" .
+
+ns52:lightcontrol_on.png dct:identifier "urn:fdo-squirrel:content/viewer/skins/dark/lightcontrol_on.png" .
+
+ns52:zoomin.png dct:identifier "urn:fdo-squirrel:content/viewer/skins/dark/zoomin.png" .
+
+ns52:zoomout.png dct:identifier "urn:fdo-squirrel:content/viewer/skins/dark/zoomout.png" .
+
+ns53:3dhop.css dct:identifier "urn:fdo-squirrel:content/viewer/stylesheet/3dhop.css" .
+
+ns54:00aef0c53ef5c040 a crmdig:D9_Data_Object,
+        dcat:Distribution ;
+    dct:identifier "urn:fdo-squirrel:dist/00aef0c53ef5c040" ;
+    crm:P2_has_type role:data ;
+    dcat:accessURL ns45:fdo_md_cff.svg ;
+    dcat:byteSize 9503 ;
+    dcat:mediaType "image/svg+xml" ;
+    fdo:path "fdo_md_cff.svg" ;
+    fdo:role "data" ;
+    fdo:sha256 "00aef0c53ef5c040c9a4beda02bbc31b566b1af6eb1a1151811e0643a02c2e90" .
+
+ns54:012d3ae0f6007283 a crmdig:D9_Data_Object,
+        dcat:Distribution ;
+    dct:identifier "urn:fdo-squirrel:dist/012d3ae0f6007283" ;
+    crm:P2_has_type role:auxiliary ;
+    dcat:accessURL ns50:meco.js ;
+    dcat:byteSize 26193 ;
+    dcat:mediaType "application/javascript" ;
+    fdo:path "viewer/js/meco.js" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "012d3ae0f600728308dd47552298d7dc9e38390c67cfc3c8a1ac2cd31ba09afc" .
+
+ns54:04b54942c91c510e a crmdig:D9_Data_Object,
+        dcat:Distribution ;
+    dct:identifier "urn:fdo-squirrel:dist/04b54942c91c510e" ;
+    crm:P2_has_type role:auxiliary ;
+    dcat:accessURL ns50:corto.em.js ;
+    dcat:byteSize 119263 ;
+    dcat:mediaType "application/javascript" ;
+    fdo:path "viewer/js/corto.em.js" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "04b54942c91c510e882664ebccea4797f778651ac752a96a215fb7f66219c87f" .
+
+ns54:0b383d5a63da644f a crmdig:D9_Data_Object,
+        dcat:Distribution ;
+    dct:identifier "urn:fdo-squirrel:dist/0b383d5a63da644f" ;
+    crm:P2_has_type role:auxiliary ;
+    dcat:accessURL ns49:LICENSE.txt ;
+    dcat:byteSize 35821 ;
+    dcat:mediaType "text/plain" ;
+    fdo:path "viewer/LICENSE.txt" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "0b383d5a63da644f628d99c33976ea6487ed89aaa59f0b3257992deac1171e6b" .
+
+ns54:0e4d58088180effe a crmdig:D9_Data_Object,
+        dcat:Distribution ;
+    dct:identifier "urn:fdo-squirrel:dist/0e4d58088180effe" ;
+    crm:P2_has_type role:auxiliary ;
+    dcat:accessURL ns52:full.png ;
+    dcat:byteSize 1272 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "viewer/skins/dark/full.png" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "0e4d58088180effe13afcb4583bc938ecdbd6f738330c7a6734e9df2e534ab1a" .
+
+ns54:0e623d3c26743f35 a crmdig:D9_Data_Object,
+        dcat:Distribution ;
+    dct:identifier "urn:fdo-squirrel:dist/0e623d3c26743f35" ;
+    crm:P2_has_type role:auxiliary ;
+    dcat:accessURL ns50:corto.js ;
+    dcat:byteSize 27809 ;
+    dcat:mediaType "application/javascript" ;
+    fdo:path "viewer/js/corto.js" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "0e623d3c26743f35eb18415378674c75c60928cf8c1ef3a7910d5bc115b72447" .
+
+ns54:16c6c11e40e24bb4 a crmdig:D9_Data_Object,
+        dcat:Distribution ;
+    dct:identifier "urn:fdo-squirrel:dist/16c6c11e40e24bb4" ;
+    crm:P2_has_type role:auxiliary ;
+    dcat:accessURL ns48:3DModel_Custom_baseColor.jpeg ;
+    dcat:byteSize 3404741 ;
+    dcat:mediaType "image/jpeg" ;
+    fdo:path "data/textures/3DModel_Custom_baseColor.jpeg" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "16c6c11e40e24bb4059e3bebb594c31b4bcd6b1942d2b2b761fa326dcbf16e24" .
+
+ns54:1a8195ca9d0812e7 a crmdig:D9_Data_Object,
+        dcat:Distribution ;
+    dct:identifier "urn:fdo-squirrel:dist/1a8195ca9d0812e7" ;
+    crm:P2_has_type role:auxiliary ;
+    dcat:accessURL ns51:light.jpg ;
+    dcat:byteSize 142700 ;
+    dcat:mediaType "image/jpeg" ;
+    fdo:path "viewer/skins/backgrounds/light.jpg" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "1a8195ca9d0812e7aa881cb9730d4c34a50eb58ac13a3de12b6c3fc4dedc0c4d" .
+
+ns54:21aa80bf5a9b8d09 a crmdig:D9_Data_Object,
+        dcat:Distribution ;
+    dct:identifier "urn:fdo-squirrel:dist/21aa80bf5a9b8d09" ;
+    crm:P2_has_type role:documentation ;
+    dcat:accessURL ns45:fdo_md_cff.png ;
+    dcat:byteSize 199829 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "fdo_md_cff.png" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "21aa80bf5a9b8d09bcae5b774bd56e94fc4acb3ddc19de7bdb1f3d79a0d16d83" .
+
+ns54:25108ed495e10582 a crmdig:D9_Data_Object,
+        dcat:Distribution ;
+    dct:identifier "urn:fdo-squirrel:dist/25108ed495e10582" ;
+    crm:P2_has_type role:auxiliary ;
+    dcat:accessURL ns52:zoomin.png ;
+    dcat:byteSize 3354 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "viewer/skins/dark/zoomin.png" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "25108ed495e1058238580d64f8704fac3c8c43a1480a2a713c0efd0c471f7eda" .
+
+ns54:2665a3da4cc02f77 a crmdig:D9_Data_Object,
+        dcat:Distribution ;
+    dct:identifier "urn:fdo-squirrel:dist/2665a3da4cc02f77" ;
+    crm:P2_has_type role:documentation ;
+    dcat:accessURL ns46:preview.png ;
+    dcat:byteSize 1482116 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "data/images/preview.png" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "2665a3da4cc02f77f55d825fb46ca12b2e07d84d148326015df94f28e028b82d" .
+
+ns54:2ad4f592d31cf358 a crmdig:D9_Data_Object,
+        dcat:Distribution ;
+    dct:identifier "urn:fdo-squirrel:dist/2ad4f592d31cf358" ;
+    crm:P2_has_type role:auxiliary ;
+    dcat:accessURL ns52:lightcontrol.png ;
+    dcat:byteSize 3342 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "viewer/skins/dark/lightcontrol.png" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "2ad4f592d31cf35838405ea47413111ea1d2307f7e155d32744a714f2e304488" .
+
+ns54:313e193e261c631d a crmdig:D9_Data_Object,
+        dcat:Distribution ;
+    dct:identifier "urn:fdo-squirrel:dist/313e193e261c631d" ;
+    crm:P2_has_type role:metadata ;
+    dcat:accessURL ns45:CITATION.cff ;
+    dcat:byteSize 1047 ;
+    dcat:mediaType "text/yaml" ;
+    fdo:path "CITATION.cff" ;
+    fdo:role "metadata" ;
+    fdo:sha256 "313e193e261c631ddaefb5102a06f518e886e8a369a165e5e14d8a8d4586a236" .
+
+ns54:38710dc331beaf57 a crmdig:D9_Data_Object,
+        dcat:Distribution ;
+    dct:identifier "urn:fdo-squirrel:dist/38710dc331beaf57" ;
+    crm:P2_has_type role:data ;
+    dcat:accessURL ns45:fdo_ttl_snippet_metadata.svg ;
+    dcat:byteSize 5672 ;
+    dcat:mediaType "image/svg+xml" ;
+    fdo:path "fdo_ttl_snippet_metadata.svg" ;
+    fdo:role "data" ;
+    fdo:sha256 "38710dc331beaf577b1d9c266f4fb36bcc5ce45bcfb47026b08d4375525ebe39" .
+
+ns54:3b2a44995e927286 a crmdig:D9_Data_Object,
+        dcat:Distribution ;
+    dct:identifier "urn:fdo-squirrel:dist/3b2a44995e927286" ;
+    crm:P2_has_type role:auxiliary ;
+    dcat:accessURL ns52:full_on.png ;
+    dcat:byteSize 1272 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "viewer/skins/dark/full_on.png" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "3b2a44995e9272862c6b9e192f366b73cbf848b7e247bcb477cb3aa6edc9d73e" .
+
+ns54:4ceb643e8b6d7cd2 a crmdig:D9_Data_Object,
+        dcat:Distribution ;
+    dct:identifier "urn:fdo-squirrel:dist/4ceb643e8b6d7cd2" ;
+    crm:P2_has_type role:auxiliary ;
+    dcat:accessURL ns50:nexus.js ;
+    dcat:byteSize 38388 ;
+    dcat:mediaType "application/javascript" ;
+    fdo:path "viewer/js/nexus.js" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "4ceb643e8b6d7cd26bce53419bc6a781674c4a714f22525716e9e2b6e4469c83" .
+
+ns54:50e62db9b10cc50c a crmdig:D9_Data_Object,
+        dcat:Distribution ;
+    dct:identifier "urn:fdo-squirrel:dist/50e62db9b10cc50c" ;
+    crm:P2_has_type role:auxiliary ;
+    dcat:accessURL ns50:trackball_turntable.js ;
+    dcat:byteSize 10700 ;
+    dcat:mediaType "application/javascript" ;
+    fdo:path "viewer/js/trackball_turntable.js" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "50e62db9b10cc50c669e74ad26e92d9f7623ccfa6dcbed30d2aaca9f92f78b3e" .
+
+ns54:520be9edb1e215a3 a crmdig:D9_Data_Object,
+        dcat:Distribution ;
+    dct:identifier "urn:fdo-squirrel:dist/520be9edb1e215a3" ;
+    crm:P2_has_type role:data ;
+    dcat:accessURL ns45:fdo_files_roles_graph.svg ;
+    dcat:byteSize 4791 ;
+    dcat:mediaType "image/svg+xml" ;
+    fdo:path "fdo_files_roles_graph.svg" ;
+    fdo:role "data" ;
+    fdo:sha256 "520be9edb1e215a35604b1572c4eae0f2a33e9be7a144c0d8b983cf9244a7d13" .
+
+ns54:536c5576e2ee7561 a crmdig:D9_Data_Object,
+        dcat:Distribution ;
+    dct:identifier "urn:fdo-squirrel:dist/536c5576e2ee7561" ;
+    crm:P2_has_type role:auxiliary ;
+    dcat:accessURL ns52:home.png ;
+    dcat:byteSize 1807 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "viewer/skins/dark/home.png" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "536c5576e2ee7561bc75845b511ef82ba69f801edb3c11b8154580f2695d4042" .
+
+ns54:54d7fadc3c3a9f62 a crmdig:D9_Data_Object,
+        dcat:Distribution ;
+    dct:identifier "urn:fdo-squirrel:dist/54d7fadc3c3a9f62" ;
+    crm:P2_has_type role:data ;
+    dcat:accessURL ns45:rdf_modelling_report.html ;
+    dcat:byteSize 12216 ;
+    dcat:mediaType "text/html" ;
+    fdo:path "rdf_modelling_report.html" ;
+    fdo:role "data" ;
+    fdo:sha256 "54d7fadc3c3a9f62b759e777febed072ca1f3c1743210cd2542ebfc873657128" .
+
+ns54:553a061f37d0950d a crmdig:D9_Data_Object,
+        dcat:Distribution ;
+    dct:identifier "urn:fdo-squirrel:dist/553a061f37d0950d" ;
+    crm:P2_has_type role:model ;
+    dcat:accessURL ns47:model.nxs ;
+    dcat:byteSize 10955008 ;
+    dcat:mediaType "application/octet-stream" ;
+    fdo:path "data/model/model.nxs" ;
+    fdo:role "model" ;
+    fdo:sha256 "553a061f37d0950dc2c9ec8473035b2fbf14ec0c7610bd249ed2b6c3f5785a03" .
+
+ns54:5782d58d11437c0f a crmdig:D9_Data_Object,
+        dcat:Distribution ;
+    dct:identifier "urn:fdo-squirrel:dist/5782d58d11437c0f" ;
+    crm:P2_has_type role:auxiliary ;
+    dcat:accessURL ns49:index.html ;
+    dcat:byteSize 3017 ;
+    dcat:mediaType "text/html" ;
+    fdo:path "viewer/index.html" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "5782d58d11437c0f31e0b4b83f2daa9fc21b6875399abb37db6e5d84f417795b" .
+
+ns54:5ed91bb5c3d8a4b1 a crmdig:D9_Data_Object,
+        dcat:Distribution ;
+    dct:identifier "urn:fdo-squirrel:dist/5ed91bb5c3d8a4b1" ;
+    crm:P2_has_type role:auxiliary ;
+    dcat:accessURL ns50:trackball_sphere.js ;
+    dcat:byteSize 6252 ;
+    dcat:mediaType "application/javascript" ;
+    fdo:path "viewer/js/trackball_sphere.js" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "5ed91bb5c3d8a4b1e19631014d4250f82a0ff045bd10765360c024219944a667" .
+
+ns54:601c7754173d287e a crmdig:D9_Data_Object,
+        dcat:Distribution ;
+    dct:identifier "urn:fdo-squirrel:dist/601c7754173d287e" ;
+    crm:P2_has_type role:documentation ;
+    dcat:accessURL ns45:ro-crate-metadata.json ;
+    dcat:byteSize 24366 ;
+    dcat:mediaType "application/json" ;
+    fdo:path "ro-crate-metadata.json" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "601c7754173d287e86bf052c92d7f46b96dd6e342d9a44621eb155aa5a678aa2" .
+
+ns54:6132a60724847178 a crmdig:D9_Data_Object,
+        dcat:Distribution ;
+    dct:identifier "urn:fdo-squirrel:dist/6132a60724847178" ;
+    crm:P2_has_type role:auxiliary ;
+    dcat:accessURL ns50:init.js ;
+    dcat:byteSize 21598 ;
+    dcat:mediaType "application/javascript" ;
+    fdo:path "viewer/js/init.js" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "6132a60724847178a5438548cce1633c327f48a78db202ae54e8f05f6d0b0c3e" .
+
+ns54:6416f4ec9a638fda a crmdig:D9_Data_Object,
+        dcat:Distribution ;
+    dct:identifier "urn:fdo-squirrel:dist/6416f4ec9a638fda" ;
+    crm:P2_has_type role:model ;
+    dcat:accessURL ns47:model.obj ;
+    dcat:byteSize 21735468 ;
+    dcat:mediaType "model/obj" ;
+    fdo:path "data/model/model.obj" ;
+    fdo:role "model" ;
+    fdo:sha256 "6416f4ec9a638fda230a98604054657c31ca4b2f5b9afebc10f91ec34f67aec6" .
+
+ns54:897dcb432515cc0e a crmdig:D9_Data_Object,
+        dcat:Distribution ;
+    dct:identifier "urn:fdo-squirrel:dist/897dcb432515cc0e" ;
+    crm:P2_has_type role:metadata ;
+    dcat:accessURL ns45:MD.cff ;
+    dcat:byteSize 2762 ;
+    dcat:mediaType "text/yaml" ;
+    fdo:path "MD.cff" ;
+    fdo:role "metadata" ;
+    fdo:sha256 "897dcb432515cc0e425e2ffdf98a22d20e4da7f4ee4d88d5adfa5b3caeb36b9f" .
+
+ns54:8a1e7f98aced1a95 a crmdig:D9_Data_Object,
+        dcat:Distribution ;
+    dct:identifier "urn:fdo-squirrel:dist/8a1e7f98aced1a95" ;
+    crm:P2_has_type role:documentation ;
+    dcat:accessURL ns45:fdo_ttl_snippet_distributions.png ;
+    dcat:byteSize 256560 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "fdo_ttl_snippet_distributions.png" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "8a1e7f98aced1a951ca3058be8db924b896884dedbe5fc22bd52d7437890392b" .
+
+ns54:9232d9a4024e4090 a crmdig:D9_Data_Object,
+        dcat:Distribution ;
+    dct:identifier "urn:fdo-squirrel:dist/9232d9a4024e4090" ;
+    crm:P2_has_type role:documentation ;
+    dcat:accessURL ns45:fdo_ttl_snippet_links.png ;
+    dcat:byteSize 126243 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "fdo_ttl_snippet_links.png" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "9232d9a4024e4090879f0f305a21e0668d9418963526f847fcf383d32b5e2a8e" .
+
+ns54:99282e8654e76b59 a crmdig:D9_Data_Object,
+        dcat:Distribution ;
+    dct:identifier "urn:fdo-squirrel:dist/99282e8654e76b59" ;
+    crm:P2_has_type role:data ;
+    dcat:accessURL ns45:fdo-landing-page.html ;
+    dcat:byteSize 9198 ;
+    dcat:mediaType "text/html" ;
+    fdo:path "fdo-landing-page.html" ;
+    fdo:role "data" ;
+    fdo:sha256 "99282e8654e76b59697f6b7703c76b4bbbaad003a8d81e30d7b03bee48146677" .
+
+ns54:9fd7be788d73ee57 a crmdig:D9_Data_Object,
+        dcat:Distribution ;
+    dct:identifier "urn:fdo-squirrel:dist/9fd7be788d73ee57" ;
+    crm:P2_has_type role:auxiliary ;
+    dcat:accessURL ns52:lightcontrol_on.png ;
+    dcat:byteSize 3502 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "viewer/skins/dark/lightcontrol_on.png" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "9fd7be788d73ee570f64df3aa8d3be9feeeffd36e13841acf27946bcf98b0440" .
+
+ns54:a2500316b1bbcfe9 a crmdig:D9_Data_Object,
+        dcat:Distribution ;
+    dct:identifier "urn:fdo-squirrel:dist/a2500316b1bbcfe9" ;
+    crm:P2_has_type role:documentation ;
+    dcat:accessURL ns45:fdo_files_roles_graph.png ;
+    dcat:byteSize 42307 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "fdo_files_roles_graph.png" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "a2500316b1bbcfe97768d9f2a63ebe0cb5d4f926d1421cad250bbc4bae3a1a38" .
+
+ns54:a4b60245e4b58570 a crmdig:D9_Data_Object,
+        dcat:Distribution ;
+    dct:identifier "urn:fdo-squirrel:dist/a4b60245e4b58570" ;
+    crm:P2_has_type role:data ;
+    dcat:accessURL ns45:fdo_md_cff_graph.svg ;
+    dcat:byteSize 12241 ;
+    dcat:mediaType "image/svg+xml" ;
+    fdo:path "fdo_md_cff_graph.svg" ;
+    fdo:role "data" ;
+    fdo:sha256 "a4b60245e4b58570867f402e7b4252c7dfe66e7939a045cbb23f97cfb1908995" .
+
+ns54:ada023eb80b0ce5c a crmdig:D9_Data_Object,
+        dcat:Distribution ;
+    dct:identifier "urn:fdo-squirrel:dist/ada023eb80b0ce5c" ;
+    crm:P2_has_type role:auxiliary ;
+    dcat:accessURL ns50:trackball_turntable_pan.js ;
+    dcat:byteSize 15658 ;
+    dcat:mediaType "application/javascript" ;
+    fdo:path "viewer/js/trackball_turntable_pan.js" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "ada023eb80b0ce5cb03853ab091e028d56c3c830bb5eaa55b7e57673ab9a583b" .
+
+ns54:b4416be937053d8a a crmdig:D9_Data_Object,
+        dcat:Distribution ;
+    dct:identifier "urn:fdo-squirrel:dist/b4416be937053d8a" ;
+    crm:P2_has_type role:auxiliary ;
+    dcat:accessURL ns50:ply.js ;
+    dcat:byteSize 29251 ;
+    dcat:mediaType "application/javascript" ;
+    fdo:path "viewer/js/ply.js" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "b4416be937053d8a0f938940805374abb298de26481def809c8e4c2fcc00c1a9" .
+
+ns54:c39709a70159b2d5 a crmdig:D9_Data_Object,
+        dcat:Distribution ;
+    dct:identifier "urn:fdo-squirrel:dist/c39709a70159b2d5" ;
+    crm:P2_has_type role:data ;
+    dcat:accessURL ns45:fdo_overview.mermaid ;
+    dcat:byteSize 1814 ;
+    dcat:mediaType "application/octet-stream" ;
+    fdo:path "fdo_overview.mermaid" ;
+    fdo:role "data" ;
+    fdo:sha256 "c39709a70159b2d5a6d2aadca8d081d0712edb7825541a2d72965b288b748ffd" .
+
+ns54:cf14dd446fc3537f a crmdig:D9_Data_Object,
+        dcat:Distribution ;
+    dct:identifier "urn:fdo-squirrel:dist/cf14dd446fc3537f" ;
+    crm:P2_has_type role:auxiliary ;
+    dcat:accessURL ns50:trackball_pantilt.js ;
+    dcat:byteSize 12476 ;
+    dcat:mediaType "application/javascript" ;
+    fdo:path "viewer/js/trackball_pantilt.js" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "cf14dd446fc3537fc5f988d3eab11b8bb30daa1b2a3f906a7f319f22c86c2058" .
+
+ns54:d854a11b61679a68 a crmdig:D9_Data_Object,
+        dcat:Distribution ;
+    dct:identifier "urn:fdo-squirrel:dist/d854a11b61679a68" ;
+    crm:P2_has_type role:documentation ;
+    dcat:accessURL ns45:fdo_md_cff_graph.png ;
+    dcat:byteSize 167337 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "fdo_md_cff_graph.png" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "d854a11b61679a68234f9851cdbc60c080ffdbf08cad670460ad09c318ec9a49" .
+
+ns54:d90a1076c5418f1a a crmdig:D9_Data_Object,
+        dcat:Distribution ;
+    dct:identifier "urn:fdo-squirrel:dist/d90a1076c5418f1a" ;
+    crm:P2_has_type role:data ;
+    dcat:accessURL ns45:fdo_ttl_snippet_links.svg ;
+    dcat:byteSize 2357 ;
+    dcat:mediaType "image/svg+xml" ;
+    fdo:path "fdo_ttl_snippet_links.svg" ;
+    fdo:role "data" ;
+    fdo:sha256 "d90a1076c5418f1ae76c775968e90108da8c560c8a6d5ee82037325f0f644562" .
+
+ns54:d9a40b0494b950e0 a crmdig:D9_Data_Object,
+        dcat:Distribution ;
+    dct:identifier "urn:fdo-squirrel:dist/d9a40b0494b950e0" ;
+    crm:P2_has_type role:data ;
+    dcat:accessURL ns45:FDOx.yaml ;
+    dcat:byteSize 769 ;
+    dcat:mediaType "text/yaml" ;
+    fdo:path "FDOx.yaml" ;
+    fdo:role "data" ;
+    fdo:sha256 "d9a40b0494b950e0699a72e1a7cb3f0a54e9cfdbebaa46e6266795bf9215d22a" .
+
+ns54:e11a72bc8562e381 a crmdig:D9_Data_Object,
+        dcat:Distribution ;
+    dct:identifier "urn:fdo-squirrel:dist/e11a72bc8562e381" ;
+    crm:P2_has_type role:documentation ;
+    dcat:accessURL ns45:fdo_ttl_snippet_metadata.png ;
+    dcat:byteSize 301113 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "fdo_ttl_snippet_metadata.png" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "e11a72bc8562e381ec85e900a3444c3e341f3d6b17ad5085a4063317dde76500" .
+
+ns54:e221c116fce7a4fc a crmdig:D9_Data_Object,
+        dcat:Distribution ;
+    dct:identifier "urn:fdo-squirrel:dist/e221c116fce7a4fc" ;
+    crm:P2_has_type role:auxiliary ;
+    dcat:accessURL ns52:zoomout.png ;
+    dcat:byteSize 3266 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "viewer/skins/dark/zoomout.png" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "e221c116fce7a4fc6c3fd4e0024f7b4aaa4c9003b365067e3c43a638c91216f2" .
+
+ns54:e61ca0b15b26ba35 a crmdig:D9_Data_Object,
+        dcat:Distribution ;
+    dct:identifier "urn:fdo-squirrel:dist/e61ca0b15b26ba35" ;
+    crm:P2_has_type role:model ;
+    dcat:accessURL ns47:model.nxz ;
+    dcat:byteSize 4976128 ;
+    dcat:mediaType "application/octet-stream" ;
+    fdo:path "data/model/model.nxz" ;
+    fdo:role "model" ;
+    fdo:sha256 "e61ca0b15b26ba352a3d19be9434646a687c51c381a8b44781b4e9aa726067f2" .
+
+ns54:e643828ac452278c a crmdig:D9_Data_Object,
+        dcat:Distribution ;
+    dct:identifier "urn:fdo-squirrel:dist/e643828ac452278c" ;
+    crm:P2_has_type role:model ;
+    dcat:accessURL ns47:model.mtl ;
+    dcat:byteSize 271 ;
+    dcat:mediaType "application/octet-stream" ;
+    fdo:path "data/model/model.mtl" ;
+    fdo:role "model" ;
+    fdo:sha256 "e643828ac452278cb5c4ee7b0d457a58cdb57e6dcb0835b19f75769fd3ab0156" .
+
+ns54:e8e4c3bd84963acc a crmdig:D9_Data_Object,
+        dcat:Distribution ;
+    dct:identifier "urn:fdo-squirrel:dist/e8e4c3bd84963acc" ;
+    crm:P2_has_type role:documentation ;
+    dcat:accessURL ns45:rdf_modelling_report.json ;
+    dcat:byteSize 26132 ;
+    dcat:mediaType "application/json" ;
+    fdo:path "rdf_modelling_report.json" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "e8e4c3bd84963acc41c8a70f27fe6d99e703d6ad25f0c980be652f1d8fb82a51" .
+
+ns54:f6e15e9e5f49e3de a crmdig:D9_Data_Object,
+        dcat:Distribution ;
+    dct:identifier "urn:fdo-squirrel:dist/f6e15e9e5f49e3de" ;
+    crm:P2_has_type role:auxiliary ;
+    dcat:accessURL ns50:presenter.js ;
+    dcat:byteSize 135389 ;
+    dcat:mediaType "application/javascript" ;
+    fdo:path "viewer/js/presenter.js" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "f6e15e9e5f49e3dec53f1a31dff4d6091c8b7aa4dd65793655dd22eb9c6497e3" .
+
+ns54:f7f6a5894f1d19dd a crmdig:D9_Data_Object,
+        dcat:Distribution ;
+    dct:identifier "urn:fdo-squirrel:dist/f7f6a5894f1d19dd" ;
+    crm:P2_has_type role:auxiliary ;
+    dcat:accessURL ns50:jquery.js ;
+    dcat:byteSize 89476 ;
+    dcat:mediaType "application/javascript" ;
+    fdo:path "viewer/js/jquery.js" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "f7f6a5894f1d19ddad6fa392b2ece2c5e578cbf7da4ea805b6885eb6985b6e3d" .
+
+ns54:f99a5bbc326ac68d a crmdig:D9_Data_Object,
+        dcat:Distribution ;
+    dct:identifier "urn:fdo-squirrel:dist/f99a5bbc326ac68d" ;
+    crm:P2_has_type role:data ;
+    dcat:accessURL ns45:fdo-metadata.ttl ;
+    dcat:byteSize 23256 ;
+    dcat:mediaType "application/octet-stream" ;
+    fdo:path "fdo-metadata.ttl" ;
+    fdo:role "data" ;
+    fdo:sha256 "f99a5bbc326ac68d9fa29cce01e378b166b29b146e13233ffb3e33484bfe2868" .
+
+ns54:fe753c2685ec886c a crmdig:D9_Data_Object,
+        dcat:Distribution ;
+    dct:identifier "urn:fdo-squirrel:dist/fe753c2685ec886c" ;
+    crm:P2_has_type role:auxiliary ;
+    dcat:accessURL ns50:spidergl.js ;
+    dcat:byteSize 190272 ;
+    dcat:mediaType "application/javascript" ;
+    fdo:path "viewer/js/spidergl.js" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "fe753c2685ec886cfce08a07f8f9e0a48bd2ae197694eae84de53de129414690" .
+
+ns54:ff024893dd2a6ee6 a crmdig:D9_Data_Object,
+        dcat:Distribution ;
+    dct:identifier "urn:fdo-squirrel:dist/ff024893dd2a6ee6" ;
+    crm:P2_has_type role:data ;
+    dcat:accessURL ns45:fdo_ttl_snippet_distributions.svg ;
+    dcat:byteSize 5732 ;
+    dcat:mediaType "image/svg+xml" ;
+    fdo:path "fdo_ttl_snippet_distributions.svg" ;
+    fdo:role "data" ;
+    fdo:sha256 "ff024893dd2a6ee679b770780d4985cde28cdd1c95958768658535aa1248ed44" .
+
+ns54:ff48136f9eeca235 a crmdig:D9_Data_Object,
+        dcat:Distribution ;
+    dct:identifier "urn:fdo-squirrel:dist/ff48136f9eeca235" ;
+    crm:P2_has_type role:auxiliary ;
+    dcat:accessURL ns53:3dhop.css ;
+    dcat:byteSize 5839 ;
+    dcat:mediaType "text/css" ;
+    fdo:path "viewer/stylesheet/3dhop.css" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "ff48136f9eeca23576768c62add1976ba8442110cc9ebf007efd370d5c1b9095" .
+
+ns10:24305344 a crm:E31_Document,
+        dcat:CatalogRecord ;
+    dct:issued "2026-11-17"^^xsd:date ;
+    dct:source ns77:24305344 ;
+    dct:title "Lego Pyramid / Reconstruction claude.ai (FDOx)"@en ;
+    crm:P102_has_title "Lego Pyramid / Reconstruction claude.ai (FDOx)"@en ;
+    crm:P70_documents ns03:zenodo.24305343 ;
+    prov:wasDerivedFrom ns76:content ;
+    foaf:primaryTopic ns03:zenodo.24305343 ;
+    fdoreg:conceptDoi ns03:zenodo.24305343 ;
+    fdoreg:sha256 "27c8fd5549c584a03987d29d5f60bfaad470f01a8442af6a32e32c6316b0b34b" ;
+    fdoreg:versionDoi ns03:zenodo.24305344 .
+
+ns55:CITATION.cff dct:identifier "urn:fdo-squirrel:content/CITATION.cff" .
+
+ns55:FDOx.yaml dct:identifier "urn:fdo-squirrel:content/FDOx.yaml" .
+
+ns55:MD.cff dct:identifier "urn:fdo-squirrel:content/MD.cff" .
+
+ns56:preview.png dct:identifier "urn:fdo-squirrel:content/data/images/preview.png" .
+
+ns57:model.mtl dct:identifier "urn:fdo-squirrel:content/data/model/model.mtl" .
+
+ns57:model.nxs dct:identifier "urn:fdo-squirrel:content/data/model/model.nxs" .
+
+ns57:model.nxz dct:identifier "urn:fdo-squirrel:content/data/model/model.nxz" .
+
+ns57:model.obj dct:identifier "urn:fdo-squirrel:content/data/model/model.obj" .
+
+ns58:material_4_baseColor.png dct:identifier "urn:fdo-squirrel:content/data/textures/material_4_baseColor.png" .
+
+ns58:material_5_baseColor.png dct:identifier "urn:fdo-squirrel:content/data/textures/material_5_baseColor.png" .
+
+ns55:fdo-landing-page.html dct:identifier "urn:fdo-squirrel:content/fdo-landing-page.html" .
+
+ns55:fdo-metadata.ttl dct:identifier "urn:fdo-squirrel:content/fdo-metadata.ttl" .
+
+ns55:fdo_files_roles_graph.png dct:identifier "urn:fdo-squirrel:content/fdo_files_roles_graph.png" .
+
+ns55:fdo_files_roles_graph.svg dct:identifier "urn:fdo-squirrel:content/fdo_files_roles_graph.svg" .
+
+ns55:fdo_md_cff.png dct:identifier "urn:fdo-squirrel:content/fdo_md_cff.png" .
+
+ns55:fdo_md_cff.svg dct:identifier "urn:fdo-squirrel:content/fdo_md_cff.svg" .
+
+ns55:fdo_md_cff_graph.png dct:identifier "urn:fdo-squirrel:content/fdo_md_cff_graph.png" .
+
+ns55:fdo_md_cff_graph.svg dct:identifier "urn:fdo-squirrel:content/fdo_md_cff_graph.svg" .
+
+ns55:fdo_overview.mermaid dct:identifier "urn:fdo-squirrel:content/fdo_overview.mermaid" .
+
+ns55:fdo_ttl_snippet_distributions.png dct:identifier "urn:fdo-squirrel:content/fdo_ttl_snippet_distributions.png" .
+
+ns55:fdo_ttl_snippet_distributions.svg dct:identifier "urn:fdo-squirrel:content/fdo_ttl_snippet_distributions.svg" .
+
+ns55:fdo_ttl_snippet_links.png dct:identifier "urn:fdo-squirrel:content/fdo_ttl_snippet_links.png" .
+
+ns55:fdo_ttl_snippet_links.svg dct:identifier "urn:fdo-squirrel:content/fdo_ttl_snippet_links.svg" .
+
+ns55:fdo_ttl_snippet_metadata.png dct:identifier "urn:fdo-squirrel:content/fdo_ttl_snippet_metadata.png" .
+
+ns55:fdo_ttl_snippet_metadata.svg dct:identifier "urn:fdo-squirrel:content/fdo_ttl_snippet_metadata.svg" .
+
+ns55:rdf_modelling_report.html dct:identifier "urn:fdo-squirrel:content/rdf_modelling_report.html" .
+
+ns55:rdf_modelling_report.json dct:identifier "urn:fdo-squirrel:content/rdf_modelling_report.json" .
+
+ns55:ro-crate-metadata.json dct:identifier "urn:fdo-squirrel:content/ro-crate-metadata.json" .
+
+ns59:LICENSE.txt dct:identifier "urn:fdo-squirrel:content/viewer/LICENSE.txt" .
+
+ns59:index.html dct:identifier "urn:fdo-squirrel:content/viewer/index.html" .
+
+ns60:corto.em.js dct:identifier "urn:fdo-squirrel:content/viewer/js/corto.em.js" .
+
+ns60:corto.js dct:identifier "urn:fdo-squirrel:content/viewer/js/corto.js" .
+
+ns60:init.js dct:identifier "urn:fdo-squirrel:content/viewer/js/init.js" .
+
+ns60:jquery.js dct:identifier "urn:fdo-squirrel:content/viewer/js/jquery.js" .
+
+ns60:meco.js dct:identifier "urn:fdo-squirrel:content/viewer/js/meco.js" .
+
+ns60:nexus.js dct:identifier "urn:fdo-squirrel:content/viewer/js/nexus.js" .
+
+ns60:ply.js dct:identifier "urn:fdo-squirrel:content/viewer/js/ply.js" .
+
+ns60:presenter.js dct:identifier "urn:fdo-squirrel:content/viewer/js/presenter.js" .
+
+ns60:spidergl.js dct:identifier "urn:fdo-squirrel:content/viewer/js/spidergl.js" .
+
+ns60:trackball_pantilt.js dct:identifier "urn:fdo-squirrel:content/viewer/js/trackball_pantilt.js" .
+
+ns60:trackball_sphere.js dct:identifier "urn:fdo-squirrel:content/viewer/js/trackball_sphere.js" .
+
+ns60:trackball_turntable.js dct:identifier "urn:fdo-squirrel:content/viewer/js/trackball_turntable.js" .
+
+ns60:trackball_turntable_pan.js dct:identifier "urn:fdo-squirrel:content/viewer/js/trackball_turntable_pan.js" .
+
+ns61:light.jpg dct:identifier "urn:fdo-squirrel:content/viewer/skins/backgrounds/light.jpg" .
+
+ns62:full.png dct:identifier "urn:fdo-squirrel:content/viewer/skins/dark/full.png" .
+
+ns62:full_on.png dct:identifier "urn:fdo-squirrel:content/viewer/skins/dark/full_on.png" .
+
+ns62:home.png dct:identifier "urn:fdo-squirrel:content/viewer/skins/dark/home.png" .
+
+ns62:lightcontrol.png dct:identifier "urn:fdo-squirrel:content/viewer/skins/dark/lightcontrol.png" .
+
+ns62:lightcontrol_on.png dct:identifier "urn:fdo-squirrel:content/viewer/skins/dark/lightcontrol_on.png" .
+
+ns62:zoomin.png dct:identifier "urn:fdo-squirrel:content/viewer/skins/dark/zoomin.png" .
+
+ns62:zoomout.png dct:identifier "urn:fdo-squirrel:content/viewer/skins/dark/zoomout.png" .
+
+ns63:3dhop.css dct:identifier "urn:fdo-squirrel:content/viewer/stylesheet/3dhop.css" .
+
+ns64:012d3ae0f6007283 a crmdig:D9_Data_Object,
+        dcat:Distribution ;
+    dct:identifier "urn:fdo-squirrel:dist/012d3ae0f6007283" ;
+    crm:P2_has_type role:auxiliary ;
+    dcat:accessURL ns60:meco.js ;
+    dcat:byteSize 26193 ;
+    dcat:mediaType "application/javascript" ;
+    fdo:path "viewer/js/meco.js" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "012d3ae0f600728308dd47552298d7dc9e38390c67cfc3c8a1ac2cd31ba09afc" .
+
+ns64:01fb410982fe3a31 a crmdig:D9_Data_Object,
+        dcat:Distribution ;
+    dct:identifier "urn:fdo-squirrel:dist/01fb410982fe3a31" ;
+    crm:P2_has_type role:data ;
+    dcat:accessURL ns55:fdo_ttl_snippet_metadata.svg ;
+    dcat:byteSize 5746 ;
+    dcat:mediaType "image/svg+xml" ;
+    fdo:path "fdo_ttl_snippet_metadata.svg" ;
+    fdo:role "data" ;
+    fdo:sha256 "01fb410982fe3a31c91c3174376f387d6f4d5d5b40b59bd2116bd33cd8b5e4af" .
+
+ns64:04b54942c91c510e a crmdig:D9_Data_Object,
+        dcat:Distribution ;
+    dct:identifier "urn:fdo-squirrel:dist/04b54942c91c510e" ;
+    crm:P2_has_type role:auxiliary ;
+    dcat:accessURL ns60:corto.em.js ;
+    dcat:byteSize 119263 ;
+    dcat:mediaType "application/javascript" ;
+    fdo:path "viewer/js/corto.em.js" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "04b54942c91c510e882664ebccea4797f778651ac752a96a215fb7f66219c87f" .
+
+ns64:072e23ceb97e3b81 a crmdig:D9_Data_Object,
+        dcat:Distribution ;
+    dct:identifier "urn:fdo-squirrel:dist/072e23ceb97e3b81" ;
+    crm:P2_has_type role:documentation ;
+    dcat:accessURL ns55:rdf_modelling_report.json ;
+    dcat:byteSize 26085 ;
+    dcat:mediaType "application/json" ;
+    fdo:path "rdf_modelling_report.json" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "072e23ceb97e3b81bf40f99fca5c6864e697420018c5953155ef510bc900758b" .
+
+ns64:0b383d5a63da644f a crmdig:D9_Data_Object,
+        dcat:Distribution ;
+    dct:identifier "urn:fdo-squirrel:dist/0b383d5a63da644f" ;
+    crm:P2_has_type role:auxiliary ;
+    dcat:accessURL ns59:LICENSE.txt ;
+    dcat:byteSize 35821 ;
+    dcat:mediaType "text/plain" ;
+    fdo:path "viewer/LICENSE.txt" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "0b383d5a63da644f628d99c33976ea6487ed89aaa59f0b3257992deac1171e6b" .
+
+ns64:0e4d58088180effe a crmdig:D9_Data_Object,
+        dcat:Distribution ;
+    dct:identifier "urn:fdo-squirrel:dist/0e4d58088180effe" ;
+    crm:P2_has_type role:auxiliary ;
+    dcat:accessURL ns62:full.png ;
+    dcat:byteSize 1272 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "viewer/skins/dark/full.png" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "0e4d58088180effe13afcb4583bc938ecdbd6f738330c7a6734e9df2e534ab1a" .
+
+ns64:0e623d3c26743f35 a crmdig:D9_Data_Object,
+        dcat:Distribution ;
+    dct:identifier "urn:fdo-squirrel:dist/0e623d3c26743f35" ;
+    crm:P2_has_type role:auxiliary ;
+    dcat:accessURL ns60:corto.js ;
+    dcat:byteSize 27809 ;
+    dcat:mediaType "application/javascript" ;
+    fdo:path "viewer/js/corto.js" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "0e623d3c26743f35eb18415378674c75c60928cf8c1ef3a7910d5bc115b72447" .
+
+ns64:0eb0fe6f0c9babd2 a crmdig:D9_Data_Object,
+        dcat:Distribution ;
+    dct:identifier "urn:fdo-squirrel:dist/0eb0fe6f0c9babd2" ;
+    crm:P2_has_type role:model ;
+    dcat:accessURL ns57:model.obj ;
+    dcat:byteSize 3815814 ;
+    dcat:mediaType "model/obj" ;
+    fdo:path "data/model/model.obj" ;
+    fdo:role "model" ;
+    fdo:sha256 "0eb0fe6f0c9babd2024897bc17633ff4905dc335decadafd08c1db1318124f15" .
+
+ns64:14af52e4a67ec778 a crmdig:D9_Data_Object,
+        dcat:Distribution ;
+    dct:identifier "urn:fdo-squirrel:dist/14af52e4a67ec778" ;
+    crm:P2_has_type role:metadata ;
+    dcat:accessURL ns55:MD.cff ;
+    dcat:byteSize 3275 ;
+    dcat:mediaType "text/yaml" ;
+    fdo:path "MD.cff" ;
+    fdo:role "metadata" ;
+    fdo:sha256 "14af52e4a67ec7783075ae2ebaf31c3a1fa4d2fee6d967b0926f82f3acf5fe29" .
+
+ns64:1a8195ca9d0812e7 a crmdig:D9_Data_Object,
+        dcat:Distribution ;
+    dct:identifier "urn:fdo-squirrel:dist/1a8195ca9d0812e7" ;
+    crm:P2_has_type role:auxiliary ;
+    dcat:accessURL ns61:light.jpg ;
+    dcat:byteSize 142700 ;
+    dcat:mediaType "image/jpeg" ;
+    fdo:path "viewer/skins/backgrounds/light.jpg" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "1a8195ca9d0812e7aa881cb9730d4c34a50eb58ac13a3de12b6c3fc4dedc0c4d" .
+
+ns64:1ffec1e1e34fdfb1 a crmdig:D9_Data_Object,
+        dcat:Distribution ;
+    dct:identifier "urn:fdo-squirrel:dist/1ffec1e1e34fdfb1" ;
+    crm:P2_has_type role:auxiliary ;
+    dcat:accessURL ns58:material_5_baseColor.png ;
+    dcat:byteSize 19986 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "data/textures/material_5_baseColor.png" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "1ffec1e1e34fdfb1d523aa22effaf7bb5db3ef57d91a8f55be463992fa9aa4a7" .
+
+ns64:233196948668e209 a crmdig:D9_Data_Object,
+        dcat:Distribution ;
+    dct:identifier "urn:fdo-squirrel:dist/233196948668e209" ;
+    crm:P2_has_type role:documentation ;
+    dcat:accessURL ns55:fdo_files_roles_graph.png ;
+    dcat:byteSize 43498 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "fdo_files_roles_graph.png" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "233196948668e2095817f64a4ba62d16ef64d0a9335746c9c57f277654e1674f" .
+
+ns64:25108ed495e10582 a crmdig:D9_Data_Object,
+        dcat:Distribution ;
+    dct:identifier "urn:fdo-squirrel:dist/25108ed495e10582" ;
+    crm:P2_has_type role:auxiliary ;
+    dcat:accessURL ns62:zoomin.png ;
+    dcat:byteSize 3354 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "viewer/skins/dark/zoomin.png" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "25108ed495e1058238580d64f8704fac3c8c43a1480a2a713c0efd0c471f7eda" .
+
+ns64:25db6d7b02f7b194 a crmdig:D9_Data_Object,
+        dcat:Distribution ;
+    dct:identifier "urn:fdo-squirrel:dist/25db6d7b02f7b194" ;
+    crm:P2_has_type role:data ;
+    dcat:accessURL ns55:fdo_files_roles_graph.svg ;
+    dcat:byteSize 4803 ;
+    dcat:mediaType "image/svg+xml" ;
+    fdo:path "fdo_files_roles_graph.svg" ;
+    fdo:role "data" ;
+    fdo:sha256 "25db6d7b02f7b1941b6f9fe0ab4fd9b4f4d95325f1ec86efd157e22b3e0db7a3" .
+
+ns64:296bc25ba60aee91 a crmdig:D9_Data_Object,
+        dcat:Distribution ;
+    dct:identifier "urn:fdo-squirrel:dist/296bc25ba60aee91" ;
+    crm:P2_has_type role:model ;
+    dcat:accessURL ns57:model.nxz ;
+    dcat:byteSize 371968 ;
+    dcat:mediaType "application/octet-stream" ;
+    fdo:path "data/model/model.nxz" ;
+    fdo:role "model" ;
+    fdo:sha256 "296bc25ba60aee911ccca354d31da5d7e64de9c42bd39ca9a88c33ccd0413699" .
+
+ns64:2ad4f592d31cf358 a crmdig:D9_Data_Object,
+        dcat:Distribution ;
+    dct:identifier "urn:fdo-squirrel:dist/2ad4f592d31cf358" ;
+    crm:P2_has_type role:auxiliary ;
+    dcat:accessURL ns62:lightcontrol.png ;
+    dcat:byteSize 3342 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "viewer/skins/dark/lightcontrol.png" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "2ad4f592d31cf35838405ea47413111ea1d2307f7e155d32744a714f2e304488" .
+
+ns64:3958aebd7ed81c14 a crmdig:D9_Data_Object,
+        dcat:Distribution ;
+    dct:identifier "urn:fdo-squirrel:dist/3958aebd7ed81c14" ;
+    crm:P2_has_type role:metadata ;
+    dcat:accessURL ns55:CITATION.cff ;
+    dcat:byteSize 1153 ;
+    dcat:mediaType "text/yaml" ;
+    fdo:path "CITATION.cff" ;
+    fdo:role "metadata" ;
+    fdo:sha256 "3958aebd7ed81c14d88edd0e4a7a573aa855c67524ceed44cbe6bf5ae97750ea" .
+
+ns64:3b2a44995e927286 a crmdig:D9_Data_Object,
+        dcat:Distribution ;
+    dct:identifier "urn:fdo-squirrel:dist/3b2a44995e927286" ;
+    crm:P2_has_type role:auxiliary ;
+    dcat:accessURL ns62:full_on.png ;
+    dcat:byteSize 1272 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "viewer/skins/dark/full_on.png" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "3b2a44995e9272862c6b9e192f366b73cbf848b7e247bcb477cb3aa6edc9d73e" .
+
+ns64:40c56386e83fab16 a crmdig:D9_Data_Object,
+        dcat:Distribution ;
+    dct:identifier "urn:fdo-squirrel:dist/40c56386e83fab16" ;
+    crm:P2_has_type role:documentation ;
+    dcat:accessURL ns55:fdo_ttl_snippet_links.png ;
+    dcat:byteSize 81922 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "fdo_ttl_snippet_links.png" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "40c56386e83fab16cc49c646fe41863336203bf6938104464a89b7eebad1e43a" .
+
+ns64:4ceb643e8b6d7cd2 a crmdig:D9_Data_Object,
+        dcat:Distribution ;
+    dct:identifier "urn:fdo-squirrel:dist/4ceb643e8b6d7cd2" ;
+    crm:P2_has_type role:auxiliary ;
+    dcat:accessURL ns60:nexus.js ;
+    dcat:byteSize 38388 ;
+    dcat:mediaType "application/javascript" ;
+    fdo:path "viewer/js/nexus.js" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "4ceb643e8b6d7cd26bce53419bc6a781674c4a714f22525716e9e2b6e4469c83" .
+
+ns64:50e62db9b10cc50c a crmdig:D9_Data_Object,
+        dcat:Distribution ;
+    dct:identifier "urn:fdo-squirrel:dist/50e62db9b10cc50c" ;
+    crm:P2_has_type role:auxiliary ;
+    dcat:accessURL ns60:trackball_turntable.js ;
+    dcat:byteSize 10700 ;
+    dcat:mediaType "application/javascript" ;
+    fdo:path "viewer/js/trackball_turntable.js" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "50e62db9b10cc50c669e74ad26e92d9f7623ccfa6dcbed30d2aaca9f92f78b3e" .
+
+ns64:536c5576e2ee7561 a crmdig:D9_Data_Object,
+        dcat:Distribution ;
+    dct:identifier "urn:fdo-squirrel:dist/536c5576e2ee7561" ;
+    crm:P2_has_type role:auxiliary ;
+    dcat:accessURL ns62:home.png ;
+    dcat:byteSize 1807 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "viewer/skins/dark/home.png" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "536c5576e2ee7561bc75845b511ef82ba69f801edb3c11b8154580f2695d4042" .
+
+ns64:5782d58d11437c0f a crmdig:D9_Data_Object,
+        dcat:Distribution ;
+    dct:identifier "urn:fdo-squirrel:dist/5782d58d11437c0f" ;
+    crm:P2_has_type role:auxiliary ;
+    dcat:accessURL ns59:index.html ;
+    dcat:byteSize 3017 ;
+    dcat:mediaType "text/html" ;
+    fdo:path "viewer/index.html" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "5782d58d11437c0f31e0b4b83f2daa9fc21b6875399abb37db6e5d84f417795b" .
+
+ns64:5807a72bffc8e803 a crmdig:D9_Data_Object,
+        dcat:Distribution ;
+    dct:identifier "urn:fdo-squirrel:dist/5807a72bffc8e803" ;
+    crm:P2_has_type role:data ;
+    dcat:accessURL ns55:fdo_ttl_snippet_links.svg ;
+    dcat:byteSize 1742 ;
+    dcat:mediaType "image/svg+xml" ;
+    fdo:path "fdo_ttl_snippet_links.svg" ;
+    fdo:role "data" ;
+    fdo:sha256 "5807a72bffc8e803df5fe891d0fb2a4d393d43e6487e19bb07b97747f4671b89" .
+
+ns64:5ed91bb5c3d8a4b1 a crmdig:D9_Data_Object,
+        dcat:Distribution ;
+    dct:identifier "urn:fdo-squirrel:dist/5ed91bb5c3d8a4b1" ;
+    crm:P2_has_type role:auxiliary ;
+    dcat:accessURL ns60:trackball_sphere.js ;
+    dcat:byteSize 6252 ;
+    dcat:mediaType "application/javascript" ;
+    fdo:path "viewer/js/trackball_sphere.js" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "5ed91bb5c3d8a4b1e19631014d4250f82a0ff045bd10765360c024219944a667" .
+
+ns64:6132a60724847178 a crmdig:D9_Data_Object,
+        dcat:Distribution ;
+    dct:identifier "urn:fdo-squirrel:dist/6132a60724847178" ;
+    crm:P2_has_type role:auxiliary ;
+    dcat:accessURL ns60:init.js ;
+    dcat:byteSize 21598 ;
+    dcat:mediaType "application/javascript" ;
+    fdo:path "viewer/js/init.js" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "6132a60724847178a5438548cce1633c327f48a78db202ae54e8f05f6d0b0c3e" .
+
+ns64:6c091c81e507c17a a crmdig:D9_Data_Object,
+        dcat:Distribution ;
+    dct:identifier "urn:fdo-squirrel:dist/6c091c81e507c17a" ;
+    crm:P2_has_type role:documentation ;
+    dcat:accessURL ns55:ro-crate-metadata.json ;
+    dcat:byteSize 25092 ;
+    dcat:mediaType "application/json" ;
+    fdo:path "ro-crate-metadata.json" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "6c091c81e507c17a40d27776a3655673d6f96d6e31d78e7f983a212a604cb095" .
+
+ns64:819a447bd417a4d2 a crmdig:D9_Data_Object,
+        dcat:Distribution ;
+    dct:identifier "urn:fdo-squirrel:dist/819a447bd417a4d2" ;
+    crm:P2_has_type role:model ;
+    dcat:accessURL ns57:model.mtl ;
+    dcat:byteSize 2213 ;
+    dcat:mediaType "application/octet-stream" ;
+    fdo:path "data/model/model.mtl" ;
+    fdo:role "model" ;
+    fdo:sha256 "819a447bd417a4d2f334bc672b11b2e25e4e8a443c8afd867875081ce52ba7c0" .
+
+ns64:852f5acd09713fe8 a crmdig:D9_Data_Object,
+        dcat:Distribution ;
+    dct:identifier "urn:fdo-squirrel:dist/852f5acd09713fe8" ;
+    crm:P2_has_type role:documentation ;
+    dcat:accessURL ns56:preview.png ;
+    dcat:byteSize 1360539 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "data/images/preview.png" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "852f5acd09713fe8d05b8e7821e1e486ad8ffcab820ad157277756c5fc16f0c3" .
+
+ns64:8cadfd2c6e0d67c7 a crmdig:D9_Data_Object,
+        dcat:Distribution ;
+    dct:identifier "urn:fdo-squirrel:dist/8cadfd2c6e0d67c7" ;
+    crm:P2_has_type role:data ;
+    dcat:accessURL ns55:fdo_md_cff_graph.svg ;
+    dcat:byteSize 13771 ;
+    dcat:mediaType "image/svg+xml" ;
+    fdo:path "fdo_md_cff_graph.svg" ;
+    fdo:role "data" ;
+    fdo:sha256 "8cadfd2c6e0d67c74c88806ebb22ca2656b08c058bfc1a712640435d9d44596f" .
+
+ns64:9a7003c9021323fd a crmdig:D9_Data_Object,
+        dcat:Distribution ;
+    dct:identifier "urn:fdo-squirrel:dist/9a7003c9021323fd" ;
+    crm:P2_has_type role:documentation ;
+    dcat:accessURL ns55:fdo_md_cff.png ;
+    dcat:byteSize 230761 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "fdo_md_cff.png" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "9a7003c9021323fd696814597875f01ac59c815822b3b205f59cab6cc888e677" .
+
+ns64:9fd7be788d73ee57 a crmdig:D9_Data_Object,
+        dcat:Distribution ;
+    dct:identifier "urn:fdo-squirrel:dist/9fd7be788d73ee57" ;
+    crm:P2_has_type role:auxiliary ;
+    dcat:accessURL ns62:lightcontrol_on.png ;
+    dcat:byteSize 3502 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "viewer/skins/dark/lightcontrol_on.png" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "9fd7be788d73ee570f64df3aa8d3be9feeeffd36e13841acf27946bcf98b0440" .
+
+ns64:a040f428d56cec6a a crmdig:D9_Data_Object,
+        dcat:Distribution ;
+    dct:identifier "urn:fdo-squirrel:dist/a040f428d56cec6a" ;
+    crm:P2_has_type role:data ;
+    dcat:accessURL ns55:fdo-landing-page.html ;
+    dcat:byteSize 9525 ;
+    dcat:mediaType "text/html" ;
+    fdo:path "fdo-landing-page.html" ;
+    fdo:role "data" ;
+    fdo:sha256 "a040f428d56cec6a3d8537e2b0a2726e269816018f582ae0497bd3b155b8d0b6" .
+
+ns64:a5d003299e34d6bb a crmdig:D9_Data_Object,
+        dcat:Distribution ;
+    dct:identifier "urn:fdo-squirrel:dist/a5d003299e34d6bb" ;
+    crm:P2_has_type role:documentation ;
+    dcat:accessURL ns55:fdo_ttl_snippet_distributions.png ;
+    dcat:byteSize 257616 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "fdo_ttl_snippet_distributions.png" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "a5d003299e34d6bb4920afd1a4fb62b0d050be7613f63ca5f10e67f8421db22b" .
+
+ns64:a6ab78eb6805c557 a crmdig:D9_Data_Object,
+        dcat:Distribution ;
+    dct:identifier "urn:fdo-squirrel:dist/a6ab78eb6805c557" ;
+    crm:P2_has_type role:documentation ;
+    dcat:accessURL ns55:fdo_ttl_snippet_metadata.png ;
+    dcat:byteSize 309792 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "fdo_ttl_snippet_metadata.png" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "a6ab78eb6805c5573434ad75c63db5087a4758252017e9e1d1ab50606c907e98" .
+
+ns64:ada023eb80b0ce5c a crmdig:D9_Data_Object,
+        dcat:Distribution ;
+    dct:identifier "urn:fdo-squirrel:dist/ada023eb80b0ce5c" ;
+    crm:P2_has_type role:auxiliary ;
+    dcat:accessURL ns60:trackball_turntable_pan.js ;
+    dcat:byteSize 15658 ;
+    dcat:mediaType "application/javascript" ;
+    fdo:path "viewer/js/trackball_turntable_pan.js" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "ada023eb80b0ce5cb03853ab091e028d56c3c830bb5eaa55b7e57673ab9a583b" .
+
+ns64:aee528ec8e695818 a crmdig:D9_Data_Object,
+        dcat:Distribution ;
+    dct:identifier "urn:fdo-squirrel:dist/aee528ec8e695818" ;
+    crm:P2_has_type role:model ;
+    dcat:accessURL ns57:model.nxs ;
+    dcat:byteSize 2262016 ;
+    dcat:mediaType "application/octet-stream" ;
+    fdo:path "data/model/model.nxs" ;
+    fdo:role "model" ;
+    fdo:sha256 "aee528ec8e6958187cd1aa7dfc6c73bf8a52b5994767855f332662f12e6f967b" .
+
+ns64:b15eef8e081891df a crmdig:D9_Data_Object,
+        dcat:Distribution ;
+    dct:identifier "urn:fdo-squirrel:dist/b15eef8e081891df" ;
+    crm:P2_has_type role:data ;
+    dcat:accessURL ns55:fdo_ttl_snippet_distributions.svg ;
+    dcat:byteSize 5742 ;
+    dcat:mediaType "image/svg+xml" ;
+    fdo:path "fdo_ttl_snippet_distributions.svg" ;
+    fdo:role "data" ;
+    fdo:sha256 "b15eef8e081891df1df85d61eed28f3f1b214a6ad06d0988b3406ba4506693af" .
+
+ns64:b4416be937053d8a a crmdig:D9_Data_Object,
+        dcat:Distribution ;
+    dct:identifier "urn:fdo-squirrel:dist/b4416be937053d8a" ;
+    crm:P2_has_type role:auxiliary ;
+    dcat:accessURL ns60:ply.js ;
+    dcat:byteSize 29251 ;
+    dcat:mediaType "application/javascript" ;
+    fdo:path "viewer/js/ply.js" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "b4416be937053d8a0f938940805374abb298de26481def809c8e4c2fcc00c1a9" .
+
+ns64:bbf4d99832573f29 a crmdig:D9_Data_Object,
+        dcat:Distribution ;
+    dct:identifier "urn:fdo-squirrel:dist/bbf4d99832573f29" ;
+    crm:P2_has_type role:data ;
+    dcat:accessURL ns55:FDOx.yaml ;
+    dcat:byteSize 790 ;
+    dcat:mediaType "text/yaml" ;
+    fdo:path "FDOx.yaml" ;
+    fdo:role "data" ;
+    fdo:sha256 "bbf4d99832573f29774e7d2f33e111ea2bf34c5aee35252b083ec5169aebd503" .
+
+ns64:bd00240be348798b a crmdig:D9_Data_Object,
+        dcat:Distribution ;
+    dct:identifier "urn:fdo-squirrel:dist/bd00240be348798b" ;
+    crm:P2_has_type role:data ;
+    dcat:accessURL ns55:fdo_md_cff.svg ;
+    dcat:byteSize 10379 ;
+    dcat:mediaType "image/svg+xml" ;
+    fdo:path "fdo_md_cff.svg" ;
+    fdo:role "data" ;
+    fdo:sha256 "bd00240be348798b48999c5891829d4ed033b31a5060a827e805d969bf00e54d" .
+
+ns64:cf14dd446fc3537f a crmdig:D9_Data_Object,
+        dcat:Distribution ;
+    dct:identifier "urn:fdo-squirrel:dist/cf14dd446fc3537f" ;
+    crm:P2_has_type role:auxiliary ;
+    dcat:accessURL ns60:trackball_pantilt.js ;
+    dcat:byteSize 12476 ;
+    dcat:mediaType "application/javascript" ;
+    fdo:path "viewer/js/trackball_pantilt.js" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "cf14dd446fc3537fc5f988d3eab11b8bb30daa1b2a3f906a7f319f22c86c2058" .
+
+ns64:d1a249d973fdf3b9 a crmdig:D9_Data_Object,
+        dcat:Distribution ;
+    dct:identifier "urn:fdo-squirrel:dist/d1a249d973fdf3b9" ;
+    crm:P2_has_type role:documentation ;
+    dcat:accessURL ns55:fdo_md_cff_graph.png ;
+    dcat:byteSize 190436 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "fdo_md_cff_graph.png" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "d1a249d973fdf3b918e15e39ebcb941bae9b5ba45c76bec195bebaeda36984b6" .
+
+ns64:e07495eff218ce4a a crmdig:D9_Data_Object,
+        dcat:Distribution ;
+    dct:identifier "urn:fdo-squirrel:dist/e07495eff218ce4a" ;
+    crm:P2_has_type role:data ;
+    dcat:accessURL ns55:fdo-metadata.ttl ;
+    dcat:byteSize 23648 ;
+    dcat:mediaType "application/octet-stream" ;
+    fdo:path "fdo-metadata.ttl" ;
+    fdo:role "data" ;
+    fdo:sha256 "e07495eff218ce4a8261bbd3aa84e2a8f9b36aefa4af9f099af681f545b57ebc" .
+
+ns64:e221c116fce7a4fc a crmdig:D9_Data_Object,
+        dcat:Distribution ;
+    dct:identifier "urn:fdo-squirrel:dist/e221c116fce7a4fc" ;
+    crm:P2_has_type role:auxiliary ;
+    dcat:accessURL ns62:zoomout.png ;
+    dcat:byteSize 3266 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "viewer/skins/dark/zoomout.png" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "e221c116fce7a4fc6c3fd4e0024f7b4aaa4c9003b365067e3c43a638c91216f2" .
+
+ns64:ece181cdecde621a a crmdig:D9_Data_Object,
+        dcat:Distribution ;
+    dct:identifier "urn:fdo-squirrel:dist/ece181cdecde621a" ;
+    crm:P2_has_type role:auxiliary ;
+    dcat:accessURL ns58:material_4_baseColor.png ;
+    dcat:byteSize 34834 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "data/textures/material_4_baseColor.png" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "ece181cdecde621a7a2ffc47f581de2fdc2cd0eb386bff4ad6463e059d279fb6" .
+
+ns64:f6e15e9e5f49e3de a crmdig:D9_Data_Object,
+        dcat:Distribution ;
+    dct:identifier "urn:fdo-squirrel:dist/f6e15e9e5f49e3de" ;
+    crm:P2_has_type role:auxiliary ;
+    dcat:accessURL ns60:presenter.js ;
+    dcat:byteSize 135389 ;
+    dcat:mediaType "application/javascript" ;
+    fdo:path "viewer/js/presenter.js" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "f6e15e9e5f49e3dec53f1a31dff4d6091c8b7aa4dd65793655dd22eb9c6497e3" .
+
+ns64:f70936982cdf0a9d a crmdig:D9_Data_Object,
+        dcat:Distribution ;
+    dct:identifier "urn:fdo-squirrel:dist/f70936982cdf0a9d" ;
+    crm:P2_has_type role:data ;
+    dcat:accessURL ns55:rdf_modelling_report.html ;
+    dcat:byteSize 12684 ;
+    dcat:mediaType "text/html" ;
+    fdo:path "rdf_modelling_report.html" ;
+    fdo:role "data" ;
+    fdo:sha256 "f70936982cdf0a9d1421d968af0571b07b5e5bb45116c586599310215aebe4eb" .
+
+ns64:f7f6a5894f1d19dd a crmdig:D9_Data_Object,
+        dcat:Distribution ;
+    dct:identifier "urn:fdo-squirrel:dist/f7f6a5894f1d19dd" ;
+    crm:P2_has_type role:auxiliary ;
+    dcat:accessURL ns60:jquery.js ;
+    dcat:byteSize 89476 ;
+    dcat:mediaType "application/javascript" ;
+    fdo:path "viewer/js/jquery.js" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "f7f6a5894f1d19ddad6fa392b2ece2c5e578cbf7da4ea805b6885eb6985b6e3d" .
+
+ns64:f9ad715c946fef0f a crmdig:D9_Data_Object,
+        dcat:Distribution ;
+    dct:identifier "urn:fdo-squirrel:dist/f9ad715c946fef0f" ;
+    crm:P2_has_type role:data ;
+    dcat:accessURL ns55:fdo_overview.mermaid ;
+    dcat:byteSize 1649 ;
+    dcat:mediaType "application/octet-stream" ;
+    fdo:path "fdo_overview.mermaid" ;
+    fdo:role "data" ;
+    fdo:sha256 "f9ad715c946fef0ff7de58ad670dc2532fda65f63307e1c9b06c43c3c3e7e807" .
+
+ns64:fe753c2685ec886c a crmdig:D9_Data_Object,
+        dcat:Distribution ;
+    dct:identifier "urn:fdo-squirrel:dist/fe753c2685ec886c" ;
+    crm:P2_has_type role:auxiliary ;
+    dcat:accessURL ns60:spidergl.js ;
+    dcat:byteSize 190272 ;
+    dcat:mediaType "application/javascript" ;
+    fdo:path "viewer/js/spidergl.js" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "fe753c2685ec886cfce08a07f8f9e0a48bd2ae197694eae84de53de129414690" .
+
+ns64:ff48136f9eeca235 a crmdig:D9_Data_Object,
+        dcat:Distribution ;
+    dct:identifier "urn:fdo-squirrel:dist/ff48136f9eeca235" ;
+    crm:P2_has_type role:auxiliary ;
+    dcat:accessURL ns63:3dhop.css ;
+    dcat:byteSize 5839 ;
+    dcat:mediaType "text/css" ;
+    fdo:path "viewer/stylesheet/3dhop.css" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "ff48136f9eeca23576768c62add1976ba8442110cc9ebf007efd370d5c1b9095" .
+
+ns79:fdo-squirrel a crm:E39_Actor,
         prov:SoftwareAgent,
         schema:SoftwareApplication ;
     schema:codeRepository ns04:fdo-squirrel ;
     schema:name "fdo-squirrel" ;
-    schema:softwareVersion "0.3.1" .
+    schema:softwareVersion "0.3.1",
+        "1.3.0" .
+
+wd:Q131330 a crm:E53_Place ;
+    rdfs:label "Schönbrunn Palace, Apothekertrakt, Vienna" .
 
 ns03:zenodo.18369125_temporal a dct:PeriodOfTime,
         crm:E52_Time-Span ;
@@ -7947,26 +9344,26 @@ ns03:zenodo.18742693_temporal a dct:PeriodOfTime,
     dcat:endDate 1982 ;
     dcat:startDate 1982 .
 
+ns03:zenodo.24305240_temporal a dct:PeriodOfTime,
+        crm:E52_Time-Span ;
+    rdfs:label "Scan session 2026-11-12 (during CHNT31)" ;
+    dcat:endDate "2026"^^xsd:gYear ;
+    dcat:startDate "2026"^^xsd:gYear .
+
 ns07:MIT.html rdfs:label "MIT" .
 
-ns45:11071361392 a crm:E53_Place ;
+ns65:11071361392 a crm:E53_Place ;
     rdfs:label "CO074-148----" .
 
-ns45:11966430251 a crm:E53_Place .
+ns65:11966430251 a crm:E53_Place .
 
-ns45:11966441102 a crm:E53_Place .
+ns65:11966441102 a crm:E53_Place .
 
-ns45:3647679932 a crm:E53_Place .
+ns65:3647679932 a crm:E53_Place .
 
-ns46:14599988 a crm:E53_Place .
+ns66:14599988 a crm:E53_Place .
 
-ns56:build a crm:E7_Activity,
-        prov:Activity ;
-    prov:wasAssociatedWith ns57:fdo-squirrel .
-
-ns05:0000-0002-3246-3531 a crm:E21_Person,
-        schema:Person ;
-    schema:name "Thiery, Florian" .
+<http://creativecommons.org/licenses/by/4.0/> rdfs:label "CC Attribution" .
 
 ns03:zenodo.18369125 a crm:E73_Information_Object,
         crmdig:D1_Digital_Object,
@@ -7981,7 +9378,7 @@ ns03:zenodo.18369125 a crm:E73_Information_Object,
     dct:license ns07:MIT.html ;
     dct:modified "2024-09-24"^^xsd:date ;
     dct:publisher wd:Q73901970 ;
-    dct:spatial ns46:62273 ;
+    dct:spatial ns66:62273 ;
     dct:subject wd:Q18692990,
         wd:Q2016147,
         wd:Q22731,
@@ -8003,7 +9400,7 @@ ns03:zenodo.18369125 a crm:E73_Information_Object,
     crm:P3_has_note "LOD Extractor for TEI/EpiDoc Files from the Ogham in 3D Project" ;
     crm:P4_has_time-span ns03:zenodo.18369125_temporal,
         "0300/0699"^^edtf:EDTF ;
-    crm:P67_refers_to ns46:62273 ;
+    crm:P67_refers_to ns66:62273 ;
     geosparql:hasGeometry ns03:zenodo.18369125_geom ;
     dcat:bbox "-10.6695833333,51.4199444444,-5.9977222222,55.3841944444" ;
     dcat:distribution ns13:006833f4319d0a11,
@@ -8275,7 +9672,7 @@ ns03:zenodo.18369156 a crm:E73_Information_Object,
     dct:license ns07:MIT.html ;
     dct:modified "2021-01-15"^^xsd:date ;
     dct:publisher wd:Q73901970 ;
-    dct:spatial ns46:62273 ;
+    dct:spatial ns66:62273 ;
     dct:subject wd:Q2016147,
         wd:Q22731,
         "Ogham Stone" ;
@@ -8289,7 +9686,7 @@ ns03:zenodo.18369156 a crm:E73_Information_Object,
     crm:P3_has_note "Ogham Analysis with R" ;
     crm:P4_has_time-span ns03:zenodo.18369156_temporal,
         "0300/0699"^^edtf:EDTF ;
-    crm:P67_refers_to ns46:62273 ;
+    crm:P67_refers_to ns66:62273 ;
     geosparql:hasGeometry ns03:zenodo.18369156_geom ;
     dcat:bbox "-10.6695833333,51.4199444444,-5.9977222222,55.3841944444" ;
     dcat:distribution ns16:01b99fd170c212c0,
@@ -8428,7 +9825,7 @@ ns03:zenodo.18369720 a crm:E73_Information_Object,
     dct:modified "2024-06-19"^^xsd:date ;
     dct:provenance "{\"software\": \"KIRI Engine\", \"steps\": \"Take photos, align photos; build dense cloud; generate mesh; texture; export.\"}" ;
     dct:publisher wd:Q73901970 ;
-    dct:spatial ns45:11966430251 ;
+    dct:spatial ns65:11966430251 ;
     dct:subject wd:Q22731,
         "Cork Public Museum",
         "Ogham Stone" ;
@@ -8447,7 +9844,7 @@ ns03:zenodo.18369720 a crm:E73_Information_Object,
         "{\"software\": \"KIRI Engine\", \"steps\": \"Take photos, align photos; build dense cloud; generate mesh; texture; export.\"}" ;
     crm:P4_has_time-span ns03:zenodo.18369720_temporal,
         "0300/0699"^^edtf:EDTF ;
-    crm:P67_refers_to ns45:11966430251 ;
+    crm:P67_refers_to ns65:11966430251 ;
     geosparql:hasGeometry ns03:zenodo.18369720_geom ;
     dcat:distribution ns24:12e586334338f444,
         ns24:1c2b731eae72334c,
@@ -8501,7 +9898,7 @@ ns03:zenodo.18369865 a crm:E73_Information_Object,
     dct:modified "2024-06-19"^^xsd:date ;
     dct:provenance "{\"software\": \"KIRI Engine\", \"steps\": \"Take photos, align photos; build dense cloud; generate mesh; texture; export.\"}" ;
     dct:publisher wd:Q73901970 ;
-    dct:spatial ns45:11966441102 ;
+    dct:spatial ns65:11966441102 ;
     dct:subject wd:Q2016147,
         wd:Q22731,
         wd:Q24041450,
@@ -8523,7 +9920,7 @@ ns03:zenodo.18369865 a crm:E73_Information_Object,
         "{\"software\": \"KIRI Engine\", \"steps\": \"Take photos, align photos; build dense cloud; generate mesh; texture; export.\"}" ;
     crm:P4_has_time-span ns03:zenodo.18369865_temporal,
         "0300/0699"^^edtf:EDTF ;
-    crm:P67_refers_to ns45:11966441102 ;
+    crm:P67_refers_to ns65:11966441102 ;
     geosparql:hasGeometry ns03:zenodo.18369865_geom ;
     dcat:distribution ns18:00366251a7c8f755,
         ns18:853dcb6e003e4f8b,
@@ -8576,7 +9973,7 @@ ns03:zenodo.18732892 a crm:E73_Information_Object,
     dct:modified "2026-02-22"^^xsd:date ;
     dct:provenance "{\"software\": \"KIRI Engine\", \"steps\": \"Take photos, align photos; build dense cloud; generate mesh; texture; export.\"}" ;
     dct:publisher wd:Q73901970 ;
-    dct:spatial ns46:14599988 ;
+    dct:spatial ns66:14599988 ;
     dct:subject wd:Q22731,
         "Antholzer See",
         "Steinmännchen" ;
@@ -8595,7 +9992,7 @@ ns03:zenodo.18732892 a crm:E73_Information_Object,
         "{\"software\": \"KIRI Engine\", \"steps\": \"Take photos, align photos; build dense cloud; generate mesh; texture; export.\"}" ;
     crm:P4_has_time-span ns03:zenodo.18732892_temporal,
         "2026"^^xsd:gYear ;
-    crm:P67_refers_to ns46:14599988 ;
+    crm:P67_refers_to ns66:14599988 ;
     geosparql:hasGeometry ns03:zenodo.18732892_geom ;
     dcat:distribution ns20:037b867f03f279b9,
         ns20:092e0f3917ad267c,
@@ -8703,17 +10100,17 @@ ns03:zenodo.18742693 a crm:E73_Information_Object,
     dct:modified "2026-02-23"^^xsd:date ;
     dct:provenance "{\"software\": \"KIRI Engine\", \"steps\": \"Take photos, align photos; build dense cloud; generate mesh; texture; export.\"}" ;
     dct:publisher wd:Q73901970 ;
-    dct:spatial ns45:3647679932 ;
+    dct:spatial ns65:3647679932 ;
     dct:subject wd:Q43338,
         "7000 Eichen",
         "Beuys Basaltstele",
         "Joseph Beuys" ;
     dct:temporal ns03:zenodo.18742693_temporal ;
     dct:title "Beuys-Stele B 1036 (Kassel)" ;
-    dct:type ns46:4629093 ;
+    dct:type ns66:4629093 ;
     crm:P102_has_title "Beuys-Stele B 1036 (Kassel)" ;
     crm:P2_has_type wd:Q43338,
-        ns46:4629093,
+        ns66:4629093,
         "7000 Eichen",
         "Beuys Basaltstele",
         "Joseph Beuys" ;
@@ -8724,7 +10121,7 @@ ns03:zenodo.18742693 a crm:E73_Information_Object,
         "{\"software\": \"KIRI Engine\", \"steps\": \"Take photos, align photos; build dense cloud; generate mesh; texture; export.\"}" ;
     crm:P4_has_time-span ns03:zenodo.18742693_temporal,
         "1982"^^xsd:gYear ;
-    crm:P67_refers_to ns45:3647679932 ;
+    crm:P67_refers_to ns65:3647679932 ;
     geosparql:hasGeometry ns03:zenodo.18742693_geom ;
     dcat:distribution ns22:096f50a588fd52c7,
         ns22:0e431f59a072419e,
@@ -8908,7 +10305,7 @@ Made in KiriEngine from 156 images.""",
         "ireland",
         "kilkenny3d",
         "kiriengine" ;
-    prov:wasGeneratedBy ns56:build ;
+    prov:wasGeneratedBy ns78:build ;
     wdt:P275 ns07:CC-BY-4.0.html,
         "CC-BY-4.0" ;
     wdt:P856 ns06:freshford-st-lachtains-well-low-poly-ae1e1f4daa7d433dbbf076407134e81e ;
@@ -8958,7 +10355,11 @@ ns09:8e916ce55425de21 a crm:E21_Person,
     dct:identifier "urn:fdo-squirrel:person/8e916ce55425de21" ;
     schema:name "Thiery, Florian" .
 
-ns46:62273 a crm:E53_Place .
+ns66:62273 a crm:E53_Place .
+
+ns78:build a crm:E7_Activity,
+        prov:Activity ;
+    prov:wasAssociatedWith ns79:fdo-squirrel .
 
 ns03:zenodo.18724635 a crm:E73_Information_Object,
         crmdig:D1_Digital_Object,
@@ -8982,7 +10383,7 @@ ns03:zenodo.18724635 a crm:E73_Information_Object,
     dct:provenance "{\"software\": \"KIRI Engine\", \"steps\": \"Take photos, align photos; build dense cloud; generate mesh; texture; export.\"}" ;
     dct:publisher wd:Q73901970 ;
     dct:relation ns06:cork-ogham-stone-ciic-81-ucc-4-4cb26986be274ee099515c2baa3b1825 ;
-    dct:spatial ns45:11071361392 ;
+    dct:spatial ns65:11071361392 ;
     dct:subject wd:Q121592049,
         wd:Q2016147,
         wd:Q22731,
@@ -9004,7 +10405,7 @@ ns03:zenodo.18724635 a crm:E73_Information_Object,
         "{\"software\": \"KIRI Engine\", \"steps\": \"Take photos, align photos; build dense cloud; generate mesh; texture; export.\"}" ;
     crm:P4_has_time-span ns03:zenodo.18724635_temporal,
         "0300/0699"^^edtf:EDTF ;
-    crm:P67_refers_to ns45:11071361392 ;
+    crm:P67_refers_to ns65:11071361392 ;
     geosparql:hasGeometry ns03:zenodo.18724635_geom ;
     dcat:distribution ns34:012d3ae0f6007283,
         ns34:0365c51ceecb5c8f,
@@ -9058,7 +10459,7 @@ ns03:zenodo.18724635 a crm:E73_Information_Object,
         ns34:ff5f534d4b57dcc7 ;
     dcat:keyword "Ogham Stone",
         "UCC Stone Corridor" ;
-    prov:wasGeneratedBy ns56:build ;
+    prov:wasGeneratedBy ns78:build ;
     wdt:P275 ns07:CC-BY-NC-SA-4.0.html,
         "CC-BY-NC-SA-4.0" ;
     wdt:P856 ns06:cork-ogham-stone-ciic-81-ucc-4-4cb26986be274ee099515c2baa3b1825 ;
@@ -9093,36 +10494,310 @@ ns03:zenodo.18724635 a crm:E73_Information_Object,
     schema:url ns06:cork-ogham-stone-ciic-81-ucc-4-4cb26986be274ee099515c2baa3b1825 ;
     fdo:context "Ogham Stones in the Wild and in Museums in Ireland bearing Ogham inscriptions." .
 
+ns05:0000-0002-3246-3531 a crm:E21_Person,
+        schema:Person ;
+    schema:name "Thiery, Florian" .
+
 ns07:CC-BY-NC-SA-4.0.html rdfs:label "CC-BY-NC-SA-4.0" .
+
+ns03:zenodo.24305240 a crm:E73_Information_Object,
+        crmdig:D1_Digital_Object,
+        dcat:Dataset,
+        fdo:3DDataFDO ;
+    rdfs:label "Lego Pyramid (KIRI Original)" ;
+    dct:created "2026-11-12"^^xsd:date ;
+    dct:creator ns05:0000-0002-3246-3531 ;
+    dct:description "Photogrammetric 3D scan (KIRI Engine) of a white stepped LEGO pyramid (nine levels) with a five-brick column and a minifigure-style warrior figure on top (spiked helmet, mail shirt, tunic, cloak), a hobby build by Florian Thiery; scanned on 2026-11-12 in the Apothekertrakt of Schönbrunn Palace, Vienna, where the model was on display during the CHNT31 conference. Raw scan without clean-up. The paired reconstruction is a separate FDOx and derives from this one." ;
+    dct:isReferencedBy ns03:zenodo.24305343 ;
+    dct:issued "2026-11-17"^^xsd:date ;
+    dct:license <http://creativecommons.org/licenses/by/4.0/>,
+        ns07:CC-BY-4.0.html ;
+    dct:provenance "KIRI Engine export (GLB, AdvancedExport; a second OBJ export exists). 135,616 triangles and 68,248 vertices after merging duplicate vertices; not watertight; no clean-up applied." ;
+    dct:publisher wd:Q73901970 ;
+    dct:relation ns03:zenodo.24305343,
+        ns06:lego-pyramid-kiri-original-b262c1135f1c4159bf1e3628d468bdc8 ;
+    dct:spatial wd:Q131330 ;
+    dct:subject wd:Q110840,
+        wd:Q229370,
+        "Architecture",
+        "lego" ;
+    dct:temporal ns03:zenodo.24305240_temporal ;
+    dct:title "Lego Pyramid (KIRI Original)" ;
+    dct:type _:N18e89601629143c4b2ef1fc69c4a60c7 ;
+    crm:P102_has_title "Lego Pyramid (KIRI Original)" ;
+    crm:P2_has_type _:N18e89601629143c4b2ef1fc69c4a60c7,
+        wd:Q110840,
+        wd:Q229370,
+        "Architecture",
+        "lego" ;
+    crm:P3_has_note "KIRI Engine export (GLB, AdvancedExport; a second OBJ export exists). 135,616 triangles and 68,248 vertices after merging duplicate vertices; not watertight; no clean-up applied.",
+        "Photogrammetric 3D scan (KIRI Engine) of a white stepped LEGO pyramid (nine levels) with a five-brick column and a minifigure-style warrior figure on top (spiked helmet, mail shirt, tunic, cloak), a hobby build by Florian Thiery; scanned on 2026-11-12 in the Apothekertrakt of Schönbrunn Palace, Vienna, where the model was on display during the CHNT31 conference. Raw scan without clean-up. The paired reconstruction is a separate FDOx and derives from this one." ;
+    crm:P4_has_time-span ns03:zenodo.24305240_temporal,
+        "2026"^^xsd:gYear ;
+    crm:P67_refers_to wd:Q131330 ;
+    geosparql:hasGeometry ns03:zenodo.24305240_geom ;
+    dcat:distribution ns54:00aef0c53ef5c040,
+        ns54:012d3ae0f6007283,
+        ns54:04b54942c91c510e,
+        ns54:0b383d5a63da644f,
+        ns54:0e4d58088180effe,
+        ns54:0e623d3c26743f35,
+        ns54:16c6c11e40e24bb4,
+        ns54:1a8195ca9d0812e7,
+        ns54:21aa80bf5a9b8d09,
+        ns54:25108ed495e10582,
+        ns54:2665a3da4cc02f77,
+        ns54:2ad4f592d31cf358,
+        ns54:313e193e261c631d,
+        ns54:38710dc331beaf57,
+        ns54:3b2a44995e927286,
+        ns54:4ceb643e8b6d7cd2,
+        ns54:50e62db9b10cc50c,
+        ns54:520be9edb1e215a3,
+        ns54:536c5576e2ee7561,
+        ns54:54d7fadc3c3a9f62,
+        ns54:553a061f37d0950d,
+        ns54:5782d58d11437c0f,
+        ns54:5ed91bb5c3d8a4b1,
+        ns54:601c7754173d287e,
+        ns54:6132a60724847178,
+        ns54:6416f4ec9a638fda,
+        ns54:897dcb432515cc0e,
+        ns54:8a1e7f98aced1a95,
+        ns54:9232d9a4024e4090,
+        ns54:99282e8654e76b59,
+        ns54:9fd7be788d73ee57,
+        ns54:a2500316b1bbcfe9,
+        ns54:a4b60245e4b58570,
+        ns54:ada023eb80b0ce5c,
+        ns54:b4416be937053d8a,
+        ns54:c39709a70159b2d5,
+        ns54:cf14dd446fc3537f,
+        ns54:d854a11b61679a68,
+        ns54:d90a1076c5418f1a,
+        ns54:d9a40b0494b950e0,
+        ns54:e11a72bc8562e381,
+        ns54:e221c116fce7a4fc,
+        ns54:e61ca0b15b26ba35,
+        ns54:e643828ac452278c,
+        ns54:e8e4c3bd84963acc,
+        ns54:f6e15e9e5f49e3de,
+        ns54:f7f6a5894f1d19dd,
+        ns54:f99a5bbc326ac68d,
+        ns54:fe753c2685ec886c,
+        ns54:ff024893dd2a6ee6,
+        ns54:ff48136f9eeca235 ;
+    dcat:keyword "3D data",
+        "Architecture",
+        "Cultural Heritage",
+        "lego" ;
+    dcat:qualifiedRelation [ a crm:E13_Attribute_Assignment,
+                dcat:Relationship ;
+            dct:relation ns03:zenodo.24305343 ;
+            rdfs:comment "Procedural reconstruction from idealised bricks, derived from this scan." ;
+            dcat:hadRole dct:isReferencedBy ] ;
+    prov:wasDerivedFrom ns06:lego-pyramid-kiri-original-b262c1135f1c4159bf1e3628d468bdc8 ;
+    prov:wasGeneratedBy ns78:build ;
+    wdt:P275 ns07:CC-BY-4.0.html,
+        "CC-BY-4.0" ;
+    wdt:P856 ns06:lego-pyramid-kiri-original-b262c1135f1c4159bf1e3628d468bdc8 ;
+    wdt:P921 "Architecture",
+        "lego" ;
+    cff:keywords "Architecture",
+        "lego" ;
+    cff:license ns07:CC-BY-4.0.html,
+        "CC-BY-4.0" ;
+    cff:license-url ns07:CC-BY-4.0.html,
+        "CC-BY-4.0" ;
+    cff:repository ns06:lego-pyramid-kiri-original-b262c1135f1c4159bf1e3628d468bdc8 ;
+    cff:url ns06:lego-pyramid-kiri-original-b262c1135f1c4159bf1e3628d468bdc8 ;
+    codemeta:keywords "Architecture",
+        "lego" ;
+    codemeta:license ns07:CC-BY-4.0.html,
+        "CC-BY-4.0" ;
+    codemeta:url ns06:lego-pyramid-kiri-original-b262c1135f1c4159bf1e3628d468bdc8 ;
+    schema:author "Florian Thiery" ;
+    schema:datePublished "2026-11-17" ;
+    schema:description "Photogrammetric 3D scan (KIRI Engine) of a white stepped LEGO pyramid (nine levels) with a five-brick column and a minifigure-style warrior figure on top (spiked helmet, mail shirt, tunic, cloak), a hobby build by Florian Thiery; scanned on 2026-11-12 in the Apothekertrakt of Schönbrunn Palace, Vienna, where the model was on display during the CHNT31 conference. Raw scan without clean-up. The paired reconstruction is a separate FDOx and derives from this one." ;
+    schema:identifier "10.5281/zenodo.24305240" ;
+    schema:keywords "Architecture",
+        "lego" ;
+    schema:latitude 48.184424 ;
+    schema:license ns07:CC-BY-4.0.html,
+        "CC-BY-4.0" ;
+    schema:longitude 16.318911 ;
+    schema:name "Lego Pyramid (KIRI Original)" ;
+    schema:relatedLink ns06:lego-pyramid-kiri-original-b262c1135f1c4159bf1e3628d468bdc8 ;
+    schema:url ns06:lego-pyramid-kiri-original-b262c1135f1c4159bf1e3628d468bdc8 ;
+    fdo:acquisitionHardware "Samsung Galaxy S26" ;
+    fdo:acquisitionImagesCount "69" ;
+    fdo:acquisitionMethod "KIRI Engine (structure from motion photogrammetry), latest app version on 2026-11-12 (no version number shown in the app), scan at 15:46" ;
+    fdo:context "Self-built (own design, no commercial set) by Florian Thiery. Shown at the Apothekertrakt of Schönbrunn Palace during CHNT31, 2026-11-12 (https://www.openstreetmap.org/relation/6892072). The figure on top is read as a medieval warrior; that and any further identification are open hypotheses, not confirmed." ;
+    fdo:documentationPurpose "Test case for FDOx packaging of a scan and its reconstruction." .
+
+ns03:zenodo.24305343 a crm:E73_Information_Object,
+        crmdig:D1_Digital_Object,
+        dcat:Dataset,
+        fdo:3DDataFDO ;
+    rdfs:label "Lego Pyramid (Reconstruction claude.ai)" ;
+    dct:contributor [ rdfs:label "Claude (Anthropic), claude-sonnet-5-5" ] ;
+    dct:created "2026-11-17"^^xsd:date ;
+    dct:creator ns05:0000-0002-3246-3531 ;
+    dct:description "Idealised reconstruction of a white stepped LEGO pyramid (nine levels) with a five-brick column and a minifigure-style warrior figure on top (spiked helmet, mail shirt, tunic, cloak), a hobby build by Florian Thiery, rebuilt procedurally from clean LEGO bricks after a KIRI Engine scan. Only dimensions and structure were read from the scan; no scan mesh or texture was reused. AI disclosure: the reconstruction was generated with Claude (Anthropic, claude-sonnet-5-5) on behalf of Florian Thiery. It is an interpretation model, not a measurement." ;
+    dct:issued "2026-11-17"^^xsd:date ;
+    dct:license <http://creativecommons.org/licenses/by/4.0/>,
+        ns07:CC-BY-4.0.html ;
+    dct:provenance "{\"ai_involvement\": \"Generated with Claude (Anthropic, claude-sonnet-5-5), session 2026-11-12 to 2026-11-17\", \"figure\": \"Modelled from 11 photographs supplied by Florian Thiery, 32.3 mm tall, painted head and torso textures\", \"known_deviations\": \"Cloak, hands and sleeves paler than in the photos; mail shirt as honeycomb pattern; cheek guards flat; sleeves plain tubes\", \"method\": \"Procedural rebuild from idealised bricks (script build_lego3.py), not a cleaned scan mesh\", \"random_seed\": \"numpy.random.default_rng(11)\", \"reproducibility\": \"Re-running the script reproduces lego.glb byte-identically with Python 3.13.18, numpy 2.5.3, trimesh 5.2.1, Pillow 12.3.0, scipy 1.18.1 (sha256 cf51067881aef419856a403725c1352c7c7d14715f286018066991afbc1e9569)\", \"scale\": \"2/3 of real LEGO dimensions (8 mm grid, 9.6 mm brick height, 4.8 mm studs), fitted to the scan\", \"structure\": \"9 levels (14x18 down to 2x2 studs) plus a column of 5 1x1 bricks; 97x 2x4, 5x 2x2, 5x 1x1, all white\"}" ;
+    dct:publisher wd:Q73901970 ;
+    dct:relation ns03:zenodo.24305240,
+        ns06:lego-pyramid-reconstruction-claudeai-e2fb31006245424e88033714af2c90f5 ;
+    dct:subject wd:Q110840,
+        wd:Q229370,
+        "Architecture",
+        "lego" ;
+    dct:title "Lego Pyramid (Reconstruction claude.ai)" ;
+    dct:type _:Nf8d2057eab1e48c1a7472f9913de6b74 ;
+    crm:P102_has_title "Lego Pyramid (Reconstruction claude.ai)" ;
+    crm:P2_has_type _:Nf8d2057eab1e48c1a7472f9913de6b74,
+        wd:Q110840,
+        wd:Q229370,
+        "Architecture",
+        "lego" ;
+    crm:P3_has_note "Idealised reconstruction of a white stepped LEGO pyramid (nine levels) with a five-brick column and a minifigure-style warrior figure on top (spiked helmet, mail shirt, tunic, cloak), a hobby build by Florian Thiery, rebuilt procedurally from clean LEGO bricks after a KIRI Engine scan. Only dimensions and structure were read from the scan; no scan mesh or texture was reused. AI disclosure: the reconstruction was generated with Claude (Anthropic, claude-sonnet-5-5) on behalf of Florian Thiery. It is an interpretation model, not a measurement.",
+        "{\"ai_involvement\": \"Generated with Claude (Anthropic, claude-sonnet-5-5), session 2026-11-12 to 2026-11-17\", \"figure\": \"Modelled from 11 photographs supplied by Florian Thiery, 32.3 mm tall, painted head and torso textures\", \"known_deviations\": \"Cloak, hands and sleeves paler than in the photos; mail shirt as honeycomb pattern; cheek guards flat; sleeves plain tubes\", \"method\": \"Procedural rebuild from idealised bricks (script build_lego3.py), not a cleaned scan mesh\", \"random_seed\": \"numpy.random.default_rng(11)\", \"reproducibility\": \"Re-running the script reproduces lego.glb byte-identically with Python 3.13.18, numpy 2.5.3, trimesh 5.2.1, Pillow 12.3.0, scipy 1.18.1 (sha256 cf51067881aef419856a403725c1352c7c7d14715f286018066991afbc1e9569)\", \"scale\": \"2/3 of real LEGO dimensions (8 mm grid, 9.6 mm brick height, 4.8 mm studs), fitted to the scan\", \"structure\": \"9 levels (14x18 down to 2x2 studs) plus a column of 5 1x1 bricks; 97x 2x4, 5x 2x2, 5x 1x1, all white\"}" ;
+    dcat:distribution ns64:012d3ae0f6007283,
+        ns64:01fb410982fe3a31,
+        ns64:04b54942c91c510e,
+        ns64:072e23ceb97e3b81,
+        ns64:0b383d5a63da644f,
+        ns64:0e4d58088180effe,
+        ns64:0e623d3c26743f35,
+        ns64:0eb0fe6f0c9babd2,
+        ns64:14af52e4a67ec778,
+        ns64:1a8195ca9d0812e7,
+        ns64:1ffec1e1e34fdfb1,
+        ns64:233196948668e209,
+        ns64:25108ed495e10582,
+        ns64:25db6d7b02f7b194,
+        ns64:296bc25ba60aee91,
+        ns64:2ad4f592d31cf358,
+        ns64:3958aebd7ed81c14,
+        ns64:3b2a44995e927286,
+        ns64:40c56386e83fab16,
+        ns64:4ceb643e8b6d7cd2,
+        ns64:50e62db9b10cc50c,
+        ns64:536c5576e2ee7561,
+        ns64:5782d58d11437c0f,
+        ns64:5807a72bffc8e803,
+        ns64:5ed91bb5c3d8a4b1,
+        ns64:6132a60724847178,
+        ns64:6c091c81e507c17a,
+        ns64:819a447bd417a4d2,
+        ns64:852f5acd09713fe8,
+        ns64:8cadfd2c6e0d67c7,
+        ns64:9a7003c9021323fd,
+        ns64:9fd7be788d73ee57,
+        ns64:a040f428d56cec6a,
+        ns64:a5d003299e34d6bb,
+        ns64:a6ab78eb6805c557,
+        ns64:ada023eb80b0ce5c,
+        ns64:aee528ec8e695818,
+        ns64:b15eef8e081891df,
+        ns64:b4416be937053d8a,
+        ns64:bbf4d99832573f29,
+        ns64:bd00240be348798b,
+        ns64:cf14dd446fc3537f,
+        ns64:d1a249d973fdf3b9,
+        ns64:e07495eff218ce4a,
+        ns64:e221c116fce7a4fc,
+        ns64:ece181cdecde621a,
+        ns64:f6e15e9e5f49e3de,
+        ns64:f70936982cdf0a9d,
+        ns64:f7f6a5894f1d19dd,
+        ns64:f9ad715c946fef0f,
+        ns64:fe753c2685ec886c,
+        ns64:ff48136f9eeca235 ;
+    dcat:keyword "3D data",
+        "Architecture",
+        "Cultural Heritage",
+        "lego" ;
+    dcat:qualifiedRelation [ a crm:E13_Attribute_Assignment,
+                dcat:Relationship ;
+            dct:relation ns03:zenodo.24305240 ;
+            rdfs:comment "Scan this reconstruction was measured from (dimensions, grid, orientation)." ;
+            dcat:hadRole prov:wasDerivedFrom ] ;
+    prov:wasDerivedFrom ns03:zenodo.24305240,
+        ns06:lego-pyramid-reconstruction-claudeai-e2fb31006245424e88033714af2c90f5 ;
+    prov:wasGeneratedBy ns78:build ;
+    wdt:P275 ns07:CC-BY-4.0.html,
+        "CC-BY-4.0" ;
+    wdt:P856 ns06:lego-pyramid-reconstruction-claudeai-e2fb31006245424e88033714af2c90f5 ;
+    wdt:P921 "Architecture",
+        "lego" ;
+    cff:keywords "Architecture",
+        "lego" ;
+    cff:license ns07:CC-BY-4.0.html,
+        "CC-BY-4.0" ;
+    cff:license-url ns07:CC-BY-4.0.html,
+        "CC-BY-4.0" ;
+    cff:repository ns06:lego-pyramid-reconstruction-claudeai-e2fb31006245424e88033714af2c90f5 ;
+    cff:url ns06:lego-pyramid-reconstruction-claudeai-e2fb31006245424e88033714af2c90f5 ;
+    codemeta:keywords "Architecture",
+        "lego" ;
+    codemeta:license ns07:CC-BY-4.0.html,
+        "CC-BY-4.0" ;
+    codemeta:programmingLanguage "Python" ;
+    codemeta:url ns06:lego-pyramid-reconstruction-claudeai-e2fb31006245424e88033714af2c90f5 ;
+    schema:author "Florian Thiery" ;
+    schema:datePublished "2026-11-17" ;
+    schema:description "Idealised reconstruction of a white stepped LEGO pyramid (nine levels) with a five-brick column and a minifigure-style warrior figure on top (spiked helmet, mail shirt, tunic, cloak), a hobby build by Florian Thiery, rebuilt procedurally from clean LEGO bricks after a KIRI Engine scan. Only dimensions and structure were read from the scan; no scan mesh or texture was reused. AI disclosure: the reconstruction was generated with Claude (Anthropic, claude-sonnet-5-5) on behalf of Florian Thiery. It is an interpretation model, not a measurement." ;
+    schema:identifier "10.5281/zenodo.24305343" ;
+    schema:keywords "Architecture",
+        "lego" ;
+    schema:license ns07:CC-BY-4.0.html,
+        "CC-BY-4.0" ;
+    schema:name "Lego Pyramid (Reconstruction claude.ai)" ;
+    schema:relatedLink ns06:lego-pyramid-reconstruction-claudeai-e2fb31006245424e88033714af2c90f5 ;
+    schema:url ns06:lego-pyramid-reconstruction-claudeai-e2fb31006245424e88033714af2c90f5 ;
+    fdo:context "Self-built (own design, no commercial set) by Florian Thiery. Shown at the Apothekertrakt of Schönbrunn Palace during CHNT31, 2026-11-12 (https://www.openstreetmap.org/relation/6892072). The figure on top is read as a medieval warrior; that and any further identification are open hypotheses, not confirmed." ;
+    fdo:documentationPurpose "Test case for FDOx packaging of a scan and its reconstruction." .
 
 ns06:freshford-st-lachtains-well-low-poly-ae1e1f4daa7d433dbbf076407134e81e rdfs:label "Source: Freshford: St Lachtain's Well (low poly)" .
 
 ns06:cork-ogham-stone-ciic-81-ucc-4-4cb26986be274ee099515c2baa3b1825 rdfs:label "3D repository",
         "Source: Cork: Ogham stone CIIC 81/ UCC 4" .
 
+ns06:lego-pyramid-kiri-original-b262c1135f1c4159bf1e3628d468bdc8 rdfs:label "Source: Lego Pyramid (KIRI Original)" .
+
+ns06:lego-pyramid-reconstruction-claudeai-e2fb31006245424e88033714af2c90f5 rdfs:label "Source: Lego Pyramid (Reconstruction claude.ai)" .
+
 wd:Q73901970 a crm:E74_Group,
         schema:Organization ;
     schema:name "Research Squirrel Engineers Network" .
-
-role:metadata a skos:Concept .
 
 wd:Q22731 rdfs:label "Stone" .
 
 ns07:CC-BY-SA-4.0.html rdfs:label "CC-BY-SA-4.0" .
 
-role:model a skos:Concept .
+role:metadata a skos:Concept .
 
 wd:Q2016147 rdfs:label "Inscribed Ogham stone" .
+
+role:model a skos:Concept .
+
+role:script a skos:Concept .
 
 ns07:CC-BY-4.0.html rdfs:label "CC BY 4.0" .
 
 role:data a skos:Concept .
-
-role:script a skos:Concept .
 
 role:auxiliary a skos:Concept .
 
 role:documentation a skos:Concept .
 
 role:software a skos:Concept .
+
+_:N18e89601629143c4b2ef1fc69c4a60c7 rdfs:label "LEGO model (interlocking-brick toy, self-built)" .
+
+_:Nf8d2057eab1e48c1a7472f9913de6b74 rdfs:label "LEGO model (interlocking-brick toy, self-built)" .
 
