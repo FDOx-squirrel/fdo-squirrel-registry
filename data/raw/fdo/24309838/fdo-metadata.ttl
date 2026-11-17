@@ -1,0 +1,537 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix fdo: <https://w3id.org/fdo-squirrel/> .
+@prefix schema: <https://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix geosparql: <http://www.opengis.net/ont/geosparql#> .
+@prefix sf: <http://www.opengis.net/ont/sf#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix codemeta: <https://codemeta.github.io/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix cff: <https://citation-file-format.github.io/terms/> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix wdt: <http://www.wikidata.org/prop/direct/> .
+@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix crmdig: <http://www.ics.forth.gr/isl/CRMdig/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+<https://doi.org/10.5281/zenodo.24305428> a dcat:Dataset, crmdig:D1_Digital_Object, crm:E73_Information_Object, fdo:3DDataFDO ;
+    prov:wasGeneratedBy <urn:fdo-squirrel:activity/build> ;
+    dct:description "Photogrammetric 3D scan (KIRI Engine) of a stepped LEGO pyramid with four grey stair arms (seven levels) and a small temple with four corner pillars on top, a hobby build by Daria Stefan (TU Wien); scanned on 2026-11-12 in the Apothekertrakt of Schönbrunn Palace, Vienna, where the model was on display during the CHNT31 conference. Raw scan without clean-up. The paired reconstruction is a separate FDOx and derives from this one." ;
+    dct:creator <https://orcid.org/0000-0002-3246-3531> ;
+    dct:license <http://creativecommons.org/licenses/by/4.0/> ;
+    dct:publisher <http://www.wikidata.org/entity/Q73901970> ;
+    dct:title "Lego Pyramid Maya (KIRI Original)" ;
+    dcat:distribution <urn:fdo-squirrel:dist/217ec3e7b4407e60>,<urn:fdo-squirrel:dist/afd8fcaf630d3d64>,<urn:fdo-squirrel:dist/81ad99017ff8e468>,<urn:fdo-squirrel:dist/6c2c935cd95e8d0b>,<urn:fdo-squirrel:dist/ecded0cdd4949370>,<urn:fdo-squirrel:dist/92f6aab6eaa90eea>,<urn:fdo-squirrel:dist/5f6904c85e155dfd>,<urn:fdo-squirrel:dist/ee7276e95e39f636>,<urn:fdo-squirrel:dist/5782d58d11437c0f>,<urn:fdo-squirrel:dist/04b54942c91c510e>,<urn:fdo-squirrel:dist/0e623d3c26743f35>,<urn:fdo-squirrel:dist/6132a60724847178>,<urn:fdo-squirrel:dist/f7f6a5894f1d19dd>,<urn:fdo-squirrel:dist/012d3ae0f6007283>,<urn:fdo-squirrel:dist/4ceb643e8b6d7cd2>,<urn:fdo-squirrel:dist/b4416be937053d8a>,<urn:fdo-squirrel:dist/f6e15e9e5f49e3de>,<urn:fdo-squirrel:dist/fe753c2685ec886c>,<urn:fdo-squirrel:dist/cf14dd446fc3537f>,<urn:fdo-squirrel:dist/5ed91bb5c3d8a4b1>,<urn:fdo-squirrel:dist/50e62db9b10cc50c>,<urn:fdo-squirrel:dist/ada023eb80b0ce5c>,<urn:fdo-squirrel:dist/0b383d5a63da644f>,<urn:fdo-squirrel:dist/1a8195ca9d0812e7>,<urn:fdo-squirrel:dist/0e4d58088180effe>,<urn:fdo-squirrel:dist/3b2a44995e927286>,<urn:fdo-squirrel:dist/536c5576e2ee7561>,<urn:fdo-squirrel:dist/2ad4f592d31cf358>,<urn:fdo-squirrel:dist/9fd7be788d73ee57>,<urn:fdo-squirrel:dist/25108ed495e10582>,<urn:fdo-squirrel:dist/e221c116fce7a4fc>,<urn:fdo-squirrel:dist/ff48136f9eeca235> ;
+    dct:created "2026-11-12"^^xsd:date ;
+    dct:issued "2026-11-17"^^xsd:date ;
+    dct:contributor <https://orcid.org/0009-0008-0586-9350> ;
+    dcat:keyword "3D data" ;
+    dct:subject <http://www.wikidata.org/entity/Q229370> ;
+    dcat:keyword "Cultural Heritage" ;
+    dct:subject <http://www.wikidata.org/entity/Q110840> ;
+    dcat:keyword "pyramid" ;
+    dcat:keyword "lego" ;
+    dcat:keyword "Architecture" ;
+    dct:relation <https://sketchfab.com/3d-models/lego-pyramid-maya-kiri-original-1e9a188abf974999b7909e15323ded0a> ;
+    prov:wasDerivedFrom <https://sketchfab.com/3d-models/lego-pyramid-maya-kiri-original-1e9a188abf974999b7909e15323ded0a> ;
+    dct:relation <https://doi.org/10.5281/zenodo.24305438> ;
+    dct:isReferencedBy <https://doi.org/10.5281/zenodo.24305438> ;
+    dct:spatial <http://www.wikidata.org/entity/Q131330> ;
+    schema:latitude "48.184424"^^xsd:decimal ;
+    schema:longitude "16.318911"^^xsd:decimal ;
+    fdo:context "Self-built (own design, no commercial set) by Daria Stefan (TU Wien). Shown at the Apothekertrakt of Schönbrunn Palace during CHNT31, 2026-11-12 (https://www.openstreetmap.org/relation/6892072). Identification as a Maya-style stepped pyramid with a temple was confirmed by the builder. A specific model such as El Castillo (Chichén Itzá) is NOT confirmed." ;
+    dct:type _:heritage_object_object_type0_1 ;
+    fdo:documentationPurpose "Test case for FDOx packaging of a scan and its reconstruction." ;
+    fdo:acquisitionMethod "KIRI Engine (structure from motion photogrammetry), latest app version on 2026-11-12 (no version number shown in the app)" ;
+    fdo:acquisitionHardware "Samsung Galaxy A71" ;
+    fdo:acquisitionImagesCount "115" ;
+    dct:provenance "KIRI Engine export (OBJ with MTL and JPG texture). 53,482 triangles and 26,996 vertices after merging duplicate vertices; not watertight; unit unknown; rotated by about 16 degrees against the ground, compressed along one axis by a factor of about 0.72, ground plane included; no clean-up applied."  .
+
+<https://orcid.org/0009-0008-0586-9350> rdfs:label "Daria Stefan" .
+<https://sketchfab.com/3d-models/lego-pyramid-maya-kiri-original-1e9a188abf974999b7909e15323ded0a> rdfs:label "Source: Lego Pyramid Maya (KIRI Original)" .
+<https://doi.org/10.5281/zenodo.24305438> rdfs:label "Lego Pyramid Maya (Reconstruction claude.ai)" .
+<https://doi.org/10.5281/zenodo.24305428> dcat:qualifiedRelation _:related_resources1_rel .
+_:related_resources1_rel a dcat:Relationship .
+_:related_resources1_rel dct:relation <https://doi.org/10.5281/zenodo.24305438> .
+_:related_resources1_rel dcat:hadRole dct:isReferencedBy .
+_:related_resources1_rel rdfs:comment "Procedural reconstruction from idealised bricks, derived from this scan." .
+<http://www.wikidata.org/entity/Q131330> rdfs:label "Schönbrunn Palace, Apothekertrakt, Vienna" .
+<https://doi.org/10.5281/zenodo.24305428> geosparql:hasGeometry <https://doi.org/10.5281/zenodo.24305428_geom> .
+<https://doi.org/10.5281/zenodo.24305428_geom> a sf:Point .
+<https://doi.org/10.5281/zenodo.24305428_geom> geosparql:asWKT "<http://www.opengis.net/def/crs/EPSG/0/4326> POINT(16.318911 48.184424)"^^geosparql:wktLiteral .
+<https://doi.org/10.5281/zenodo.24305428> dct:temporal <https://doi.org/10.5281/zenodo.24305428_temporal> .
+<https://doi.org/10.5281/zenodo.24305428_temporal> a dct:PeriodOfTime .
+<https://doi.org/10.5281/zenodo.24305428_temporal> rdfs:label "Scan session 2026-11-12 (during CHNT31)" .
+<https://doi.org/10.5281/zenodo.24305428_temporal> dcat:startDate "2026"^^xsd:gYear .
+<https://doi.org/10.5281/zenodo.24305428_temporal> dcat:endDate "2026"^^xsd:gYear .
+_:heritage_object_object_type0_1 rdfs:label "LEGO model (interlocking-brick toy, self-built)" .
+
+<http://www.wikidata.org/entity/Q73901970> a schema:Organization ;
+    schema:name "Research Squirrel Engineers Network" .
+
+<urn:fdo-squirrel:activity/build> a prov:Activity ;
+    prov:wasAssociatedWith <urn:fdo-squirrel:agent/fdo-squirrel> .
+
+<urn:fdo-squirrel:agent/fdo-squirrel> a prov:SoftwareAgent, schema:SoftwareApplication ;
+    schema:name "fdo-squirrel" ;
+    schema:softwareVersion "1.3.0" ;
+    schema:codeRepository <https://github.com/FDOx-squirrel/fdo-squirrel> .
+
+<https://orcid.org/0000-0002-3246-3531> a schema:Person ;
+    schema:name "Thiery, Florian" .
+
+<urn:fdo-squirrel:dist/217ec3e7b4407e60> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/MD.cff> ;
+    dcat:byteSize 3005 ;
+    dcat:mediaType "text/yaml" ;
+    fdo:path "MD.cff" ;
+    fdo:role "metadata" ;
+    fdo:sha256 "217ec3e7b4407e6070436e9f7016e26c39e5b499fcc5e225b244a083b1d21030"  .
+
+<urn:fdo-squirrel:dist/afd8fcaf630d3d64> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/CITATION.cff> ;
+    dcat:byteSize 1036 ;
+    dcat:mediaType "text/yaml" ;
+    fdo:path "CITATION.cff" ;
+    fdo:role "metadata" ;
+    fdo:sha256 "afd8fcaf630d3d649a55cb5e80c94b07d51fd55a4d613786aa03f4738582de68"  .
+
+<urn:fdo-squirrel:dist/81ad99017ff8e468> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/data/model/model.obj> ;
+    dcat:byteSize 7532064 ;
+    dcat:mediaType "model/obj" ;
+    fdo:path "data/model/model.obj" ;
+    fdo:role "model" ;
+    fdo:sha256 "81ad99017ff8e468fad8e4f9d8f50453b778d4bd4d3a56a95b6aa4e35efd8496"  .
+
+<urn:fdo-squirrel:dist/6c2c935cd95e8d0b> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/data/model/model.mtl> ;
+    dcat:byteSize 255 ;
+    dcat:mediaType "application/octet-stream" ;
+    fdo:path "data/model/model.mtl" ;
+    fdo:role "model" ;
+    fdo:sha256 "6c2c935cd95e8d0b8c5ccba632207c2b779b3390c6779f6193f157a55893d09e"  .
+
+<urn:fdo-squirrel:dist/ecded0cdd4949370> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/data/model/model.nxs> ;
+    dcat:byteSize 4751616 ;
+    dcat:mediaType "application/octet-stream" ;
+    fdo:path "data/model/model.nxs" ;
+    fdo:role "model" ;
+    fdo:sha256 "ecded0cdd4949370c5e04bd73abc6b0f9335b5b7e5e5873620e5b494fd1b9fa3"  .
+
+<urn:fdo-squirrel:dist/92f6aab6eaa90eea> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/data/model/model.nxz> ;
+    dcat:byteSize 2597376 ;
+    dcat:mediaType "application/octet-stream" ;
+    fdo:path "data/model/model.nxz" ;
+    fdo:role "model" ;
+    fdo:sha256 "92f6aab6eaa90eea2f98afbfc450615414bde5df540e5fcadbe89d9676193c09"  .
+
+<urn:fdo-squirrel:dist/5f6904c85e155dfd> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/data/textures/3DModel_baseColor.jpeg> ;
+    dcat:byteSize 2752215 ;
+    dcat:mediaType "image/jpeg" ;
+    fdo:path "data/textures/3DModel_baseColor.jpeg" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "5f6904c85e155dfd823ab4727d05a595c59e33216ccdeb910b66887c03af5dca"  .
+
+<urn:fdo-squirrel:dist/ee7276e95e39f636> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/data/images/preview.png> ;
+    dcat:byteSize 1494507 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "data/images/preview.png" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "ee7276e95e39f63682b6828bccfde86c835f9208c82dfee0087e3a2471d055a4"  .
+
+<urn:fdo-squirrel:dist/5782d58d11437c0f> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/viewer/index.html> ;
+    dcat:byteSize 3017 ;
+    dcat:mediaType "text/html" ;
+    fdo:path "viewer/index.html" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "5782d58d11437c0f31e0b4b83f2daa9fc21b6875399abb37db6e5d84f417795b"  .
+
+<urn:fdo-squirrel:dist/04b54942c91c510e> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/viewer/js/corto.em.js> ;
+    dcat:byteSize 119263 ;
+    dcat:mediaType "application/javascript" ;
+    fdo:path "viewer/js/corto.em.js" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "04b54942c91c510e882664ebccea4797f778651ac752a96a215fb7f66219c87f"  .
+
+<urn:fdo-squirrel:dist/0e623d3c26743f35> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/viewer/js/corto.js> ;
+    dcat:byteSize 27809 ;
+    dcat:mediaType "application/javascript" ;
+    fdo:path "viewer/js/corto.js" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "0e623d3c26743f35eb18415378674c75c60928cf8c1ef3a7910d5bc115b72447"  .
+
+<urn:fdo-squirrel:dist/6132a60724847178> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/viewer/js/init.js> ;
+    dcat:byteSize 21598 ;
+    dcat:mediaType "application/javascript" ;
+    fdo:path "viewer/js/init.js" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "6132a60724847178a5438548cce1633c327f48a78db202ae54e8f05f6d0b0c3e"  .
+
+<urn:fdo-squirrel:dist/f7f6a5894f1d19dd> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/viewer/js/jquery.js> ;
+    dcat:byteSize 89476 ;
+    dcat:mediaType "application/javascript" ;
+    fdo:path "viewer/js/jquery.js" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "f7f6a5894f1d19ddad6fa392b2ece2c5e578cbf7da4ea805b6885eb6985b6e3d"  .
+
+<urn:fdo-squirrel:dist/012d3ae0f6007283> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/viewer/js/meco.js> ;
+    dcat:byteSize 26193 ;
+    dcat:mediaType "application/javascript" ;
+    fdo:path "viewer/js/meco.js" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "012d3ae0f600728308dd47552298d7dc9e38390c67cfc3c8a1ac2cd31ba09afc"  .
+
+<urn:fdo-squirrel:dist/4ceb643e8b6d7cd2> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/viewer/js/nexus.js> ;
+    dcat:byteSize 38388 ;
+    dcat:mediaType "application/javascript" ;
+    fdo:path "viewer/js/nexus.js" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "4ceb643e8b6d7cd26bce53419bc6a781674c4a714f22525716e9e2b6e4469c83"  .
+
+<urn:fdo-squirrel:dist/b4416be937053d8a> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/viewer/js/ply.js> ;
+    dcat:byteSize 29251 ;
+    dcat:mediaType "application/javascript" ;
+    fdo:path "viewer/js/ply.js" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "b4416be937053d8a0f938940805374abb298de26481def809c8e4c2fcc00c1a9"  .
+
+<urn:fdo-squirrel:dist/f6e15e9e5f49e3de> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/viewer/js/presenter.js> ;
+    dcat:byteSize 135389 ;
+    dcat:mediaType "application/javascript" ;
+    fdo:path "viewer/js/presenter.js" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "f6e15e9e5f49e3dec53f1a31dff4d6091c8b7aa4dd65793655dd22eb9c6497e3"  .
+
+<urn:fdo-squirrel:dist/fe753c2685ec886c> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/viewer/js/spidergl.js> ;
+    dcat:byteSize 190272 ;
+    dcat:mediaType "application/javascript" ;
+    fdo:path "viewer/js/spidergl.js" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "fe753c2685ec886cfce08a07f8f9e0a48bd2ae197694eae84de53de129414690"  .
+
+<urn:fdo-squirrel:dist/cf14dd446fc3537f> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/viewer/js/trackball_pantilt.js> ;
+    dcat:byteSize 12476 ;
+    dcat:mediaType "application/javascript" ;
+    fdo:path "viewer/js/trackball_pantilt.js" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "cf14dd446fc3537fc5f988d3eab11b8bb30daa1b2a3f906a7f319f22c86c2058"  .
+
+<urn:fdo-squirrel:dist/5ed91bb5c3d8a4b1> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/viewer/js/trackball_sphere.js> ;
+    dcat:byteSize 6252 ;
+    dcat:mediaType "application/javascript" ;
+    fdo:path "viewer/js/trackball_sphere.js" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "5ed91bb5c3d8a4b1e19631014d4250f82a0ff045bd10765360c024219944a667"  .
+
+<urn:fdo-squirrel:dist/50e62db9b10cc50c> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/viewer/js/trackball_turntable.js> ;
+    dcat:byteSize 10700 ;
+    dcat:mediaType "application/javascript" ;
+    fdo:path "viewer/js/trackball_turntable.js" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "50e62db9b10cc50c669e74ad26e92d9f7623ccfa6dcbed30d2aaca9f92f78b3e"  .
+
+<urn:fdo-squirrel:dist/ada023eb80b0ce5c> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/viewer/js/trackball_turntable_pan.js> ;
+    dcat:byteSize 15658 ;
+    dcat:mediaType "application/javascript" ;
+    fdo:path "viewer/js/trackball_turntable_pan.js" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "ada023eb80b0ce5cb03853ab091e028d56c3c830bb5eaa55b7e57673ab9a583b"  .
+
+<urn:fdo-squirrel:dist/0b383d5a63da644f> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/viewer/LICENSE.txt> ;
+    dcat:byteSize 35821 ;
+    dcat:mediaType "text/plain" ;
+    fdo:path "viewer/LICENSE.txt" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "0b383d5a63da644f628d99c33976ea6487ed89aaa59f0b3257992deac1171e6b"  .
+
+<urn:fdo-squirrel:dist/1a8195ca9d0812e7> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/viewer/skins/backgrounds/light.jpg> ;
+    dcat:byteSize 142700 ;
+    dcat:mediaType "image/jpeg" ;
+    fdo:path "viewer/skins/backgrounds/light.jpg" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "1a8195ca9d0812e7aa881cb9730d4c34a50eb58ac13a3de12b6c3fc4dedc0c4d"  .
+
+<urn:fdo-squirrel:dist/0e4d58088180effe> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/viewer/skins/dark/full.png> ;
+    dcat:byteSize 1272 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "viewer/skins/dark/full.png" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "0e4d58088180effe13afcb4583bc938ecdbd6f738330c7a6734e9df2e534ab1a"  .
+
+<urn:fdo-squirrel:dist/3b2a44995e927286> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/viewer/skins/dark/full_on.png> ;
+    dcat:byteSize 1272 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "viewer/skins/dark/full_on.png" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "3b2a44995e9272862c6b9e192f366b73cbf848b7e247bcb477cb3aa6edc9d73e"  .
+
+<urn:fdo-squirrel:dist/536c5576e2ee7561> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/viewer/skins/dark/home.png> ;
+    dcat:byteSize 1807 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "viewer/skins/dark/home.png" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "536c5576e2ee7561bc75845b511ef82ba69f801edb3c11b8154580f2695d4042"  .
+
+<urn:fdo-squirrel:dist/2ad4f592d31cf358> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/viewer/skins/dark/lightcontrol.png> ;
+    dcat:byteSize 3342 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "viewer/skins/dark/lightcontrol.png" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "2ad4f592d31cf35838405ea47413111ea1d2307f7e155d32744a714f2e304488"  .
+
+<urn:fdo-squirrel:dist/9fd7be788d73ee57> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/viewer/skins/dark/lightcontrol_on.png> ;
+    dcat:byteSize 3502 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "viewer/skins/dark/lightcontrol_on.png" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "9fd7be788d73ee570f64df3aa8d3be9feeeffd36e13841acf27946bcf98b0440"  .
+
+<urn:fdo-squirrel:dist/25108ed495e10582> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/viewer/skins/dark/zoomin.png> ;
+    dcat:byteSize 3354 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "viewer/skins/dark/zoomin.png" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "25108ed495e1058238580d64f8704fac3c8c43a1480a2a713c0efd0c471f7eda"  .
+
+<urn:fdo-squirrel:dist/e221c116fce7a4fc> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/viewer/skins/dark/zoomout.png> ;
+    dcat:byteSize 3266 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "viewer/skins/dark/zoomout.png" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "e221c116fce7a4fc6c3fd4e0024f7b4aaa4c9003b365067e3c43a638c91216f2"  .
+
+<urn:fdo-squirrel:dist/ff48136f9eeca235> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/viewer/stylesheet/3dhop.css> ;
+    dcat:byteSize 5839 ;
+    dcat:mediaType "text/css" ;
+    fdo:path "viewer/stylesheet/3dhop.css" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "ff48136f9eeca23576768c62add1976ba8442110cc9ebf007efd370d5c1b9095"  .
+
+<https://doi.org/10.5281/zenodo.24305428> cff:keywords "Architecture" .
+<https://doi.org/10.5281/zenodo.24305428> cff:keywords "lego" .
+<https://doi.org/10.5281/zenodo.24305428> cff:keywords "pyramid" .
+<https://doi.org/10.5281/zenodo.24305428> cff:license "CC-BY-4.0" .
+<https://doi.org/10.5281/zenodo.24305428> cff:license <https://spdx.org/licenses/CC-BY-4.0.html> .
+<https://doi.org/10.5281/zenodo.24305428> cff:license-url "CC-BY-4.0" .
+<https://doi.org/10.5281/zenodo.24305428> cff:license-url <https://spdx.org/licenses/CC-BY-4.0.html> .
+<https://doi.org/10.5281/zenodo.24305428> cff:repository <https://sketchfab.com/3d-models/lego-pyramid-maya-kiri-original-1e9a188abf974999b7909e15323ded0a> .
+<https://doi.org/10.5281/zenodo.24305428> cff:url <https://sketchfab.com/3d-models/lego-pyramid-maya-kiri-original-1e9a188abf974999b7909e15323ded0a> .
+<https://doi.org/10.5281/zenodo.24305428> codemeta:keywords "Architecture" .
+<https://doi.org/10.5281/zenodo.24305428> codemeta:keywords "lego" .
+<https://doi.org/10.5281/zenodo.24305428> codemeta:keywords "pyramid" .
+<https://doi.org/10.5281/zenodo.24305428> codemeta:license "CC-BY-4.0" .
+<https://doi.org/10.5281/zenodo.24305428> codemeta:license <https://spdx.org/licenses/CC-BY-4.0.html> .
+<https://doi.org/10.5281/zenodo.24305428> codemeta:url <https://sketchfab.com/3d-models/lego-pyramid-maya-kiri-original-1e9a188abf974999b7909e15323ded0a> .
+<https://doi.org/10.5281/zenodo.24305428> dcat:keyword "Architecture" .
+<https://doi.org/10.5281/zenodo.24305428> dcat:keyword "lego" .
+<https://doi.org/10.5281/zenodo.24305428> dcat:keyword "pyramid" .
+<https://doi.org/10.5281/zenodo.24305428> dct:license <https://spdx.org/licenses/CC-BY-4.0.html> .
+<https://doi.org/10.5281/zenodo.24305428> dct:subject "Architecture" .
+<https://doi.org/10.5281/zenodo.24305428> dct:subject "lego" .
+<https://doi.org/10.5281/zenodo.24305428> dct:subject "pyramid" .
+<https://doi.org/10.5281/zenodo.24305428> schema:author "Florian Thiery" .
+<https://doi.org/10.5281/zenodo.24305428> schema:datePublished "2026-11-17" .
+<https://doi.org/10.5281/zenodo.24305428> schema:description "Photogrammetric 3D scan (KIRI Engine) of a stepped LEGO pyramid with four grey stair arms (seven levels) and a small temple with four corner pillars on top, a hobby build by Daria Stefan (TU Wien); scanned on 2026-11-12 in the Apothekertrakt of Schönbrunn Palace, Vienna, where the model was on display during the CHNT31 conference. Raw scan without clean-up. The paired reconstruction is a separate FDOx and derives from this one." .
+<https://doi.org/10.5281/zenodo.24305428> schema:identifier "10.5281/zenodo.24305428" .
+<https://doi.org/10.5281/zenodo.24305428> schema:keywords "Architecture" .
+<https://doi.org/10.5281/zenodo.24305428> schema:keywords "lego" .
+<https://doi.org/10.5281/zenodo.24305428> schema:keywords "pyramid" .
+<https://doi.org/10.5281/zenodo.24305428> schema:license "CC-BY-4.0" .
+<https://doi.org/10.5281/zenodo.24305428> schema:license <https://spdx.org/licenses/CC-BY-4.0.html> .
+<https://doi.org/10.5281/zenodo.24305428> schema:name "Lego Pyramid Maya (KIRI Original)" .
+<https://doi.org/10.5281/zenodo.24305428> schema:relatedLink <https://sketchfab.com/3d-models/lego-pyramid-maya-kiri-original-1e9a188abf974999b7909e15323ded0a> .
+<https://doi.org/10.5281/zenodo.24305428> schema:url <https://sketchfab.com/3d-models/lego-pyramid-maya-kiri-original-1e9a188abf974999b7909e15323ded0a> .
+<https://doi.org/10.5281/zenodo.24305428> wdt:P275 "CC-BY-4.0" .
+<https://doi.org/10.5281/zenodo.24305428> wdt:P275 <https://spdx.org/licenses/CC-BY-4.0.html> .
+<https://doi.org/10.5281/zenodo.24305428> wdt:P856 <https://sketchfab.com/3d-models/lego-pyramid-maya-kiri-original-1e9a188abf974999b7909e15323ded0a> .
+<https://doi.org/10.5281/zenodo.24305428> wdt:P921 "Architecture" .
+<https://doi.org/10.5281/zenodo.24305428> wdt:P921 "lego" .
+<https://doi.org/10.5281/zenodo.24305428> wdt:P921 "pyramid" .
+
+<http://creativecommons.org/licenses/by/4.0/> rdfs:label "CC Attribution" .
+
+<https://doi.org/10.5281/zenodo.24305428> dcat:distribution <urn:fdo-squirrel:dist/ac9bb2cd89e191c5>,<urn:fdo-squirrel:dist/9671fa54922e365f>,<urn:fdo-squirrel:dist/6fca4e2fa6be4d7d>,<urn:fdo-squirrel:dist/c038334d2068bdd7>,<urn:fdo-squirrel:dist/c15ea2d0206974fa>,<urn:fdo-squirrel:dist/ae0aa710ea4270bb>,<urn:fdo-squirrel:dist/864fe529b558331c>,<urn:fdo-squirrel:dist/b724ae22e11ff8c8>,<urn:fdo-squirrel:dist/56e2292b60b6aa08>,<urn:fdo-squirrel:dist/aac373879061b739>,<urn:fdo-squirrel:dist/7b1b09c2211deb84>,<urn:fdo-squirrel:dist/8d9a4fea6c2c4574>,<urn:fdo-squirrel:dist/05e321654b0866a5>,<urn:fdo-squirrel:dist/50060c12e3f7787d>,<urn:fdo-squirrel:dist/656d57f27ed2cdf0>,<urn:fdo-squirrel:dist/2e10fccaceb68d5d>,<urn:fdo-squirrel:dist/fb069753c73f9bf1>,<urn:fdo-squirrel:dist/16e88ba4536e2447>,<urn:fdo-squirrel:dist/516a2d8e42714d68> .
+
+<urn:fdo-squirrel:dist/ac9bb2cd89e191c5> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/fdo-metadata.ttl> ;
+    dcat:byteSize 23968 ;
+    dcat:mediaType "application/octet-stream" ;
+    fdo:path "fdo-metadata.ttl" ;
+    fdo:role "data" ;
+    fdo:sha256 "ac9bb2cd89e191c5245245b63af68f075ba184661eaa4acd6b5782ab1b2c6cf5" .
+
+<urn:fdo-squirrel:dist/9671fa54922e365f> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/rdf_modelling_report.json> ;
+    dcat:byteSize 26740 ;
+    dcat:mediaType "application/json" ;
+    fdo:path "rdf_modelling_report.json" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "9671fa54922e365f7efe9775e716d7eb1ac4ad4b9ce45d33434d5ee41b64180c" .
+
+<urn:fdo-squirrel:dist/6fca4e2fa6be4d7d> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/rdf_modelling_report.html> ;
+    dcat:byteSize 12566 ;
+    dcat:mediaType "text/html" ;
+    fdo:path "rdf_modelling_report.html" ;
+    fdo:role "data" ;
+    fdo:sha256 "6fca4e2fa6be4d7dd7a3238d1e01ee2b2cff250905a39d2d65ce04e931e118a1" .
+
+<urn:fdo-squirrel:dist/c038334d2068bdd7> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/FDOx.yaml> ;
+    dcat:byteSize 779 ;
+    dcat:mediaType "text/yaml" ;
+    fdo:path "FDOx.yaml" ;
+    fdo:role "data" ;
+    fdo:sha256 "c038334d2068bdd720afeb7957b53c73ce3b2705cea09c0f25cfdbb705d98ba8" .
+
+<urn:fdo-squirrel:dist/c15ea2d0206974fa> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/fdo_files_roles_graph.svg> ;
+    dcat:byteSize 4796 ;
+    dcat:mediaType "image/svg+xml" ;
+    fdo:path "fdo_files_roles_graph.svg" ;
+    fdo:role "data" ;
+    fdo:sha256 "c15ea2d0206974faad42ccade0761431ca988a17d09b32bca430b29e47ad4683" .
+
+<urn:fdo-squirrel:dist/ae0aa710ea4270bb> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/fdo_files_roles_graph.png> ;
+    dcat:byteSize 43049 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "fdo_files_roles_graph.png" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "ae0aa710ea4270bb6711d10d5e2953ed5af1c33187e0e15feda2a68130ab3673" .
+
+<urn:fdo-squirrel:dist/864fe529b558331c> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/fdo_md_cff.svg> ;
+    dcat:byteSize 9929 ;
+    dcat:mediaType "image/svg+xml" ;
+    fdo:path "fdo_md_cff.svg" ;
+    fdo:role "data" ;
+    fdo:sha256 "864fe529b558331cd2def6fbd53bca34e594550c3eabbe42fa6e0075d5c97bd7" .
+
+<urn:fdo-squirrel:dist/b724ae22e11ff8c8> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/fdo_md_cff.png> ;
+    dcat:byteSize 215378 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "fdo_md_cff.png" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "b724ae22e11ff8c827f2b8f9e89790580af297a14cd2499f68d752e7890dc0ae" .
+
+<urn:fdo-squirrel:dist/56e2292b60b6aa08> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/fdo_md_cff_graph.svg> ;
+    dcat:byteSize 13313 ;
+    dcat:mediaType "image/svg+xml" ;
+    fdo:path "fdo_md_cff_graph.svg" ;
+    fdo:role "data" ;
+    fdo:sha256 "56e2292b60b6aa081c0d28f914e7dcbbc2b14dc1e3f73712d753b18dffbc7855" .
+
+<urn:fdo-squirrel:dist/aac373879061b739> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/fdo_md_cff_graph.png> ;
+    dcat:byteSize 183569 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "fdo_md_cff_graph.png" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "aac373879061b7393280109d78792f229f1e718e6f8bde1cbf81d219ce72b278" .
+
+<urn:fdo-squirrel:dist/7b1b09c2211deb84> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/fdo_overview.mermaid> ;
+    dcat:byteSize 1858 ;
+    dcat:mediaType "application/octet-stream" ;
+    fdo:path "fdo_overview.mermaid" ;
+    fdo:role "data" ;
+    fdo:sha256 "7b1b09c2211deb84506462156e1b71e14c9acc1e1ddf0483f29732722eef77d6" .
+
+<urn:fdo-squirrel:dist/8d9a4fea6c2c4574> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/fdo_ttl_snippet_metadata.svg> ;
+    dcat:byteSize 5683 ;
+    dcat:mediaType "image/svg+xml" ;
+    fdo:path "fdo_ttl_snippet_metadata.svg" ;
+    fdo:role "data" ;
+    fdo:sha256 "8d9a4fea6c2c45747cccd3a2a27d20ff66964dea30ae188ec0543128206f587b" .
+
+<urn:fdo-squirrel:dist/05e321654b0866a5> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/fdo_ttl_snippet_metadata.png> ;
+    dcat:byteSize 305578 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "fdo_ttl_snippet_metadata.png" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "05e321654b0866a5ca5bb763c0ef53f062cb86be6fd2765de2d55aaf3aef6714" .
+
+<urn:fdo-squirrel:dist/50060c12e3f7787d> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/fdo_ttl_snippet_distributions.svg> ;
+    dcat:byteSize 5736 ;
+    dcat:mediaType "image/svg+xml" ;
+    fdo:path "fdo_ttl_snippet_distributions.svg" ;
+    fdo:role "data" ;
+    fdo:sha256 "50060c12e3f7787da4119a3968893ed6bf3ee2d0a81d3b6f7c9934e5fa826fcc" .
+
+<urn:fdo-squirrel:dist/656d57f27ed2cdf0> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/fdo_ttl_snippet_distributions.png> ;
+    dcat:byteSize 258879 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "fdo_ttl_snippet_distributions.png" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "656d57f27ed2cdf04bb76d236796a52e86dde78f349583c4a6870b12b292c083" .
+
+<urn:fdo-squirrel:dist/2e10fccaceb68d5d> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/fdo_ttl_snippet_links.svg> ;
+    dcat:byteSize 2653 ;
+    dcat:mediaType "image/svg+xml" ;
+    fdo:path "fdo_ttl_snippet_links.svg" ;
+    fdo:role "data" ;
+    fdo:sha256 "2e10fccaceb68d5d242f03c4280ece8f6074733337445054e52ca623d9116e70" .
+
+<urn:fdo-squirrel:dist/fb069753c73f9bf1> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/fdo_ttl_snippet_links.png> ;
+    dcat:byteSize 148720 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "fdo_ttl_snippet_links.png" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "fb069753c73f9bf15441fd585902cfcc1a39bb677228b2ebc41d20732cc7b000" .
+
+<urn:fdo-squirrel:dist/16e88ba4536e2447> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/fdo-landing-page.html> ;
+    dcat:byteSize 9153 ;
+    dcat:mediaType "text/html" ;
+    fdo:path "fdo-landing-page.html" ;
+    fdo:role "data" ;
+    fdo:sha256 "16e88ba4536e2447278c8ce8d01f789d913d78127a46c237e8edf91d8da9148e" .
+
+<urn:fdo-squirrel:dist/516a2d8e42714d68> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/ro-crate-metadata.json> ;
+    dcat:byteSize 24591 ;
+    dcat:mediaType "application/json" ;
+    fdo:path "ro-crate-metadata.json" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "516a2d8e42714d68eddae5f3d3d873a15df0ddc7cd731eb9b6e05a1f7d9e4955" .
+

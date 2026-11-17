@@ -6,7 +6,7 @@
     "issued": "2026-09-03",
     "license": "https://spdx.org/licenses/CC-BY-4.0.html",
     "title": "FDOx Registry",
-    "triples": 9232
+    "triples": 9961
   },
   "entries": [
     {
@@ -1712,6 +1712,191 @@
       ],
       "version_doi": "https://doi.org/10.5281/zenodo.24305344",
       "zenodo_url": "https://zenodo.org/records/24305344"
+    },
+    {
+      "context": "Self-built (own design, no commercial set) by Daria Stefan (TU Wien). Shown at the Apothekertrakt of Schönbrunn Palace during CHNT31, 2026-11-12 (https://www.openstreetmap.org/relation/6892072). Identification as a Maya-style stepped pyramid with a temple was confirmed by the builder. A specific model such as El Castillo (Chichén Itzá) is NOT confirmed.",
+      "creators": [
+        {
+          "iri": "https://orcid.org/0000-0002-3246-3531",
+          "name": "Thiery, Florian"
+        }
+      ],
+      "dataset_iri": "https://doi.org/10.5281/zenodo.24305428",
+      "description": "Photogrammetric 3D scan (KIRI Engine) of a stepped LEGO pyramid with four grey stair arms (seven levels) and a small temple with four corner pillars on top, a hobby build by Daria Stefan (TU Wien); scanned on 2026-11-12 in the Apothekertrakt of Schönbrunn Palace, Vienna, where the model was on display during the CHNT31 conference. Raw scan without clean-up. The paired reconstruction is a separate FDOx and derives from this one.",
+      "facets": {
+        "creator": [
+          "Thiery, Florian"
+        ],
+        "keyword": [
+          "3D data",
+          "Architecture",
+          "Cultural Heritage",
+          "lego",
+          "pyramid"
+        ],
+        "license": [
+          "CC-BY-4.0"
+        ],
+        "place": [
+          "Schönbrunn Palace, Apothekertrakt, Vienna"
+        ],
+        "type": [
+          "3DDataFDO"
+        ],
+        "year": [
+          "2026"
+        ]
+      },
+      "files": {
+        "bytes": 21356929,
+        "count": 51,
+        "largest": [
+          {
+            "bytes": 7532064,
+            "media_type": "model/obj",
+            "path": "data/model/model.obj",
+            "role": "model"
+          },
+          {
+            "bytes": 4751616,
+            "media_type": "application/octet-stream",
+            "path": "data/model/model.nxs",
+            "role": "model"
+          },
+          {
+            "bytes": 2752215,
+            "media_type": "image/jpeg",
+            "path": "data/textures/3DModel_baseColor.jpeg",
+            "role": "auxiliary"
+          },
+          {
+            "bytes": 2597376,
+            "media_type": "application/octet-stream",
+            "path": "data/model/model.nxz",
+            "role": "model"
+          },
+          {
+            "bytes": 1494507,
+            "media_type": "image/png",
+            "path": "data/images/preview.png",
+            "role": "documentation"
+          },
+          {
+            "bytes": 305578,
+            "media_type": "image/png",
+            "path": "fdo_ttl_snippet_metadata.png",
+            "role": "documentation"
+          },
+          {
+            "bytes": 258879,
+            "media_type": "image/png",
+            "path": "fdo_ttl_snippet_distributions.png",
+            "role": "documentation"
+          },
+          {
+            "bytes": 215378,
+            "media_type": "image/png",
+            "path": "fdo_md_cff.png",
+            "role": "documentation"
+          },
+          {
+            "bytes": 190272,
+            "media_type": "application/javascript",
+            "path": "viewer/js/spidergl.js",
+            "role": "auxiliary"
+          },
+          {
+            "bytes": 183569,
+            "media_type": "image/png",
+            "path": "fdo_md_cff_graph.png",
+            "role": "documentation"
+          },
+          {
+            "bytes": 148720,
+            "media_type": "image/png",
+            "path": "fdo_ttl_snippet_links.png",
+            "role": "documentation"
+          },
+          {
+            "bytes": 142700,
+            "media_type": "image/jpeg",
+            "path": "viewer/skins/backgrounds/light.jpg",
+            "role": "auxiliary"
+          }
+        ],
+        "roles": {
+          "auxiliary": 25,
+          "data": 11,
+          "documentation": 9,
+          "metadata": 2,
+          "model": 4
+        }
+      },
+      "geometry": "<http://www.opengis.net/def/crs/EPSG/0/4326> POINT(16.318911 48.184424)",
+      "issued": "2026-11-17",
+      "keywords": [
+        {
+          "iri": null,
+          "label": "3D data",
+          "named": true
+        },
+        {
+          "iri": null,
+          "label": "Architecture",
+          "named": true
+        },
+        {
+          "iri": null,
+          "label": "Cultural Heritage",
+          "named": true
+        },
+        {
+          "iri": null,
+          "label": "lego",
+          "named": true
+        },
+        {
+          "iri": null,
+          "label": "pyramid",
+          "named": true
+        }
+      ],
+      "licenses": [
+        {
+          "iri": "https://spdx.org/licenses/CC-BY-4.0.html",
+          "label": "CC-BY-4.0"
+        }
+      ],
+      "metadata_url": "https://zenodo.org/api/records/24309838/files/lego-pyramid-maya-kiri-original-fdo-bundle.zip/content",
+      "other_descriptions": [],
+      "period": {
+        "end": "2026",
+        "iri": "https://doi.org/10.5281/zenodo.24305428_temporal",
+        "label": "Scan session 2026-11-12 (during CHNT31)",
+        "start": "2026",
+        "value": "2026"
+      },
+      "places": [
+        {
+          "iri": "http://www.wikidata.org/entity/Q131330",
+          "label": "Schönbrunn Palace, Apothekertrakt, Vienna",
+          "named": true
+        }
+      ],
+      "record_id": "24309838",
+      "record_iri": "https://w3id.org/fdo-squirrel/registry/record/24309838",
+      "repairs": [],
+      "sha256": "eeff10cb61f05f101858a693bea19bbe4ceb3f9938fffe4c6365ea383b23b833",
+      "squirrelbase": null,
+      "title": "Lego Pyramid Maya (KIRI Original)",
+      "types": [
+        {
+          "iri": "https://w3id.org/fdo-squirrel/3DDataFDO",
+          "label": "3DDataFDO"
+        }
+      ],
+      "version_doi": "https://doi.org/10.5281/zenodo.24309838",
+      "zenodo_url": "https://zenodo.org/records/24309838"
     }
   ],
   "facets": [
