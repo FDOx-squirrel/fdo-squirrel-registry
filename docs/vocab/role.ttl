@@ -2,6 +2,12 @@
 @prefix role: <https://w3id.org/fdo-squirrel/registry/role/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 
+role:auxiliary a skos:Concept ;
+    skos:definition "A supporting file that is not part of the documented object itself, such as a browser viewer or a texture shipped with a model."@en ;
+    skos:inScheme role: ;
+    skos:notation "auxiliary" ;
+    skos:prefLabel "Auxiliary"@en .
+
 role:data a skos:Concept ;
     skos:definition "A data file that is neither a model, documentation, metadata nor code."@en ;
     skos:inScheme role: ;
@@ -41,7 +47,8 @@ role:software a skos:Concept ;
 role: a skos:ConceptScheme ;
     dct:description "The values fdo:role takes on a dcat:Distribution inside an FDOx package. A flat list: the source draws no hierarchy between the values, and inventing one here would put structure into the registry that the packages do not carry."@en ;
     dct:title "FDOx distribution roles"@en ;
-    skos:hasTopConcept role:data,
+    skos:hasTopConcept role:auxiliary,
+        role:data,
         role:documentation,
         role:metadata,
         role:model,

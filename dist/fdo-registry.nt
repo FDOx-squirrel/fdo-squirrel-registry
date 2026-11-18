@@ -1409,13 +1409,13 @@
 <https://doi.org/10.5281/zenodo.24305240> <http://purl.org/dc/terms/subject> <http://www.wikidata.org/entity/Q229370> .
 <https://doi.org/10.5281/zenodo.24305240> <http://purl.org/dc/terms/temporal> <https://doi.org/10.5281/zenodo.24305240_temporal> .
 <https://doi.org/10.5281/zenodo.24305240> <http://purl.org/dc/terms/title> "Lego Pyramid (KIRI Original)" .
-<https://doi.org/10.5281/zenodo.24305240> <http://purl.org/dc/terms/type> _:n2b597f55657f4f3aad8bc050e38d9896b1 .
+<https://doi.org/10.5281/zenodo.24305240> <http://purl.org/dc/terms/type> _:ne7bd02b6e0434d139cdd1a50409e0d3eb1 .
 <https://doi.org/10.5281/zenodo.24305240> <http://www.cidoc-crm.org/cidoc-crm/P102_has_title> "Lego Pyramid (KIRI Original)" .
 <https://doi.org/10.5281/zenodo.24305240> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> "Architecture" .
 <https://doi.org/10.5281/zenodo.24305240> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> "lego" .
 <https://doi.org/10.5281/zenodo.24305240> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> <http://www.wikidata.org/entity/Q110840> .
 <https://doi.org/10.5281/zenodo.24305240> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> <http://www.wikidata.org/entity/Q229370> .
-<https://doi.org/10.5281/zenodo.24305240> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> _:n2b597f55657f4f3aad8bc050e38d9896b1 .
+<https://doi.org/10.5281/zenodo.24305240> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> _:ne7bd02b6e0434d139cdd1a50409e0d3eb1 .
 <https://doi.org/10.5281/zenodo.24305240> <http://www.cidoc-crm.org/cidoc-crm/P3_has_note> "KIRI Engine export (GLB, AdvancedExport; a second OBJ export exists). 135,616 triangles and 68,248 vertices after merging duplicate vertices; not watertight; no clean-up applied." .
 <https://doi.org/10.5281/zenodo.24305240> <http://www.cidoc-crm.org/cidoc-crm/P3_has_note> "Photogrammetric 3D scan (KIRI Engine) of a white stepped LEGO pyramid (nine levels) with a five-brick column and a minifigure-style warrior figure on top (spiked helmet, mail shirt, tunic, cloak), a hobby build by Florian Thiery; scanned on 2026-11-12 in the Apothekertrakt of Schönbrunn Palace, Vienna, where the model was on display during the CHNT31 conference. Raw scan without clean-up. The paired reconstruction is a separate FDOx and derives from this one." .
 <https://doi.org/10.5281/zenodo.24305240> <http://www.cidoc-crm.org/cidoc-crm/P4_has_time-span> "2026"^^<http://www.w3.org/2001/XMLSchema#gYear> .
@@ -1482,7 +1482,7 @@
 <https://doi.org/10.5281/zenodo.24305240> <http://www.w3.org/ns/dcat#keyword> "Architecture" .
 <https://doi.org/10.5281/zenodo.24305240> <http://www.w3.org/ns/dcat#keyword> "Cultural Heritage" .
 <https://doi.org/10.5281/zenodo.24305240> <http://www.w3.org/ns/dcat#keyword> "lego" .
-<https://doi.org/10.5281/zenodo.24305240> <http://www.w3.org/ns/dcat#qualifiedRelation> _:n2b597f55657f4f3aad8bc050e38d9896b2 .
+<https://doi.org/10.5281/zenodo.24305240> <http://www.w3.org/ns/dcat#qualifiedRelation> _:ne7bd02b6e0434d139cdd1a50409e0d3eb2 .
 <https://doi.org/10.5281/zenodo.24305240> <http://www.w3.org/ns/prov#wasDerivedFrom> <https://sketchfab.com/3d-models/lego-pyramid-kiri-original-b262c1135f1c4159bf1e3628d468bdc8> .
 <https://doi.org/10.5281/zenodo.24305240> <http://www.w3.org/ns/prov#wasGeneratedBy> <urn:fdo-squirrel:activity/build> .
 <https://doi.org/10.5281/zenodo.24305240> <http://www.wikidata.org/prop/direct/P275> "CC-BY-4.0" .
@@ -1529,7 +1529,7 @@
 <https://doi.org/10.5281/zenodo.24305240_temporal> <http://www.w3.org/2000/01/rdf-schema#label> "Scan session 2026-11-12 (during CHNT31)" .
 <https://doi.org/10.5281/zenodo.24305240_temporal> <http://www.w3.org/ns/dcat#endDate> "2026"^^<http://www.w3.org/2001/XMLSchema#gYear> .
 <https://doi.org/10.5281/zenodo.24305240_temporal> <http://www.w3.org/ns/dcat#startDate> "2026"^^<http://www.w3.org/2001/XMLSchema#gYear> .
-<https://doi.org/10.5281/zenodo.24305343> <http://purl.org/dc/terms/contributor> _:n082fca06bc744c94ab03e67eb8a01ba7b1 .
+<https://doi.org/10.5281/zenodo.24305343> <http://purl.org/dc/terms/contributor> _:nb4aa60a94b8b438fb2532b44271b66a4b1 .
 <https://doi.org/10.5281/zenodo.24305343> <http://purl.org/dc/terms/created> "2026-11-17"^^<http://www.w3.org/2001/XMLSchema#date> .
 <https://doi.org/10.5281/zenodo.24305343> <http://purl.org/dc/terms/creator> <https://orcid.org/0000-0002-3246-3531> .
 <https://doi.org/10.5281/zenodo.24305343> <http://purl.org/dc/terms/description> "Idealised reconstruction of a white stepped LEGO pyramid (nine levels) with a five-brick column and a minifigure-style warrior figure on top (spiked helmet, mail shirt, tunic, cloak), a hobby build by Florian Thiery, rebuilt procedurally from clean LEGO bricks after a KIRI Engine scan. Only dimensions and structure were read from the scan; no scan mesh or texture was reused. AI disclosure: the reconstruction was generated with Claude (Anthropic, claude-sonnet-5-5) on behalf of Florian Thiery. It is an interpretation model, not a measurement." .
@@ -1545,13 +1545,13 @@
 <https://doi.org/10.5281/zenodo.24305343> <http://purl.org/dc/terms/subject> <http://www.wikidata.org/entity/Q110840> .
 <https://doi.org/10.5281/zenodo.24305343> <http://purl.org/dc/terms/subject> <http://www.wikidata.org/entity/Q229370> .
 <https://doi.org/10.5281/zenodo.24305343> <http://purl.org/dc/terms/title> "Lego Pyramid (Reconstruction claude.ai)" .
-<https://doi.org/10.5281/zenodo.24305343> <http://purl.org/dc/terms/type> _:n082fca06bc744c94ab03e67eb8a01ba7b2 .
+<https://doi.org/10.5281/zenodo.24305343> <http://purl.org/dc/terms/type> _:nb4aa60a94b8b438fb2532b44271b66a4b2 .
 <https://doi.org/10.5281/zenodo.24305343> <http://www.cidoc-crm.org/cidoc-crm/P102_has_title> "Lego Pyramid (Reconstruction claude.ai)" .
 <https://doi.org/10.5281/zenodo.24305343> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> "Architecture" .
 <https://doi.org/10.5281/zenodo.24305343> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> "lego" .
 <https://doi.org/10.5281/zenodo.24305343> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> <http://www.wikidata.org/entity/Q110840> .
 <https://doi.org/10.5281/zenodo.24305343> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> <http://www.wikidata.org/entity/Q229370> .
-<https://doi.org/10.5281/zenodo.24305343> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> _:n082fca06bc744c94ab03e67eb8a01ba7b2 .
+<https://doi.org/10.5281/zenodo.24305343> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> _:nb4aa60a94b8b438fb2532b44271b66a4b2 .
 <https://doi.org/10.5281/zenodo.24305343> <http://www.cidoc-crm.org/cidoc-crm/P3_has_note> "Idealised reconstruction of a white stepped LEGO pyramid (nine levels) with a five-brick column and a minifigure-style warrior figure on top (spiked helmet, mail shirt, tunic, cloak), a hobby build by Florian Thiery, rebuilt procedurally from clean LEGO bricks after a KIRI Engine scan. Only dimensions and structure were read from the scan; no scan mesh or texture was reused. AI disclosure: the reconstruction was generated with Claude (Anthropic, claude-sonnet-5-5) on behalf of Florian Thiery. It is an interpretation model, not a measurement." .
 <https://doi.org/10.5281/zenodo.24305343> <http://www.cidoc-crm.org/cidoc-crm/P3_has_note> "{\"ai_involvement\": \"Generated with Claude (Anthropic, claude-sonnet-5-5), session 2026-11-12 to 2026-11-17\", \"figure\": \"Modelled from 11 photographs supplied by Florian Thiery, 32.3 mm tall, painted head and torso textures\", \"known_deviations\": \"Cloak, hands and sleeves paler than in the photos; mail shirt as honeycomb pattern; cheek guards flat; sleeves plain tubes\", \"method\": \"Procedural rebuild from idealised bricks (script build_lego3.py), not a cleaned scan mesh\", \"random_seed\": \"numpy.random.default_rng(11)\", \"reproducibility\": \"Re-running the script reproduces lego.glb byte-identically with Python 3.13.18, numpy 2.5.3, trimesh 5.2.1, Pillow 12.3.0, scipy 1.18.1 (sha256 cf51067881aef419856a403725c1352c7c7d14715f286018066991afbc1e9569)\", \"scale\": \"2/3 of real LEGO dimensions (8 mm grid, 9.6 mm brick height, 4.8 mm studs), fitted to the scan\", \"structure\": \"9 levels (14x18 down to 2x2 studs) plus a column of 5 1x1 bricks; 97x 2x4, 5x 2x2, 5x 1x1, all white\"}" .
 <https://doi.org/10.5281/zenodo.24305343> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.cidoc-crm.org/cidoc-crm/E73_Information_Object> .
@@ -1615,7 +1615,7 @@
 <https://doi.org/10.5281/zenodo.24305343> <http://www.w3.org/ns/dcat#keyword> "Architecture" .
 <https://doi.org/10.5281/zenodo.24305343> <http://www.w3.org/ns/dcat#keyword> "Cultural Heritage" .
 <https://doi.org/10.5281/zenodo.24305343> <http://www.w3.org/ns/dcat#keyword> "lego" .
-<https://doi.org/10.5281/zenodo.24305343> <http://www.w3.org/ns/dcat#qualifiedRelation> _:n082fca06bc744c94ab03e67eb8a01ba7b3 .
+<https://doi.org/10.5281/zenodo.24305343> <http://www.w3.org/ns/dcat#qualifiedRelation> _:nb4aa60a94b8b438fb2532b44271b66a4b3 .
 <https://doi.org/10.5281/zenodo.24305343> <http://www.w3.org/ns/prov#wasDerivedFrom> <https://doi.org/10.5281/zenodo.24305240> .
 <https://doi.org/10.5281/zenodo.24305343> <http://www.w3.org/ns/prov#wasDerivedFrom> <https://sketchfab.com/3d-models/lego-pyramid-reconstruction-claudeai-e2fb31006245424e88033714af2c90f5> .
 <https://doi.org/10.5281/zenodo.24305343> <http://www.w3.org/ns/prov#wasGeneratedBy> <urn:fdo-squirrel:activity/build> .
@@ -1671,14 +1671,14 @@
 <https://doi.org/10.5281/zenodo.24305428> <http://purl.org/dc/terms/subject> <http://www.wikidata.org/entity/Q229370> .
 <https://doi.org/10.5281/zenodo.24305428> <http://purl.org/dc/terms/temporal> <https://doi.org/10.5281/zenodo.24305428_temporal> .
 <https://doi.org/10.5281/zenodo.24305428> <http://purl.org/dc/terms/title> "Lego Pyramid Maya (KIRI Original)" .
-<https://doi.org/10.5281/zenodo.24305428> <http://purl.org/dc/terms/type> _:n449db0780b8d40108be0584d8675a34fb1 .
+<https://doi.org/10.5281/zenodo.24305428> <http://purl.org/dc/terms/type> _:n923ab11b9aeb49b3af9059af601b588bb1 .
 <https://doi.org/10.5281/zenodo.24305428> <http://www.cidoc-crm.org/cidoc-crm/P102_has_title> "Lego Pyramid Maya (KIRI Original)" .
 <https://doi.org/10.5281/zenodo.24305428> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> "Architecture" .
 <https://doi.org/10.5281/zenodo.24305428> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> "lego" .
 <https://doi.org/10.5281/zenodo.24305428> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> "pyramid" .
 <https://doi.org/10.5281/zenodo.24305428> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> <http://www.wikidata.org/entity/Q110840> .
 <https://doi.org/10.5281/zenodo.24305428> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> <http://www.wikidata.org/entity/Q229370> .
-<https://doi.org/10.5281/zenodo.24305428> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> _:n449db0780b8d40108be0584d8675a34fb1 .
+<https://doi.org/10.5281/zenodo.24305428> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> _:n923ab11b9aeb49b3af9059af601b588bb1 .
 <https://doi.org/10.5281/zenodo.24305428> <http://www.cidoc-crm.org/cidoc-crm/P3_has_note> "KIRI Engine export (OBJ with MTL and JPG texture). 53,482 triangles and 26,996 vertices after merging duplicate vertices; not watertight; unit unknown; rotated by about 16 degrees against the ground, compressed along one axis by a factor of about 0.72, ground plane included; no clean-up applied." .
 <https://doi.org/10.5281/zenodo.24305428> <http://www.cidoc-crm.org/cidoc-crm/P3_has_note> "Photogrammetric 3D scan (KIRI Engine) of a stepped LEGO pyramid with four grey stair arms (seven levels) and a small temple with four corner pillars on top, a hobby build by Daria Stefan (TU Wien); scanned on 2026-11-12 in the Apothekertrakt of Schönbrunn Palace, Vienna, where the model was on display during the CHNT31 conference. Raw scan without clean-up. The paired reconstruction is a separate FDOx and derives from this one." .
 <https://doi.org/10.5281/zenodo.24305428> <http://www.cidoc-crm.org/cidoc-crm/P4_has_time-span> "2026"^^<http://www.w3.org/2001/XMLSchema#gYear> .
@@ -1746,7 +1746,7 @@
 <https://doi.org/10.5281/zenodo.24305428> <http://www.w3.org/ns/dcat#keyword> "Cultural Heritage" .
 <https://doi.org/10.5281/zenodo.24305428> <http://www.w3.org/ns/dcat#keyword> "lego" .
 <https://doi.org/10.5281/zenodo.24305428> <http://www.w3.org/ns/dcat#keyword> "pyramid" .
-<https://doi.org/10.5281/zenodo.24305428> <http://www.w3.org/ns/dcat#qualifiedRelation> _:n449db0780b8d40108be0584d8675a34fb2 .
+<https://doi.org/10.5281/zenodo.24305428> <http://www.w3.org/ns/dcat#qualifiedRelation> _:n923ab11b9aeb49b3af9059af601b588bb2 .
 <https://doi.org/10.5281/zenodo.24305428> <http://www.w3.org/ns/prov#wasDerivedFrom> <https://sketchfab.com/3d-models/lego-pyramid-maya-kiri-original-1e9a188abf974999b7909e15323ded0a> .
 <https://doi.org/10.5281/zenodo.24305428> <http://www.w3.org/ns/prov#wasGeneratedBy> <urn:fdo-squirrel:activity/build> .
 <https://doi.org/10.5281/zenodo.24305428> <http://www.wikidata.org/prop/direct/P275> "CC-BY-4.0" .
@@ -1798,7 +1798,7 @@
 <https://doi.org/10.5281/zenodo.24305428_temporal> <http://www.w3.org/ns/dcat#endDate> "2026"^^<http://www.w3.org/2001/XMLSchema#gYear> .
 <https://doi.org/10.5281/zenodo.24305428_temporal> <http://www.w3.org/ns/dcat#startDate> "2026"^^<http://www.w3.org/2001/XMLSchema#gYear> .
 <https://doi.org/10.5281/zenodo.24305436> <http://purl.org/dc/terms/contributor> <https://orcid.org/0009-0008-0586-9350> .
-<https://doi.org/10.5281/zenodo.24305436> <http://purl.org/dc/terms/contributor> _:ndae3562879a14a8e9e6f9ee124261327b1 .
+<https://doi.org/10.5281/zenodo.24305436> <http://purl.org/dc/terms/contributor> _:nc0b06015fdb448178104142bfec958bbb1 .
 <https://doi.org/10.5281/zenodo.24305436> <http://purl.org/dc/terms/created> "2026-11-17"^^<http://www.w3.org/2001/XMLSchema#date> .
 <https://doi.org/10.5281/zenodo.24305436> <http://purl.org/dc/terms/creator> <https://orcid.org/0000-0002-3246-3531> .
 <https://doi.org/10.5281/zenodo.24305436> <http://purl.org/dc/terms/description> "Idealised reconstruction of a stepped LEGO pyramid with four grey stair arms (seven levels) and a small temple with four corner pillars on top, a hobby build by Daria Stefan (TU Wien), rebuilt procedurally from clean LEGO bricks after a KIRI Engine scan. Only dimensions and structure were read from the scan; no scan mesh or texture was reused. AI disclosure: the reconstruction was generated with Claude (Anthropic, claude-sonnet-5-5) on behalf of Florian Thiery. It is an interpretation model, not a measurement." .
@@ -1818,7 +1818,7 @@
 <https://doi.org/10.5281/zenodo.24305436> <http://purl.org/dc/terms/subject> <http://www.wikidata.org/entity/Q110840> .
 <https://doi.org/10.5281/zenodo.24305436> <http://purl.org/dc/terms/subject> <http://www.wikidata.org/entity/Q229370> .
 <https://doi.org/10.5281/zenodo.24305436> <http://purl.org/dc/terms/title> "Lego Pyramid Maya (Reconstruction claude.ai)" .
-<https://doi.org/10.5281/zenodo.24305436> <http://purl.org/dc/terms/type> _:ndae3562879a14a8e9e6f9ee124261327b2 .
+<https://doi.org/10.5281/zenodo.24305436> <http://purl.org/dc/terms/type> _:nc0b06015fdb448178104142bfec958bbb2 .
 <https://doi.org/10.5281/zenodo.24305436> <http://www.cidoc-crm.org/cidoc-crm/P102_has_title> "Lego Pyramid Maya (Reconstruction claude.ai)" .
 <https://doi.org/10.5281/zenodo.24305436> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> "Architecture" .
 <https://doi.org/10.5281/zenodo.24305436> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> "Claude" .
@@ -1828,7 +1828,7 @@
 <https://doi.org/10.5281/zenodo.24305436> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> "reconstruction" .
 <https://doi.org/10.5281/zenodo.24305436> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> <http://www.wikidata.org/entity/Q110840> .
 <https://doi.org/10.5281/zenodo.24305436> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> <http://www.wikidata.org/entity/Q229370> .
-<https://doi.org/10.5281/zenodo.24305436> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> _:ndae3562879a14a8e9e6f9ee124261327b2 .
+<https://doi.org/10.5281/zenodo.24305436> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> _:nc0b06015fdb448178104142bfec958bbb2 .
 <https://doi.org/10.5281/zenodo.24305436> <http://www.cidoc-crm.org/cidoc-crm/P3_has_note> "Idealised reconstruction of a stepped LEGO pyramid with four grey stair arms (seven levels) and a small temple with four corner pillars on top, a hobby build by Daria Stefan (TU Wien), rebuilt procedurally from clean LEGO bricks after a KIRI Engine scan. Only dimensions and structure were read from the scan; no scan mesh or texture was reused. AI disclosure: the reconstruction was generated with Claude (Anthropic, claude-sonnet-5-5) on behalf of Florian Thiery. It is an interpretation model, not a measurement." .
 <https://doi.org/10.5281/zenodo.24305436> <http://www.cidoc-crm.org/cidoc-crm/P3_has_note> "{\"ai_involvement\": \"Generated with Claude (Anthropic, claude-sonnet-5-5), session 2026-11-12 to 2026-11-17\", \"alignment\": \"Scan rotated by 16.25 degrees (sharpness histogram around the temple centre); grid and brick height derived from 4 million surface points (about 13 cells per stud)\", \"assumptions\": \"Seven levels after photo and builder statement (the scan suggests up to eight, the lowest probably merged with the table); pillar rotations 14, -12, 16, -9 degrees and block twist estimated by eye; stair arms on levels 6/7 symmetric in the model but not fully in the photo; scan ground plane not carried over\", \"bricks\": \"white 32x 2x4, 20x 2x2, 12x 1x1, 8 special 1x2/1x4; grey 70x 2x4, 9x 2x2\", \"colours_rgb\": \"white (245, 245, 241), grey (48, 50, 48)\", \"method\": \"Procedural rebuild from idealised bricks (script build_m3.py, version 4), not a cleaned scan mesh\", \"random_seed\": \"numpy.random.default_rng(5)\", \"reproducibility\": \"Re-running the script reproduces lego3.glb byte-identically with Python 3.13.18, numpy 2.5.3, trimesh 5.2.1, Pillow 12.3.0, scipy 1.18.1 (sha256 543a744f2ec29f9b65c12008cd01b3b2fe829ccf1eeef1bc74b40a27943eac8b)\", \"structure\": \"7 levels; four stair arms 4 studs wide reaching 9, 8, 7, 6, 5, 4, 3 studs from the centre; white corner areas 6x6 down to 2x2; temple of 4 layers with four white 1x1 corner pillars\"}" .
 <https://doi.org/10.5281/zenodo.24305436> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.cidoc-crm.org/cidoc-crm/E73_Information_Object> .
@@ -1894,7 +1894,7 @@
 <https://doi.org/10.5281/zenodo.24305436> <http://www.w3.org/ns/dcat#keyword> "maya" .
 <https://doi.org/10.5281/zenodo.24305436> <http://www.w3.org/ns/dcat#keyword> "pyramid" .
 <https://doi.org/10.5281/zenodo.24305436> <http://www.w3.org/ns/dcat#keyword> "reconstruction" .
-<https://doi.org/10.5281/zenodo.24305436> <http://www.w3.org/ns/dcat#qualifiedRelation> _:ndae3562879a14a8e9e6f9ee124261327b3 .
+<https://doi.org/10.5281/zenodo.24305436> <http://www.w3.org/ns/dcat#qualifiedRelation> _:nc0b06015fdb448178104142bfec958bbb3 .
 <https://doi.org/10.5281/zenodo.24305436> <http://www.w3.org/ns/prov#wasDerivedFrom> <https://doi.org/10.5281/zenodo.24305428> .
 <https://doi.org/10.5281/zenodo.24305436> <http://www.w3.org/ns/prov#wasDerivedFrom> <https://sketchfab.com/3d-models/lego-pyramid-maya-reconstruction-claudeai-fe33b10adee4421fa3a06cc12f7d6c62> .
 <https://doi.org/10.5281/zenodo.24305436> <http://www.w3.org/ns/prov#wasGeneratedBy> <urn:fdo-squirrel:activity/build> .
@@ -1975,7 +1975,7 @@
 <https://doi.org/10.5281/zenodo.24346313> <http://purl.org/dc/terms/subject> <http://www.wikidata.org/entity/Q141961820> .
 <https://doi.org/10.5281/zenodo.24346313> <http://purl.org/dc/terms/subject> <http://www.wikidata.org/entity/Q229370> .
 <https://doi.org/10.5281/zenodo.24346313> <http://purl.org/dc/terms/title> "The Govan Sarcophagus (Govan 1, Govan Stones)" .
-<https://doi.org/10.5281/zenodo.24346313> <http://purl.org/dc/terms/type> _:n230b236126f7478eb23f24a00689c3bcb1 .
+<https://doi.org/10.5281/zenodo.24346313> <http://purl.org/dc/terms/type> _:n7923cbea694941e2983e7edf693d0794b1 .
 <https://doi.org/10.5281/zenodo.24346313> <http://www.cidoc-crm.org/cidoc-crm/P102_has_title> "The Govan Sarcophagus (Govan 1, Govan Stones)" .
 <https://doi.org/10.5281/zenodo.24346313> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> "Cultural Heritage & History" .
 <https://doi.org/10.5281/zenodo.24346313> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> "carved" .
@@ -1988,7 +1988,7 @@
 <https://doi.org/10.5281/zenodo.24346313> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> <http://www.wikidata.org/entity/Q13085> .
 <https://doi.org/10.5281/zenodo.24346313> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> <http://www.wikidata.org/entity/Q141961820> .
 <https://doi.org/10.5281/zenodo.24346313> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> <http://www.wikidata.org/entity/Q229370> .
-<https://doi.org/10.5281/zenodo.24346313> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> _:n230b236126f7478eb23f24a00689c3bcb1 .
+<https://doi.org/10.5281/zenodo.24346313> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> _:n7923cbea694941e2983e7edf693d0794b1 .
 <https://doi.org/10.5281/zenodo.24346313> <http://www.cidoc-crm.org/cidoc-crm/P3_has_note> "3D model of the Govan Sarcophagus (Govan 1), the best-known of the Govan Stones and a rare monument type in early medieval Scotland before the 12th century. Carved from solid sandstone, it is decorated with a hunting scene, differently arranged interlaced beasts and six panels of interlace, some of which appear to be interlaced snakes. It was rediscovered in the churchyard of Govan Old Parish Church in the mid-1850s and is now displayed in the Govan Stones museum there; how its lid looked is not known. The model was recorded by structure-from-motion photogrammetry for Megan N. Kasten's PhD research on the Govan Stones (University of Glasgow, 2019) and was published on Sketchfab by the Govan Stones account under CC BY 4.0." .
 <https://doi.org/10.5281/zenodo.24346313> <http://www.cidoc-crm.org/cidoc-crm/P3_has_note> "Processed with Agisoft Metashape and edited in ZBrush, as stated in the Sketchfab description. Sketchfab upload: 881,976 faces, 445,343 vertices." .
 <https://doi.org/10.5281/zenodo.24346313> <http://www.opengis.net/ont/geosparql#hasGeometry> <https://doi.org/10.5281/zenodo.24346313_geom> .
@@ -2146,7 +2146,7 @@
 <https://doi.org/10.5281/zenodo.24346337> <http://purl.org/dc/terms/subject> <http://www.wikidata.org/entity/Q136659904> .
 <https://doi.org/10.5281/zenodo.24346337> <http://purl.org/dc/terms/subject> <http://www.wikidata.org/entity/Q229370> .
 <https://doi.org/10.5281/zenodo.24346337> <http://purl.org/dc/terms/title> "Govan 2 Hogback (Govan Stones)" .
-<https://doi.org/10.5281/zenodo.24346337> <http://purl.org/dc/terms/type> _:n4a0547e34695432ea49efb732430e2fab1 .
+<https://doi.org/10.5281/zenodo.24346337> <http://purl.org/dc/terms/type> _:nbb8215c69018424ab509291cc6b5357ab1 .
 <https://doi.org/10.5281/zenodo.24346337> <http://www.cidoc-crm.org/cidoc-crm/P102_has_title> "Govan 2 Hogback (Govan Stones)" .
 <https://doi.org/10.5281/zenodo.24346337> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> "Cultural Heritage & History" .
 <https://doi.org/10.5281/zenodo.24346337> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> "carved" .
@@ -2159,7 +2159,7 @@
 <https://doi.org/10.5281/zenodo.24346337> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> <http://www.wikidata.org/entity/Q13085> .
 <https://doi.org/10.5281/zenodo.24346337> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> <http://www.wikidata.org/entity/Q136659904> .
 <https://doi.org/10.5281/zenodo.24346337> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> <http://www.wikidata.org/entity/Q229370> .
-<https://doi.org/10.5281/zenodo.24346337> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> _:n4a0547e34695432ea49efb732430e2fab1 .
+<https://doi.org/10.5281/zenodo.24346337> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> _:nbb8215c69018424ab509291cc6b5357ab1 .
 <https://doi.org/10.5281/zenodo.24346337> <http://www.cidoc-crm.org/cidoc-crm/P3_has_note> "3D model of Govan 2 (Stirling Maxwell and ECMS numbering; Lang 1), one of the five hogback grave monuments of Govan Old Parish Church in Glasgow. At about two metres in length it is the smallest of the five and the best preserved, and it is dated to the early 10th century. Above two rows of tegulation (roof-shingle carving) the 3D analysis shows what appears to be a row of step pattern along the worn ridge. The model was recorded by structure-from-motion photogrammetry as part of Megan N. Kasten's PhD research on the Govan Stones (University of Glasgow, 2019) and was published on Sketchfab by the Govan Stones account under CC BY 4.0." .
 <https://doi.org/10.5281/zenodo.24346337> <http://www.cidoc-crm.org/cidoc-crm/P3_has_note> "Sketchfab upload: 236,352 faces, 119,779 vertices." .
 <https://doi.org/10.5281/zenodo.24346337> <http://www.opengis.net/ont/geosparql#hasGeometry> <https://doi.org/10.5281/zenodo.24346337_geom> .
@@ -12977,31 +12977,31 @@
 <urn:fdo-squirrel:agent/fdo-squirrel> <https://schema.org/softwareVersion> "0.3.1" .
 <urn:fdo-squirrel:agent/fdo-squirrel> <https://schema.org/softwareVersion> "1.2.1" .
 <urn:fdo-squirrel:agent/fdo-squirrel> <https://schema.org/softwareVersion> "1.3.0" .
-_:n082fca06bc744c94ab03e67eb8a01ba7b1 <http://www.w3.org/2000/01/rdf-schema#label> "Claude (Anthropic), claude-sonnet-5-5" .
-_:n082fca06bc744c94ab03e67eb8a01ba7b2 <http://www.w3.org/2000/01/rdf-schema#label> "LEGO model (interlocking-brick toy, self-built)" .
-_:n082fca06bc744c94ab03e67eb8a01ba7b3 <http://purl.org/dc/terms/relation> <https://doi.org/10.5281/zenodo.24305240> .
-_:n082fca06bc744c94ab03e67eb8a01ba7b3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.cidoc-crm.org/cidoc-crm/E13_Attribute_Assignment> .
-_:n082fca06bc744c94ab03e67eb8a01ba7b3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/dcat#Relationship> .
-_:n082fca06bc744c94ab03e67eb8a01ba7b3 <http://www.w3.org/2000/01/rdf-schema#comment> "Scan this reconstruction was measured from (dimensions, grid, orientation)." .
-_:n082fca06bc744c94ab03e67eb8a01ba7b3 <http://www.w3.org/ns/dcat#hadRole> <http://www.w3.org/ns/prov#wasDerivedFrom> .
-_:n230b236126f7478eb23f24a00689c3bcb1 <http://www.w3.org/2000/01/rdf-schema#label> "sarcophagus" .
-_:n2b597f55657f4f3aad8bc050e38d9896b1 <http://www.w3.org/2000/01/rdf-schema#label> "LEGO model (interlocking-brick toy, self-built)" .
-_:n2b597f55657f4f3aad8bc050e38d9896b2 <http://purl.org/dc/terms/relation> <https://doi.org/10.5281/zenodo.24305343> .
-_:n2b597f55657f4f3aad8bc050e38d9896b2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.cidoc-crm.org/cidoc-crm/E13_Attribute_Assignment> .
-_:n2b597f55657f4f3aad8bc050e38d9896b2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/dcat#Relationship> .
-_:n2b597f55657f4f3aad8bc050e38d9896b2 <http://www.w3.org/2000/01/rdf-schema#comment> "Procedural reconstruction from idealised bricks, derived from this scan." .
-_:n2b597f55657f4f3aad8bc050e38d9896b2 <http://www.w3.org/ns/dcat#hadRole> <http://purl.org/dc/terms/isReferencedBy> .
-_:n449db0780b8d40108be0584d8675a34fb1 <http://www.w3.org/2000/01/rdf-schema#label> "LEGO model (interlocking-brick toy, self-built)" .
-_:n449db0780b8d40108be0584d8675a34fb2 <http://purl.org/dc/terms/relation> <https://doi.org/10.5281/zenodo.24305436> .
-_:n449db0780b8d40108be0584d8675a34fb2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.cidoc-crm.org/cidoc-crm/E13_Attribute_Assignment> .
-_:n449db0780b8d40108be0584d8675a34fb2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/dcat#Relationship> .
-_:n449db0780b8d40108be0584d8675a34fb2 <http://www.w3.org/2000/01/rdf-schema#comment> "Procedural reconstruction from idealised bricks, derived from this scan." .
-_:n449db0780b8d40108be0584d8675a34fb2 <http://www.w3.org/ns/dcat#hadRole> <http://purl.org/dc/terms/isReferencedBy> .
-_:n4a0547e34695432ea49efb732430e2fab1 <http://www.w3.org/2000/01/rdf-schema#label> "hogback" .
-_:ndae3562879a14a8e9e6f9ee124261327b1 <http://www.w3.org/2000/01/rdf-schema#label> "Claude (Anthropic), claude-sonnet-5-5" .
-_:ndae3562879a14a8e9e6f9ee124261327b2 <http://www.w3.org/2000/01/rdf-schema#label> "LEGO model (interlocking-brick toy, self-built)" .
-_:ndae3562879a14a8e9e6f9ee124261327b3 <http://purl.org/dc/terms/relation> <https://doi.org/10.5281/zenodo.24305428> .
-_:ndae3562879a14a8e9e6f9ee124261327b3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.cidoc-crm.org/cidoc-crm/E13_Attribute_Assignment> .
-_:ndae3562879a14a8e9e6f9ee124261327b3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/dcat#Relationship> .
-_:ndae3562879a14a8e9e6f9ee124261327b3 <http://www.w3.org/2000/01/rdf-schema#comment> "Scan this reconstruction was measured from (dimensions, grid, orientation)." .
-_:ndae3562879a14a8e9e6f9ee124261327b3 <http://www.w3.org/ns/dcat#hadRole> <http://www.w3.org/ns/prov#wasDerivedFrom> .
+_:n7923cbea694941e2983e7edf693d0794b1 <http://www.w3.org/2000/01/rdf-schema#label> "sarcophagus" .
+_:n923ab11b9aeb49b3af9059af601b588bb1 <http://www.w3.org/2000/01/rdf-schema#label> "LEGO model (interlocking-brick toy, self-built)" .
+_:n923ab11b9aeb49b3af9059af601b588bb2 <http://purl.org/dc/terms/relation> <https://doi.org/10.5281/zenodo.24305436> .
+_:n923ab11b9aeb49b3af9059af601b588bb2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.cidoc-crm.org/cidoc-crm/E13_Attribute_Assignment> .
+_:n923ab11b9aeb49b3af9059af601b588bb2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/dcat#Relationship> .
+_:n923ab11b9aeb49b3af9059af601b588bb2 <http://www.w3.org/2000/01/rdf-schema#comment> "Procedural reconstruction from idealised bricks, derived from this scan." .
+_:n923ab11b9aeb49b3af9059af601b588bb2 <http://www.w3.org/ns/dcat#hadRole> <http://purl.org/dc/terms/isReferencedBy> .
+_:nb4aa60a94b8b438fb2532b44271b66a4b1 <http://www.w3.org/2000/01/rdf-schema#label> "Claude (Anthropic), claude-sonnet-5-5" .
+_:nb4aa60a94b8b438fb2532b44271b66a4b2 <http://www.w3.org/2000/01/rdf-schema#label> "LEGO model (interlocking-brick toy, self-built)" .
+_:nb4aa60a94b8b438fb2532b44271b66a4b3 <http://purl.org/dc/terms/relation> <https://doi.org/10.5281/zenodo.24305240> .
+_:nb4aa60a94b8b438fb2532b44271b66a4b3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.cidoc-crm.org/cidoc-crm/E13_Attribute_Assignment> .
+_:nb4aa60a94b8b438fb2532b44271b66a4b3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/dcat#Relationship> .
+_:nb4aa60a94b8b438fb2532b44271b66a4b3 <http://www.w3.org/2000/01/rdf-schema#comment> "Scan this reconstruction was measured from (dimensions, grid, orientation)." .
+_:nb4aa60a94b8b438fb2532b44271b66a4b3 <http://www.w3.org/ns/dcat#hadRole> <http://www.w3.org/ns/prov#wasDerivedFrom> .
+_:nbb8215c69018424ab509291cc6b5357ab1 <http://www.w3.org/2000/01/rdf-schema#label> "hogback" .
+_:nc0b06015fdb448178104142bfec958bbb1 <http://www.w3.org/2000/01/rdf-schema#label> "Claude (Anthropic), claude-sonnet-5-5" .
+_:nc0b06015fdb448178104142bfec958bbb2 <http://www.w3.org/2000/01/rdf-schema#label> "LEGO model (interlocking-brick toy, self-built)" .
+_:nc0b06015fdb448178104142bfec958bbb3 <http://purl.org/dc/terms/relation> <https://doi.org/10.5281/zenodo.24305428> .
+_:nc0b06015fdb448178104142bfec958bbb3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.cidoc-crm.org/cidoc-crm/E13_Attribute_Assignment> .
+_:nc0b06015fdb448178104142bfec958bbb3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/dcat#Relationship> .
+_:nc0b06015fdb448178104142bfec958bbb3 <http://www.w3.org/2000/01/rdf-schema#comment> "Scan this reconstruction was measured from (dimensions, grid, orientation)." .
+_:nc0b06015fdb448178104142bfec958bbb3 <http://www.w3.org/ns/dcat#hadRole> <http://www.w3.org/ns/prov#wasDerivedFrom> .
+_:ne7bd02b6e0434d139cdd1a50409e0d3eb1 <http://www.w3.org/2000/01/rdf-schema#label> "LEGO model (interlocking-brick toy, self-built)" .
+_:ne7bd02b6e0434d139cdd1a50409e0d3eb2 <http://purl.org/dc/terms/relation> <https://doi.org/10.5281/zenodo.24305343> .
+_:ne7bd02b6e0434d139cdd1a50409e0d3eb2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.cidoc-crm.org/cidoc-crm/E13_Attribute_Assignment> .
+_:ne7bd02b6e0434d139cdd1a50409e0d3eb2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/dcat#Relationship> .
+_:ne7bd02b6e0434d139cdd1a50409e0d3eb2 <http://www.w3.org/2000/01/rdf-schema#comment> "Procedural reconstruction from idealised bricks, derived from this scan." .
+_:ne7bd02b6e0434d139cdd1a50409e0d3eb2 <http://www.w3.org/ns/dcat#hadRole> <http://purl.org/dc/terms/isReferencedBy> .

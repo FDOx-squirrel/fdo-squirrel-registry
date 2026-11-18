@@ -1,10 +1,13 @@
 name: build
 
 # Rebuilds the whole default pipeline on every push and pull request, and
-# fails the moment the SHACL gate goes red. main.py --strict is exactly the
-# smoke test A4 describes ("Schrittvertrag") run in CI instead of by hand -
-# nothing here that `pip install -r requirements.txt && python main.py
-# --strict` would not also do on a laptop.
+# fails the moment the SHACL gate goes red (S5 exits non-zero on
+# `conforms: False`). `--strict` is deliberately NOT used: it turns every
+# build warning into an error, including the known cosmetic ones (urn:
+# agent/activity IRIs and blank nodes written by fdo-squirrel, PRIMER
+# Nachtrag 2026-11-18), which kept this workflow red without a gate failure.
+# Nothing here that `pip install -r requirements.txt && python main.py`
+# would not also do on a laptop.
 #
 # Deliberately excludes `harvest`/`check-updates`: they are network=True and
 # already outside the default run (PRIMER A4, "Netzschritt im
@@ -31,5 +34,5 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      - name: Run the default pipeline with the SHACL gate strict
-        run: python main.py --strict
+      - name: Run the default pipeline (the SHACL gate fails the job)
+        run: python main.py

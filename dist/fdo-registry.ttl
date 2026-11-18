@@ -14255,9 +14255,9 @@ ns02:zenodo.24346313 a crm:E73_Information_Object,
         "medieval",
         "scotland" ;
     dct:title "The Govan Sarcophagus (Govan 1, Govan Stones)" ;
-    dct:type _:N20d2a27d11e343f49b3b6339aeacbd2c ;
+    dct:type _:N8d06549a5d634f7886b2de14f9172831 ;
     crm:P102_has_title "The Govan Sarcophagus (Govan 1, Govan Stones)" ;
-    crm:P2_has_type _:N20d2a27d11e343f49b3b6339aeacbd2c,
+    crm:P2_has_type _:N8d06549a5d634f7886b2de14f9172831,
         wd:Q110840,
         wd:Q13085,
         wd:Q141961820,
@@ -14424,9 +14424,9 @@ ns02:zenodo.24346337 a crm:E73_Information_Object,
         "medieval",
         "scotland" ;
     dct:title "Govan 2 Hogback (Govan Stones)" ;
-    dct:type _:Ncc2556323e144786b532b9e901787e74 ;
+    dct:type _:Nfe3c18d42a3745539ea44dcecff629d9 ;
     crm:P102_has_title "Govan 2 Hogback (Govan Stones)" ;
-    crm:P2_has_type _:Ncc2556323e144786b532b9e901787e74,
+    crm:P2_has_type _:Nfe3c18d42a3745539ea44dcecff629d9,
         wd:Q110840,
         wd:Q13085,
         wd:Q136659904,
@@ -14585,9 +14585,9 @@ ns02:zenodo.24305240 a crm:E73_Information_Object,
         "lego" ;
     dct:temporal ns02:zenodo.24305240_temporal ;
     dct:title "Lego Pyramid (KIRI Original)" ;
-    dct:type _:N2c4774d4a37c41099f350fa6d6b35b9b ;
+    dct:type _:N9560134f0aef464d9f13f7ae0366fe5b ;
     crm:P102_has_title "Lego Pyramid (KIRI Original)" ;
-    crm:P2_has_type _:N2c4774d4a37c41099f350fa6d6b35b9b,
+    crm:P2_has_type _:N9560134f0aef464d9f13f7ae0366fe5b,
         wd:Q110840,
         wd:Q229370,
         "Architecture",
@@ -14718,9 +14718,9 @@ ns02:zenodo.24305343 a crm:E73_Information_Object,
         "Architecture",
         "lego" ;
     dct:title "Lego Pyramid (Reconstruction claude.ai)" ;
-    dct:type _:Nbf2ec5c08c5641d2aafafdc1e7f34d22 ;
+    dct:type _:N05c6174ba8464cd9acfa44e92f0faa3d ;
     crm:P102_has_title "Lego Pyramid (Reconstruction claude.ai)" ;
-    crm:P2_has_type _:Nbf2ec5c08c5641d2aafafdc1e7f34d22,
+    crm:P2_has_type _:N05c6174ba8464cd9acfa44e92f0faa3d,
         wd:Q110840,
         wd:Q229370,
         "Architecture",
@@ -14849,9 +14849,9 @@ ns02:zenodo.24305428 a crm:E73_Information_Object,
         "pyramid" ;
     dct:temporal ns02:zenodo.24305428_temporal ;
     dct:title "Lego Pyramid Maya (KIRI Original)" ;
-    dct:type _:N4cbaeb2d91e54f5691b8dded69686a21 ;
+    dct:type _:Nb5d2045add074dafbc8f83ef6eb7917b ;
     crm:P102_has_title "Lego Pyramid Maya (KIRI Original)" ;
-    crm:P2_has_type _:N4cbaeb2d91e54f5691b8dded69686a21,
+    crm:P2_has_type _:Nb5d2045add074dafbc8f83ef6eb7917b,
         wd:Q110840,
         wd:Q229370,
         "Architecture",
@@ -14993,9 +14993,9 @@ ns02:zenodo.24305436 a crm:E73_Information_Object,
         "pyramid",
         "reconstruction" ;
     dct:title "Lego Pyramid Maya (Reconstruction claude.ai)" ;
-    dct:type _:N0dd783e40dcf4d238203f8b627194029 ;
+    dct:type _:Ne8a49a4154a140d196e25a70eaefcf9e ;
     crm:P102_has_title "Lego Pyramid Maya (Reconstruction claude.ai)" ;
-    crm:P2_has_type _:N0dd783e40dcf4d238203f8b627194029,
+    crm:P2_has_type _:Ne8a49a4154a140d196e25a70eaefcf9e,
         wd:Q110840,
         wd:Q229370,
         "Architecture",
@@ -15173,15 +15173,15 @@ role:auxiliary a skos:Concept .
 
 role:software a skos:Concept .
 
-_:N0dd783e40dcf4d238203f8b627194029 rdfs:label "LEGO model (interlocking-brick toy, self-built)" .
+_:N05c6174ba8464cd9acfa44e92f0faa3d rdfs:label "LEGO model (interlocking-brick toy, self-built)" .
 
-_:N20d2a27d11e343f49b3b6339aeacbd2c rdfs:label "sarcophagus" .
+_:N8d06549a5d634f7886b2de14f9172831 rdfs:label "sarcophagus" .
 
-_:N2c4774d4a37c41099f350fa6d6b35b9b rdfs:label "LEGO model (interlocking-brick toy, self-built)" .
+_:N9560134f0aef464d9f13f7ae0366fe5b rdfs:label "LEGO model (interlocking-brick toy, self-built)" .
 
-_:N4cbaeb2d91e54f5691b8dded69686a21 rdfs:label "LEGO model (interlocking-brick toy, self-built)" .
+_:Nb5d2045add074dafbc8f83ef6eb7917b rdfs:label "LEGO model (interlocking-brick toy, self-built)" .
 
-_:Nbf2ec5c08c5641d2aafafdc1e7f34d22 rdfs:label "LEGO model (interlocking-brick toy, self-built)" .
+_:Ne8a49a4154a140d196e25a70eaefcf9e rdfs:label "LEGO model (interlocking-brick toy, self-built)" .
 
-_:Ncc2556323e144786b532b9e901787e74 rdfs:label "hogback" .
+_:Nfe3c18d42a3745539ea44dcecff629d9 rdfs:label "hogback" .
 

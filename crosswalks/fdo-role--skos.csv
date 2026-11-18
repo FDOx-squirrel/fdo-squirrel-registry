@@ -5,3 +5,4 @@ metadata,Metadata,"A file describing the package or its contents, such as MD.cff
 model,3D model,"A file holding the three-dimensional geometry or texture of the documented object."
 script,Script,"An executable script that is part of the package rather than of a released software component."
 software,Software,"A source, build or configuration file of a software component."
+auxiliary,Auxiliary,"A supporting file that is not part of the documented object itself, such as a browser viewer or a texture shipped with a model."

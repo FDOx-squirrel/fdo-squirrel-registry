@@ -2002,6 +2002,21 @@ Titel und Concept-DOI jedes Records sind gegen die Zenodo-Landing-Pages abgeglic
 3. **CHUIS/1** bleibt auf Version 18744583 gepinnt; die neue Version v4 (Church Island Ogham Stone CHUIS/1, mit OG(H)AM I-KER-136) ist noch nicht veröffentlicht. Sobald sie existiert, Versions-DOI in `sources.json` heben.
 4. Der Pin `fdo-squirrel@504b7af` in `requirements.txt` ist weiterhin offen (siehe Nachtrag 2026-11-17).
 
+---
+
+### Nachtrag 2026-11-18, Workflow `build` rot: Ursache und Entscheidung
+
+Der Workflow `build` (`python main.py --strict`) war auch nach dem Pin-Update rot, schon seit den Commits vom 2026-11-17 und vermutlich seit den Paketen vom September. Das SHACL-Gate war dabei durchgehend grün (`conforms: True`); `pages` lief ungestört, weil es das committete `docs/` veröffentlicht. Nachgestellt im Sandkasten, zwei getrennte Ursachen:
+
+1. **`fdo:role auxiliary` fehlte im Rollenvokabular.** fdo-squirrel schreibt Viewer-Dateien (und Texturen) mit der Rolle `auxiliary`; `crosswalks/fdo-role--skos.csv` kannte sie nicht (248 Distributionen im Bestand). Behoben: eine Zeile `auxiliary`, danach 7 Konzepte in `metadata/vocab/role.ttl`.
+2. **`--strict` macht Warnungen zu Fehlern**, auch die bekannten kosmetischen: `unhandled urn:fdo-squirrel:agent/fdo-squirrel` und `…activity/build` (je Paket), `urn: IRI left in the bundle` und 12 Blank Nodes (21 Probleme). Der PRIMER-Nachtrag vom 2026-09-09 hat sie als „kosmetisch, blockiert nichts" eingeordnet.
+
+**Entscheidung (Flo, 2026-11-18, auf Empfehlung):** `--strict` aus dem Workflow entfernen, `python main.py` ohne Flag. Das Gate bleibt hart, denn S5 bricht bei `conforms: False` mit Exit-Code ≠ 0 ab. Verloren geht nur die Strenge gegenüber kosmetischen Warnungen. Ein dauerhaft roter Build wird ignoriert und verdeckt dann echte Fehler.
+
+**Bewusst offen (Teil D):** die IRI-Entscheidung für `agent`/`activity` (ein registry-globaler Knoten „fdo-squirrel", parallel zu `person`, oder je Record gescopt) und die Blank Nodes aus den Paketen. Das gehört teils nach fdo-squirrel; danach kann `--strict` wieder eingeschaltet werden.
+
+**Geprüft:** `python main.py` ohne Flag im Sandkasten durchgelaufen, Exit 0, `conforms: True, 16 pinned records`, Rollenwarnung weg. **Nicht geprüft:** der CI-Lauf selbst auf GitHub.
+
 # Teil D — Offene Punkte
 
 Aufgaben stehen ab jetzt gebündelt in S10, statt hier verstreut. Diese Rubrik
