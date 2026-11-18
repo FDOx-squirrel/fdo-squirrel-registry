@@ -2017,6 +2017,14 @@ Der Workflow `build` (`python main.py --strict`) war auch nach dem Pin-Update ro
 
 **Geprüft:** `python main.py` ohne Flag im Sandkasten durchgelaufen, Exit 0, `conforms: True, 16 pinned records`, Rollenwarnung weg. **Nicht geprüft:** der CI-Lauf selbst auf GitHub.
 
+---
+
+### Nachtrag 2026-11-18, CHUIS/1 auf v4 gehoben
+
+CHUIS/1 ist als Version v4 des bestehenden Records veröffentlicht (Landing-Page und „Cite all versions" von Flo geprüft): Versions-DOI **10.5281/zenodo.24347211**, Concept-DOI unverändert 10.5281/zenodo.18369720 (v3 war 18744583). `registry/sources.json`: `version_doi` von 18744583 auf 24347211. Inhaltlich neu in v4: Titel „Church Island Ogham Stone CHUIS/1 (Cork Public Museum)", Beschreibung und Angaben aus dem OG(H)AM-TEI/EpiDoc (I-KER-136), Concept-Item Q106675412, Ausrichtung der 3D-Ansicht (Rückseite war nach vorn), Concept-DOI im Paket. Hinweis: der Zenodo-Formulartitel („CHUIS/1 (FDOx)") ist unabhängig vom `MD.cff`-Titel; der Katalog zeigt den Titel aus dem Paket.
+
+**Geprüft:** Trockenlauf im Sandkasten mit dem unveränderten Bundle (`harvest --offline --zip`, danach `--from bridge --skip release`): `conforms: True, 16 pinned records`, 15 Einträge, `catalogue-overview` 15 Zeilen, Katalogtitel wie oben. **Nicht geprüft:** der Online-`harvest` (MD5, Concept-DOI-Gegenprobe).
+
 # Teil D — Offene Punkte
 
 Aufgaben stehen ab jetzt gebündelt in S10, statt hier verstreut. Diese Rubrik

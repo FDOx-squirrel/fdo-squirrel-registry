@@ -1,0 +1,592 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix fdo: <https://w3id.org/fdo-squirrel/> .
+@prefix schema: <https://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix geosparql: <http://www.opengis.net/ont/geosparql#> .
+@prefix sf: <http://www.opengis.net/ont/sf#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix codemeta: <https://codemeta.github.io/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix cff: <https://citation-file-format.github.io/terms/> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix wdt: <http://www.wikidata.org/prop/direct/> .
+@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix crmdig: <http://www.ics.forth.gr/isl/CRMdig/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+<https://doi.org/10.5281/zenodo.18369720> a dcat:Dataset, crmdig:D1_Digital_Object, crm:E73_Information_Object, fdo:3DDataFDO ;
+    prov:wasGeneratedBy <urn:fdo-squirrel:activity/build> ;
+    dct:description "3D model of the ogham stone CHUIS/1 (OG(H)AM I-KER-136; CISP CHUIS/1), a cross slab from Church Island (Oileán an Teampaill), Co. Kerry, now in the Cork Public Museum (inventory number 1777.1023, G1094). The slab measures 1.49 x 0.36 x 0.10 m and is fractured at its base. Its ogham inscription, read along the arris as BECCDINN MACI RIVVOESS, is in Primitive Irish, and a compass-drawn, incised ringed cross of Maltese type was added later; the excavator dates this design to 650-750 AD. The stone was found in a secondary position in the south-western quadrant of the island. The model was made with KIRI Engine from 77 photographs taken with a smartphone." ;
+    dct:creator <https://orcid.org/0000-0002-3246-3531> ;
+    dct:license <http://creativecommons.org/licenses/by-sa/4.0/> ;
+    dct:publisher <http://www.wikidata.org/entity/Q73901970> ;
+    dct:title "Church Island Ogham Stone CHUIS/1 (Cork Public Museum)" ;
+    dcat:distribution <urn:fdo-squirrel:dist/049ba8dd05d7af10>,<urn:fdo-squirrel:dist/6849bdbb96427f68>,<urn:fdo-squirrel:dist/52e35f35acffc59d>,<urn:fdo-squirrel:dist/9893e0e9e9c1f11f>,<urn:fdo-squirrel:dist/ed161bbac219a4df>,<urn:fdo-squirrel:dist/1e534896dc1a69f4>,<urn:fdo-squirrel:dist/e4af1b1e2b093c89>,<urn:fdo-squirrel:dist/4c07b76ca8561f85>,<urn:fdo-squirrel:dist/5782d58d11437c0f>,<urn:fdo-squirrel:dist/04b54942c91c510e>,<urn:fdo-squirrel:dist/0e623d3c26743f35>,<urn:fdo-squirrel:dist/6132a60724847178>,<urn:fdo-squirrel:dist/f7f6a5894f1d19dd>,<urn:fdo-squirrel:dist/012d3ae0f6007283>,<urn:fdo-squirrel:dist/4ceb643e8b6d7cd2>,<urn:fdo-squirrel:dist/b4416be937053d8a>,<urn:fdo-squirrel:dist/f6e15e9e5f49e3de>,<urn:fdo-squirrel:dist/fe753c2685ec886c>,<urn:fdo-squirrel:dist/cf14dd446fc3537f>,<urn:fdo-squirrel:dist/5ed91bb5c3d8a4b1>,<urn:fdo-squirrel:dist/50e62db9b10cc50c>,<urn:fdo-squirrel:dist/ada023eb80b0ce5c>,<urn:fdo-squirrel:dist/0b383d5a63da644f>,<urn:fdo-squirrel:dist/1a8195ca9d0812e7>,<urn:fdo-squirrel:dist/0e4d58088180effe>,<urn:fdo-squirrel:dist/3b2a44995e927286>,<urn:fdo-squirrel:dist/536c5576e2ee7561>,<urn:fdo-squirrel:dist/2ad4f592d31cf358>,<urn:fdo-squirrel:dist/9fd7be788d73ee57>,<urn:fdo-squirrel:dist/25108ed495e10582>,<urn:fdo-squirrel:dist/e221c116fce7a4fc>,<urn:fdo-squirrel:dist/ff48136f9eeca235> ;
+    dct:created "2024-06-06"^^xsd:date ;
+    dct:issued "2024-06-09"^^xsd:date ;
+    dct:modified "2024-06-19"^^xsd:date ;
+    schema:funding "Community Project" ;
+    dcat:keyword "3D data" ;
+    dct:subject <http://www.wikidata.org/entity/Q229370> ;
+    dcat:keyword "Cultural Heritage" ;
+    dct:subject <http://www.wikidata.org/entity/Q110840> ;
+    dcat:keyword "medieval" ;
+    dcat:keyword "ireland" ;
+    dcat:keyword "ogham" ;
+    dcat:keyword "ogham-stone" ;
+    dcat:keyword "cork3d" ;
+    dcat:keyword "ogham3d" ;
+    dcat:keyword "kiriengine" ;
+    dcat:keyword "Cultural Heritage & History" ;
+    dct:relation <https://sketchfab.com/3d-models/cork-public-museum-chuis1-07d2bad6bbeb45d99fac246462af6eba> ;
+    prov:wasDerivedFrom <https://sketchfab.com/3d-models/cork-public-museum-chuis1-07d2bad6bbeb45d99fac246462af6eba> ;
+    dct:relation <https://github.com/LinkedOpenOgham/og-h-am/blob/main/XML/I-KER/I-KER-136.xml> ;
+    dct:relation <http://www.wikidata.org/entity/Q106675412> ;
+    dct:references <http://www.wikidata.org/entity/Q106675412> ;
+    dct:relation <http://www.wikidata.org/entity/Q24041450> ;
+    dct:references <http://www.wikidata.org/entity/Q24041450> ;
+    dct:identifier <https://doi.org/10.5281/zenodo.18369720> ;
+    dct:identifier <https://sketchfab.com/3d-models/cork-public-museum-chuis1-07d2bad6bbeb45d99fac246462af6eba> ;
+    dct:identifier <http://archaeosquirrels.cloud/?model=CHUIS_1> ;
+    schema:latitude "51.937578"^^xsd:decimal ;
+    schema:longitude "-10.283295"^^xsd:decimal ;
+    fdo:context "Found at Church Island (Oileán an Teampaill), Co. Kerry (SMR KE079-032004-), in a secondary position in the south-western quadrant of the island; now displayed in the Cork Public Museum, Cork (51.896085, -8.494222), inventory number 1777.1023 (G1094). Findspot and present location are different places; the spatial point of this FDO is the findspot. Described in OG(H)AM entry I-KER-136; CISP CHUIS/1; no CIIC number is listed." ;
+    dct:type <http://www.wikidata.org/entity/Q2016147> ;
+    dct:subject <http://www.wikidata.org/entity/Q106675412> ;
+    dct:subject <http://www.wikidata.org/entity/Q22731> ;
+    fdo:documentationPurpose "Photogrammetric documentation of an ogham stone in a museum collection (Ogham in 3D, Cork 3D)." ;
+    fdo:overallCondition "Good; fractured at its base." ;
+    fdo:conservationUrgency "low" ;
+    fdo:acquisitionMethod "Photogrammetry (structure from motion) with KIRI Engine" ;
+    fdo:acquisitionHardware "Samsung Galaxy S22" ;
+    fdo:acquisitionImagesCount "77" ;
+    dct:provenance "KIRI Engine (photo alignment, dense cloud, mesh, texture, export); Sketchfab upload: 1,711,370 faces, 856,009 vertices. For this FDO the model was re-oriented in Blender (180 degrees about the vertical axis, Euler XYZ 0,0,180) so that the preview shows the front instead of the back; the Sketchfab original is unchanged."  .
+
+<https://sketchfab.com/3d-models/cork-public-museum-chuis1-07d2bad6bbeb45d99fac246462af6eba> rdfs:label "Source: Cork Public Museum: CHUIS/1" .
+<https://github.com/LinkedOpenOgham/og-h-am/blob/main/XML/I-KER/I-KER-136.xml> rdfs:label "OG(H)AM I-KER-136: Oileán an Teampaill | Church Island (EpiDoc)" .
+<https://doi.org/10.5281/zenodo.18369720> dcat:qualifiedRelation _:related_resources1_rel .
+_:related_resources1_rel a dcat:Relationship .
+_:related_resources1_rel dct:relation <https://github.com/LinkedOpenOgham/og-h-am/blob/main/XML/I-KER/I-KER-136.xml> .
+_:related_resources1_rel dcat:hadRole <http://www.iana.org/assignments/relation/describedby> .
+_:related_resources1_rel rdfs:comment "Catalogue entry by Nora White, EpiDoc conversion by Jef Bucas (CC BY 4.0, draft status)." .
+<http://www.wikidata.org/entity/Q106675412> rdfs:label "Wikidata: CHUIS/1 (Ogham Stone Concept by CISP), Q106675412" .
+<http://www.wikidata.org/entity/Q24041450> rdfs:label "Wikidata: Cork Public Museum, Q24041450" .
+<https://doi.org/10.5281/zenodo.18369720> dcat:qualifiedRelation _:related_resources3_rel .
+_:related_resources3_rel a dcat:Relationship .
+_:related_resources3_rel dct:relation <http://www.wikidata.org/entity/Q24041450> .
+_:related_resources3_rel dcat:hadRole dct:references .
+_:related_resources3_rel rdfs:comment "Present location of the stone." .
+<https://doi.org/10.5281/zenodo.18369720> rdfs:label "Zenodo concept DOI" .
+<https://sketchfab.com/3d-models/cork-public-museum-chuis1-07d2bad6bbeb45d99fac246462af6eba> rdfs:label "Sketchfab" .
+<http://archaeosquirrels.cloud/?model=CHUIS_1> rdfs:label "3D viewer (archaeosquirrels.cloud)" .
+<https://doi.org/10.5281/zenodo.18369720> geosparql:hasGeometry <https://doi.org/10.5281/zenodo.18369720_geom> .
+<https://doi.org/10.5281/zenodo.18369720_geom> a sf:Point .
+<https://doi.org/10.5281/zenodo.18369720_geom> geosparql:asWKT "<http://www.opengis.net/def/crs/EPSG/0/4326> POINT(-10.283295 51.937578)"^^geosparql:wktLiteral .
+<https://doi.org/10.5281/zenodo.18369720> dct:temporal <https://doi.org/10.5281/zenodo.18369720_temporal> .
+<https://doi.org/10.5281/zenodo.18369720_temporal> a dct:PeriodOfTime .
+<https://doi.org/10.5281/zenodo.18369720_temporal> owl:sameAs <http://chronontology.dainst.org/period/aChcHZdlBhkt> .
+<https://doi.org/10.5281/zenodo.18369720_temporal> rdfs:label "Ogham stone inscriptions (ca. 4th-7th century CE)" .
+<https://doi.org/10.5281/zenodo.18369720_temporal> dcat:startDate "0300"^^xsd:gYear .
+<https://doi.org/10.5281/zenodo.18369720_temporal> dcat:endDate "0699"^^xsd:gYear .
+<http://www.wikidata.org/entity/Q2016147> rdfs:label "ogham stone" .
+<http://www.wikidata.org/entity/Q106675412> rdfs:label "CHUIS/1 (Ogham Stone Concept by CISP)" .
+<http://www.wikidata.org/entity/Q22731> rdfs:label "stone" .
+
+<http://www.wikidata.org/entity/Q73901970> a schema:Organization ;
+    schema:name "Research Squirrel Engineers Network" .
+
+<urn:fdo-squirrel:activity/build> a prov:Activity ;
+    prov:wasAssociatedWith <urn:fdo-squirrel:agent/fdo-squirrel> .
+
+<urn:fdo-squirrel:agent/fdo-squirrel> a prov:SoftwareAgent, schema:SoftwareApplication ;
+    schema:name "fdo-squirrel" ;
+    schema:softwareVersion "1.3.0" ;
+    schema:codeRepository <https://github.com/FDOx-squirrel/fdo-squirrel> .
+
+<https://orcid.org/0000-0002-3246-3531> a schema:Person ;
+    schema:name "Thiery, Florian" .
+
+<urn:fdo-squirrel:dist/049ba8dd05d7af10> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/MD.cff> ;
+    dcat:byteSize 4500 ;
+    dcat:mediaType "text/yaml" ;
+    fdo:path "MD.cff" ;
+    fdo:role "metadata" ;
+    fdo:sha256 "049ba8dd05d7af100b8502af8bfc6a3dfa06f436c34ce433e44a90350850b14e"  .
+
+<urn:fdo-squirrel:dist/6849bdbb96427f68> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/CITATION.cff> ;
+    dcat:byteSize 567 ;
+    dcat:mediaType "text/yaml" ;
+    fdo:path "CITATION.cff" ;
+    fdo:role "metadata" ;
+    fdo:sha256 "6849bdbb96427f6816b6a0b891a86ad321d984cad102667c24a15406981127f2"  .
+
+<urn:fdo-squirrel:dist/52e35f35acffc59d> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/data/model/model.obj> ;
+    dcat:byteSize 185878396 ;
+    dcat:mediaType "model/obj" ;
+    fdo:path "data/model/model.obj" ;
+    fdo:role "model" ;
+    fdo:sha256 "52e35f35acffc59dc9233081557bebcb4a9afadec0b4971fbaf35076eabcdf4e"  .
+
+<urn:fdo-squirrel:dist/9893e0e9e9c1f11f> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/data/model/model.mtl> ;
+    dcat:byteSize 263 ;
+    dcat:mediaType "application/octet-stream" ;
+    fdo:path "data/model/model.mtl" ;
+    fdo:role "model" ;
+    fdo:sha256 "9893e0e9e9c1f11fc756cc37c57917df7dcdc53261240da413821d2d7b6c9c50"  .
+
+<urn:fdo-squirrel:dist/ed161bbac219a4df> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/data/model/model.nxs> ;
+    dcat:byteSize 84562944 ;
+    dcat:mediaType "application/octet-stream" ;
+    fdo:path "data/model/model.nxs" ;
+    fdo:role "model" ;
+    fdo:sha256 "ed161bbac219a4df631911111fd13c4c2ca0c5c9739524b6bbd8adfa3d11664d"  .
+
+<urn:fdo-squirrel:dist/1e534896dc1a69f4> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/data/model/model.nxz> ;
+    dcat:byteSize 19075072 ;
+    dcat:mediaType "application/octet-stream" ;
+    fdo:path "data/model/model.nxz" ;
+    fdo:role "model" ;
+    fdo:sha256 "1e534896dc1a69f4d739c4a346ca2ef7645d3c4668fdf09e45b37439e13058f1"  .
+
+<urn:fdo-squirrel:dist/e4af1b1e2b093c89> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/data/textures/material_0_baseColor.jpeg> ;
+    dcat:byteSize 3734067 ;
+    dcat:mediaType "image/jpeg" ;
+    fdo:path "data/textures/material_0_baseColor.jpeg" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "e4af1b1e2b093c89bcbc26ede69f967f09af070d0f9bbf056375450987631735"  .
+
+<urn:fdo-squirrel:dist/4c07b76ca8561f85> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/data/images/preview.png> ;
+    dcat:byteSize 1752736 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "data/images/preview.png" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "4c07b76ca8561f857d853c7b122340999d7d0c48110b4d0ed8ee37d6864cf261"  .
+
+<urn:fdo-squirrel:dist/5782d58d11437c0f> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/viewer/index.html> ;
+    dcat:byteSize 3017 ;
+    dcat:mediaType "text/html" ;
+    fdo:path "viewer/index.html" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "5782d58d11437c0f31e0b4b83f2daa9fc21b6875399abb37db6e5d84f417795b"  .
+
+<urn:fdo-squirrel:dist/04b54942c91c510e> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/viewer/js/corto.em.js> ;
+    dcat:byteSize 119263 ;
+    dcat:mediaType "application/javascript" ;
+    fdo:path "viewer/js/corto.em.js" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "04b54942c91c510e882664ebccea4797f778651ac752a96a215fb7f66219c87f"  .
+
+<urn:fdo-squirrel:dist/0e623d3c26743f35> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/viewer/js/corto.js> ;
+    dcat:byteSize 27809 ;
+    dcat:mediaType "application/javascript" ;
+    fdo:path "viewer/js/corto.js" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "0e623d3c26743f35eb18415378674c75c60928cf8c1ef3a7910d5bc115b72447"  .
+
+<urn:fdo-squirrel:dist/6132a60724847178> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/viewer/js/init.js> ;
+    dcat:byteSize 21598 ;
+    dcat:mediaType "application/javascript" ;
+    fdo:path "viewer/js/init.js" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "6132a60724847178a5438548cce1633c327f48a78db202ae54e8f05f6d0b0c3e"  .
+
+<urn:fdo-squirrel:dist/f7f6a5894f1d19dd> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/viewer/js/jquery.js> ;
+    dcat:byteSize 89476 ;
+    dcat:mediaType "application/javascript" ;
+    fdo:path "viewer/js/jquery.js" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "f7f6a5894f1d19ddad6fa392b2ece2c5e578cbf7da4ea805b6885eb6985b6e3d"  .
+
+<urn:fdo-squirrel:dist/012d3ae0f6007283> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/viewer/js/meco.js> ;
+    dcat:byteSize 26193 ;
+    dcat:mediaType "application/javascript" ;
+    fdo:path "viewer/js/meco.js" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "012d3ae0f600728308dd47552298d7dc9e38390c67cfc3c8a1ac2cd31ba09afc"  .
+
+<urn:fdo-squirrel:dist/4ceb643e8b6d7cd2> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/viewer/js/nexus.js> ;
+    dcat:byteSize 38388 ;
+    dcat:mediaType "application/javascript" ;
+    fdo:path "viewer/js/nexus.js" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "4ceb643e8b6d7cd26bce53419bc6a781674c4a714f22525716e9e2b6e4469c83"  .
+
+<urn:fdo-squirrel:dist/b4416be937053d8a> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/viewer/js/ply.js> ;
+    dcat:byteSize 29251 ;
+    dcat:mediaType "application/javascript" ;
+    fdo:path "viewer/js/ply.js" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "b4416be937053d8a0f938940805374abb298de26481def809c8e4c2fcc00c1a9"  .
+
+<urn:fdo-squirrel:dist/f6e15e9e5f49e3de> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/viewer/js/presenter.js> ;
+    dcat:byteSize 135389 ;
+    dcat:mediaType "application/javascript" ;
+    fdo:path "viewer/js/presenter.js" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "f6e15e9e5f49e3dec53f1a31dff4d6091c8b7aa4dd65793655dd22eb9c6497e3"  .
+
+<urn:fdo-squirrel:dist/fe753c2685ec886c> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/viewer/js/spidergl.js> ;
+    dcat:byteSize 190272 ;
+    dcat:mediaType "application/javascript" ;
+    fdo:path "viewer/js/spidergl.js" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "fe753c2685ec886cfce08a07f8f9e0a48bd2ae197694eae84de53de129414690"  .
+
+<urn:fdo-squirrel:dist/cf14dd446fc3537f> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/viewer/js/trackball_pantilt.js> ;
+    dcat:byteSize 12476 ;
+    dcat:mediaType "application/javascript" ;
+    fdo:path "viewer/js/trackball_pantilt.js" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "cf14dd446fc3537fc5f988d3eab11b8bb30daa1b2a3f906a7f319f22c86c2058"  .
+
+<urn:fdo-squirrel:dist/5ed91bb5c3d8a4b1> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/viewer/js/trackball_sphere.js> ;
+    dcat:byteSize 6252 ;
+    dcat:mediaType "application/javascript" ;
+    fdo:path "viewer/js/trackball_sphere.js" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "5ed91bb5c3d8a4b1e19631014d4250f82a0ff045bd10765360c024219944a667"  .
+
+<urn:fdo-squirrel:dist/50e62db9b10cc50c> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/viewer/js/trackball_turntable.js> ;
+    dcat:byteSize 10700 ;
+    dcat:mediaType "application/javascript" ;
+    fdo:path "viewer/js/trackball_turntable.js" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "50e62db9b10cc50c669e74ad26e92d9f7623ccfa6dcbed30d2aaca9f92f78b3e"  .
+
+<urn:fdo-squirrel:dist/ada023eb80b0ce5c> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/viewer/js/trackball_turntable_pan.js> ;
+    dcat:byteSize 15658 ;
+    dcat:mediaType "application/javascript" ;
+    fdo:path "viewer/js/trackball_turntable_pan.js" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "ada023eb80b0ce5cb03853ab091e028d56c3c830bb5eaa55b7e57673ab9a583b"  .
+
+<urn:fdo-squirrel:dist/0b383d5a63da644f> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/viewer/LICENSE.txt> ;
+    dcat:byteSize 35821 ;
+    dcat:mediaType "text/plain" ;
+    fdo:path "viewer/LICENSE.txt" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "0b383d5a63da644f628d99c33976ea6487ed89aaa59f0b3257992deac1171e6b"  .
+
+<urn:fdo-squirrel:dist/1a8195ca9d0812e7> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/viewer/skins/backgrounds/light.jpg> ;
+    dcat:byteSize 142700 ;
+    dcat:mediaType "image/jpeg" ;
+    fdo:path "viewer/skins/backgrounds/light.jpg" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "1a8195ca9d0812e7aa881cb9730d4c34a50eb58ac13a3de12b6c3fc4dedc0c4d"  .
+
+<urn:fdo-squirrel:dist/0e4d58088180effe> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/viewer/skins/dark/full.png> ;
+    dcat:byteSize 1272 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "viewer/skins/dark/full.png" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "0e4d58088180effe13afcb4583bc938ecdbd6f738330c7a6734e9df2e534ab1a"  .
+
+<urn:fdo-squirrel:dist/3b2a44995e927286> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/viewer/skins/dark/full_on.png> ;
+    dcat:byteSize 1272 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "viewer/skins/dark/full_on.png" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "3b2a44995e9272862c6b9e192f366b73cbf848b7e247bcb477cb3aa6edc9d73e"  .
+
+<urn:fdo-squirrel:dist/536c5576e2ee7561> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/viewer/skins/dark/home.png> ;
+    dcat:byteSize 1807 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "viewer/skins/dark/home.png" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "536c5576e2ee7561bc75845b511ef82ba69f801edb3c11b8154580f2695d4042"  .
+
+<urn:fdo-squirrel:dist/2ad4f592d31cf358> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/viewer/skins/dark/lightcontrol.png> ;
+    dcat:byteSize 3342 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "viewer/skins/dark/lightcontrol.png" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "2ad4f592d31cf35838405ea47413111ea1d2307f7e155d32744a714f2e304488"  .
+
+<urn:fdo-squirrel:dist/9fd7be788d73ee57> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/viewer/skins/dark/lightcontrol_on.png> ;
+    dcat:byteSize 3502 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "viewer/skins/dark/lightcontrol_on.png" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "9fd7be788d73ee570f64df3aa8d3be9feeeffd36e13841acf27946bcf98b0440"  .
+
+<urn:fdo-squirrel:dist/25108ed495e10582> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/viewer/skins/dark/zoomin.png> ;
+    dcat:byteSize 3354 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "viewer/skins/dark/zoomin.png" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "25108ed495e1058238580d64f8704fac3c8c43a1480a2a713c0efd0c471f7eda"  .
+
+<urn:fdo-squirrel:dist/e221c116fce7a4fc> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/viewer/skins/dark/zoomout.png> ;
+    dcat:byteSize 3266 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "viewer/skins/dark/zoomout.png" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "e221c116fce7a4fc6c3fd4e0024f7b4aaa4c9003b365067e3c43a638c91216f2"  .
+
+<urn:fdo-squirrel:dist/ff48136f9eeca235> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/viewer/stylesheet/3dhop.css> ;
+    dcat:byteSize 5839 ;
+    dcat:mediaType "text/css" ;
+    fdo:path "viewer/stylesheet/3dhop.css" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "ff48136f9eeca23576768c62add1976ba8442110cc9ebf007efd370d5c1b9095"  .
+
+<https://doi.org/10.5281/zenodo.18369720> cff:keywords "Cultural Heritage & History" .
+<https://doi.org/10.5281/zenodo.18369720> cff:keywords "cork3d" .
+<https://doi.org/10.5281/zenodo.18369720> cff:keywords "ireland" .
+<https://doi.org/10.5281/zenodo.18369720> cff:keywords "kiriengine" .
+<https://doi.org/10.5281/zenodo.18369720> cff:keywords "medieval" .
+<https://doi.org/10.5281/zenodo.18369720> cff:keywords "ogham" .
+<https://doi.org/10.5281/zenodo.18369720> cff:keywords "ogham-stone" .
+<https://doi.org/10.5281/zenodo.18369720> cff:keywords "ogham3d" .
+<https://doi.org/10.5281/zenodo.18369720> cff:license "CC-BY-SA-4.0" .
+<https://doi.org/10.5281/zenodo.18369720> cff:license <https://spdx.org/licenses/CC-BY-SA-4.0.html> .
+<https://doi.org/10.5281/zenodo.18369720> cff:license-url "CC-BY-SA-4.0" .
+<https://doi.org/10.5281/zenodo.18369720> cff:license-url <https://spdx.org/licenses/CC-BY-SA-4.0.html> .
+<https://doi.org/10.5281/zenodo.18369720> cff:repository <https://sketchfab.com/3d-models/cork-public-museum-chuis1-07d2bad6bbeb45d99fac246462af6eba> .
+<https://doi.org/10.5281/zenodo.18369720> cff:url <https://sketchfab.com/3d-models/cork-public-museum-chuis1-07d2bad6bbeb45d99fac246462af6eba> .
+<https://doi.org/10.5281/zenodo.18369720> codemeta:keywords "Cultural Heritage & History" .
+<https://doi.org/10.5281/zenodo.18369720> codemeta:keywords "cork3d" .
+<https://doi.org/10.5281/zenodo.18369720> codemeta:keywords "ireland" .
+<https://doi.org/10.5281/zenodo.18369720> codemeta:keywords "kiriengine" .
+<https://doi.org/10.5281/zenodo.18369720> codemeta:keywords "medieval" .
+<https://doi.org/10.5281/zenodo.18369720> codemeta:keywords "ogham" .
+<https://doi.org/10.5281/zenodo.18369720> codemeta:keywords "ogham-stone" .
+<https://doi.org/10.5281/zenodo.18369720> codemeta:keywords "ogham3d" .
+<https://doi.org/10.5281/zenodo.18369720> codemeta:license "CC-BY-SA-4.0" .
+<https://doi.org/10.5281/zenodo.18369720> codemeta:license <https://spdx.org/licenses/CC-BY-SA-4.0.html> .
+<https://doi.org/10.5281/zenodo.18369720> codemeta:url <https://sketchfab.com/3d-models/cork-public-museum-chuis1-07d2bad6bbeb45d99fac246462af6eba> .
+<https://doi.org/10.5281/zenodo.18369720> dcat:keyword "Cultural Heritage & History" .
+<https://doi.org/10.5281/zenodo.18369720> dcat:keyword "cork3d" .
+<https://doi.org/10.5281/zenodo.18369720> dcat:keyword "ireland" .
+<https://doi.org/10.5281/zenodo.18369720> dcat:keyword "kiriengine" .
+<https://doi.org/10.5281/zenodo.18369720> dcat:keyword "medieval" .
+<https://doi.org/10.5281/zenodo.18369720> dcat:keyword "ogham" .
+<https://doi.org/10.5281/zenodo.18369720> dcat:keyword "ogham-stone" .
+<https://doi.org/10.5281/zenodo.18369720> dcat:keyword "ogham3d" .
+<https://doi.org/10.5281/zenodo.18369720> dct:license <https://spdx.org/licenses/CC-BY-SA-4.0.html> .
+<https://doi.org/10.5281/zenodo.18369720> dct:subject "Cultural Heritage & History" .
+<https://doi.org/10.5281/zenodo.18369720> dct:subject "cork3d" .
+<https://doi.org/10.5281/zenodo.18369720> dct:subject "ireland" .
+<https://doi.org/10.5281/zenodo.18369720> dct:subject "kiriengine" .
+<https://doi.org/10.5281/zenodo.18369720> dct:subject "medieval" .
+<https://doi.org/10.5281/zenodo.18369720> dct:subject "ogham" .
+<https://doi.org/10.5281/zenodo.18369720> dct:subject "ogham-stone" .
+<https://doi.org/10.5281/zenodo.18369720> dct:subject "ogham3d" .
+<https://doi.org/10.5281/zenodo.18369720> schema:author "Florian Thiery" .
+<https://doi.org/10.5281/zenodo.18369720> schema:datePublished "2024-06-09" .
+<https://doi.org/10.5281/zenodo.18369720> schema:identifier "10.5281/zenodo.18369720" .
+<https://doi.org/10.5281/zenodo.18369720> schema:keywords "Cultural Heritage & History" .
+<https://doi.org/10.5281/zenodo.18369720> schema:keywords "cork3d" .
+<https://doi.org/10.5281/zenodo.18369720> schema:keywords "ireland" .
+<https://doi.org/10.5281/zenodo.18369720> schema:keywords "kiriengine" .
+<https://doi.org/10.5281/zenodo.18369720> schema:keywords "medieval" .
+<https://doi.org/10.5281/zenodo.18369720> schema:keywords "ogham" .
+<https://doi.org/10.5281/zenodo.18369720> schema:keywords "ogham-stone" .
+<https://doi.org/10.5281/zenodo.18369720> schema:keywords "ogham3d" .
+<https://doi.org/10.5281/zenodo.18369720> schema:license "CC-BY-SA-4.0" .
+<https://doi.org/10.5281/zenodo.18369720> schema:license <https://spdx.org/licenses/CC-BY-SA-4.0.html> .
+<https://doi.org/10.5281/zenodo.18369720> schema:name "Cork Public Museum: CHUIS/1" .
+<https://doi.org/10.5281/zenodo.18369720> schema:relatedLink <https://sketchfab.com/3d-models/cork-public-museum-chuis1-07d2bad6bbeb45d99fac246462af6eba> .
+<https://doi.org/10.5281/zenodo.18369720> schema:url <https://sketchfab.com/3d-models/cork-public-museum-chuis1-07d2bad6bbeb45d99fac246462af6eba> .
+<https://doi.org/10.5281/zenodo.18369720> wdt:P275 "CC-BY-SA-4.0" .
+<https://doi.org/10.5281/zenodo.18369720> wdt:P275 <https://spdx.org/licenses/CC-BY-SA-4.0.html> .
+<https://doi.org/10.5281/zenodo.18369720> wdt:P856 <https://sketchfab.com/3d-models/cork-public-museum-chuis1-07d2bad6bbeb45d99fac246462af6eba> .
+<https://doi.org/10.5281/zenodo.18369720> wdt:P921 "Cultural Heritage & History" .
+<https://doi.org/10.5281/zenodo.18369720> wdt:P921 "cork3d" .
+<https://doi.org/10.5281/zenodo.18369720> wdt:P921 "ireland" .
+<https://doi.org/10.5281/zenodo.18369720> wdt:P921 "kiriengine" .
+<https://doi.org/10.5281/zenodo.18369720> wdt:P921 "medieval" .
+<https://doi.org/10.5281/zenodo.18369720> wdt:P921 "ogham" .
+<https://doi.org/10.5281/zenodo.18369720> wdt:P921 "ogham-stone" .
+<https://doi.org/10.5281/zenodo.18369720> wdt:P921 "ogham3d" .
+
+<http://creativecommons.org/licenses/by-sa/4.0/> rdfs:label "CC Attribution-ShareAlike" .
+
+<https://doi.org/10.5281/zenodo.18369720> dcat:distribution <urn:fdo-squirrel:dist/033eee260ffa6687>,<urn:fdo-squirrel:dist/912c033c84ea772a>,<urn:fdo-squirrel:dist/fad35f764810adc3>,<urn:fdo-squirrel:dist/19e9b476784e9e2f>,<urn:fdo-squirrel:dist/56529b7ccd9d68ef>,<urn:fdo-squirrel:dist/d87cdbc7c821da02>,<urn:fdo-squirrel:dist/db66f50dfa5118ae>,<urn:fdo-squirrel:dist/0730d2842d3a7ecc>,<urn:fdo-squirrel:dist/3a8e58f6f9d4a6b7>,<urn:fdo-squirrel:dist/2486a56f5cdf2701>,<urn:fdo-squirrel:dist/ec11ee13ec60c71c>,<urn:fdo-squirrel:dist/ef69a64d7398882e>,<urn:fdo-squirrel:dist/d85c0c13fabe5474>,<urn:fdo-squirrel:dist/0f7632f30b45ca4c>,<urn:fdo-squirrel:dist/cc4d3554c5f32c54>,<urn:fdo-squirrel:dist/b3234a652cfa6ad1>,<urn:fdo-squirrel:dist/0abde8640bd45ea5>,<urn:fdo-squirrel:dist/5d6b3e92f8931140>,<urn:fdo-squirrel:dist/47c8bb7869e50b36> .
+
+<urn:fdo-squirrel:dist/033eee260ffa6687> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/fdo-metadata.ttl> ;
+    dcat:byteSize 27909 ;
+    dcat:mediaType "application/octet-stream" ;
+    fdo:path "fdo-metadata.ttl" ;
+    fdo:role "data" ;
+    fdo:sha256 "033eee260ffa6687021805afcdd67292777131056c98a8b9f7473d8a6d5ecf00" .
+
+<urn:fdo-squirrel:dist/912c033c84ea772a> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/rdf_modelling_report.json> ;
+    dcat:byteSize 29606 ;
+    dcat:mediaType "application/json" ;
+    fdo:path "rdf_modelling_report.json" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "912c033c84ea772acf24aed95be6bef8c6267acdb3783775cb7f7eaa02a66256" .
+
+<urn:fdo-squirrel:dist/fad35f764810adc3> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/rdf_modelling_report.html> ;
+    dcat:byteSize 13416 ;
+    dcat:mediaType "text/html" ;
+    fdo:path "rdf_modelling_report.html" ;
+    fdo:role "data" ;
+    fdo:sha256 "fad35f764810adc329abfb18d1a67626011ccdc5bf20f61b9fea15c6afc75500" .
+
+<urn:fdo-squirrel:dist/19e9b476784e9e2f> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/FDOx.yaml> ;
+    dcat:byteSize 794 ;
+    dcat:mediaType "text/yaml" ;
+    fdo:path "FDOx.yaml" ;
+    fdo:role "data" ;
+    fdo:sha256 "19e9b476784e9e2f1ca9ba5c2f05e7d51f9ef7000e2020cb4318d4816859ed51" .
+
+<urn:fdo-squirrel:dist/56529b7ccd9d68ef> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/fdo_files_roles_graph.svg> ;
+    dcat:byteSize 4817 ;
+    dcat:mediaType "image/svg+xml" ;
+    fdo:path "fdo_files_roles_graph.svg" ;
+    fdo:role "data" ;
+    fdo:sha256 "56529b7ccd9d68ef1377ea9dac6337acfcc8c2b1c1793006f37fb07439742cea" .
+
+<urn:fdo-squirrel:dist/d87cdbc7c821da02> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/fdo_files_roles_graph.png> ;
+    dcat:byteSize 44534 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "fdo_files_roles_graph.png" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "d87cdbc7c821da02d73c1f80204f8149400ab1f08a96af3f62713df0355e10cf" .
+
+<urn:fdo-squirrel:dist/db66f50dfa5118ae> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/fdo_md_cff.svg> ;
+    dcat:byteSize 13862 ;
+    dcat:mediaType "image/svg+xml" ;
+    fdo:path "fdo_md_cff.svg" ;
+    fdo:role "data" ;
+    fdo:sha256 "db66f50dfa5118aec324e2f1e1b4743ba4668017cb80ff3285cd1929376b6745" .
+
+<urn:fdo-squirrel:dist/0730d2842d3a7ecc> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/fdo_md_cff.png> ;
+    dcat:byteSize 304541 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "fdo_md_cff.png" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "0730d2842d3a7eccac2fa6e60d8bc4df95883afd689b58af61bd623df0f4b345" .
+
+<urn:fdo-squirrel:dist/3a8e58f6f9d4a6b7> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/fdo_md_cff_graph.svg> ;
+    dcat:byteSize 18365 ;
+    dcat:mediaType "image/svg+xml" ;
+    fdo:path "fdo_md_cff_graph.svg" ;
+    fdo:role "data" ;
+    fdo:sha256 "3a8e58f6f9d4a6b79c1a316413c1b68b41866b132b6f119899770e6bd1a08f62" .
+
+<urn:fdo-squirrel:dist/2486a56f5cdf2701> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/fdo_md_cff_graph.png> ;
+    dcat:byteSize 256825 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "fdo_md_cff_graph.png" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "2486a56f5cdf27014b64a06f4c9dc4e768ac17d28997fd1883930deb3eb20e2f" .
+
+<urn:fdo-squirrel:dist/ec11ee13ec60c71c> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/fdo_overview.mermaid> ;
+    dcat:byteSize 1895 ;
+    dcat:mediaType "application/octet-stream" ;
+    fdo:path "fdo_overview.mermaid" ;
+    fdo:role "data" ;
+    fdo:sha256 "ec11ee13ec60c71c452d155d69352674c3d054ff49c98d5a00a5c87881ab70d3" .
+
+<urn:fdo-squirrel:dist/ef69a64d7398882e> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/fdo_ttl_snippet_metadata.svg> ;
+    dcat:byteSize 5463 ;
+    dcat:mediaType "image/svg+xml" ;
+    fdo:path "fdo_ttl_snippet_metadata.svg" ;
+    fdo:role "data" ;
+    fdo:sha256 "ef69a64d7398882e52a54cce9b4a833ce98e3eee7d466bacccdb8c15ed3d33a6" .
+
+<urn:fdo-squirrel:dist/d85c0c13fabe5474> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/fdo_ttl_snippet_metadata.png> ;
+    dcat:byteSize 252178 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "fdo_ttl_snippet_metadata.png" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "d85c0c13fabe5474c54ec9405aa88586e5ac05c998007b50e6b6b6944bea1ec1" .
+
+<urn:fdo-squirrel:dist/0f7632f30b45ca4c> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/fdo_ttl_snippet_distributions.svg> ;
+    dcat:byteSize 5759 ;
+    dcat:mediaType "image/svg+xml" ;
+    fdo:path "fdo_ttl_snippet_distributions.svg" ;
+    fdo:role "data" ;
+    fdo:sha256 "0f7632f30b45ca4cbcc2e48d4f547a07e30e0a9a62fb99cafcbe3c8faa0f10ee" .
+
+<urn:fdo-squirrel:dist/cc4d3554c5f32c54> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/fdo_ttl_snippet_distributions.png> ;
+    dcat:byteSize 262963 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "fdo_ttl_snippet_distributions.png" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "cc4d3554c5f32c542754255ff838c42072efce22ecd8deb4c80be255b79547b7" .
+
+<urn:fdo-squirrel:dist/b3234a652cfa6ad1> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/fdo_ttl_snippet_links.svg> ;
+    dcat:byteSize 2988 ;
+    dcat:mediaType "image/svg+xml" ;
+    fdo:path "fdo_ttl_snippet_links.svg" ;
+    fdo:role "data" ;
+    fdo:sha256 "b3234a652cfa6ad120bedcc012853d86fcdf8546392432da01f7bcc434ed8630" .
+
+<urn:fdo-squirrel:dist/0abde8640bd45ea5> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/fdo_ttl_snippet_links.png> ;
+    dcat:byteSize 174973 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "fdo_ttl_snippet_links.png" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "0abde8640bd45ea512c69a8cbd65d8cd2e66e91bea826e5ea5d2604efd17a43f" .
+
+<urn:fdo-squirrel:dist/5d6b3e92f8931140> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/fdo-landing-page.html> ;
+    dcat:byteSize 9443 ;
+    dcat:mediaType "text/html" ;
+    fdo:path "fdo-landing-page.html" ;
+    fdo:role "data" ;
+    fdo:sha256 "5d6b3e92f893114090878d001ef5a6677800ca1c17998420fea43e5e45e73673" .
+
+<urn:fdo-squirrel:dist/47c8bb7869e50b36> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/ro-crate-metadata.json> ;
+    dcat:byteSize 25517 ;
+    dcat:mediaType "application/json" ;
+    fdo:path "ro-crate-metadata.json" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "47c8bb7869e50b36ebc0676c8031a378ac96d5b9237688adef7660f8cf58404c" .
+

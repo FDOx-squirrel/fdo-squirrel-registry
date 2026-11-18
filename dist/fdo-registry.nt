@@ -1,5 +1,9 @@
+<http://archaeosquirrels.cloud/?model=CHUIS_1> <http://www.w3.org/2000/01/rdf-schema#label> "3D viewer (archaeosquirrels.cloud)" .
+<http://creativecommons.org/licenses/by-sa/4.0/> <http://www.w3.org/2000/01/rdf-schema#label> "CC Attribution-ShareAlike" .
 <http://creativecommons.org/licenses/by/4.0/> <http://www.w3.org/2000/01/rdf-schema#label> "CC Attribution" .
 <http://www.wikidata.org/entity/Q1048392> <http://www.w3.org/2000/01/rdf-schema#label> "Grit (gritstone)" .
+<http://www.wikidata.org/entity/Q106675412> <http://www.w3.org/2000/01/rdf-schema#label> "CHUIS/1 (Ogham Stone Concept by CISP)" .
+<http://www.wikidata.org/entity/Q106675412> <http://www.w3.org/2000/01/rdf-schema#label> "Wikidata: CHUIS/1 (Ogham Stone Concept by CISP), Q106675412" .
 <http://www.wikidata.org/entity/Q130529871> <http://www.w3.org/2000/01/rdf-schema#label> "Ogham Stone UCC Stone Corridor IV" .
 <http://www.wikidata.org/entity/Q13085> <http://www.w3.org/2000/01/rdf-schema#label> "Sandstone" .
 <http://www.wikidata.org/entity/Q131330> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.cidoc-crm.org/cidoc-crm/E53_Place> .
@@ -11,6 +15,8 @@
 <http://www.wikidata.org/entity/Q141962030> <http://www.w3.org/2000/01/rdf-schema#label> "Wikidata: WikiProject GovanStones, Q141962030" .
 <http://www.wikidata.org/entity/Q1574185> <http://www.w3.org/2000/01/rdf-schema#label> "University College Cork" .
 <http://www.wikidata.org/entity/Q2016147> <http://www.w3.org/2000/01/rdf-schema#label> "ogham stone" .
+<http://www.wikidata.org/entity/Q22731> <http://www.w3.org/2000/01/rdf-schema#label> "stone" .
+<http://www.wikidata.org/entity/Q24041450> <http://www.w3.org/2000/01/rdf-schema#label> "Wikidata: Cork Public Museum, Q24041450" .
 <http://www.wikidata.org/entity/Q69385424> <http://www.w3.org/2000/01/rdf-schema#label> "CIIC 81 (Ogham Stone Concept by RAS Macalister)" .
 <http://www.wikidata.org/entity/Q70892361> <http://www.w3.org/2000/01/rdf-schema#label> "CIIC 32 (Ogham Stone Concept by RAS Macalister)" .
 <http://www.wikidata.org/entity/Q70892361> <http://www.w3.org/2000/01/rdf-schema#label> "Wikidata: CIIC 32 (Ogham Stone Concept by RAS Macalister), Q70892361" .
@@ -476,86 +482,198 @@
 <https://doi.org/10.5281/zenodo.18369156_temporal> <http://www.w3.org/ns/dcat#endDate> "699"^^<http://www.w3.org/2001/XMLSchema#integer> .
 <https://doi.org/10.5281/zenodo.18369156_temporal> <http://www.w3.org/ns/dcat#startDate> "300"^^<http://www.w3.org/2001/XMLSchema#integer> .
 <https://doi.org/10.5281/zenodo.18369720> <http://purl.org/dc/terms/created> "2024-06-06"^^<http://www.w3.org/2001/XMLSchema#date> .
-<https://doi.org/10.5281/zenodo.18369720> <http://purl.org/dc/terms/creator> <https://w3id.org/fdo-squirrel/registry/agent/8e916ce55425de21> .
-<https://doi.org/10.5281/zenodo.18369720> <http://purl.org/dc/terms/description> "Ogham Stone CHUIS/1 located in the Cork Public Museum" .
-<https://doi.org/10.5281/zenodo.18369720> <http://purl.org/dc/terms/description> "good" .
-<https://doi.org/10.5281/zenodo.18369720> <http://purl.org/dc/terms/description> "low" .
-<https://doi.org/10.5281/zenodo.18369720> <http://purl.org/dc/terms/description> "make 3d model available" .
-<https://doi.org/10.5281/zenodo.18369720> <http://purl.org/dc/terms/hasVersion> "1.0" .
+<https://doi.org/10.5281/zenodo.18369720> <http://purl.org/dc/terms/creator> <https://orcid.org/0000-0002-3246-3531> .
+<https://doi.org/10.5281/zenodo.18369720> <http://purl.org/dc/terms/description> "3D model of the ogham stone CHUIS/1 (OG(H)AM I-KER-136; CISP CHUIS/1), a cross slab from Church Island (Oileán an Teampaill), Co. Kerry, now in the Cork Public Museum (inventory number 1777.1023, G1094). The slab measures 1.49 x 0.36 x 0.10 m and is fractured at its base. Its ogham inscription, read along the arris as BECCDINN MACI RIVVOESS, is in Primitive Irish, and a compass-drawn, incised ringed cross of Maltese type was added later; the excavator dates this design to 650-750 AD. The stone was found in a secondary position in the south-western quadrant of the island. The model was made with KIRI Engine from 77 photographs taken with a smartphone." .
+<https://doi.org/10.5281/zenodo.18369720> <http://purl.org/dc/terms/identifier> <http://archaeosquirrels.cloud/?model=CHUIS_1> .
+<https://doi.org/10.5281/zenodo.18369720> <http://purl.org/dc/terms/identifier> <https://doi.org/10.5281/zenodo.18369720> .
+<https://doi.org/10.5281/zenodo.18369720> <http://purl.org/dc/terms/identifier> <https://sketchfab.com/3d-models/cork-public-museum-chuis1-07d2bad6bbeb45d99fac246462af6eba> .
 <https://doi.org/10.5281/zenodo.18369720> <http://purl.org/dc/terms/issued> "2024-06-09"^^<http://www.w3.org/2001/XMLSchema#date> .
+<https://doi.org/10.5281/zenodo.18369720> <http://purl.org/dc/terms/license> <http://creativecommons.org/licenses/by-sa/4.0/> .
 <https://doi.org/10.5281/zenodo.18369720> <http://purl.org/dc/terms/license> <https://spdx.org/licenses/CC-BY-SA-4.0.html> .
 <https://doi.org/10.5281/zenodo.18369720> <http://purl.org/dc/terms/modified> "2024-06-19"^^<http://www.w3.org/2001/XMLSchema#date> .
-<https://doi.org/10.5281/zenodo.18369720> <http://purl.org/dc/terms/provenance> "{\"software\": \"KIRI Engine\", \"steps\": \"Take photos, align photos; build dense cloud; generate mesh; texture; export.\"}" .
+<https://doi.org/10.5281/zenodo.18369720> <http://purl.org/dc/terms/provenance> "KIRI Engine (photo alignment, dense cloud, mesh, texture, export); Sketchfab upload: 1,711,370 faces, 856,009 vertices. For this FDO the model was re-oriented in Blender (180 degrees about the vertical axis, Euler XYZ 0,0,180) so that the preview shows the front instead of the back; the Sketchfab original is unchanged." .
 <https://doi.org/10.5281/zenodo.18369720> <http://purl.org/dc/terms/publisher> <http://www.wikidata.org/entity/Q73901970> .
-<https://doi.org/10.5281/zenodo.18369720> <http://purl.org/dc/terms/spatial> <https://www.openstreetmap.org/node/11966430251> .
-<https://doi.org/10.5281/zenodo.18369720> <http://purl.org/dc/terms/subject> "Cork Public Museum" .
-<https://doi.org/10.5281/zenodo.18369720> <http://purl.org/dc/terms/subject> "Ogham Stone" .
+<https://doi.org/10.5281/zenodo.18369720> <http://purl.org/dc/terms/references> <http://www.wikidata.org/entity/Q106675412> .
+<https://doi.org/10.5281/zenodo.18369720> <http://purl.org/dc/terms/references> <http://www.wikidata.org/entity/Q24041450> .
+<https://doi.org/10.5281/zenodo.18369720> <http://purl.org/dc/terms/relation> <http://www.wikidata.org/entity/Q106675412> .
+<https://doi.org/10.5281/zenodo.18369720> <http://purl.org/dc/terms/relation> <http://www.wikidata.org/entity/Q24041450> .
+<https://doi.org/10.5281/zenodo.18369720> <http://purl.org/dc/terms/relation> <https://github.com/LinkedOpenOgham/og-h-am/blob/main/XML/I-KER/I-KER-136.xml> .
+<https://doi.org/10.5281/zenodo.18369720> <http://purl.org/dc/terms/relation> <https://sketchfab.com/3d-models/cork-public-museum-chuis1-07d2bad6bbeb45d99fac246462af6eba> .
+<https://doi.org/10.5281/zenodo.18369720> <http://purl.org/dc/terms/subject> "Cultural Heritage & History" .
+<https://doi.org/10.5281/zenodo.18369720> <http://purl.org/dc/terms/subject> "cork3d" .
+<https://doi.org/10.5281/zenodo.18369720> <http://purl.org/dc/terms/subject> "ireland" .
+<https://doi.org/10.5281/zenodo.18369720> <http://purl.org/dc/terms/subject> "kiriengine" .
+<https://doi.org/10.5281/zenodo.18369720> <http://purl.org/dc/terms/subject> "medieval" .
+<https://doi.org/10.5281/zenodo.18369720> <http://purl.org/dc/terms/subject> "ogham" .
+<https://doi.org/10.5281/zenodo.18369720> <http://purl.org/dc/terms/subject> "ogham-stone" .
+<https://doi.org/10.5281/zenodo.18369720> <http://purl.org/dc/terms/subject> "ogham3d" .
+<https://doi.org/10.5281/zenodo.18369720> <http://purl.org/dc/terms/subject> <http://www.wikidata.org/entity/Q106675412> .
+<https://doi.org/10.5281/zenodo.18369720> <http://purl.org/dc/terms/subject> <http://www.wikidata.org/entity/Q110840> .
 <https://doi.org/10.5281/zenodo.18369720> <http://purl.org/dc/terms/subject> <http://www.wikidata.org/entity/Q22731> .
+<https://doi.org/10.5281/zenodo.18369720> <http://purl.org/dc/terms/subject> <http://www.wikidata.org/entity/Q229370> .
 <https://doi.org/10.5281/zenodo.18369720> <http://purl.org/dc/terms/temporal> <https://doi.org/10.5281/zenodo.18369720_temporal> .
-<https://doi.org/10.5281/zenodo.18369720> <http://purl.org/dc/terms/title> "CHUIS/1" .
+<https://doi.org/10.5281/zenodo.18369720> <http://purl.org/dc/terms/title> "Church Island Ogham Stone CHUIS/1 (Cork Public Museum)" .
 <https://doi.org/10.5281/zenodo.18369720> <http://purl.org/dc/terms/type> <http://www.wikidata.org/entity/Q2016147> .
-<https://doi.org/10.5281/zenodo.18369720> <http://www.cidoc-crm.org/cidoc-crm/P102_has_title> "CHUIS/1" .
-<https://doi.org/10.5281/zenodo.18369720> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> "Cork Public Museum" .
-<https://doi.org/10.5281/zenodo.18369720> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> "Ogham Stone" .
+<https://doi.org/10.5281/zenodo.18369720> <http://www.cidoc-crm.org/cidoc-crm/P102_has_title> "Church Island Ogham Stone CHUIS/1 (Cork Public Museum)" .
+<https://doi.org/10.5281/zenodo.18369720> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> "Cultural Heritage & History" .
+<https://doi.org/10.5281/zenodo.18369720> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> "cork3d" .
+<https://doi.org/10.5281/zenodo.18369720> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> "ireland" .
+<https://doi.org/10.5281/zenodo.18369720> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> "kiriengine" .
+<https://doi.org/10.5281/zenodo.18369720> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> "medieval" .
+<https://doi.org/10.5281/zenodo.18369720> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> "ogham" .
+<https://doi.org/10.5281/zenodo.18369720> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> "ogham-stone" .
+<https://doi.org/10.5281/zenodo.18369720> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> "ogham3d" .
+<https://doi.org/10.5281/zenodo.18369720> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> <http://www.wikidata.org/entity/Q106675412> .
+<https://doi.org/10.5281/zenodo.18369720> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> <http://www.wikidata.org/entity/Q110840> .
 <https://doi.org/10.5281/zenodo.18369720> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> <http://www.wikidata.org/entity/Q2016147> .
 <https://doi.org/10.5281/zenodo.18369720> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> <http://www.wikidata.org/entity/Q22731> .
-<https://doi.org/10.5281/zenodo.18369720> <http://www.cidoc-crm.org/cidoc-crm/P3_has_note> "Ogham Stone CHUIS/1 located in the Cork Public Museum" .
-<https://doi.org/10.5281/zenodo.18369720> <http://www.cidoc-crm.org/cidoc-crm/P3_has_note> "good" .
-<https://doi.org/10.5281/zenodo.18369720> <http://www.cidoc-crm.org/cidoc-crm/P3_has_note> "low" .
-<https://doi.org/10.5281/zenodo.18369720> <http://www.cidoc-crm.org/cidoc-crm/P3_has_note> "make 3d model available" .
-<https://doi.org/10.5281/zenodo.18369720> <http://www.cidoc-crm.org/cidoc-crm/P3_has_note> "{\"software\": \"KIRI Engine\", \"steps\": \"Take photos, align photos; build dense cloud; generate mesh; texture; export.\"}" .
+<https://doi.org/10.5281/zenodo.18369720> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> <http://www.wikidata.org/entity/Q229370> .
+<https://doi.org/10.5281/zenodo.18369720> <http://www.cidoc-crm.org/cidoc-crm/P3_has_note> "3D model of the ogham stone CHUIS/1 (OG(H)AM I-KER-136; CISP CHUIS/1), a cross slab from Church Island (Oileán an Teampaill), Co. Kerry, now in the Cork Public Museum (inventory number 1777.1023, G1094). The slab measures 1.49 x 0.36 x 0.10 m and is fractured at its base. Its ogham inscription, read along the arris as BECCDINN MACI RIVVOESS, is in Primitive Irish, and a compass-drawn, incised ringed cross of Maltese type was added later; the excavator dates this design to 650-750 AD. The stone was found in a secondary position in the south-western quadrant of the island. The model was made with KIRI Engine from 77 photographs taken with a smartphone." .
+<https://doi.org/10.5281/zenodo.18369720> <http://www.cidoc-crm.org/cidoc-crm/P3_has_note> "KIRI Engine (photo alignment, dense cloud, mesh, texture, export); Sketchfab upload: 1,711,370 faces, 856,009 vertices. For this FDO the model was re-oriented in Blender (180 degrees about the vertical axis, Euler XYZ 0,0,180) so that the preview shows the front instead of the back; the Sketchfab original is unchanged." .
 <https://doi.org/10.5281/zenodo.18369720> <http://www.cidoc-crm.org/cidoc-crm/P4_has_time-span> "0300/0699"^^<http://id.loc.gov/datatypes/edtf/EDTF> .
 <https://doi.org/10.5281/zenodo.18369720> <http://www.cidoc-crm.org/cidoc-crm/P4_has_time-span> <https://doi.org/10.5281/zenodo.18369720_temporal> .
-<https://doi.org/10.5281/zenodo.18369720> <http://www.cidoc-crm.org/cidoc-crm/P67_refers_to> <https://www.openstreetmap.org/node/11966430251> .
 <https://doi.org/10.5281/zenodo.18369720> <http://www.opengis.net/ont/geosparql#hasGeometry> <https://doi.org/10.5281/zenodo.18369720_geom> .
 <https://doi.org/10.5281/zenodo.18369720> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.cidoc-crm.org/cidoc-crm/E73_Information_Object> .
 <https://doi.org/10.5281/zenodo.18369720> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.ics.forth.gr/isl/CRMdig/D1_Digital_Object> .
 <https://doi.org/10.5281/zenodo.18369720> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/dcat#Dataset> .
 <https://doi.org/10.5281/zenodo.18369720> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/fdo-squirrel/3DDataFDO> .
-<https://doi.org/10.5281/zenodo.18369720> <http://www.w3.org/ns/dcat#distribution> <https://w3id.org/fdo-squirrel/registry/record/18744583/dist/12e586334338f444> .
-<https://doi.org/10.5281/zenodo.18369720> <http://www.w3.org/ns/dcat#distribution> <https://w3id.org/fdo-squirrel/registry/record/18744583/dist/1c2b731eae72334c> .
-<https://doi.org/10.5281/zenodo.18369720> <http://www.w3.org/ns/dcat#distribution> <https://w3id.org/fdo-squirrel/registry/record/18744583/dist/1ffe5e794229db4f> .
-<https://doi.org/10.5281/zenodo.18369720> <http://www.w3.org/ns/dcat#distribution> <https://w3id.org/fdo-squirrel/registry/record/18744583/dist/23b0e534f5a9b40f> .
-<https://doi.org/10.5281/zenodo.18369720> <http://www.w3.org/ns/dcat#distribution> <https://w3id.org/fdo-squirrel/registry/record/18744583/dist/6605246a5cff03ba> .
-<https://doi.org/10.5281/zenodo.18369720> <http://www.w3.org/ns/dcat#distribution> <https://w3id.org/fdo-squirrel/registry/record/18744583/dist/6acdb6353bc97f82> .
-<https://doi.org/10.5281/zenodo.18369720> <http://www.w3.org/ns/dcat#distribution> <https://w3id.org/fdo-squirrel/registry/record/18744583/dist/a38bdba40d281c5f> .
-<https://doi.org/10.5281/zenodo.18369720> <http://www.w3.org/ns/dcat#distribution> <https://w3id.org/fdo-squirrel/registry/record/18744583/dist/ad106454448bfc9b> .
-<https://doi.org/10.5281/zenodo.18369720> <http://www.w3.org/ns/dcat#distribution> <https://w3id.org/fdo-squirrel/registry/record/18744583/dist/e8b0736ae7265071> .
-<https://doi.org/10.5281/zenodo.18369720> <http://www.w3.org/ns/dcat#distribution> <https://w3id.org/fdo-squirrel/registry/record/18744583/dist/f54cceb345af74e3> .
-<https://doi.org/10.5281/zenodo.18369720> <http://www.w3.org/ns/dcat#keyword> "Cork Public Museum" .
-<https://doi.org/10.5281/zenodo.18369720> <http://www.w3.org/ns/dcat#keyword> "Ogham Stone" .
+<https://doi.org/10.5281/zenodo.18369720> <http://www.w3.org/2000/01/rdf-schema#label> "Zenodo concept DOI" .
+<https://doi.org/10.5281/zenodo.18369720> <http://www.w3.org/ns/dcat#distribution> <https://w3id.org/fdo-squirrel/registry/record/24347211/dist/012d3ae0f6007283> .
+<https://doi.org/10.5281/zenodo.18369720> <http://www.w3.org/ns/dcat#distribution> <https://w3id.org/fdo-squirrel/registry/record/24347211/dist/033eee260ffa6687> .
+<https://doi.org/10.5281/zenodo.18369720> <http://www.w3.org/ns/dcat#distribution> <https://w3id.org/fdo-squirrel/registry/record/24347211/dist/049ba8dd05d7af10> .
+<https://doi.org/10.5281/zenodo.18369720> <http://www.w3.org/ns/dcat#distribution> <https://w3id.org/fdo-squirrel/registry/record/24347211/dist/04b54942c91c510e> .
+<https://doi.org/10.5281/zenodo.18369720> <http://www.w3.org/ns/dcat#distribution> <https://w3id.org/fdo-squirrel/registry/record/24347211/dist/0730d2842d3a7ecc> .
+<https://doi.org/10.5281/zenodo.18369720> <http://www.w3.org/ns/dcat#distribution> <https://w3id.org/fdo-squirrel/registry/record/24347211/dist/0abde8640bd45ea5> .
+<https://doi.org/10.5281/zenodo.18369720> <http://www.w3.org/ns/dcat#distribution> <https://w3id.org/fdo-squirrel/registry/record/24347211/dist/0b383d5a63da644f> .
+<https://doi.org/10.5281/zenodo.18369720> <http://www.w3.org/ns/dcat#distribution> <https://w3id.org/fdo-squirrel/registry/record/24347211/dist/0e4d58088180effe> .
+<https://doi.org/10.5281/zenodo.18369720> <http://www.w3.org/ns/dcat#distribution> <https://w3id.org/fdo-squirrel/registry/record/24347211/dist/0e623d3c26743f35> .
+<https://doi.org/10.5281/zenodo.18369720> <http://www.w3.org/ns/dcat#distribution> <https://w3id.org/fdo-squirrel/registry/record/24347211/dist/0f7632f30b45ca4c> .
+<https://doi.org/10.5281/zenodo.18369720> <http://www.w3.org/ns/dcat#distribution> <https://w3id.org/fdo-squirrel/registry/record/24347211/dist/19e9b476784e9e2f> .
+<https://doi.org/10.5281/zenodo.18369720> <http://www.w3.org/ns/dcat#distribution> <https://w3id.org/fdo-squirrel/registry/record/24347211/dist/1a8195ca9d0812e7> .
+<https://doi.org/10.5281/zenodo.18369720> <http://www.w3.org/ns/dcat#distribution> <https://w3id.org/fdo-squirrel/registry/record/24347211/dist/1e534896dc1a69f4> .
+<https://doi.org/10.5281/zenodo.18369720> <http://www.w3.org/ns/dcat#distribution> <https://w3id.org/fdo-squirrel/registry/record/24347211/dist/2486a56f5cdf2701> .
+<https://doi.org/10.5281/zenodo.18369720> <http://www.w3.org/ns/dcat#distribution> <https://w3id.org/fdo-squirrel/registry/record/24347211/dist/25108ed495e10582> .
+<https://doi.org/10.5281/zenodo.18369720> <http://www.w3.org/ns/dcat#distribution> <https://w3id.org/fdo-squirrel/registry/record/24347211/dist/2ad4f592d31cf358> .
+<https://doi.org/10.5281/zenodo.18369720> <http://www.w3.org/ns/dcat#distribution> <https://w3id.org/fdo-squirrel/registry/record/24347211/dist/3a8e58f6f9d4a6b7> .
+<https://doi.org/10.5281/zenodo.18369720> <http://www.w3.org/ns/dcat#distribution> <https://w3id.org/fdo-squirrel/registry/record/24347211/dist/3b2a44995e927286> .
+<https://doi.org/10.5281/zenodo.18369720> <http://www.w3.org/ns/dcat#distribution> <https://w3id.org/fdo-squirrel/registry/record/24347211/dist/47c8bb7869e50b36> .
+<https://doi.org/10.5281/zenodo.18369720> <http://www.w3.org/ns/dcat#distribution> <https://w3id.org/fdo-squirrel/registry/record/24347211/dist/4c07b76ca8561f85> .
+<https://doi.org/10.5281/zenodo.18369720> <http://www.w3.org/ns/dcat#distribution> <https://w3id.org/fdo-squirrel/registry/record/24347211/dist/4ceb643e8b6d7cd2> .
+<https://doi.org/10.5281/zenodo.18369720> <http://www.w3.org/ns/dcat#distribution> <https://w3id.org/fdo-squirrel/registry/record/24347211/dist/50e62db9b10cc50c> .
+<https://doi.org/10.5281/zenodo.18369720> <http://www.w3.org/ns/dcat#distribution> <https://w3id.org/fdo-squirrel/registry/record/24347211/dist/52e35f35acffc59d> .
+<https://doi.org/10.5281/zenodo.18369720> <http://www.w3.org/ns/dcat#distribution> <https://w3id.org/fdo-squirrel/registry/record/24347211/dist/536c5576e2ee7561> .
+<https://doi.org/10.5281/zenodo.18369720> <http://www.w3.org/ns/dcat#distribution> <https://w3id.org/fdo-squirrel/registry/record/24347211/dist/56529b7ccd9d68ef> .
+<https://doi.org/10.5281/zenodo.18369720> <http://www.w3.org/ns/dcat#distribution> <https://w3id.org/fdo-squirrel/registry/record/24347211/dist/5782d58d11437c0f> .
+<https://doi.org/10.5281/zenodo.18369720> <http://www.w3.org/ns/dcat#distribution> <https://w3id.org/fdo-squirrel/registry/record/24347211/dist/5d6b3e92f8931140> .
+<https://doi.org/10.5281/zenodo.18369720> <http://www.w3.org/ns/dcat#distribution> <https://w3id.org/fdo-squirrel/registry/record/24347211/dist/5ed91bb5c3d8a4b1> .
+<https://doi.org/10.5281/zenodo.18369720> <http://www.w3.org/ns/dcat#distribution> <https://w3id.org/fdo-squirrel/registry/record/24347211/dist/6132a60724847178> .
+<https://doi.org/10.5281/zenodo.18369720> <http://www.w3.org/ns/dcat#distribution> <https://w3id.org/fdo-squirrel/registry/record/24347211/dist/6849bdbb96427f68> .
+<https://doi.org/10.5281/zenodo.18369720> <http://www.w3.org/ns/dcat#distribution> <https://w3id.org/fdo-squirrel/registry/record/24347211/dist/912c033c84ea772a> .
+<https://doi.org/10.5281/zenodo.18369720> <http://www.w3.org/ns/dcat#distribution> <https://w3id.org/fdo-squirrel/registry/record/24347211/dist/9893e0e9e9c1f11f> .
+<https://doi.org/10.5281/zenodo.18369720> <http://www.w3.org/ns/dcat#distribution> <https://w3id.org/fdo-squirrel/registry/record/24347211/dist/9fd7be788d73ee57> .
+<https://doi.org/10.5281/zenodo.18369720> <http://www.w3.org/ns/dcat#distribution> <https://w3id.org/fdo-squirrel/registry/record/24347211/dist/ada023eb80b0ce5c> .
+<https://doi.org/10.5281/zenodo.18369720> <http://www.w3.org/ns/dcat#distribution> <https://w3id.org/fdo-squirrel/registry/record/24347211/dist/b3234a652cfa6ad1> .
+<https://doi.org/10.5281/zenodo.18369720> <http://www.w3.org/ns/dcat#distribution> <https://w3id.org/fdo-squirrel/registry/record/24347211/dist/b4416be937053d8a> .
+<https://doi.org/10.5281/zenodo.18369720> <http://www.w3.org/ns/dcat#distribution> <https://w3id.org/fdo-squirrel/registry/record/24347211/dist/cc4d3554c5f32c54> .
+<https://doi.org/10.5281/zenodo.18369720> <http://www.w3.org/ns/dcat#distribution> <https://w3id.org/fdo-squirrel/registry/record/24347211/dist/cf14dd446fc3537f> .
+<https://doi.org/10.5281/zenodo.18369720> <http://www.w3.org/ns/dcat#distribution> <https://w3id.org/fdo-squirrel/registry/record/24347211/dist/d85c0c13fabe5474> .
+<https://doi.org/10.5281/zenodo.18369720> <http://www.w3.org/ns/dcat#distribution> <https://w3id.org/fdo-squirrel/registry/record/24347211/dist/d87cdbc7c821da02> .
+<https://doi.org/10.5281/zenodo.18369720> <http://www.w3.org/ns/dcat#distribution> <https://w3id.org/fdo-squirrel/registry/record/24347211/dist/db66f50dfa5118ae> .
+<https://doi.org/10.5281/zenodo.18369720> <http://www.w3.org/ns/dcat#distribution> <https://w3id.org/fdo-squirrel/registry/record/24347211/dist/e221c116fce7a4fc> .
+<https://doi.org/10.5281/zenodo.18369720> <http://www.w3.org/ns/dcat#distribution> <https://w3id.org/fdo-squirrel/registry/record/24347211/dist/e4af1b1e2b093c89> .
+<https://doi.org/10.5281/zenodo.18369720> <http://www.w3.org/ns/dcat#distribution> <https://w3id.org/fdo-squirrel/registry/record/24347211/dist/ec11ee13ec60c71c> .
+<https://doi.org/10.5281/zenodo.18369720> <http://www.w3.org/ns/dcat#distribution> <https://w3id.org/fdo-squirrel/registry/record/24347211/dist/ed161bbac219a4df> .
+<https://doi.org/10.5281/zenodo.18369720> <http://www.w3.org/ns/dcat#distribution> <https://w3id.org/fdo-squirrel/registry/record/24347211/dist/ef69a64d7398882e> .
+<https://doi.org/10.5281/zenodo.18369720> <http://www.w3.org/ns/dcat#distribution> <https://w3id.org/fdo-squirrel/registry/record/24347211/dist/f6e15e9e5f49e3de> .
+<https://doi.org/10.5281/zenodo.18369720> <http://www.w3.org/ns/dcat#distribution> <https://w3id.org/fdo-squirrel/registry/record/24347211/dist/f7f6a5894f1d19dd> .
+<https://doi.org/10.5281/zenodo.18369720> <http://www.w3.org/ns/dcat#distribution> <https://w3id.org/fdo-squirrel/registry/record/24347211/dist/fad35f764810adc3> .
+<https://doi.org/10.5281/zenodo.18369720> <http://www.w3.org/ns/dcat#distribution> <https://w3id.org/fdo-squirrel/registry/record/24347211/dist/fe753c2685ec886c> .
+<https://doi.org/10.5281/zenodo.18369720> <http://www.w3.org/ns/dcat#distribution> <https://w3id.org/fdo-squirrel/registry/record/24347211/dist/ff48136f9eeca235> .
+<https://doi.org/10.5281/zenodo.18369720> <http://www.w3.org/ns/dcat#keyword> "3D data" .
+<https://doi.org/10.5281/zenodo.18369720> <http://www.w3.org/ns/dcat#keyword> "Cultural Heritage & History" .
+<https://doi.org/10.5281/zenodo.18369720> <http://www.w3.org/ns/dcat#keyword> "Cultural Heritage" .
+<https://doi.org/10.5281/zenodo.18369720> <http://www.w3.org/ns/dcat#keyword> "cork3d" .
+<https://doi.org/10.5281/zenodo.18369720> <http://www.w3.org/ns/dcat#keyword> "ireland" .
+<https://doi.org/10.5281/zenodo.18369720> <http://www.w3.org/ns/dcat#keyword> "kiriengine" .
+<https://doi.org/10.5281/zenodo.18369720> <http://www.w3.org/ns/dcat#keyword> "medieval" .
+<https://doi.org/10.5281/zenodo.18369720> <http://www.w3.org/ns/dcat#keyword> "ogham" .
+<https://doi.org/10.5281/zenodo.18369720> <http://www.w3.org/ns/dcat#keyword> "ogham-stone" .
+<https://doi.org/10.5281/zenodo.18369720> <http://www.w3.org/ns/dcat#keyword> "ogham3d" .
+<https://doi.org/10.5281/zenodo.18369720> <http://www.w3.org/ns/dcat#qualifiedRelation> _:nf2df6c92235b48a89335c5579443f589b1 .
+<https://doi.org/10.5281/zenodo.18369720> <http://www.w3.org/ns/dcat#qualifiedRelation> _:nf2df6c92235b48a89335c5579443f589b2 .
+<https://doi.org/10.5281/zenodo.18369720> <http://www.w3.org/ns/prov#wasDerivedFrom> <https://sketchfab.com/3d-models/cork-public-museum-chuis1-07d2bad6bbeb45d99fac246462af6eba> .
+<https://doi.org/10.5281/zenodo.18369720> <http://www.w3.org/ns/prov#wasGeneratedBy> <urn:fdo-squirrel:activity/build> .
 <https://doi.org/10.5281/zenodo.18369720> <http://www.wikidata.org/prop/direct/P275> "CC-BY-SA-4.0" .
 <https://doi.org/10.5281/zenodo.18369720> <http://www.wikidata.org/prop/direct/P275> <https://spdx.org/licenses/CC-BY-SA-4.0.html> .
-<https://doi.org/10.5281/zenodo.18369720> <http://www.wikidata.org/prop/direct/P921> "Cork Public Museum" .
-<https://doi.org/10.5281/zenodo.18369720> <http://www.wikidata.org/prop/direct/P921> "Ogham Stone" .
-<https://doi.org/10.5281/zenodo.18369720> <https://citation-file-format.github.io/terms/keywords> "Cork Public Museum" .
-<https://doi.org/10.5281/zenodo.18369720> <https://citation-file-format.github.io/terms/keywords> "Ogham Stone" .
+<https://doi.org/10.5281/zenodo.18369720> <http://www.wikidata.org/prop/direct/P856> <https://sketchfab.com/3d-models/cork-public-museum-chuis1-07d2bad6bbeb45d99fac246462af6eba> .
+<https://doi.org/10.5281/zenodo.18369720> <http://www.wikidata.org/prop/direct/P921> "Cultural Heritage & History" .
+<https://doi.org/10.5281/zenodo.18369720> <http://www.wikidata.org/prop/direct/P921> "cork3d" .
+<https://doi.org/10.5281/zenodo.18369720> <http://www.wikidata.org/prop/direct/P921> "ireland" .
+<https://doi.org/10.5281/zenodo.18369720> <http://www.wikidata.org/prop/direct/P921> "kiriengine" .
+<https://doi.org/10.5281/zenodo.18369720> <http://www.wikidata.org/prop/direct/P921> "medieval" .
+<https://doi.org/10.5281/zenodo.18369720> <http://www.wikidata.org/prop/direct/P921> "ogham" .
+<https://doi.org/10.5281/zenodo.18369720> <http://www.wikidata.org/prop/direct/P921> "ogham-stone" .
+<https://doi.org/10.5281/zenodo.18369720> <http://www.wikidata.org/prop/direct/P921> "ogham3d" .
+<https://doi.org/10.5281/zenodo.18369720> <https://citation-file-format.github.io/terms/keywords> "Cultural Heritage & History" .
+<https://doi.org/10.5281/zenodo.18369720> <https://citation-file-format.github.io/terms/keywords> "cork3d" .
+<https://doi.org/10.5281/zenodo.18369720> <https://citation-file-format.github.io/terms/keywords> "ireland" .
+<https://doi.org/10.5281/zenodo.18369720> <https://citation-file-format.github.io/terms/keywords> "kiriengine" .
+<https://doi.org/10.5281/zenodo.18369720> <https://citation-file-format.github.io/terms/keywords> "medieval" .
+<https://doi.org/10.5281/zenodo.18369720> <https://citation-file-format.github.io/terms/keywords> "ogham" .
+<https://doi.org/10.5281/zenodo.18369720> <https://citation-file-format.github.io/terms/keywords> "ogham-stone" .
+<https://doi.org/10.5281/zenodo.18369720> <https://citation-file-format.github.io/terms/keywords> "ogham3d" .
 <https://doi.org/10.5281/zenodo.18369720> <https://citation-file-format.github.io/terms/license-url> "CC-BY-SA-4.0" .
 <https://doi.org/10.5281/zenodo.18369720> <https://citation-file-format.github.io/terms/license-url> <https://spdx.org/licenses/CC-BY-SA-4.0.html> .
 <https://doi.org/10.5281/zenodo.18369720> <https://citation-file-format.github.io/terms/license> "CC-BY-SA-4.0" .
 <https://doi.org/10.5281/zenodo.18369720> <https://citation-file-format.github.io/terms/license> <https://spdx.org/licenses/CC-BY-SA-4.0.html> .
-<https://doi.org/10.5281/zenodo.18369720> <https://codemeta.github.io/terms/keywords> "Cork Public Museum" .
-<https://doi.org/10.5281/zenodo.18369720> <https://codemeta.github.io/terms/keywords> "Ogham Stone" .
+<https://doi.org/10.5281/zenodo.18369720> <https://citation-file-format.github.io/terms/repository> <https://sketchfab.com/3d-models/cork-public-museum-chuis1-07d2bad6bbeb45d99fac246462af6eba> .
+<https://doi.org/10.5281/zenodo.18369720> <https://citation-file-format.github.io/terms/url> <https://sketchfab.com/3d-models/cork-public-museum-chuis1-07d2bad6bbeb45d99fac246462af6eba> .
+<https://doi.org/10.5281/zenodo.18369720> <https://codemeta.github.io/terms/keywords> "Cultural Heritage & History" .
+<https://doi.org/10.5281/zenodo.18369720> <https://codemeta.github.io/terms/keywords> "cork3d" .
+<https://doi.org/10.5281/zenodo.18369720> <https://codemeta.github.io/terms/keywords> "ireland" .
+<https://doi.org/10.5281/zenodo.18369720> <https://codemeta.github.io/terms/keywords> "kiriengine" .
+<https://doi.org/10.5281/zenodo.18369720> <https://codemeta.github.io/terms/keywords> "medieval" .
+<https://doi.org/10.5281/zenodo.18369720> <https://codemeta.github.io/terms/keywords> "ogham" .
+<https://doi.org/10.5281/zenodo.18369720> <https://codemeta.github.io/terms/keywords> "ogham-stone" .
+<https://doi.org/10.5281/zenodo.18369720> <https://codemeta.github.io/terms/keywords> "ogham3d" .
 <https://doi.org/10.5281/zenodo.18369720> <https://codemeta.github.io/terms/license> "CC-BY-SA-4.0" .
 <https://doi.org/10.5281/zenodo.18369720> <https://codemeta.github.io/terms/license> <https://spdx.org/licenses/CC-BY-SA-4.0.html> .
-<https://doi.org/10.5281/zenodo.18369720> <https://schema.org/description> "Ogham Stone CHUIS/1 located in the Cork Public Museum" .
+<https://doi.org/10.5281/zenodo.18369720> <https://codemeta.github.io/terms/url> <https://sketchfab.com/3d-models/cork-public-museum-chuis1-07d2bad6bbeb45d99fac246462af6eba> .
+<https://doi.org/10.5281/zenodo.18369720> <https://schema.org/author> "Florian Thiery" .
+<https://doi.org/10.5281/zenodo.18369720> <https://schema.org/datePublished> "2024-06-09" .
 <https://doi.org/10.5281/zenodo.18369720> <https://schema.org/funding> "Community Project" .
-<https://doi.org/10.5281/zenodo.18369720> <https://schema.org/keywords> "Cork Public Museum" .
-<https://doi.org/10.5281/zenodo.18369720> <https://schema.org/keywords> "Ogham Stone" .
-<https://doi.org/10.5281/zenodo.18369720> <https://schema.org/latitude> "51.8961"^^<http://www.w3.org/2001/XMLSchema#decimal> .
+<https://doi.org/10.5281/zenodo.18369720> <https://schema.org/identifier> "10.5281/zenodo.18369720" .
+<https://doi.org/10.5281/zenodo.18369720> <https://schema.org/keywords> "Cultural Heritage & History" .
+<https://doi.org/10.5281/zenodo.18369720> <https://schema.org/keywords> "cork3d" .
+<https://doi.org/10.5281/zenodo.18369720> <https://schema.org/keywords> "ireland" .
+<https://doi.org/10.5281/zenodo.18369720> <https://schema.org/keywords> "kiriengine" .
+<https://doi.org/10.5281/zenodo.18369720> <https://schema.org/keywords> "medieval" .
+<https://doi.org/10.5281/zenodo.18369720> <https://schema.org/keywords> "ogham" .
+<https://doi.org/10.5281/zenodo.18369720> <https://schema.org/keywords> "ogham-stone" .
+<https://doi.org/10.5281/zenodo.18369720> <https://schema.org/keywords> "ogham3d" .
+<https://doi.org/10.5281/zenodo.18369720> <https://schema.org/latitude> "51.937578"^^<http://www.w3.org/2001/XMLSchema#decimal> .
 <https://doi.org/10.5281/zenodo.18369720> <https://schema.org/license> "CC-BY-SA-4.0" .
 <https://doi.org/10.5281/zenodo.18369720> <https://schema.org/license> <https://spdx.org/licenses/CC-BY-SA-4.0.html> .
-<https://doi.org/10.5281/zenodo.18369720> <https://schema.org/longitude> "-8.4943"^^<http://www.w3.org/2001/XMLSchema#decimal> .
-<https://doi.org/10.5281/zenodo.18369720> <https://w3id.org/fdo-squirrel/context> "Ogham Stones in the Wild and in Museums in Ireland bearing Ogham inscriptions." .
-<https://doi.org/10.5281/zenodo.18369720_geom> <http://www.opengis.net/ont/geosparql#asWKT> "<http://www.opengis.net/def/crs/EPSG/0/4326> POINT(-8.4943 51.8961)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
+<https://doi.org/10.5281/zenodo.18369720> <https://schema.org/longitude> "-10.283295"^^<http://www.w3.org/2001/XMLSchema#decimal> .
+<https://doi.org/10.5281/zenodo.18369720> <https://schema.org/name> "Cork Public Museum: CHUIS/1" .
+<https://doi.org/10.5281/zenodo.18369720> <https://schema.org/relatedLink> <https://sketchfab.com/3d-models/cork-public-museum-chuis1-07d2bad6bbeb45d99fac246462af6eba> .
+<https://doi.org/10.5281/zenodo.18369720> <https://schema.org/url> <https://sketchfab.com/3d-models/cork-public-museum-chuis1-07d2bad6bbeb45d99fac246462af6eba> .
+<https://doi.org/10.5281/zenodo.18369720> <https://w3id.org/fdo-squirrel/acquisitionHardware> "Samsung Galaxy S22" .
+<https://doi.org/10.5281/zenodo.18369720> <https://w3id.org/fdo-squirrel/acquisitionImagesCount> "77" .
+<https://doi.org/10.5281/zenodo.18369720> <https://w3id.org/fdo-squirrel/acquisitionMethod> "Photogrammetry (structure from motion) with KIRI Engine" .
+<https://doi.org/10.5281/zenodo.18369720> <https://w3id.org/fdo-squirrel/conservationUrgency> "low" .
+<https://doi.org/10.5281/zenodo.18369720> <https://w3id.org/fdo-squirrel/context> "Found at Church Island (Oileán an Teampaill), Co. Kerry (SMR KE079-032004-), in a secondary position in the south-western quadrant of the island; now displayed in the Cork Public Museum, Cork (51.896085, -8.494222), inventory number 1777.1023 (G1094). Findspot and present location are different places; the spatial point of this FDO is the findspot. Described in OG(H)AM entry I-KER-136; CISP CHUIS/1; no CIIC number is listed." .
+<https://doi.org/10.5281/zenodo.18369720> <https://w3id.org/fdo-squirrel/documentationPurpose> "Photogrammetric documentation of an ogham stone in a museum collection (Ogham in 3D, Cork 3D)." .
+<https://doi.org/10.5281/zenodo.18369720> <https://w3id.org/fdo-squirrel/overallCondition> "Good; fractured at its base." .
+<https://doi.org/10.5281/zenodo.18369720_geom> <http://www.opengis.net/ont/geosparql#asWKT> "<http://www.opengis.net/def/crs/EPSG/0/4326> POINT(-10.283295 51.937578)"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
 <https://doi.org/10.5281/zenodo.18369720_geom> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.ics.forth.gr/isl/CRMgeo/SP5_Geometric_Place_Expression> .
 <https://doi.org/10.5281/zenodo.18369720_geom> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.opengis.net/ont/sf#Point> .
 <https://doi.org/10.5281/zenodo.18369720_temporal> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/PeriodOfTime> .
 <https://doi.org/10.5281/zenodo.18369720_temporal> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.cidoc-crm.org/cidoc-crm/E52_Time-Span> .
-<https://doi.org/10.5281/zenodo.18369720_temporal> <http://www.w3.org/2000/01/rdf-schema#label> "Ogham stone inscriptions (ca. 4th–7th century CE)" .
+<https://doi.org/10.5281/zenodo.18369720_temporal> <http://www.w3.org/2000/01/rdf-schema#label> "Ogham stone inscriptions (ca. 4th-7th century CE)" .
 <https://doi.org/10.5281/zenodo.18369720_temporal> <http://www.w3.org/2002/07/owl#sameAs> <http://chronontology.dainst.org/period/aChcHZdlBhkt> .
-<https://doi.org/10.5281/zenodo.18369720_temporal> <http://www.w3.org/ns/dcat#endDate> "699"^^<http://www.w3.org/2001/XMLSchema#integer> .
-<https://doi.org/10.5281/zenodo.18369720_temporal> <http://www.w3.org/ns/dcat#startDate> "300"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<https://doi.org/10.5281/zenodo.18369720_temporal> <http://www.w3.org/ns/dcat#endDate> "0699"^^<http://www.w3.org/2001/XMLSchema#gYear> .
+<https://doi.org/10.5281/zenodo.18369720_temporal> <http://www.w3.org/ns/dcat#startDate> "0300"^^<http://www.w3.org/2001/XMLSchema#gYear> .
 <https://doi.org/10.5281/zenodo.18369865> <http://purl.org/dc/terms/created> "2024-06-06"^^<http://www.w3.org/2001/XMLSchema#date> .
 <https://doi.org/10.5281/zenodo.18369865> <http://purl.org/dc/terms/creator> <https://orcid.org/0000-0002-3246-3531> .
 <https://doi.org/10.5281/zenodo.18369865> <http://purl.org/dc/terms/description> "Ogham Stone GEARS/1 located in the Cork Public Museum" .
@@ -1409,13 +1527,13 @@
 <https://doi.org/10.5281/zenodo.24305240> <http://purl.org/dc/terms/subject> <http://www.wikidata.org/entity/Q229370> .
 <https://doi.org/10.5281/zenodo.24305240> <http://purl.org/dc/terms/temporal> <https://doi.org/10.5281/zenodo.24305240_temporal> .
 <https://doi.org/10.5281/zenodo.24305240> <http://purl.org/dc/terms/title> "Lego Pyramid (KIRI Original)" .
-<https://doi.org/10.5281/zenodo.24305240> <http://purl.org/dc/terms/type> _:ne7bd02b6e0434d139cdd1a50409e0d3eb1 .
+<https://doi.org/10.5281/zenodo.24305240> <http://purl.org/dc/terms/type> _:n7742b3c3216f49658750371f5222c9e7b1 .
 <https://doi.org/10.5281/zenodo.24305240> <http://www.cidoc-crm.org/cidoc-crm/P102_has_title> "Lego Pyramid (KIRI Original)" .
 <https://doi.org/10.5281/zenodo.24305240> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> "Architecture" .
 <https://doi.org/10.5281/zenodo.24305240> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> "lego" .
 <https://doi.org/10.5281/zenodo.24305240> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> <http://www.wikidata.org/entity/Q110840> .
 <https://doi.org/10.5281/zenodo.24305240> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> <http://www.wikidata.org/entity/Q229370> .
-<https://doi.org/10.5281/zenodo.24305240> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> _:ne7bd02b6e0434d139cdd1a50409e0d3eb1 .
+<https://doi.org/10.5281/zenodo.24305240> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> _:n7742b3c3216f49658750371f5222c9e7b1 .
 <https://doi.org/10.5281/zenodo.24305240> <http://www.cidoc-crm.org/cidoc-crm/P3_has_note> "KIRI Engine export (GLB, AdvancedExport; a second OBJ export exists). 135,616 triangles and 68,248 vertices after merging duplicate vertices; not watertight; no clean-up applied." .
 <https://doi.org/10.5281/zenodo.24305240> <http://www.cidoc-crm.org/cidoc-crm/P3_has_note> "Photogrammetric 3D scan (KIRI Engine) of a white stepped LEGO pyramid (nine levels) with a five-brick column and a minifigure-style warrior figure on top (spiked helmet, mail shirt, tunic, cloak), a hobby build by Florian Thiery; scanned on 2026-11-12 in the Apothekertrakt of Schönbrunn Palace, Vienna, where the model was on display during the CHNT31 conference. Raw scan without clean-up. The paired reconstruction is a separate FDOx and derives from this one." .
 <https://doi.org/10.5281/zenodo.24305240> <http://www.cidoc-crm.org/cidoc-crm/P4_has_time-span> "2026"^^<http://www.w3.org/2001/XMLSchema#gYear> .
@@ -1482,7 +1600,7 @@
 <https://doi.org/10.5281/zenodo.24305240> <http://www.w3.org/ns/dcat#keyword> "Architecture" .
 <https://doi.org/10.5281/zenodo.24305240> <http://www.w3.org/ns/dcat#keyword> "Cultural Heritage" .
 <https://doi.org/10.5281/zenodo.24305240> <http://www.w3.org/ns/dcat#keyword> "lego" .
-<https://doi.org/10.5281/zenodo.24305240> <http://www.w3.org/ns/dcat#qualifiedRelation> _:ne7bd02b6e0434d139cdd1a50409e0d3eb2 .
+<https://doi.org/10.5281/zenodo.24305240> <http://www.w3.org/ns/dcat#qualifiedRelation> _:n7742b3c3216f49658750371f5222c9e7b2 .
 <https://doi.org/10.5281/zenodo.24305240> <http://www.w3.org/ns/prov#wasDerivedFrom> <https://sketchfab.com/3d-models/lego-pyramid-kiri-original-b262c1135f1c4159bf1e3628d468bdc8> .
 <https://doi.org/10.5281/zenodo.24305240> <http://www.w3.org/ns/prov#wasGeneratedBy> <urn:fdo-squirrel:activity/build> .
 <https://doi.org/10.5281/zenodo.24305240> <http://www.wikidata.org/prop/direct/P275> "CC-BY-4.0" .
@@ -1529,7 +1647,7 @@
 <https://doi.org/10.5281/zenodo.24305240_temporal> <http://www.w3.org/2000/01/rdf-schema#label> "Scan session 2026-11-12 (during CHNT31)" .
 <https://doi.org/10.5281/zenodo.24305240_temporal> <http://www.w3.org/ns/dcat#endDate> "2026"^^<http://www.w3.org/2001/XMLSchema#gYear> .
 <https://doi.org/10.5281/zenodo.24305240_temporal> <http://www.w3.org/ns/dcat#startDate> "2026"^^<http://www.w3.org/2001/XMLSchema#gYear> .
-<https://doi.org/10.5281/zenodo.24305343> <http://purl.org/dc/terms/contributor> _:nb4aa60a94b8b438fb2532b44271b66a4b1 .
+<https://doi.org/10.5281/zenodo.24305343> <http://purl.org/dc/terms/contributor> _:neadc94b4d097491ea809368c6a8ec556b1 .
 <https://doi.org/10.5281/zenodo.24305343> <http://purl.org/dc/terms/created> "2026-11-17"^^<http://www.w3.org/2001/XMLSchema#date> .
 <https://doi.org/10.5281/zenodo.24305343> <http://purl.org/dc/terms/creator> <https://orcid.org/0000-0002-3246-3531> .
 <https://doi.org/10.5281/zenodo.24305343> <http://purl.org/dc/terms/description> "Idealised reconstruction of a white stepped LEGO pyramid (nine levels) with a five-brick column and a minifigure-style warrior figure on top (spiked helmet, mail shirt, tunic, cloak), a hobby build by Florian Thiery, rebuilt procedurally from clean LEGO bricks after a KIRI Engine scan. Only dimensions and structure were read from the scan; no scan mesh or texture was reused. AI disclosure: the reconstruction was generated with Claude (Anthropic, claude-sonnet-5-5) on behalf of Florian Thiery. It is an interpretation model, not a measurement." .
@@ -1545,13 +1663,13 @@
 <https://doi.org/10.5281/zenodo.24305343> <http://purl.org/dc/terms/subject> <http://www.wikidata.org/entity/Q110840> .
 <https://doi.org/10.5281/zenodo.24305343> <http://purl.org/dc/terms/subject> <http://www.wikidata.org/entity/Q229370> .
 <https://doi.org/10.5281/zenodo.24305343> <http://purl.org/dc/terms/title> "Lego Pyramid (Reconstruction claude.ai)" .
-<https://doi.org/10.5281/zenodo.24305343> <http://purl.org/dc/terms/type> _:nb4aa60a94b8b438fb2532b44271b66a4b2 .
+<https://doi.org/10.5281/zenodo.24305343> <http://purl.org/dc/terms/type> _:neadc94b4d097491ea809368c6a8ec556b2 .
 <https://doi.org/10.5281/zenodo.24305343> <http://www.cidoc-crm.org/cidoc-crm/P102_has_title> "Lego Pyramid (Reconstruction claude.ai)" .
 <https://doi.org/10.5281/zenodo.24305343> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> "Architecture" .
 <https://doi.org/10.5281/zenodo.24305343> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> "lego" .
 <https://doi.org/10.5281/zenodo.24305343> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> <http://www.wikidata.org/entity/Q110840> .
 <https://doi.org/10.5281/zenodo.24305343> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> <http://www.wikidata.org/entity/Q229370> .
-<https://doi.org/10.5281/zenodo.24305343> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> _:nb4aa60a94b8b438fb2532b44271b66a4b2 .
+<https://doi.org/10.5281/zenodo.24305343> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> _:neadc94b4d097491ea809368c6a8ec556b2 .
 <https://doi.org/10.5281/zenodo.24305343> <http://www.cidoc-crm.org/cidoc-crm/P3_has_note> "Idealised reconstruction of a white stepped LEGO pyramid (nine levels) with a five-brick column and a minifigure-style warrior figure on top (spiked helmet, mail shirt, tunic, cloak), a hobby build by Florian Thiery, rebuilt procedurally from clean LEGO bricks after a KIRI Engine scan. Only dimensions and structure were read from the scan; no scan mesh or texture was reused. AI disclosure: the reconstruction was generated with Claude (Anthropic, claude-sonnet-5-5) on behalf of Florian Thiery. It is an interpretation model, not a measurement." .
 <https://doi.org/10.5281/zenodo.24305343> <http://www.cidoc-crm.org/cidoc-crm/P3_has_note> "{\"ai_involvement\": \"Generated with Claude (Anthropic, claude-sonnet-5-5), session 2026-11-12 to 2026-11-17\", \"figure\": \"Modelled from 11 photographs supplied by Florian Thiery, 32.3 mm tall, painted head and torso textures\", \"known_deviations\": \"Cloak, hands and sleeves paler than in the photos; mail shirt as honeycomb pattern; cheek guards flat; sleeves plain tubes\", \"method\": \"Procedural rebuild from idealised bricks (script build_lego3.py), not a cleaned scan mesh\", \"random_seed\": \"numpy.random.default_rng(11)\", \"reproducibility\": \"Re-running the script reproduces lego.glb byte-identically with Python 3.13.18, numpy 2.5.3, trimesh 5.2.1, Pillow 12.3.0, scipy 1.18.1 (sha256 cf51067881aef419856a403725c1352c7c7d14715f286018066991afbc1e9569)\", \"scale\": \"2/3 of real LEGO dimensions (8 mm grid, 9.6 mm brick height, 4.8 mm studs), fitted to the scan\", \"structure\": \"9 levels (14x18 down to 2x2 studs) plus a column of 5 1x1 bricks; 97x 2x4, 5x 2x2, 5x 1x1, all white\"}" .
 <https://doi.org/10.5281/zenodo.24305343> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.cidoc-crm.org/cidoc-crm/E73_Information_Object> .
@@ -1615,7 +1733,7 @@
 <https://doi.org/10.5281/zenodo.24305343> <http://www.w3.org/ns/dcat#keyword> "Architecture" .
 <https://doi.org/10.5281/zenodo.24305343> <http://www.w3.org/ns/dcat#keyword> "Cultural Heritage" .
 <https://doi.org/10.5281/zenodo.24305343> <http://www.w3.org/ns/dcat#keyword> "lego" .
-<https://doi.org/10.5281/zenodo.24305343> <http://www.w3.org/ns/dcat#qualifiedRelation> _:nb4aa60a94b8b438fb2532b44271b66a4b3 .
+<https://doi.org/10.5281/zenodo.24305343> <http://www.w3.org/ns/dcat#qualifiedRelation> _:neadc94b4d097491ea809368c6a8ec556b3 .
 <https://doi.org/10.5281/zenodo.24305343> <http://www.w3.org/ns/prov#wasDerivedFrom> <https://doi.org/10.5281/zenodo.24305240> .
 <https://doi.org/10.5281/zenodo.24305343> <http://www.w3.org/ns/prov#wasDerivedFrom> <https://sketchfab.com/3d-models/lego-pyramid-reconstruction-claudeai-e2fb31006245424e88033714af2c90f5> .
 <https://doi.org/10.5281/zenodo.24305343> <http://www.w3.org/ns/prov#wasGeneratedBy> <urn:fdo-squirrel:activity/build> .
@@ -1671,14 +1789,14 @@
 <https://doi.org/10.5281/zenodo.24305428> <http://purl.org/dc/terms/subject> <http://www.wikidata.org/entity/Q229370> .
 <https://doi.org/10.5281/zenodo.24305428> <http://purl.org/dc/terms/temporal> <https://doi.org/10.5281/zenodo.24305428_temporal> .
 <https://doi.org/10.5281/zenodo.24305428> <http://purl.org/dc/terms/title> "Lego Pyramid Maya (KIRI Original)" .
-<https://doi.org/10.5281/zenodo.24305428> <http://purl.org/dc/terms/type> _:n923ab11b9aeb49b3af9059af601b588bb1 .
+<https://doi.org/10.5281/zenodo.24305428> <http://purl.org/dc/terms/type> _:nd86eedebf108402986e582a696269a80b1 .
 <https://doi.org/10.5281/zenodo.24305428> <http://www.cidoc-crm.org/cidoc-crm/P102_has_title> "Lego Pyramid Maya (KIRI Original)" .
 <https://doi.org/10.5281/zenodo.24305428> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> "Architecture" .
 <https://doi.org/10.5281/zenodo.24305428> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> "lego" .
 <https://doi.org/10.5281/zenodo.24305428> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> "pyramid" .
 <https://doi.org/10.5281/zenodo.24305428> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> <http://www.wikidata.org/entity/Q110840> .
 <https://doi.org/10.5281/zenodo.24305428> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> <http://www.wikidata.org/entity/Q229370> .
-<https://doi.org/10.5281/zenodo.24305428> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> _:n923ab11b9aeb49b3af9059af601b588bb1 .
+<https://doi.org/10.5281/zenodo.24305428> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> _:nd86eedebf108402986e582a696269a80b1 .
 <https://doi.org/10.5281/zenodo.24305428> <http://www.cidoc-crm.org/cidoc-crm/P3_has_note> "KIRI Engine export (OBJ with MTL and JPG texture). 53,482 triangles and 26,996 vertices after merging duplicate vertices; not watertight; unit unknown; rotated by about 16 degrees against the ground, compressed along one axis by a factor of about 0.72, ground plane included; no clean-up applied." .
 <https://doi.org/10.5281/zenodo.24305428> <http://www.cidoc-crm.org/cidoc-crm/P3_has_note> "Photogrammetric 3D scan (KIRI Engine) of a stepped LEGO pyramid with four grey stair arms (seven levels) and a small temple with four corner pillars on top, a hobby build by Daria Stefan (TU Wien); scanned on 2026-11-12 in the Apothekertrakt of Schönbrunn Palace, Vienna, where the model was on display during the CHNT31 conference. Raw scan without clean-up. The paired reconstruction is a separate FDOx and derives from this one." .
 <https://doi.org/10.5281/zenodo.24305428> <http://www.cidoc-crm.org/cidoc-crm/P4_has_time-span> "2026"^^<http://www.w3.org/2001/XMLSchema#gYear> .
@@ -1746,7 +1864,7 @@
 <https://doi.org/10.5281/zenodo.24305428> <http://www.w3.org/ns/dcat#keyword> "Cultural Heritage" .
 <https://doi.org/10.5281/zenodo.24305428> <http://www.w3.org/ns/dcat#keyword> "lego" .
 <https://doi.org/10.5281/zenodo.24305428> <http://www.w3.org/ns/dcat#keyword> "pyramid" .
-<https://doi.org/10.5281/zenodo.24305428> <http://www.w3.org/ns/dcat#qualifiedRelation> _:n923ab11b9aeb49b3af9059af601b588bb2 .
+<https://doi.org/10.5281/zenodo.24305428> <http://www.w3.org/ns/dcat#qualifiedRelation> _:nd86eedebf108402986e582a696269a80b2 .
 <https://doi.org/10.5281/zenodo.24305428> <http://www.w3.org/ns/prov#wasDerivedFrom> <https://sketchfab.com/3d-models/lego-pyramid-maya-kiri-original-1e9a188abf974999b7909e15323ded0a> .
 <https://doi.org/10.5281/zenodo.24305428> <http://www.w3.org/ns/prov#wasGeneratedBy> <urn:fdo-squirrel:activity/build> .
 <https://doi.org/10.5281/zenodo.24305428> <http://www.wikidata.org/prop/direct/P275> "CC-BY-4.0" .
@@ -1798,7 +1916,7 @@
 <https://doi.org/10.5281/zenodo.24305428_temporal> <http://www.w3.org/ns/dcat#endDate> "2026"^^<http://www.w3.org/2001/XMLSchema#gYear> .
 <https://doi.org/10.5281/zenodo.24305428_temporal> <http://www.w3.org/ns/dcat#startDate> "2026"^^<http://www.w3.org/2001/XMLSchema#gYear> .
 <https://doi.org/10.5281/zenodo.24305436> <http://purl.org/dc/terms/contributor> <https://orcid.org/0009-0008-0586-9350> .
-<https://doi.org/10.5281/zenodo.24305436> <http://purl.org/dc/terms/contributor> _:nc0b06015fdb448178104142bfec958bbb1 .
+<https://doi.org/10.5281/zenodo.24305436> <http://purl.org/dc/terms/contributor> _:n5d65bbd81eab40eb870f67584fbe1d99b1 .
 <https://doi.org/10.5281/zenodo.24305436> <http://purl.org/dc/terms/created> "2026-11-17"^^<http://www.w3.org/2001/XMLSchema#date> .
 <https://doi.org/10.5281/zenodo.24305436> <http://purl.org/dc/terms/creator> <https://orcid.org/0000-0002-3246-3531> .
 <https://doi.org/10.5281/zenodo.24305436> <http://purl.org/dc/terms/description> "Idealised reconstruction of a stepped LEGO pyramid with four grey stair arms (seven levels) and a small temple with four corner pillars on top, a hobby build by Daria Stefan (TU Wien), rebuilt procedurally from clean LEGO bricks after a KIRI Engine scan. Only dimensions and structure were read from the scan; no scan mesh or texture was reused. AI disclosure: the reconstruction was generated with Claude (Anthropic, claude-sonnet-5-5) on behalf of Florian Thiery. It is an interpretation model, not a measurement." .
@@ -1818,7 +1936,7 @@
 <https://doi.org/10.5281/zenodo.24305436> <http://purl.org/dc/terms/subject> <http://www.wikidata.org/entity/Q110840> .
 <https://doi.org/10.5281/zenodo.24305436> <http://purl.org/dc/terms/subject> <http://www.wikidata.org/entity/Q229370> .
 <https://doi.org/10.5281/zenodo.24305436> <http://purl.org/dc/terms/title> "Lego Pyramid Maya (Reconstruction claude.ai)" .
-<https://doi.org/10.5281/zenodo.24305436> <http://purl.org/dc/terms/type> _:nc0b06015fdb448178104142bfec958bbb2 .
+<https://doi.org/10.5281/zenodo.24305436> <http://purl.org/dc/terms/type> _:n5d65bbd81eab40eb870f67584fbe1d99b2 .
 <https://doi.org/10.5281/zenodo.24305436> <http://www.cidoc-crm.org/cidoc-crm/P102_has_title> "Lego Pyramid Maya (Reconstruction claude.ai)" .
 <https://doi.org/10.5281/zenodo.24305436> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> "Architecture" .
 <https://doi.org/10.5281/zenodo.24305436> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> "Claude" .
@@ -1828,7 +1946,7 @@
 <https://doi.org/10.5281/zenodo.24305436> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> "reconstruction" .
 <https://doi.org/10.5281/zenodo.24305436> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> <http://www.wikidata.org/entity/Q110840> .
 <https://doi.org/10.5281/zenodo.24305436> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> <http://www.wikidata.org/entity/Q229370> .
-<https://doi.org/10.5281/zenodo.24305436> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> _:nc0b06015fdb448178104142bfec958bbb2 .
+<https://doi.org/10.5281/zenodo.24305436> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> _:n5d65bbd81eab40eb870f67584fbe1d99b2 .
 <https://doi.org/10.5281/zenodo.24305436> <http://www.cidoc-crm.org/cidoc-crm/P3_has_note> "Idealised reconstruction of a stepped LEGO pyramid with four grey stair arms (seven levels) and a small temple with four corner pillars on top, a hobby build by Daria Stefan (TU Wien), rebuilt procedurally from clean LEGO bricks after a KIRI Engine scan. Only dimensions and structure were read from the scan; no scan mesh or texture was reused. AI disclosure: the reconstruction was generated with Claude (Anthropic, claude-sonnet-5-5) on behalf of Florian Thiery. It is an interpretation model, not a measurement." .
 <https://doi.org/10.5281/zenodo.24305436> <http://www.cidoc-crm.org/cidoc-crm/P3_has_note> "{\"ai_involvement\": \"Generated with Claude (Anthropic, claude-sonnet-5-5), session 2026-11-12 to 2026-11-17\", \"alignment\": \"Scan rotated by 16.25 degrees (sharpness histogram around the temple centre); grid and brick height derived from 4 million surface points (about 13 cells per stud)\", \"assumptions\": \"Seven levels after photo and builder statement (the scan suggests up to eight, the lowest probably merged with the table); pillar rotations 14, -12, 16, -9 degrees and block twist estimated by eye; stair arms on levels 6/7 symmetric in the model but not fully in the photo; scan ground plane not carried over\", \"bricks\": \"white 32x 2x4, 20x 2x2, 12x 1x1, 8 special 1x2/1x4; grey 70x 2x4, 9x 2x2\", \"colours_rgb\": \"white (245, 245, 241), grey (48, 50, 48)\", \"method\": \"Procedural rebuild from idealised bricks (script build_m3.py, version 4), not a cleaned scan mesh\", \"random_seed\": \"numpy.random.default_rng(5)\", \"reproducibility\": \"Re-running the script reproduces lego3.glb byte-identically with Python 3.13.18, numpy 2.5.3, trimesh 5.2.1, Pillow 12.3.0, scipy 1.18.1 (sha256 543a744f2ec29f9b65c12008cd01b3b2fe829ccf1eeef1bc74b40a27943eac8b)\", \"structure\": \"7 levels; four stair arms 4 studs wide reaching 9, 8, 7, 6, 5, 4, 3 studs from the centre; white corner areas 6x6 down to 2x2; temple of 4 layers with four white 1x1 corner pillars\"}" .
 <https://doi.org/10.5281/zenodo.24305436> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.cidoc-crm.org/cidoc-crm/E73_Information_Object> .
@@ -1894,7 +2012,7 @@
 <https://doi.org/10.5281/zenodo.24305436> <http://www.w3.org/ns/dcat#keyword> "maya" .
 <https://doi.org/10.5281/zenodo.24305436> <http://www.w3.org/ns/dcat#keyword> "pyramid" .
 <https://doi.org/10.5281/zenodo.24305436> <http://www.w3.org/ns/dcat#keyword> "reconstruction" .
-<https://doi.org/10.5281/zenodo.24305436> <http://www.w3.org/ns/dcat#qualifiedRelation> _:nc0b06015fdb448178104142bfec958bbb3 .
+<https://doi.org/10.5281/zenodo.24305436> <http://www.w3.org/ns/dcat#qualifiedRelation> _:n5d65bbd81eab40eb870f67584fbe1d99b3 .
 <https://doi.org/10.5281/zenodo.24305436> <http://www.w3.org/ns/prov#wasDerivedFrom> <https://doi.org/10.5281/zenodo.24305428> .
 <https://doi.org/10.5281/zenodo.24305436> <http://www.w3.org/ns/prov#wasDerivedFrom> <https://sketchfab.com/3d-models/lego-pyramid-maya-reconstruction-claudeai-fe33b10adee4421fa3a06cc12f7d6c62> .
 <https://doi.org/10.5281/zenodo.24305436> <http://www.w3.org/ns/prov#wasGeneratedBy> <urn:fdo-squirrel:activity/build> .
@@ -1975,7 +2093,7 @@
 <https://doi.org/10.5281/zenodo.24346313> <http://purl.org/dc/terms/subject> <http://www.wikidata.org/entity/Q141961820> .
 <https://doi.org/10.5281/zenodo.24346313> <http://purl.org/dc/terms/subject> <http://www.wikidata.org/entity/Q229370> .
 <https://doi.org/10.5281/zenodo.24346313> <http://purl.org/dc/terms/title> "The Govan Sarcophagus (Govan 1, Govan Stones)" .
-<https://doi.org/10.5281/zenodo.24346313> <http://purl.org/dc/terms/type> _:n7923cbea694941e2983e7edf693d0794b1 .
+<https://doi.org/10.5281/zenodo.24346313> <http://purl.org/dc/terms/type> _:nc324ba55942d40f4ae6c6bc647be7e08b1 .
 <https://doi.org/10.5281/zenodo.24346313> <http://www.cidoc-crm.org/cidoc-crm/P102_has_title> "The Govan Sarcophagus (Govan 1, Govan Stones)" .
 <https://doi.org/10.5281/zenodo.24346313> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> "Cultural Heritage & History" .
 <https://doi.org/10.5281/zenodo.24346313> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> "carved" .
@@ -1988,7 +2106,7 @@
 <https://doi.org/10.5281/zenodo.24346313> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> <http://www.wikidata.org/entity/Q13085> .
 <https://doi.org/10.5281/zenodo.24346313> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> <http://www.wikidata.org/entity/Q141961820> .
 <https://doi.org/10.5281/zenodo.24346313> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> <http://www.wikidata.org/entity/Q229370> .
-<https://doi.org/10.5281/zenodo.24346313> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> _:n7923cbea694941e2983e7edf693d0794b1 .
+<https://doi.org/10.5281/zenodo.24346313> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> _:nc324ba55942d40f4ae6c6bc647be7e08b1 .
 <https://doi.org/10.5281/zenodo.24346313> <http://www.cidoc-crm.org/cidoc-crm/P3_has_note> "3D model of the Govan Sarcophagus (Govan 1), the best-known of the Govan Stones and a rare monument type in early medieval Scotland before the 12th century. Carved from solid sandstone, it is decorated with a hunting scene, differently arranged interlaced beasts and six panels of interlace, some of which appear to be interlaced snakes. It was rediscovered in the churchyard of Govan Old Parish Church in the mid-1850s and is now displayed in the Govan Stones museum there; how its lid looked is not known. The model was recorded by structure-from-motion photogrammetry for Megan N. Kasten's PhD research on the Govan Stones (University of Glasgow, 2019) and was published on Sketchfab by the Govan Stones account under CC BY 4.0." .
 <https://doi.org/10.5281/zenodo.24346313> <http://www.cidoc-crm.org/cidoc-crm/P3_has_note> "Processed with Agisoft Metashape and edited in ZBrush, as stated in the Sketchfab description. Sketchfab upload: 881,976 faces, 445,343 vertices." .
 <https://doi.org/10.5281/zenodo.24346313> <http://www.opengis.net/ont/geosparql#hasGeometry> <https://doi.org/10.5281/zenodo.24346313_geom> .
@@ -2146,7 +2264,7 @@
 <https://doi.org/10.5281/zenodo.24346337> <http://purl.org/dc/terms/subject> <http://www.wikidata.org/entity/Q136659904> .
 <https://doi.org/10.5281/zenodo.24346337> <http://purl.org/dc/terms/subject> <http://www.wikidata.org/entity/Q229370> .
 <https://doi.org/10.5281/zenodo.24346337> <http://purl.org/dc/terms/title> "Govan 2 Hogback (Govan Stones)" .
-<https://doi.org/10.5281/zenodo.24346337> <http://purl.org/dc/terms/type> _:nbb8215c69018424ab509291cc6b5357ab1 .
+<https://doi.org/10.5281/zenodo.24346337> <http://purl.org/dc/terms/type> _:nc0d04e6a90204fd7aca19969ecdd8f63b1 .
 <https://doi.org/10.5281/zenodo.24346337> <http://www.cidoc-crm.org/cidoc-crm/P102_has_title> "Govan 2 Hogback (Govan Stones)" .
 <https://doi.org/10.5281/zenodo.24346337> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> "Cultural Heritage & History" .
 <https://doi.org/10.5281/zenodo.24346337> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> "carved" .
@@ -2159,7 +2277,7 @@
 <https://doi.org/10.5281/zenodo.24346337> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> <http://www.wikidata.org/entity/Q13085> .
 <https://doi.org/10.5281/zenodo.24346337> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> <http://www.wikidata.org/entity/Q136659904> .
 <https://doi.org/10.5281/zenodo.24346337> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> <http://www.wikidata.org/entity/Q229370> .
-<https://doi.org/10.5281/zenodo.24346337> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> _:nbb8215c69018424ab509291cc6b5357ab1 .
+<https://doi.org/10.5281/zenodo.24346337> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> _:nc0d04e6a90204fd7aca19969ecdd8f63b1 .
 <https://doi.org/10.5281/zenodo.24346337> <http://www.cidoc-crm.org/cidoc-crm/P3_has_note> "3D model of Govan 2 (Stirling Maxwell and ECMS numbering; Lang 1), one of the five hogback grave monuments of Govan Old Parish Church in Glasgow. At about two metres in length it is the smallest of the five and the best preserved, and it is dated to the early 10th century. Above two rows of tegulation (roof-shingle carving) the 3D analysis shows what appears to be a row of step pattern along the worn ridge. The model was recorded by structure-from-motion photogrammetry as part of Megan N. Kasten's PhD research on the Govan Stones (University of Glasgow, 2019) and was published on Sketchfab by the Govan Stones account under CC BY 4.0." .
 <https://doi.org/10.5281/zenodo.24346337> <http://www.cidoc-crm.org/cidoc-crm/P3_has_note> "Sketchfab upload: 236,352 faces, 119,779 vertices." .
 <https://doi.org/10.5281/zenodo.24346337> <http://www.opengis.net/ont/geosparql#hasGeometry> <https://doi.org/10.5281/zenodo.24346337_geom> .
@@ -2290,6 +2408,7 @@
 <https://doi.org/10.5281/zenodo.24346337_geom> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.ics.forth.gr/isl/CRMgeo/SP5_Geometric_Place_Expression> .
 <https://doi.org/10.5281/zenodo.24346337_geom> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.opengis.net/ont/sf#Point> .
 <https://github.com/LinkedOpenOgham/og-h-am/blob/main/XML/I-COR/I-COR-030.xml> <http://www.w3.org/2000/01/rdf-schema#label> "OG(H)AM entry I-COR-030" .
+<https://github.com/LinkedOpenOgham/og-h-am/blob/main/XML/I-KER/I-KER-136.xml> <http://www.w3.org/2000/01/rdf-schema#label> "OG(H)AM I-KER-136: Oileán an Teampaill | Church Island (EpiDoc)" .
 <https://github.com/LinkedOpenOgham/og-h-am/blob/main/XML/I-KIK/I-KIK-007.xml> <http://www.w3.org/2000/01/rdf-schema#label> "OG(H)AM I-KIK-007: Gabhrán | Gowran (EpiDoc)" .
 <https://orcid.org/0000-0002-3246-3531> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.cidoc-crm.org/cidoc-crm/E21_Person> .
 <https://orcid.org/0000-0002-3246-3531> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://schema.org/Person> .
@@ -2305,6 +2424,8 @@
 <https://orcid.org/0000-0003-4696-2101> <https://schema.org/name> "Schmidt, Sophie C." .
 <https://orcid.org/0009-0008-0586-9350> <http://www.w3.org/2000/01/rdf-schema#label> "Daria Stefan" .
 <https://sketchfab.com/3d-models/cork-ogham-stone-ciic-81-ucc-4-4cb26986be274ee099515c2baa3b1825> <http://www.w3.org/2000/01/rdf-schema#label> "Source: Cork: Ogham stone CIIC 81/ UCC 4" .
+<https://sketchfab.com/3d-models/cork-public-museum-chuis1-07d2bad6bbeb45d99fac246462af6eba> <http://www.w3.org/2000/01/rdf-schema#label> "Sketchfab" .
+<https://sketchfab.com/3d-models/cork-public-museum-chuis1-07d2bad6bbeb45d99fac246462af6eba> <http://www.w3.org/2000/01/rdf-schema#label> "Source: Cork Public Museum: CHUIS/1" .
 <https://sketchfab.com/3d-models/freshford-st-lachtains-well-low-poly-ae1e1f4daa7d433dbbf076407134e81e> <http://www.w3.org/2000/01/rdf-schema#label> "Source: Freshford: St Lachtain's Well (low poly)" .
 <https://sketchfab.com/3d-models/govan-2-b9dc56bfc1d342f6b4da3281e6629c07> <http://www.w3.org/2000/01/rdf-schema#label> "Source: Govan 2 (Sketchfab, GovanOldStones)" .
 <https://sketchfab.com/3d-models/gowran-ogham-stone-ffc2e644be634a19990cecb1ca857e42> <http://www.w3.org/2000/01/rdf-schema#label> "Source: Gowran: Ogham Stone" .
@@ -2363,7 +2484,6 @@
 <https://w3id.org/fdo-squirrel/registry/catalog> <http://www.w3.org/ns/dcat#record> <https://w3id.org/fdo-squirrel/registry/record/18369866> .
 <https://w3id.org/fdo-squirrel/registry/catalog> <http://www.w3.org/ns/dcat#record> <https://w3id.org/fdo-squirrel/registry/record/18732893> .
 <https://w3id.org/fdo-squirrel/registry/catalog> <http://www.w3.org/ns/dcat#record> <https://w3id.org/fdo-squirrel/registry/record/18742694> .
-<https://w3id.org/fdo-squirrel/registry/catalog> <http://www.w3.org/ns/dcat#record> <https://w3id.org/fdo-squirrel/registry/record/18744583> .
 <https://w3id.org/fdo-squirrel/registry/catalog> <http://www.w3.org/ns/dcat#record> <https://w3id.org/fdo-squirrel/registry/record/22676380> .
 <https://w3id.org/fdo-squirrel/registry/catalog> <http://www.w3.org/ns/dcat#record> <https://w3id.org/fdo-squirrel/registry/record/24285299> .
 <https://w3id.org/fdo-squirrel/registry/catalog> <http://www.w3.org/ns/dcat#record> <https://w3id.org/fdo-squirrel/registry/record/24287195> .
@@ -2373,6 +2493,7 @@
 <https://w3id.org/fdo-squirrel/registry/catalog> <http://www.w3.org/ns/dcat#record> <https://w3id.org/fdo-squirrel/registry/record/24310030> .
 <https://w3id.org/fdo-squirrel/registry/catalog> <http://www.w3.org/ns/dcat#record> <https://w3id.org/fdo-squirrel/registry/record/24346314> .
 <https://w3id.org/fdo-squirrel/registry/catalog> <http://www.w3.org/ns/dcat#record> <https://w3id.org/fdo-squirrel/registry/record/24346338> .
+<https://w3id.org/fdo-squirrel/registry/catalog> <http://www.w3.org/ns/dcat#record> <https://w3id.org/fdo-squirrel/registry/record/24347211> .
 <https://w3id.org/fdo-squirrel/registry/record/18369126/content/.github%252Fworkflows%252Fmain.yml> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:content/.github%2Fworkflows%2Fmain.yml" .
 <https://w3id.org/fdo-squirrel/registry/record/18369126/content/.gitignore> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:content/.gitignore" .
 <https://w3id.org/fdo-squirrel/registry/record/18369126/content/CITATION.cff> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:content/CITATION.cff" .
@@ -7678,128 +7799,6 @@
 <https://w3id.org/fdo-squirrel/registry/record/18742694> <https://w3id.org/fdo-squirrel/registry/sha256> "58dcdd847288754d030bb8ffc4a67b5ca0aefe0c57798c0390f6a061e142e223" .
 <https://w3id.org/fdo-squirrel/registry/record/18742694> <https://w3id.org/fdo-squirrel/registry/squirrelbaseItem> <https://squirrelbase.wikibase.cloud/entity/Q56> .
 <https://w3id.org/fdo-squirrel/registry/record/18742694> <https://w3id.org/fdo-squirrel/registry/versionDoi> <https://doi.org/10.5281/zenodo.18742694> .
-<https://w3id.org/fdo-squirrel/registry/record/18744583/content/CHUIS_1.jpg> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:content/CHUIS_1.jpg" .
-<https://w3id.org/fdo-squirrel/registry/record/18744583/content/CHUIS_1.nxs> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:content/CHUIS_1.nxs" .
-<https://w3id.org/fdo-squirrel/registry/record/18744583/content/CHUIS_1.nxz> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:content/CHUIS_1.nxz" .
-<https://w3id.org/fdo-squirrel/registry/record/18744583/content/CHUIS_1.ply> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:content/CHUIS_1.ply" .
-<https://w3id.org/fdo-squirrel/registry/record/18744583/content/CITATION.cff> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:content/CITATION.cff" .
-<https://w3id.org/fdo-squirrel/registry/record/18744583/content/MD.cff> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:content/MD.cff" .
-<https://w3id.org/fdo-squirrel/registry/record/18744583/content/cork_public_museum_chuis1.glb> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:content/cork_public_museum_chuis1.glb" .
-<https://w3id.org/fdo-squirrel/registry/record/18744583/content/fdo-metadata.ttl> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:content/fdo-metadata.ttl" .
-<https://w3id.org/fdo-squirrel/registry/record/18744583/content/rdf_modelling_report.html> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:content/rdf_modelling_report.html" .
-<https://w3id.org/fdo-squirrel/registry/record/18744583/content/rdf_modelling_report.json> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:content/rdf_modelling_report.json" .
-<https://w3id.org/fdo-squirrel/registry/record/18744583/dist/12e586334338f444> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:dist/12e586334338f444" .
-<https://w3id.org/fdo-squirrel/registry/record/18744583/dist/12e586334338f444> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> <https://w3id.org/fdo-squirrel/registry/role/model> .
-<https://w3id.org/fdo-squirrel/registry/record/18744583/dist/12e586334338f444> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.ics.forth.gr/isl/CRMdig/D9_Data_Object> .
-<https://w3id.org/fdo-squirrel/registry/record/18744583/dist/12e586334338f444> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/dcat#Distribution> .
-<https://w3id.org/fdo-squirrel/registry/record/18744583/dist/12e586334338f444> <http://www.w3.org/ns/dcat#accessURL> <https://w3id.org/fdo-squirrel/registry/record/18744583/content/cork_public_museum_chuis1.glb> .
-<https://w3id.org/fdo-squirrel/registry/record/18744583/dist/12e586334338f444> <http://www.w3.org/ns/dcat#byteSize> "56819948"^^<http://www.w3.org/2001/XMLSchema#integer> .
-<https://w3id.org/fdo-squirrel/registry/record/18744583/dist/12e586334338f444> <http://www.w3.org/ns/dcat#mediaType> "model/gltf-binary" .
-<https://w3id.org/fdo-squirrel/registry/record/18744583/dist/12e586334338f444> <https://w3id.org/fdo-squirrel/path> "cork_public_museum_chuis1.glb" .
-<https://w3id.org/fdo-squirrel/registry/record/18744583/dist/12e586334338f444> <https://w3id.org/fdo-squirrel/role> "model" .
-<https://w3id.org/fdo-squirrel/registry/record/18744583/dist/12e586334338f444> <https://w3id.org/fdo-squirrel/sha256> "12e586334338f44421d20d8bd5d2dbeabe61c0fbb7222560c552ba7e40602b61" .
-<https://w3id.org/fdo-squirrel/registry/record/18744583/dist/1c2b731eae72334c> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:dist/1c2b731eae72334c" .
-<https://w3id.org/fdo-squirrel/registry/record/18744583/dist/1c2b731eae72334c> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> <https://w3id.org/fdo-squirrel/registry/role/documentation> .
-<https://w3id.org/fdo-squirrel/registry/record/18744583/dist/1c2b731eae72334c> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.ics.forth.gr/isl/CRMdig/D9_Data_Object> .
-<https://w3id.org/fdo-squirrel/registry/record/18744583/dist/1c2b731eae72334c> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/dcat#Distribution> .
-<https://w3id.org/fdo-squirrel/registry/record/18744583/dist/1c2b731eae72334c> <http://www.w3.org/ns/dcat#accessURL> <https://w3id.org/fdo-squirrel/registry/record/18744583/content/rdf_modelling_report.json> .
-<https://w3id.org/fdo-squirrel/registry/record/18744583/dist/1c2b731eae72334c> <http://www.w3.org/ns/dcat#byteSize> "13587"^^<http://www.w3.org/2001/XMLSchema#integer> .
-<https://w3id.org/fdo-squirrel/registry/record/18744583/dist/1c2b731eae72334c> <http://www.w3.org/ns/dcat#mediaType> "application/json" .
-<https://w3id.org/fdo-squirrel/registry/record/18744583/dist/1c2b731eae72334c> <https://w3id.org/fdo-squirrel/path> "rdf_modelling_report.json" .
-<https://w3id.org/fdo-squirrel/registry/record/18744583/dist/1c2b731eae72334c> <https://w3id.org/fdo-squirrel/role> "documentation" .
-<https://w3id.org/fdo-squirrel/registry/record/18744583/dist/1c2b731eae72334c> <https://w3id.org/fdo-squirrel/sha256> "1c2b731eae72334cc8d5df8b1492b24880440646b1364ee5c6f6383c0dbe6efb" .
-<https://w3id.org/fdo-squirrel/registry/record/18744583/dist/1ffe5e794229db4f> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:dist/1ffe5e794229db4f" .
-<https://w3id.org/fdo-squirrel/registry/record/18744583/dist/1ffe5e794229db4f> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> <https://w3id.org/fdo-squirrel/registry/role/metadata> .
-<https://w3id.org/fdo-squirrel/registry/record/18744583/dist/1ffe5e794229db4f> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.ics.forth.gr/isl/CRMdig/D9_Data_Object> .
-<https://w3id.org/fdo-squirrel/registry/record/18744583/dist/1ffe5e794229db4f> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/dcat#Distribution> .
-<https://w3id.org/fdo-squirrel/registry/record/18744583/dist/1ffe5e794229db4f> <http://www.w3.org/ns/dcat#accessURL> <https://w3id.org/fdo-squirrel/registry/record/18744583/content/CITATION.cff> .
-<https://w3id.org/fdo-squirrel/registry/record/18744583/dist/1ffe5e794229db4f> <http://www.w3.org/ns/dcat#byteSize> "253"^^<http://www.w3.org/2001/XMLSchema#integer> .
-<https://w3id.org/fdo-squirrel/registry/record/18744583/dist/1ffe5e794229db4f> <http://www.w3.org/ns/dcat#mediaType> "text/yaml" .
-<https://w3id.org/fdo-squirrel/registry/record/18744583/dist/1ffe5e794229db4f> <https://w3id.org/fdo-squirrel/path> "CITATION.cff" .
-<https://w3id.org/fdo-squirrel/registry/record/18744583/dist/1ffe5e794229db4f> <https://w3id.org/fdo-squirrel/role> "metadata" .
-<https://w3id.org/fdo-squirrel/registry/record/18744583/dist/1ffe5e794229db4f> <https://w3id.org/fdo-squirrel/sha256> "1ffe5e794229db4fcdf67b9974a176d59c0d0001f8d1a5ea762c85a800fe17a9" .
-<https://w3id.org/fdo-squirrel/registry/record/18744583/dist/23b0e534f5a9b40f> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:dist/23b0e534f5a9b40f" .
-<https://w3id.org/fdo-squirrel/registry/record/18744583/dist/23b0e534f5a9b40f> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> <https://w3id.org/fdo-squirrel/registry/role/model> .
-<https://w3id.org/fdo-squirrel/registry/record/18744583/dist/23b0e534f5a9b40f> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.ics.forth.gr/isl/CRMdig/D9_Data_Object> .
-<https://w3id.org/fdo-squirrel/registry/record/18744583/dist/23b0e534f5a9b40f> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/dcat#Distribution> .
-<https://w3id.org/fdo-squirrel/registry/record/18744583/dist/23b0e534f5a9b40f> <http://www.w3.org/ns/dcat#accessURL> <https://w3id.org/fdo-squirrel/registry/record/18744583/content/CHUIS_1.ply> .
-<https://w3id.org/fdo-squirrel/registry/record/18744583/dist/23b0e534f5a9b40f> <http://www.w3.org/ns/dcat#byteSize> "95846610"^^<http://www.w3.org/2001/XMLSchema#integer> .
-<https://w3id.org/fdo-squirrel/registry/record/18744583/dist/23b0e534f5a9b40f> <http://www.w3.org/ns/dcat#mediaType> "application/octet-stream" .
-<https://w3id.org/fdo-squirrel/registry/record/18744583/dist/23b0e534f5a9b40f> <https://w3id.org/fdo-squirrel/path> "CHUIS_1.ply" .
-<https://w3id.org/fdo-squirrel/registry/record/18744583/dist/23b0e534f5a9b40f> <https://w3id.org/fdo-squirrel/role> "model" .
-<https://w3id.org/fdo-squirrel/registry/record/18744583/dist/23b0e534f5a9b40f> <https://w3id.org/fdo-squirrel/sha256> "23b0e534f5a9b40f21cfceeeda0a2008b0b601173a55a7507c3e386fd115bfa0" .
-<https://w3id.org/fdo-squirrel/registry/record/18744583/dist/6605246a5cff03ba> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:dist/6605246a5cff03ba" .
-<https://w3id.org/fdo-squirrel/registry/record/18744583/dist/6605246a5cff03ba> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> <https://w3id.org/fdo-squirrel/registry/role/data> .
-<https://w3id.org/fdo-squirrel/registry/record/18744583/dist/6605246a5cff03ba> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.ics.forth.gr/isl/CRMdig/D9_Data_Object> .
-<https://w3id.org/fdo-squirrel/registry/record/18744583/dist/6605246a5cff03ba> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/dcat#Distribution> .
-<https://w3id.org/fdo-squirrel/registry/record/18744583/dist/6605246a5cff03ba> <http://www.w3.org/ns/dcat#accessURL> <https://w3id.org/fdo-squirrel/registry/record/18744583/content/rdf_modelling_report.html> .
-<https://w3id.org/fdo-squirrel/registry/record/18744583/dist/6605246a5cff03ba> <http://www.w3.org/ns/dcat#byteSize> "16747"^^<http://www.w3.org/2001/XMLSchema#integer> .
-<https://w3id.org/fdo-squirrel/registry/record/18744583/dist/6605246a5cff03ba> <http://www.w3.org/ns/dcat#mediaType> "text/html" .
-<https://w3id.org/fdo-squirrel/registry/record/18744583/dist/6605246a5cff03ba> <https://w3id.org/fdo-squirrel/path> "rdf_modelling_report.html" .
-<https://w3id.org/fdo-squirrel/registry/record/18744583/dist/6605246a5cff03ba> <https://w3id.org/fdo-squirrel/role> "data" .
-<https://w3id.org/fdo-squirrel/registry/record/18744583/dist/6605246a5cff03ba> <https://w3id.org/fdo-squirrel/sha256> "6605246a5cff03bacd3045c913abec574f225e372bc3f660abc794b6f95687bd" .
-<https://w3id.org/fdo-squirrel/registry/record/18744583/dist/6acdb6353bc97f82> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:dist/6acdb6353bc97f82" .
-<https://w3id.org/fdo-squirrel/registry/record/18744583/dist/6acdb6353bc97f82> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> <https://w3id.org/fdo-squirrel/registry/role/metadata> .
-<https://w3id.org/fdo-squirrel/registry/record/18744583/dist/6acdb6353bc97f82> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.ics.forth.gr/isl/CRMdig/D9_Data_Object> .
-<https://w3id.org/fdo-squirrel/registry/record/18744583/dist/6acdb6353bc97f82> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/dcat#Distribution> .
-<https://w3id.org/fdo-squirrel/registry/record/18744583/dist/6acdb6353bc97f82> <http://www.w3.org/ns/dcat#accessURL> <https://w3id.org/fdo-squirrel/registry/record/18744583/content/MD.cff> .
-<https://w3id.org/fdo-squirrel/registry/record/18744583/dist/6acdb6353bc97f82> <http://www.w3.org/ns/dcat#byteSize> "2178"^^<http://www.w3.org/2001/XMLSchema#integer> .
-<https://w3id.org/fdo-squirrel/registry/record/18744583/dist/6acdb6353bc97f82> <http://www.w3.org/ns/dcat#mediaType> "text/yaml" .
-<https://w3id.org/fdo-squirrel/registry/record/18744583/dist/6acdb6353bc97f82> <https://w3id.org/fdo-squirrel/path> "MD.cff" .
-<https://w3id.org/fdo-squirrel/registry/record/18744583/dist/6acdb6353bc97f82> <https://w3id.org/fdo-squirrel/role> "metadata" .
-<https://w3id.org/fdo-squirrel/registry/record/18744583/dist/6acdb6353bc97f82> <https://w3id.org/fdo-squirrel/sha256> "6acdb6353bc97f8213f6da5eccddc6f0af9a7668332e99823e27c5a1994b6434" .
-<https://w3id.org/fdo-squirrel/registry/record/18744583/dist/a38bdba40d281c5f> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:dist/a38bdba40d281c5f" .
-<https://w3id.org/fdo-squirrel/registry/record/18744583/dist/a38bdba40d281c5f> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> <https://w3id.org/fdo-squirrel/registry/role/documentation> .
-<https://w3id.org/fdo-squirrel/registry/record/18744583/dist/a38bdba40d281c5f> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.ics.forth.gr/isl/CRMdig/D9_Data_Object> .
-<https://w3id.org/fdo-squirrel/registry/record/18744583/dist/a38bdba40d281c5f> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/dcat#Distribution> .
-<https://w3id.org/fdo-squirrel/registry/record/18744583/dist/a38bdba40d281c5f> <http://www.w3.org/ns/dcat#accessURL> <https://w3id.org/fdo-squirrel/registry/record/18744583/content/CHUIS_1.jpg> .
-<https://w3id.org/fdo-squirrel/registry/record/18744583/dist/a38bdba40d281c5f> <http://www.w3.org/ns/dcat#byteSize> "1453939"^^<http://www.w3.org/2001/XMLSchema#integer> .
-<https://w3id.org/fdo-squirrel/registry/record/18744583/dist/a38bdba40d281c5f> <http://www.w3.org/ns/dcat#mediaType> "image/jpeg" .
-<https://w3id.org/fdo-squirrel/registry/record/18744583/dist/a38bdba40d281c5f> <https://w3id.org/fdo-squirrel/path> "CHUIS_1.jpg" .
-<https://w3id.org/fdo-squirrel/registry/record/18744583/dist/a38bdba40d281c5f> <https://w3id.org/fdo-squirrel/role> "documentation" .
-<https://w3id.org/fdo-squirrel/registry/record/18744583/dist/a38bdba40d281c5f> <https://w3id.org/fdo-squirrel/sha256> "a38bdba40d281c5f0237a2f358ba32abe19863974d6fdc972d1bb0c1232d5155" .
-<https://w3id.org/fdo-squirrel/registry/record/18744583/dist/ad106454448bfc9b> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:dist/ad106454448bfc9b" .
-<https://w3id.org/fdo-squirrel/registry/record/18744583/dist/ad106454448bfc9b> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> <https://w3id.org/fdo-squirrel/registry/role/model> .
-<https://w3id.org/fdo-squirrel/registry/record/18744583/dist/ad106454448bfc9b> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.ics.forth.gr/isl/CRMdig/D9_Data_Object> .
-<https://w3id.org/fdo-squirrel/registry/record/18744583/dist/ad106454448bfc9b> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/dcat#Distribution> .
-<https://w3id.org/fdo-squirrel/registry/record/18744583/dist/ad106454448bfc9b> <http://www.w3.org/ns/dcat#accessURL> <https://w3id.org/fdo-squirrel/registry/record/18744583/content/CHUIS_1.nxs> .
-<https://w3id.org/fdo-squirrel/registry/record/18744583/dist/ad106454448bfc9b> <http://www.w3.org/ns/dcat#byteSize> "77169408"^^<http://www.w3.org/2001/XMLSchema#integer> .
-<https://w3id.org/fdo-squirrel/registry/record/18744583/dist/ad106454448bfc9b> <http://www.w3.org/ns/dcat#mediaType> "application/octet-stream" .
-<https://w3id.org/fdo-squirrel/registry/record/18744583/dist/ad106454448bfc9b> <https://w3id.org/fdo-squirrel/path> "CHUIS_1.nxs" .
-<https://w3id.org/fdo-squirrel/registry/record/18744583/dist/ad106454448bfc9b> <https://w3id.org/fdo-squirrel/role> "model" .
-<https://w3id.org/fdo-squirrel/registry/record/18744583/dist/ad106454448bfc9b> <https://w3id.org/fdo-squirrel/sha256> "ad106454448bfc9b3a31e4151c7d99b9f90eda0c50ce4f7d6cd193e7ceba314f" .
-<https://w3id.org/fdo-squirrel/registry/record/18744583/dist/e8b0736ae7265071> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:dist/e8b0736ae7265071" .
-<https://w3id.org/fdo-squirrel/registry/record/18744583/dist/e8b0736ae7265071> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> <https://w3id.org/fdo-squirrel/registry/role/model> .
-<https://w3id.org/fdo-squirrel/registry/record/18744583/dist/e8b0736ae7265071> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.ics.forth.gr/isl/CRMdig/D9_Data_Object> .
-<https://w3id.org/fdo-squirrel/registry/record/18744583/dist/e8b0736ae7265071> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/dcat#Distribution> .
-<https://w3id.org/fdo-squirrel/registry/record/18744583/dist/e8b0736ae7265071> <http://www.w3.org/ns/dcat#accessURL> <https://w3id.org/fdo-squirrel/registry/record/18744583/content/CHUIS_1.nxz> .
-<https://w3id.org/fdo-squirrel/registry/record/18744583/dist/e8b0736ae7265071> <http://www.w3.org/ns/dcat#byteSize> "18801920"^^<http://www.w3.org/2001/XMLSchema#integer> .
-<https://w3id.org/fdo-squirrel/registry/record/18744583/dist/e8b0736ae7265071> <http://www.w3.org/ns/dcat#mediaType> "application/octet-stream" .
-<https://w3id.org/fdo-squirrel/registry/record/18744583/dist/e8b0736ae7265071> <https://w3id.org/fdo-squirrel/path> "CHUIS_1.nxz" .
-<https://w3id.org/fdo-squirrel/registry/record/18744583/dist/e8b0736ae7265071> <https://w3id.org/fdo-squirrel/role> "model" .
-<https://w3id.org/fdo-squirrel/registry/record/18744583/dist/e8b0736ae7265071> <https://w3id.org/fdo-squirrel/sha256> "e8b0736ae7265071bfff4284129ab01a97aa1b473e603a62e395057a47f43857" .
-<https://w3id.org/fdo-squirrel/registry/record/18744583/dist/f54cceb345af74e3> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:dist/f54cceb345af74e3" .
-<https://w3id.org/fdo-squirrel/registry/record/18744583/dist/f54cceb345af74e3> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> <https://w3id.org/fdo-squirrel/registry/role/data> .
-<https://w3id.org/fdo-squirrel/registry/record/18744583/dist/f54cceb345af74e3> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.ics.forth.gr/isl/CRMdig/D9_Data_Object> .
-<https://w3id.org/fdo-squirrel/registry/record/18744583/dist/f54cceb345af74e3> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/dcat#Distribution> .
-<https://w3id.org/fdo-squirrel/registry/record/18744583/dist/f54cceb345af74e3> <http://www.w3.org/ns/dcat#accessURL> <https://w3id.org/fdo-squirrel/registry/record/18744583/content/fdo-metadata.ttl> .
-<https://w3id.org/fdo-squirrel/registry/record/18744583/dist/f54cceb345af74e3> <http://www.w3.org/ns/dcat#byteSize> "8318"^^<http://www.w3.org/2001/XMLSchema#integer> .
-<https://w3id.org/fdo-squirrel/registry/record/18744583/dist/f54cceb345af74e3> <http://www.w3.org/ns/dcat#mediaType> "application/octet-stream" .
-<https://w3id.org/fdo-squirrel/registry/record/18744583/dist/f54cceb345af74e3> <https://w3id.org/fdo-squirrel/path> "fdo-metadata.ttl" .
-<https://w3id.org/fdo-squirrel/registry/record/18744583/dist/f54cceb345af74e3> <https://w3id.org/fdo-squirrel/role> "data" .
-<https://w3id.org/fdo-squirrel/registry/record/18744583/dist/f54cceb345af74e3> <https://w3id.org/fdo-squirrel/sha256> "f54cceb345af74e3ec9e762d1655c552a00bf28832104232e0b1e903dd3c96ca" .
-<https://w3id.org/fdo-squirrel/registry/record/18744583> <http://purl.org/dc/terms/issued> "2026-02-23"^^<http://www.w3.org/2001/XMLSchema#date> .
-<https://w3id.org/fdo-squirrel/registry/record/18744583> <http://purl.org/dc/terms/source> <https://zenodo.org/records/18744583> .
-<https://w3id.org/fdo-squirrel/registry/record/18744583> <http://purl.org/dc/terms/title> "CHUIS/1 (FAIR Digital Object)"@en .
-<https://w3id.org/fdo-squirrel/registry/record/18744583> <http://www.cidoc-crm.org/cidoc-crm/P102_has_title> "CHUIS/1 (FAIR Digital Object)"@en .
-<https://w3id.org/fdo-squirrel/registry/record/18744583> <http://www.cidoc-crm.org/cidoc-crm/P70_documents> <https://doi.org/10.5281/zenodo.18369720> .
-<https://w3id.org/fdo-squirrel/registry/record/18744583> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.cidoc-crm.org/cidoc-crm/E31_Document> .
-<https://w3id.org/fdo-squirrel/registry/record/18744583> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/dcat#CatalogRecord> .
-<https://w3id.org/fdo-squirrel/registry/record/18744583> <http://www.w3.org/ns/prov#wasDerivedFrom> <https://zenodo.org/api/records/18744583/files/CHUIS_1.zip/content> .
-<https://w3id.org/fdo-squirrel/registry/record/18744583> <http://xmlns.com/foaf/0.1/primaryTopic> <https://doi.org/10.5281/zenodo.18369720> .
-<https://w3id.org/fdo-squirrel/registry/record/18744583> <https://w3id.org/fdo-squirrel/registry/conceptDoi> <https://doi.org/10.5281/zenodo.18369720> .
-<https://w3id.org/fdo-squirrel/registry/record/18744583> <https://w3id.org/fdo-squirrel/registry/sha256> "ead2cb115418b76f127221a94a85ab78ac0142438d8cc0b0ee4e97862ad80b1b" .
-<https://w3id.org/fdo-squirrel/registry/record/18744583> <https://w3id.org/fdo-squirrel/registry/versionDoi> <https://doi.org/10.5281/zenodo.18744583> .
 <https://w3id.org/fdo-squirrel/registry/record/22676380/content/CITATION.cff> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:content/CITATION.cff" .
 <https://w3id.org/fdo-squirrel/registry/record/22676380/content/FDOx.yaml> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:content/FDOx.yaml" .
 <https://w3id.org/fdo-squirrel/registry/record/22676380/content/MD.cff> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:content/MD.cff" .
@@ -12946,6 +12945,579 @@
 <https://w3id.org/fdo-squirrel/registry/record/24346338> <https://w3id.org/fdo-squirrel/registry/conceptDoi> <https://doi.org/10.5281/zenodo.24346337> .
 <https://w3id.org/fdo-squirrel/registry/record/24346338> <https://w3id.org/fdo-squirrel/registry/sha256> "bf4f4eb737797e8496ee6b5bac0e5be47c46337c82160a68df28bf12f1c3c836" .
 <https://w3id.org/fdo-squirrel/registry/record/24346338> <https://w3id.org/fdo-squirrel/registry/versionDoi> <https://doi.org/10.5281/zenodo.24346338> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/content/CITATION.cff> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:content/CITATION.cff" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/content/FDOx.yaml> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:content/FDOx.yaml" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/content/MD.cff> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:content/MD.cff" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/content/data/images/preview.png> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:content/data/images/preview.png" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/content/data/model/model.mtl> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:content/data/model/model.mtl" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/content/data/model/model.nxs> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:content/data/model/model.nxs" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/content/data/model/model.nxz> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:content/data/model/model.nxz" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/content/data/model/model.obj> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:content/data/model/model.obj" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/content/data/textures/material_0_baseColor.jpeg> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:content/data/textures/material_0_baseColor.jpeg" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/content/fdo-landing-page.html> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:content/fdo-landing-page.html" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/content/fdo-metadata.ttl> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:content/fdo-metadata.ttl" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/content/fdo_files_roles_graph.png> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:content/fdo_files_roles_graph.png" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/content/fdo_files_roles_graph.svg> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:content/fdo_files_roles_graph.svg" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/content/fdo_md_cff.png> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:content/fdo_md_cff.png" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/content/fdo_md_cff.svg> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:content/fdo_md_cff.svg" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/content/fdo_md_cff_graph.png> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:content/fdo_md_cff_graph.png" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/content/fdo_md_cff_graph.svg> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:content/fdo_md_cff_graph.svg" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/content/fdo_overview.mermaid> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:content/fdo_overview.mermaid" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/content/fdo_ttl_snippet_distributions.png> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:content/fdo_ttl_snippet_distributions.png" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/content/fdo_ttl_snippet_distributions.svg> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:content/fdo_ttl_snippet_distributions.svg" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/content/fdo_ttl_snippet_links.png> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:content/fdo_ttl_snippet_links.png" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/content/fdo_ttl_snippet_links.svg> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:content/fdo_ttl_snippet_links.svg" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/content/fdo_ttl_snippet_metadata.png> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:content/fdo_ttl_snippet_metadata.png" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/content/fdo_ttl_snippet_metadata.svg> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:content/fdo_ttl_snippet_metadata.svg" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/content/rdf_modelling_report.html> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:content/rdf_modelling_report.html" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/content/rdf_modelling_report.json> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:content/rdf_modelling_report.json" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/content/ro-crate-metadata.json> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:content/ro-crate-metadata.json" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/content/viewer/LICENSE.txt> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:content/viewer/LICENSE.txt" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/content/viewer/index.html> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:content/viewer/index.html" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/content/viewer/js/corto.em.js> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:content/viewer/js/corto.em.js" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/content/viewer/js/corto.js> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:content/viewer/js/corto.js" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/content/viewer/js/init.js> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:content/viewer/js/init.js" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/content/viewer/js/jquery.js> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:content/viewer/js/jquery.js" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/content/viewer/js/meco.js> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:content/viewer/js/meco.js" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/content/viewer/js/nexus.js> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:content/viewer/js/nexus.js" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/content/viewer/js/ply.js> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:content/viewer/js/ply.js" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/content/viewer/js/presenter.js> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:content/viewer/js/presenter.js" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/content/viewer/js/spidergl.js> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:content/viewer/js/spidergl.js" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/content/viewer/js/trackball_pantilt.js> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:content/viewer/js/trackball_pantilt.js" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/content/viewer/js/trackball_sphere.js> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:content/viewer/js/trackball_sphere.js" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/content/viewer/js/trackball_turntable.js> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:content/viewer/js/trackball_turntable.js" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/content/viewer/js/trackball_turntable_pan.js> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:content/viewer/js/trackball_turntable_pan.js" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/content/viewer/skins/backgrounds/light.jpg> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:content/viewer/skins/backgrounds/light.jpg" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/content/viewer/skins/dark/full.png> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:content/viewer/skins/dark/full.png" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/content/viewer/skins/dark/full_on.png> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:content/viewer/skins/dark/full_on.png" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/content/viewer/skins/dark/home.png> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:content/viewer/skins/dark/home.png" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/content/viewer/skins/dark/lightcontrol.png> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:content/viewer/skins/dark/lightcontrol.png" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/content/viewer/skins/dark/lightcontrol_on.png> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:content/viewer/skins/dark/lightcontrol_on.png" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/content/viewer/skins/dark/zoomin.png> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:content/viewer/skins/dark/zoomin.png" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/content/viewer/skins/dark/zoomout.png> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:content/viewer/skins/dark/zoomout.png" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/content/viewer/stylesheet/3dhop.css> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:content/viewer/stylesheet/3dhop.css" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/012d3ae0f6007283> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:dist/012d3ae0f6007283" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/012d3ae0f6007283> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> <https://w3id.org/fdo-squirrel/registry/role/auxiliary> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/012d3ae0f6007283> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.ics.forth.gr/isl/CRMdig/D9_Data_Object> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/012d3ae0f6007283> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/dcat#Distribution> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/012d3ae0f6007283> <http://www.w3.org/ns/dcat#accessURL> <https://w3id.org/fdo-squirrel/registry/record/24347211/content/viewer/js/meco.js> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/012d3ae0f6007283> <http://www.w3.org/ns/dcat#byteSize> "26193"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/012d3ae0f6007283> <http://www.w3.org/ns/dcat#mediaType> "application/javascript" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/012d3ae0f6007283> <https://w3id.org/fdo-squirrel/path> "viewer/js/meco.js" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/012d3ae0f6007283> <https://w3id.org/fdo-squirrel/role> "auxiliary" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/012d3ae0f6007283> <https://w3id.org/fdo-squirrel/sha256> "012d3ae0f600728308dd47552298d7dc9e38390c67cfc3c8a1ac2cd31ba09afc" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/033eee260ffa6687> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:dist/033eee260ffa6687" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/033eee260ffa6687> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> <https://w3id.org/fdo-squirrel/registry/role/data> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/033eee260ffa6687> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.ics.forth.gr/isl/CRMdig/D9_Data_Object> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/033eee260ffa6687> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/dcat#Distribution> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/033eee260ffa6687> <http://www.w3.org/ns/dcat#accessURL> <https://w3id.org/fdo-squirrel/registry/record/24347211/content/fdo-metadata.ttl> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/033eee260ffa6687> <http://www.w3.org/ns/dcat#byteSize> "27909"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/033eee260ffa6687> <http://www.w3.org/ns/dcat#mediaType> "application/octet-stream" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/033eee260ffa6687> <https://w3id.org/fdo-squirrel/path> "fdo-metadata.ttl" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/033eee260ffa6687> <https://w3id.org/fdo-squirrel/role> "data" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/033eee260ffa6687> <https://w3id.org/fdo-squirrel/sha256> "033eee260ffa6687021805afcdd67292777131056c98a8b9f7473d8a6d5ecf00" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/049ba8dd05d7af10> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:dist/049ba8dd05d7af10" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/049ba8dd05d7af10> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> <https://w3id.org/fdo-squirrel/registry/role/metadata> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/049ba8dd05d7af10> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.ics.forth.gr/isl/CRMdig/D9_Data_Object> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/049ba8dd05d7af10> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/dcat#Distribution> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/049ba8dd05d7af10> <http://www.w3.org/ns/dcat#accessURL> <https://w3id.org/fdo-squirrel/registry/record/24347211/content/MD.cff> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/049ba8dd05d7af10> <http://www.w3.org/ns/dcat#byteSize> "4500"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/049ba8dd05d7af10> <http://www.w3.org/ns/dcat#mediaType> "text/yaml" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/049ba8dd05d7af10> <https://w3id.org/fdo-squirrel/path> "MD.cff" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/049ba8dd05d7af10> <https://w3id.org/fdo-squirrel/role> "metadata" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/049ba8dd05d7af10> <https://w3id.org/fdo-squirrel/sha256> "049ba8dd05d7af100b8502af8bfc6a3dfa06f436c34ce433e44a90350850b14e" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/04b54942c91c510e> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:dist/04b54942c91c510e" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/04b54942c91c510e> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> <https://w3id.org/fdo-squirrel/registry/role/auxiliary> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/04b54942c91c510e> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.ics.forth.gr/isl/CRMdig/D9_Data_Object> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/04b54942c91c510e> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/dcat#Distribution> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/04b54942c91c510e> <http://www.w3.org/ns/dcat#accessURL> <https://w3id.org/fdo-squirrel/registry/record/24347211/content/viewer/js/corto.em.js> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/04b54942c91c510e> <http://www.w3.org/ns/dcat#byteSize> "119263"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/04b54942c91c510e> <http://www.w3.org/ns/dcat#mediaType> "application/javascript" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/04b54942c91c510e> <https://w3id.org/fdo-squirrel/path> "viewer/js/corto.em.js" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/04b54942c91c510e> <https://w3id.org/fdo-squirrel/role> "auxiliary" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/04b54942c91c510e> <https://w3id.org/fdo-squirrel/sha256> "04b54942c91c510e882664ebccea4797f778651ac752a96a215fb7f66219c87f" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/0730d2842d3a7ecc> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:dist/0730d2842d3a7ecc" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/0730d2842d3a7ecc> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> <https://w3id.org/fdo-squirrel/registry/role/documentation> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/0730d2842d3a7ecc> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.ics.forth.gr/isl/CRMdig/D9_Data_Object> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/0730d2842d3a7ecc> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/dcat#Distribution> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/0730d2842d3a7ecc> <http://www.w3.org/ns/dcat#accessURL> <https://w3id.org/fdo-squirrel/registry/record/24347211/content/fdo_md_cff.png> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/0730d2842d3a7ecc> <http://www.w3.org/ns/dcat#byteSize> "304541"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/0730d2842d3a7ecc> <http://www.w3.org/ns/dcat#mediaType> "image/png" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/0730d2842d3a7ecc> <https://w3id.org/fdo-squirrel/path> "fdo_md_cff.png" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/0730d2842d3a7ecc> <https://w3id.org/fdo-squirrel/role> "documentation" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/0730d2842d3a7ecc> <https://w3id.org/fdo-squirrel/sha256> "0730d2842d3a7eccac2fa6e60d8bc4df95883afd689b58af61bd623df0f4b345" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/0abde8640bd45ea5> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:dist/0abde8640bd45ea5" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/0abde8640bd45ea5> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> <https://w3id.org/fdo-squirrel/registry/role/documentation> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/0abde8640bd45ea5> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.ics.forth.gr/isl/CRMdig/D9_Data_Object> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/0abde8640bd45ea5> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/dcat#Distribution> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/0abde8640bd45ea5> <http://www.w3.org/ns/dcat#accessURL> <https://w3id.org/fdo-squirrel/registry/record/24347211/content/fdo_ttl_snippet_links.png> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/0abde8640bd45ea5> <http://www.w3.org/ns/dcat#byteSize> "174973"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/0abde8640bd45ea5> <http://www.w3.org/ns/dcat#mediaType> "image/png" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/0abde8640bd45ea5> <https://w3id.org/fdo-squirrel/path> "fdo_ttl_snippet_links.png" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/0abde8640bd45ea5> <https://w3id.org/fdo-squirrel/role> "documentation" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/0abde8640bd45ea5> <https://w3id.org/fdo-squirrel/sha256> "0abde8640bd45ea512c69a8cbd65d8cd2e66e91bea826e5ea5d2604efd17a43f" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/0b383d5a63da644f> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:dist/0b383d5a63da644f" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/0b383d5a63da644f> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> <https://w3id.org/fdo-squirrel/registry/role/auxiliary> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/0b383d5a63da644f> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.ics.forth.gr/isl/CRMdig/D9_Data_Object> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/0b383d5a63da644f> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/dcat#Distribution> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/0b383d5a63da644f> <http://www.w3.org/ns/dcat#accessURL> <https://w3id.org/fdo-squirrel/registry/record/24347211/content/viewer/LICENSE.txt> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/0b383d5a63da644f> <http://www.w3.org/ns/dcat#byteSize> "35821"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/0b383d5a63da644f> <http://www.w3.org/ns/dcat#mediaType> "text/plain" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/0b383d5a63da644f> <https://w3id.org/fdo-squirrel/path> "viewer/LICENSE.txt" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/0b383d5a63da644f> <https://w3id.org/fdo-squirrel/role> "auxiliary" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/0b383d5a63da644f> <https://w3id.org/fdo-squirrel/sha256> "0b383d5a63da644f628d99c33976ea6487ed89aaa59f0b3257992deac1171e6b" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/0e4d58088180effe> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:dist/0e4d58088180effe" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/0e4d58088180effe> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> <https://w3id.org/fdo-squirrel/registry/role/auxiliary> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/0e4d58088180effe> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.ics.forth.gr/isl/CRMdig/D9_Data_Object> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/0e4d58088180effe> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/dcat#Distribution> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/0e4d58088180effe> <http://www.w3.org/ns/dcat#accessURL> <https://w3id.org/fdo-squirrel/registry/record/24347211/content/viewer/skins/dark/full.png> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/0e4d58088180effe> <http://www.w3.org/ns/dcat#byteSize> "1272"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/0e4d58088180effe> <http://www.w3.org/ns/dcat#mediaType> "image/png" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/0e4d58088180effe> <https://w3id.org/fdo-squirrel/path> "viewer/skins/dark/full.png" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/0e4d58088180effe> <https://w3id.org/fdo-squirrel/role> "auxiliary" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/0e4d58088180effe> <https://w3id.org/fdo-squirrel/sha256> "0e4d58088180effe13afcb4583bc938ecdbd6f738330c7a6734e9df2e534ab1a" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/0e623d3c26743f35> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:dist/0e623d3c26743f35" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/0e623d3c26743f35> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> <https://w3id.org/fdo-squirrel/registry/role/auxiliary> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/0e623d3c26743f35> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.ics.forth.gr/isl/CRMdig/D9_Data_Object> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/0e623d3c26743f35> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/dcat#Distribution> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/0e623d3c26743f35> <http://www.w3.org/ns/dcat#accessURL> <https://w3id.org/fdo-squirrel/registry/record/24347211/content/viewer/js/corto.js> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/0e623d3c26743f35> <http://www.w3.org/ns/dcat#byteSize> "27809"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/0e623d3c26743f35> <http://www.w3.org/ns/dcat#mediaType> "application/javascript" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/0e623d3c26743f35> <https://w3id.org/fdo-squirrel/path> "viewer/js/corto.js" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/0e623d3c26743f35> <https://w3id.org/fdo-squirrel/role> "auxiliary" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/0e623d3c26743f35> <https://w3id.org/fdo-squirrel/sha256> "0e623d3c26743f35eb18415378674c75c60928cf8c1ef3a7910d5bc115b72447" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/0f7632f30b45ca4c> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:dist/0f7632f30b45ca4c" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/0f7632f30b45ca4c> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> <https://w3id.org/fdo-squirrel/registry/role/data> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/0f7632f30b45ca4c> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.ics.forth.gr/isl/CRMdig/D9_Data_Object> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/0f7632f30b45ca4c> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/dcat#Distribution> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/0f7632f30b45ca4c> <http://www.w3.org/ns/dcat#accessURL> <https://w3id.org/fdo-squirrel/registry/record/24347211/content/fdo_ttl_snippet_distributions.svg> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/0f7632f30b45ca4c> <http://www.w3.org/ns/dcat#byteSize> "5759"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/0f7632f30b45ca4c> <http://www.w3.org/ns/dcat#mediaType> "image/svg+xml" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/0f7632f30b45ca4c> <https://w3id.org/fdo-squirrel/path> "fdo_ttl_snippet_distributions.svg" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/0f7632f30b45ca4c> <https://w3id.org/fdo-squirrel/role> "data" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/0f7632f30b45ca4c> <https://w3id.org/fdo-squirrel/sha256> "0f7632f30b45ca4cbcc2e48d4f547a07e30e0a9a62fb99cafcbe3c8faa0f10ee" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/19e9b476784e9e2f> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:dist/19e9b476784e9e2f" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/19e9b476784e9e2f> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> <https://w3id.org/fdo-squirrel/registry/role/data> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/19e9b476784e9e2f> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.ics.forth.gr/isl/CRMdig/D9_Data_Object> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/19e9b476784e9e2f> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/dcat#Distribution> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/19e9b476784e9e2f> <http://www.w3.org/ns/dcat#accessURL> <https://w3id.org/fdo-squirrel/registry/record/24347211/content/FDOx.yaml> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/19e9b476784e9e2f> <http://www.w3.org/ns/dcat#byteSize> "794"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/19e9b476784e9e2f> <http://www.w3.org/ns/dcat#mediaType> "text/yaml" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/19e9b476784e9e2f> <https://w3id.org/fdo-squirrel/path> "FDOx.yaml" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/19e9b476784e9e2f> <https://w3id.org/fdo-squirrel/role> "data" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/19e9b476784e9e2f> <https://w3id.org/fdo-squirrel/sha256> "19e9b476784e9e2f1ca9ba5c2f05e7d51f9ef7000e2020cb4318d4816859ed51" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/1a8195ca9d0812e7> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:dist/1a8195ca9d0812e7" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/1a8195ca9d0812e7> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> <https://w3id.org/fdo-squirrel/registry/role/auxiliary> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/1a8195ca9d0812e7> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.ics.forth.gr/isl/CRMdig/D9_Data_Object> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/1a8195ca9d0812e7> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/dcat#Distribution> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/1a8195ca9d0812e7> <http://www.w3.org/ns/dcat#accessURL> <https://w3id.org/fdo-squirrel/registry/record/24347211/content/viewer/skins/backgrounds/light.jpg> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/1a8195ca9d0812e7> <http://www.w3.org/ns/dcat#byteSize> "142700"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/1a8195ca9d0812e7> <http://www.w3.org/ns/dcat#mediaType> "image/jpeg" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/1a8195ca9d0812e7> <https://w3id.org/fdo-squirrel/path> "viewer/skins/backgrounds/light.jpg" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/1a8195ca9d0812e7> <https://w3id.org/fdo-squirrel/role> "auxiliary" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/1a8195ca9d0812e7> <https://w3id.org/fdo-squirrel/sha256> "1a8195ca9d0812e7aa881cb9730d4c34a50eb58ac13a3de12b6c3fc4dedc0c4d" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/1e534896dc1a69f4> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:dist/1e534896dc1a69f4" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/1e534896dc1a69f4> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> <https://w3id.org/fdo-squirrel/registry/role/model> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/1e534896dc1a69f4> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.ics.forth.gr/isl/CRMdig/D9_Data_Object> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/1e534896dc1a69f4> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/dcat#Distribution> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/1e534896dc1a69f4> <http://www.w3.org/ns/dcat#accessURL> <https://w3id.org/fdo-squirrel/registry/record/24347211/content/data/model/model.nxz> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/1e534896dc1a69f4> <http://www.w3.org/ns/dcat#byteSize> "19075072"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/1e534896dc1a69f4> <http://www.w3.org/ns/dcat#mediaType> "application/octet-stream" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/1e534896dc1a69f4> <https://w3id.org/fdo-squirrel/path> "data/model/model.nxz" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/1e534896dc1a69f4> <https://w3id.org/fdo-squirrel/role> "model" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/1e534896dc1a69f4> <https://w3id.org/fdo-squirrel/sha256> "1e534896dc1a69f4d739c4a346ca2ef7645d3c4668fdf09e45b37439e13058f1" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/2486a56f5cdf2701> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:dist/2486a56f5cdf2701" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/2486a56f5cdf2701> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> <https://w3id.org/fdo-squirrel/registry/role/documentation> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/2486a56f5cdf2701> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.ics.forth.gr/isl/CRMdig/D9_Data_Object> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/2486a56f5cdf2701> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/dcat#Distribution> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/2486a56f5cdf2701> <http://www.w3.org/ns/dcat#accessURL> <https://w3id.org/fdo-squirrel/registry/record/24347211/content/fdo_md_cff_graph.png> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/2486a56f5cdf2701> <http://www.w3.org/ns/dcat#byteSize> "256825"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/2486a56f5cdf2701> <http://www.w3.org/ns/dcat#mediaType> "image/png" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/2486a56f5cdf2701> <https://w3id.org/fdo-squirrel/path> "fdo_md_cff_graph.png" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/2486a56f5cdf2701> <https://w3id.org/fdo-squirrel/role> "documentation" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/2486a56f5cdf2701> <https://w3id.org/fdo-squirrel/sha256> "2486a56f5cdf27014b64a06f4c9dc4e768ac17d28997fd1883930deb3eb20e2f" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/25108ed495e10582> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:dist/25108ed495e10582" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/25108ed495e10582> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> <https://w3id.org/fdo-squirrel/registry/role/auxiliary> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/25108ed495e10582> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.ics.forth.gr/isl/CRMdig/D9_Data_Object> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/25108ed495e10582> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/dcat#Distribution> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/25108ed495e10582> <http://www.w3.org/ns/dcat#accessURL> <https://w3id.org/fdo-squirrel/registry/record/24347211/content/viewer/skins/dark/zoomin.png> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/25108ed495e10582> <http://www.w3.org/ns/dcat#byteSize> "3354"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/25108ed495e10582> <http://www.w3.org/ns/dcat#mediaType> "image/png" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/25108ed495e10582> <https://w3id.org/fdo-squirrel/path> "viewer/skins/dark/zoomin.png" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/25108ed495e10582> <https://w3id.org/fdo-squirrel/role> "auxiliary" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/25108ed495e10582> <https://w3id.org/fdo-squirrel/sha256> "25108ed495e1058238580d64f8704fac3c8c43a1480a2a713c0efd0c471f7eda" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/2ad4f592d31cf358> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:dist/2ad4f592d31cf358" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/2ad4f592d31cf358> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> <https://w3id.org/fdo-squirrel/registry/role/auxiliary> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/2ad4f592d31cf358> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.ics.forth.gr/isl/CRMdig/D9_Data_Object> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/2ad4f592d31cf358> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/dcat#Distribution> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/2ad4f592d31cf358> <http://www.w3.org/ns/dcat#accessURL> <https://w3id.org/fdo-squirrel/registry/record/24347211/content/viewer/skins/dark/lightcontrol.png> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/2ad4f592d31cf358> <http://www.w3.org/ns/dcat#byteSize> "3342"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/2ad4f592d31cf358> <http://www.w3.org/ns/dcat#mediaType> "image/png" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/2ad4f592d31cf358> <https://w3id.org/fdo-squirrel/path> "viewer/skins/dark/lightcontrol.png" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/2ad4f592d31cf358> <https://w3id.org/fdo-squirrel/role> "auxiliary" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/2ad4f592d31cf358> <https://w3id.org/fdo-squirrel/sha256> "2ad4f592d31cf35838405ea47413111ea1d2307f7e155d32744a714f2e304488" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/3a8e58f6f9d4a6b7> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:dist/3a8e58f6f9d4a6b7" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/3a8e58f6f9d4a6b7> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> <https://w3id.org/fdo-squirrel/registry/role/data> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/3a8e58f6f9d4a6b7> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.ics.forth.gr/isl/CRMdig/D9_Data_Object> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/3a8e58f6f9d4a6b7> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/dcat#Distribution> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/3a8e58f6f9d4a6b7> <http://www.w3.org/ns/dcat#accessURL> <https://w3id.org/fdo-squirrel/registry/record/24347211/content/fdo_md_cff_graph.svg> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/3a8e58f6f9d4a6b7> <http://www.w3.org/ns/dcat#byteSize> "18365"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/3a8e58f6f9d4a6b7> <http://www.w3.org/ns/dcat#mediaType> "image/svg+xml" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/3a8e58f6f9d4a6b7> <https://w3id.org/fdo-squirrel/path> "fdo_md_cff_graph.svg" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/3a8e58f6f9d4a6b7> <https://w3id.org/fdo-squirrel/role> "data" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/3a8e58f6f9d4a6b7> <https://w3id.org/fdo-squirrel/sha256> "3a8e58f6f9d4a6b79c1a316413c1b68b41866b132b6f119899770e6bd1a08f62" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/3b2a44995e927286> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:dist/3b2a44995e927286" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/3b2a44995e927286> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> <https://w3id.org/fdo-squirrel/registry/role/auxiliary> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/3b2a44995e927286> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.ics.forth.gr/isl/CRMdig/D9_Data_Object> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/3b2a44995e927286> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/dcat#Distribution> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/3b2a44995e927286> <http://www.w3.org/ns/dcat#accessURL> <https://w3id.org/fdo-squirrel/registry/record/24347211/content/viewer/skins/dark/full_on.png> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/3b2a44995e927286> <http://www.w3.org/ns/dcat#byteSize> "1272"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/3b2a44995e927286> <http://www.w3.org/ns/dcat#mediaType> "image/png" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/3b2a44995e927286> <https://w3id.org/fdo-squirrel/path> "viewer/skins/dark/full_on.png" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/3b2a44995e927286> <https://w3id.org/fdo-squirrel/role> "auxiliary" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/3b2a44995e927286> <https://w3id.org/fdo-squirrel/sha256> "3b2a44995e9272862c6b9e192f366b73cbf848b7e247bcb477cb3aa6edc9d73e" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/47c8bb7869e50b36> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:dist/47c8bb7869e50b36" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/47c8bb7869e50b36> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> <https://w3id.org/fdo-squirrel/registry/role/documentation> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/47c8bb7869e50b36> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.ics.forth.gr/isl/CRMdig/D9_Data_Object> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/47c8bb7869e50b36> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/dcat#Distribution> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/47c8bb7869e50b36> <http://www.w3.org/ns/dcat#accessURL> <https://w3id.org/fdo-squirrel/registry/record/24347211/content/ro-crate-metadata.json> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/47c8bb7869e50b36> <http://www.w3.org/ns/dcat#byteSize> "25517"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/47c8bb7869e50b36> <http://www.w3.org/ns/dcat#mediaType> "application/json" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/47c8bb7869e50b36> <https://w3id.org/fdo-squirrel/path> "ro-crate-metadata.json" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/47c8bb7869e50b36> <https://w3id.org/fdo-squirrel/role> "documentation" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/47c8bb7869e50b36> <https://w3id.org/fdo-squirrel/sha256> "47c8bb7869e50b36ebc0676c8031a378ac96d5b9237688adef7660f8cf58404c" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/4c07b76ca8561f85> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:dist/4c07b76ca8561f85" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/4c07b76ca8561f85> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> <https://w3id.org/fdo-squirrel/registry/role/documentation> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/4c07b76ca8561f85> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.ics.forth.gr/isl/CRMdig/D9_Data_Object> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/4c07b76ca8561f85> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/dcat#Distribution> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/4c07b76ca8561f85> <http://www.w3.org/ns/dcat#accessURL> <https://w3id.org/fdo-squirrel/registry/record/24347211/content/data/images/preview.png> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/4c07b76ca8561f85> <http://www.w3.org/ns/dcat#byteSize> "1752736"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/4c07b76ca8561f85> <http://www.w3.org/ns/dcat#mediaType> "image/png" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/4c07b76ca8561f85> <https://w3id.org/fdo-squirrel/path> "data/images/preview.png" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/4c07b76ca8561f85> <https://w3id.org/fdo-squirrel/role> "documentation" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/4c07b76ca8561f85> <https://w3id.org/fdo-squirrel/sha256> "4c07b76ca8561f857d853c7b122340999d7d0c48110b4d0ed8ee37d6864cf261" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/4ceb643e8b6d7cd2> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:dist/4ceb643e8b6d7cd2" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/4ceb643e8b6d7cd2> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> <https://w3id.org/fdo-squirrel/registry/role/auxiliary> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/4ceb643e8b6d7cd2> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.ics.forth.gr/isl/CRMdig/D9_Data_Object> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/4ceb643e8b6d7cd2> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/dcat#Distribution> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/4ceb643e8b6d7cd2> <http://www.w3.org/ns/dcat#accessURL> <https://w3id.org/fdo-squirrel/registry/record/24347211/content/viewer/js/nexus.js> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/4ceb643e8b6d7cd2> <http://www.w3.org/ns/dcat#byteSize> "38388"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/4ceb643e8b6d7cd2> <http://www.w3.org/ns/dcat#mediaType> "application/javascript" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/4ceb643e8b6d7cd2> <https://w3id.org/fdo-squirrel/path> "viewer/js/nexus.js" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/4ceb643e8b6d7cd2> <https://w3id.org/fdo-squirrel/role> "auxiliary" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/4ceb643e8b6d7cd2> <https://w3id.org/fdo-squirrel/sha256> "4ceb643e8b6d7cd26bce53419bc6a781674c4a714f22525716e9e2b6e4469c83" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/50e62db9b10cc50c> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:dist/50e62db9b10cc50c" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/50e62db9b10cc50c> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> <https://w3id.org/fdo-squirrel/registry/role/auxiliary> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/50e62db9b10cc50c> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.ics.forth.gr/isl/CRMdig/D9_Data_Object> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/50e62db9b10cc50c> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/dcat#Distribution> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/50e62db9b10cc50c> <http://www.w3.org/ns/dcat#accessURL> <https://w3id.org/fdo-squirrel/registry/record/24347211/content/viewer/js/trackball_turntable.js> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/50e62db9b10cc50c> <http://www.w3.org/ns/dcat#byteSize> "10700"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/50e62db9b10cc50c> <http://www.w3.org/ns/dcat#mediaType> "application/javascript" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/50e62db9b10cc50c> <https://w3id.org/fdo-squirrel/path> "viewer/js/trackball_turntable.js" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/50e62db9b10cc50c> <https://w3id.org/fdo-squirrel/role> "auxiliary" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/50e62db9b10cc50c> <https://w3id.org/fdo-squirrel/sha256> "50e62db9b10cc50c669e74ad26e92d9f7623ccfa6dcbed30d2aaca9f92f78b3e" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/52e35f35acffc59d> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:dist/52e35f35acffc59d" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/52e35f35acffc59d> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> <https://w3id.org/fdo-squirrel/registry/role/model> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/52e35f35acffc59d> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.ics.forth.gr/isl/CRMdig/D9_Data_Object> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/52e35f35acffc59d> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/dcat#Distribution> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/52e35f35acffc59d> <http://www.w3.org/ns/dcat#accessURL> <https://w3id.org/fdo-squirrel/registry/record/24347211/content/data/model/model.obj> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/52e35f35acffc59d> <http://www.w3.org/ns/dcat#byteSize> "185878396"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/52e35f35acffc59d> <http://www.w3.org/ns/dcat#mediaType> "model/obj" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/52e35f35acffc59d> <https://w3id.org/fdo-squirrel/path> "data/model/model.obj" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/52e35f35acffc59d> <https://w3id.org/fdo-squirrel/role> "model" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/52e35f35acffc59d> <https://w3id.org/fdo-squirrel/sha256> "52e35f35acffc59dc9233081557bebcb4a9afadec0b4971fbaf35076eabcdf4e" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/536c5576e2ee7561> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:dist/536c5576e2ee7561" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/536c5576e2ee7561> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> <https://w3id.org/fdo-squirrel/registry/role/auxiliary> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/536c5576e2ee7561> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.ics.forth.gr/isl/CRMdig/D9_Data_Object> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/536c5576e2ee7561> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/dcat#Distribution> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/536c5576e2ee7561> <http://www.w3.org/ns/dcat#accessURL> <https://w3id.org/fdo-squirrel/registry/record/24347211/content/viewer/skins/dark/home.png> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/536c5576e2ee7561> <http://www.w3.org/ns/dcat#byteSize> "1807"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/536c5576e2ee7561> <http://www.w3.org/ns/dcat#mediaType> "image/png" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/536c5576e2ee7561> <https://w3id.org/fdo-squirrel/path> "viewer/skins/dark/home.png" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/536c5576e2ee7561> <https://w3id.org/fdo-squirrel/role> "auxiliary" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/536c5576e2ee7561> <https://w3id.org/fdo-squirrel/sha256> "536c5576e2ee7561bc75845b511ef82ba69f801edb3c11b8154580f2695d4042" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/56529b7ccd9d68ef> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:dist/56529b7ccd9d68ef" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/56529b7ccd9d68ef> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> <https://w3id.org/fdo-squirrel/registry/role/data> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/56529b7ccd9d68ef> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.ics.forth.gr/isl/CRMdig/D9_Data_Object> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/56529b7ccd9d68ef> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/dcat#Distribution> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/56529b7ccd9d68ef> <http://www.w3.org/ns/dcat#accessURL> <https://w3id.org/fdo-squirrel/registry/record/24347211/content/fdo_files_roles_graph.svg> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/56529b7ccd9d68ef> <http://www.w3.org/ns/dcat#byteSize> "4817"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/56529b7ccd9d68ef> <http://www.w3.org/ns/dcat#mediaType> "image/svg+xml" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/56529b7ccd9d68ef> <https://w3id.org/fdo-squirrel/path> "fdo_files_roles_graph.svg" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/56529b7ccd9d68ef> <https://w3id.org/fdo-squirrel/role> "data" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/56529b7ccd9d68ef> <https://w3id.org/fdo-squirrel/sha256> "56529b7ccd9d68ef1377ea9dac6337acfcc8c2b1c1793006f37fb07439742cea" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/5782d58d11437c0f> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:dist/5782d58d11437c0f" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/5782d58d11437c0f> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> <https://w3id.org/fdo-squirrel/registry/role/auxiliary> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/5782d58d11437c0f> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.ics.forth.gr/isl/CRMdig/D9_Data_Object> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/5782d58d11437c0f> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/dcat#Distribution> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/5782d58d11437c0f> <http://www.w3.org/ns/dcat#accessURL> <https://w3id.org/fdo-squirrel/registry/record/24347211/content/viewer/index.html> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/5782d58d11437c0f> <http://www.w3.org/ns/dcat#byteSize> "3017"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/5782d58d11437c0f> <http://www.w3.org/ns/dcat#mediaType> "text/html" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/5782d58d11437c0f> <https://w3id.org/fdo-squirrel/path> "viewer/index.html" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/5782d58d11437c0f> <https://w3id.org/fdo-squirrel/role> "auxiliary" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/5782d58d11437c0f> <https://w3id.org/fdo-squirrel/sha256> "5782d58d11437c0f31e0b4b83f2daa9fc21b6875399abb37db6e5d84f417795b" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/5d6b3e92f8931140> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:dist/5d6b3e92f8931140" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/5d6b3e92f8931140> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> <https://w3id.org/fdo-squirrel/registry/role/data> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/5d6b3e92f8931140> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.ics.forth.gr/isl/CRMdig/D9_Data_Object> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/5d6b3e92f8931140> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/dcat#Distribution> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/5d6b3e92f8931140> <http://www.w3.org/ns/dcat#accessURL> <https://w3id.org/fdo-squirrel/registry/record/24347211/content/fdo-landing-page.html> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/5d6b3e92f8931140> <http://www.w3.org/ns/dcat#byteSize> "9443"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/5d6b3e92f8931140> <http://www.w3.org/ns/dcat#mediaType> "text/html" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/5d6b3e92f8931140> <https://w3id.org/fdo-squirrel/path> "fdo-landing-page.html" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/5d6b3e92f8931140> <https://w3id.org/fdo-squirrel/role> "data" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/5d6b3e92f8931140> <https://w3id.org/fdo-squirrel/sha256> "5d6b3e92f893114090878d001ef5a6677800ca1c17998420fea43e5e45e73673" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/5ed91bb5c3d8a4b1> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:dist/5ed91bb5c3d8a4b1" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/5ed91bb5c3d8a4b1> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> <https://w3id.org/fdo-squirrel/registry/role/auxiliary> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/5ed91bb5c3d8a4b1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.ics.forth.gr/isl/CRMdig/D9_Data_Object> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/5ed91bb5c3d8a4b1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/dcat#Distribution> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/5ed91bb5c3d8a4b1> <http://www.w3.org/ns/dcat#accessURL> <https://w3id.org/fdo-squirrel/registry/record/24347211/content/viewer/js/trackball_sphere.js> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/5ed91bb5c3d8a4b1> <http://www.w3.org/ns/dcat#byteSize> "6252"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/5ed91bb5c3d8a4b1> <http://www.w3.org/ns/dcat#mediaType> "application/javascript" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/5ed91bb5c3d8a4b1> <https://w3id.org/fdo-squirrel/path> "viewer/js/trackball_sphere.js" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/5ed91bb5c3d8a4b1> <https://w3id.org/fdo-squirrel/role> "auxiliary" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/5ed91bb5c3d8a4b1> <https://w3id.org/fdo-squirrel/sha256> "5ed91bb5c3d8a4b1e19631014d4250f82a0ff045bd10765360c024219944a667" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/6132a60724847178> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:dist/6132a60724847178" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/6132a60724847178> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> <https://w3id.org/fdo-squirrel/registry/role/auxiliary> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/6132a60724847178> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.ics.forth.gr/isl/CRMdig/D9_Data_Object> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/6132a60724847178> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/dcat#Distribution> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/6132a60724847178> <http://www.w3.org/ns/dcat#accessURL> <https://w3id.org/fdo-squirrel/registry/record/24347211/content/viewer/js/init.js> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/6132a60724847178> <http://www.w3.org/ns/dcat#byteSize> "21598"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/6132a60724847178> <http://www.w3.org/ns/dcat#mediaType> "application/javascript" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/6132a60724847178> <https://w3id.org/fdo-squirrel/path> "viewer/js/init.js" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/6132a60724847178> <https://w3id.org/fdo-squirrel/role> "auxiliary" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/6132a60724847178> <https://w3id.org/fdo-squirrel/sha256> "6132a60724847178a5438548cce1633c327f48a78db202ae54e8f05f6d0b0c3e" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/6849bdbb96427f68> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:dist/6849bdbb96427f68" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/6849bdbb96427f68> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> <https://w3id.org/fdo-squirrel/registry/role/metadata> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/6849bdbb96427f68> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.ics.forth.gr/isl/CRMdig/D9_Data_Object> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/6849bdbb96427f68> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/dcat#Distribution> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/6849bdbb96427f68> <http://www.w3.org/ns/dcat#accessURL> <https://w3id.org/fdo-squirrel/registry/record/24347211/content/CITATION.cff> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/6849bdbb96427f68> <http://www.w3.org/ns/dcat#byteSize> "567"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/6849bdbb96427f68> <http://www.w3.org/ns/dcat#mediaType> "text/yaml" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/6849bdbb96427f68> <https://w3id.org/fdo-squirrel/path> "CITATION.cff" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/6849bdbb96427f68> <https://w3id.org/fdo-squirrel/role> "metadata" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/6849bdbb96427f68> <https://w3id.org/fdo-squirrel/sha256> "6849bdbb96427f6816b6a0b891a86ad321d984cad102667c24a15406981127f2" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/912c033c84ea772a> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:dist/912c033c84ea772a" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/912c033c84ea772a> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> <https://w3id.org/fdo-squirrel/registry/role/documentation> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/912c033c84ea772a> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.ics.forth.gr/isl/CRMdig/D9_Data_Object> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/912c033c84ea772a> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/dcat#Distribution> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/912c033c84ea772a> <http://www.w3.org/ns/dcat#accessURL> <https://w3id.org/fdo-squirrel/registry/record/24347211/content/rdf_modelling_report.json> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/912c033c84ea772a> <http://www.w3.org/ns/dcat#byteSize> "29606"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/912c033c84ea772a> <http://www.w3.org/ns/dcat#mediaType> "application/json" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/912c033c84ea772a> <https://w3id.org/fdo-squirrel/path> "rdf_modelling_report.json" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/912c033c84ea772a> <https://w3id.org/fdo-squirrel/role> "documentation" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/912c033c84ea772a> <https://w3id.org/fdo-squirrel/sha256> "912c033c84ea772acf24aed95be6bef8c6267acdb3783775cb7f7eaa02a66256" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/9893e0e9e9c1f11f> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:dist/9893e0e9e9c1f11f" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/9893e0e9e9c1f11f> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> <https://w3id.org/fdo-squirrel/registry/role/model> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/9893e0e9e9c1f11f> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.ics.forth.gr/isl/CRMdig/D9_Data_Object> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/9893e0e9e9c1f11f> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/dcat#Distribution> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/9893e0e9e9c1f11f> <http://www.w3.org/ns/dcat#accessURL> <https://w3id.org/fdo-squirrel/registry/record/24347211/content/data/model/model.mtl> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/9893e0e9e9c1f11f> <http://www.w3.org/ns/dcat#byteSize> "263"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/9893e0e9e9c1f11f> <http://www.w3.org/ns/dcat#mediaType> "application/octet-stream" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/9893e0e9e9c1f11f> <https://w3id.org/fdo-squirrel/path> "data/model/model.mtl" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/9893e0e9e9c1f11f> <https://w3id.org/fdo-squirrel/role> "model" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/9893e0e9e9c1f11f> <https://w3id.org/fdo-squirrel/sha256> "9893e0e9e9c1f11fc756cc37c57917df7dcdc53261240da413821d2d7b6c9c50" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/9fd7be788d73ee57> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:dist/9fd7be788d73ee57" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/9fd7be788d73ee57> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> <https://w3id.org/fdo-squirrel/registry/role/auxiliary> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/9fd7be788d73ee57> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.ics.forth.gr/isl/CRMdig/D9_Data_Object> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/9fd7be788d73ee57> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/dcat#Distribution> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/9fd7be788d73ee57> <http://www.w3.org/ns/dcat#accessURL> <https://w3id.org/fdo-squirrel/registry/record/24347211/content/viewer/skins/dark/lightcontrol_on.png> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/9fd7be788d73ee57> <http://www.w3.org/ns/dcat#byteSize> "3502"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/9fd7be788d73ee57> <http://www.w3.org/ns/dcat#mediaType> "image/png" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/9fd7be788d73ee57> <https://w3id.org/fdo-squirrel/path> "viewer/skins/dark/lightcontrol_on.png" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/9fd7be788d73ee57> <https://w3id.org/fdo-squirrel/role> "auxiliary" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/9fd7be788d73ee57> <https://w3id.org/fdo-squirrel/sha256> "9fd7be788d73ee570f64df3aa8d3be9feeeffd36e13841acf27946bcf98b0440" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/ada023eb80b0ce5c> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:dist/ada023eb80b0ce5c" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/ada023eb80b0ce5c> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> <https://w3id.org/fdo-squirrel/registry/role/auxiliary> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/ada023eb80b0ce5c> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.ics.forth.gr/isl/CRMdig/D9_Data_Object> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/ada023eb80b0ce5c> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/dcat#Distribution> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/ada023eb80b0ce5c> <http://www.w3.org/ns/dcat#accessURL> <https://w3id.org/fdo-squirrel/registry/record/24347211/content/viewer/js/trackball_turntable_pan.js> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/ada023eb80b0ce5c> <http://www.w3.org/ns/dcat#byteSize> "15658"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/ada023eb80b0ce5c> <http://www.w3.org/ns/dcat#mediaType> "application/javascript" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/ada023eb80b0ce5c> <https://w3id.org/fdo-squirrel/path> "viewer/js/trackball_turntable_pan.js" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/ada023eb80b0ce5c> <https://w3id.org/fdo-squirrel/role> "auxiliary" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/ada023eb80b0ce5c> <https://w3id.org/fdo-squirrel/sha256> "ada023eb80b0ce5cb03853ab091e028d56c3c830bb5eaa55b7e57673ab9a583b" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/b3234a652cfa6ad1> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:dist/b3234a652cfa6ad1" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/b3234a652cfa6ad1> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> <https://w3id.org/fdo-squirrel/registry/role/data> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/b3234a652cfa6ad1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.ics.forth.gr/isl/CRMdig/D9_Data_Object> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/b3234a652cfa6ad1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/dcat#Distribution> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/b3234a652cfa6ad1> <http://www.w3.org/ns/dcat#accessURL> <https://w3id.org/fdo-squirrel/registry/record/24347211/content/fdo_ttl_snippet_links.svg> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/b3234a652cfa6ad1> <http://www.w3.org/ns/dcat#byteSize> "2988"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/b3234a652cfa6ad1> <http://www.w3.org/ns/dcat#mediaType> "image/svg+xml" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/b3234a652cfa6ad1> <https://w3id.org/fdo-squirrel/path> "fdo_ttl_snippet_links.svg" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/b3234a652cfa6ad1> <https://w3id.org/fdo-squirrel/role> "data" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/b3234a652cfa6ad1> <https://w3id.org/fdo-squirrel/sha256> "b3234a652cfa6ad120bedcc012853d86fcdf8546392432da01f7bcc434ed8630" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/b4416be937053d8a> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:dist/b4416be937053d8a" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/b4416be937053d8a> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> <https://w3id.org/fdo-squirrel/registry/role/auxiliary> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/b4416be937053d8a> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.ics.forth.gr/isl/CRMdig/D9_Data_Object> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/b4416be937053d8a> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/dcat#Distribution> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/b4416be937053d8a> <http://www.w3.org/ns/dcat#accessURL> <https://w3id.org/fdo-squirrel/registry/record/24347211/content/viewer/js/ply.js> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/b4416be937053d8a> <http://www.w3.org/ns/dcat#byteSize> "29251"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/b4416be937053d8a> <http://www.w3.org/ns/dcat#mediaType> "application/javascript" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/b4416be937053d8a> <https://w3id.org/fdo-squirrel/path> "viewer/js/ply.js" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/b4416be937053d8a> <https://w3id.org/fdo-squirrel/role> "auxiliary" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/b4416be937053d8a> <https://w3id.org/fdo-squirrel/sha256> "b4416be937053d8a0f938940805374abb298de26481def809c8e4c2fcc00c1a9" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/cc4d3554c5f32c54> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:dist/cc4d3554c5f32c54" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/cc4d3554c5f32c54> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> <https://w3id.org/fdo-squirrel/registry/role/documentation> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/cc4d3554c5f32c54> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.ics.forth.gr/isl/CRMdig/D9_Data_Object> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/cc4d3554c5f32c54> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/dcat#Distribution> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/cc4d3554c5f32c54> <http://www.w3.org/ns/dcat#accessURL> <https://w3id.org/fdo-squirrel/registry/record/24347211/content/fdo_ttl_snippet_distributions.png> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/cc4d3554c5f32c54> <http://www.w3.org/ns/dcat#byteSize> "262963"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/cc4d3554c5f32c54> <http://www.w3.org/ns/dcat#mediaType> "image/png" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/cc4d3554c5f32c54> <https://w3id.org/fdo-squirrel/path> "fdo_ttl_snippet_distributions.png" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/cc4d3554c5f32c54> <https://w3id.org/fdo-squirrel/role> "documentation" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/cc4d3554c5f32c54> <https://w3id.org/fdo-squirrel/sha256> "cc4d3554c5f32c542754255ff838c42072efce22ecd8deb4c80be255b79547b7" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/cf14dd446fc3537f> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:dist/cf14dd446fc3537f" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/cf14dd446fc3537f> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> <https://w3id.org/fdo-squirrel/registry/role/auxiliary> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/cf14dd446fc3537f> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.ics.forth.gr/isl/CRMdig/D9_Data_Object> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/cf14dd446fc3537f> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/dcat#Distribution> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/cf14dd446fc3537f> <http://www.w3.org/ns/dcat#accessURL> <https://w3id.org/fdo-squirrel/registry/record/24347211/content/viewer/js/trackball_pantilt.js> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/cf14dd446fc3537f> <http://www.w3.org/ns/dcat#byteSize> "12476"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/cf14dd446fc3537f> <http://www.w3.org/ns/dcat#mediaType> "application/javascript" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/cf14dd446fc3537f> <https://w3id.org/fdo-squirrel/path> "viewer/js/trackball_pantilt.js" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/cf14dd446fc3537f> <https://w3id.org/fdo-squirrel/role> "auxiliary" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/cf14dd446fc3537f> <https://w3id.org/fdo-squirrel/sha256> "cf14dd446fc3537fc5f988d3eab11b8bb30daa1b2a3f906a7f319f22c86c2058" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/d85c0c13fabe5474> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:dist/d85c0c13fabe5474" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/d85c0c13fabe5474> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> <https://w3id.org/fdo-squirrel/registry/role/documentation> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/d85c0c13fabe5474> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.ics.forth.gr/isl/CRMdig/D9_Data_Object> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/d85c0c13fabe5474> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/dcat#Distribution> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/d85c0c13fabe5474> <http://www.w3.org/ns/dcat#accessURL> <https://w3id.org/fdo-squirrel/registry/record/24347211/content/fdo_ttl_snippet_metadata.png> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/d85c0c13fabe5474> <http://www.w3.org/ns/dcat#byteSize> "252178"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/d85c0c13fabe5474> <http://www.w3.org/ns/dcat#mediaType> "image/png" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/d85c0c13fabe5474> <https://w3id.org/fdo-squirrel/path> "fdo_ttl_snippet_metadata.png" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/d85c0c13fabe5474> <https://w3id.org/fdo-squirrel/role> "documentation" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/d85c0c13fabe5474> <https://w3id.org/fdo-squirrel/sha256> "d85c0c13fabe5474c54ec9405aa88586e5ac05c998007b50e6b6b6944bea1ec1" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/d87cdbc7c821da02> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:dist/d87cdbc7c821da02" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/d87cdbc7c821da02> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> <https://w3id.org/fdo-squirrel/registry/role/documentation> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/d87cdbc7c821da02> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.ics.forth.gr/isl/CRMdig/D9_Data_Object> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/d87cdbc7c821da02> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/dcat#Distribution> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/d87cdbc7c821da02> <http://www.w3.org/ns/dcat#accessURL> <https://w3id.org/fdo-squirrel/registry/record/24347211/content/fdo_files_roles_graph.png> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/d87cdbc7c821da02> <http://www.w3.org/ns/dcat#byteSize> "44534"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/d87cdbc7c821da02> <http://www.w3.org/ns/dcat#mediaType> "image/png" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/d87cdbc7c821da02> <https://w3id.org/fdo-squirrel/path> "fdo_files_roles_graph.png" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/d87cdbc7c821da02> <https://w3id.org/fdo-squirrel/role> "documentation" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/d87cdbc7c821da02> <https://w3id.org/fdo-squirrel/sha256> "d87cdbc7c821da02d73c1f80204f8149400ab1f08a96af3f62713df0355e10cf" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/db66f50dfa5118ae> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:dist/db66f50dfa5118ae" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/db66f50dfa5118ae> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> <https://w3id.org/fdo-squirrel/registry/role/data> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/db66f50dfa5118ae> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.ics.forth.gr/isl/CRMdig/D9_Data_Object> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/db66f50dfa5118ae> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/dcat#Distribution> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/db66f50dfa5118ae> <http://www.w3.org/ns/dcat#accessURL> <https://w3id.org/fdo-squirrel/registry/record/24347211/content/fdo_md_cff.svg> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/db66f50dfa5118ae> <http://www.w3.org/ns/dcat#byteSize> "13862"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/db66f50dfa5118ae> <http://www.w3.org/ns/dcat#mediaType> "image/svg+xml" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/db66f50dfa5118ae> <https://w3id.org/fdo-squirrel/path> "fdo_md_cff.svg" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/db66f50dfa5118ae> <https://w3id.org/fdo-squirrel/role> "data" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/db66f50dfa5118ae> <https://w3id.org/fdo-squirrel/sha256> "db66f50dfa5118aec324e2f1e1b4743ba4668017cb80ff3285cd1929376b6745" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/e221c116fce7a4fc> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:dist/e221c116fce7a4fc" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/e221c116fce7a4fc> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> <https://w3id.org/fdo-squirrel/registry/role/auxiliary> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/e221c116fce7a4fc> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.ics.forth.gr/isl/CRMdig/D9_Data_Object> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/e221c116fce7a4fc> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/dcat#Distribution> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/e221c116fce7a4fc> <http://www.w3.org/ns/dcat#accessURL> <https://w3id.org/fdo-squirrel/registry/record/24347211/content/viewer/skins/dark/zoomout.png> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/e221c116fce7a4fc> <http://www.w3.org/ns/dcat#byteSize> "3266"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/e221c116fce7a4fc> <http://www.w3.org/ns/dcat#mediaType> "image/png" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/e221c116fce7a4fc> <https://w3id.org/fdo-squirrel/path> "viewer/skins/dark/zoomout.png" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/e221c116fce7a4fc> <https://w3id.org/fdo-squirrel/role> "auxiliary" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/e221c116fce7a4fc> <https://w3id.org/fdo-squirrel/sha256> "e221c116fce7a4fc6c3fd4e0024f7b4aaa4c9003b365067e3c43a638c91216f2" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/e4af1b1e2b093c89> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:dist/e4af1b1e2b093c89" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/e4af1b1e2b093c89> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> <https://w3id.org/fdo-squirrel/registry/role/auxiliary> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/e4af1b1e2b093c89> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.ics.forth.gr/isl/CRMdig/D9_Data_Object> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/e4af1b1e2b093c89> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/dcat#Distribution> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/e4af1b1e2b093c89> <http://www.w3.org/ns/dcat#accessURL> <https://w3id.org/fdo-squirrel/registry/record/24347211/content/data/textures/material_0_baseColor.jpeg> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/e4af1b1e2b093c89> <http://www.w3.org/ns/dcat#byteSize> "3734067"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/e4af1b1e2b093c89> <http://www.w3.org/ns/dcat#mediaType> "image/jpeg" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/e4af1b1e2b093c89> <https://w3id.org/fdo-squirrel/path> "data/textures/material_0_baseColor.jpeg" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/e4af1b1e2b093c89> <https://w3id.org/fdo-squirrel/role> "auxiliary" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/e4af1b1e2b093c89> <https://w3id.org/fdo-squirrel/sha256> "e4af1b1e2b093c89bcbc26ede69f967f09af070d0f9bbf056375450987631735" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/ec11ee13ec60c71c> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:dist/ec11ee13ec60c71c" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/ec11ee13ec60c71c> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> <https://w3id.org/fdo-squirrel/registry/role/data> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/ec11ee13ec60c71c> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.ics.forth.gr/isl/CRMdig/D9_Data_Object> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/ec11ee13ec60c71c> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/dcat#Distribution> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/ec11ee13ec60c71c> <http://www.w3.org/ns/dcat#accessURL> <https://w3id.org/fdo-squirrel/registry/record/24347211/content/fdo_overview.mermaid> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/ec11ee13ec60c71c> <http://www.w3.org/ns/dcat#byteSize> "1895"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/ec11ee13ec60c71c> <http://www.w3.org/ns/dcat#mediaType> "application/octet-stream" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/ec11ee13ec60c71c> <https://w3id.org/fdo-squirrel/path> "fdo_overview.mermaid" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/ec11ee13ec60c71c> <https://w3id.org/fdo-squirrel/role> "data" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/ec11ee13ec60c71c> <https://w3id.org/fdo-squirrel/sha256> "ec11ee13ec60c71c452d155d69352674c3d054ff49c98d5a00a5c87881ab70d3" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/ed161bbac219a4df> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:dist/ed161bbac219a4df" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/ed161bbac219a4df> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> <https://w3id.org/fdo-squirrel/registry/role/model> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/ed161bbac219a4df> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.ics.forth.gr/isl/CRMdig/D9_Data_Object> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/ed161bbac219a4df> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/dcat#Distribution> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/ed161bbac219a4df> <http://www.w3.org/ns/dcat#accessURL> <https://w3id.org/fdo-squirrel/registry/record/24347211/content/data/model/model.nxs> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/ed161bbac219a4df> <http://www.w3.org/ns/dcat#byteSize> "84562944"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/ed161bbac219a4df> <http://www.w3.org/ns/dcat#mediaType> "application/octet-stream" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/ed161bbac219a4df> <https://w3id.org/fdo-squirrel/path> "data/model/model.nxs" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/ed161bbac219a4df> <https://w3id.org/fdo-squirrel/role> "model" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/ed161bbac219a4df> <https://w3id.org/fdo-squirrel/sha256> "ed161bbac219a4df631911111fd13c4c2ca0c5c9739524b6bbd8adfa3d11664d" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/ef69a64d7398882e> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:dist/ef69a64d7398882e" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/ef69a64d7398882e> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> <https://w3id.org/fdo-squirrel/registry/role/data> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/ef69a64d7398882e> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.ics.forth.gr/isl/CRMdig/D9_Data_Object> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/ef69a64d7398882e> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/dcat#Distribution> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/ef69a64d7398882e> <http://www.w3.org/ns/dcat#accessURL> <https://w3id.org/fdo-squirrel/registry/record/24347211/content/fdo_ttl_snippet_metadata.svg> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/ef69a64d7398882e> <http://www.w3.org/ns/dcat#byteSize> "5463"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/ef69a64d7398882e> <http://www.w3.org/ns/dcat#mediaType> "image/svg+xml" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/ef69a64d7398882e> <https://w3id.org/fdo-squirrel/path> "fdo_ttl_snippet_metadata.svg" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/ef69a64d7398882e> <https://w3id.org/fdo-squirrel/role> "data" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/ef69a64d7398882e> <https://w3id.org/fdo-squirrel/sha256> "ef69a64d7398882e52a54cce9b4a833ce98e3eee7d466bacccdb8c15ed3d33a6" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/f6e15e9e5f49e3de> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:dist/f6e15e9e5f49e3de" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/f6e15e9e5f49e3de> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> <https://w3id.org/fdo-squirrel/registry/role/auxiliary> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/f6e15e9e5f49e3de> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.ics.forth.gr/isl/CRMdig/D9_Data_Object> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/f6e15e9e5f49e3de> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/dcat#Distribution> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/f6e15e9e5f49e3de> <http://www.w3.org/ns/dcat#accessURL> <https://w3id.org/fdo-squirrel/registry/record/24347211/content/viewer/js/presenter.js> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/f6e15e9e5f49e3de> <http://www.w3.org/ns/dcat#byteSize> "135389"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/f6e15e9e5f49e3de> <http://www.w3.org/ns/dcat#mediaType> "application/javascript" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/f6e15e9e5f49e3de> <https://w3id.org/fdo-squirrel/path> "viewer/js/presenter.js" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/f6e15e9e5f49e3de> <https://w3id.org/fdo-squirrel/role> "auxiliary" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/f6e15e9e5f49e3de> <https://w3id.org/fdo-squirrel/sha256> "f6e15e9e5f49e3dec53f1a31dff4d6091c8b7aa4dd65793655dd22eb9c6497e3" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/f7f6a5894f1d19dd> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:dist/f7f6a5894f1d19dd" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/f7f6a5894f1d19dd> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> <https://w3id.org/fdo-squirrel/registry/role/auxiliary> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/f7f6a5894f1d19dd> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.ics.forth.gr/isl/CRMdig/D9_Data_Object> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/f7f6a5894f1d19dd> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/dcat#Distribution> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/f7f6a5894f1d19dd> <http://www.w3.org/ns/dcat#accessURL> <https://w3id.org/fdo-squirrel/registry/record/24347211/content/viewer/js/jquery.js> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/f7f6a5894f1d19dd> <http://www.w3.org/ns/dcat#byteSize> "89476"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/f7f6a5894f1d19dd> <http://www.w3.org/ns/dcat#mediaType> "application/javascript" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/f7f6a5894f1d19dd> <https://w3id.org/fdo-squirrel/path> "viewer/js/jquery.js" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/f7f6a5894f1d19dd> <https://w3id.org/fdo-squirrel/role> "auxiliary" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/f7f6a5894f1d19dd> <https://w3id.org/fdo-squirrel/sha256> "f7f6a5894f1d19ddad6fa392b2ece2c5e578cbf7da4ea805b6885eb6985b6e3d" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/fad35f764810adc3> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:dist/fad35f764810adc3" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/fad35f764810adc3> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> <https://w3id.org/fdo-squirrel/registry/role/data> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/fad35f764810adc3> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.ics.forth.gr/isl/CRMdig/D9_Data_Object> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/fad35f764810adc3> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/dcat#Distribution> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/fad35f764810adc3> <http://www.w3.org/ns/dcat#accessURL> <https://w3id.org/fdo-squirrel/registry/record/24347211/content/rdf_modelling_report.html> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/fad35f764810adc3> <http://www.w3.org/ns/dcat#byteSize> "13416"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/fad35f764810adc3> <http://www.w3.org/ns/dcat#mediaType> "text/html" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/fad35f764810adc3> <https://w3id.org/fdo-squirrel/path> "rdf_modelling_report.html" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/fad35f764810adc3> <https://w3id.org/fdo-squirrel/role> "data" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/fad35f764810adc3> <https://w3id.org/fdo-squirrel/sha256> "fad35f764810adc329abfb18d1a67626011ccdc5bf20f61b9fea15c6afc75500" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/fe753c2685ec886c> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:dist/fe753c2685ec886c" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/fe753c2685ec886c> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> <https://w3id.org/fdo-squirrel/registry/role/auxiliary> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/fe753c2685ec886c> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.ics.forth.gr/isl/CRMdig/D9_Data_Object> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/fe753c2685ec886c> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/dcat#Distribution> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/fe753c2685ec886c> <http://www.w3.org/ns/dcat#accessURL> <https://w3id.org/fdo-squirrel/registry/record/24347211/content/viewer/js/spidergl.js> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/fe753c2685ec886c> <http://www.w3.org/ns/dcat#byteSize> "190272"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/fe753c2685ec886c> <http://www.w3.org/ns/dcat#mediaType> "application/javascript" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/fe753c2685ec886c> <https://w3id.org/fdo-squirrel/path> "viewer/js/spidergl.js" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/fe753c2685ec886c> <https://w3id.org/fdo-squirrel/role> "auxiliary" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/fe753c2685ec886c> <https://w3id.org/fdo-squirrel/sha256> "fe753c2685ec886cfce08a07f8f9e0a48bd2ae197694eae84de53de129414690" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/ff48136f9eeca235> <http://purl.org/dc/terms/identifier> "urn:fdo-squirrel:dist/ff48136f9eeca235" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/ff48136f9eeca235> <http://www.cidoc-crm.org/cidoc-crm/P2_has_type> <https://w3id.org/fdo-squirrel/registry/role/auxiliary> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/ff48136f9eeca235> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.ics.forth.gr/isl/CRMdig/D9_Data_Object> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/ff48136f9eeca235> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/dcat#Distribution> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/ff48136f9eeca235> <http://www.w3.org/ns/dcat#accessURL> <https://w3id.org/fdo-squirrel/registry/record/24347211/content/viewer/stylesheet/3dhop.css> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/ff48136f9eeca235> <http://www.w3.org/ns/dcat#byteSize> "5839"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/ff48136f9eeca235> <http://www.w3.org/ns/dcat#mediaType> "text/css" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/ff48136f9eeca235> <https://w3id.org/fdo-squirrel/path> "viewer/stylesheet/3dhop.css" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/ff48136f9eeca235> <https://w3id.org/fdo-squirrel/role> "auxiliary" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211/dist/ff48136f9eeca235> <https://w3id.org/fdo-squirrel/sha256> "ff48136f9eeca23576768c62add1976ba8442110cc9ebf007efd370d5c1b9095" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211> <http://purl.org/dc/terms/issued> "2026-11-18"^^<http://www.w3.org/2001/XMLSchema#date> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211> <http://purl.org/dc/terms/source> <https://zenodo.org/records/24347211> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211> <http://purl.org/dc/terms/title> "CHUIS/1 (FDOx)"@en .
+<https://w3id.org/fdo-squirrel/registry/record/24347211> <http://www.cidoc-crm.org/cidoc-crm/P102_has_title> "CHUIS/1 (FDOx)"@en .
+<https://w3id.org/fdo-squirrel/registry/record/24347211> <http://www.cidoc-crm.org/cidoc-crm/P70_documents> <https://doi.org/10.5281/zenodo.18369720> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.cidoc-crm.org/cidoc-crm/E31_Document> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/dcat#CatalogRecord> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211> <http://www.w3.org/ns/prov#wasDerivedFrom> <https://zenodo.org/api/records/24347211/files/cork-public-museum-chuis1-fdo-bundle.zip/content> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211> <http://xmlns.com/foaf/0.1/primaryTopic> <https://doi.org/10.5281/zenodo.18369720> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211> <https://w3id.org/fdo-squirrel/registry/conceptDoi> <https://doi.org/10.5281/zenodo.18369720> .
+<https://w3id.org/fdo-squirrel/registry/record/24347211> <https://w3id.org/fdo-squirrel/registry/sha256> "13aad076d41d4db4d5b519b42af1703b3190b11f74ac8b6118ae0b7a85b87667" .
+<https://w3id.org/fdo-squirrel/registry/record/24347211> <https://w3id.org/fdo-squirrel/registry/versionDoi> <https://doi.org/10.5281/zenodo.24347211> .
 <https://w3id.org/fdo-squirrel/registry/role/auxiliary> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#Concept> .
 <https://w3id.org/fdo-squirrel/registry/role/data> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#Concept> .
 <https://w3id.org/fdo-squirrel/registry/role/documentation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#Concept> .
@@ -12958,7 +13530,6 @@
 <https://www.logainm.ie/en/1411890> <http://www.w3.org/2000/01/rdf-schema#label> "Gowran (Gabhrán), Co. Kilkenny, Ireland" .
 <https://www.logainm.ie/ga/8299> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.cidoc-crm.org/cidoc-crm/E53_Place> .
 <https://www.logainm.ie/ga/8299> <http://www.w3.org/2000/01/rdf-schema#label> "Garranes (An Garrán), Co. Cork, Ireland (findspot)" .
-<https://www.openstreetmap.org/node/11966430251> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.cidoc-crm.org/cidoc-crm/E53_Place> .
 <https://www.openstreetmap.org/node/11966441102> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.cidoc-crm.org/cidoc-crm/E53_Place> .
 <https://www.openstreetmap.org/node/3647679932> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.cidoc-crm.org/cidoc-crm/E53_Place> .
 <https://www.openstreetmap.org/relation/14599988> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.cidoc-crm.org/cidoc-crm/E53_Place> .
@@ -12977,31 +13548,41 @@
 <urn:fdo-squirrel:agent/fdo-squirrel> <https://schema.org/softwareVersion> "0.3.1" .
 <urn:fdo-squirrel:agent/fdo-squirrel> <https://schema.org/softwareVersion> "1.2.1" .
 <urn:fdo-squirrel:agent/fdo-squirrel> <https://schema.org/softwareVersion> "1.3.0" .
-_:n7923cbea694941e2983e7edf693d0794b1 <http://www.w3.org/2000/01/rdf-schema#label> "sarcophagus" .
-_:n923ab11b9aeb49b3af9059af601b588bb1 <http://www.w3.org/2000/01/rdf-schema#label> "LEGO model (interlocking-brick toy, self-built)" .
-_:n923ab11b9aeb49b3af9059af601b588bb2 <http://purl.org/dc/terms/relation> <https://doi.org/10.5281/zenodo.24305436> .
-_:n923ab11b9aeb49b3af9059af601b588bb2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.cidoc-crm.org/cidoc-crm/E13_Attribute_Assignment> .
-_:n923ab11b9aeb49b3af9059af601b588bb2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/dcat#Relationship> .
-_:n923ab11b9aeb49b3af9059af601b588bb2 <http://www.w3.org/2000/01/rdf-schema#comment> "Procedural reconstruction from idealised bricks, derived from this scan." .
-_:n923ab11b9aeb49b3af9059af601b588bb2 <http://www.w3.org/ns/dcat#hadRole> <http://purl.org/dc/terms/isReferencedBy> .
-_:nb4aa60a94b8b438fb2532b44271b66a4b1 <http://www.w3.org/2000/01/rdf-schema#label> "Claude (Anthropic), claude-sonnet-5-5" .
-_:nb4aa60a94b8b438fb2532b44271b66a4b2 <http://www.w3.org/2000/01/rdf-schema#label> "LEGO model (interlocking-brick toy, self-built)" .
-_:nb4aa60a94b8b438fb2532b44271b66a4b3 <http://purl.org/dc/terms/relation> <https://doi.org/10.5281/zenodo.24305240> .
-_:nb4aa60a94b8b438fb2532b44271b66a4b3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.cidoc-crm.org/cidoc-crm/E13_Attribute_Assignment> .
-_:nb4aa60a94b8b438fb2532b44271b66a4b3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/dcat#Relationship> .
-_:nb4aa60a94b8b438fb2532b44271b66a4b3 <http://www.w3.org/2000/01/rdf-schema#comment> "Scan this reconstruction was measured from (dimensions, grid, orientation)." .
-_:nb4aa60a94b8b438fb2532b44271b66a4b3 <http://www.w3.org/ns/dcat#hadRole> <http://www.w3.org/ns/prov#wasDerivedFrom> .
-_:nbb8215c69018424ab509291cc6b5357ab1 <http://www.w3.org/2000/01/rdf-schema#label> "hogback" .
-_:nc0b06015fdb448178104142bfec958bbb1 <http://www.w3.org/2000/01/rdf-schema#label> "Claude (Anthropic), claude-sonnet-5-5" .
-_:nc0b06015fdb448178104142bfec958bbb2 <http://www.w3.org/2000/01/rdf-schema#label> "LEGO model (interlocking-brick toy, self-built)" .
-_:nc0b06015fdb448178104142bfec958bbb3 <http://purl.org/dc/terms/relation> <https://doi.org/10.5281/zenodo.24305428> .
-_:nc0b06015fdb448178104142bfec958bbb3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.cidoc-crm.org/cidoc-crm/E13_Attribute_Assignment> .
-_:nc0b06015fdb448178104142bfec958bbb3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/dcat#Relationship> .
-_:nc0b06015fdb448178104142bfec958bbb3 <http://www.w3.org/2000/01/rdf-schema#comment> "Scan this reconstruction was measured from (dimensions, grid, orientation)." .
-_:nc0b06015fdb448178104142bfec958bbb3 <http://www.w3.org/ns/dcat#hadRole> <http://www.w3.org/ns/prov#wasDerivedFrom> .
-_:ne7bd02b6e0434d139cdd1a50409e0d3eb1 <http://www.w3.org/2000/01/rdf-schema#label> "LEGO model (interlocking-brick toy, self-built)" .
-_:ne7bd02b6e0434d139cdd1a50409e0d3eb2 <http://purl.org/dc/terms/relation> <https://doi.org/10.5281/zenodo.24305343> .
-_:ne7bd02b6e0434d139cdd1a50409e0d3eb2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.cidoc-crm.org/cidoc-crm/E13_Attribute_Assignment> .
-_:ne7bd02b6e0434d139cdd1a50409e0d3eb2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/dcat#Relationship> .
-_:ne7bd02b6e0434d139cdd1a50409e0d3eb2 <http://www.w3.org/2000/01/rdf-schema#comment> "Procedural reconstruction from idealised bricks, derived from this scan." .
-_:ne7bd02b6e0434d139cdd1a50409e0d3eb2 <http://www.w3.org/ns/dcat#hadRole> <http://purl.org/dc/terms/isReferencedBy> .
+_:n5d65bbd81eab40eb870f67584fbe1d99b1 <http://www.w3.org/2000/01/rdf-schema#label> "Claude (Anthropic), claude-sonnet-5-5" .
+_:n5d65bbd81eab40eb870f67584fbe1d99b2 <http://www.w3.org/2000/01/rdf-schema#label> "LEGO model (interlocking-brick toy, self-built)" .
+_:n5d65bbd81eab40eb870f67584fbe1d99b3 <http://purl.org/dc/terms/relation> <https://doi.org/10.5281/zenodo.24305428> .
+_:n5d65bbd81eab40eb870f67584fbe1d99b3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.cidoc-crm.org/cidoc-crm/E13_Attribute_Assignment> .
+_:n5d65bbd81eab40eb870f67584fbe1d99b3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/dcat#Relationship> .
+_:n5d65bbd81eab40eb870f67584fbe1d99b3 <http://www.w3.org/2000/01/rdf-schema#comment> "Scan this reconstruction was measured from (dimensions, grid, orientation)." .
+_:n5d65bbd81eab40eb870f67584fbe1d99b3 <http://www.w3.org/ns/dcat#hadRole> <http://www.w3.org/ns/prov#wasDerivedFrom> .
+_:n7742b3c3216f49658750371f5222c9e7b1 <http://www.w3.org/2000/01/rdf-schema#label> "LEGO model (interlocking-brick toy, self-built)" .
+_:n7742b3c3216f49658750371f5222c9e7b2 <http://purl.org/dc/terms/relation> <https://doi.org/10.5281/zenodo.24305343> .
+_:n7742b3c3216f49658750371f5222c9e7b2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.cidoc-crm.org/cidoc-crm/E13_Attribute_Assignment> .
+_:n7742b3c3216f49658750371f5222c9e7b2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/dcat#Relationship> .
+_:n7742b3c3216f49658750371f5222c9e7b2 <http://www.w3.org/2000/01/rdf-schema#comment> "Procedural reconstruction from idealised bricks, derived from this scan." .
+_:n7742b3c3216f49658750371f5222c9e7b2 <http://www.w3.org/ns/dcat#hadRole> <http://purl.org/dc/terms/isReferencedBy> .
+_:nc0d04e6a90204fd7aca19969ecdd8f63b1 <http://www.w3.org/2000/01/rdf-schema#label> "hogback" .
+_:nc324ba55942d40f4ae6c6bc647be7e08b1 <http://www.w3.org/2000/01/rdf-schema#label> "sarcophagus" .
+_:nd86eedebf108402986e582a696269a80b1 <http://www.w3.org/2000/01/rdf-schema#label> "LEGO model (interlocking-brick toy, self-built)" .
+_:nd86eedebf108402986e582a696269a80b2 <http://purl.org/dc/terms/relation> <https://doi.org/10.5281/zenodo.24305436> .
+_:nd86eedebf108402986e582a696269a80b2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.cidoc-crm.org/cidoc-crm/E13_Attribute_Assignment> .
+_:nd86eedebf108402986e582a696269a80b2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/dcat#Relationship> .
+_:nd86eedebf108402986e582a696269a80b2 <http://www.w3.org/2000/01/rdf-schema#comment> "Procedural reconstruction from idealised bricks, derived from this scan." .
+_:nd86eedebf108402986e582a696269a80b2 <http://www.w3.org/ns/dcat#hadRole> <http://purl.org/dc/terms/isReferencedBy> .
+_:neadc94b4d097491ea809368c6a8ec556b1 <http://www.w3.org/2000/01/rdf-schema#label> "Claude (Anthropic), claude-sonnet-5-5" .
+_:neadc94b4d097491ea809368c6a8ec556b2 <http://www.w3.org/2000/01/rdf-schema#label> "LEGO model (interlocking-brick toy, self-built)" .
+_:neadc94b4d097491ea809368c6a8ec556b3 <http://purl.org/dc/terms/relation> <https://doi.org/10.5281/zenodo.24305240> .
+_:neadc94b4d097491ea809368c6a8ec556b3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.cidoc-crm.org/cidoc-crm/E13_Attribute_Assignment> .
+_:neadc94b4d097491ea809368c6a8ec556b3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/dcat#Relationship> .
+_:neadc94b4d097491ea809368c6a8ec556b3 <http://www.w3.org/2000/01/rdf-schema#comment> "Scan this reconstruction was measured from (dimensions, grid, orientation)." .
+_:neadc94b4d097491ea809368c6a8ec556b3 <http://www.w3.org/ns/dcat#hadRole> <http://www.w3.org/ns/prov#wasDerivedFrom> .
+_:nf2df6c92235b48a89335c5579443f589b1 <http://purl.org/dc/terms/relation> <https://github.com/LinkedOpenOgham/og-h-am/blob/main/XML/I-KER/I-KER-136.xml> .
+_:nf2df6c92235b48a89335c5579443f589b1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.cidoc-crm.org/cidoc-crm/E13_Attribute_Assignment> .
+_:nf2df6c92235b48a89335c5579443f589b1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/dcat#Relationship> .
+_:nf2df6c92235b48a89335c5579443f589b1 <http://www.w3.org/2000/01/rdf-schema#comment> "Catalogue entry by Nora White, EpiDoc conversion by Jef Bucas (CC BY 4.0, draft status)." .
+_:nf2df6c92235b48a89335c5579443f589b1 <http://www.w3.org/ns/dcat#hadRole> <http://www.iana.org/assignments/relation/describedby> .
+_:nf2df6c92235b48a89335c5579443f589b2 <http://purl.org/dc/terms/relation> <http://www.wikidata.org/entity/Q24041450> .
+_:nf2df6c92235b48a89335c5579443f589b2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.cidoc-crm.org/cidoc-crm/E13_Attribute_Assignment> .
+_:nf2df6c92235b48a89335c5579443f589b2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/dcat#Relationship> .
+_:nf2df6c92235b48a89335c5579443f589b2 <http://www.w3.org/2000/01/rdf-schema#comment> "Present location of the stone." .
+_:nf2df6c92235b48a89335c5579443f589b2 <http://www.w3.org/ns/dcat#hadRole> <http://purl.org/dc/terms/references> .

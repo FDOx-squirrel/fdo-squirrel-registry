@@ -6,7 +6,7 @@
     "issued": "2026-09-03",
     "license": "https://spdx.org/licenses/CC-BY-4.0.html",
     "title": "FDOx Registry",
-    "triples": 13007
+    "triples": 13588
   },
   "entries": [
     {
@@ -845,164 +845,6 @@
       ],
       "version_doi": "https://doi.org/10.5281/zenodo.18742694",
       "zenodo_url": "https://zenodo.org/records/18742694"
-    },
-    {
-      "context": "Ogham Stones in the Wild and in Museums in Ireland bearing Ogham inscriptions.",
-      "creators": [
-        {
-          "iri": "https://w3id.org/fdo-squirrel/registry/agent/8e916ce55425de21",
-          "name": "Thiery, Florian"
-        }
-      ],
-      "dataset_iri": "https://doi.org/10.5281/zenodo.18369720",
-      "description": "Ogham Stone CHUIS/1 located in the Cork Public Museum",
-      "facets": {
-        "creator": [
-          "Thiery, Florian"
-        ],
-        "keyword": [
-          "Cork Public Museum",
-          "Ogham Stone"
-        ],
-        "license": [
-          "CC-BY-SA-4.0"
-        ],
-        "place": [
-          "OSM node 11966430251"
-        ],
-        "type": [
-          "3DDataFDO"
-        ],
-        "year": [
-          "2024"
-        ]
-      },
-      "files": {
-        "bytes": 250132908,
-        "count": 10,
-        "largest": [
-          {
-            "bytes": 95846610,
-            "media_type": "application/octet-stream",
-            "path": "CHUIS_1.ply",
-            "role": "model"
-          },
-          {
-            "bytes": 77169408,
-            "media_type": "application/octet-stream",
-            "path": "CHUIS_1.nxs",
-            "role": "model"
-          },
-          {
-            "bytes": 56819948,
-            "media_type": "model/gltf-binary",
-            "path": "cork_public_museum_chuis1.glb",
-            "role": "model"
-          },
-          {
-            "bytes": 18801920,
-            "media_type": "application/octet-stream",
-            "path": "CHUIS_1.nxz",
-            "role": "model"
-          },
-          {
-            "bytes": 1453939,
-            "media_type": "image/jpeg",
-            "path": "CHUIS_1.jpg",
-            "role": "documentation"
-          },
-          {
-            "bytes": 16747,
-            "media_type": "text/html",
-            "path": "rdf_modelling_report.html",
-            "role": "data"
-          },
-          {
-            "bytes": 13587,
-            "media_type": "application/json",
-            "path": "rdf_modelling_report.json",
-            "role": "documentation"
-          },
-          {
-            "bytes": 8318,
-            "media_type": "application/octet-stream",
-            "path": "fdo-metadata.ttl",
-            "role": "data"
-          },
-          {
-            "bytes": 2178,
-            "media_type": "text/yaml",
-            "path": "MD.cff",
-            "role": "metadata"
-          },
-          {
-            "bytes": 253,
-            "media_type": "text/yaml",
-            "path": "CITATION.cff",
-            "role": "metadata"
-          }
-        ],
-        "roles": {
-          "data": 2,
-          "documentation": 2,
-          "metadata": 2,
-          "model": 4
-        }
-      },
-      "geometry": "<http://www.opengis.net/def/crs/EPSG/0/4326> POINT(-8.4943 51.8961)",
-      "issued": "2024-06-09",
-      "keywords": [
-        {
-          "iri": null,
-          "label": "Cork Public Museum",
-          "named": true
-        },
-        {
-          "iri": null,
-          "label": "Ogham Stone",
-          "named": true
-        }
-      ],
-      "licenses": [
-        {
-          "iri": "https://spdx.org/licenses/CC-BY-SA-4.0.html",
-          "label": "CC-BY-SA-4.0"
-        }
-      ],
-      "metadata_url": "https://zenodo.org/api/records/18744583/files/CHUIS_1.zip/content",
-      "other_descriptions": [
-        "make 3d model available",
-        "good",
-        "low"
-      ],
-      "period": {
-        "end": "699",
-        "iri": "https://doi.org/10.5281/zenodo.18369720_temporal",
-        "label": "Ogham stone inscriptions (ca. 4th–7th century CE)",
-        "start": "300",
-        "value": "0300/0699"
-      },
-      "places": [
-        {
-          "iri": "https://www.openstreetmap.org/node/11966430251",
-          "label": "OSM node 11966430251",
-          "named": false
-        }
-      ],
-      "record_id": "18744583",
-      "record_iri": "https://w3id.org/fdo-squirrel/registry/record/18744583",
-      "repairs": [],
-      "sha256": "ead2cb115418b76f127221a94a85ab78ac0142438d8cc0b0ee4e97862ad80b1b",
-      "squirrelbase": null,
-      "title": "CHUIS/1",
-      "types": [
-        {
-          "iri": "https://w3id.org/fdo-squirrel/3DDataFDO",
-          "label": "3DDataFDO"
-        }
-      ],
-      "version_doi": "https://doi.org/10.5281/zenodo.18744583",
-      "zenodo_url": "https://zenodo.org/records/18744583"
     },
     {
       "context": null,
@@ -2748,6 +2590,213 @@
       ],
       "version_doi": "https://doi.org/10.5281/zenodo.24346338",
       "zenodo_url": "https://zenodo.org/records/24346338"
+    },
+    {
+      "context": "Found at Church Island (Oileán an Teampaill), Co. Kerry (SMR KE079-032004-), in a secondary position in the south-western quadrant of the island; now displayed in the Cork Public Museum, Cork (51.896085, -8.494222), inventory number 1777.1023 (G1094). Findspot and present location are different places; the spatial point of this FDO is the findspot. Described in OG(H)AM entry I-KER-136; CISP CHUIS/1; no CIIC number is listed.",
+      "creators": [
+        {
+          "iri": "https://orcid.org/0000-0002-3246-3531",
+          "name": "Thiery, Florian"
+        }
+      ],
+      "dataset_iri": "https://doi.org/10.5281/zenodo.18369720",
+      "description": "3D model of the ogham stone CHUIS/1 (OG(H)AM I-KER-136; CISP CHUIS/1), a cross slab from Church Island (Oileán an Teampaill), Co. Kerry, now in the Cork Public Museum (inventory number 1777.1023, G1094). The slab measures 1.49 x 0.36 x 0.10 m and is fractured at its base. Its ogham inscription, read along the arris as BECCDINN MACI RIVVOESS, is in Primitive Irish, and a compass-drawn, incised ringed cross of Maltese type was added later; the excavator dates this design to 650-750 AD. The stone was found in a secondary position in the south-western quadrant of the island. The model was made with KIRI Engine from 77 photographs taken with a smartphone.",
+      "facets": {
+        "creator": [
+          "Thiery, Florian"
+        ],
+        "keyword": [
+          "3D data",
+          "cork3d",
+          "Cultural Heritage",
+          "Cultural Heritage & History",
+          "ireland",
+          "kiriengine",
+          "medieval",
+          "ogham",
+          "ogham-stone",
+          "ogham3d"
+        ],
+        "license": [
+          "CC-BY-SA-4.0"
+        ],
+        "place": [],
+        "type": [
+          "3DDataFDO"
+        ],
+        "year": [
+          "2024"
+        ]
+      },
+      "files": {
+        "bytes": 297392310,
+        "count": 51,
+        "largest": [
+          {
+            "bytes": 185878396,
+            "media_type": "model/obj",
+            "path": "data/model/model.obj",
+            "role": "model"
+          },
+          {
+            "bytes": 84562944,
+            "media_type": "application/octet-stream",
+            "path": "data/model/model.nxs",
+            "role": "model"
+          },
+          {
+            "bytes": 19075072,
+            "media_type": "application/octet-stream",
+            "path": "data/model/model.nxz",
+            "role": "model"
+          },
+          {
+            "bytes": 3734067,
+            "media_type": "image/jpeg",
+            "path": "data/textures/material_0_baseColor.jpeg",
+            "role": "auxiliary"
+          },
+          {
+            "bytes": 1752736,
+            "media_type": "image/png",
+            "path": "data/images/preview.png",
+            "role": "documentation"
+          },
+          {
+            "bytes": 304541,
+            "media_type": "image/png",
+            "path": "fdo_md_cff.png",
+            "role": "documentation"
+          },
+          {
+            "bytes": 262963,
+            "media_type": "image/png",
+            "path": "fdo_ttl_snippet_distributions.png",
+            "role": "documentation"
+          },
+          {
+            "bytes": 256825,
+            "media_type": "image/png",
+            "path": "fdo_md_cff_graph.png",
+            "role": "documentation"
+          },
+          {
+            "bytes": 252178,
+            "media_type": "image/png",
+            "path": "fdo_ttl_snippet_metadata.png",
+            "role": "documentation"
+          },
+          {
+            "bytes": 190272,
+            "media_type": "application/javascript",
+            "path": "viewer/js/spidergl.js",
+            "role": "auxiliary"
+          },
+          {
+            "bytes": 174973,
+            "media_type": "image/png",
+            "path": "fdo_ttl_snippet_links.png",
+            "role": "documentation"
+          },
+          {
+            "bytes": 142700,
+            "media_type": "image/jpeg",
+            "path": "viewer/skins/backgrounds/light.jpg",
+            "role": "auxiliary"
+          }
+        ],
+        "roles": {
+          "auxiliary": 25,
+          "data": 11,
+          "documentation": 9,
+          "metadata": 2,
+          "model": 4
+        }
+      },
+      "geometry": "<http://www.opengis.net/def/crs/EPSG/0/4326> POINT(-10.283295 51.937578)",
+      "issued": "2024-06-09",
+      "keywords": [
+        {
+          "iri": null,
+          "label": "3D data",
+          "named": true
+        },
+        {
+          "iri": null,
+          "label": "cork3d",
+          "named": true
+        },
+        {
+          "iri": null,
+          "label": "Cultural Heritage",
+          "named": true
+        },
+        {
+          "iri": null,
+          "label": "Cultural Heritage & History",
+          "named": true
+        },
+        {
+          "iri": null,
+          "label": "ireland",
+          "named": true
+        },
+        {
+          "iri": null,
+          "label": "kiriengine",
+          "named": true
+        },
+        {
+          "iri": null,
+          "label": "medieval",
+          "named": true
+        },
+        {
+          "iri": null,
+          "label": "ogham",
+          "named": true
+        },
+        {
+          "iri": null,
+          "label": "ogham-stone",
+          "named": true
+        },
+        {
+          "iri": null,
+          "label": "ogham3d",
+          "named": true
+        }
+      ],
+      "licenses": [
+        {
+          "iri": "https://spdx.org/licenses/CC-BY-SA-4.0.html",
+          "label": "CC-BY-SA-4.0"
+        }
+      ],
+      "metadata_url": "https://zenodo.org/api/records/24347211/files/cork-public-museum-chuis1-fdo-bundle.zip/content",
+      "other_descriptions": [],
+      "period": {
+        "end": "0699",
+        "iri": "https://doi.org/10.5281/zenodo.18369720_temporal",
+        "label": "Ogham stone inscriptions (ca. 4th-7th century CE)",
+        "start": "0300",
+        "value": "0300/0699"
+      },
+      "places": [],
+      "record_id": "24347211",
+      "record_iri": "https://w3id.org/fdo-squirrel/registry/record/24347211",
+      "repairs": [],
+      "sha256": "13aad076d41d4db4d5b519b42af1703b3190b11f74ac8b6118ae0b7a85b87667",
+      "squirrelbase": null,
+      "title": "Church Island Ogham Stone CHUIS/1 (Cork Public Museum)",
+      "types": [
+        {
+          "iri": "https://w3id.org/fdo-squirrel/3DDataFDO",
+          "label": "3DDataFDO"
+        }
+      ],
+      "version_doi": "https://doi.org/10.5281/zenodo.24347211",
+      "zenodo_url": "https://zenodo.org/records/24347211"
     }
   ],
   "facets": [
