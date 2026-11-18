@@ -5,7 +5,7 @@
       "added": "2026-09-03",
       "concept_doi": "10.5281/zenodo.18724635",
       "note": "CIIC 81, KIRI Engine SfM scan, Ogham stone",
-      "version_doi": "10.5281/zenodo.22675886"
+      "version_doi": "10.5281/zenodo.24287195"
     },
     {
       "added": "2026-09-03",
@@ -81,6 +81,24 @@
       "concept_doi": "10.5281/zenodo.24305436",
       "note": "LEGO-Pyramide Maya: Rekonstruktion claude.ai (FDOx)",
       "version_doi": "10.5281/zenodo.24310030"
+    },
+    {
+      "added": "2026-11-18",
+      "concept_doi": "10.5281/zenodo.24285298",
+      "note": "Gowran: Ogham Stone (FDOx)",
+      "version_doi": "10.5281/zenodo.24285299"
+    },
+    {
+      "added": "2026-11-18",
+      "concept_doi": "10.5281/zenodo.24346313",
+      "note": "The Govan Sarcophagus - Govan 1 (FDOx)",
+      "version_doi": "10.5281/zenodo.24346314"
+    },
+    {
+      "added": "2026-11-18",
+      "concept_doi": "10.5281/zenodo.24346337",
+      "note": "Govan 2 - Hogback (FDOx)",
+      "version_doi": "10.5281/zenodo.24346338"
     }
   ]
 }

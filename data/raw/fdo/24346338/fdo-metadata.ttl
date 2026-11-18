@@ -1,0 +1,570 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix fdo: <https://w3id.org/fdo-squirrel/> .
+@prefix schema: <https://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix geosparql: <http://www.opengis.net/ont/geosparql#> .
+@prefix sf: <http://www.opengis.net/ont/sf#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix codemeta: <https://codemeta.github.io/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix cff: <https://citation-file-format.github.io/terms/> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix wdt: <http://www.wikidata.org/prop/direct/> .
+@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix crmdig: <http://www.ics.forth.gr/isl/CRMdig/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+<https://doi.org/10.5281/zenodo.24346337> a dcat:Dataset, crmdig:D1_Digital_Object, crm:E73_Information_Object, fdo:3DDataFDO ;
+    prov:wasGeneratedBy <urn:fdo-squirrel:activity/build> ;
+    dct:description "3D model of Govan 2 (Stirling Maxwell and ECMS numbering; Lang 1), one of the five hogback grave monuments of Govan Old Parish Church in Glasgow. At about two metres in length it is the smallest of the five and the best preserved, and it is dated to the early 10th century. Above two rows of tegulation (roof-shingle carving) the 3D analysis shows what appears to be a row of step pattern along the worn ridge. The model was recorded by structure-from-motion photogrammetry as part of Megan N. Kasten's PhD research on the Govan Stones (University of Glasgow, 2019) and was published on Sketchfab by the Govan Stones account under CC BY 4.0." ;
+    dct:creator <https://orcid.org/0000-0003-1011-7539> ;
+    dct:creator <urn:fdo-squirrel:person/17d069bc937de195> ;
+    dct:creator <https://orcid.org/0000-0002-3246-3531> ;
+    dct:license <http://creativecommons.org/licenses/by/4.0/> ;
+    dct:publisher <http://www.wikidata.org/entity/Q73901970> ;
+    dct:title "Govan 2 Hogback (Govan Stones)" ;
+    dcat:distribution <urn:fdo-squirrel:dist/cce513665832c4f3>,<urn:fdo-squirrel:dist/369bfe7d0a5e5763>,<urn:fdo-squirrel:dist/e502e8d4b618983c>,<urn:fdo-squirrel:dist/1ca906b642418060>,<urn:fdo-squirrel:dist/003ee24fe0a3fc14>,<urn:fdo-squirrel:dist/217bc8b2207af4fd>,<urn:fdo-squirrel:dist/4a7a6a2444b7fe74>,<urn:fdo-squirrel:dist/535c699ab7686372>,<urn:fdo-squirrel:dist/5782d58d11437c0f>,<urn:fdo-squirrel:dist/04b54942c91c510e>,<urn:fdo-squirrel:dist/0e623d3c26743f35>,<urn:fdo-squirrel:dist/6132a60724847178>,<urn:fdo-squirrel:dist/f7f6a5894f1d19dd>,<urn:fdo-squirrel:dist/012d3ae0f6007283>,<urn:fdo-squirrel:dist/4ceb643e8b6d7cd2>,<urn:fdo-squirrel:dist/b4416be937053d8a>,<urn:fdo-squirrel:dist/f6e15e9e5f49e3de>,<urn:fdo-squirrel:dist/fe753c2685ec886c>,<urn:fdo-squirrel:dist/cf14dd446fc3537f>,<urn:fdo-squirrel:dist/5ed91bb5c3d8a4b1>,<urn:fdo-squirrel:dist/50e62db9b10cc50c>,<urn:fdo-squirrel:dist/ada023eb80b0ce5c>,<urn:fdo-squirrel:dist/0b383d5a63da644f>,<urn:fdo-squirrel:dist/1a8195ca9d0812e7>,<urn:fdo-squirrel:dist/0e4d58088180effe>,<urn:fdo-squirrel:dist/3b2a44995e927286>,<urn:fdo-squirrel:dist/536c5576e2ee7561>,<urn:fdo-squirrel:dist/2ad4f592d31cf358>,<urn:fdo-squirrel:dist/9fd7be788d73ee57>,<urn:fdo-squirrel:dist/25108ed495e10582>,<urn:fdo-squirrel:dist/e221c116fce7a4fc>,<urn:fdo-squirrel:dist/ff48136f9eeca235> ;
+    dct:created "2021-01-08"^^xsd:date ;
+    dct:issued "2021-01-08"^^xsd:date ;
+    dcat:keyword "3D data" ;
+    dct:subject <http://www.wikidata.org/entity/Q229370> ;
+    dcat:keyword "Cultural Heritage" ;
+    dct:subject <http://www.wikidata.org/entity/Q110840> ;
+    dcat:keyword "medieval" ;
+    dcat:keyword "scotland" ;
+    dcat:keyword "early" ;
+    dcat:keyword "carved" ;
+    dcat:keyword "glasgow" ;
+    dcat:keyword "govan" ;
+    dcat:keyword "Cultural Heritage & History" ;
+    dct:relation <https://sketchfab.com/3d-models/govan-2-b9dc56bfc1d342f6b4da3281e6629c07> ;
+    prov:wasDerivedFrom <https://sketchfab.com/3d-models/govan-2-b9dc56bfc1d342f6b4da3281e6629c07> ;
+    dct:relation <https://theses.gla.ac.uk/74266> ;
+    dct:relation <http://www.wikidata.org/entity/Q136659904> ;
+    dct:references <http://www.wikidata.org/entity/Q136659904> ;
+    dct:relation <http://www.wikidata.org/entity/Q141962030> ;
+    dct:references <http://www.wikidata.org/entity/Q141962030> ;
+    dct:identifier <https://doi.org/10.5281/zenodo.24346337> ;
+    schema:latitude "55.8646"^^xsd:decimal ;
+    schema:longitude "-4.3129"^^xsd:decimal ;
+    fdo:context "Early medieval hogback grave monument from Govan Old (Govan Old Parish Church, Govan Road, Glasgow), where the five Govan hogbacks were found; now displayed in the Govan Stones museum in the church. Numbered Govan 2 by Stirling Maxwell and in the ECMS, Lang 1 in Lang's corpus. Smallest of the five hogbacks; Lang and Bailey suggest influences from Cumbria or further afield in its form and in the decoration along its lower edge." ;
+    dct:type _:heritage_object_object_type0_1 ;
+    dct:subject <http://www.wikidata.org/entity/Q136659904> ;
+    dct:subject <http://www.wikidata.org/entity/Q13085> ;
+    fdo:documentationPurpose "Digital documentation of the Govan Stones for the analysis of early medieval sculpture (Kasten, PhD thesis, University of Glasgow, 2019)." ;
+    fdo:overallCondition "Best preserved of the five Govan hogbacks (Sketchfab description)." ;
+    fdo:acquisitionMethod "Photogrammetry (structure from motion)" ;
+    dct:provenance "Sketchfab upload: 236,352 faces, 119,779 vertices."  .
+
+<https://sketchfab.com/3d-models/govan-2-b9dc56bfc1d342f6b4da3281e6629c07> rdfs:label "Source: Govan 2 (Sketchfab, GovanOldStones)" .
+<https://theses.gla.ac.uk/74266> rdfs:label "Kasten (2019): The Govan stones revealed: digital imaging in the analysis of early medieval sculpture (PhD thesis, University of Glasgow)" .
+<http://www.wikidata.org/entity/Q136659904> rdfs:label "Wikidata: Govan 2, Q136659904" .
+<http://www.wikidata.org/entity/Q141962030> rdfs:label "Wikidata: WikiProject GovanStones, Q141962030" .
+<https://doi.org/10.5281/zenodo.24346337> rdfs:label "Zenodo concept DOI" .
+<https://doi.org/10.5281/zenodo.24346337> geosparql:hasGeometry <https://doi.org/10.5281/zenodo.24346337_geom> .
+<https://doi.org/10.5281/zenodo.24346337_geom> a sf:Point .
+<https://doi.org/10.5281/zenodo.24346337_geom> geosparql:asWKT "<http://www.opengis.net/def/crs/EPSG/0/4326> POINT(-4.3129 55.8646)"^^geosparql:wktLiteral .
+_:heritage_object_object_type0_1 rdfs:label "hogback" .
+<http://www.wikidata.org/entity/Q136659904> rdfs:label "Govan 2 (Govan Stones)" .
+<http://www.wikidata.org/entity/Q13085> rdfs:label "Sandstone" .
+
+<http://www.wikidata.org/entity/Q73901970> a schema:Organization ;
+    schema:name "Research Squirrel Engineers Network" .
+
+<urn:fdo-squirrel:activity/build> a prov:Activity ;
+    prov:wasAssociatedWith <urn:fdo-squirrel:agent/fdo-squirrel> .
+
+<urn:fdo-squirrel:agent/fdo-squirrel> a prov:SoftwareAgent, schema:SoftwareApplication ;
+    schema:name "fdo-squirrel" ;
+    schema:softwareVersion "1.3.0" ;
+    schema:codeRepository <https://github.com/FDOx-squirrel/fdo-squirrel> .
+
+<https://orcid.org/0000-0003-1011-7539> a schema:Person ;
+    schema:name "Kasten, Megan N." .
+
+<urn:fdo-squirrel:person/17d069bc937de195> a schema:Person ;
+    schema:name "WikiProject GovanStones" .
+
+<https://orcid.org/0000-0002-3246-3531> a schema:Person ;
+    schema:name "Thiery, Florian" .
+
+<urn:fdo-squirrel:dist/cce513665832c4f3> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/MD.cff> ;
+    dcat:byteSize 3574 ;
+    dcat:mediaType "text/yaml" ;
+    fdo:path "MD.cff" ;
+    fdo:role "metadata" ;
+    fdo:sha256 "cce513665832c4f39d1bd0554cca37fae5a61b757be2735337831db8589df325"  .
+
+<urn:fdo-squirrel:dist/369bfe7d0a5e5763> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/CITATION.cff> ;
+    dcat:byteSize 689 ;
+    dcat:mediaType "text/yaml" ;
+    fdo:path "CITATION.cff" ;
+    fdo:role "metadata" ;
+    fdo:sha256 "369bfe7d0a5e57630274829d6ebe05cffdc11cbe94404ec1fe95dc4f1f94dce2"  .
+
+<urn:fdo-squirrel:dist/e502e8d4b618983c> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/data/model/model.obj> ;
+    dcat:byteSize 22581544 ;
+    dcat:mediaType "model/obj" ;
+    fdo:path "data/model/model.obj" ;
+    fdo:role "model" ;
+    fdo:sha256 "e502e8d4b618983c160b6e236454cab8a971844f80dcb7072dd0c94147fbc848"  .
+
+<urn:fdo-squirrel:dist/1ca906b642418060> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/data/model/model.mtl> ;
+    dcat:byteSize 307 ;
+    dcat:mediaType "application/octet-stream" ;
+    fdo:path "data/model/model.mtl" ;
+    fdo:role "model" ;
+    fdo:sha256 "1ca906b6424180607d5ee9d6808a32ef61693a6afe2632f4416d78131bfcc3a9"  .
+
+<urn:fdo-squirrel:dist/003ee24fe0a3fc14> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/data/model/model.nxs> ;
+    dcat:byteSize 18697728 ;
+    dcat:mediaType "application/octet-stream" ;
+    fdo:path "data/model/model.nxs" ;
+    fdo:role "model" ;
+    fdo:sha256 "003ee24fe0a3fc14721b039fdbf7d6337a0696696898a3cea84193fe879d4cce"  .
+
+<urn:fdo-squirrel:dist/217bc8b2207af4fd> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/data/model/model.nxz> ;
+    dcat:byteSize 9915392 ;
+    dcat:mediaType "application/octet-stream" ;
+    fdo:path "data/model/model.nxz" ;
+    fdo:role "model" ;
+    fdo:sha256 "217bc8b2207af4fd1a934f7cf0d3f074149744d4cea15c34f6763c8a429f176b"  .
+
+<urn:fdo-squirrel:dist/4a7a6a2444b7fe74> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/data/textures/defaultMat_baseColor.jpeg> ;
+    dcat:byteSize 4747923 ;
+    dcat:mediaType "image/jpeg" ;
+    fdo:path "data/textures/defaultMat_baseColor.jpeg" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "4a7a6a2444b7fe74825a60ad6092c5f732af92de6a4c1d6ee56f65692801cef4"  .
+
+<urn:fdo-squirrel:dist/535c699ab7686372> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/data/images/preview.png> ;
+    dcat:byteSize 1646296 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "data/images/preview.png" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "535c699ab76863720db1958105dce918048b6c1dd7b89429bd0d4097869e93a1"  .
+
+<urn:fdo-squirrel:dist/5782d58d11437c0f> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/viewer/index.html> ;
+    dcat:byteSize 3017 ;
+    dcat:mediaType "text/html" ;
+    fdo:path "viewer/index.html" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "5782d58d11437c0f31e0b4b83f2daa9fc21b6875399abb37db6e5d84f417795b"  .
+
+<urn:fdo-squirrel:dist/04b54942c91c510e> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/viewer/js/corto.em.js> ;
+    dcat:byteSize 119263 ;
+    dcat:mediaType "application/javascript" ;
+    fdo:path "viewer/js/corto.em.js" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "04b54942c91c510e882664ebccea4797f778651ac752a96a215fb7f66219c87f"  .
+
+<urn:fdo-squirrel:dist/0e623d3c26743f35> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/viewer/js/corto.js> ;
+    dcat:byteSize 27809 ;
+    dcat:mediaType "application/javascript" ;
+    fdo:path "viewer/js/corto.js" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "0e623d3c26743f35eb18415378674c75c60928cf8c1ef3a7910d5bc115b72447"  .
+
+<urn:fdo-squirrel:dist/6132a60724847178> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/viewer/js/init.js> ;
+    dcat:byteSize 21598 ;
+    dcat:mediaType "application/javascript" ;
+    fdo:path "viewer/js/init.js" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "6132a60724847178a5438548cce1633c327f48a78db202ae54e8f05f6d0b0c3e"  .
+
+<urn:fdo-squirrel:dist/f7f6a5894f1d19dd> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/viewer/js/jquery.js> ;
+    dcat:byteSize 89476 ;
+    dcat:mediaType "application/javascript" ;
+    fdo:path "viewer/js/jquery.js" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "f7f6a5894f1d19ddad6fa392b2ece2c5e578cbf7da4ea805b6885eb6985b6e3d"  .
+
+<urn:fdo-squirrel:dist/012d3ae0f6007283> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/viewer/js/meco.js> ;
+    dcat:byteSize 26193 ;
+    dcat:mediaType "application/javascript" ;
+    fdo:path "viewer/js/meco.js" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "012d3ae0f600728308dd47552298d7dc9e38390c67cfc3c8a1ac2cd31ba09afc"  .
+
+<urn:fdo-squirrel:dist/4ceb643e8b6d7cd2> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/viewer/js/nexus.js> ;
+    dcat:byteSize 38388 ;
+    dcat:mediaType "application/javascript" ;
+    fdo:path "viewer/js/nexus.js" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "4ceb643e8b6d7cd26bce53419bc6a781674c4a714f22525716e9e2b6e4469c83"  .
+
+<urn:fdo-squirrel:dist/b4416be937053d8a> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/viewer/js/ply.js> ;
+    dcat:byteSize 29251 ;
+    dcat:mediaType "application/javascript" ;
+    fdo:path "viewer/js/ply.js" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "b4416be937053d8a0f938940805374abb298de26481def809c8e4c2fcc00c1a9"  .
+
+<urn:fdo-squirrel:dist/f6e15e9e5f49e3de> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/viewer/js/presenter.js> ;
+    dcat:byteSize 135389 ;
+    dcat:mediaType "application/javascript" ;
+    fdo:path "viewer/js/presenter.js" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "f6e15e9e5f49e3dec53f1a31dff4d6091c8b7aa4dd65793655dd22eb9c6497e3"  .
+
+<urn:fdo-squirrel:dist/fe753c2685ec886c> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/viewer/js/spidergl.js> ;
+    dcat:byteSize 190272 ;
+    dcat:mediaType "application/javascript" ;
+    fdo:path "viewer/js/spidergl.js" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "fe753c2685ec886cfce08a07f8f9e0a48bd2ae197694eae84de53de129414690"  .
+
+<urn:fdo-squirrel:dist/cf14dd446fc3537f> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/viewer/js/trackball_pantilt.js> ;
+    dcat:byteSize 12476 ;
+    dcat:mediaType "application/javascript" ;
+    fdo:path "viewer/js/trackball_pantilt.js" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "cf14dd446fc3537fc5f988d3eab11b8bb30daa1b2a3f906a7f319f22c86c2058"  .
+
+<urn:fdo-squirrel:dist/5ed91bb5c3d8a4b1> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/viewer/js/trackball_sphere.js> ;
+    dcat:byteSize 6252 ;
+    dcat:mediaType "application/javascript" ;
+    fdo:path "viewer/js/trackball_sphere.js" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "5ed91bb5c3d8a4b1e19631014d4250f82a0ff045bd10765360c024219944a667"  .
+
+<urn:fdo-squirrel:dist/50e62db9b10cc50c> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/viewer/js/trackball_turntable.js> ;
+    dcat:byteSize 10700 ;
+    dcat:mediaType "application/javascript" ;
+    fdo:path "viewer/js/trackball_turntable.js" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "50e62db9b10cc50c669e74ad26e92d9f7623ccfa6dcbed30d2aaca9f92f78b3e"  .
+
+<urn:fdo-squirrel:dist/ada023eb80b0ce5c> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/viewer/js/trackball_turntable_pan.js> ;
+    dcat:byteSize 15658 ;
+    dcat:mediaType "application/javascript" ;
+    fdo:path "viewer/js/trackball_turntable_pan.js" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "ada023eb80b0ce5cb03853ab091e028d56c3c830bb5eaa55b7e57673ab9a583b"  .
+
+<urn:fdo-squirrel:dist/0b383d5a63da644f> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/viewer/LICENSE.txt> ;
+    dcat:byteSize 35821 ;
+    dcat:mediaType "text/plain" ;
+    fdo:path "viewer/LICENSE.txt" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "0b383d5a63da644f628d99c33976ea6487ed89aaa59f0b3257992deac1171e6b"  .
+
+<urn:fdo-squirrel:dist/1a8195ca9d0812e7> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/viewer/skins/backgrounds/light.jpg> ;
+    dcat:byteSize 142700 ;
+    dcat:mediaType "image/jpeg" ;
+    fdo:path "viewer/skins/backgrounds/light.jpg" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "1a8195ca9d0812e7aa881cb9730d4c34a50eb58ac13a3de12b6c3fc4dedc0c4d"  .
+
+<urn:fdo-squirrel:dist/0e4d58088180effe> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/viewer/skins/dark/full.png> ;
+    dcat:byteSize 1272 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "viewer/skins/dark/full.png" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "0e4d58088180effe13afcb4583bc938ecdbd6f738330c7a6734e9df2e534ab1a"  .
+
+<urn:fdo-squirrel:dist/3b2a44995e927286> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/viewer/skins/dark/full_on.png> ;
+    dcat:byteSize 1272 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "viewer/skins/dark/full_on.png" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "3b2a44995e9272862c6b9e192f366b73cbf848b7e247bcb477cb3aa6edc9d73e"  .
+
+<urn:fdo-squirrel:dist/536c5576e2ee7561> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/viewer/skins/dark/home.png> ;
+    dcat:byteSize 1807 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "viewer/skins/dark/home.png" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "536c5576e2ee7561bc75845b511ef82ba69f801edb3c11b8154580f2695d4042"  .
+
+<urn:fdo-squirrel:dist/2ad4f592d31cf358> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/viewer/skins/dark/lightcontrol.png> ;
+    dcat:byteSize 3342 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "viewer/skins/dark/lightcontrol.png" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "2ad4f592d31cf35838405ea47413111ea1d2307f7e155d32744a714f2e304488"  .
+
+<urn:fdo-squirrel:dist/9fd7be788d73ee57> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/viewer/skins/dark/lightcontrol_on.png> ;
+    dcat:byteSize 3502 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "viewer/skins/dark/lightcontrol_on.png" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "9fd7be788d73ee570f64df3aa8d3be9feeeffd36e13841acf27946bcf98b0440"  .
+
+<urn:fdo-squirrel:dist/25108ed495e10582> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/viewer/skins/dark/zoomin.png> ;
+    dcat:byteSize 3354 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "viewer/skins/dark/zoomin.png" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "25108ed495e1058238580d64f8704fac3c8c43a1480a2a713c0efd0c471f7eda"  .
+
+<urn:fdo-squirrel:dist/e221c116fce7a4fc> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/viewer/skins/dark/zoomout.png> ;
+    dcat:byteSize 3266 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "viewer/skins/dark/zoomout.png" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "e221c116fce7a4fc6c3fd4e0024f7b4aaa4c9003b365067e3c43a638c91216f2"  .
+
+<urn:fdo-squirrel:dist/ff48136f9eeca235> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/viewer/stylesheet/3dhop.css> ;
+    dcat:byteSize 5839 ;
+    dcat:mediaType "text/css" ;
+    fdo:path "viewer/stylesheet/3dhop.css" ;
+    fdo:role "auxiliary" ;
+    fdo:sha256 "ff48136f9eeca23576768c62add1976ba8442110cc9ebf007efd370d5c1b9095"  .
+
+<https://doi.org/10.5281/zenodo.24346337> cff:keywords "Cultural Heritage & History" .
+<https://doi.org/10.5281/zenodo.24346337> cff:keywords "carved" .
+<https://doi.org/10.5281/zenodo.24346337> cff:keywords "early" .
+<https://doi.org/10.5281/zenodo.24346337> cff:keywords "glasgow" .
+<https://doi.org/10.5281/zenodo.24346337> cff:keywords "govan" .
+<https://doi.org/10.5281/zenodo.24346337> cff:keywords "medieval" .
+<https://doi.org/10.5281/zenodo.24346337> cff:keywords "scotland" .
+<https://doi.org/10.5281/zenodo.24346337> cff:license "CC-BY-4.0" .
+<https://doi.org/10.5281/zenodo.24346337> cff:license <https://spdx.org/licenses/CC-BY-4.0.html> .
+<https://doi.org/10.5281/zenodo.24346337> cff:license-url "CC-BY-4.0" .
+<https://doi.org/10.5281/zenodo.24346337> cff:license-url <https://spdx.org/licenses/CC-BY-4.0.html> .
+<https://doi.org/10.5281/zenodo.24346337> cff:repository <https://sketchfab.com/3d-models/govan-2-b9dc56bfc1d342f6b4da3281e6629c07> .
+<https://doi.org/10.5281/zenodo.24346337> cff:url <https://sketchfab.com/3d-models/govan-2-b9dc56bfc1d342f6b4da3281e6629c07> .
+<https://doi.org/10.5281/zenodo.24346337> codemeta:keywords "Cultural Heritage & History" .
+<https://doi.org/10.5281/zenodo.24346337> codemeta:keywords "carved" .
+<https://doi.org/10.5281/zenodo.24346337> codemeta:keywords "early" .
+<https://doi.org/10.5281/zenodo.24346337> codemeta:keywords "glasgow" .
+<https://doi.org/10.5281/zenodo.24346337> codemeta:keywords "govan" .
+<https://doi.org/10.5281/zenodo.24346337> codemeta:keywords "medieval" .
+<https://doi.org/10.5281/zenodo.24346337> codemeta:keywords "scotland" .
+<https://doi.org/10.5281/zenodo.24346337> codemeta:license "CC-BY-4.0" .
+<https://doi.org/10.5281/zenodo.24346337> codemeta:license <https://spdx.org/licenses/CC-BY-4.0.html> .
+<https://doi.org/10.5281/zenodo.24346337> codemeta:url <https://sketchfab.com/3d-models/govan-2-b9dc56bfc1d342f6b4da3281e6629c07> .
+<https://doi.org/10.5281/zenodo.24346337> dcat:keyword "Cultural Heritage & History" .
+<https://doi.org/10.5281/zenodo.24346337> dcat:keyword "carved" .
+<https://doi.org/10.5281/zenodo.24346337> dcat:keyword "early" .
+<https://doi.org/10.5281/zenodo.24346337> dcat:keyword "glasgow" .
+<https://doi.org/10.5281/zenodo.24346337> dcat:keyword "govan" .
+<https://doi.org/10.5281/zenodo.24346337> dcat:keyword "medieval" .
+<https://doi.org/10.5281/zenodo.24346337> dcat:keyword "scotland" .
+<https://doi.org/10.5281/zenodo.24346337> dct:license <https://spdx.org/licenses/CC-BY-4.0.html> .
+<https://doi.org/10.5281/zenodo.24346337> dct:subject "Cultural Heritage & History" .
+<https://doi.org/10.5281/zenodo.24346337> dct:subject "carved" .
+<https://doi.org/10.5281/zenodo.24346337> dct:subject "early" .
+<https://doi.org/10.5281/zenodo.24346337> dct:subject "glasgow" .
+<https://doi.org/10.5281/zenodo.24346337> dct:subject "govan" .
+<https://doi.org/10.5281/zenodo.24346337> dct:subject "medieval" .
+<https://doi.org/10.5281/zenodo.24346337> dct:subject "scotland" .
+<https://doi.org/10.5281/zenodo.24346337> schema:author "Florian Thiery" .
+<https://doi.org/10.5281/zenodo.24346337> schema:author "Megan N. Kasten" .
+<https://doi.org/10.5281/zenodo.24346337> schema:author "WikiProject GovanStones" .
+<https://doi.org/10.5281/zenodo.24346337> schema:datePublished "2021-01-08" .
+<https://doi.org/10.5281/zenodo.24346337> schema:identifier "10.5281/zenodo.24346337" .
+<https://doi.org/10.5281/zenodo.24346337> schema:keywords "Cultural Heritage & History" .
+<https://doi.org/10.5281/zenodo.24346337> schema:keywords "carved" .
+<https://doi.org/10.5281/zenodo.24346337> schema:keywords "early" .
+<https://doi.org/10.5281/zenodo.24346337> schema:keywords "glasgow" .
+<https://doi.org/10.5281/zenodo.24346337> schema:keywords "govan" .
+<https://doi.org/10.5281/zenodo.24346337> schema:keywords "medieval" .
+<https://doi.org/10.5281/zenodo.24346337> schema:keywords "scotland" .
+<https://doi.org/10.5281/zenodo.24346337> schema:license "CC-BY-4.0" .
+<https://doi.org/10.5281/zenodo.24346337> schema:license <https://spdx.org/licenses/CC-BY-4.0.html> .
+<https://doi.org/10.5281/zenodo.24346337> schema:name "Govan 2" .
+<https://doi.org/10.5281/zenodo.24346337> schema:relatedLink <https://sketchfab.com/3d-models/govan-2-b9dc56bfc1d342f6b4da3281e6629c07> .
+<https://doi.org/10.5281/zenodo.24346337> schema:url <https://sketchfab.com/3d-models/govan-2-b9dc56bfc1d342f6b4da3281e6629c07> .
+<https://doi.org/10.5281/zenodo.24346337> wdt:P275 "CC-BY-4.0" .
+<https://doi.org/10.5281/zenodo.24346337> wdt:P275 <https://spdx.org/licenses/CC-BY-4.0.html> .
+<https://doi.org/10.5281/zenodo.24346337> wdt:P856 <https://sketchfab.com/3d-models/govan-2-b9dc56bfc1d342f6b4da3281e6629c07> .
+<https://doi.org/10.5281/zenodo.24346337> wdt:P921 "Cultural Heritage & History" .
+<https://doi.org/10.5281/zenodo.24346337> wdt:P921 "carved" .
+<https://doi.org/10.5281/zenodo.24346337> wdt:P921 "early" .
+<https://doi.org/10.5281/zenodo.24346337> wdt:P921 "glasgow" .
+<https://doi.org/10.5281/zenodo.24346337> wdt:P921 "govan" .
+<https://doi.org/10.5281/zenodo.24346337> wdt:P921 "medieval" .
+<https://doi.org/10.5281/zenodo.24346337> wdt:P921 "scotland" .
+
+<http://creativecommons.org/licenses/by/4.0/> rdfs:label "CC Attribution" .
+
+<https://doi.org/10.5281/zenodo.24346337> dcat:distribution <urn:fdo-squirrel:dist/13e256931824696d>,<urn:fdo-squirrel:dist/2e97578c068e3a7d>,<urn:fdo-squirrel:dist/930eb7cda4879326>,<urn:fdo-squirrel:dist/69cdcefbe87d3d91>,<urn:fdo-squirrel:dist/d7348063e991871d>,<urn:fdo-squirrel:dist/fed11c182a07eb13>,<urn:fdo-squirrel:dist/c03b00ad937967f2>,<urn:fdo-squirrel:dist/a182640124279676>,<urn:fdo-squirrel:dist/839cc2460368c987>,<urn:fdo-squirrel:dist/4eb906a7f7f12d5c>,<urn:fdo-squirrel:dist/8b33e622f072403e>,<urn:fdo-squirrel:dist/5991c7b703280bef>,<urn:fdo-squirrel:dist/4d056cdf584aee35>,<urn:fdo-squirrel:dist/80b711ba590eb710>,<urn:fdo-squirrel:dist/86033ce98feade69>,<urn:fdo-squirrel:dist/0dbfcc16940cca9d>,<urn:fdo-squirrel:dist/768fbbcfbfbf24b2>,<urn:fdo-squirrel:dist/9695482b971809b2>,<urn:fdo-squirrel:dist/6fd55832736aeb96> .
+
+<urn:fdo-squirrel:dist/13e256931824696d> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/fdo-metadata.ttl> ;
+    dcat:byteSize 25299 ;
+    dcat:mediaType "application/octet-stream" ;
+    fdo:path "fdo-metadata.ttl" ;
+    fdo:role "data" ;
+    fdo:sha256 "13e256931824696d071145500202ee81e1fa22c3de35fcaf8c0f43eb6766a11a" .
+
+<urn:fdo-squirrel:dist/2e97578c068e3a7d> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/rdf_modelling_report.json> ;
+    dcat:byteSize 27136 ;
+    dcat:mediaType "application/json" ;
+    fdo:path "rdf_modelling_report.json" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "2e97578c068e3a7d577272ca07fd81159ecd21d69bc2003dfc763ed7b1dca7f6" .
+
+<urn:fdo-squirrel:dist/930eb7cda4879326> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/rdf_modelling_report.html> ;
+    dcat:byteSize 12197 ;
+    dcat:mediaType "text/html" ;
+    fdo:path "rdf_modelling_report.html" ;
+    fdo:role "data" ;
+    fdo:sha256 "930eb7cda48793268ed32542129a310d2432c1d81c53c6dd5c4c58dad092e599" .
+
+<urn:fdo-squirrel:dist/69cdcefbe87d3d91> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/FDOx.yaml> ;
+    dcat:byteSize 752 ;
+    dcat:mediaType "text/yaml" ;
+    fdo:path "FDOx.yaml" ;
+    fdo:role "data" ;
+    fdo:sha256 "69cdcefbe87d3d913a391b8f5cbc9ccdea2c0277d38b0e457813793e6ad52d61" .
+
+<urn:fdo-squirrel:dist/d7348063e991871d> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/fdo_files_roles_graph.svg> ;
+    dcat:byteSize 4793 ;
+    dcat:mediaType "image/svg+xml" ;
+    fdo:path "fdo_files_roles_graph.svg" ;
+    fdo:role "data" ;
+    fdo:sha256 "d7348063e991871de4dc5502a110f4619e08deab22069590a3f059f2d7a41f6e" .
+
+<urn:fdo-squirrel:dist/fed11c182a07eb13> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/fdo_files_roles_graph.png> ;
+    dcat:byteSize 43050 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "fdo_files_roles_graph.png" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "fed11c182a07eb13c29df0c7879a00cbd1b36301af9452604fb60994869c183b" .
+
+<urn:fdo-squirrel:dist/c03b00ad937967f2> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/fdo_md_cff.svg> ;
+    dcat:byteSize 11470 ;
+    dcat:mediaType "image/svg+xml" ;
+    fdo:path "fdo_md_cff.svg" ;
+    fdo:role "data" ;
+    fdo:sha256 "c03b00ad937967f2cd34afe108f0a38201ea7b81e54346c6d61dcf909e4aa6ed" .
+
+<urn:fdo-squirrel:dist/a182640124279676> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/fdo_md_cff.png> ;
+    dcat:byteSize 259120 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "fdo_md_cff.png" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "a1826401242796767c02d5d422b25fbbeb0cd61430ff80abd1b612ce60cc2cca" .
+
+<urn:fdo-squirrel:dist/839cc2460368c987> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/fdo_md_cff_graph.svg> ;
+    dcat:byteSize 15089 ;
+    dcat:mediaType "image/svg+xml" ;
+    fdo:path "fdo_md_cff_graph.svg" ;
+    fdo:role "data" ;
+    fdo:sha256 "839cc2460368c9879a22134760451f5bd2bc4ca13bfef8e44926187aca011a05" .
+
+<urn:fdo-squirrel:dist/4eb906a7f7f12d5c> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/fdo_md_cff_graph.png> ;
+    dcat:byteSize 214851 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "fdo_md_cff_graph.png" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "4eb906a7f7f12d5cfebe2f8c4e5f84e0749bbabf81bdd331aa4ae05c267d6b7d" .
+
+<urn:fdo-squirrel:dist/8b33e622f072403e> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/fdo_overview.mermaid> ;
+    dcat:byteSize 1832 ;
+    dcat:mediaType "application/octet-stream" ;
+    fdo:path "fdo_overview.mermaid" ;
+    fdo:role "data" ;
+    fdo:sha256 "8b33e622f072403e95463b914c86179f388e4aad3083263bc8e525670673cebf" .
+
+<urn:fdo-squirrel:dist/5991c7b703280bef> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/fdo_ttl_snippet_metadata.svg> ;
+    dcat:byteSize 5456 ;
+    dcat:mediaType "image/svg+xml" ;
+    fdo:path "fdo_ttl_snippet_metadata.svg" ;
+    fdo:role "data" ;
+    fdo:sha256 "5991c7b703280bef85b299022231a18d35cfa1a376b38a9dae57e3e6ce43dadc" .
+
+<urn:fdo-squirrel:dist/4d056cdf584aee35> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/fdo_ttl_snippet_metadata.png> ;
+    dcat:byteSize 258233 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "fdo_ttl_snippet_metadata.png" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "4d056cdf584aee359c8db3e8f2b83526defbd29b3492920d687ca41b7a22351b" .
+
+<urn:fdo-squirrel:dist/80b711ba590eb710> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/fdo_ttl_snippet_distributions.svg> ;
+    dcat:byteSize 5734 ;
+    dcat:mediaType "image/svg+xml" ;
+    fdo:path "fdo_ttl_snippet_distributions.svg" ;
+    fdo:role "data" ;
+    fdo:sha256 "80b711ba590eb710c56362ee1a5429617e0675e6b0ba3ea0d5144652e685bbaf" .
+
+<urn:fdo-squirrel:dist/86033ce98feade69> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/fdo_ttl_snippet_distributions.png> ;
+    dcat:byteSize 261319 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "fdo_ttl_snippet_distributions.png" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "86033ce98feade6902de43a3822b5e21519fde0c3cc8da479be8123f184f560a" .
+
+<urn:fdo-squirrel:dist/0dbfcc16940cca9d> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/fdo_ttl_snippet_links.svg> ;
+    dcat:byteSize 2912 ;
+    dcat:mediaType "image/svg+xml" ;
+    fdo:path "fdo_ttl_snippet_links.svg" ;
+    fdo:role "data" ;
+    fdo:sha256 "0dbfcc16940cca9d2b98ca1a10f72d58eb3b1a84336ee03adb3e1eeebf03edff" .
+
+<urn:fdo-squirrel:dist/768fbbcfbfbf24b2> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/fdo_ttl_snippet_links.png> ;
+    dcat:byteSize 167233 ;
+    dcat:mediaType "image/png" ;
+    fdo:path "fdo_ttl_snippet_links.png" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "768fbbcfbfbf24b23a2606272bff293bb4b622b6deadbd7ea99965e88f0f9b05" .
+
+<urn:fdo-squirrel:dist/9695482b971809b2> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/fdo-landing-page.html> ;
+    dcat:byteSize 9480 ;
+    dcat:mediaType "text/html" ;
+    fdo:path "fdo-landing-page.html" ;
+    fdo:role "data" ;
+    fdo:sha256 "9695482b971809b20933b174340531625db82ddfe71938ca1b26081c3d68caed" .
+
+<urn:fdo-squirrel:dist/6fd55832736aeb96> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/ro-crate-metadata.json> ;
+    dcat:byteSize 25517 ;
+    dcat:mediaType "application/json" ;
+    fdo:path "ro-crate-metadata.json" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "6fd55832736aeb966449f5c8f02b922b2d4de241133a497e7dcad439b3ed618e" .
+

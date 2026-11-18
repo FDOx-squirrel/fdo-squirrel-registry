@@ -15,46 +15,53 @@ Everything below is a **warning**: a statement about a harvested package, not ab
 | `18740524` | Kunstwerk "Heinz Eau" in Köln (FAIR Digital Object) | no fdo-metadata.ttl in the package | — |
 | `18742694` | Beuys-Stele B 1036 in Kassel als Teil der "7000 Eichen" (FAIR Digital Object) | read as published | — |
 | `18744583` | CHUIS/1 (FAIR Digital Object) | read as published | — |
-| `22675886` | CO074-148---- (FAIR Digital Object) | read as published | — |
 | `22676380` | Freshford: St Lachtain's Well (FDOx) | read as published | — |
+| `24285299` | Gowran: Ogham Stone (FDOx) | read as published | — |
+| `24287195` | Cork Ogham Stone CIIC 81 / UCC 4 / CO074-148---- (FDOx) | read as published | — |
 | `24305241` | Lego Pyramid / KIRI Original (FDOx) | read as published | — |
 | `24305344` | Lego Pyramid / Reconstruction claude.ai (FDOx) | read as published | — |
 | `24310015` | Lego Pyramid Maya / KIRI Original (FDOx) | read as published | — |
 | `24310030` | Lego Pyramid Maya / Reconstruction claude.ai (FDOx) | read as published | — |
+| `24346314` | The Govan Sarcophagus - Govan 1 (FDOx) | read as published | — |
+| `24346338` | Govan 2 - Hogback (FDOx) | read as published | — |
 
-1 of 13 pinned records are not in the catalogue. A published Zenodo record never changes, so these can only be fixed by publishing a new version.
+1 of 16 pinned records are not in the catalogue. A published Zenodo record never changes, so these can only be fixed by publishing a new version.
 
 ## Findings
 
-57 finding(s) over 10 rule(s).
+66 finding(s) over 10 rule(s).
 
 ### A person without an ORCID. The profile asks for the established IRI (DOI, ORCID, ROR); the registry-minted agent IRI is a fallback that only works inside this catalogue.
 
-3 node(s):
+4 node(s):
 
+- `https://w3id.org/fdo-squirrel/registry/agent/17d069bc937de195`
 - `https://w3id.org/fdo-squirrel/registry/agent/1ef85dc7cadee6db`
 - `https://w3id.org/fdo-squirrel/registry/agent/2424425c3325db08`
 - `https://w3id.org/fdo-squirrel/registry/agent/8e916ce55425de21`
 
 ### More than one dct:description. In the harvested packages these are different MD.cff fields (purpose, quality, resolution) that ran into the description; which one is the description cannot be decided here.
 
-5 node(s):
+4 node(s):
 
 - `https://doi.org/10.5281/zenodo.18369720`
 - `https://doi.org/10.5281/zenodo.18369865`
-- `https://doi.org/10.5281/zenodo.18724635`
 - `https://doi.org/10.5281/zenodo.18732892`
 - `https://doi.org/10.5281/zenodo.18742693`
 
 ### More than one dct:license. The catalogue page and the SPARQL facets both key on the SPDX-form IRI (S6, derived_label); an additional non-SPDX IRI for the same licence is carried in the bundle but excluded from the facet and the overview query, so it does not appear twice there.
 
-5 node(s):
+9 node(s):
 
+- `https://doi.org/10.5281/zenodo.18724635`
 - `https://doi.org/10.5281/zenodo.22676379`
+- `https://doi.org/10.5281/zenodo.24285298`
 - `https://doi.org/10.5281/zenodo.24305240`
 - `https://doi.org/10.5281/zenodo.24305343`
 - `https://doi.org/10.5281/zenodo.24305428`
 - `https://doi.org/10.5281/zenodo.24305436`
+- `https://doi.org/10.5281/zenodo.24346313`
+- … and 1 more
 
 ### The same name is carried by more than one person node. The registry never merges on a matching name - that would invent identity - so the decision is left to a human.
 
@@ -83,7 +90,7 @@ Everything below is a **warning**: a statement about a harvested package, not ab
 
 ### dcat:keyword carries a bare string. Only IRI-valued keywords can be anchored as a type; a string cannot become a concept and must not become an E55 Type.
 
-12 node(s):
+15 node(s):
 
 - `https://doi.org/10.5281/zenodo.18369125`
 - `https://doi.org/10.5281/zenodo.18369156`
@@ -93,7 +100,7 @@ Everything below is a **warning**: a statement about a harvested package, not ab
 - `https://doi.org/10.5281/zenodo.18732892`
 - `https://doi.org/10.5281/zenodo.18742693`
 - `https://doi.org/10.5281/zenodo.22676379`
-- … and 4 more
+- … and 7 more
 
 ### dcat:startDate is written as xsd:integer. The profile lists only XSD date types and EDTF for temporal values; the registry adds the typed literal beside it but does not touch the original.
 
@@ -108,7 +115,7 @@ Everything below is a **warning**: a statement about a harvested package, not ab
 
 ### geosparql:hasGeometry hangs on the FDO itself. The geometry belongs on the crm:E53_Place the FDO refers to; an information object has no coordinates.
 
-9 node(s):
+12 node(s):
 
 - `https://doi.org/10.5281/zenodo.18369125`
 - `https://doi.org/10.5281/zenodo.18369156`
@@ -117,18 +124,17 @@ Everything below is a **warning**: a statement about a harvested package, not ab
 - `https://doi.org/10.5281/zenodo.18724635`
 - `https://doi.org/10.5281/zenodo.18732892`
 - `https://doi.org/10.5281/zenodo.18742693`
-- `https://doi.org/10.5281/zenodo.24305240`
-- … and 1 more
+- `https://doi.org/10.5281/zenodo.24285298`
+- … and 4 more
 
 ### schema:funding carries a bare string with no funder IRI. There is nothing to anchor and nothing to aggregate.
 
-7 node(s):
+6 node(s):
 
 - `https://doi.org/10.5281/zenodo.18369125`
 - `https://doi.org/10.5281/zenodo.18369156`
 - `https://doi.org/10.5281/zenodo.18369720`
 - `https://doi.org/10.5281/zenodo.18369865`
-- `https://doi.org/10.5281/zenodo.18724635`
 - `https://doi.org/10.5281/zenodo.18732892`
 - `https://doi.org/10.5281/zenodo.18742693`
 
@@ -142,11 +148,14 @@ Everything below is a **warning**: a statement about a harvested package, not ab
 | `18732893` | 6 |
 | `18742694` | 6 |
 | `18744583` | 6 |
-| `22675886` | 4 |
 | `22676380` | 2 |
+| `24285299` | 3 |
+| `24287195` | 3 |
 | `24305241` | 3 |
 | `24305344` | 2 |
 | `24310015` | 3 |
 | `24310030` | 2 |
-| `across packages` | 5 |
+| `24346314` | 3 |
+| `24346338` | 3 |
+| `across packages` | 6 |
 

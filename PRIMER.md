@@ -1978,6 +1978,30 @@ Stand nach dem Lauf: 13 Einträge in `sources.json`, 12 Records im Katalog (Hein
 - Das Registry-Release-Bundle (`dist/release/_release_stage-fdo-bundle.zip`) ist weiterhin nicht auf Zenodo veröffentlicht (S8, von Hand).
 
 
+---
+
+### Nachtrag 2026-11-18, vier neue Versionen/FDOx aufgenommen
+
+Flo hat vier FDOx veröffentlicht bzw. neu versioniert. `sources.json` ist kuratorisch angepasst (Concept-DOI → gepinnte Versions-DOI):
+
+| FDOx | Concept-DOI | gepinnte Version |
+|---|---|---|
+| Cork Ogham Stone CIIC 81 (UCC 4), neu gepinnt | 10.5281/zenodo.18724635 | 24287195 (v4, vorher 22675886) |
+| Gowran: Ogham Stone | 10.5281/zenodo.24285298 | 24285299 (v1) |
+| The Govan Sarcophagus - Govan 1 | 10.5281/zenodo.24346313 | 24346314 (v1) |
+| Govan 2 - Hogback | 10.5281/zenodo.24346337 | 24346338 (v1) |
+
+Titel und Concept-DOI jedes Records sind gegen die Zenodo-Landing-Pages abgeglichen (Screenshots von Flo, „Cite all versions" zeigt jeweils die Concept-DOI aus dem Bundle). Das Eintragsskript-Problem vom 2026-11-17 (falscher Record unbemerkt eingetragen) trifft hier nicht zu.
+
+**Trockenlauf im Sandkasten, ohne Netz.** Die vier Pakete wurden mit `harvest --offline --zip` aus lokalen Kopien gelesen (Gowran und Govan: Bundles der Veröffentlichung bzw. identisch gebaute Bundles; CIIC 81: Bundle vor dem Neubau mit demselben Metadatenstand), danach lief `main.py --from bridge --skip release` durch: SHACL-Gate `conforms: True, 16 pinned records`, Index 15 Einträge, `catalogue-overview` 15 Zeilen wie der Index, keine neue Regelverletzung. Das ersetzt den Online-Lauf nicht: MD5, Concept-DOI-Gegenprobe und `record.json` kommen erst vom echten `harvest`.
+
+**Beobachtungen**
+
+1. **Govan-Records ohne Ortsfacette.** `spatial` trägt dort nur Koordinaten, keine IRI; das Paket hat eine Geometrie, aber `places` im Index bleibt leer. Eine Orts-IRI (Wikidata/OSM der Govan Old Parish Church) würde das beheben, braucht aber eine neue Zenodo-Version der beiden Records. Bewusst zurückgestellt.
+2. **Personen.** Anne-Karoline Distel und das WikiProject GovanStones erscheinen als `registry/agent/…`-IRIs (Wikidata-IRI im `website`-Feld statt ORCID; ein Befund-12-Fall, bekannte Warnung „person without an ORCID").
+3. **CHUIS/1** bleibt auf Version 18744583 gepinnt; die neue Version v4 (Church Island Ogham Stone CHUIS/1, mit OG(H)AM I-KER-136) ist noch nicht veröffentlicht. Sobald sie existiert, Versions-DOI in `sources.json` heben.
+4. Der Pin `fdo-squirrel@504b7af` in `requirements.txt` ist weiterhin offen (siehe Nachtrag 2026-11-17).
+
 # Teil D — Offene Punkte
 
 Aufgaben stehen ab jetzt gebündelt in S10, statt hier verstreut. Diese Rubrik

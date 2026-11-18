@@ -18,53 +18,61 @@
 @prefix prov: <http://www.w3.org/ns/prov#> .
 <https://doi.org/10.5281/zenodo.18724635> a dcat:Dataset, crmdig:D1_Digital_Object, crm:E73_Information_Object, fdo:3DDataFDO ;
     prov:wasGeneratedBy <urn:fdo-squirrel:activity/build> ;
-    dct:description "Ogham Stone CO074-148---- located in the UCC Stone Corridor" ;
-    dct:hasVersion "1.0" ;
+    dct:description "3D model of the ogham stone CIIC 81 (CISP GARES/1; University College Cork inv. no. 4), a green sandstone pillar inscribed in Primitive Irish with C[A]SSITT[A]S MAQI MU[CO]I CALLITI. It was unearthed around 1851 in the ringfort at Garranes (An Garrán), Co. Cork (SMR CO084-090003-), and is thought to have come from the souterrain there. Probably acquired for the UCC collection in or around 1907, it is now on permanent display in the Stone Corridor ('Rúin na gCloch / Stories in Stone') at University College Cork, Cork City (SMR CO074-148----)." ;
     dct:creator <urn:fdo-squirrel:person/1ef85dc7cadee6db> ;
-    dct:creator <urn:fdo-squirrel:person/8e916ce55425de21> ;
-    dct:license <https://spdx.org/licenses/CC-BY-NC-SA-4.0.html> ;
+    dct:creator <https://orcid.org/0000-0002-3246-3531> ;
+    dct:license <http://creativecommons.org/licenses/by/4.0/> ;
     dct:publisher <http://www.wikidata.org/entity/Q73901970> ;
-    dct:title "CO074-148----" ;
-    dcat:distribution <urn:fdo-squirrel:dist/feaa9efcd5b11fd3>,<urn:fdo-squirrel:dist/5274726937369408>,<urn:fdo-squirrel:dist/2727c14d34bdc2f5>,<urn:fdo-squirrel:dist/6c2c935cd95e8d0b>,<urn:fdo-squirrel:dist/8e7cc3a1ed56dec9>,<urn:fdo-squirrel:dist/a89921006e92af2a>,<urn:fdo-squirrel:dist/c931d515da3c3c91>,<urn:fdo-squirrel:dist/624b1a54b0f2372b>,<urn:fdo-squirrel:dist/5782d58d11437c0f>,<urn:fdo-squirrel:dist/04b54942c91c510e>,<urn:fdo-squirrel:dist/0e623d3c26743f35>,<urn:fdo-squirrel:dist/6132a60724847178>,<urn:fdo-squirrel:dist/f7f6a5894f1d19dd>,<urn:fdo-squirrel:dist/012d3ae0f6007283>,<urn:fdo-squirrel:dist/4ceb643e8b6d7cd2>,<urn:fdo-squirrel:dist/b4416be937053d8a>,<urn:fdo-squirrel:dist/f6e15e9e5f49e3de>,<urn:fdo-squirrel:dist/fe753c2685ec886c>,<urn:fdo-squirrel:dist/cf14dd446fc3537f>,<urn:fdo-squirrel:dist/5ed91bb5c3d8a4b1>,<urn:fdo-squirrel:dist/50e62db9b10cc50c>,<urn:fdo-squirrel:dist/ada023eb80b0ce5c>,<urn:fdo-squirrel:dist/0b383d5a63da644f>,<urn:fdo-squirrel:dist/1a8195ca9d0812e7>,<urn:fdo-squirrel:dist/0e4d58088180effe>,<urn:fdo-squirrel:dist/3b2a44995e927286>,<urn:fdo-squirrel:dist/536c5576e2ee7561>,<urn:fdo-squirrel:dist/2ad4f592d31cf358>,<urn:fdo-squirrel:dist/9fd7be788d73ee57>,<urn:fdo-squirrel:dist/25108ed495e10582>,<urn:fdo-squirrel:dist/e221c116fce7a4fc>,<urn:fdo-squirrel:dist/ff48136f9eeca235> ;
+    dct:title "Cork Ogham Stone CIIC 81 (UCC 4)" ;
+    dcat:distribution <urn:fdo-squirrel:dist/1f46c84a1060400a>,<urn:fdo-squirrel:dist/54f451839b59e2e6>,<urn:fdo-squirrel:dist/2727c14d34bdc2f5>,<urn:fdo-squirrel:dist/6c2c935cd95e8d0b>,<urn:fdo-squirrel:dist/6e194df47333d39f>,<urn:fdo-squirrel:dist/0cb6f6e4d080bd73>,<urn:fdo-squirrel:dist/c931d515da3c3c91>,<urn:fdo-squirrel:dist/4e5819fd779cac0d>,<urn:fdo-squirrel:dist/5782d58d11437c0f>,<urn:fdo-squirrel:dist/04b54942c91c510e>,<urn:fdo-squirrel:dist/0e623d3c26743f35>,<urn:fdo-squirrel:dist/6132a60724847178>,<urn:fdo-squirrel:dist/f7f6a5894f1d19dd>,<urn:fdo-squirrel:dist/012d3ae0f6007283>,<urn:fdo-squirrel:dist/4ceb643e8b6d7cd2>,<urn:fdo-squirrel:dist/b4416be937053d8a>,<urn:fdo-squirrel:dist/f6e15e9e5f49e3de>,<urn:fdo-squirrel:dist/fe753c2685ec886c>,<urn:fdo-squirrel:dist/cf14dd446fc3537f>,<urn:fdo-squirrel:dist/5ed91bb5c3d8a4b1>,<urn:fdo-squirrel:dist/50e62db9b10cc50c>,<urn:fdo-squirrel:dist/ada023eb80b0ce5c>,<urn:fdo-squirrel:dist/0b383d5a63da644f>,<urn:fdo-squirrel:dist/1a8195ca9d0812e7>,<urn:fdo-squirrel:dist/0e4d58088180effe>,<urn:fdo-squirrel:dist/3b2a44995e927286>,<urn:fdo-squirrel:dist/536c5576e2ee7561>,<urn:fdo-squirrel:dist/2ad4f592d31cf358>,<urn:fdo-squirrel:dist/9fd7be788d73ee57>,<urn:fdo-squirrel:dist/25108ed495e10582>,<urn:fdo-squirrel:dist/e221c116fce7a4fc>,<urn:fdo-squirrel:dist/ff48136f9eeca235> ;
     dct:created "2024-06-05"^^xsd:date ;
     dct:issued "2024-06-05"^^xsd:date ;
-    dct:modified "2026-02-21"^^xsd:date ;
-    schema:funding "Community Project" ;
-    dcat:keyword "Ogham Stone" ;
-    dct:subject <http://www.wikidata.org/entity/Q2016147> ;
-    dcat:keyword "UCC Stone Corridor" ;
-    dct:subject <http://www.wikidata.org/entity/Q121592049> ;
+    dcat:keyword "3D data" ;
+    dct:subject <http://www.wikidata.org/entity/Q229370> ;
+    dcat:keyword "Cultural Heritage" ;
+    dct:subject <http://www.wikidata.org/entity/Q110840> ;
+    dcat:keyword "medieval" ;
+    dcat:keyword "ireland" ;
+    dcat:keyword "ogham" ;
+    dcat:keyword "ogham-stone" ;
+    dcat:keyword "cork3d" ;
+    dcat:keyword "ogham3d" ;
+    dcat:keyword "kiriengine" ;
+    dcat:keyword "Cultural Heritage & History" ;
     dct:relation <https://sketchfab.com/3d-models/cork-ogham-stone-ciic-81-ucc-4-4cb26986be274ee099515c2baa3b1825> ;
+    dct:relation <https://github.com/LinkedOpenOgham/og-h-am/blob/main/XML/I-COR/I-COR-030.xml> ;
+    dct:relation <http://www.wikidata.org/entity/Q69385424> ;
+    dct:relation <http://www.wikidata.org/entity/Q1574185> ;
+    dct:relation <https://www.ucl.ac.uk/archaeology/cisp/database/stone/gares_1.html> ;
+    dct:relation <https://www.archaeology.ie/archaeological-survey-ireland/historic-environment-viewer-application> ;
     dct:identifier <https://doi.org/10.5281/zenodo.18724635> ;
-    dct:identifier <https://sketchfab.com/3d-models/cork-ogham-stone-ciic-81-ucc-4-4cb26986be274ee099515c2baa3b1825> ;
-    dct:identifier <http://archaeosquirrels.cloud/?model=CO074-148----> ;
-    dct:spatial <https://www.openstreetmap.org/node/11071361392> ;
-    schema:latitude "51.893715"^^xsd:decimal ;
-    schema:longitude "-8.4924208"^^xsd:decimal ;
-    fdo:context "Ogham Stones in the Wild and in Museums in Ireland bearing Ogham inscriptions." ;
+    dct:spatial <https://www.logainm.ie/ga/8299> ;
+    schema:latitude "51.816848"^^xsd:decimal ;
+    schema:longitude "-8.765479"^^xsd:decimal ;
+    fdo:context "Found around 1851 in the ringfort at Garranes (SMR CO084-090001-), probably in its souterrain (SMR CO084-090002-); the findspot is recorded as SMR CO084-090003-. Probably acquired for the UCC collection in or around 1907. Now on permanent display in the Stone Corridor of University College Cork, Cork City (SMR CO074-148----, 51.8937, -8.4924), which is the present location, not the findspot. Described in OG(H)AM entry I-COR-030." ;
     dct:type <http://www.wikidata.org/entity/Q2016147> ;
-    dct:subject <http://www.wikidata.org/entity/Q22731> ;
-    dct:description "make 3d model available" ;
-    dct:description "good" ;
-    dct:description "low" ;
-    dct:provenance "{\"software\": \"KIRI Engine\", \"steps\": \"Take photos, align photos; build dense cloud; generate mesh; texture; export.\"}"  .
+    dct:subject <http://www.wikidata.org/entity/Q130529871> ;
+    dct:subject <http://www.wikidata.org/entity/Q13085> ;
+    fdo:documentationPurpose "3D documentation of an ogham stone in the UCC collection (Ogham in 3D)." ;
+    fdo:overallCondition "An irregularly shaped pillar, seemingly reused in a souterrain and damaged in places, particularly along the vulnerable edges; 1.57 m of the 1.75 m reported by Macalister are accessible today. Conserved with the other UCC ogham stones in 2006; displayed in a case and held in position by brackets (OG(H)AM I-COR-030)." ;
+    fdo:acquisitionMethod "Photogrammetry (structure from motion) with KIRI Engine" ;
+    fdo:acquisitionImagesCount "93" ;
+    dct:provenance "Sketchfab upload: 3,945,384 faces, 1,974,513 vertices."  .
 
 <https://sketchfab.com/3d-models/cork-ogham-stone-ciic-81-ucc-4-4cb26986be274ee099515c2baa3b1825> rdfs:label "Source: Cork: Ogham stone CIIC 81/ UCC 4" .
-<https://doi.org/10.5281/zenodo.18724635> rdfs:label "Zenodo DOI" .
-<https://sketchfab.com/3d-models/cork-ogham-stone-ciic-81-ucc-4-4cb26986be274ee099515c2baa3b1825> rdfs:label "3D repository" .
-<http://archaeosquirrels.cloud/?model=CO074-148----> rdfs:label "3D repository" .
-<https://www.openstreetmap.org/node/11071361392> rdfs:label "CO074-148----" .
+<https://github.com/LinkedOpenOgham/og-h-am/blob/main/XML/I-COR/I-COR-030.xml> rdfs:label "OG(H)AM entry I-COR-030" .
+<http://www.wikidata.org/entity/Q69385424> rdfs:label "CIIC 81 (Ogham Stone Concept by RAS Macalister)" .
+<http://www.wikidata.org/entity/Q1574185> rdfs:label "University College Cork" .
+<https://www.ucl.ac.uk/archaeology/cisp/database/stone/gares_1.html> rdfs:label "CISP GARES/1" .
+<https://www.archaeology.ie/archaeological-survey-ireland/historic-environment-viewer-application> rdfs:label "National Monuments Service, Historic Environment Viewer" .
+<https://doi.org/10.5281/zenodo.18724635> rdfs:label "Zenodo concept DOI" .
+<https://www.logainm.ie/ga/8299> rdfs:label "Garranes (An Garrán), Co. Cork, Ireland (findspot)" .
 <https://doi.org/10.5281/zenodo.18724635> geosparql:hasGeometry <https://doi.org/10.5281/zenodo.18724635_geom> .
 <https://doi.org/10.5281/zenodo.18724635_geom> a sf:Point .
-<https://doi.org/10.5281/zenodo.18724635_geom> geosparql:asWKT "<http://www.opengis.net/def/crs/EPSG/0/4326> POINT(-8.4924208 51.8937150)"^^geosparql:wktLiteral .
-<https://doi.org/10.5281/zenodo.18724635> dct:temporal <https://doi.org/10.5281/zenodo.18724635_temporal> .
-<https://doi.org/10.5281/zenodo.18724635_temporal> a dct:PeriodOfTime .
-<https://doi.org/10.5281/zenodo.18724635_temporal> owl:sameAs <http://chronontology.dainst.org/period/aChcHZdlBhkt> .
-<https://doi.org/10.5281/zenodo.18724635_temporal> rdfs:label "Ogham stone inscriptions (ca. 4th–7th century CE)" .
-<https://doi.org/10.5281/zenodo.18724635_temporal> dcat:startDate "0300"^^xsd:gYear .
-<https://doi.org/10.5281/zenodo.18724635_temporal> dcat:endDate "0699"^^xsd:gYear .
-<http://www.wikidata.org/entity/Q2016147> rdfs:label "Inscribed Ogham stone" .
-<http://www.wikidata.org/entity/Q22731> rdfs:label "Stone" .
+<https://doi.org/10.5281/zenodo.18724635_geom> geosparql:asWKT "<http://www.opengis.net/def/crs/EPSG/0/4326> POINT(-8.765479 51.816848)"^^geosparql:wktLiteral .
+<http://www.wikidata.org/entity/Q2016147> rdfs:label "ogham stone" .
+<http://www.wikidata.org/entity/Q130529871> rdfs:label "Ogham Stone UCC Stone Corridor IV" .
+<http://www.wikidata.org/entity/Q13085> rdfs:label "Sandstone" .
 
 <http://www.wikidata.org/entity/Q73901970> a schema:Organization ;
     schema:name "Research Squirrel Engineers Network" .
@@ -74,30 +82,30 @@
 
 <urn:fdo-squirrel:agent/fdo-squirrel> a prov:SoftwareAgent, schema:SoftwareApplication ;
     schema:name "fdo-squirrel" ;
-    schema:softwareVersion "0.3.1" ;
+    schema:softwareVersion "1.2.1" ;
     schema:codeRepository <https://github.com/FDOx-squirrel/fdo-squirrel> .
 
 <urn:fdo-squirrel:person/1ef85dc7cadee6db> a schema:Person ;
     schema:name "Distel, Anne-Karoline" .
 
-<urn:fdo-squirrel:person/8e916ce55425de21> a schema:Person ;
+<https://orcid.org/0000-0002-3246-3531> a schema:Person ;
     schema:name "Thiery, Florian" .
 
-<urn:fdo-squirrel:dist/feaa9efcd5b11fd3> a dcat:Distribution, crmdig:D9_Data_Object ;
+<urn:fdo-squirrel:dist/1f46c84a1060400a> a dcat:Distribution, crmdig:D9_Data_Object ;
     dcat:accessURL <urn:fdo-squirrel:content/MD.cff> ;
-    dcat:byteSize 2366 ;
+    dcat:byteSize 4237 ;
     dcat:mediaType "text/yaml" ;
     fdo:path "MD.cff" ;
     fdo:role "metadata" ;
-    fdo:sha256 "feaa9efcd5b11fd3037074d0dce2928b870741ede1ce38beb5e6fa4b462b0924"  .
+    fdo:sha256 "1f46c84a1060400a00d505353c7359b03e62976dae2e1873c5f02c97d600a098"  .
 
-<urn:fdo-squirrel:dist/5274726937369408> a dcat:Distribution, crmdig:D9_Data_Object ;
+<urn:fdo-squirrel:dist/54f451839b59e2e6> a dcat:Distribution, crmdig:D9_Data_Object ;
     dcat:accessURL <urn:fdo-squirrel:content/CITATION.cff> ;
-    dcat:byteSize 530 ;
+    dcat:byteSize 682 ;
     dcat:mediaType "text/yaml" ;
     fdo:path "CITATION.cff" ;
     fdo:role "metadata" ;
-    fdo:sha256 "5274726937369408a160fc8d5f0594a1cd38a54a29880df97e750f52df7c1206"  .
+    fdo:sha256 "54f451839b59e2e6de0cf7a34be000e054e799340442f0331b1e68b4e952b83b"  .
 
 <urn:fdo-squirrel:dist/2727c14d34bdc2f5> a dcat:Distribution, crmdig:D9_Data_Object ;
     dcat:accessURL <urn:fdo-squirrel:content/data/model/model.obj> ;
@@ -115,21 +123,21 @@
     fdo:role "model" ;
     fdo:sha256 "6c2c935cd95e8d0b8c5ccba632207c2b779b3390c6779f6193f157a55893d09e"  .
 
-<urn:fdo-squirrel:dist/8e7cc3a1ed56dec9> a dcat:Distribution, crmdig:D9_Data_Object ;
+<urn:fdo-squirrel:dist/6e194df47333d39f> a dcat:Distribution, crmdig:D9_Data_Object ;
     dcat:accessURL <urn:fdo-squirrel:content/data/model/model.nxs> ;
     dcat:byteSize 181670144 ;
     dcat:mediaType "application/octet-stream" ;
     fdo:path "data/model/model.nxs" ;
     fdo:role "model" ;
-    fdo:sha256 "8e7cc3a1ed56dec913bd07fe2cc2dade4ab33b6feed7b3b77249fe9caf191804"  .
+    fdo:sha256 "6e194df47333d39f9c1f327d9e1ca0b99638a3bf41803e68ce0d671e788c8bc8"  .
 
-<urn:fdo-squirrel:dist/a89921006e92af2a> a dcat:Distribution, crmdig:D9_Data_Object ;
+<urn:fdo-squirrel:dist/0cb6f6e4d080bd73> a dcat:Distribution, crmdig:D9_Data_Object ;
     dcat:accessURL <urn:fdo-squirrel:content/data/model/model.nxz> ;
     dcat:byteSize 31808000 ;
     dcat:mediaType "application/octet-stream" ;
     fdo:path "data/model/model.nxz" ;
     fdo:role "model" ;
-    fdo:sha256 "a89921006e92af2a3cc281fbef1594329d4751fff9847acb3cc84ab93c8ef797"  .
+    fdo:sha256 "0cb6f6e4d080bd7354735c9bc792787ea047fb835f24ff13837f929a314a4a03"  .
 
 <urn:fdo-squirrel:dist/c931d515da3c3c91> a dcat:Distribution, crmdig:D9_Data_Object ;
     dcat:accessURL <urn:fdo-squirrel:content/data/textures/3DModel_baseColor.jpeg> ;
@@ -139,13 +147,13 @@
     fdo:role "auxiliary" ;
     fdo:sha256 "c931d515da3c3c91512d406a994d8d71fc4bfcba554375a48efb306330fe4027"  .
 
-<urn:fdo-squirrel:dist/624b1a54b0f2372b> a dcat:Distribution, crmdig:D9_Data_Object ;
+<urn:fdo-squirrel:dist/4e5819fd779cac0d> a dcat:Distribution, crmdig:D9_Data_Object ;
     dcat:accessURL <urn:fdo-squirrel:content/data/images/preview.png> ;
     dcat:byteSize 1430240 ;
     dcat:mediaType "image/png" ;
     fdo:path "data/images/preview.png" ;
     fdo:role "documentation" ;
-    fdo:sha256 "624b1a54b0f2372b4e0e840c1f266c0248da80743f3e5661b82146989b9e01ce"  .
+    fdo:sha256 "4e5819fd779cac0de76da2b161cdb3319505be6819cb3643beab32f577c3319d"  .
 
 <urn:fdo-squirrel:dist/5782d58d11437c0f> a dcat:Distribution, crmdig:D9_Data_Object ;
     dcat:accessURL <urn:fdo-squirrel:content/viewer/index.html> ;
@@ -339,186 +347,230 @@
     fdo:role "auxiliary" ;
     fdo:sha256 "ff48136f9eeca23576768c62add1976ba8442110cc9ebf007efd370d5c1b9095"  .
 
-<https://doi.org/10.5281/zenodo.18724635> cff:keywords "Ogham Stone" .
-<https://doi.org/10.5281/zenodo.18724635> cff:keywords "UCC Stone Corridor" .
-<https://doi.org/10.5281/zenodo.18724635> cff:license "CC-BY-NC-SA-4.0" .
-<https://doi.org/10.5281/zenodo.18724635> cff:license <https://spdx.org/licenses/CC-BY-NC-SA-4.0.html> .
-<https://doi.org/10.5281/zenodo.18724635> cff:license-url "CC-BY-NC-SA-4.0" .
-<https://doi.org/10.5281/zenodo.18724635> cff:license-url <https://spdx.org/licenses/CC-BY-NC-SA-4.0.html> .
+<https://doi.org/10.5281/zenodo.18724635> cff:keywords "Cultural Heritage & History" .
+<https://doi.org/10.5281/zenodo.18724635> cff:keywords "cork3d" .
+<https://doi.org/10.5281/zenodo.18724635> cff:keywords "ireland" .
+<https://doi.org/10.5281/zenodo.18724635> cff:keywords "kiriengine" .
+<https://doi.org/10.5281/zenodo.18724635> cff:keywords "medieval" .
+<https://doi.org/10.5281/zenodo.18724635> cff:keywords "ogham" .
+<https://doi.org/10.5281/zenodo.18724635> cff:keywords "ogham-stone" .
+<https://doi.org/10.5281/zenodo.18724635> cff:keywords "ogham3d" .
+<https://doi.org/10.5281/zenodo.18724635> cff:license "CC-BY-4.0" .
+<https://doi.org/10.5281/zenodo.18724635> cff:license <https://spdx.org/licenses/CC-BY-4.0.html> .
+<https://doi.org/10.5281/zenodo.18724635> cff:license-url "CC-BY-4.0" .
+<https://doi.org/10.5281/zenodo.18724635> cff:license-url <https://spdx.org/licenses/CC-BY-4.0.html> .
 <https://doi.org/10.5281/zenodo.18724635> cff:repository <https://sketchfab.com/3d-models/cork-ogham-stone-ciic-81-ucc-4-4cb26986be274ee099515c2baa3b1825> .
 <https://doi.org/10.5281/zenodo.18724635> cff:url <https://sketchfab.com/3d-models/cork-ogham-stone-ciic-81-ucc-4-4cb26986be274ee099515c2baa3b1825> .
-<https://doi.org/10.5281/zenodo.18724635> codemeta:keywords "Ogham Stone" .
-<https://doi.org/10.5281/zenodo.18724635> codemeta:keywords "UCC Stone Corridor" .
-<https://doi.org/10.5281/zenodo.18724635> codemeta:license "CC-BY-NC-SA-4.0" .
-<https://doi.org/10.5281/zenodo.18724635> codemeta:license <https://spdx.org/licenses/CC-BY-NC-SA-4.0.html> .
+<https://doi.org/10.5281/zenodo.18724635> codemeta:keywords "Cultural Heritage & History" .
+<https://doi.org/10.5281/zenodo.18724635> codemeta:keywords "cork3d" .
+<https://doi.org/10.5281/zenodo.18724635> codemeta:keywords "ireland" .
+<https://doi.org/10.5281/zenodo.18724635> codemeta:keywords "kiriengine" .
+<https://doi.org/10.5281/zenodo.18724635> codemeta:keywords "medieval" .
+<https://doi.org/10.5281/zenodo.18724635> codemeta:keywords "ogham" .
+<https://doi.org/10.5281/zenodo.18724635> codemeta:keywords "ogham-stone" .
+<https://doi.org/10.5281/zenodo.18724635> codemeta:keywords "ogham3d" .
+<https://doi.org/10.5281/zenodo.18724635> codemeta:license "CC-BY-4.0" .
+<https://doi.org/10.5281/zenodo.18724635> codemeta:license <https://spdx.org/licenses/CC-BY-4.0.html> .
 <https://doi.org/10.5281/zenodo.18724635> codemeta:url <https://sketchfab.com/3d-models/cork-ogham-stone-ciic-81-ucc-4-4cb26986be274ee099515c2baa3b1825> .
-<https://doi.org/10.5281/zenodo.18724635> dcat:keyword "Ogham Stone" .
-<https://doi.org/10.5281/zenodo.18724635> dcat:keyword "UCC Stone Corridor" .
-<https://doi.org/10.5281/zenodo.18724635> dct:license <https://spdx.org/licenses/CC-BY-NC-SA-4.0.html> .
-<https://doi.org/10.5281/zenodo.18724635> dct:subject "Ogham Stone" .
-<https://doi.org/10.5281/zenodo.18724635> dct:subject "UCC Stone Corridor" .
+<https://doi.org/10.5281/zenodo.18724635> dcat:keyword "Cultural Heritage & History" .
+<https://doi.org/10.5281/zenodo.18724635> dcat:keyword "cork3d" .
+<https://doi.org/10.5281/zenodo.18724635> dcat:keyword "ireland" .
+<https://doi.org/10.5281/zenodo.18724635> dcat:keyword "kiriengine" .
+<https://doi.org/10.5281/zenodo.18724635> dcat:keyword "medieval" .
+<https://doi.org/10.5281/zenodo.18724635> dcat:keyword "ogham" .
+<https://doi.org/10.5281/zenodo.18724635> dcat:keyword "ogham-stone" .
+<https://doi.org/10.5281/zenodo.18724635> dcat:keyword "ogham3d" .
+<https://doi.org/10.5281/zenodo.18724635> dct:license <https://spdx.org/licenses/CC-BY-4.0.html> .
+<https://doi.org/10.5281/zenodo.18724635> dct:subject "Cultural Heritage & History" .
+<https://doi.org/10.5281/zenodo.18724635> dct:subject "cork3d" .
+<https://doi.org/10.5281/zenodo.18724635> dct:subject "ireland" .
+<https://doi.org/10.5281/zenodo.18724635> dct:subject "kiriengine" .
+<https://doi.org/10.5281/zenodo.18724635> dct:subject "medieval" .
+<https://doi.org/10.5281/zenodo.18724635> dct:subject "ogham" .
+<https://doi.org/10.5281/zenodo.18724635> dct:subject "ogham-stone" .
+<https://doi.org/10.5281/zenodo.18724635> dct:subject "ogham3d" .
 <https://doi.org/10.5281/zenodo.18724635> schema:author "Anne-Karoline Distel" .
 <https://doi.org/10.5281/zenodo.18724635> schema:author "Florian Thiery" .
 <https://doi.org/10.5281/zenodo.18724635> schema:datePublished "2024-06-05" .
-<https://doi.org/10.5281/zenodo.18724635> schema:description "Ogham Stone CO074-148---- located in the UCC Stone Corridor" .
-<https://doi.org/10.5281/zenodo.18724635> schema:keywords "Ogham Stone" .
-<https://doi.org/10.5281/zenodo.18724635> schema:keywords "UCC Stone Corridor" .
-<https://doi.org/10.5281/zenodo.18724635> schema:license "CC-BY-NC-SA-4.0" .
-<https://doi.org/10.5281/zenodo.18724635> schema:license <https://spdx.org/licenses/CC-BY-NC-SA-4.0.html> .
-<https://doi.org/10.5281/zenodo.18724635> schema:name "CO074-148----" .
+<https://doi.org/10.5281/zenodo.18724635> schema:identifier "10.5281/zenodo.18724635" .
+<https://doi.org/10.5281/zenodo.18724635> schema:keywords "Cultural Heritage & History" .
+<https://doi.org/10.5281/zenodo.18724635> schema:keywords "cork3d" .
+<https://doi.org/10.5281/zenodo.18724635> schema:keywords "ireland" .
+<https://doi.org/10.5281/zenodo.18724635> schema:keywords "kiriengine" .
+<https://doi.org/10.5281/zenodo.18724635> schema:keywords "medieval" .
+<https://doi.org/10.5281/zenodo.18724635> schema:keywords "ogham" .
+<https://doi.org/10.5281/zenodo.18724635> schema:keywords "ogham-stone" .
+<https://doi.org/10.5281/zenodo.18724635> schema:keywords "ogham3d" .
+<https://doi.org/10.5281/zenodo.18724635> schema:license "CC-BY-4.0" .
+<https://doi.org/10.5281/zenodo.18724635> schema:license <https://spdx.org/licenses/CC-BY-4.0.html> .
+<https://doi.org/10.5281/zenodo.18724635> schema:name "Cork: Ogham stone CIIC 81/ UCC 4" .
 <https://doi.org/10.5281/zenodo.18724635> schema:relatedLink <https://sketchfab.com/3d-models/cork-ogham-stone-ciic-81-ucc-4-4cb26986be274ee099515c2baa3b1825> .
 <https://doi.org/10.5281/zenodo.18724635> schema:url <https://sketchfab.com/3d-models/cork-ogham-stone-ciic-81-ucc-4-4cb26986be274ee099515c2baa3b1825> .
-<https://doi.org/10.5281/zenodo.18724635> wdt:P275 "CC-BY-NC-SA-4.0" .
-<https://doi.org/10.5281/zenodo.18724635> wdt:P275 <https://spdx.org/licenses/CC-BY-NC-SA-4.0.html> .
+<https://doi.org/10.5281/zenodo.18724635> wdt:P275 "CC-BY-4.0" .
+<https://doi.org/10.5281/zenodo.18724635> wdt:P275 <https://spdx.org/licenses/CC-BY-4.0.html> .
 <https://doi.org/10.5281/zenodo.18724635> wdt:P856 <https://sketchfab.com/3d-models/cork-ogham-stone-ciic-81-ucc-4-4cb26986be274ee099515c2baa3b1825> .
-<https://doi.org/10.5281/zenodo.18724635> wdt:P921 "Ogham Stone" .
-<https://doi.org/10.5281/zenodo.18724635> wdt:P921 "UCC Stone Corridor" .
+<https://doi.org/10.5281/zenodo.18724635> wdt:P921 "Cultural Heritage & History" .
+<https://doi.org/10.5281/zenodo.18724635> wdt:P921 "cork3d" .
+<https://doi.org/10.5281/zenodo.18724635> wdt:P921 "ireland" .
+<https://doi.org/10.5281/zenodo.18724635> wdt:P921 "kiriengine" .
+<https://doi.org/10.5281/zenodo.18724635> wdt:P921 "medieval" .
+<https://doi.org/10.5281/zenodo.18724635> wdt:P921 "ogham" .
+<https://doi.org/10.5281/zenodo.18724635> wdt:P921 "ogham-stone" .
+<https://doi.org/10.5281/zenodo.18724635> wdt:P921 "ogham3d" .
 
-<https://spdx.org/licenses/CC-BY-NC-SA-4.0.html> rdfs:label "CC-BY-NC-SA-4.0" .
+<http://creativecommons.org/licenses/by/4.0/> rdfs:label "CC Attribution" .
 
-<https://doi.org/10.5281/zenodo.18724635> dcat:distribution <urn:fdo-squirrel:dist/bfaeb02eb5a08917>,<urn:fdo-squirrel:dist/e7f5cddd9fd7fed6>,<urn:fdo-squirrel:dist/074bcb3d71edaff3>,<urn:fdo-squirrel:dist/4d942b4763feaa49>,<urn:fdo-squirrel:dist/0365c51ceecb5c8f>,<urn:fdo-squirrel:dist/b78cadc8c07995ea>,<urn:fdo-squirrel:dist/06259fdfe5e3bd28>,<urn:fdo-squirrel:dist/7a529286ad1a0979>,<urn:fdo-squirrel:dist/9e8417929f07d596>,<urn:fdo-squirrel:dist/ff5f534d4b57dcc7>,<urn:fdo-squirrel:dist/a6dfc84d9fd12657>,<urn:fdo-squirrel:dist/585d5b8f29e092cf>,<urn:fdo-squirrel:dist/5dc0ce707122e2c3>,<urn:fdo-squirrel:dist/debc4649a981b899>,<urn:fdo-squirrel:dist/58c5d0f0c45e9f91>,<urn:fdo-squirrel:dist/64919d962ccf1f93>,<urn:fdo-squirrel:dist/6392170814b8b22f>,<urn:fdo-squirrel:dist/203369572e1656f6> .
+<https://doi.org/10.5281/zenodo.18724635> dcat:distribution <urn:fdo-squirrel:dist/07e671e0071a59c7>,<urn:fdo-squirrel:dist/23fafcdc22c845ce>,<urn:fdo-squirrel:dist/56531fc2f6f1cafa>,<urn:fdo-squirrel:dist/2645779c3bafd271>,<urn:fdo-squirrel:dist/553e85dd0b67b88f>,<urn:fdo-squirrel:dist/0c35f8d89b9d4d7b>,<urn:fdo-squirrel:dist/07f6e8acfee68de5>,<urn:fdo-squirrel:dist/f30ee7a83a0cc823>,<urn:fdo-squirrel:dist/594abc92640e631f>,<urn:fdo-squirrel:dist/6d0d0c86b5ec5d07>,<urn:fdo-squirrel:dist/e98c88e8b2a99752>,<urn:fdo-squirrel:dist/5dcd71fabfee23be>,<urn:fdo-squirrel:dist/9be77b863d192c6e>,<urn:fdo-squirrel:dist/73920d8dff2dc3f4>,<urn:fdo-squirrel:dist/74f4dd87670fcb3a>,<urn:fdo-squirrel:dist/15dd1a6218509b82>,<urn:fdo-squirrel:dist/2feec5c4912bd6f5>,<urn:fdo-squirrel:dist/df451f83e354cb1f>,<urn:fdo-squirrel:dist/07aa3781306b726b> .
 
-<urn:fdo-squirrel:dist/bfaeb02eb5a08917> a dcat:Distribution, crmdig:D9_Data_Object ;
+<urn:fdo-squirrel:dist/07e671e0071a59c7> a dcat:Distribution, crmdig:D9_Data_Object ;
     dcat:accessURL <urn:fdo-squirrel:content/fdo-metadata.ttl> ;
-    dcat:byteSize 22312 ;
+    dcat:byteSize 26321 ;
     dcat:mediaType "application/octet-stream" ;
     fdo:path "fdo-metadata.ttl" ;
     fdo:role "data" ;
-    fdo:sha256 "bfaeb02eb5a08917865e897ee121d660e97125b3f6fb4014d17640488ad3873c" .
+    fdo:sha256 "07e671e0071a59c79fc415283a42502fddf4308e275c3142442de4c1fc1ebe8f" .
 
-<urn:fdo-squirrel:dist/e7f5cddd9fd7fed6> a dcat:Distribution, crmdig:D9_Data_Object ;
+<urn:fdo-squirrel:dist/23fafcdc22c845ce> a dcat:Distribution, crmdig:D9_Data_Object ;
     dcat:accessURL <urn:fdo-squirrel:content/rdf_modelling_report.json> ;
-    dcat:byteSize 26198 ;
+    dcat:byteSize 27000 ;
     dcat:mediaType "application/json" ;
     fdo:path "rdf_modelling_report.json" ;
     fdo:role "documentation" ;
-    fdo:sha256 "e7f5cddd9fd7fed6425f18d9ed88d5df09450e612d68961f114c0d5da62e1b34" .
+    fdo:sha256 "23fafcdc22c845ce931bdfc5b3945d39765c0c1063d7cd1b31228384728beaba" .
 
-<urn:fdo-squirrel:dist/074bcb3d71edaff3> a dcat:Distribution, crmdig:D9_Data_Object ;
+<urn:fdo-squirrel:dist/56531fc2f6f1cafa> a dcat:Distribution, crmdig:D9_Data_Object ;
     dcat:accessURL <urn:fdo-squirrel:content/rdf_modelling_report.html> ;
-    dcat:byteSize 11807 ;
+    dcat:byteSize 12407 ;
     dcat:mediaType "text/html" ;
     fdo:path "rdf_modelling_report.html" ;
     fdo:role "data" ;
-    fdo:sha256 "074bcb3d71edaff38d164b5e35bfc55a2c1136f72395f0e48f849faf9dab5857" .
+    fdo:sha256 "56531fc2f6f1cafacb939ac0d21e276a710ed226e6bd2b0f7a1c2d9f813ae597" .
 
-<urn:fdo-squirrel:dist/4d942b4763feaa49> a dcat:Distribution, crmdig:D9_Data_Object ;
+<urn:fdo-squirrel:dist/2645779c3bafd271> a dcat:Distribution, crmdig:D9_Data_Object ;
     dcat:accessURL <urn:fdo-squirrel:content/FDOx.yaml> ;
-    dcat:byteSize 758 ;
+    dcat:byteSize 777 ;
     dcat:mediaType "text/yaml" ;
     fdo:path "FDOx.yaml" ;
     fdo:role "data" ;
-    fdo:sha256 "4d942b4763feaa497dac66d85489b13b2b4c649df19f45aa06be93225c0b00af" .
+    fdo:sha256 "2645779c3bafd2712d4f318091f4049393bde68436b32fbaea787d8f3606c6c9" .
 
-<urn:fdo-squirrel:dist/0365c51ceecb5c8f> a dcat:Distribution, crmdig:D9_Data_Object ;
+<urn:fdo-squirrel:dist/553e85dd0b67b88f> a dcat:Distribution, crmdig:D9_Data_Object ;
     dcat:accessURL <urn:fdo-squirrel:content/fdo_files_roles_graph.svg> ;
-    dcat:byteSize 4776 ;
+    dcat:byteSize 4795 ;
     dcat:mediaType "image/svg+xml" ;
     fdo:path "fdo_files_roles_graph.svg" ;
     fdo:role "data" ;
-    fdo:sha256 "0365c51ceecb5c8f831303e7ab9e1f67f503a7e7a8e257910e57b67c36c867e0" .
+    fdo:sha256 "553e85dd0b67b88f0b2a1e632c7925e0e14a6c911d1cf309ff75d1cfda6d87c7" .
 
-<urn:fdo-squirrel:dist/b78cadc8c07995ea> a dcat:Distribution, crmdig:D9_Data_Object ;
+<urn:fdo-squirrel:dist/0c35f8d89b9d4d7b> a dcat:Distribution, crmdig:D9_Data_Object ;
     dcat:accessURL <urn:fdo-squirrel:content/fdo_files_roles_graph.png> ;
-    dcat:byteSize 40711 ;
+    dcat:byteSize 42714 ;
     dcat:mediaType "image/png" ;
     fdo:path "fdo_files_roles_graph.png" ;
     fdo:role "documentation" ;
-    fdo:sha256 "b78cadc8c07995eade300a04082ae91fe0ba063bb9795e63ea93243b064a8605" .
+    fdo:sha256 "0c35f8d89b9d4d7bbeb00e1f6d1fb675adfc086182c01efa67ec6c94abee2638" .
 
-<urn:fdo-squirrel:dist/06259fdfe5e3bd28> a dcat:Distribution, crmdig:D9_Data_Object ;
+<urn:fdo-squirrel:dist/07f6e8acfee68de5> a dcat:Distribution, crmdig:D9_Data_Object ;
     dcat:accessURL <urn:fdo-squirrel:content/fdo_md_cff.svg> ;
-    dcat:byteSize 9491 ;
+    dcat:byteSize 12457 ;
     dcat:mediaType "image/svg+xml" ;
     fdo:path "fdo_md_cff.svg" ;
     fdo:role "data" ;
-    fdo:sha256 "06259fdfe5e3bd28020b6652c2dd9cb86c0782fa3dfbefef48b0ab1454f1bbb3" .
+    fdo:sha256 "07f6e8acfee68de51ad2b56543331e85ebe0d92e7d68e80ad4108210c01ff6c3" .
 
-<urn:fdo-squirrel:dist/7a529286ad1a0979> a dcat:Distribution, crmdig:D9_Data_Object ;
+<urn:fdo-squirrel:dist/f30ee7a83a0cc823> a dcat:Distribution, crmdig:D9_Data_Object ;
     dcat:accessURL <urn:fdo-squirrel:content/fdo_md_cff.png> ;
-    dcat:byteSize 173132 ;
+    dcat:byteSize 282502 ;
     dcat:mediaType "image/png" ;
     fdo:path "fdo_md_cff.png" ;
     fdo:role "documentation" ;
-    fdo:sha256 "7a529286ad1a09790eeeca252ffa5ecd7c2e38a651933c15432cbe47368cd935" .
+    fdo:sha256 "f30ee7a83a0cc8233ec09be069fed14254adbf615cf6e4812a64ac25abad7e47" .
 
-<urn:fdo-squirrel:dist/9e8417929f07d596> a dcat:Distribution, crmdig:D9_Data_Object ;
+<urn:fdo-squirrel:dist/594abc92640e631f> a dcat:Distribution, crmdig:D9_Data_Object ;
     dcat:accessURL <urn:fdo-squirrel:content/fdo_md_cff_graph.svg> ;
-    dcat:byteSize 13047 ;
+    dcat:byteSize 17102 ;
     dcat:mediaType "image/svg+xml" ;
     fdo:path "fdo_md_cff_graph.svg" ;
     fdo:role "data" ;
-    fdo:sha256 "9e8417929f07d596f53eade57806a598590c122e9a9be1827343d2ac2ed3a310" .
+    fdo:sha256 "594abc92640e631ff95c621732f072d528f8d6aed0a9900662caae667652c921" .
 
-<urn:fdo-squirrel:dist/ff5f534d4b57dcc7> a dcat:Distribution, crmdig:D9_Data_Object ;
+<urn:fdo-squirrel:dist/6d0d0c86b5ec5d07> a dcat:Distribution, crmdig:D9_Data_Object ;
     dcat:accessURL <urn:fdo-squirrel:content/fdo_md_cff_graph.png> ;
-    dcat:byteSize 164247 ;
+    dcat:byteSize 247047 ;
     dcat:mediaType "image/png" ;
     fdo:path "fdo_md_cff_graph.png" ;
     fdo:role "documentation" ;
-    fdo:sha256 "ff5f534d4b57dcc7037622818a553abc8f54c8f05790a2ee43e06fbbf3b33e4c" .
+    fdo:sha256 "6d0d0c86b5ec5d071e6f82d1281aa1e2f9316ffb85e574c9c8323bd68f09ad41" .
 
-<urn:fdo-squirrel:dist/a6dfc84d9fd12657> a dcat:Distribution, crmdig:D9_Data_Object ;
+<urn:fdo-squirrel:dist/e98c88e8b2a99752> a dcat:Distribution, crmdig:D9_Data_Object ;
     dcat:accessURL <urn:fdo-squirrel:content/fdo_overview.mermaid> ;
-    dcat:byteSize 1771 ;
+    dcat:byteSize 2127 ;
     dcat:mediaType "application/octet-stream" ;
     fdo:path "fdo_overview.mermaid" ;
     fdo:role "data" ;
-    fdo:sha256 "a6dfc84d9fd1265732191533cb91992798b78098fdfab6d99bdd5e3e34d567b4" .
+    fdo:sha256 "e98c88e8b2a99752ec75218571669d2d53c9f49dfe0b9df4d9f36ba21a4865f3" .
 
-<urn:fdo-squirrel:dist/585d5b8f29e092cf> a dcat:Distribution, crmdig:D9_Data_Object ;
-    dcat:accessURL <urn:fdo-squirrel:content/fdo_overview.png> ;
-    dcat:byteSize 376794 ;
-    dcat:mediaType "image/png" ;
-    fdo:path "fdo_overview.png" ;
-    fdo:role "documentation" ;
-    fdo:sha256 "585d5b8f29e092cf9b29717aa354ba204f8abdfa87d6b9510a2e946ac7addc94" .
-
-<urn:fdo-squirrel:dist/5dc0ce707122e2c3> a dcat:Distribution, crmdig:D9_Data_Object ;
+<urn:fdo-squirrel:dist/5dcd71fabfee23be> a dcat:Distribution, crmdig:D9_Data_Object ;
     dcat:accessURL <urn:fdo-squirrel:content/fdo_ttl_snippet_metadata.svg> ;
-    dcat:byteSize 5655 ;
+    dcat:byteSize 5442 ;
     dcat:mediaType "image/svg+xml" ;
     fdo:path "fdo_ttl_snippet_metadata.svg" ;
     fdo:role "data" ;
-    fdo:sha256 "5dc0ce707122e2c368d10900f95958c9bbe26bed9db7a3864451e265692f79d6" .
+    fdo:sha256 "5dcd71fabfee23bee71184781269b7cd4159d0261135faf590a5f76fb5437062" .
 
-<urn:fdo-squirrel:dist/debc4649a981b899> a dcat:Distribution, crmdig:D9_Data_Object ;
+<urn:fdo-squirrel:dist/9be77b863d192c6e> a dcat:Distribution, crmdig:D9_Data_Object ;
     dcat:accessURL <urn:fdo-squirrel:content/fdo_ttl_snippet_metadata.png> ;
-    dcat:byteSize 294526 ;
+    dcat:byteSize 249691 ;
     dcat:mediaType "image/png" ;
     fdo:path "fdo_ttl_snippet_metadata.png" ;
     fdo:role "documentation" ;
-    fdo:sha256 "debc4649a981b899e028080048ec2ff8b426247d54e9b231432de8cfe3971e5c" .
+    fdo:sha256 "9be77b863d192c6e0d0907925253531176d611984d08c8a8aaf17075f7214822" .
 
-<urn:fdo-squirrel:dist/58c5d0f0c45e9f91> a dcat:Distribution, crmdig:D9_Data_Object ;
+<urn:fdo-squirrel:dist/73920d8dff2dc3f4> a dcat:Distribution, crmdig:D9_Data_Object ;
     dcat:accessURL <urn:fdo-squirrel:content/fdo_ttl_snippet_distributions.svg> ;
-    dcat:byteSize 5718 ;
+    dcat:byteSize 5737 ;
     dcat:mediaType "image/svg+xml" ;
     fdo:path "fdo_ttl_snippet_distributions.svg" ;
     fdo:role "data" ;
-    fdo:sha256 "58c5d0f0c45e9f91a2a9e51a5fcad5d6433aa89e5fdc8fc4f47d60583975dd3e" .
+    fdo:sha256 "73920d8dff2dc3f42ffad68a2871c16aa2c1971bb516c607f8cb157dedd5fcc3" .
 
-<urn:fdo-squirrel:dist/64919d962ccf1f93> a dcat:Distribution, crmdig:D9_Data_Object ;
+<urn:fdo-squirrel:dist/74f4dd87670fcb3a> a dcat:Distribution, crmdig:D9_Data_Object ;
     dcat:accessURL <urn:fdo-squirrel:content/fdo_ttl_snippet_distributions.png> ;
-    dcat:byteSize 251336 ;
+    dcat:byteSize 257521 ;
     dcat:mediaType "image/png" ;
     fdo:path "fdo_ttl_snippet_distributions.png" ;
     fdo:role "documentation" ;
-    fdo:sha256 "64919d962ccf1f93ac0d622e7fc7df0d584f2325504b9bc299eeec749168c4df" .
+    fdo:sha256 "74f4dd87670fcb3ad5385fb3915914ebb47f4da255cea5ef2757e61638de4e0b" .
 
-<urn:fdo-squirrel:dist/6392170814b8b22f> a dcat:Distribution, crmdig:D9_Data_Object ;
+<urn:fdo-squirrel:dist/15dd1a6218509b82> a dcat:Distribution, crmdig:D9_Data_Object ;
     dcat:accessURL <urn:fdo-squirrel:content/fdo_ttl_snippet_links.svg> ;
-    dcat:byteSize 2841 ;
+    dcat:byteSize 2882 ;
     dcat:mediaType "image/svg+xml" ;
     fdo:path "fdo_ttl_snippet_links.svg" ;
     fdo:role "data" ;
-    fdo:sha256 "6392170814b8b22fead14b40d286429d8ffe4681cf8db488ccc123f5f89e42aa" .
+    fdo:sha256 "15dd1a6218509b82d59265a3529fba60d9633b50d2bce3bbb118defb6725d02d" .
 
-<urn:fdo-squirrel:dist/203369572e1656f6> a dcat:Distribution, crmdig:D9_Data_Object ;
+<urn:fdo-squirrel:dist/2feec5c4912bd6f5> a dcat:Distribution, crmdig:D9_Data_Object ;
     dcat:accessURL <urn:fdo-squirrel:content/fdo_ttl_snippet_links.png> ;
-    dcat:byteSize 147108 ;
+    dcat:byteSize 157994 ;
     dcat:mediaType "image/png" ;
     fdo:path "fdo_ttl_snippet_links.png" ;
     fdo:role "documentation" ;
-    fdo:sha256 "203369572e1656f653040ee191f0dc6647509fcb4327db707000248dda6f73c5" .
+    fdo:sha256 "2feec5c4912bd6f56d56b9a94f9a3b100bb13fbae1a2f8547d6d5f2753649014" .
+
+<urn:fdo-squirrel:dist/df451f83e354cb1f> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/fdo-landing-page.html> ;
+    dcat:byteSize 9305 ;
+    dcat:mediaType "text/html" ;
+    fdo:path "fdo-landing-page.html" ;
+    fdo:role "data" ;
+    fdo:sha256 "df451f83e354cb1fd702dc9a6fa7d18247ea5ea6803bf2dafd890eb2240580ee" .
+
+<urn:fdo-squirrel:dist/07aa3781306b726b> a dcat:Distribution, crmdig:D9_Data_Object ;
+    dcat:accessURL <urn:fdo-squirrel:content/ro-crate-metadata.json> ;
+    dcat:byteSize 24419 ;
+    dcat:mediaType "application/json" ;
+    fdo:path "ro-crate-metadata.json" ;
+    fdo:role "documentation" ;
+    fdo:sha256 "07aa3781306b726bdc1994c458b53621ee8d5f576ce078818e702457b6ce78ae" .
 
